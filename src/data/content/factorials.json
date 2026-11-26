@@ -1,0 +1,1760 @@
+{
+  "topicId": "factorials",
+  "concepts": [
+    {
+      "id": "fc-definition",
+      "topicId": "factorials",
+      "name": "Factorial basics",
+      "description": "n! = n × (n − 1) × … × 1 = n × (n − 1)!, with 0! = 1. Ratios of factorials cancel down to a short product.",
+      "sortOrder": 1
+    },
+    {
+      "id": "fc-trailing",
+      "topicId": "factorials",
+      "name": "Trailing zeros",
+      "description": "Each zero at the end of n! needs a 2 and a 5. Fives are scarcer, so count them: ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + … Some zero counts never occur, because the count jumps at multiples of 25.",
+      "sortOrder": 2
+    },
+    {
+      "id": "fc-legendre",
+      "topicId": "factorials",
+      "name": "Highest power of a prime in n!",
+      "description": "The power of a prime p in n! is ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + … (Legendre): multiples of p each give one p, multiples of p² one more, and so on.",
+      "sortOrder": 3
+    },
+    {
+      "id": "fc-composite",
+      "topicId": "factorials",
+      "name": "Highest power of a composite number",
+      "description": "Split the divisor into prime powers, find each prime’s power in n!, divide by the exponent the divisor needs, and take the smallest result.",
+      "sortOrder": 4
+    },
+    {
+      "id": "fc-sums",
+      "topicId": "factorials",
+      "name": "Sums of factorials",
+      "description": "From 5! on every factorial ends in 0, and from 10! on in 00, so only the first few terms decide unit digits, last two digits and small remainders.",
+      "sortOrder": 5
+    },
+    {
+      "id": "fc-growth",
+      "topicId": "factorials",
+      "name": "Size and digits of n!",
+      "description": "n! grows faster than any fixed power aⁿ. Benchmarks such as 10! = 36,28,800 and adding logarithms give its number of digits.",
+      "sortOrder": 6
+    },
+    {
+      "id": "fc-divisibility",
+      "topicId": "factorials",
+      "name": "Divisibility of factorials",
+      "description": "m divides n! exactly when n! holds every prime power of m. The smallest such n is set by the prime power that takes longest to build up.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "fc-def-f",
+      "topicId": "factorials",
+      "conceptId": "fc-definition",
+      "title": "Factorial",
+      "prompt": "How is n! defined, and what is 0!?",
+      "formula": "n! = 1 × 2 × 3 × … × n = n × (n − 1)!\n0! = 1",
+      "variables": [],
+      "explanation": "Writing n! as n × (n − 1)! is what makes ratios cancel. 0! = 1 keeps the rule n! = n × (n − 1)! true at n = 1.",
+      "example": "8! ÷ 6! = 8 × 7 × 6! ÷ 6! = 56",
+      "commonMistake": "Dividing the numbers inside the factorial: 8! ÷ 6! is not (8 ÷ 6)!.",
+      "applicationPrompt": "Simplify 11! ÷ 9!.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fc-sc-ratio",
+      "topicId": "factorials",
+      "conceptId": "fc-definition",
+      "kind": "shortcut",
+      "title": "Ratio of factorials",
+      "prompt": "What is the fast way to work out n! ÷ (n − k)!?",
+      "formula": "n! ÷ (n − k)! = n × (n − 1) × … (k factors, counting down from n)",
+      "variables": [],
+      "explanation": "Everything from (n − k) downwards cancels, leaving exactly k factors.",
+      "example": "15! ÷ 12! = 15 × 14 × 13 = 2,730",
+      "commonMistake": "Taking one factor too many or too few: 15! ÷ 12! has 3 factors, not 4.",
+      "applicationPrompt": "Find 20! ÷ 18!.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fc-zeros-f",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "title": "Trailing zeros of n!",
+      "prompt": "How many zeros does n! end in?",
+      "formula": "Zeros = ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + …",
+      "variables": [],
+      "explanation": "A zero needs a factor 10 = 2 × 5. There are always more 2s than 5s, so the 5s decide. Multiples of 25 carry a second 5, multiples of 125 a third.",
+      "example": "250!: 50 + 10 + 2 = 62 zeros",
+      "commonMistake": "Stopping at ⌊n/5⌋ and missing the extra fives in 25, 50, 75, …",
+      "applicationPrompt": "How many zeros does 130! end in?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fc-sc-divide-down",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "kind": "shortcut",
+      "title": "Divide by 5 again and again",
+      "prompt": "What is the quickest way to add ⌊n/5⌋ + ⌊n/25⌋ + … in your head?",
+      "formula": "Divide n by 5, drop the remainder; divide the result by 5 again; add every quotient",
+      "variables": [],
+      "explanation": "⌊⌊n/5⌋/5⌋ = ⌊n/25⌋, so each quotient is the next term. No need to divide by 25 or 125 directly.",
+      "example": "250 → 50 → 10 → 2 → 0\nZeros = 50 + 10 + 2 = 62",
+      "commonMistake": "Keeping decimals (250 ÷ 5 ÷ 5 ÷ 5 = 2, but 99 ÷ 5 = 19.8 must become 19 before dividing again).",
+      "applicationPrompt": "How many zeros does 600! end in?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fc-sc-skipped",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "kind": "shortcut",
+      "title": "Zero counts that never happen",
+      "prompt": "Can n! end in any number of zeros you like?",
+      "formula": "The zero count jumps by 2 at each multiple of 25 (by 3 at multiples of 125)\nThe counts jumped over are never reached",
+      "variables": [],
+      "explanation": "Going from (25k − 1)! to (25k)! adds two 5s at once, so one count is skipped; at multiples of 125 two counts are skipped.",
+      "example": "24! ends in 4 zeros, 25! in 6\nNo factorial ends in exactly 5 zeros",
+      "commonMistake": "Answering \"5 values of n\" for every possible zero count without checking for a jump.",
+      "applicationPrompt": "For how many values of n does n! end in exactly 11 zeros?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fc-legendre-f",
+      "topicId": "factorials",
+      "conceptId": "fc-legendre",
+      "title": "Power of a prime in n!",
+      "prompt": "What is the highest power of a prime p that divides n!?",
+      "formula": "Eₚ(n!) = ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + …",
+      "variables": [
+        {
+          "symbol": "p",
+          "meaning": "a prime"
+        },
+        {
+          "symbol": "⌊x⌋",
+          "meaning": "x rounded down to a whole number"
+        }
+      ],
+      "explanation": "Every multiple of p up to n gives one p; multiples of p² give a second, multiples of p³ a third. Each term counts one layer.",
+      "example": "Power of 3 in 50!: 16 + 5 + 1 = 22",
+      "commonMistake": "Using it for a composite such as 6 or 12 directly; it works only for primes.",
+      "applicationPrompt": "What is the highest power of 2 in 40!?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fc-composite-f",
+      "topicId": "factorials",
+      "conceptId": "fc-composite",
+      "title": "Power of a composite in n!",
+      "prompt": "How do you find the highest power of a composite number such as 12 that divides n!?",
+      "formula": "m = pᵃ × qᵇ: power of m = smaller of ⌊Eₚ ÷ a⌋ and ⌊E_q ÷ b⌋",
+      "variables": [],
+      "explanation": "Each copy of m uses a copies of p and b copies of q. Whichever prime runs out first decides how many copies fit.",
+      "example": "12 = 2² × 3 in 30!: E₂ = 26, E₃ = 14\nmin(⌊26 ÷ 2⌋, 14) = min(13, 14) = 13",
+      "commonMistake": "Assuming the largest prime always decides: for 12 in 30! it is the 2², not the 3.",
+      "applicationPrompt": "What is the highest power of 18 that divides 40!?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "fc-sum-f",
+      "topicId": "factorials",
+      "conceptId": "fc-sums",
+      "title": "Unit digit of a sum of factorials",
+      "prompt": "What is the unit digit of 1! + 2! + 3! + … + n! for n ≥ 4?",
+      "formula": "1! + 2! + 3! + 4! = 33\nn! ends in 0 for n ≥ 5, so the sum ends in 3",
+      "variables": [],
+      "explanation": "5! = 120 and every later factorial contains 2 × 5, so they add nothing to the unit digit.",
+      "example": "1! + 2! + … + 50! ends in 3",
+      "commonMistake": "Adding the unit digits of every term up to n instead of stopping at 4!.",
+      "applicationPrompt": "What is the unit digit of 1! + 2! + … + 99!?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fc-sc-sum-remainder",
+      "topicId": "factorials",
+      "conceptId": "fc-sums",
+      "kind": "shortcut",
+      "title": "Remainder of a sum of factorials",
+      "prompt": "How do you find the remainder of 1! + 2! + … + n! on division by d?",
+      "formula": "Stop at the first k! that d divides; add the terms before it and reduce",
+      "variables": [],
+      "explanation": "If d divides k!, it divides every later factorial too, because they are all multiples of k!.",
+      "example": "÷ 6: 3! = 6, so only 1! + 2! = 3 is left → remainder 3\nLast two digits: 10! onwards end in 00 → 1! + … + 9! ends in 13",
+      "commonMistake": "Stopping at d! instead of at the first factorial d divides (for d = 8 that is 4!, not 8!).",
+      "applicationPrompt": "Find the remainder when 1! + 2! + … + 40! is divided by 12.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fc-growth-f",
+      "topicId": "factorials",
+      "conceptId": "fc-growth",
+      "title": "Digits of n!",
+      "prompt": "How do you count the digits of n!?",
+      "formula": "Digits of N = ⌊log₁₀ N⌋ + 1\nlog₁₀ n! = log₁₀ 1 + log₁₀ 2 + … + log₁₀ n",
+      "variables": [],
+      "explanation": "A number with d digits lies between 10^(d − 1) and 10^d. For small n, multiply out from a benchmark such as 10! = 36,28,800 instead.",
+      "example": "10! = 36,28,800 has 7 digits\n12! = 10! × 132 = 47,90,01,600 has 9 digits",
+      "commonMistake": "Counting the digits of n × 10 or of n² instead of n!.",
+      "applicationPrompt": "How many digits does 11! have?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fc-divisible-f",
+      "topicId": "factorials",
+      "conceptId": "fc-divisibility",
+      "title": "Smallest n with m dividing n!",
+      "prompt": "What is the smallest n for which a given number m divides n!?",
+      "formula": "For each prime power pᵃ of m, find the smallest n with Eₚ(n!) ≥ a\nThe answer is the largest of these n",
+      "variables": [],
+      "explanation": "n! must contain every prime power of m at once, so the slowest prime to collect sets n. Only multiples of p add to Eₚ, so the answer is always a multiple of some prime of m.",
+      "example": "m = 2⁸: 10! holds 2⁸ (5 + 2 + 1), 9! only 2⁷\nSo n = 10",
+      "commonMistake": "Answering n = 8 for 2⁸ by matching the exponent instead of counting the 2s in n!.",
+      "applicationPrompt": "What is the smallest n for which 3⁵ divides n!?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "factorials-level-0",
+      "topicId": "factorials",
+      "order": 0,
+      "title": "Counting What n! Contains",
+      "description": "Cancel factorials, then count the fives behind the zeros and the primes behind every power.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "fc-definition",
+        "fc-trailing",
+        "fc-legendre"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A factorial contains the one before it",
+            "body": "n! = n × (n − 1)!, so 7! = 7 × 6! and 0! = 1. Ratios of factorials collapse: 10! ÷ 8! = 10 × 9 = 90. Never divide the numbers inside the factorial; 10! ÷ 8! is not (10 ÷ 8)!."
+          },
+          {
+            "type": "check",
+            "questionId": "factorials-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Zeros come from pairs of 2 and 5",
+            "body": "Every zero at the end of n! is a factor 10 = 2 × 5. Even numbers supply 2s far faster than multiples of 5 supply 5s, so count the 5s.\n\nIn 30!, the multiples of 5 are 5, 10, 15, 20, 25, 30: six of them. But 25 = 5 × 5 holds a second 5, so 30! holds seven 5s and ends in 7 zeros."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "factorial-fives"
+          },
+          {
+            "type": "formula",
+            "title": "Layers of a prime (Legendre)",
+            "body": "Eₚ(n!) = ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + …",
+            "caption": "Each layer adds one more p from the numbers that hold a higher power of p. For p = 5 it counts the zeros: 100! ends in 20 + 4 = 24."
+          },
+          {
+            "type": "check",
+            "questionId": "factorials-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "The zero count jumps at every multiple of 25: 24! ends in 4 zeros but 25! ends in 6. So some counts, such as 5, never happen at all."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "factorials-level-1",
+      "topicId": "factorials",
+      "order": 1,
+      "title": "Factorial Formulas",
+      "description": "Factorials, trailing zeros, Legendre’s formula, composite powers and sums of factorials.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "factorials-level-0"
+      ],
+      "conceptIds": [
+        "fc-definition",
+        "fc-trailing",
+        "fc-legendre",
+        "fc-composite",
+        "fc-sums"
+      ],
+      "formulaIds": [
+        "fc-def-f",
+        "fc-zeros-f",
+        "fc-legendre-f",
+        "fc-composite-f",
+        "fc-sum-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "factorials-level-2",
+      "topicId": "factorials",
+      "order": 2,
+      "title": "Direct Factorials",
+      "description": "Cancel factorials, count zeros and prime powers in one step.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "factorials-level-1"
+      ],
+      "conceptIds": [
+        "fc-definition",
+        "fc-trailing",
+        "fc-legendre",
+        "fc-sums"
+      ],
+      "questionIds": [
+        "factorials-q-001",
+        "factorials-q-002",
+        "factorials-q-003",
+        "factorials-q-004",
+        "factorials-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "factorials-level-3",
+      "topicId": "factorials",
+      "order": 3,
+      "title": "Zeros and Prime Powers",
+      "description": "Bigger factorials, products of factorials, a composite divisor and a remainder.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "factorials-level-2"
+      ],
+      "conceptIds": [
+        "fc-trailing",
+        "fc-legendre",
+        "fc-definition",
+        "fc-composite",
+        "fc-sums"
+      ],
+      "questionIds": [
+        "factorials-q-006",
+        "factorials-q-007",
+        "factorials-q-008",
+        "factorials-q-009",
+        "factorials-q-010",
+        "factorials-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "factorials-level-4",
+      "topicId": "factorials",
+      "order": 4,
+      "title": "Composite Divisors and Sums",
+      "description": "Scarce primes, skipped zero counts and the last digits of factorial sums.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "factorials-level-3"
+      ],
+      "conceptIds": [
+        "fc-composite",
+        "fc-trailing",
+        "fc-sums"
+      ],
+      "questionIds": [
+        "factorials-q-012",
+        "factorials-q-013",
+        "factorials-q-014",
+        "factorials-q-015",
+        "factorials-q-016"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "factorials-level-5",
+      "topicId": "factorials",
+      "order": 5,
+      "title": "Mixed Factorials Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "factorials-level-4"
+      ],
+      "conceptIds": [
+        "fc-trailing",
+        "fc-composite"
+      ],
+      "questionQuery": {
+        "topicId": "factorials",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "fc-definition",
+          "fc-trailing",
+          "fc-legendre",
+          "fc-composite",
+          "fc-sums"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "factorials-level-6",
+      "topicId": "factorials",
+      "order": 6,
+      "title": "Advanced: How Big, and Divisible by What?",
+      "description": "Estimate the size of n!, find the first factorial a number divides, and see why factorials make runs of composite numbers.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "factorials-level-5"
+      ],
+      "conceptIds": [
+        "fc-growth",
+        "fc-divisibility"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Factorials outgrow powers",
+            "body": "Each step multiplies n! by a bigger number, so n! overtakes any fixed power aⁿ: 2ⁿ is ahead until n = 3, but 4! = 24 > 16 = 2⁴ and the gap only widens. Keep the benchmarks 5! = 120, 7! = 5,040 and 10! = 36,28,800 (7 digits) to estimate sizes."
+          },
+          {
+            "type": "check",
+            "questionId": "factorials-q-017"
+          },
+          {
+            "type": "text",
+            "title": "The first factorial a number divides",
+            "body": "m divides n! when n! holds every prime power of m. For 2⁸, count the 2s: 9! has 4 + 2 + 1 = 7, 10! has 5 + 2 + 1 = 8. So 10 is the smallest n. With several primes, work out each one’s smallest n and take the largest."
+          },
+          {
+            "type": "formula",
+            "title": "Smallest n with m dividing n!",
+            "body": "n = largest over pᵃ in m of (smallest n with Eₚ(n!) ≥ a)",
+            "caption": "A large prime factor usually decides at once: 990 = 2 × 3² × 5 × 11 needs 11!."
+          },
+          {
+            "type": "check",
+            "questionId": "factorials-q-018"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "n! + 2, n! + 3, …, n! + n are all composite, since k divides n! + k. Factorials are how you build a long run of numbers with no prime among them."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "factorials-level-7",
+      "topicId": "factorials",
+      "order": 7,
+      "title": "Challenge: Inside a Factorial",
+      "description": "Digits, growth and divisibility questions on factorials.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "factorials-level-6"
+      ],
+      "conceptIds": [
+        "fc-growth",
+        "fc-divisibility"
+      ],
+      "questionIds": [
+        "factorials-q-017",
+        "factorials-q-018",
+        "factorials-q-019",
+        "factorials-q-020",
+        "factorials-q-021",
+        "factorials-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 100,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "factorials-q-001",
+      "topicId": "factorials",
+      "conceptId": "fc-definition",
+      "levelId": "factorials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 9! ÷ 7!?",
+      "options": [
+        {
+          "id": "a",
+          "text": "72"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "63"
+        },
+        {
+          "id": "d",
+          "text": "81"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "9! = 9 × 8 × 7!, so 9! ÷ 7! = 9 × 8 = 72.",
+      "solutionSteps": [
+        "Write 9! = 9 × 8 × 7!.",
+        "Cancel 7!.",
+        "9 × 8 = 72."
+      ],
+      "formulaIds": [
+        "fc-def-f",
+        "fc-sc-ratio"
+      ],
+      "method": "Cancel the smaller factorial.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 9! so that 7! appears inside it."
+        },
+        {
+          "level": 2,
+          "text": "What is left after 7! cancels?"
+        }
+      ],
+      "commonMistakes": [
+        "Computing (9 − 7)! = 2! = 2."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-002",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "levelId": "factorials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many zeros are there at the end of 75!?",
+      "answer": {
+        "value": 18,
+        "tolerance": 0
+      },
+      "explanation": "⌊75/5⌋ = 15 multiples of 5, and ⌊75/25⌋ = 3 of them (25, 50, 75) carry a second 5. So 75! holds 5¹⁸, and plenty of 2s, giving 18 zeros.",
+      "solutionSteps": [
+        "75 ÷ 5 = 15.",
+        "75 ÷ 25 = 3.",
+        "15 + 3 = 18."
+      ],
+      "formulaIds": [
+        "fc-zeros-f"
+      ],
+      "method": "Count the fives.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each zero needs a 5 (2s are plentiful)."
+        },
+        {
+          "level": 2,
+          "text": "Don’t forget that 25, 50 and 75 each hold two 5s."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 15."
+      ],
+      "tags": [
+        "trailing-zeros",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-003",
+      "topicId": "factorials",
+      "conceptId": "fc-legendre",
+      "levelId": "factorials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the highest power of 2 that divides 20!?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2¹⁸"
+        },
+        {
+          "id": "b",
+          "text": "2¹⁰"
+        },
+        {
+          "id": "c",
+          "text": "2¹⁵"
+        },
+        {
+          "id": "d",
+          "text": "2²⁰"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "⌊20/2⌋ + ⌊20/4⌋ + ⌊20/8⌋ + ⌊20/16⌋ = 10 + 5 + 2 + 1 = 18.",
+      "solutionSteps": [
+        "20 ÷ 2 = 10, 20 ÷ 4 = 5.",
+        "20 ÷ 8 = 2 (drop the remainder), 20 ÷ 16 = 1.",
+        "Total 18, so 2¹⁸."
+      ],
+      "formulaIds": [
+        "fc-legendre-f"
+      ],
+      "method": "Add the layers ⌊n/2⌋, ⌊n/4⌋, ⌊n/8⌋, …",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Counting only the even numbers gives 10; some even numbers hold more than one 2."
+        },
+        {
+          "level": 2,
+          "text": "Add 20 ÷ 4, 20 ÷ 8 and 20 ÷ 16 (rounded down)."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the even numbers (2¹⁰)."
+      ],
+      "tags": [
+        "legendre"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-004",
+      "topicId": "factorials",
+      "conceptId": "fc-sums",
+      "levelId": "factorials-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "The unit digit of 1! + 2! + 3! + … + 100! is 3.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "1! + 2! + 3! + 4! = 1 + 2 + 6 + 24 = 33. Every factorial from 5! = 120 onwards ends in 0, so the whole sum ends in 3.",
+      "solutionSteps": [
+        "1 + 2 + 6 + 24 = 33.",
+        "n! ends in 0 for every n ≥ 5.",
+        "So the sum ends in 3: true."
+      ],
+      "formulaIds": [
+        "fc-sum-f"
+      ],
+      "method": "Only the terms before 5! matter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "From which factorial onwards does every term end in 0?"
+        },
+        {
+          "level": 2,
+          "text": "Add 1! + 2! + 3! + 4!."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking 100 terms must change the unit digit."
+      ],
+      "tags": [
+        "true-false",
+        "unit-digit"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-005",
+      "topicId": "factorials",
+      "conceptId": "fc-definition",
+      "levelId": "factorials-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression is equal to (n + 1)! − n! for every whole number n?",
+      "options": [
+        {
+          "id": "a",
+          "text": "n × n!"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "(n + 1) × n!"
+        },
+        {
+          "id": "d",
+          "text": "n!"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(n + 1)! = (n + 1) × n!, so (n + 1)! − n! = (n + 1)n! − n! = n × n!. For n = 5: 720 − 120 = 600 = 5 × 120.",
+      "solutionSteps": [
+        "(n + 1)! = (n + 1) × n!.",
+        "Take out n!: n!((n + 1) − 1).",
+        "= n × n!."
+      ],
+      "formulaIds": [
+        "fc-def-f"
+      ],
+      "method": "Write the larger factorial in terms of the smaller, then take it out as a common factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write (n + 1)! using n!."
+        },
+        {
+          "level": 2,
+          "text": "Take n! out of both terms."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting inside the factorial: (n + 1 − n)! = 1! = 1."
+      ],
+      "tags": [
+        "formula",
+        "recognition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-006",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many zeros are there at the end of 1000!?",
+      "answer": {
+        "value": 249,
+        "tolerance": 0
+      },
+      "explanation": "Divide by 5 repeatedly: 1000 → 200 → 40 → 8 → 1. Adding the quotients: 200 + 40 + 8 + 1 = 249.",
+      "solutionSteps": [
+        "1000 ÷ 5 = 200.",
+        "200 ÷ 5 = 40, 40 ÷ 5 = 8.",
+        "8 ÷ 5 = 1 (dropping the remainder).",
+        "200 + 40 + 8 + 1 = 249."
+      ],
+      "formulaIds": [
+        "fc-zeros-f",
+        "fc-sc-divide-down"
+      ],
+      "method": "Divide by 5 again and again and add the quotients.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the fives in 1000!."
+        },
+        {
+          "level": 2,
+          "text": "Use the layers for 5, 25, 125 and 625."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 200 (only ⌊n/5⌋) or 248 (missing the 625 layer)."
+      ],
+      "tags": [
+        "trailing-zeros",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-007",
+      "topicId": "factorials",
+      "conceptId": "fc-legendre",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The highest power of 7 that divides 100! is 7ᵏ. What is k?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "⌊100/7⌋ = 14 multiples of 7, and ⌊100/49⌋ = 2 of them (49 and 98) hold a second 7. k = 14 + 2 = 16.",
+      "solutionSteps": [
+        "100 ÷ 7 = 14 (rounded down).",
+        "100 ÷ 49 = 2.",
+        "k = 16."
+      ],
+      "formulaIds": [
+        "fc-legendre-f"
+      ],
+      "method": "Legendre: ⌊n/7⌋ + ⌊n/49⌋ + …",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many multiples of 7 are there up to 100?"
+        },
+        {
+          "level": 2,
+          "text": "Which numbers up to 100 are multiples of 49?"
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting 49 and 98 hold 7² and answering 14."
+      ],
+      "tags": [
+        "legendre",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-008",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many zeros are there at the end of 25! × 36!?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "48"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "25! has 5 + 1 = 6 fives and 36! has 7 + 1 = 8 fives, so the product has 14 fives. There are far more 2s than that, so the product ends in 14 zeros.",
+      "solutionSteps": [
+        "Fives in 25!: 5 + 1 = 6.",
+        "Fives in 36!: 7 + 1 = 8.",
+        "Product: 6 + 8 = 14 fives, so 14 zeros."
+      ],
+      "formulaIds": [
+        "fc-zeros-f"
+      ],
+      "method": "Zeros of a product = fives of the product (when 2s are plentiful).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the fives in each factorial separately."
+        },
+        {
+          "level": 2,
+          "text": "Fives multiply into the product, so add the counts."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the zeros of just one factorial (6 or 8).",
+        "Multiplying the counts (6 × 8 = 48)."
+      ],
+      "tags": [
+        "trailing-zeros"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-009",
+      "topicId": "factorials",
+      "conceptId": "fc-definition",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If (n + 2)! ÷ n! = 132, what is n?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "(n + 2)! ÷ n! = (n + 2)(n + 1), a product of two consecutive numbers. 132 = 12 × 11, so n + 2 = 12 and n = 10.",
+      "solutionSteps": [
+        "(n + 2)! ÷ n! = (n + 2)(n + 1).",
+        "132 = 11 × 12.",
+        "n + 1 = 11, so n = 10."
+      ],
+      "formulaIds": [
+        "fc-sc-ratio"
+      ],
+      "method": "Cancel, then spot two consecutive numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After cancelling n!, two consecutive factors remain."
+        },
+        {
+          "level": 2,
+          "text": "Which two consecutive numbers multiply to 132?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 12 or 11 (a factor) instead of n."
+      ],
+      "tags": [
+        "equation",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-010",
+      "topicId": "factorials",
+      "conceptId": "fc-composite",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the highest power of 15 that divides 50!?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15¹²"
+        },
+        {
+          "id": "b",
+          "text": "15²²"
+        },
+        {
+          "id": "c",
+          "text": "15³⁴"
+        },
+        {
+          "id": "d",
+          "text": "15¹⁰"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "15 = 3 × 5. 50! holds 3²² (16 + 5 + 1) and 5¹² (10 + 2). Each 15 needs one 3 and one 5, so the fives run out first: 15¹².",
+      "solutionSteps": [
+        "Power of 3 in 50!: 16 + 5 + 1 = 22.",
+        "Power of 5 in 50!: 10 + 2 = 12.",
+        "Smaller one decides: 15¹²."
+      ],
+      "formulaIds": [
+        "fc-composite-f",
+        "fc-legendre-f"
+      ],
+      "method": "Count each prime and take the scarcest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 15 as a product of primes."
+        },
+        {
+          "level": 2,
+          "text": "Count the 3s and the 5s in 50!; which runs out first?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the count of 3s (22).",
+        "Adding the two counts (34)."
+      ],
+      "tags": [
+        "composite-power"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-011",
+      "topicId": "factorials",
+      "conceptId": "fc-sums",
+      "levelId": "factorials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 1! + 2! + 3! + … + 50! is divided by 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "0"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From 7! onwards every term is a multiple of 7. So only 1! + 2! + 3! + 4! + 5! + 6! = 1 + 2 + 6 + 24 + 120 + 720 = 873 matters, and 873 = 7 × 124 + 5.",
+      "solutionSteps": [
+        "7 divides 7!, 8!, …, 50!.",
+        "1! + … + 6! = 873.",
+        "873 = 868 + 5 → remainder 5."
+      ],
+      "formulaIds": [
+        "fc-sc-sum-remainder"
+      ],
+      "method": "Drop every term that the divisor divides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "From which term onwards is every factorial a multiple of 7?"
+        },
+        {
+          "level": 2,
+          "text": "Add 1! to 6! and divide by 7."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 0 because \"factorials are divisible by 7\"."
+      ],
+      "tags": [
+        "sum-of-factorials"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-012",
+      "topicId": "factorials",
+      "conceptId": "fc-composite",
+      "levelId": "factorials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The highest power of 12 that divides 40! is 12ᵏ. What is k?",
+      "answer": {
+        "value": 18,
+        "tolerance": 0
+      },
+      "explanation": "12 = 2² × 3. 40! holds 2³⁸ (20 + 10 + 5 + 2 + 1) and 3¹⁸ (13 + 4 + 1). The 2s allow ⌊38 ÷ 2⌋ = 19 copies of 12 and the 3s allow 18, so k = 18.",
+      "solutionSteps": [
+        "E₂ = 20 + 10 + 5 + 2 + 1 = 38 → 38 ÷ 2 = 19 copies.",
+        "E₃ = 13 + 4 + 1 = 18 → 18 copies.",
+        "k = min(19, 18) = 18."
+      ],
+      "formulaIds": [
+        "fc-composite-f"
+      ],
+      "method": "Copies allowed by each prime; the smallest wins.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12 = 2² × 3, so each 12 uses two 2s and one 3."
+        },
+        {
+          "level": 2,
+          "text": "Find the 2s and 3s in 40!, then halve the count of 2s."
+        }
+      ],
+      "commonMistakes": [
+        "Halving the 2s (19 copies) and forgetting to check the 3s.",
+        "Comparing the raw counts 38 and 18 without dividing by the exponents 12 needs."
+      ],
+      "tags": [
+        "composite-power",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-013",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "levelId": "factorials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For how many whole numbers n does n! end in exactly 30 zeros?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "124! ends in 24 + 4 = 28 zeros. 125 = 5³ adds three 5s at once, so 125! ends in 25 + 5 + 1 = 31 zeros. The counts 29 and 30 are jumped over, so no n works.",
+      "solutionSteps": [
+        "Zeros of 124!: 24 + 4 = 28.",
+        "Zeros of 125!: 25 + 5 + 1 = 31.",
+        "The count jumps from 28 to 31: 30 never occurs."
+      ],
+      "formulaIds": [
+        "fc-sc-skipped"
+      ],
+      "method": "Find where the zero count passes 30 and check for a jump.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Roughly how big must n be for about 30 zeros? Try n near 120."
+        },
+        {
+          "level": 2,
+          "text": "Compare the zeros of 124! and 125!."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 5, as for most zero counts (a run of five consecutive n)."
+      ],
+      "tags": [
+        "trailing-zeros",
+        "trap"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-014",
+      "topicId": "factorials",
+      "conceptId": "fc-composite",
+      "levelId": "factorials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the largest whole number k for which 72ᵏ divides 50!?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "72 = 2³ × 3². 50! holds 2⁴⁷ (25 + 12 + 6 + 3 + 1) and 3²² (16 + 5 + 1). The 2s allow ⌊47 ÷ 3⌋ = 15 copies; the 3s allow ⌊22 ÷ 2⌋ = 11. So k = 11.",
+      "solutionSteps": [
+        "72 = 2³ × 3².",
+        "E₂ = 47 → 15 copies; E₃ = 22 → 11 copies.",
+        "k = 11."
+      ],
+      "formulaIds": [
+        "fc-composite-f"
+      ],
+      "method": "Divide each prime count by the exponent 72 needs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise 72 into prime powers."
+        },
+        {
+          "level": 2,
+          "text": "Each copy of 72 needs three 2s and two 3s."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the wrong exponents (47 ÷ 2 or 22 ÷ 3)."
+      ],
+      "tags": [
+        "composite-power",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-015",
+      "topicId": "factorials",
+      "conceptId": "fc-sums",
+      "levelId": "factorials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What are the last two digits of 1! + 2! + 3! + … + 200!? Enter them as a two-digit number.",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "From 10! onwards every factorial holds 2 × 5 twice, so it ends in 00. The sum 1! + … + 9! = 1 + 2 + 6 + 24 + 120 + 720 + 5,040 + 40,320 + 3,62,880 = 4,09,113 ends in 13.",
+      "solutionSteps": [
+        "10!, 11!, … all end in 00.",
+        "1! + 2! + … + 9! = 4,09,113.",
+        "Last two digits: 13."
+      ],
+      "formulaIds": [
+        "fc-sc-sum-remainder"
+      ],
+      "method": "Keep only the terms not divisible by 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "From which factorial onwards does every term end in 00?"
+        },
+        {
+          "level": 2,
+          "text": "Add the last two digits of 1! to 9!: 01, 02, 06, 24, 20, 20, 40, 20, 80."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 4! (that only fixes the unit digit, 3)."
+      ],
+      "tags": [
+        "sum-of-factorials",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-016",
+      "topicId": "factorials",
+      "conceptId": "fc-trailing",
+      "levelId": "factorials-level-4",
+      "difficulty": "complex",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each factorial with the number of zeros it ends in.",
+      "pairs": [
+        {
+          "left": "30!",
+          "right": "7"
+        },
+        {
+          "left": "50!",
+          "right": "12"
+        },
+        {
+          "left": "100!",
+          "right": "24"
+        },
+        {
+          "left": "125!",
+          "right": "31"
+        }
+      ],
+      "explanation": "30!: 6 + 1 = 7. 50!: 10 + 2 = 12. 100!: 20 + 4 = 24. 125!: 25 + 5 + 1 = 31 (125 = 5³ adds a third layer).",
+      "solutionSteps": [
+        "30 → 6 + 1.",
+        "50 → 10 + 2.",
+        "100 → 20 + 4.",
+        "125 → 25 + 5 + 1."
+      ],
+      "formulaIds": [
+        "fc-zeros-f"
+      ],
+      "method": "Count the fives layer by layer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count multiples of 5, then of 25, then of 125."
+        },
+        {
+          "level": 2,
+          "text": "Only 125! reaches the third layer."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 125! 30 zeros by missing the 125 layer."
+      ],
+      "tags": [
+        "matching",
+        "trailing-zeros"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-017",
+      "topicId": "factorials",
+      "conceptId": "fc-growth",
+      "levelId": "factorials-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How many digits does 12! have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "10! = 36,28,800. 12! = 10! × 11 × 12 = 36,28,800 × 132 = 47,90,01,600, which has 9 digits.",
+      "solutionSteps": [
+        "10! = 36,28,800 (7 digits).",
+        "× 132 ≈ × 100 adds about two digits.",
+        "12! = 47,90,01,600: 9 digits."
+      ],
+      "formulaIds": [
+        "fc-growth-f"
+      ],
+      "method": "Build up from the 10! benchmark.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from 10! = 36,28,800."
+        },
+        {
+          "level": 2,
+          "text": "Multiply by 11 × 12 = 132."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming n! has about n digits."
+      ],
+      "tags": [
+        "growth"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-018",
+      "topicId": "factorials",
+      "conceptId": "fc-divisibility",
+      "levelId": "factorials-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the smallest n for which n! is divisible by 1,000?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "1,000 = 2³ × 5³. The 2s come early; the 5s are the bottleneck. 5, 10 and 15 give three 5s, so 15! is the first factorial with 5³ (14! has only 5²).",
+      "solutionSteps": [
+        "1,000 = 2³ × 5³.",
+        "Three 5s first appear in 15! (from 5, 10, 15).",
+        "15! also has 2¹¹, so n = 15."
+      ],
+      "formulaIds": [
+        "fc-divisible-f"
+      ],
+      "method": "Find the slowest prime power and build it up.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 1,000 as a product of prime powers."
+        },
+        {
+          "level": 2,
+          "text": "Which factorial first holds three 5s?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10 by counting zeros of 10 rather than the fives in n!."
+      ],
+      "tags": [
+        "divisibility",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-019",
+      "topicId": "factorials",
+      "conceptId": "fc-divisibility",
+      "levelId": "factorials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the smallest n for which n! is divisible by 2¹⁰?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "The power of 2 in n! only rises at even n. 10! has 5 + 2 + 1 = 8 twos (so does 11!), and 12! has 6 + 3 + 1 = 10. So n = 12.",
+      "solutionSteps": [
+        "E₂(10!) = 8.",
+        "E₂(12!) = 6 + 3 + 1 = 10.",
+        "Smallest n is 12."
+      ],
+      "formulaIds": [
+        "fc-divisible-f",
+        "fc-legendre-f"
+      ],
+      "method": "Increase n through even numbers until E₂ reaches 10.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use Legendre’s count of 2s in n!."
+        },
+        {
+          "level": 2,
+          "text": "Try n = 10 and n = 12."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10 by matching the exponent."
+      ],
+      "tags": [
+        "divisibility",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-020",
+      "topicId": "factorials",
+      "conceptId": "fc-growth",
+      "levelId": "factorials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Select ALL the statements that are true.",
+      "options": [
+        {
+          "id": "a",
+          "text": "10! is greater than 10⁶"
+        },
+        {
+          "id": "b",
+          "text": "20! is greater than 2²⁰"
+        },
+        {
+          "id": "c",
+          "text": "5! is greater than 5³"
+        },
+        {
+          "id": "d",
+          "text": "15! is greater than 10¹³"
+        },
+        {
+          "id": "e",
+          "text": "8! is less than 8⁸"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explanation": "10! = 36,28,800 > 10,00,000. 20! is enormous next to 2²⁰ ≈ 10 lakh. 5! = 120 < 125 = 5³. 15! ≈ 1.3 × 10¹², which is less than 10¹³. 8! = 40,320 is far below 8⁸ ≈ 1.7 crore.",
+      "solutionSteps": [
+        "(a) 36,28,800 > 10⁶ ✓.",
+        "(b) 20! ≈ 2.4 × 10¹⁸ > 2²⁰ ✓.",
+        "(c) 120 < 125 ✗; (d) 1.3 × 10¹² < 10¹³ ✗; (e) 40,320 < 8⁸ ✓."
+      ],
+      "formulaIds": [
+        "fc-growth-f"
+      ],
+      "method": "Compare against benchmarks rather than computing everything.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use 10! = 36,28,800 and 5! = 120 as anchors."
+        },
+        {
+          "level": 2,
+          "text": "nⁿ multiplies n by itself every time, so it beats n!."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming n! always beats nᵏ for a small fixed k (5! < 5³)."
+      ],
+      "tags": [
+        "multi-select",
+        "growth"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-021",
+      "topicId": "factorials",
+      "conceptId": "fc-divisibility",
+      "levelId": "factorials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "For every n ≥ 2, all of the numbers n! + 2, n! + 3, …, n! + n are composite.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For 2 ≤ k ≤ n, k divides n!, so k divides n! + k. And n! + k is bigger than k, so it is composite. This gives n − 1 composite numbers in a row, which is why gaps between primes can be as long as you like.",
+      "solutionSteps": [
+        "k divides n! for every k from 2 to n.",
+        "So k divides n! + k.",
+        "n! + k > k, so it has a factor other than 1 and itself: composite."
+      ],
+      "formulaIds": [
+        "fc-def-f"
+      ],
+      "method": "Find a factor of each number from the factorial.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does 3 divide n! + 3 when n ≥ 3?"
+        },
+        {
+          "level": 2,
+          "text": "In general, which number obviously divides n! + k?"
+        }
+      ],
+      "commonMistakes": [
+        "Testing one example and stopping without seeing why it always works."
+      ],
+      "tags": [
+        "true-false",
+        "reasoning"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factorials-q-022",
+      "topicId": "factorials",
+      "conceptId": "fc-divisibility",
+      "levelId": "factorials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the smallest n for which n! is divisible by 990?",
+      "options": [
+        {
+          "id": "a",
+          "text": "11"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "22"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "990 = 2 × 3² × 5 × 11. The prime 11 appears in no factorial below 11!, and 11! already holds 2, 3², 5 and 11. So n = 11.",
+      "solutionSteps": [
+        "990 = 2 × 3² × 5 × 11.",
+        "11 first appears in 11!.",
+        "11! also has 2⁸, 3⁴ and 5², so n = 11."
+      ],
+      "formulaIds": [
+        "fc-divisible-f"
+      ],
+      "method": "The largest prime of m often sets n.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise 990."
+        },
+        {
+          "level": 2,
+          "text": "Which prime factor of 990 is the largest?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10 because 10! is divisible by 2, 3, 5 and 9: it misses 11."
+      ],
+      "tags": [
+        "divisibility"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

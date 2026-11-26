@@ -5,7 +5,7 @@
 
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4174;
+const PORT = Number(process.env.E2E_PORT) || 4174;
 // A fixed loopback address, so nothing depends on how `localhost` resolves.
 const HOST = '127.0.0.1';
 export const BASE_URL = `http://${HOST}:${PORT}`;

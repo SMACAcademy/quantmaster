@@ -1,0 +1,1735 @@
+{
+  "topicId": "speed-maths",
+  "concepts": [
+    {
+      "id": "spd-friendly",
+      "topicId": "speed-maths",
+      "name": "Multiplying by 5, 25, 50 and 125",
+      "description": "5 = 10 ÷ 2, 25 = 100 ÷ 4, 50 = 100 ÷ 2 and 125 = 1000 ÷ 8: multiply by the power of 10 and divide by the small number, whichever order keeps the numbers whole.",
+      "sortOrder": 1
+    },
+    {
+      "id": "spd-eleven",
+      "topicId": "speed-maths",
+      "name": "Multiplying by 111, 99 and 999",
+      "description": "Multiplying by 111 adds digits in a sliding window of three. Multiplying by 99 or 999 is multiplying by 100 or 1000 and taking the number away once.",
+      "sortOrder": 2
+    },
+    {
+      "id": "spd-base",
+      "topicId": "speed-maths",
+      "name": "The base method",
+      "description": "For two numbers near the same base (10, 100, 1000): left part = one number plus the other’s surplus, right part = product of the two surpluses (or deficits), written with as many digits as the base has zeros.",
+      "sortOrder": 3
+    },
+    {
+      "id": "spd-cross",
+      "topicId": "speed-maths",
+      "name": "Cross multiplication",
+      "description": "For ab × cd: units = b × d, tens = a × d + b × c, hundreds = a × c, carrying leftwards. One line of working, no partial products.",
+      "sortOrder": 4
+    },
+    {
+      "id": "spd-fraction",
+      "topicId": "speed-maths",
+      "name": "Percentages as fractions in a calculation",
+      "description": "Swap a percentage for its fraction (37.5% = 3/8, 16⅔% = 1/6) so that multiplying becomes one division. And x% of y always equals y% of x.",
+      "sortOrder": 5
+    },
+    {
+      "id": "spd-check",
+      "topicId": "speed-maths",
+      "name": "Checking with digit sums",
+      "description": "Casting out nines: the digital root of a product equals the product of the digital roots (reduced). A mismatch proves an answer wrong; a match does not prove it right.",
+      "sortOrder": 6
+    },
+    {
+      "id": "spd-division",
+      "topicId": "speed-maths",
+      "name": "Quick division",
+      "description": "Dividing by 5, 25 or 125 is multiplying by 2, 4 or 8 and shifting the decimal point. A composite divisor can be taken in stages: ÷ 36 is ÷ 4 then ÷ 9.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "spd-friendly-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-friendly",
+      "title": "Multiplying by 5, 25 and 125",
+      "prompt": "What is the quick way to multiply by 5, 25 or 125?",
+      "formula": "× 5 = × 10 ÷ 2\n× 25 = × 100 ÷ 4\n× 125 = × 1000 ÷ 8",
+      "variables": [],
+      "explanation": "5, 25 and 125 are 10, 100 and 1000 cut into 2, 4 and 8 equal parts. Halving, quartering or eighthing is easier than multiplying.",
+      "example": "848 × 125 = 8,48,000 ÷ 8 = 1,06,000\n864 × 25 = 86,400 ÷ 4 = 21,600",
+      "commonMistake": "Dividing by the wrong number: × 25 is ÷ 4, not ÷ 5.",
+      "applicationPrompt": "Find 736 × 125.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-eleven-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-eleven",
+      "title": "Multiplying by 111",
+      "prompt": "How do you multiply a two- or three-digit number by 111 in one line?",
+      "formula": "abc × 111 = a | a+b | a+b+c | b+c | c (carry when a sum passes 9)\nab × 111 = a | a+b | a+b | b",
+      "variables": [],
+      "explanation": "111 = 100 + 10 + 1, so each digit is added to the place, the place above and the place two above. Reading the sums in a window of three gives every column.",
+      "example": "234 × 111: 2 | 5 | 9 | 7 | 4 = 25,974\n23 × 111: 2 | 5 | 5 | 3 = 2,553",
+      "commonMistake": "Using a window of two (the × 11 rule) for 111.",
+      "applicationPrompt": "Find 312 × 111.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "spd-sc-ninety-nine",
+      "topicId": "speed-maths",
+      "conceptId": "spd-eleven",
+      "kind": "shortcut",
+      "title": "Multiplying by 99 and 999",
+      "prompt": "What is the quick way to multiply by 99 or 999?",
+      "formula": "n × 99 = n × 100 − n\nn × 999 = n × 1000 − n",
+      "variables": [],
+      "explanation": "99 is one short of 100, so the product is one n short of n hundreds.",
+      "example": "47 × 99 = 4,700 − 47 = 4,653",
+      "commonMistake": "Subtracting 1 instead of n (4,699).",
+      "applicationPrompt": "Find 386 × 999.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-base-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "title": "Base method (Nikhilam)",
+      "prompt": "How do you multiply two numbers that are both close to 100?",
+      "formula": "x × y = (x + (y − B)) | (x − B)(y − B)\nRight part has as many digits as B has zeros; carry any excess",
+      "variables": [
+        {
+          "symbol": "B",
+          "meaning": "the base: 10, 100, 1000, …"
+        }
+      ],
+      "explanation": "x × y = B(x + y − B) + (x − B)(y − B), which is algebra, not magic. Cross-subtracting a deficit (or adding a surplus) gives the left part; the product of the two deficits gives the right part.",
+      "example": "96 × 93: deficits 4 and 7\n96 − 7 = 89 | 4 × 7 = 28 → 8,928",
+      "commonMistake": "Forgetting to carry when the right part has too many digits: 88 × 87 has right part 12 × 13 = 156, so 75 | 156 becomes 7,656.",
+      "applicationPrompt": "Find 97 × 89 by the base method.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-sc-mixed-base",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "kind": "shortcut",
+      "title": "One number above the base, one below",
+      "prompt": "One number is above the base and the other below. How does the base method change?",
+      "formula": "Right part = surplus × (−deficit), which is negative\nBorrow 1 from the left part (worth one base) to clear it",
+      "variables": [],
+      "explanation": "The method is unchanged; only the sign of the right part is. A left part of 101 and right part −12 means 101 × 100 − 12.",
+      "example": "104 × 97 = 101 | −12 = 100 | 88 = 10,088",
+      "commonMistake": "Writing 101 | 12 and ignoring the minus sign (10,112).",
+      "applicationPrompt": "Find 108 × 95.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "spd-cross-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-cross",
+      "title": "Cross multiplication",
+      "prompt": "How do you multiply two two-digit numbers in a single line?",
+      "formula": "ab × cd = a×c | a×d + b×c | b×d\nWork from the right, carrying leftwards",
+      "variables": [],
+      "explanation": "(10a + b)(10c + d) = 100ac + 10(ad + bc) + bd. The three columns are just those three groups.",
+      "example": "43 × 27: 8 | 28 + 6 = 34 | 21\n21 → 1 carry 2; 34 + 2 = 36 → 6 carry 3; 8 + 3 = 11 → 1,161",
+      "commonMistake": "Forgetting to add the carry into the next column.",
+      "applicationPrompt": "Find 52 × 38 by cross multiplication.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "spd-fraction-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-fraction",
+      "title": "Percentages to swap for fractions",
+      "prompt": "Which percentages should you replace by fractions before calculating?",
+      "formula": "12.5% = 1/8   37.5% = 3/8   62.5% = 5/8   87.5% = 7/8\n16⅔% = 1/6   83⅓% = 5/6   14 2/7% = 1/7\n11 1/9% = 1/9   9 1/11% = 1/11   6¼% = 1/16",
+      "variables": [],
+      "explanation": "Each one turns a percentage of a number into one division and maybe one multiplication. Bank papers choose numbers that divide exactly.",
+      "example": "87.5% of 640 = 7/8 × 640 = 560",
+      "commonMistake": "Mixing 1/7 (14 2/7%) with 1/8 (12.5%).",
+      "applicationPrompt": "Find 62.5% of 1,440.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-sc-swap",
+      "topicId": "speed-maths",
+      "conceptId": "spd-fraction",
+      "kind": "shortcut",
+      "title": "Swap the percentage and the number",
+      "prompt": "x% of y looks awkward. What simple swap might make it easy?",
+      "formula": "x% of y = y% of x",
+      "variables": [],
+      "explanation": "Both equal xy ÷ 100. Use whichever way round has a friendly percentage.",
+      "example": "18% of 50 = 50% of 18 = 9\n36% of 25 = 25% of 36 = 9",
+      "commonMistake": "Swapping only one of the two numbers.",
+      "applicationPrompt": "Find 44% of 75.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-check-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-check",
+      "title": "Casting out nines",
+      "prompt": "How can you check a multiplication in a few seconds without redoing it?",
+      "formula": "Digital root of (a × b) = digital root of (dr(a) × dr(b))\nMismatch → the answer is wrong",
+      "variables": [],
+      "explanation": "A number leaves the same remainder on division by 9 as its digit sum, and remainders multiply. The same check works for addition and subtraction.",
+      "example": "86 × 47 = 4,042?\n86 → 5, 47 → 2, 5 × 2 = 10 → 1\n4,042 → 10 → 1 ✓ consistent",
+      "commonMistake": "Trusting a match completely: swapped digits (4,402) pass the check too.",
+      "applicationPrompt": "Check whether 734 × 58 = 42,572 can be right.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "spd-division-f",
+      "topicId": "speed-maths",
+      "conceptId": "spd-division",
+      "title": "Dividing by 5, 25 and 125",
+      "prompt": "What is the quick way to divide by 5, 25 or 125?",
+      "formula": "÷ 5 = × 2 ÷ 10\n÷ 25 = × 4 ÷ 100\n÷ 125 = × 8 ÷ 1000",
+      "variables": [],
+      "explanation": "Dividing by 25 is dividing by 100 and multiplying by 4, since 100 ÷ 25 = 4. Moving a decimal point is free.",
+      "example": "3,450 ÷ 25 = 13,800 ÷ 100 = 138",
+      "commonMistake": "Multiplying by 4 but forgetting to divide by 100.",
+      "applicationPrompt": "Find 2,375 ÷ 125.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "spd-sc-split-divisor",
+      "topicId": "speed-maths",
+      "conceptId": "spd-division",
+      "kind": "shortcut",
+      "title": "Divide in stages",
+      "prompt": "How do you divide by a composite number such as 36 or 48 without long division?",
+      "formula": "÷ (p × q) = ÷ p, then ÷ q\nChoose factors with easy tests: 4, 8, 9, 6",
+      "variables": [],
+      "explanation": "Dividing by a product is dividing by each factor in turn. Small divisors are easy to do mentally, and their divisibility tests tell you early whether the answer is whole.",
+      "example": "9,828 ÷ 36: ÷ 4 = 2,457, ÷ 9 = 273",
+      "commonMistake": "Splitting 36 into 6 × 6 and dividing by 6 only once.",
+      "applicationPrompt": "Find 13,248 ÷ 48.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "speed-maths-level-0",
+      "topicId": "speed-maths",
+      "order": 0,
+      "title": "Shortcuts That Are Really Algebra",
+      "description": "Friendly multipliers, multiplying by 111 and 99, and the base method, each with the reason it works.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "spd-friendly",
+        "spd-eleven",
+        "spd-base"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Friendly multipliers",
+            "body": "25 is 100 ÷ 4, so 864 × 25 is 86,400 ÷ 4. 125 is 1,000 ÷ 8 and 5 is 10 ÷ 2. Exam numbers are usually chosen so that these divisions come out exact."
+          },
+          {
+            "type": "check",
+            "questionId": "speed-maths-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Near a base: work with the gaps",
+            "body": "97 and 96 are 3 and 4 below 100. Take one gap from the other number: 97 − 4 = 93. Multiply the gaps: 3 × 4 = 12. Together, 97 × 96 = 9,312.\n\nAbove 100 the gaps are added: 103 × 104 → 103 + 4 = 107 | 3 × 4 = 12 → 10,712."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "base-method"
+          },
+          {
+            "type": "formula",
+            "title": "Why it works",
+            "body": "x × y = 100(x − b) + a × b",
+            "caption": "a and b are the gaps below 100. Cutting both strips from 100 × 100 removes the a × b corner twice, so it is added back."
+          },
+          {
+            "type": "check",
+            "questionId": "speed-maths-q-003"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Multiplying by 99 is multiplying by 100 and taking the number away once: 47 × 99 = 4,700 − 47 = 4,653. The Simplification topic has the × 11 rule and squares ending in 5."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "speed-maths-level-1",
+      "topicId": "speed-maths",
+      "order": 1,
+      "title": "Speed Maths Methods",
+      "description": "Friendly multipliers, × 111, the base method, cross multiplication and percentage–fraction swaps.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-0"
+      ],
+      "conceptIds": [
+        "spd-friendly",
+        "spd-eleven",
+        "spd-base",
+        "spd-cross",
+        "spd-fraction"
+      ],
+      "formulaIds": [
+        "spd-friendly-f",
+        "spd-eleven-f",
+        "spd-base-f",
+        "spd-cross-f",
+        "spd-fraction-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "speed-maths-level-2",
+      "topicId": "speed-maths",
+      "order": 2,
+      "title": "One-Line Calculations",
+      "description": "Each method once, with friendly numbers.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-1"
+      ],
+      "conceptIds": [
+        "spd-friendly",
+        "spd-eleven",
+        "spd-base",
+        "spd-fraction",
+        "spd-cross"
+      ],
+      "questionIds": [
+        "speed-maths-q-001",
+        "speed-maths-q-002",
+        "speed-maths-q-003",
+        "speed-maths-q-004",
+        "speed-maths-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "speed-maths-level-3",
+      "topicId": "speed-maths",
+      "order": 3,
+      "title": "Above, Below and Across",
+      "description": "Numbers above the base, mixed bases, cross multiplication with carries and × 99.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-2"
+      ],
+      "conceptIds": [
+        "spd-base",
+        "spd-cross",
+        "spd-fraction",
+        "spd-eleven",
+        "spd-friendly"
+      ],
+      "questionIds": [
+        "speed-maths-q-006",
+        "speed-maths-q-007",
+        "speed-maths-q-008",
+        "speed-maths-q-009",
+        "speed-maths-q-010",
+        "speed-maths-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "speed-maths-level-4",
+      "topicId": "speed-maths",
+      "order": 4,
+      "title": "Carries, Bigger Bases and Shares",
+      "description": "Right parts that overflow, base 1,000, percentage chains and a faulty working to fix.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-3"
+      ],
+      "conceptIds": [
+        "spd-base",
+        "spd-fraction",
+        "spd-cross"
+      ],
+      "questionIds": [
+        "speed-maths-q-012",
+        "speed-maths-q-013",
+        "speed-maths-q-014",
+        "speed-maths-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "speed-maths-level-5",
+      "topicId": "speed-maths",
+      "order": 5,
+      "title": "Mixed Speed Maths Practice",
+      "description": "All the core methods, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-4"
+      ],
+      "conceptIds": [
+        "spd-base",
+        "spd-cross"
+      ],
+      "questionQuery": {
+        "topicId": "speed-maths",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "spd-friendly",
+          "spd-eleven",
+          "spd-base",
+          "spd-cross",
+          "spd-fraction"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "speed-maths-level-6",
+      "topicId": "speed-maths",
+      "order": 6,
+      "title": "Advanced: Checking and Dividing Fast",
+      "description": "Catch wrong answers with digit sums, and divide by 25, 125 or a composite number without long division.",
+      "type": "concept",
+      "difficulty": "medium",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-5"
+      ],
+      "conceptIds": [
+        "spd-check",
+        "spd-division"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Casting out nines",
+            "body": "Reduce each number to one digit by adding its digits again and again: 86 → 14 → 5 and 47 → 11 → 2. For a product, multiply the two: 5 × 2 = 10 → 1. If the answer’s digits do not also reduce to 1, the answer is wrong.\n\n86 × 47 = 4,042 → 10 → 1, so it passes."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Passing proves nothing about swapped digits or a misplaced zero: 4,402 and 40,420 pass as well. The check catches most slips, not all."
+          },
+          {
+            "type": "check",
+            "questionId": "speed-maths-q-016"
+          },
+          {
+            "type": "text",
+            "title": "Division by friendly numbers",
+            "body": "÷ 25 is × 4 ÷ 100: 3,450 ÷ 25 = 13,800 ÷ 100 = 138. ÷ 125 is × 8 ÷ 1,000. For a divisor such as 36, divide by 4 and then by 9."
+          },
+          {
+            "type": "check",
+            "questionId": "speed-maths-q-018"
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "speed-maths-level-7",
+      "topicId": "speed-maths",
+      "order": 7,
+      "title": "Challenge: Beat the Clock",
+      "description": "Timed checks, divisions and multiplications: about 45 seconds each.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "speed-maths-level-6"
+      ],
+      "conceptIds": [
+        "spd-check",
+        "spd-division",
+        "spd-friendly"
+      ],
+      "questionIds": [
+        "speed-maths-q-016",
+        "speed-maths-q-017",
+        "speed-maths-q-018",
+        "speed-maths-q-019",
+        "speed-maths-q-020",
+        "speed-maths-q-021",
+        "speed-maths-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 45,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "speed-maths-q-001",
+      "topicId": "speed-maths",
+      "conceptId": "spd-friendly",
+      "levelId": "speed-maths-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 864 × 25 without long multiplication.",
+      "answer": {
+        "value": 21600,
+        "tolerance": 0
+      },
+      "explanation": "× 25 is × 100 ÷ 4. 86,400 ÷ 4 = 21,600 (or 864 ÷ 4 = 216, then × 100).",
+      "solutionSteps": [
+        "864 ÷ 4 = 216.",
+        "216 × 100 = 21,600."
+      ],
+      "formulaIds": [
+        "spd-friendly-f"
+      ],
+      "method": "× 100 and ÷ 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "25 is a quarter of 100."
+        },
+        {
+          "level": 2,
+          "text": "Divide 864 by 4 first; it divides exactly."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 5 instead of 4."
+      ],
+      "tags": [
+        "friendly-numbers",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-002",
+      "topicId": "speed-maths",
+      "conceptId": "spd-eleven",
+      "levelId": "speed-maths-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 52 × 111?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5,772"
+        },
+        {
+          "id": "b",
+          "text": "5,722"
+        },
+        {
+          "id": "c",
+          "text": "572"
+        },
+        {
+          "id": "d",
+          "text": "5,672"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For a two-digit number ab, ab × 111 = a | a + b | a + b | b. Here 5 | 7 | 7 | 2 = 5,772.",
+      "solutionSteps": [
+        "Digits 5 and 2.",
+        "Middle columns: 5 + 2 = 7, twice.",
+        "5,772."
+      ],
+      "formulaIds": [
+        "spd-eleven-f"
+      ],
+      "method": "Sliding window of digit sums.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "111 = 100 + 10 + 1, so add 5,200 + 520 + 52."
+        },
+        {
+          "level": 2,
+          "text": "Or write 5 | 5+2 | 5+2 | 2."
+        }
+      ],
+      "commonMistakes": [
+        "Using the × 11 pattern (572)."
+      ],
+      "tags": [
+        "multiply-111"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-003",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "levelId": "speed-maths-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Use the base method to find 98 × 94.",
+      "answer": {
+        "value": 9212,
+        "tolerance": 0
+      },
+      "explanation": "Deficits from 100 are 2 and 6. Left part: 98 − 6 = 92 (or 94 − 2). Right part: 2 × 6 = 12. So 98 × 94 = 9,212.",
+      "solutionSteps": [
+        "Deficits: 2 and 6.",
+        "Left: 98 − 6 = 92.",
+        "Right: 2 × 6 = 12 → 9,212."
+      ],
+      "formulaIds": [
+        "spd-base-f"
+      ],
+      "method": "Cross-subtract, multiply the deficits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far below 100 is each number?"
+        },
+        {
+          "level": 2,
+          "text": "Take one deficit from the other number; multiply the deficits."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the deficits to get the left part (100 + 8)."
+      ],
+      "tags": [
+        "base-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-004",
+      "topicId": "speed-maths",
+      "conceptId": "spd-fraction",
+      "levelId": "speed-maths-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 37.5% of 1,840?",
+      "options": [
+        {
+          "id": "a",
+          "text": "690"
+        },
+        {
+          "id": "b",
+          "text": "640"
+        },
+        {
+          "id": "c",
+          "text": "736"
+        },
+        {
+          "id": "d",
+          "text": "552"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "37.5% = 3/8. 1,840 ÷ 8 = 230, and 230 × 3 = 690.",
+      "solutionSteps": [
+        "37.5% = 3/8.",
+        "1,840 ÷ 8 = 230.",
+        "230 × 3 = 690."
+      ],
+      "formulaIds": [
+        "spd-fraction-f"
+      ],
+      "method": "Replace the percentage by its fraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "37.5% is three times 12.5%."
+        },
+        {
+          "level": 2,
+          "text": "12.5% is 1/8."
+        }
+      ],
+      "commonMistakes": [
+        "Rounding 37.5% to 40% (736) or 30% (552)."
+      ],
+      "tags": [
+        "percent-fraction"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-005",
+      "topicId": "speed-maths",
+      "conceptId": "spd-cross",
+      "levelId": "speed-maths-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "ordering",
+      "question": "Put the steps of 32 × 41 by cross multiplication in order.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Units: 2 × 1 = 2"
+        },
+        {
+          "id": "s2",
+          "text": "Tens: 3 × 1 + 2 × 4 = 11; write 1, carry 1"
+        },
+        {
+          "id": "s3",
+          "text": "Hundreds: 3 × 4 + 1 = 13"
+        },
+        {
+          "id": "s4",
+          "text": "Read off the answer: 1,312"
+        }
+      ],
+      "explanation": "Cross multiplication works from the right: units first, then the cross products for tens, then the leading digits, carrying each time. 32 × 41 = 1,312.",
+      "solutionSteps": [
+        "Units 2.",
+        "Tens 11 → 1, carry 1.",
+        "Hundreds 12 + 1 = 13 → 1,312."
+      ],
+      "formulaIds": [
+        "spd-cross-f"
+      ],
+      "method": "Right to left: units, crosswise, leading digits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Carries move to the left, so start at the right."
+        },
+        {
+          "level": 2,
+          "text": "The crosswise step is the middle one."
+        }
+      ],
+      "commonMistakes": [
+        "Starting with the hundreds and having nowhere to put the carries."
+      ],
+      "tags": [
+        "ordering",
+        "cross-multiplication"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-006",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 107 × 112 by the base method.",
+      "answer": {
+        "value": 11984,
+        "tolerance": 0
+      },
+      "explanation": "Surpluses over 100 are 7 and 12. Left part: 107 + 12 = 119. Right part: 7 × 12 = 84. So 107 × 112 = 11,984.",
+      "solutionSteps": [
+        "Surpluses: 7 and 12.",
+        "Left: 107 + 12 = 119.",
+        "Right: 84 → 11,984."
+      ],
+      "formulaIds": [
+        "spd-base-f"
+      ],
+      "method": "Above the base, cross-add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers are above 100, so add the surplus."
+        },
+        {
+          "level": 2,
+          "text": "Right part: 7 × 12."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the surplus as if the numbers were below 100."
+      ],
+      "tags": [
+        "base-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-007",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 106 × 94?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9,964"
+        },
+        {
+          "id": "b",
+          "text": "10,036"
+        },
+        {
+          "id": "c",
+          "text": "9,936"
+        },
+        {
+          "id": "d",
+          "text": "10,064"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Surplus 6 and deficit 6. Left part: 106 − 6 = 100. Right part: 6 × (−6) = −36. 100 | −36 means 10,000 − 36 = 9,964. (Also 100² − 6² = 9,964.)",
+      "solutionSteps": [
+        "Left: 106 − 6 = 100.",
+        "Right: +6 × −6 = −36.",
+        "10,000 − 36 = 9,964."
+      ],
+      "formulaIds": [
+        "spd-sc-mixed-base"
+      ],
+      "method": "Mixed base: negative right part, borrow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "One number is above 100 and one below, so the right part is negative."
+        },
+        {
+          "level": 2,
+          "text": "100 | −36 means 10,000 − 36."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the sign and answering 10,036."
+      ],
+      "tags": [
+        "base-method"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-008",
+      "topicId": "speed-maths",
+      "conceptId": "spd-cross",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 67 × 48 by cross multiplication.",
+      "answer": {
+        "value": 3216,
+        "tolerance": 0
+      },
+      "explanation": "Units: 7 × 8 = 56 → 6, carry 5. Tens: 6 × 8 + 7 × 4 = 76, plus 5 = 81 → 1, carry 8. Hundreds: 6 × 4 = 24, plus 8 = 32. Answer 3,216.",
+      "solutionSteps": [
+        "7 × 8 = 56 → 6 carry 5.",
+        "48 + 28 + 5 = 81 → 1 carry 8.",
+        "24 + 8 = 32 → 3,216."
+      ],
+      "formulaIds": [
+        "spd-cross-f"
+      ],
+      "method": "Vertically and crosswise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Units digit first: 7 × 8."
+        },
+        {
+          "level": 2,
+          "text": "Tens: 6 × 8 + 7 × 4, then add the carry."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add a carry into the next column.",
+        "Using only 6 × 8 for the tens and missing the cross product 7 × 4."
+      ],
+      "tags": [
+        "cross-multiplication",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-009",
+      "topicId": "speed-maths",
+      "conceptId": "spd-fraction",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is 16⅔% of 4,326?",
+      "answer": {
+        "value": 721,
+        "tolerance": 0
+      },
+      "explanation": "16⅔% = 1/6. 4,326 ÷ 6 = 721.",
+      "solutionSteps": [
+        "16⅔% = 1/6.",
+        "4,326 ÷ 6 = 721."
+      ],
+      "formulaIds": [
+        "spd-fraction-f"
+      ],
+      "method": "Percentage → fraction → one division.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "16⅔% is one-sixth."
+        },
+        {
+          "level": 2,
+          "text": "Divide 4,326 by 6."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 16⅔% as 1/16."
+      ],
+      "tags": [
+        "percent-fraction",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-010",
+      "topicId": "speed-maths",
+      "conceptId": "spd-eleven",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 7,346 × 99?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7,27,254"
+        },
+        {
+          "id": "b",
+          "text": "7,27,354"
+        },
+        {
+          "id": "c",
+          "text": "7,34,501"
+        },
+        {
+          "id": "d",
+          "text": "7,26,254"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "7,346 × 99 = 7,346 × 100 − 7,346 = 7,34,600 − 7,346 = 7,27,254.",
+      "solutionSteps": [
+        "7,346 × 100 = 7,34,600.",
+        "Subtract 7,346.",
+        "= 7,27,254."
+      ],
+      "formulaIds": [
+        "spd-sc-ninety-nine"
+      ],
+      "method": "× 100, then take one copy away.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "99 = 100 − 1."
+        },
+        {
+          "level": 2,
+          "text": "Work out 7,34,600 − 7,346 carefully."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 99 or 1 instead of 7,346."
+      ],
+      "tags": [
+        "multiply-99"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-011",
+      "topicId": "speed-maths",
+      "conceptId": "spd-friendly",
+      "levelId": "speed-maths-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "Multiplying a number by 125 gives the same result as multiplying it by 1,000 and then dividing by 8.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "1,000 ÷ 8 = 125, so × 1,000 ÷ 8 is × 125. For example 48 × 125 = 48,000 ÷ 8 = 6,000.",
+      "solutionSteps": [
+        "125 = 1,000 ÷ 8.",
+        "So × 125 = × 1,000 ÷ 8.",
+        "True."
+      ],
+      "formulaIds": [
+        "spd-friendly-f"
+      ],
+      "method": "Write the multiplier as a power of 10 divided by something small.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is 1,000 ÷ 8?"
+        },
+        {
+          "level": 2,
+          "text": "Try it on 8: 8 × 125 = 1,000."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing it with × 25 (÷ 4) and saying false."
+      ],
+      "tags": [
+        "true-false",
+        "friendly-numbers"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-012",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "levelId": "speed-maths-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 988 × 997 using the base 1,000.",
+      "answer": {
+        "value": 985036,
+        "tolerance": 0
+      },
+      "explanation": "Deficits from 1,000 are 12 and 3. Left part: 988 − 3 = 985. Right part: 12 × 3 = 36, written as three digits: 036. Answer 9,85,036.",
+      "solutionSteps": [
+        "Deficits 12 and 3.",
+        "Left: 985.",
+        "Right: 036 → 9,85,036."
+      ],
+      "formulaIds": [
+        "spd-base-f"
+      ],
+      "method": "Base 1,000: three-digit right part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With base 1,000 the right part must have three digits."
+        },
+        {
+          "level": 2,
+          "text": "Left part: 988 − 3."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 36 with two digits (98,536)."
+      ],
+      "tags": [
+        "base-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-013",
+      "topicId": "speed-maths",
+      "conceptId": "spd-base",
+      "levelId": "speed-maths-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 88 × 87?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7,656"
+        },
+        {
+          "id": "b",
+          "text": "7,556"
+        },
+        {
+          "id": "c",
+          "text": "75,156"
+        },
+        {
+          "id": "d",
+          "text": "7,566"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Deficits 12 and 13. Left part 88 − 13 = 75. Right part 12 × 13 = 156, which has three digits: keep 56 and carry 1 into the left part. 76 | 56 = 7,656.",
+      "solutionSteps": [
+        "Left: 88 − 13 = 75.",
+        "Right: 12 × 13 = 156.",
+        "Carry 1: 76 | 56 = 7,656."
+      ],
+      "formulaIds": [
+        "spd-base-f"
+      ],
+      "method": "Base method with a carry from the right part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The right part 12 × 13 has three digits, but base 100 allows only two."
+        },
+        {
+          "level": 2,
+          "text": "Carry the hundreds digit of 156 into the left part."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 75 | 156 = 75,156 without carrying."
+      ],
+      "tags": [
+        "base-method",
+        "carry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-014",
+      "topicId": "speed-maths",
+      "conceptId": "spd-fraction",
+      "levelId": "speed-maths-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A prize of ₹2,880 is shared. Asha gets 62.5% of it, Ravi gets 11 1/9% of what is left, and Kiran gets the rest. How much does Kiran get?",
+      "answer": {
+        "tolerance": 0,
+        "value": 960,
+        "unit": "₹"
+      },
+      "explanation": "62.5% = 5/8: Asha gets 2,880 × 5/8 = ₹1,800, leaving ₹1,080. 11 1/9% = 1/9: Ravi gets 1,080 ÷ 9 = ₹120. Kiran gets 1,080 − 120 = ₹960.",
+      "solutionSteps": [
+        "Asha: 5/8 × 2,880 = 1,800; left 1,080.",
+        "Ravi: 1/9 × 1,080 = 120.",
+        "Kiran: 1,080 − 120 = ₹960."
+      ],
+      "formulaIds": [
+        "spd-fraction-f"
+      ],
+      "method": "Turn each percentage into a fraction of the right base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "62.5% is 5/8 and 11 1/9% is 1/9."
+        },
+        {
+          "level": 2,
+          "text": "Ravi’s share is taken of what is left after Asha, not of ₹2,880."
+        }
+      ],
+      "commonMistakes": [
+        "Taking Ravi’s 1/9 of the whole ₹2,880."
+      ],
+      "tags": [
+        "percent-fraction",
+        "word-problem",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-015",
+      "topicId": "speed-maths",
+      "conceptId": "spd-cross",
+      "levelId": "speed-maths-level-4",
+      "difficulty": "complex",
+      "learningStage": "guided",
+      "type": "identify_error",
+      "question": "In which step does this working first go wrong?",
+      "context": "Find 76 × 58 by cross multiplication.\n\nStep 1: Units: 6 × 8 = 48; write 8, carry 4.\nStep 2: Tens: 7 × 8 + 6 × 5 = 86; write 6, carry 8.\nStep 3: Hundreds: 7 × 5 = 35; 35 + 8 = 43.\nAnswer: 4,368",
+      "options": [
+        {
+          "id": "a",
+          "text": "Step 1: 6 × 8 is not 48"
+        },
+        {
+          "id": "b",
+          "text": "Step 2: the carried 4 was not added to 86"
+        },
+        {
+          "id": "c",
+          "text": "Step 3: 7 × 5 is not 35"
+        },
+        {
+          "id": "d",
+          "text": "There is no error"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The tens column must include the carry: 86 + 4 = 90, so write 0 and carry 9. Then the hundreds are 35 + 9 = 44 and the answer is 4,408.",
+      "solutionSteps": [
+        "Step 1 is right: 48 → 8, carry 4.",
+        "Step 2 should be 86 + 4 = 90 → 0, carry 9.",
+        "Step 3 becomes 35 + 9 = 44 → 4,408."
+      ],
+      "formulaIds": [
+        "spd-cross-f"
+      ],
+      "method": "Every column adds the carry from the column to its right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check where the carry from Step 1 went."
+        },
+        {
+          "level": 2,
+          "text": "Does Step 2 use the 4 carried from the units?"
+        }
+      ],
+      "commonMistakes": [
+        "Blaming Step 3, which only inherits the earlier slip."
+      ],
+      "tags": [
+        "error-spotting",
+        "cross-multiplication"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-016",
+      "topicId": "speed-maths",
+      "conceptId": "spd-check",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A student writes 4,738 × 26 = 1,23,198. What does the nines check show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is wrong: the digit sums give 5 for the product but 6 for the answer"
+        },
+        {
+          "id": "b",
+          "text": "It passes, so it must be right"
+        },
+        {
+          "id": "c",
+          "text": "The check cannot be used on products"
+        },
+        {
+          "id": "d",
+          "text": "It is wrong because the answer should be odd"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "4,738 → 22 → 4 and 26 → 8; 4 × 8 = 32 → 5. The answer 1,23,198 → 24 → 6. Since 5 ≠ 6 the answer is certainly wrong (the true product is 1,23,188).",
+      "solutionSteps": [
+        "dr(4,738) = 4, dr(26) = 8.",
+        "4 × 8 = 32 → 5.",
+        "dr(1,23,198) = 6 ≠ 5 → wrong."
+      ],
+      "formulaIds": [
+        "spd-check-f"
+      ],
+      "method": "Compare digital roots on both sides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reduce each number to a single digit by adding its digits."
+        },
+        {
+          "level": 2,
+          "text": "Multiply the two digital roots and reduce again."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking an even × even answer must be checked by parity alone."
+      ],
+      "tags": [
+        "checking"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-017",
+      "topicId": "speed-maths",
+      "conceptId": "spd-check",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Select ALL the results that FAIL the nines check (and so must be wrong).",
+      "options": [
+        {
+          "id": "a",
+          "text": "57 × 43 = 2,451"
+        },
+        {
+          "id": "b",
+          "text": "68 × 29 = 1,962"
+        },
+        {
+          "id": "c",
+          "text": "125 × 37 = 4,652"
+        },
+        {
+          "id": "d",
+          "text": "93 × 47 = 4,361"
+        },
+        {
+          "id": "e",
+          "text": "64 × 64 = 4,096"
+        }
+      ],
+      "correctAnswer": [
+        "b",
+        "d"
+      ],
+      "explanation": "(b) 5 × 2 = 10 → 1, but 1,962 → 9: fails. (d) 3 × 2 = 6, but 4,361 → 5: fails. (a) and (e) pass and are right. (c) passes (8 × 1 = 8 and 4,652 → 8) yet is wrong: the true product is 4,625. Swapped digits slip through the check.",
+      "solutionSteps": [
+        "(a) 3 × 7 = 21 → 3; 2,451 → 3 ✓.",
+        "(b) 1 vs 9 ✗; (d) 6 vs 5 ✗.",
+        "(c) 8 vs 8 ✓ but wrong; (e) 1 × 1 = 1; 4,096 → 1 ✓."
+      ],
+      "formulaIds": [
+        "spd-check-f"
+      ],
+      "method": "Digital roots of both sides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only answers whose digital roots disagree fail the check."
+        },
+        {
+          "level": 2,
+          "text": "One option is wrong but still passes. Which?"
+        }
+      ],
+      "commonMistakes": [
+        "Selecting (c): it is wrong, but it does not fail the check."
+      ],
+      "tags": [
+        "multi-select",
+        "checking"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-018",
+      "topicId": "speed-maths",
+      "conceptId": "spd-division",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find 4,275 ÷ 25.",
+      "answer": {
+        "value": 171,
+        "tolerance": 0
+      },
+      "explanation": "÷ 25 is × 4 ÷ 100. 4,275 × 4 = 17,100, and ÷ 100 gives 171.",
+      "solutionSteps": [
+        "4,275 × 4 = 17,100.",
+        "÷ 100 = 171."
+      ],
+      "formulaIds": [
+        "spd-division-f"
+      ],
+      "method": "× 4, then ÷ 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many 25s make 100?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply by 4 and move the decimal point two places."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 4 instead of multiplying."
+      ],
+      "tags": [
+        "division",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-019",
+      "topicId": "speed-maths",
+      "conceptId": "spd-division",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find 13,248 ÷ 48 by dividing in stages.",
+      "answer": {
+        "value": 276,
+        "tolerance": 0
+      },
+      "explanation": "48 = 8 × 6. 13,248 ÷ 8 = 1,656 (248 is divisible by 8), then 1,656 ÷ 6 = 276.",
+      "solutionSteps": [
+        "48 = 8 × 6.",
+        "13,248 ÷ 8 = 1,656.",
+        "1,656 ÷ 6 = 276."
+      ],
+      "formulaIds": [
+        "spd-sc-split-divisor"
+      ],
+      "method": "Split the divisor into easy factors.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 48 as a product of two small numbers."
+        },
+        {
+          "level": 2,
+          "text": "Divide by 8 first; then by 6."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 8 and by 4 (that is ÷ 32)."
+      ],
+      "tags": [
+        "division",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-020",
+      "topicId": "speed-maths",
+      "conceptId": "spd-division",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is 2,345 ÷ 125?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18.76"
+        },
+        {
+          "id": "b",
+          "text": "18.67"
+        },
+        {
+          "id": "c",
+          "text": "187.6"
+        },
+        {
+          "id": "d",
+          "text": "1.876"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "÷ 125 is × 8 ÷ 1,000. 2,345 × 8 = 18,760, and ÷ 1,000 gives 18.76.",
+      "solutionSteps": [
+        "2,345 × 8 = 18,760.",
+        "÷ 1,000 = 18.76."
+      ],
+      "formulaIds": [
+        "spd-division-f"
+      ],
+      "method": "× 8, then ÷ 1,000.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many 125s make 1,000?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply by 8, then move the decimal point three places."
+        }
+      ],
+      "commonMistakes": [
+        "Moving the decimal point two places (187.6) or four (1.876)."
+      ],
+      "tags": [
+        "division"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-021",
+      "topicId": "speed-maths",
+      "conceptId": "spd-check",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "next_step",
+      "question": "What should the next step be?",
+      "context": "You worked out 8,465 × 37 = 3,13,205 and want to check it with digit sums.\n\nStep 1: 8,465 → 8 + 4 + 6 + 5 = 23 → 5\nStep 2: 37 → 3 + 7 = 10 → 1",
+      "options": [
+        {
+          "id": "a",
+          "text": "Multiply 5 × 1 = 5 and compare it with the digit sum of 3,13,205"
+        },
+        {
+          "id": "b",
+          "text": "Add 5 + 1 = 6 and compare it with the digit sum of 3,13,205"
+        },
+        {
+          "id": "c",
+          "text": "Divide 3,13,205 by 37 to finish the check"
+        },
+        {
+          "id": "d",
+          "text": "Compare 5 with the last digit of 3,13,205"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For a product, multiply the digital roots: 5 × 1 = 5. The answer 3,13,205 → 14 → 5 matches, so the result passes the check.",
+      "solutionSteps": [
+        "Product of digital roots: 5 × 1 = 5.",
+        "dr(3,13,205) = 3 + 1 + 3 + 2 + 0 + 5 = 14 → 5.",
+        "They match: the answer passes."
+      ],
+      "formulaIds": [
+        "spd-check-f"
+      ],
+      "method": "Multiply digital roots for a product, add them for a sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The original sum was a multiplication, so what do you do with 5 and 1?"
+        },
+        {
+          "level": 2,
+          "text": "Then reduce 3,13,205 to one digit."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the digital roots, which checks a sum, not a product."
+      ],
+      "tags": [
+        "next-step",
+        "checking"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "speed-maths-q-022",
+      "topicId": "speed-maths",
+      "conceptId": "spd-friendly",
+      "levelId": "speed-maths-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find 48 × 125 + 52 × 125.",
+      "answer": {
+        "value": 12500,
+        "tolerance": 0
+      },
+      "explanation": "Take 125 out: (48 + 52) × 125 = 100 × 125 = 12,500.",
+      "solutionSteps": [
+        "Common factor 125.",
+        "48 + 52 = 100.",
+        "100 × 125 = 12,500."
+      ],
+      "formulaIds": [
+        "spd-friendly-f"
+      ],
+      "method": "Factor out the common multiplier first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both terms are multiples of 125."
+        },
+        {
+          "level": 2,
+          "text": "What do 48 and 52 add up to?"
+        }
+      ],
+      "commonMistakes": [
+        "Working out each product separately and slipping in the addition."
+      ],
+      "tags": [
+        "friendly-numbers",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}
