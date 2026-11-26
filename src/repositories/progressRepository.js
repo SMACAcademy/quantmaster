@@ -9,6 +9,7 @@ import { STORAGE_KEYS, SCHEMA_VERSION, STREAK_RULES } from '../app/config.js';
 import { readJSON, writeJSON, removeKey, isPersistent } from '../utils/storage.js';
 import { emit, EVENTS } from '../app/eventBus.js';
 import { dayKey } from '../utils/format.js';
+import { mergeAttempts, mergeProgress } from './progressMerge.js';
 
 const MAX_ATTEMPTS_STORED = 1500;
 const MAX_SESSION_LOG = 60;
@@ -227,33 +228,36 @@ export function exportProgress() {
   };
 }
 
-export function importProgress(payload) {
-  if (!payload || payload.app !== 'quantmaster' || !payload.progress) {
+/** Throws unless `payload` is a QuantMaster export (what `exportProgress` writes). */
+export function checkExport(payload) {
+  if (!payload || payload.app !== 'quantmaster' || !payload.progress || typeof payload.progress !== 'object') {
     throw new Error('This file does not look like a QuantMaster export.');
   }
-  cached = migrate(payload.progress);
+  return payload;
+}
+
+/**
+ * Load an export. `mode: 'merge'` combines it with this device's progress and
+ * answer log, so nothing earned on either device is lost (see progressMerge.js;
+ * `rankFor(totalXp)` gives the rank for the merged XP). `mode: 'replace'`
+ * swaps this device's progress for the file's.
+ */
+export function importProgress(payload, { mode = 'replace', rankFor = null } = {}) {
+  checkExport(payload);
+  const incoming = migrate(payload.progress);
+  const incomingAttempts = Array.isArray(payload.attempts) ? payload.attempts : [];
+  if (mode === 'merge') {
+    cached = migrate(mergeProgress(getUserProgress(), incoming, { rankFor }));
+    writeJSON(STORAGE_KEYS.attempts, mergeAttempts(getAttempts(), incomingAttempts, MAX_ATTEMPTS_STORED));
+  } else {
+    cached = incoming;
+    writeJSON(STORAGE_KEYS.attempts, incomingAttempts.slice(-MAX_ATTEMPTS_STORED));
+  }
   writeJSON(STORAGE_KEYS.progress, cached);
-  writeJSON(STORAGE_KEYS.attempts, Array.isArray(payload.attempts) ? payload.attempts : []);
   emit(EVENTS.progressChanged, cached);
   return cached;
 }
 
 export function storageIsPersistent() {
   return isPersistent();
-}
-
-/**
- * Replace progress with a remote snapshot, except for `questions` — that map
- * is local-only (per-question history never leaves or arrives from the
- * server) and must survive a pull untouched. Used exclusively by the sync
- * layer; every other caller should use `update()` or `importProgress()`.
- */
-export function mergeProgress(remoteShaped) {
-  const current = getUserProgress();
-  const next = migrate({
-    ...remoteShaped,
-    questions: current.questions,
-    lastActivityAt: current.lastActivityAt
-  });
-  return saveProgress(next);
 }

@@ -7,14 +7,17 @@ import { getSettings, updateSettings } from '../app/state.js';
 import { emit, EVENTS } from '../app/eventBus.js';
 import { navigate } from '../app/router.js';
 import { button, sectionHead, segmented, settingRow, switchControl } from '../components/ui.js';
-import { confirmDialog, openModal } from '../components/Modal.js';
+import { openModal } from '../components/Modal.js';
 import {
+  checkExport,
   exportProgress,
   importProgress,
   resetProgress,
   storageIsPersistent,
   getUserProgress
 } from '../repositories/progressRepository.js';
+import { getRank } from '../services/gamification.js';
+import { formatNumber } from '../utils/format.js';
 import { authoredQuestionCount, loadDataset } from '../data/index.js';
 import { installAvailable, startInstall } from '../components/InstallPrompt.js';
 import { isStandalone } from '../pwa/pwa.js';
@@ -243,7 +246,7 @@ export async function SettingsView() {
         }),
         settingRow({
           title: 'Import progress',
-          description: 'Restore from a previously exported file. This replaces current progress.',
+          description: 'Bring in progress exported on another device. It is merged with this one, so nothing earned on either is lost.',
           control: button('Import', { variant: 'soft', iconName: 'upload', onClick: doImport })
         }),
         settingRow({
@@ -308,36 +311,65 @@ function doExport() {
   emit(EVENTS.toast, { title: 'Progress exported', variant: 'success' });
 }
 
+/** "1,240 XP · 310 answers · 6-day streak", for the import choice. */
+function progressSummary(progress) {
+  const xp = progress?.xp?.total || 0;
+  const answers = progress?.stats?.questionsAnswered || 0;
+  const streak = progress?.streak?.current || 0;
+  return [`${formatNumber(xp)} XP`, `${formatNumber(answers)} ${answers === 1 ? 'answer' : 'answers'}`, streak ? `${streak}-day streak` : null]
+    .filter(Boolean)
+    .join(' · ');
+}
+
 function doImport() {
-  const input = el('input', { type: 'file', accept: 'application/json', style: { display: 'none' } });
+  const input = el('input', { type: 'file', accept: 'application/json,.json', style: { display: 'none' } });
   input.addEventListener('change', async () => {
     const file = input.files?.[0];
+    input.remove();
     if (!file) return;
+    let payload;
     try {
-      const payload = JSON.parse(await file.text());
-      confirmDialog({
-        title: 'Replace current progress?',
-        message: `This will overwrite your current progress with the file exported on ${
-          payload.exportedAt ? new Date(payload.exportedAt).toLocaleDateString() : 'an unknown date'
-        }.`,
-        confirmLabel: 'Import',
-        danger: true,
-        onConfirm: async () => {
-          importProgress(payload);
-          // Imported mistakes may point at topics whose questions are not loaded yet.
-          await ensureMistakeContent().catch(() => {});
-          emit(EVENTS.toast, { title: 'Progress imported', variant: 'success' });
-          navigate('/');
-        }
-      });
+      payload = checkExport(JSON.parse(await file.text()));
     } catch (error) {
       emit(EVENTS.toast, {
         title: 'Could not read that file',
-        body: error.message,
+        body: error instanceof SyntaxError ? 'This file does not look like a QuantMaster export.' : error.message,
         variant: 'danger'
       });
+      return;
     }
-    input.remove();
+
+    const finish = async (mode) => {
+      const merged = importProgress(payload, { mode, rankFor: (xp) => getRank(xp).id });
+      // Imported mistakes may point at topics whose questions are not loaded yet.
+      await ensureMistakeContent().catch(() => {});
+      emit(EVENTS.toast, {
+        title: mode === 'merge' ? 'Progress merged' : 'Progress replaced',
+        body: `This device now has ${progressSummary(merged)}.`,
+        variant: 'success'
+      });
+      navigate('/');
+    };
+
+    const exported = payload.exportedAt ? new Date(payload.exportedAt).toLocaleDateString() : 'an unknown date';
+    openModal({
+      title: 'Import progress',
+      body: el('div.stack', {}, [
+        el('div.import-compare', {}, [
+          el('div.import-compare__row', {}, [el('span.text-subtle', { text: 'This device' }), el('strong', { text: progressSummary(getUserProgress()) })]),
+          el('div.import-compare__row', {}, [el('span.text-subtle', { text: `The file (exported ${exported})` }), el('strong', { text: progressSummary(payload.progress) })])
+        ]),
+        el('p.text-muted', {
+          text: 'Merge keeps everything from both: every answer, mistake and achievement, the further progress on each level and concept, and every practice day. Totals that both copies count, like XP, take the larger value, so nothing is counted twice.'
+        }),
+        el('p.text-sm.text-subtle', { text: 'Replace throws away this device’s progress and uses the file’s instead.' })
+      ]),
+      actions: [
+        { label: 'Cancel', variant: 'ghost' },
+        { label: 'Replace', variant: 'soft', onClick: () => void finish('replace') },
+        { label: 'Merge', variant: 'primary', onClick: () => void finish('merge') }
+      ]
+    });
   });
   document.body.appendChild(input);
   input.click();
