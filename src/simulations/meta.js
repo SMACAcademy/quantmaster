@@ -679,6 +679,16 @@ export const SIMULATION_META = [
     taskIds: ['two-open', 'diagonal', 'mirror-930', 'same']
   },
   // --- end of reasoningMore.js ---
+  // --- taxes.js ---
+  {
+    id: 'gst-supply-chain',
+    topicId: 'taxes-commission',
+    alsoTopicIds: ['profit-loss-discount'],
+    title: 'GST through a supply chain',
+    summary: 'Set the price at each sale from manufacturer to buyer. Each trader pays GST only on the value it adds, because it claims back the GST it paid when buying; together they pay exactly GST on the final price.',
+    taskIds: ['equal', 'zero', 'total', 'igst']
+  },
+  // --- end of taxes.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

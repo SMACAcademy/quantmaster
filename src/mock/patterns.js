@@ -28,6 +28,8 @@ const ARITHMETIC = [
   'boats-streams',
   'problems-on-ages'
 ];
+// SSC and bank clerk papers also set GST, sales tax and commission; CAT and campus tests rarely do.
+const ARITHMETIC_WITH_TAXES = [...ARITHMETIC, 'taxes-commission'];
 const REASONING_PUZZLES = ['seating-arrangement', 'puzzles'];
 const DI = ['di-tables', 'di-bar-graphs', 'di-line-graphs', 'di-pie-charts', 'di-caselet', 'di-mixed-radar'];
 
@@ -45,7 +47,7 @@ export const MOCK_PATTERNS = [
       { label: 'Quadratic comparison', topics: ['quadratic-comparison'], count: 5, difficulties: ['easy', 'medium', 'complex'] },
       { label: 'Number series', topics: ['sequences'], count: 5, difficulties: ['easy', 'medium'] },
       { label: 'Data interpretation', topics: DI, count: 10, difficulties: ['easy', 'medium'] },
-      { label: 'Arithmetic', topics: ARITHMETIC, count: 10, difficulties: ['easy', 'medium'] }
+      { label: 'Arithmetic', topics: ARITHMETIC_WITH_TAXES, count: 10, difficulties: ['easy', 'medium'] }
     ]
   },
   {
@@ -57,7 +59,7 @@ export const MOCK_PATTERNS = [
     minutes: 15,
     marks: { correct: 2, wrong: -0.5 },
     blueprint: [
-      { label: 'Arithmetic', topics: ARITHMETIC, count: 9, difficulties: ['easy', 'medium'] },
+      { label: 'Arithmetic', topics: ARITHMETIC_WITH_TAXES, count: 9, difficulties: ['easy', 'medium'] },
       { label: 'Algebra', topics: ['algebraic-identities', 'linear-equations', 'simultaneous-equations', 'surds-indices'], count: 4, difficulties: ['easy', 'medium', 'complex'] },
       { label: 'Geometry', topics: ['triangles', 'circles', 'quadrilaterals', 'polygons', 'coordinate-geometry'], count: 4, difficulties: ['easy', 'medium'] },
       { label: 'Mensuration', topics: ['perimeter-area', 'mensuration-2d', 'mensuration-3d'], count: 3, difficulties: ['easy', 'medium'] },
