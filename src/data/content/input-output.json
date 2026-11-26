@@ -1,0 +1,1603 @@
+{
+  "topicId": "input-output",
+  "concepts": [
+    {
+      "id": "io-rule",
+      "topicId": "input-output",
+      "name": "Finding the rule",
+      "description": "Compare the input with Step I, then Step I with Step II: what moved, and where did it go? A rule must fit every step shown, not just the first.",
+      "sortOrder": 1
+    },
+    {
+      "id": "io-step",
+      "topicId": "input-output",
+      "name": "Reading any step",
+      "description": "After k steps the first k picks sit at the end(s) in pick order, and everything not yet placed keeps its input order, so any step can be written straight down.",
+      "sortOrder": 2
+    },
+    {
+      "id": "io-count",
+      "topicId": "input-output",
+      "name": "Counting the steps",
+      "description": "The machine stops when nothing more can change. With one move per step, n elements need at most n − 1 steps, and an element already in place when its turn comes costs no step.",
+      "sortOrder": 3
+    },
+    {
+      "id": "io-reverse",
+      "topicId": "input-output",
+      "name": "Working from a later step",
+      "description": "Given a later step, carry on without the input: the placed elements show how far the machine has gone. A rotation is undone by turning the other way.",
+      "sortOrder": 4
+    },
+    {
+      "id": "io-arith",
+      "topicId": "input-output",
+      "name": "Arithmetic machines",
+      "description": "Every number changes in each step, by operations taken in turn. Follow the one number asked for, or undo the steps in reverse order.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "io-rule-f",
+      "topicId": "input-output",
+      "conceptId": "io-rule",
+      "title": "Spotting the rule",
+      "prompt": "Given an input and its first steps, how do you find the machine’s rule?",
+      "formula": "1. What moved from the input to Step I, and where did it go?\n2. Name the pick: first or last in dictionary order, smallest or largest number\n3. Check the same rule on Step II and Step III",
+      "variables": [],
+      "explanation": "Several rules can fit one step; only the right one fits every step.",
+      "example": "Input 15 37 82 29 51 64 → Step I 82 15 37 29 51 64 → Step II 82 64 15 37 29 51: the largest number goes left each time.",
+      "commonMistake": "Accepting a rule that fits Step I only: “last to the front” can look the same as “smallest first” for one step.",
+      "applicationPrompt": "Input: 58 23 71 40 12. Step I: 12 58 23 71 40. Which two rules fit, and what would Step II be under each?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "io-settled-f",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "title": "Step k directly",
+      "prompt": "How do you write step k of a one-move sorting machine without the steps before it?",
+      "formula": "Step k = the first k picks (in pick order) at their end\n+ every other element in its input order",
+      "variables": [],
+      "explanation": "A move takes one element out and puts it next to those already placed; nothing else changes order.",
+      "example": "rasam laddu samosa idli kheer jalebi, A to Z from the left. Step II = idli jalebi | rasam laddu samosa kheer.",
+      "commonMistake": "Sorting the elements not yet placed as well.",
+      "applicationPrompt": "Input 15 37 82 29 51 64, largest first from the left. Write Step III directly.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "io-final-f",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "title": "The last step",
+      "prompt": "When does a sorting machine stop, and how many steps can it take?",
+      "formula": "Last step: every element in the machine’s order\nOne move per step: at most n − 1 steps\nA word and a number per step: at most as many steps as the larger group",
+      "variables": [],
+      "explanation": "The last element (or the last word and number) falls into place by itself.",
+      "example": "4 words and 4 numbers, a word left and a number right each step: at most 4 steps; 48 kurta 91 saree 27 dhoti 65 lungi needs 3.",
+      "commonMistake": "Counting a step for the last element.",
+      "applicationPrompt": "Six numbers, smallest first from the left: what is the most steps the machine can take?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "io-sc-count",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "kind": "shortcut",
+      "title": "Count the steps without running the machine",
+      "prompt": "A one-move machine fills from the left. Which elements cost a step?",
+      "formula": "An element needs a step only if something placed after it (or never placed) stands ahead of it in the input\nSteps = the number of such elements",
+      "variables": [],
+      "explanation": "An element whose turn comes while it is already first among the elements not yet placed stays put, and no step is counted.",
+      "example": "Smallest first: 63 17 25 41 88. 17, 25 and 41 have 63 ahead: 3 steps. 63 and 88 cost none.",
+      "commonMistake": "Answering n − 1 = 4 without checking which elements are already in place.",
+      "applicationPrompt": "Smallest first: 41 88 17 25 63. How many steps?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "io-sc-rest-order",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "kind": "shortcut",
+      "title": "The rest never reorder",
+      "prompt": "Which elements can change their order in a step?",
+      "formula": "Only the element picked moves\nEverything not yet placed keeps its input order, in every step",
+      "variables": [],
+      "explanation": "So an option where unplaced elements have swapped places cannot be a step of a sorting machine.",
+      "example": "Largest first: 15 37 82 29 51 64. Step III = 82 64 51 | 15 37 29: 15, 37, 29 still in input order.",
+      "commonMistake": "Choosing an option where the unplaced elements have been sorted too.",
+      "applicationPrompt": "Input 48 kurta 91 saree 27 dhoti 65 lungi (a word left, a number right). In Step II, in what order are saree, 27, lungi and 48?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "io-reverse-f",
+      "topicId": "input-output",
+      "conceptId": "io-reverse",
+      "title": "From a later step",
+      "prompt": "You are given step k of an unknown input. How do you find a later step, or undo it?",
+      "formula": "Sorting: the first k picks are placed; carry on from step k + 1\nRotation: undo by turning the other way, once per step\nArithmetic: undo the steps in reverse order (− for +, ÷ for ×)",
+      "variables": [],
+      "explanation": "A sorting machine forgets the input, but it does not need it: the placed elements tell you where it is.",
+      "example": "Z to A from the left; Step II is tulsi pudina amla neem karela methi. Step V: tulsi pudina neem methi karela amla.",
+      "commonMistake": "Restarting the count at Step I from the given step.",
+      "applicationPrompt": "Step III of an input (largest first, from the left) is 90 75 61 12 48 30. What is the last step?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "io-sc-rotate",
+      "topicId": "input-output",
+      "conceptId": "io-reverse",
+      "kind": "shortcut",
+      "title": "Rotations repeat",
+      "prompt": "A machine turns a line of n elements by one place each step. When does it come back?",
+      "formula": "After n steps the line is the input again\nStep k = step (k − n); undoing k steps = turning n − k more steps the same way",
+      "variables": [],
+      "explanation": "Each element comes back to its place after n turns.",
+      "example": "6 elements, step IV given: turn 2 more steps the same way to get the input.",
+      "commonMistake": "Turning k more steps the same way instead of n − k.",
+      "applicationPrompt": "A line of 5 is turned one place per step. Step VII equals which earlier step?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "io-arith-f",
+      "topicId": "input-output",
+      "conceptId": "io-arith",
+      "title": "Arithmetic machines",
+      "prompt": "Every number changes in each step, by operations taken in turn. How do you find one number at a later step?",
+      "formula": "Follow that one number through the steps, in order\nWith × a then + b in turn: two steps send x to a·x + b",
+      "variables": [],
+      "explanation": "Numbers keep their places, so only the one asked for matters.",
+      "example": "× 2 then − 3, in turn: 21 → 42 → 39 → 78 at Step III.",
+      "commonMistake": "Applying the operations in the wrong order (− 3 before × 2).",
+      "applicationPrompt": "With + 5 then × 2 in turn, what does 9 become at Step II?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "input-output-level-0",
+      "topicId": "input-output",
+      "order": 0,
+      "title": "How the Machine Works",
+      "description": "Rules, steps, the last step, later steps and number machines.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "io-rule",
+        "io-step",
+        "io-count",
+        "io-reverse",
+        "io-arith"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "input-machine"
+          },
+          {
+            "type": "text",
+            "title": "One pick, one step",
+            "body": "A sorting machine picks one element in each step by a fixed rule (the word first in dictionary order, the largest number, ...) and moves it to one end, just after the elements it has already placed there. Nothing else moves: the elements not yet placed slide along but keep their input order."
+          },
+          {
+            "type": "example",
+            "title": "Reading the steps",
+            "body": "Input: rasam laddu samosa idli kheer jalebi\nStep I: idli rasam laddu samosa kheer jalebi\nStep II: idli jalebi rasam laddu samosa kheer\nStep III: idli jalebi kheer rasam laddu samosa\nStep IV: idli jalebi kheer laddu rasam samosa\nEach step places the next word in dictionary order after those already placed. After Step IV, rasam and samosa are already in order, so the machine stops: 4 steps for 6 words."
+          },
+          {
+            "type": "formula",
+            "title": "Any step, straight down",
+            "body": "Step k = the first k picks at their end\n+ every other element in its input order",
+            "caption": "So an option where the unplaced elements have changed order cannot be a step of the machine."
+          },
+          {
+            "type": "check",
+            "questionId": "input-output-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Words and numbers, two moves a step",
+            "body": "Bank mains machines often handle words and numbers together: a word goes to the left and a number to the right in the same step, or words and numbers take turns. Find out which from Step I and Step II: did one element move, or two? If an element is already in its place when its turn comes, no step is spent on it."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "A rule must fit every step shown. “Move the last element to the front” and “move the smallest number to the front” can give the same Step I; Step II tells them apart."
+          },
+          {
+            "type": "text",
+            "title": "Machines that turn or count",
+            "body": "A rotating machine sends the last element to the front (or the first to the back) every step; it never finishes, and after n steps the line is back where it started. An arithmetic machine changes every number in each step, keeping the numbers in place: follow the one number you are asked about, and undo the steps in reverse order to go back."
+          },
+          {
+            "type": "check",
+            "questionId": "input-output-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "input-output-level-1",
+      "topicId": "input-output",
+      "order": 1,
+      "title": "Machine Rules",
+      "description": "Spotting the rule, any step directly, the last step, counting steps and undoing them.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "input-output-level-0"
+      ],
+      "conceptIds": [
+        "io-rule",
+        "io-step",
+        "io-count",
+        "io-reverse",
+        "io-arith"
+      ],
+      "formulaIds": [
+        "io-rule-f",
+        "io-settled-f",
+        "io-final-f",
+        "io-sc-count",
+        "io-sc-rest-order",
+        "io-reverse-f",
+        "io-sc-rotate",
+        "io-arith-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "input-output-level-2",
+      "topicId": "input-output",
+      "order": 2,
+      "title": "Reading the Steps",
+      "description": "One word or number per step: the next step, the last step, and the rule.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "input-output-level-1"
+      ],
+      "conceptIds": [
+        "io-step",
+        "io-count",
+        "io-rule",
+        "io-arith"
+      ],
+      "questionIds": [
+        "input-output-q-001",
+        "input-output-q-002",
+        "input-output-q-003",
+        "input-output-q-004",
+        "input-output-q-005",
+        "input-output-q-006",
+        "input-output-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "input-output-level-3",
+      "topicId": "input-output",
+      "order": 3,
+      "title": "Words and Numbers Together",
+      "description": "Two moves a step, turns, rotations and number machines.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "input-output-level-2"
+      ],
+      "conceptIds": [
+        "io-rule",
+        "io-step",
+        "io-count",
+        "io-reverse",
+        "io-arith"
+      ],
+      "questionIds": [
+        "input-output-q-008",
+        "input-output-q-009",
+        "input-output-q-010",
+        "input-output-q-011",
+        "input-output-q-012",
+        "input-output-q-013",
+        "input-output-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "input-output-level-4",
+      "topicId": "input-output",
+      "order": 4,
+      "title": "Later Steps and Hidden Inputs",
+      "description": "Carrying on from a later step, counting saved steps, rules that fit only one step, and undoing number machines.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "input-output-level-3"
+      ],
+      "conceptIds": [
+        "io-rule",
+        "io-step",
+        "io-count",
+        "io-reverse",
+        "io-arith"
+      ],
+      "questionIds": [
+        "input-output-q-015",
+        "input-output-q-016",
+        "input-output-q-017",
+        "input-output-q-018",
+        "input-output-q-019",
+        "input-output-q-020",
+        "input-output-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "input-output-level-5",
+      "topicId": "input-output",
+      "order": 5,
+      "title": "Mixed Input-Output Practice",
+      "description": "All machine patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "input-output-level-4"
+      ],
+      "conceptIds": [
+        "io-rule",
+        "io-step",
+        "io-count",
+        "io-reverse",
+        "io-arith"
+      ],
+      "questionQuery": {
+        "topicId": "input-output",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "input-output-q-001",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "A word arrangement machine at a food festival in Chennai rearranges a line of dish names one step at a time:\nInput: rasam laddu samosa idli kheer jalebi\nStep I: idli rasam laddu samosa kheer jalebi\nStep II: idli jalebi rasam laddu samosa kheer\nand so on, by the same rule, until the arrangement is complete. (A step in which nothing would change is not counted.)",
+      "question": "What is Step III?",
+      "options": [
+        {
+          "id": "a",
+          "text": "idli jalebi kheer rasam laddu samosa"
+        },
+        {
+          "id": "b",
+          "text": "idli jalebi kheer laddu rasam samosa"
+        },
+        {
+          "id": "c",
+          "text": "idli jalebi rasam laddu samosa kheer"
+        },
+        {
+          "id": "d",
+          "text": "kheer jalebi idli rasam laddu samosa"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The machine moves the word that comes first in dictionary order to the left end, after the words already placed: idli in Step I, jalebi in Step II. Next comes kheer. The words not yet placed (rasam, laddu, samosa) keep their order, so Step III is idli jalebi kheer rasam laddu samosa.",
+      "solutionSteps": [
+        "Rule: the next word in dictionary order goes to the left, after those already placed.",
+        "Placed so far: idli, jalebi. Next: kheer.",
+        "Step III: idli jalebi kheer rasam laddu samosa."
+      ],
+      "formulaIds": [
+        "io-settled-f",
+        "io-sc-rest-order"
+      ],
+      "method": "Place the next word in dictionary order after those already placed; copy the rest in their order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which word moved in Step I, and which in Step II? What do they have in common?"
+        },
+        {
+          "level": 2,
+          "text": "After idli and jalebi, which word comes next in dictionary order?"
+        },
+        {
+          "level": 3,
+          "text": "The words not yet placed do not change their order."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing idli jalebi kheer laddu rasam samosa (Step IV) or idli jalebi rasam laddu samosa kheer (Step II): one step too many or too few.",
+        "Putting each new word at the very front, ahead of the words already placed (kheer jalebi idli ...)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-002",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "context": "A word arrangement machine at a food festival in Chennai rearranges a line of dish names one step at a time:\nInput: rasam laddu samosa idli kheer jalebi\nStep I: idli rasam laddu samosa kheer jalebi\nStep II: idli jalebi rasam laddu samosa kheer\nand so on, by the same rule, until the arrangement is complete. (A step in which nothing would change is not counted.)",
+      "question": "How many steps does the machine take to complete the arrangement?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Step III places kheer and Step IV places laddu: idli jalebi kheer laddu rasam samosa. Now rasam and samosa are already in dictionary order at the end, so no step is spent on them. The last step is Step IV: 4 steps.",
+      "solutionSteps": [
+        "Step I: idli rasam laddu samosa kheer jalebi",
+        "Step II: idli jalebi rasam laddu samosa kheer",
+        "Step III: idli jalebi kheer rasam laddu samosa",
+        "Step IV: idli jalebi kheer laddu rasam samosa"
+      ],
+      "formulaIds": [
+        "io-final-f",
+        "io-sc-count"
+      ],
+      "method": "Run the machine until the words are in dictionary order; a word already in place costs no step.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the final arrangement: all six words in dictionary order."
+        },
+        {
+          "level": 2,
+          "text": "After laddu is placed, are rasam and samosa already in order?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 5 (six words, one fewer), without noticing that rasam and samosa are already in order after Step IV.",
+        "Answering 6, one step per word."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-003",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "A word arrangement machine at a food festival in Chennai rearranges a line of dish names one step at a time:\nInput: rasam laddu samosa idli kheer jalebi\nStep I: idli rasam laddu samosa kheer jalebi\nStep II: idli jalebi rasam laddu samosa kheer\nand so on, by the same rule, until the arrangement is complete. (A step in which nothing would change is not counted.)",
+      "question": "In Step II, which word is second from the right end?",
+      "options": [
+        {
+          "id": "a",
+          "text": "samosa"
+        },
+        {
+          "id": "b",
+          "text": "kheer"
+        },
+        {
+          "id": "c",
+          "text": "jalebi"
+        },
+        {
+          "id": "d",
+          "text": "laddu"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Step II is idli jalebi rasam laddu samosa kheer. From the right: kheer is 1st, samosa is 2nd.",
+      "solutionSteps": [
+        "Step II: idli jalebi rasam laddu samosa kheer.",
+        "From the right: kheer (1st), samosa (2nd)."
+      ],
+      "formulaIds": [
+        "io-settled-f"
+      ],
+      "method": "Read the step, then count from the end asked for, starting at 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Step II is printed in the box: read it carefully."
+        },
+        {
+          "level": 2,
+          "text": "Count from the right end: the last word is 1st from the right."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing kheer (first from the right) or laddu (third): miscounting from the right end.",
+        "Choosing jalebi by counting from the left."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-004",
+      "topicId": "input-output",
+      "conceptId": "io-rule",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "A number arrangement machine in a bank’s token system rearranges six token numbers one step at a time:\nInput: 15 37 82 29 51 64\nStep I: 82 15 37 29 51 64\nStep II: 82 64 15 37 29 51\nand so on, by the same rule, until the arrangement is complete.",
+      "question": "Which rule does the machine follow?",
+      "options": [
+        {
+          "id": "a",
+          "text": "In each step, the largest number moves to the left end, just after the numbers already placed."
+        },
+        {
+          "id": "b",
+          "text": "In each step, the smallest number moves to the left end, just after the numbers already placed."
+        },
+        {
+          "id": "c",
+          "text": "In each step, the last element moves to the front and the rest shift one place right."
+        },
+        {
+          "id": "d",
+          "text": "In each step, the first element moves to the back and the rest shift one place left."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Step I takes 82, the largest number, to the left end. Step II takes 64, the largest of the rest, to the second place, just after 82. Moving the last element to the front would have put 64 first in Step I; the smallest number (15) was already first and never moved.",
+      "solutionSteps": [
+        "Input → Step I: 82 (largest) goes to the left end.",
+        "Step I → Step II: 64 (next largest) goes just after 82.",
+        "Rule: the largest remaining number moves left, after those placed."
+      ],
+      "formulaIds": [
+        "io-rule-f"
+      ],
+      "method": "Find what moved in each step and where; check the rule on both steps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which number moved in Step I? Is it the smallest or the largest?"
+        },
+        {
+          "level": 2,
+          "text": "Check Step II: does the same kind of number move, and where does it go?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"smallest number\" because 15 is at the left end of the input.",
+        "Choosing a rotation: the last element (64) did not come to the front in Step I."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-005",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "A number arrangement machine in a bank’s token system rearranges six token numbers one step at a time:\nInput: 15 37 82 29 51 64\nStep I: 82 15 37 29 51 64\nStep II: 82 64 15 37 29 51\nand so on, by the same rule, until the arrangement is complete.",
+      "question": "Which of these is the last step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "82 64 51 37 29 15"
+        },
+        {
+          "id": "b",
+          "text": "82 64 51 37 15 29"
+        },
+        {
+          "id": "c",
+          "text": "15 29 37 51 64 82"
+        },
+        {
+          "id": "d",
+          "text": "82 64 51 15 37 29"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The machine places the numbers from the largest down: 82, 64, 51, 37, 29, and then 15 is left at the end. The last step is 82 64 51 37 29 15.",
+      "solutionSteps": [
+        "Step III: 82 64 51 15 37 29",
+        "Step IV: 82 64 51 37 15 29",
+        "Step V: 82 64 51 37 29 15"
+      ],
+      "formulaIds": [
+        "io-final-f"
+      ],
+      "method": "The last step has every number in the machine’s order: here, largest first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In what order does the machine place the numbers?"
+        },
+        {
+          "level": 2,
+          "text": "The last step has all six numbers in that order."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 82 64 51 37 15 29 (Step IV) or 82 64 51 15 37 29 (Step III), where some numbers are not yet in place.",
+        "Choosing the numbers in increasing order, the opposite of this machine."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-006",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "context": "A number arrangement machine in a bank’s token system rearranges six token numbers one step at a time:\nInput: 15 37 82 29 51 64\nStep I: 82 15 37 29 51 64\nStep II: 82 64 15 37 29 51\nand so on, by the same rule, until the arrangement is complete.",
+      "question": "In which step is 37 placed? (Give the step number.)",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Largest first: 82 (Step I), 64 (Step II), 51 (Step III), then 37 (Step IV).",
+      "solutionSteps": [
+        "Step III: 82 64 51 15 37 29",
+        "Step IV: 82 64 51 37 15 29"
+      ],
+      "formulaIds": [
+        "io-settled-f"
+      ],
+      "method": "With one number placed per step, a number’s step is its rank in the machine’s order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the numbers from the largest down."
+        },
+        {
+          "level": 2,
+          "text": "Where does 37 come in that list?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 2, its rank counting from the smallest.",
+        "Answering 3 by counting Step I as Step 0."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-007",
+      "topicId": "input-output",
+      "conceptId": "io-arith",
+      "levelId": "input-output-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "context": "A number machine at a school science fair changes every number of its input in each step, keeping the numbers in their places. In Step I it multiplies every number by 2, in Step II it subtracts 3 from every number, and so on in turn.\nInput: 14 9 21 6",
+      "question": "What is the third number from the left in Step III?",
+      "answer": {
+        "value": 78,
+        "tolerance": 0
+      },
+      "explanation": "Follow only the third number, 21: Step I × 2 gives 42, Step II − 3 gives 39, Step III × 2 again gives 78.",
+      "solutionSteps": [
+        "Step I (× 2): 28 18 42 12",
+        "Step II (− 3): 25 15 39 9",
+        "Step III (× 2): 50 30 78 18"
+      ],
+      "formulaIds": [
+        "io-arith-f"
+      ],
+      "method": "Numbers stay in their places: follow the one asked for through the steps in order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only the third number matters: start from 21."
+        },
+        {
+          "level": 2,
+          "text": "Step III is a “multiply by 2” step again."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 75 by subtracting 3 in Step III.",
+        "Answering 39, stopping at Step II."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-008",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "A word and number arrangement machine rearranges its input one step at a time. An illustration:\nInput: 36 mela 84 holi 57 onam 12 diwali\nStep I: diwali 36 mela holi 57 onam 12 84\nStep II: diwali holi 36 mela onam 12 57 84\nStep III: diwali holi mela onam 12 36 57 84\nStep III is the last step for this input.\nFollowing the same rule, the machine is now given:\nInput: 48 kurta 91 saree 27 dhoti 65 lungi",
+      "question": "What is Step II for the new input?",
+      "options": [
+        {
+          "id": "a",
+          "text": "dhoti kurta 48 saree 27 lungi 65 91"
+        },
+        {
+          "id": "b",
+          "text": "dhoti 48 kurta saree 27 65 lungi 91"
+        },
+        {
+          "id": "c",
+          "text": "dhoti kurta lungi saree 27 48 65 91"
+        },
+        {
+          "id": "d",
+          "text": "dhoti kurta 48 saree 27 65 lungi 91"
+        },
+        {
+          "id": "e",
+          "text": "dhoti kurta 48 saree 27 lungi 91 65"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Each step moves the word first in dictionary order to the left (after the words placed) and the largest number to the right (before the numbers placed). Step I: dhoti and 91. Step II: kurta and 65, giving dhoti kurta 48 saree 27 lungi 65 91. The others keep their input order.",
+      "solutionSteps": [
+        "Step I: dhoti 48 kurta saree 27 65 lungi 91",
+        "Step II: dhoti kurta 48 saree 27 lungi 65 91"
+      ],
+      "formulaIds": [
+        "io-settled-f",
+        "io-sc-rest-order"
+      ],
+      "method": "Two moves a step: a word to the left and a number to the right. Copy the rest in their input order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In the illustration, which word and which number moved in Step I? Where did each go?"
+        },
+        {
+          "level": 2,
+          "text": "For the new input, Step I moves dhoti and 91. What moves in Step II?"
+        },
+        {
+          "level": 3,
+          "text": "A number placed on the right goes just before the numbers already there."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing dhoti 48 kurta saree 27 65 lungi 91 (Step I), or moving kurta but forgetting to move 65 in Step II.",
+        "Putting 65 at the very end, after 91 (the numbers should read 65 91)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-009",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "context": "A word and number arrangement machine rearranges its input one step at a time. An illustration:\nInput: 36 mela 84 holi 57 onam 12 diwali\nStep I: diwali 36 mela holi 57 onam 12 84\nStep II: diwali holi 36 mela onam 12 57 84\nStep III: diwali holi mela onam 12 36 57 84\nStep III is the last step for this input.\nFollowing the same rule, the machine is now given:\nInput: 48 kurta 91 saree 27 dhoti 65 lungi",
+      "question": "How many steps will the machine take for the new input?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Step I: dhoti 48 kurta saree 27 65 lungi 91. Step II: dhoti kurta 48 saree 27 lungi 65 91. Step III: dhoti kurta lungi saree 27 48 65 91. After Step III the last word (saree) and the smallest number (27) are already in place, so Step III is the last step: 3 steps.",
+      "solutionSteps": [
+        "Step I: dhoti 48 kurta saree 27 65 lungi 91",
+        "Step II: dhoti kurta 48 saree 27 lungi 65 91",
+        "Step III: dhoti kurta lungi saree 27 48 65 91"
+      ],
+      "formulaIds": [
+        "io-final-f"
+      ],
+      "method": "One word and one number move each step; stop when every element is in place.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are 4 words and 4 numbers. How many pairs need to move?"
+        },
+        {
+          "level": 2,
+          "text": "After three steps, are the last word and the smallest number already in place?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4, one step for each word.",
+        "Answering 7, one step per element less one, as if one element moved per step."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-010",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "A word and number arrangement machine rearranges its input one step at a time. An illustration:\nInput: 36 mela 84 holi 57 onam 12 diwali\nStep I: diwali 36 mela holi 57 onam 12 84\nStep II: diwali holi 36 mela onam 12 57 84\nStep III: diwali holi mela onam 12 36 57 84\nStep III is the last step for this input.\nFollowing the same rule, the machine is now given:\nInput: 48 kurta 91 saree 27 dhoti 65 lungi",
+      "question": "In Step II for the new input, which element is third to the right of kurta?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "saree"
+        },
+        {
+          "id": "c",
+          "text": "lungi"
+        },
+        {
+          "id": "d",
+          "text": "48"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Step II is dhoti kurta 48 saree 27 lungi 65 91. To the right of kurta: 48 (1st), saree (2nd), 27 (3rd).",
+      "solutionSteps": [
+        "Step II: dhoti kurta 48 saree 27 lungi 65 91.",
+        "Right of kurta: 48, saree, 27."
+      ],
+      "formulaIds": [
+        "io-settled-f"
+      ],
+      "method": "Write the step, find kurta, and count to its right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write Step II for the new input first."
+        },
+        {
+          "level": 2,
+          "text": "Count 1, 2, 3 starting with the element just after kurta."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 48 or saree, the first or second to the right of kurta.",
+        "Choosing lungi, the fourth: counting kurta itself as the first."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-011",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "context": "A word and number arrangement machine rearranges its input one step at a time. An illustration:\nInput: 36 mela 84 holi 57 onam 12 diwali\nStep I: diwali 36 mela holi 57 onam 12 84\nStep II: diwali holi 36 mela onam 12 57 84\nStep III: diwali holi mela onam 12 36 57 84\nStep III is the last step for this input.\nFollowing the same rule, the machine is now given:\nInput: 48 kurta 91 saree 27 dhoti 65 lungi",
+      "question": "Which step for the new input is this line?\ndhoti kurta 48 saree 27 lungi 65 91",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Two words (dhoti, kurta) are placed on the left and two numbers (65, 91) on the right; 48, saree, 27 and lungi are still in their input order. One word and one number are placed per step, so this is Step II.",
+      "solutionSteps": [
+        "Placed on the left: dhoti, kurta (2 words).",
+        "Placed on the right: 65 91 (2 numbers).",
+        "Two pairs placed: Step II."
+      ],
+      "formulaIds": [
+        "io-settled-f"
+      ],
+      "method": "Count the pairs already placed at the two ends.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which words are already at the left in dictionary order?"
+        },
+        {
+          "level": 2,
+          "text": "Each step places one word and one number."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4, one step for each placed element instead of one per word-and-number pair.",
+        "Answering 3 by counting the input as Step I."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-012",
+      "topicId": "input-output",
+      "conceptId": "io-rule",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "A machine rearranges a line of city names and numbers one step at a time:\nInput: 63 agra 45 pune 72 surat 18 kochi\nStep I: agra 63 45 pune 72 surat 18 kochi\nStep II: agra 63 45 pune surat 18 kochi 72\nStep III: agra kochi 63 45 pune surat 18 72",
+      "question": "Which rule does the machine follow?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Steps take turns: odd steps move the word that comes first in dictionary order to the left end, even steps move the largest number to the right end (each next to those already placed)."
+        },
+        {
+          "id": "b",
+          "text": "In each step, the word that comes first in dictionary order moves to the left end and the largest number moves to the right end (each next to those already placed)."
+        },
+        {
+          "id": "c",
+          "text": "In each step, the word that comes first in dictionary order moves to the left end, just after the words already placed."
+        },
+        {
+          "id": "d",
+          "text": "In each step, the smallest number moves to the left end and the word that comes last in dictionary order moves to the right end (each next to those already placed)."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Step I moves only agra (first in dictionary order) to the left. Step II moves only 72 (the largest number) to the right. Step III moves only kochi to the left. One element per step, words and numbers in turn. A word and a number every step would have moved 72 in Step I; words only would never move 72.",
+      "solutionSteps": [
+        "Input → Step I: agra to the left end.",
+        "Step I → Step II: 72 to the right end.",
+        "Step II → Step III: kochi to the left, after agra.",
+        "Words and numbers take turns."
+      ],
+      "formulaIds": [
+        "io-rule-f"
+      ],
+      "method": "Note what moved in each step separately; a rule must fit all of them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Did a number move in Step I?"
+        },
+        {
+          "level": 2,
+          "text": "Compare Step II with Step I: what moved this time?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"a word and a number every step\": Step I moved only agra.",
+        "Choosing \"words only\": Step II moved 72."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-013",
+      "topicId": "input-output",
+      "conceptId": "io-reverse",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "A machine rearranges its input one step at a time. An illustration:\nInput: 5 ganga 9 yamuna 3 kaveri\nStep I: ganga 9 yamuna 3 kaveri 5\nStep II: 9 yamuna 3 kaveri 5 ganga\nand so on, by the same rule in every step.",
+      "question": "Step IV of another input is:\nkrishna 8 godavari 7 narmada 2\nWhat was the input?",
+      "options": [
+        {
+          "id": "a",
+          "text": "godavari 7 narmada 2 krishna 8"
+        },
+        {
+          "id": "b",
+          "text": "narmada 2 krishna 8 godavari 7"
+        },
+        {
+          "id": "c",
+          "text": "7 narmada 2 krishna 8 godavari"
+        },
+        {
+          "id": "d",
+          "text": "2 narmada 7 godavari 8 krishna"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Each step sends the first element to the back. To undo a step, bring the last element to the front. Undo four steps: 2 comes to the front, then narmada, then 7, then godavari. (Or: 6 steps bring the line back, so turning 2 more steps the same way also gives the input.)",
+      "solutionSteps": [
+        "Step IV: krishna 8 godavari 7 narmada 2",
+        "Undo IV: 2 krishna 8 godavari 7 narmada",
+        "Undo III: narmada 2 krishna 8 godavari 7",
+        "Undo II: 7 narmada 2 krishna 8 godavari",
+        "Undo I: godavari 7 narmada 2 krishna 8"
+      ],
+      "formulaIds": [
+        "io-reverse-f",
+        "io-sc-rotate"
+      ],
+      "method": "A rotation is undone by turning the other way, once per step.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What does one step of the illustration do to the line?"
+        },
+        {
+          "level": 2,
+          "text": "To go back one step, the last element returns to the front. Do it four times."
+        }
+      ],
+      "commonMistakes": [
+        "Turning the same way four more times instead of undoing.",
+        "Undoing only three steps, or reversing the whole line."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-014",
+      "topicId": "input-output",
+      "conceptId": "io-arith",
+      "levelId": "input-output-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "context": "A number machine changes every number in each step, keeping the numbers in their places. In Step I it adds 5 to every number, in Step II it multiplies every number by 2, and so on in turn.\nInput: 7 12 4 9",
+      "question": "What is the sum of the numbers in Step II?",
+      "answer": {
+        "value": 104,
+        "tolerance": 0
+      },
+      "explanation": "Step I: 12 17 9 14. Step II: 24 34 18 28. Sum: 104. Quicker: the input adds to 32; adding 5 to four numbers adds 20 (52), and doubling gives 104.",
+      "solutionSteps": [
+        "Step I (+ 5): 12 17 9 14",
+        "Step II (× 2): 24 34 18 28",
+        "Sum: 24 + 34 + 18 + 28 = 104"
+      ],
+      "formulaIds": [
+        "io-arith-f"
+      ],
+      "method": "Apply the steps in order; for a sum, (input sum + 4 × 5) × 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write Step I: add 5 to each number."
+        },
+        {
+          "level": 2,
+          "text": "Then double each number of Step I and add them up."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 84 by doubling first and adding 5 afterwards (the wrong order).",
+        "Answering 74 by adding 5 once to the total instead of to each of the four numbers."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-015",
+      "topicId": "input-output",
+      "conceptId": "io-reverse",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "A word arrangement machine rearranges the names of herbs and instruments one step at a time. An illustration:\nInput: bansuri sarod ektara mridangam nagara\nStep I: sarod bansuri ektara mridangam nagara\nStep II: sarod nagara bansuri ektara mridangam\nStep III: sarod nagara mridangam bansuri ektara\nand so on, by the same rule, until the arrangement is complete.",
+      "question": "Step II of another input is:\ntulsi pudina amla neem karela methi\nWhat is Step V of that input?",
+      "options": [
+        {
+          "id": "a",
+          "text": "tulsi pudina neem methi karela amla"
+        },
+        {
+          "id": "b",
+          "text": "tulsi pudina neem methi amla karela"
+        },
+        {
+          "id": "c",
+          "text": "amla karela methi neem pudina tulsi"
+        },
+        {
+          "id": "d",
+          "text": "tulsi pudina neem amla karela methi"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The machine moves the word that comes last in dictionary order to the left, after those placed. In Step II, tulsi and pudina are placed. Then neem (Step III), methi (Step IV) and karela (Step V): tulsi pudina neem methi karela amla. The input itself is not needed.",
+      "solutionSteps": [
+        "Step II: tulsi pudina amla neem karela methi",
+        "Step III: tulsi pudina neem amla karela methi",
+        "Step IV: tulsi pudina neem methi amla karela",
+        "Step V: tulsi pudina neem methi karela amla"
+      ],
+      "formulaIds": [
+        "io-reverse-f",
+        "io-settled-f"
+      ],
+      "method": "The words already placed show how far the machine has gone; continue from the given step.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is the machine placing words in A-to-Z order or Z-to-A order?"
+        },
+        {
+          "level": 2,
+          "text": "In Step II two words are placed. Which word comes next?"
+        },
+        {
+          "level": 3,
+          "text": "Only three more steps, III, IV and V."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing tulsi pudina neem methi amla karela (Step IV) or tulsi pudina neem amla karela methi (Step III): miscounting the steps after the given Step II.",
+        "Sorting A to Z, the opposite order."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-016",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "context": "A word arrangement machine moves, in each step, the word that comes first in dictionary order to the left end, just after the words already placed. A step in which nothing would change is not counted. The machine is given the names of eight characters of the Mahabharata:\nInput: arjun drona bhima nakul karna kunti sahadev vidura",
+      "question": "How many steps does the machine take to complete the arrangement?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Only words with a later word ahead of them need a step: bhima (drona ahead), karna (nakul ahead) and kunti (nakul ahead). arjun is already first; drona, nakul, sahadev and vidura each have only earlier words ahead. So 3 steps: Step I: arjun bhima drona nakul karna kunti sahadev vidura; Step II: arjun bhima drona karna nakul kunti sahadev vidura; Step III: arjun bhima drona karna kunti nakul sahadev vidura.",
+      "solutionSteps": [
+        "Dictionary order: arjun bhima drona karna kunti nakul sahadev vidura.",
+        "A word needs a step only if a word later in the order stands ahead of it.",
+        "bhima, karna, kunti: 3 steps."
+      ],
+      "formulaIds": [
+        "io-sc-count",
+        "io-final-f"
+      ],
+      "method": "Count the words that have a later word standing ahead of them in the input.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the eight words in dictionary order and compare with the input."
+        },
+        {
+          "level": 2,
+          "text": "arjun is already first: does it need a step? What about drona after bhima is placed?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 7 (eight words, one fewer) without checking which are already in place.",
+        "Answering 4 by counting a step for nakul, which only needs the words before it moved out."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-017",
+      "topicId": "input-output",
+      "conceptId": "io-count",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "context": "A token machine moves, in each step, the smallest number to the left end, just after the numbers already placed. A step in which nothing would change is not counted.",
+      "question": "For which of these inputs does the machine take exactly 3 steps? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "63 17 25 41 88"
+        },
+        {
+          "id": "b",
+          "text": "41 88 17 25 63"
+        },
+        {
+          "id": "c",
+          "text": "88 17 25 41 63"
+        },
+        {
+          "id": "d",
+          "text": "41 17 63 25 88"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b"
+      ],
+      "explanation": "A number needs a step only if a larger number stands ahead of it. 63 17 25 41 88: 17, 25 and 41 (63 ahead): 3. 41 88 17 25 63: 17, 25 and 63 (88 ahead): 3. 88 17 25 41 63: 17, 25, 41 and 63: 4. 41 17 63 25 88: 17 and 25: 2.",
+      "solutionSteps": [
+        "Count the numbers with a larger number ahead of them.",
+        "First two inputs: 3 each.",
+        "Third: 4. Fourth: 2."
+      ],
+      "formulaIds": [
+        "io-sc-count"
+      ],
+      "method": "Steps = numbers that have a larger number ahead of them (for this smallest-first, left-filling machine).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A number is already “in place” when its turn comes if nothing larger stands ahead of it."
+        },
+        {
+          "level": 2,
+          "text": "Check each input: which numbers have a larger number somewhere to their left?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming every input of five numbers needs 4 steps.",
+        "Counting only numbers with a larger number immediately before them, not anywhere ahead."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-018",
+      "topicId": "input-output",
+      "conceptId": "io-step",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "context": "A word and number arrangement machine rearranges a line of musical instruments and numbers one step at a time:\nInput: kite 71 drum 34 flute 18 bell 56\nStep I: 18 71 drum 34 flute bell 56 kite\nand so on, by the same rule, until the arrangement is complete.",
+      "question": "Which of these statements about Step II are true? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "71 is third from the left end."
+        },
+        {
+          "id": "b",
+          "text": "Exactly two elements stand between drum and flute."
+        },
+        {
+          "id": "c",
+          "text": "drum is fourth from the right end."
+        },
+        {
+          "id": "d",
+          "text": "Two more steps after Step II complete the arrangement."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b"
+      ],
+      "explanation": "Step I moves the smallest number (18) to the left and the word last in dictionary order (kite) to the right. Step II does the same with 34 and flute: 18 34 71 drum bell 56 flute kite. 71 is third from the left; bell and 56 stand between drum and flute; drum is fifth from the right; and Step III (18 34 56 71 bell drum flute kite) is already the last step.",
+      "solutionSteps": [
+        "Step I: 18 71 drum 34 flute bell 56 kite",
+        "Step II: 18 34 71 drum bell 56 flute kite",
+        "Step III: 18 34 56 71 bell drum flute kite"
+      ],
+      "formulaIds": [
+        "io-settled-f",
+        "io-final-f"
+      ],
+      "method": "Find the rule from Step I, write Step II, then test each statement on it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Step I moved two elements. Which, and to which ends?"
+        },
+        {
+          "level": 2,
+          "text": "Step II: 18 34 ... Write the rest."
+        },
+        {
+          "level": 3,
+          "text": "For the last statement, write Step III and check whether anything is left to move."
+        }
+      ],
+      "commonMistakes": [
+        "Counting drum from the left (4th) instead of from the right.",
+        "Assuming four words and four numbers need four steps."
+      ],
+      "tags": [],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-019",
+      "topicId": "input-output",
+      "conceptId": "io-rule",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "A number machine rearranges five numbers one step at a time:\nInput: 58 23 71 40 12\nStep I: 12 58 23 71 40\nStep II: 12 23 58 71 40",
+      "question": "Which rule does the machine follow?",
+      "options": [
+        {
+          "id": "a",
+          "text": "In each step, the smallest number moves to the left end, just after the numbers already placed."
+        },
+        {
+          "id": "b",
+          "text": "In each step, the last element moves to the front and the rest shift one place right."
+        },
+        {
+          "id": "c",
+          "text": "In each step, the largest number moves to the left end, just after the numbers already placed."
+        },
+        {
+          "id": "d",
+          "text": "In each step, the first element moves to the back and the rest shift one place left."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Step I alone fits two rules: 12 is both the smallest number and the last element, so \"smallest to the left\" and \"last to the front\" both give 12 58 23 71 40. Step II decides: 23, the smallest of the rest, goes after 12. Last to the front would have brought 40 to the front instead.",
+      "solutionSteps": [
+        "Step I: 12 to the front. Smallest number? Last element? Both.",
+        "Step II: 23 goes after 12; the last element (40) did not move.",
+        "Rule: smallest number to the left, after those placed."
+      ],
+      "formulaIds": [
+        "io-rule-f"
+      ],
+      "method": "When Step I fits two rules, let Step II decide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In Step I, why could 12 have moved? Find two reasons."
+        },
+        {
+          "level": 2,
+          "text": "Which of the two reasons also explains Step II?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"last element to the front\" from Step I alone.",
+        "Choosing \"largest number\", reading the order backwards."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-020",
+      "topicId": "input-output",
+      "conceptId": "io-arith",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "context": "A number machine changes every number in each step, keeping the numbers in their places. In Step I it multiplies every number by 3, in Step II it adds 4 to every number, and so on in turn.",
+      "question": "Step III of an input is:\n75 102 57 129\nWhat was the second number of the input?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Undo the steps from the last: Step III was × 3, so 102 ÷ 3 = 34; Step II was + 4, so 34 − 4 = 30; Step I was × 3, so 30 ÷ 3 = 10.",
+      "solutionSteps": [
+        "Undo Step III (× 3): 102 → 34",
+        "Undo Step II (+ 4): 34 → 30",
+        "Undo Step I (× 3): 30 → 10",
+        "Check: 10 → 30 → 34 → 102."
+      ],
+      "formulaIds": [
+        "io-arith-f",
+        "io-reverse-f"
+      ],
+      "method": "Undo the steps in reverse order: ÷ for ×, − for +.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from 102 and undo Step III first. Which operation was Step III?"
+        },
+        {
+          "level": 2,
+          "text": "Steps go × 3, + 4, × 3, so undo ÷ 3, − 4, ÷ 3."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 4 before dividing by 3 (undoing Step II before Step III): (102 − 4) ÷ 3 is not even a whole number.",
+        "Answering 30 or 34, stopping before all three steps are undone."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "input-output-q-021",
+      "topicId": "input-output",
+      "conceptId": "io-reverse",
+      "levelId": "input-output-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "A word and number arrangement machine rearranges its input one step at a time. An illustration:\nInput: 36 mela 84 holi 57 onam 12 diwali\nStep I: diwali 36 mela holi 57 onam 12 84\nStep II: diwali holi 36 mela onam 12 57 84\nStep III: diwali holi mela onam 12 36 57 84\nStep III is the last step for this input.",
+      "question": "Step I of another input is:\nchess 39 ludo 24 hockey 57 kabaddi 86\nWhat is the last step of that input?",
+      "options": [
+        {
+          "id": "a",
+          "text": "chess hockey kabaddi ludo 24 39 57 86"
+        },
+        {
+          "id": "b",
+          "text": "chess hockey 39 ludo 24 kabaddi 57 86"
+        },
+        {
+          "id": "c",
+          "text": "chess hockey kabaddi ludo 86 57 39 24"
+        },
+        {
+          "id": "d",
+          "text": "chess hockey kabaddi ludo 39 24 57 86"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "In Step I, chess and 86 are placed. Step II places hockey and 57: chess hockey 39 ludo 24 kabaddi 57 86. Step III places kabaddi and 39: chess hockey kabaddi ludo 24 39 57 86. Now ludo and 24 are already in place, so Step III is the last step.",
+      "solutionSteps": [
+        "Step I: chess 39 ludo 24 hockey 57 kabaddi 86",
+        "Step II: chess hockey 39 ludo 24 kabaddi 57 86",
+        "Step III: chess hockey kabaddi ludo 24 39 57 86"
+      ],
+      "formulaIds": [
+        "io-reverse-f",
+        "io-settled-f"
+      ],
+      "method": "From the placed elements, see how far the machine has gone and carry on to the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which word and which number are already placed in Step I?"
+        },
+        {
+          "level": 2,
+          "text": "Each later step places the next word on the left and the next largest number on the right."
+        },
+        {
+          "level": 3,
+          "text": "Stop when the last word and the smallest number are already in place."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing chess hockey 39 ludo 24 kabaddi 57 86, which is only Step II.",
+        "Putting the numbers in decreasing order on the right, or leaving 39 and 24 unplaced."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

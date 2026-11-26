@@ -1,0 +1,1777 @@
+{
+  "topicId": "reasoning-data-sufficiency",
+  "concepts": [
+    {
+      "id": "rds-choices",
+      "topicId": "reasoning-data-sufficiency",
+      "name": "What \"sufficient\" means, and the five answers",
+      "description": "A statement is sufficient when the asked answer comes out the same in every case it allows: one person, one place, one relation. Several arrangements may still be left. For a yes/no question a definite \"No\" is sufficient too. The five answers A to E are the same as in quant DS.",
+      "sortOrder": 1
+    },
+    {
+      "id": "rds-arrangements",
+      "topicId": "reasoning-data-sufficiency",
+      "name": "Arrangements: rows, floors, days and circles",
+      "description": "Draw every case a statement allows, on its own. The statement is enough only if the person or seat asked about is the same in all of them.",
+      "sortOrder": 2
+    },
+    {
+      "id": "rds-ranking",
+      "topicId": "reasoning-data-sufficiency",
+      "name": "Rankings from comparisons",
+      "description": "Chain the comparisons. A person’s place is fixed only when everyone else is surely above or surely below them; people in separate chains can swap.",
+      "sortOrder": 3
+    },
+    {
+      "id": "rds-relations",
+      "topicId": "reasoning-data-sufficiency",
+      "name": "Blood relations: the link and the gender",
+      "description": "A relation is settled only when the statements join the two people in one family tree and give the gender of the first person. Names or letters do not give a gender; \"parent\", \"child\" and \"sibling\" do not either.",
+      "sortOrder": 4
+    },
+    {
+      "id": "rds-directions",
+      "topicId": "reasoning-data-sufficiency",
+      "name": "Directions with an unknown start or turn",
+      "description": "If the starting direction or a turn is not given, the whole drawing can rotate or bend. A statement is enough only if every walk it still allows gives the same final direction.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "rds-choices-f",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "title": "The five answers",
+      "prompt": "What do the answers A to E mean in a data sufficiency question?",
+      "formula": "A: (1) alone is enough, (2) alone is not\nB: (2) alone is enough, (1) alone is not\nC: both together, neither alone\nD: each alone is enough\nE: not even both together",
+      "variables": [],
+      "explanation": "Test (1) alone, then (2) alone, as if the other were not there. Only if neither works do you put them together.",
+      "example": "Who is the tallest of four? (1) gives two candidates, (2) gives three, together only Dev: answer C.",
+      "commonMistake": "Choosing C when one statement alone was already enough (that is A, B or D).",
+      "applicationPrompt": "Each statement alone fixes the answer. Which letter?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rds-arrangements-f",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "title": "Sufficient for an arrangement",
+      "prompt": "When is a statement sufficient for \"Who sits at the left end?\"",
+      "formula": "Sufficient ⇔ every arrangement the statement allows puts the same person there\n(the rest of the row may still be open)",
+      "variables": [],
+      "explanation": "You do not need the whole arrangement, only the part the question asks about.",
+      "example": "Meena at an end with Nikhil on her right leaves two rows, both with Meena at the left end: sufficient.",
+      "commonMistake": "Calling it insufficient because two arrangements are left.",
+      "applicationPrompt": "Two seatings are left, and Kunal is at the left end in both. Is that enough to answer \"Who sits at the left end?\"",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rds-ranking-f",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-ranking",
+      "title": "Places from comparisons",
+      "prompt": "With comparisons only, when is a person’s place fixed?",
+      "formula": "Highest possible place = (number surely above) + 1\nLowest possible place = n − (number surely below)\nFixed only when the two are equal",
+      "variables": [],
+      "explanation": "Someone is surely above you only if a chain of comparisons runs from them to you.",
+      "example": "Five people, two surely above Madhu and two surely below: places 3 to 5 − 2 = 3, so Madhu is 3rd.",
+      "commonMistake": "Assuming two people with no chain between them are in a particular order.",
+      "applicationPrompt": "Four people; one is surely above Gita and none is surely below. Which places can Gita take?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-relations-f",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-relations",
+      "title": "Settling a relation",
+      "prompt": "What must the statements give before \"How is X related to Y?\" is settled?",
+      "formula": "A path in the family tree from X to Y\nand X’s gender (unless the relation word is the same for both, like cousin)",
+      "variables": [],
+      "explanation": "Draw the tree for each statement separately; the answer must be one relation word.",
+      "example": "\"P is the child of R\" and \"R is the father of Q\": P and Q are siblings, but brother or sister? Not sufficient.",
+      "commonMistake": "Taking a letter or a name as a clue to gender.",
+      "applicationPrompt": "X is the son of Y, and Z is the wife of Y. How is X related to Z? Is that settled?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-directions-f",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-directions",
+      "title": "Unknown start, unknown turn",
+      "prompt": "A walk is described, but the starting direction (or a turn) is not given. What do you check?",
+      "formula": "Try all 4 starting directions (and both sides for each unknown turn)\nKeep the walks the statement allows\nSufficient ⇔ they all give the same answer",
+      "variables": [],
+      "explanation": "Turning the whole drawing changes every direction in it, so \"walks 5 km, turns left\" alone fixes nothing.",
+      "example": "Walk 5, turn left, walk 3: starting north ends north-west; starting east ends north-east.",
+      "commonMistake": "Assuming the walker starts facing north.",
+      "applicationPrompt": "Walk 6, turn (left or right), walk 4. The start was east. Which ways could the walker face at the end?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-sc-definite-no",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "kind": "shortcut",
+      "title": "A definite \"No\" is sufficient",
+      "prompt": "A statement shows that the answer to a yes/no question is certainly \"No\". Is it sufficient?",
+      "formula": "Always Yes, or always No ⇒ sufficient\nSometimes Yes, sometimes No ⇒ not sufficient",
+      "variables": [],
+      "explanation": "Sufficient means the question can be answered, and \"No\" is an answer.",
+      "example": "\"Is Tara older than Uma?\" (1) Uma > Varsha > Tara: always No, so (1) is sufficient.",
+      "commonMistake": "Treating a definite No as \"not enough information\".",
+      "applicationPrompt": "\"Does Imran sit at an end?\" A statement leaves three seatings, none with Imran at an end. Sufficient?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-sc-cases",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "kind": "shortcut",
+      "title": "Count answers, not cases",
+      "prompt": "You have drawn the cases a statement allows. What do you look at?",
+      "formula": "Write the asked value under each case\nOne value under all ⇒ sufficient (however many cases)",
+      "variables": [],
+      "explanation": "The number of cases does not matter; the number of different answers does.",
+      "example": "Four rows left, two with Anu at the left end and two with Bala: 2 answers, not sufficient.",
+      "commonMistake": "Stopping as soon as one case fits, without checking the others.",
+      "applicationPrompt": "Six seatings are left and Chirag is opposite Bharti in four of them. Sufficient?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-sc-chain",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-ranking",
+      "kind": "shortcut",
+      "title": "One chain through everyone",
+      "prompt": "For \"Who is the tallest?\" from comparisons, what is the quickest check?",
+      "formula": "Tallest is fixed ⇔ one person is surely above all the others\n(the top of a chain that every other person joins)",
+      "variables": [],
+      "explanation": "A person nobody is above is a candidate; two candidates mean not sufficient.",
+      "example": "Arjun > Bina, Arjun > Charu: Arjun and Dev both have nobody above them, so not sufficient.",
+      "commonMistake": "Forgetting a person who appears in no comparison: they could be anywhere, even at the top.",
+      "applicationPrompt": "Four friends: Neha > Om, Priya > Om. Who could be the oldest?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rds-sc-gender",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-relations",
+      "kind": "shortcut",
+      "title": "Gender words",
+      "prompt": "Which relation words in the statements tell you a person’s gender?",
+      "formula": "Gender given: father, mother, son, daughter, brother, sister, husband, wife\nGender not given: parent, child, sibling (and a bare name or letter)",
+      "variables": [],
+      "explanation": "If the asked person is only ever called parent, child or sibling, the answer stays \"son or daughter\" (or similar).",
+      "example": "\"P is the child of R\": P could be a son or a daughter.",
+      "commonMistake": "Assuming \"child\" means son.",
+      "applicationPrompt": "\"K is the sibling of L, and L is the brother of M.\" Is K’s gender known?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "reasoning-data-sufficiency-level-0",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 0,
+      "title": "Is It Enough?",
+      "description": "What sufficient means in reasoning, the five answers, and how to test each statement on its own.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "ds-arrangements"
+          },
+          {
+            "type": "text",
+            "title": "One answer, not one arrangement",
+            "body": "A data sufficiency question does not ask you to solve the puzzle. It asks whether the statements are enough to answer one question. Draw every case a statement allows and write the asked answer under each. If the same answer appears under every case, the statement is sufficient, even if two or ten arrangements are still possible."
+          },
+          {
+            "type": "formula",
+            "title": "The five answers",
+            "body": "A: (1) alone is enough, (2) alone is not\nB: (2) alone is enough, (1) alone is not\nC: both together, neither alone\nD: each alone is enough\nE: not even both together",
+            "caption": "Test (1) on its own, then (2) on its own; only if both fail, combine them."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-data-sufficiency-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Rankings, relations and directions",
+            "body": "In a ranking, a person nobody has been compared with can be anywhere, even at the top. In blood relations, the statements must join the two people and give the first one’s gender: \"child\", \"parent\" and \"sibling\" do not. In directions, if the start is not given the whole drawing can turn, so a walk alone fixes nothing."
+          },
+          {
+            "type": "example",
+            "title": "A definite No",
+            "body": "Is Tara older than Uma? (1) Uma is older than Varsha, and Varsha is older than Tara. Then Tara is never older than Uma: the answer is always No. That answers the question, so (1) is sufficient."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Sufficient means the question has one answer. For a yes/no question, a definite \"No\" is an answer, so it is sufficient. Insufficient means the answer could still be Yes or No."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-data-sufficiency-q-007"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "reasoning-data-sufficiency-level-1",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 1,
+      "title": "Sufficiency Rules",
+      "description": "The five answers, a definite No, counting answers rather than cases, chains of comparisons and gender words.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "reasoning-data-sufficiency-level-0"
+      ],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "formulaIds": [
+        "rds-choices-f",
+        "rds-arrangements-f",
+        "rds-ranking-f",
+        "rds-relations-f",
+        "rds-directions-f",
+        "rds-sc-definite-no",
+        "rds-sc-cases",
+        "rds-sc-chain",
+        "rds-sc-gender"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "reasoning-data-sufficiency-level-2",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 2,
+      "title": "One Statement at a Time",
+      "description": "Short arrangements, rankings, relations and walks, each statement tested alone.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "reasoning-data-sufficiency-level-1"
+      ],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "questionIds": [
+        "reasoning-data-sufficiency-q-001",
+        "reasoning-data-sufficiency-q-002",
+        "reasoning-data-sufficiency-q-003",
+        "reasoning-data-sufficiency-q-004",
+        "reasoning-data-sufficiency-q-005",
+        "reasoning-data-sufficiency-q-006",
+        "reasoning-data-sufficiency-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "reasoning-data-sufficiency-level-3",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 3,
+      "title": "Cases and Chains",
+      "description": "Days, rows, comparison chains, in-laws, unknown turns and a definite No.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "reasoning-data-sufficiency-level-2"
+      ],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "questionIds": [
+        "reasoning-data-sufficiency-q-008",
+        "reasoning-data-sufficiency-q-009",
+        "reasoning-data-sufficiency-q-010",
+        "reasoning-data-sufficiency-q-011",
+        "reasoning-data-sufficiency-q-012",
+        "reasoning-data-sufficiency-q-013",
+        "reasoning-data-sufficiency-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "reasoning-data-sufficiency-level-4",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 4,
+      "title": "Circles, Floors and Two Unknown Turns",
+      "description": "Bigger arrangements, five-person chains, three generations and walks with two unknown turns.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "reasoning-data-sufficiency-level-3"
+      ],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "questionIds": [
+        "reasoning-data-sufficiency-q-015",
+        "reasoning-data-sufficiency-q-016",
+        "reasoning-data-sufficiency-q-017",
+        "reasoning-data-sufficiency-q-018",
+        "reasoning-data-sufficiency-q-019",
+        "reasoning-data-sufficiency-q-020",
+        "reasoning-data-sufficiency-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "reasoning-data-sufficiency-level-5",
+      "topicId": "reasoning-data-sufficiency",
+      "order": 5,
+      "title": "Mixed Reasoning DS Practice",
+      "description": "All kinds of reasoning data sufficiency, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "reasoning-data-sufficiency-level-4"
+      ],
+      "conceptIds": [
+        "rds-choices",
+        "rds-arrangements",
+        "rds-ranking",
+        "rds-relations",
+        "rds-directions"
+      ],
+      "questionQuery": {
+        "topicId": "reasoning-data-sufficiency",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "reasoning-data-sufficiency-q-001",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "Four friends, Arjun, Bina, Charu and Dev, compare their heights.",
+      "question": "Who is the tallest? (1) Arjun is taller than Bina. Arjun is taller than Charu. (2) Dev is taller than Arjun.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "(1) alone puts Arjun above Bina and Charu, but Dev is not mentioned, so Arjun or Dev could be the tallest. (2) alone puts Dev above Arjun only; Bina or Charu could still be taller than Dev. Together: Dev > Arjun > Bina and Charu, so Dev is the tallest. Neither alone, both together: C.",
+      "solutionSteps": [
+        "(1) alone: Arjun > Bina, Arjun > Charu; Dev unplaced, so Arjun or Dev. Not sufficient.",
+        "(2) alone: Dev > Arjun; Bina, Charu unplaced. Not sufficient.",
+        "Together: Dev > Arjun > Bina, Charu. Tallest: Dev. Answer C."
+      ],
+      "formulaIds": [
+        "rds-choices-f",
+        "rds-sc-chain"
+      ],
+      "method": "Test each statement alone; a person who is in no comparison can be anywhere.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1) alone, is anyone above Dev? Is Dev above anyone?"
+        },
+        {
+          "level": 2,
+          "text": "Dev is not in statement (1), so Dev could be the tallest."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A: forgetting Dev, who is not in statement (1).",
+        "Choosing E: not seeing that (2) puts Dev above Arjun, and (1) puts Arjun above the other two."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-002",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "context": "Four friends, Esha, Farhan, Gauri and Hari, sit in a row facing north. Esha sits immediately to the left of Farhan.",
+      "question": "Who sits at the extreme right end of the row? Using only this information, how many different people could it be?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Esha and Farhan sit together with Esha on the left. The pair can take seats 1–2, 2–3 or 3–4. In seats 3–4, Farhan is at the right end; otherwise Gauri or Hari is. Esha can never be at the right end. So 3 people are possible: Farhan, Gauri and Hari, and the statement is not sufficient.",
+      "solutionSteps": [
+        "EF can be in seats 1–2, 2–3 or 3–4.",
+        "Right end: Farhan (pair at 3–4), or Gauri or Hari (otherwise).",
+        "Esha is never at the right end: 3 possibilities."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-sc-cases"
+      ],
+      "method": "List where the fixed pair can go, and write who is at the right end each time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where can the block \"Esha Farhan\" go in a row of four?"
+        },
+        {
+          "level": 2,
+          "text": "Can Esha ever be at the extreme right end?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4: Esha cannot be at the right end, since Farhan is to her right.",
+        "Answering 1: assuming the pair sits at the right end."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-003",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "Four people, Jatin, Kavya, Lata and Mohan, live on the four floors of a building, one on each floor. The bottom floor is the first floor and the top floor is the fourth.",
+      "question": "Who lives on the top floor? (1) Kavya lives immediately above Jatin. Jatin lives on the third floor. (2) Lata lives on the bottom floor.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(1) alone: Jatin is on the third floor and Kavya directly above him, on the fourth (top) floor. Lata and Mohan are on floors 1 and 2 in some order, but that does not matter: the top floor is Kavya’s. Sufficient. (2) alone: Lata is at the bottom, and any of the other three could be at the top. Not sufficient. Answer A.",
+      "solutionSteps": [
+        "(1): Jatin on 3, Kavya on 4. Top floor: Kavya. Sufficient.",
+        "(2): Lata on 1; top could be Jatin, Kavya or Mohan. Not sufficient.",
+        "Answer A."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-choices-f"
+      ],
+      "method": "Place the fixed person first, then the one tied to them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In (1), which floor is just above the third?"
+        },
+        {
+          "level": 2,
+          "text": "In (2), who could still be on the top floor?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C because (1) does not place Lata and Mohan: the question only asks about the top floor.",
+        "Choosing D: (2) places only the bottom floor."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-004",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-ranking",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "Four cousins, Neha, Om, Priya and Ravi, are compared by age. Neha is older than Om.",
+      "question": "Who is the oldest? (1) Priya is older than Om. (2) Ravi is older than Neha. Ravi is older than Priya.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Given Neha > Om. (1) alone adds Priya > Om: nobody is above Neha, Priya or Ravi, so any of them could be the oldest. Not sufficient. (2) alone adds Ravi > Neha and Ravi > Priya: Ravi is above Neha, who is above Om, and above Priya, so Ravi is above everyone. Sufficient. Answer B.",
+      "solutionSteps": [
+        "Given: Neha > Om.",
+        "(1): Priya > Om. Oldest: Neha, Priya or Ravi. Not sufficient.",
+        "(2): Ravi > Neha > Om and Ravi > Priya. Oldest: Ravi. Sufficient. Answer B."
+      ],
+      "formulaIds": [
+        "rds-ranking-f",
+        "rds-sc-chain"
+      ],
+      "method": "The oldest is fixed when one person is surely older than each of the others.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), is anyone surely older than Ravi?"
+        },
+        {
+          "level": 2,
+          "text": "With (2), is Ravi older than Om? Follow the chain through Neha."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C: (2) already reaches Om through Neha.",
+        "Choosing D: Ravi is not mentioned in (1), so he could be the oldest."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-005",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-relations",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "P, Q and R are members of one family. A letter does not tell you whether a person is male or female.",
+      "question": "How is P related to Q? (1) P is the child of R. (2) R is the father of Q.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "(1) alone says nothing about Q, and (2) alone says nothing about P. Together, R is a parent of both P and Q, so P is Q’s brother or sister. \"Child\" does not give P’s gender, so even together the relation is not settled. Answer E.",
+      "solutionSteps": [
+        "(1): P is R’s child; Q not mentioned.",
+        "(2): R is Q’s father; P not mentioned.",
+        "Together: P and Q are siblings, but P’s gender is unknown: brother or sister. Answer E."
+      ],
+      "formulaIds": [
+        "rds-relations-f",
+        "rds-sc-gender"
+      ],
+      "method": "Check the link first, then the gender of the person asked about.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Together, who are P’s and Q’s parents?"
+        },
+        {
+          "level": 2,
+          "text": "Does any statement say whether P is male or female?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C and answering \"brother\": \"child\" does not tell you P is a son.",
+        "Choosing B: (2) does not mention P."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-006",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-directions",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "Kiran walks 5 km straight ahead, then turns left and walks 3 km. The question does not say which way he faced at the start.",
+      "question": "In which direction is Kiran now from his starting point? (1) Kiran started out facing north. (2) At the end he was facing west.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "(1) alone: starting north, 5 km north, then left (west) 3 km: he is north-west of the start. Sufficient. (2) alone: after a left turn he faces west, so before it he faced north, which means he started north: again north-west. Sufficient. Each alone: D.",
+      "solutionSteps": [
+        "(1): north 5, west 3: north-west. Sufficient.",
+        "(2): faces west after a left turn, so he walked north first: north-west. Sufficient.",
+        "Answer D."
+      ],
+      "formulaIds": [
+        "rds-directions-f"
+      ],
+      "method": "A final facing after known turns gives the starting direction: work the turns backwards.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In (2), which way was he facing just before he turned left to face west?"
+        },
+        {
+          "level": 2,
+          "text": "Then he walked the first 5 km in that direction."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A: (2) also fixes the start, by undoing the left turn.",
+        "Turning the wrong way when undoing a left turn (getting south)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-007",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "levelId": "reasoning-data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "context": "Four friends, Meena, Nikhil, Om and Pallavi, sit in a row facing north. The question is: Who sits at the extreme left end of the row?",
+      "question": "Statement (1): Meena sits at one of the ends of the row. Nikhil sits immediately to the right of Meena. Statement (1) leaves more than one seating. Is it sufficient on its own?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes: every seating it leaves has Meena at the left end."
+        },
+        {
+          "id": "b",
+          "text": "No: it leaves two seatings, so it cannot be sufficient."
+        },
+        {
+          "id": "c",
+          "text": "No: Nikhil could also sit at the left end."
+        },
+        {
+          "id": "d",
+          "text": "Yes, because it fixes the whole row."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Nikhil must be on Meena’s right, so Meena cannot be at the right end: she is at the left end, with Nikhil next to her. Om and Pallavi can take the last two seats either way round, so two seatings are left, but both have Meena at the left end. The question is answered, so the statement is sufficient.",
+      "solutionSteps": [
+        "Meena at an end, Nikhil on her right: Meena is at the left end.",
+        "Om and Pallavi: two orders, so two seatings.",
+        "Both have Meena at the left end: sufficient."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-sc-cases"
+      ],
+      "method": "Sufficient means one answer to the question, not one complete arrangement.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Could Meena be at the right end if Nikhil sits immediately to her right?"
+        },
+        {
+          "level": 2,
+          "text": "Who is at the left end in each seating that is left?"
+        }
+      ],
+      "commonMistakes": [
+        "Saying no because two seatings are left: the question asks only about the left end.",
+        "Thinking the whole row is fixed: Om and Pallavi can swap."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-008",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "Five guest lecturers, Sunita, Tarun, Usha, Vinod and Waseem, each give one lecture at a college in Pune, on different days from Monday to Friday of the same week. Tarun’s lecture is on Tuesday.",
+      "question": "On which day is Sunita’s lecture? (1) Sunita’s lecture is two days after Tarun’s. (2) Sunita’s lecture is on the day immediately before Waseem’s. Waseem’s lecture is on Friday.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Tarun lectures on Tuesday. (1) alone: Sunita is two days after Tarun, so on Thursday. Sufficient. (2) alone: Waseem is on Friday and Sunita on the day before, Thursday. Sufficient. Each alone: D.",
+      "solutionSteps": [
+        "Given: Tarun on Tuesday.",
+        "(1): Tuesday + 2 days = Thursday. Sufficient.",
+        "(2): Waseem Friday, Sunita the day before: Thursday. Sufficient. Answer D."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f"
+      ],
+      "method": "Use the given information with each statement separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In (1), which day is two days after Tuesday?"
+        },
+        {
+          "level": 2,
+          "text": "In (2), which day comes immediately before Friday?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A: missing that (2) also fixes Sunita through Waseem.",
+        "Counting \"two days after Tuesday\" as Wednesday."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-009",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "Five friends, Aditi, Bhuvan, Chandra, Deepak and Eswar, sit in a row facing north at a Diwali puja. Chandra sits third from the left end of the row.",
+      "question": "Who sits at the extreme left end of the row? (1) Aditi sits immediately to the left of Chandra. (2) Deepak sits at one of the ends of the row. Deepak is an immediate neighbour of Aditi.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Chandra is in the middle (seat 3). (1) alone: Aditi is in seat 2; seats 1, 4 and 5 hold Bhuvan, Deepak and Eswar in any order, so any of the three could be at the left end. Not sufficient. (2) alone: Deepak is at an end next to Aditi: Deepak 1 and Aditi 2, or Deepak 5 and Aditi 4, so the left end is Deepak, Bhuvan or Eswar. Not sufficient. Together: Aditi is in seat 2, so Deepak, her neighbour at an end, is in seat 1. Answer C.",
+      "solutionSteps": [
+        "Given: Chandra in seat 3.",
+        "(1): Aditi in seat 2; left end Bhuvan, Deepak or Eswar. Not sufficient.",
+        "(2): Deepak at an end beside Aditi: seats 1–2 or 4–5. Not sufficient.",
+        "Together: Aditi 2, so Deepak 1. Answer C."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-sc-cases"
+      ],
+      "method": "Draw the cases for each statement; combine only when both fail.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), Aditi is fixed. Who could fill seat 1?"
+        },
+        {
+          "level": 2,
+          "text": "With (2), Deepak and Aditi are a pair at one end. Which end?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing B: in (2) the pair could be at the right end.",
+        "Choosing E: together, Aditi in seat 2 forces Deepak into seat 1."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-010",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-ranking",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "context": "Faiz, Gita, Hema and Irfan are four colleagues at a bank branch in Chennai. Faiz is older than Gita. Hema is older than Faiz. Faiz is older than Irfan.",
+      "question": "Which of these questions can be answered from this information alone? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Who is the oldest?"
+        },
+        {
+          "id": "b",
+          "text": "Who is the second oldest?"
+        },
+        {
+          "id": "c",
+          "text": "Who is the youngest?"
+        },
+        {
+          "id": "d",
+          "text": "Is Gita older than Irfan?"
+        },
+        {
+          "id": "e",
+          "text": "Is Hema older than Irfan?"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explanation": "The chains are Hema > Faiz > Gita and Faiz > Irfan. Hema is above everyone, so she is the oldest; Faiz is below only Hema and above the other two, so he is second. Gita and Irfan are both below Faiz with no comparison between them, so the youngest, and whether Gita is older than Irfan, are not settled. Hema > Faiz > Irfan settles \"Is Hema older than Irfan?\" (yes).",
+      "solutionSteps": [
+        "Chains: Hema > Faiz > Gita and Hema > Faiz > Irfan.",
+        "Oldest Hema, second Faiz: settled.",
+        "Gita and Irfan are not compared: youngest and \"Gita older than Irfan?\" not settled.",
+        "Hema older than Irfan: yes, settled."
+      ],
+      "formulaIds": [
+        "rds-ranking-f",
+        "rds-sc-chain"
+      ],
+      "method": "Settled means every order that fits gives the same answer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the chain: who is above Faiz, and who is below him?"
+        },
+        {
+          "level": 2,
+          "text": "Is there any comparison between Gita and Irfan?"
+        }
+      ],
+      "commonMistakes": [
+        "Selecting \"Who is the youngest?\": Gita and Irfan could be either way round.",
+        "Leaving out \"Is Hema older than Irfan?\": the chain runs through Faiz."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-011",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-relations",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "K, M and N are members of one family. A letter does not tell you whether a person is male or female.",
+      "question": "How is M related to N? (1) M is the wife of K. K is the son of N. (2) N is the mother of K.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(1) alone: M is K’s wife and K is N’s son, so M is the wife of N’s son: N’s daughter-in-law. \"Wife\" gives M’s gender. Sufficient. (2) alone: says only that N is K’s mother; M is not mentioned. Not sufficient. Answer A.",
+      "solutionSteps": [
+        "(1): M wife of K, K son of N: M is N’s daughter-in-law. Sufficient.",
+        "(2): M not mentioned. Not sufficient.",
+        "Answer A."
+      ],
+      "formulaIds": [
+        "rds-relations-f",
+        "rds-sc-gender"
+      ],
+      "method": "Follow the path from M to N, and read M’s gender from the words used.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In (1), what is the wife of someone’s son called?"
+        },
+        {
+          "level": 2,
+          "text": "Does (2) mention M at all?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C because (2) also gives N’s gender: the question is about M’s relation to N, and (1) already gives it.",
+        "Answering \"daughter\" instead of \"daughter-in-law\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-012",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-directions",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "Pooja walks 6 m from her gate, turns and walks 4 m. The question does not say which way she faced at the start, nor whether the turn was to the left or the right.",
+      "question": "Which direction is Pooja facing at the end? (1) Pooja started out facing east. (2) She walked the second stretch towards the north.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(1) alone: she starts east, and a turn of 90° left or right leaves her facing north or south. Not sufficient. (2) alone: her second stretch was towards the north, and she is still walking that way at the end, so she faces north. Sufficient. Answer B.",
+      "solutionSteps": [
+        "(1): east, then left (north) or right (south). Not sufficient.",
+        "(2): the last stretch is northwards, so she faces north. Sufficient.",
+        "Answer B."
+      ],
+      "formulaIds": [
+        "rds-directions-f"
+      ],
+      "method": "The direction of the last stretch is the final facing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), list both possible turns."
+        },
+        {
+          "level": 2,
+          "text": "At the end of a walk, which way is the walker facing?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C: (2) alone already gives the final facing.",
+        "Choosing A: in (1) the side of the turn is unknown."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-013",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "Four sisters, Tara, Uma, Varsha and Yash, are compared by age.",
+      "question": "Is Tara older than Uma? (1) Uma is older than Varsha. Varsha is older than Tara. (2) Yash is older than Tara.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(1) alone: Uma > Varsha > Tara, so Tara is certainly not older than Uma. The answer is a definite \"No\", and that answers the question: sufficient. (2) alone: Yash is older than Tara, but Uma is not compared with either. Not sufficient. Answer A.",
+      "solutionSteps": [
+        "(1): Uma > Varsha > Tara: always \"No\". Sufficient.",
+        "(2): Yash > Tara; Uma unplaced. Not sufficient.",
+        "Answer A."
+      ],
+      "formulaIds": [
+        "rds-sc-definite-no",
+        "rds-choices-f"
+      ],
+      "method": "A yes/no question is settled by an answer that is always the same, Yes or No.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), is there any order in which Tara is older than Uma?"
+        },
+        {
+          "level": 2,
+          "text": "A definite \"No\" is still an answer."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing E: thinking a \"No\" answer means the data is not enough.",
+        "Choosing C: (2) adds nothing about Uma."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-014",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "context": "Four friends, Kunal, Lakshmi, Manoj and Nandini, sit in a row facing north. Manoj does not sit at an end of the row.",
+      "question": "Who sits at the extreme left end of the row? Which of these statements, each used alone with the information given, is sufficient to answer? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Manoj sits immediately to the right of Kunal. Kunal sits at one of the ends of the row."
+        },
+        {
+          "id": "b",
+          "text": "Lakshmi is an immediate neighbour of Nandini."
+        },
+        {
+          "id": "c",
+          "text": "Nandini sits second to the right of Manoj."
+        },
+        {
+          "id": "d",
+          "text": "Lakshmi sits second to the left of Manoj."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "d"
+      ],
+      "explanation": "Manoj is in seat 2 or 3. (a) Kunal is at an end with Manoj on his right, so Kunal is at the left end: sufficient. (b) Lakshmi next to Nandini leaves seat 1 to Kunal, Lakshmi or Nandini depending on the case: not sufficient. (c) Nandini two seats to Manoj’s right puts Manoj in seat 2 and Nandini in seat 4, but seat 1 could be Kunal or Lakshmi: not sufficient. (d) Lakshmi two seats to Manoj’s left puts Manoj in seat 3 and Lakshmi in seat 1: sufficient.",
+      "solutionSteps": [
+        "Manoj: seat 2 or 3.",
+        "(a) Kunal at the left end: sufficient.",
+        "(b), (c): two or more people possible in seat 1: not sufficient.",
+        "(d) Lakshmi in seat 1: sufficient."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-sc-cases"
+      ],
+      "method": "Test each statement on its own, with only the given information.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Manoj is not at an end, so he is in seat 2 or 3."
+        },
+        {
+          "level": 2,
+          "text": "In (c), Manoj is in seat 2. Who can sit in seat 1?"
+        }
+      ],
+      "commonMistakes": [
+        "Selecting (c): it fixes Manoj and Nandini, but not the person at the left end.",
+        "Leaving out (a): Kunal cannot be at the right end if Manoj sits to his right."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-015",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "Six friends, Anand, Bharti, Chirag, Divya, Eknath and Fatima, sit around a circular table facing the centre. Anand sits opposite Divya.",
+      "question": "Who sits opposite Bharti? (1) Bharti sits immediately to the right of Anand. (2) Eknath is an immediate neighbour of Anand.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Anand and Divya face each other. (1) alone: Bharti is on Anand’s right; the person opposite her is one of the three people still unplaced (Chirag, Eknath or Fatima). Not sufficient. (2) alone: Eknath is next to Anand, but Bharti is not placed. Not sufficient. Together: Eknath must take Anand’s other neighbouring seat (his left), and the seat opposite Bharti is still open to Chirag or Fatima. Not sufficient. Answer E.",
+      "solutionSteps": [
+        "Given: Anand opposite Divya.",
+        "(1): Bharti right of Anand; opposite her: Chirag, Eknath or Fatima.",
+        "(2): Eknath beside Anand; Bharti unplaced.",
+        "Together: Eknath on Anand’s left; opposite Bharti: Chirag or Fatima. Answer E."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f",
+        "rds-sc-cases"
+      ],
+      "method": "Fix the opposite pair, then place each statement’s people and see who can face the asked seat.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), which seat is opposite Bharti, and who could sit there?"
+        },
+        {
+          "level": 2,
+          "text": "Together, Eknath takes Anand’s other side. Are Chirag and Fatima placed?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C: Eknath’s seat is fixed together, but Chirag and Fatima can still swap.",
+        "Taking \"right\" as anticlockwise when facing the centre."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-016",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-arrangements",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "Five people, Gopal, Hina, Ishaan, Jaya and Kiran, live on the five floors of a building in Hyderabad, one on each floor. The bottom floor is the first floor and the top floor is the fifth. Gopal lives on neither the top floor nor the bottom floor.",
+      "question": "Who lives on the top floor? (1) Gopal lives immediately below Ishaan. Ishaan lives two floors below Kiran. (2) Exactly 2 people live between Gopal and Kiran. Kiran lives immediately above Hina.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Gopal is on floor 2, 3 or 4. (1) alone: Ishaan is just above Gopal and Kiran two floors above Ishaan, so Kiran is three floors above Gopal: Gopal 2, Ishaan 3, Kiran 5. Kiran is on top. Sufficient. (2) alone: exactly two people between Gopal and Kiran means three floors apart, and Kiran just above Hina means Kiran is not on floor 1; with Gopal on 2, 3 or 4, the only fit is Gopal 2, Kiran 5. Sufficient. Answer D.",
+      "solutionSteps": [
+        "Given: Gopal on 2, 3 or 4.",
+        "(1): Kiran = Gopal + 3, so Gopal 2, Kiran 5. Sufficient.",
+        "(2): Kiran and Gopal three floors apart, Kiran above Hina: Gopal 2, Kiran 5. Sufficient.",
+        "Answer D."
+      ],
+      "formulaIds": [
+        "rds-arrangements-f"
+      ],
+      "method": "Turn each statement into a gap between floors, then use the given limits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In (1), how many floors above Gopal is Kiran?"
+        },
+        {
+          "level": 2,
+          "text": "In (2), could Kiran be on the first floor? Then where must Gopal be?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A: in (2), Kiran on floor 1 is ruled out because Hina lives below Kiran.",
+        "Counting \"two people between\" as two floors apart."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-017",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-ranking",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "Five parcels at a Delhi courier office belong to Lalit, Madhu, Nirmal, Oviya and Pranav, and are compared by weight. Lalit is heavier than Madhu. Nirmal is heavier than Oviya.",
+      "question": "Who is the third heaviest? (1) Madhu is heavier than Nirmal. (2) Pranav is heavier than Lalit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Given Lalit > Madhu and Nirmal > Oviya. (1) alone: Lalit > Madhu > Nirmal > Oviya with Pranav anywhere, so the third heaviest is Madhu, Nirmal or Pranav. Not sufficient. (2) alone: Pranav > Lalit > Madhu and Nirmal > Oviya, two separate chains: almost anyone could be third. Not sufficient. Together: Pranav > Lalit > Madhu > Nirmal > Oviya, so Madhu is third. Answer C.",
+      "solutionSteps": [
+        "Given: Lalit > Madhu, Nirmal > Oviya.",
+        "(1): Lalit > Madhu > Nirmal > Oviya; Pranav unplaced. Not sufficient.",
+        "(2): Pranav > Lalit > Madhu; Nirmal > Oviya separate. Not sufficient.",
+        "Together: one chain of five; third is Madhu. Answer C."
+      ],
+      "formulaIds": [
+        "rds-ranking-f",
+        "rds-sc-chain"
+      ],
+      "method": "A middle place is fixed only when the person is surely below exactly k − 1 people and surely above the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), where can Pranav go?"
+        },
+        {
+          "level": 2,
+          "text": "Together, is there one chain through all five?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A: Pranav could be heavier than Madhu, pushing her down.",
+        "Choosing E: together the chain runs through all five parcels."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-018",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-relations",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "A, B, C and D are members of one family. A letter does not tell you whether a person is male or female.",
+      "question": "How is A related to D? (1) A is the father of B. B is the sister of C. (2) C is the mother of D.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "(1) alone: A is the father of B, and B and C are sisters (as a sister, B shares her parents with C), so A is C’s father too; D is not mentioned. Not sufficient. (2) alone: C is D’s mother; A is not mentioned. Not sufficient. Together: A is the father of C, who is the mother of D, so A is D’s grandfather (\"father\" gives A’s gender). Answer C.",
+      "solutionSteps": [
+        "(1): A father of B and of C; D not mentioned.",
+        "(2): C mother of D; A not mentioned.",
+        "Together: A → C → D: grandfather. Answer C."
+      ],
+      "formulaIds": [
+        "rds-relations-f",
+        "rds-sc-gender"
+      ],
+      "method": "Brothers and sisters share both parents, so a parent of one is a parent of the other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If B is C’s sister, who is C’s father?"
+        },
+        {
+          "level": 2,
+          "text": "Then add (2): what is the father of someone’s mother?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing E: missing that A is also C’s father.",
+        "Answering \"maternal uncle\" by reading the chain from the wrong end."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-019",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-directions",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "Suresh walks 4 km, turns and walks 3 km, then turns again and walks 4 km. Each turn is a right angle, but the question does not say whether it was to the left or the right, nor which way he faced at the start.",
+      "question": "In which direction is Suresh now from his starting point? (1) Suresh started out facing north. (2) At the end he was facing south.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "(1) alone: start north. If both turns are to the same side he comes back level with the start, 3 km east or west; if they are to different sides he ends 8 km north and 3 km east or west. So east, west, north-east or north-west: not sufficient. (2) alone: the start is unknown, so several directions fit: not sufficient. Together: he faced north at the start and south at the end, so the two turns were to the same side and he ends 3 km due east or due west of the start. Still two answers. Answer E.",
+      "solutionSteps": [
+        "(1): four walks: east, west, north-east or north-west. Not sufficient.",
+        "(2): start unknown. Not sufficient.",
+        "Together: north to south means two turns the same way: east or west. Answer E."
+      ],
+      "formulaIds": [
+        "rds-directions-f"
+      ],
+      "method": "List every combination of the unknown turns, then keep the ones each statement allows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If he starts north and ends facing south, were the two turns to the same side or opposite sides?"
+        },
+        {
+          "level": 2,
+          "text": "Same side twice: left-left or right-right. Where does each leave him?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C: the two turns could both be left or both be right, giving west or east.",
+        "Forgetting that the third stretch brings him back level with the start."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-020",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-directions",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "context": "Rekha walks 7 km, turns and walks 2 km, then turns again and walks 3 km. Each turn is a right angle to the left or to the right. Rekha started out facing north.",
+      "question": "In how many different directions (north-east, south-west and so on) from her starting point could Rekha end up?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "She goes 7 km north. The first turn sends her 2 km east or west. The second turn then points her north or south for 3 km: she ends 10 km or 4 km north of the start. Either way she is north of the start, and east or west of it: north-east or north-west. Four walks, but only 2 directions.",
+      "solutionSteps": [
+        "7 km north.",
+        "2 km east or west.",
+        "3 km north or south: 10 km or 4 km north of the start.",
+        "Always north; east or west: 2 directions."
+      ],
+      "formulaIds": [
+        "rds-directions-f"
+      ],
+      "method": "Track the east–west and north–south totals separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After 7 km north, can 3 km south take her south of the start?"
+        },
+        {
+          "level": 2,
+          "text": "Which way she goes on the 2 km stretch decides east or west."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4: counting the four walks instead of the different directions.",
+        "Answering 1: forgetting the first turn can be left or right."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-data-sufficiency-q-021",
+      "topicId": "reasoning-data-sufficiency",
+      "conceptId": "rds-choices",
+      "levelId": "reasoning-data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "context": "Five friends, Imran, Jyoti, Karan, Leela and Mahesh, sit in a row facing north in a cinema hall. Jyoti sits second from the left end of the row.",
+      "question": "Does Imran sit at an end of the row? (1) Imran is an immediate neighbour of Jyoti. Imran is not an immediate neighbour of Karan. (2) Imran sits second to the right of Leela.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Jyoti is in seat 2. (1) alone: Imran sits next to Jyoti, so in seat 1 or 3; Karan is not next to Imran. Imran in seat 1 (Karan in seat 3, 4 or 5) and Imran in seat 3 (Karan in seat 1 or 5) both fit, so the answer could be Yes or No. Not sufficient. (2) alone: Imran is two seats to Leela’s right; Imran is in seat 3 (Leela in 1) or seat 5 (Leela in 3), since seat 2 is Jyoti’s. Yes or No. Not sufficient. Together: Imran must be in seat 3 next to Jyoti with Leela in seat 1, so Imran is not at an end: a definite No. Sufficient together: C.",
+      "solutionSteps": [
+        "Given: Jyoti in seat 2.",
+        "(1): Imran in 1 or 3: Yes or No. Not sufficient.",
+        "(2): Imran in 3 or 5: Yes or No. Not sufficient.",
+        "Together: Imran in 3: definitely No. Answer C."
+      ],
+      "formulaIds": [
+        "rds-sc-definite-no",
+        "rds-arrangements-f"
+      ],
+      "method": "For a yes/no question, sufficient means always Yes or always No.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With (1), list the seats Imran can take next to Jyoti."
+        },
+        {
+          "level": 2,
+          "text": "Together, if Leela is two seats to Imran’s left and Imran is next to Jyoti, where is Imran?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing E because the combined answer is \"No\".",
+        "Choosing A: Imran could still be in seat 1 under (1)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

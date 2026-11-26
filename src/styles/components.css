@@ -4916,3 +4916,505 @@ button.mock-dot {
   background: color-mix(in srgb, var(--cat-arithmetic) 22%, transparent);
   border: 1.5px dashed var(--cat-arithmetic);
 }
+
+/* ---------------- Last reasoning simulations: tournament (points) ---------------- */
+.points-fig {
+  display: grid;
+  gap: var(--sp-3);
+}
+.points-scroll {
+  overflow-x: auto;
+}
+.points-table {
+  min-width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.points-table th,
+.points-table td {
+  text-align: center;
+  padding: var(--sp-2) var(--sp-3);
+}
+.points-table tbody th {
+  text-align: left;
+}
+.points-cell {
+  font-weight: 800;
+}
+.points-cell.is-w {
+  color: var(--success);
+  background: var(--success-soft);
+}
+.points-cell.is-d {
+  color: var(--fg-muted);
+  background: var(--bg-sunken);
+}
+.points-cell.is-l {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+.points-cell.is-self {
+  color: var(--fg-subtle);
+}
+.points-total {
+  font-weight: 800;
+  color: var(--cat-reasoning);
+}
+.points-place {
+  color: var(--fg-muted);
+}
+.points-room {
+  fill: var(--bg-sunken);
+  stroke: var(--border);
+}
+.points-block {
+  fill: color-mix(in srgb, var(--cat-reasoning) 30%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+  stroke-width: 1.5;
+  transition: width 0.25s ease;
+}
+.points-block.is-drawn {
+  fill: color-mix(in srgb, var(--accent) 22%, var(--bg-elevated));
+  stroke: var(--accent);
+  stroke-dasharray: 4 3;
+}
+.points-block__label {
+  fill: var(--fg);
+  font-size: 11px;
+  font-weight: 700;
+}
+@media (prefers-reduced-motion: reduce) {
+  .points-block {
+    transition: none;
+  }
+}
+/* --- end tournament --- */
+
+/* ---------------- Last reasoning simulations: series (strip) ---------------- */
+.strip-scroll {
+  overflow-x: auto;
+}
+.strip-scroll .strip-svg {
+  min-width: 480px;
+}
+.strip-cell {
+  fill: var(--bg-sunken);
+  stroke: var(--border);
+}
+.strip-cell.is-shown,
+.strip-cell.is-new {
+  fill: color-mix(in srgb, var(--cat-reasoning) 22%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+  stroke-width: 1.5;
+}
+.strip-cell.is-new {
+  stroke-width: 2.5;
+}
+.strip-cell.is-answer {
+  fill: color-mix(in srgb, var(--accent) 30%, var(--bg-elevated));
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+.strip-letter {
+  fill: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.strip-letter.is-shown,
+.strip-letter.is-new,
+.strip-letter.is-answer {
+  fill: var(--fg);
+  font-weight: 800;
+}
+.strip-num {
+  fill: var(--fg-subtle);
+  font-size: 10px;
+}
+.strip-num.is-muted {
+  opacity: 0.6;
+}
+.strip-num.is-marked {
+  fill: var(--cat-reasoning);
+  font-weight: 800;
+  opacity: 1;
+}
+.strip-num--rev.is-marked {
+  fill: var(--accent);
+}
+.strip-arc {
+  fill: none;
+  stroke: var(--cat-reasoning);
+  stroke-width: 2;
+}
+.strip-arc.is-answer {
+  stroke: var(--accent);
+  stroke-dasharray: 5 4;
+}
+.strip-gap {
+  fill: var(--cat-reasoning);
+  font-size: 12px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: var(--bg-elevated);
+  stroke-width: 3px;
+}
+.strip-gap.is-answer {
+  fill: var(--accent);
+}
+.strip-caption {
+  fill: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.strip-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.strip-list__term {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.4rem;
+  padding: var(--sp-1) var(--sp-2);
+  border: 1.5px solid var(--cat-reasoning);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+}
+.strip-list__term.is-answer {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--bg-elevated));
+}
+.strip-list__term.is-hidden {
+  border-style: dashed;
+  border-color: var(--border-strong);
+  color: var(--fg-subtle);
+}
+.strip-list__letter {
+  font-weight: 800;
+  font-size: var(--text-md);
+}
+.strip-list__value {
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+}
+.strip-list__gap {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--cat-reasoning);
+}
+/* --- end series --- */
+
+/* ---------------- Last reasoning simulations: operations (tiles) ---------------- */
+.tiles-figure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--sp-3) var(--sp-4);
+}
+.tiles-svg {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.tiles-label {
+  fill: var(--fg-subtle);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tiles-tile__box {
+  fill: var(--bg-elevated);
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+.tiles-tile__text {
+  fill: var(--fg);
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.tiles-tile--sign .tiles-tile__box {
+  fill: color-mix(in srgb, var(--cat-reasoning) 14%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+}
+.tiles-tile--sign .tiles-tile__text {
+  fill: var(--cat-reasoning);
+  font-size: 22px;
+}
+.tiles-tile--eq .tiles-tile__box {
+  fill: none;
+  stroke: none;
+}
+.tiles-tile.is-changed .tiles-tile__box {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+.tiles-tile.is-changed .tiles-tile__text {
+  fill: var(--accent);
+}
+.tiles-link {
+  stroke: var(--border);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+.tiles-link.is-changed {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-dasharray: none;
+}
+.tiles-key {
+  flex: 0 1 180px;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.tiles-key__title {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-subtle);
+  margin-bottom: var(--sp-2);
+}
+.tiles-key__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-1);
+}
+.tiles-key__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+.tiles-key__from,
+.tiles-key__to {
+  font-weight: 800;
+  font-size: var(--text-md);
+  color: var(--fg);
+}
+.tiles-key__item.is-on .tiles-key__to {
+  color: var(--accent);
+}
+.tiles-key__rule {
+  margin: 0 0 var(--sp-2);
+  color: var(--fg);
+  font-weight: 600;
+}
+.tiles-verdict {
+  margin: 0;
+  font-weight: 700;
+}
+.tiles-verdict.is-true {
+  color: var(--success);
+}
+.tiles-verdict.is-false {
+  color: var(--danger);
+}
+/* --- end operations --- */
+
+/* ---------------- Last reasoning simulations: machine (conveyor) ---------------- */
+.conveyor-scroll {
+  overflow-x: auto;
+}
+.conveyor-scroll .conveyor-svg {
+  min-width: 520px;
+}
+.conveyor-rule {
+  margin: 0;
+  font-weight: 600;
+  color: var(--fg);
+}
+.conveyor-belt {
+  fill: var(--bg-sunken);
+  stroke: var(--border);
+}
+.conveyor-belt.is-current {
+  stroke: var(--cat-reasoning);
+  stroke-width: 1.5;
+}
+.conveyor-label {
+  fill: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.conveyor-chip {
+  stroke-width: 1.5;
+}
+.conveyor-chip.is-waiting {
+  fill: var(--bg-elevated);
+  stroke: var(--border-strong);
+}
+.conveyor-chip.is-placed {
+  fill: color-mix(in srgb, var(--cat-reasoning) 18%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+}
+.conveyor-chip.is-moved {
+  fill: color-mix(in srgb, var(--accent) 30%, var(--bg-elevated));
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+.conveyor-text {
+  fill: var(--fg);
+  font-size: 13px;
+  font-weight: 600;
+}
+.conveyor-text.is-moved {
+  font-weight: 800;
+}
+.conveyor-move {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+.conveyor-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+.conveyor-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.conveyor-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-elevated);
+}
+.conveyor-swatch.is-placed {
+  border-color: var(--cat-reasoning);
+  background: color-mix(in srgb, var(--cat-reasoning) 18%, var(--bg-elevated));
+}
+.conveyor-swatch.is-moved {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 30%, var(--bg-elevated));
+}
+.conveyor-done {
+  margin: 0;
+  font-weight: 700;
+  color: var(--success);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .conveyor-chip.is-moved {
+    animation: conveyor-pop 0.35s ease-out;
+  }
+}
+@keyframes conveyor-pop {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* --- end machine --- */
+
+/* ---------------- Last reasoning simulations: sufficiency (arrangements) ---------------- */
+.arrangements__head {
+  display: grid;
+  gap: var(--sp-1);
+}
+.arrangements__question {
+  margin: 0;
+  color: var(--fg);
+  font-weight: 700;
+}
+.arrangements__given,
+.arrangements__legend {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+.arrangements__statements {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+  font-size: var(--text-sm);
+}
+.arrangements__statement {
+  padding: 2px var(--sp-2);
+  border-left: 3px solid var(--border-strong);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--fg-subtle);
+}
+.arrangements__statement.is-on {
+  border-left-color: var(--cat-reasoning);
+  background: color-mix(in srgb, var(--cat-reasoning) 10%, transparent);
+  color: var(--fg);
+}
+.arrangements__label {
+  font-weight: 700;
+}
+.arrangements-seat rect {
+  fill: var(--bg-sunken);
+  stroke: var(--border-strong);
+  stroke-width: 1.2;
+}
+.arrangements-seat text {
+  fill: var(--fg);
+  font-size: 13px;
+  font-weight: 700;
+}
+.arrangements-row.is-in .arrangements-seat.is-ask rect {
+  fill: color-mix(in srgb, var(--accent) 26%, var(--bg-elevated));
+  stroke: var(--accent);
+  stroke-width: 2.2;
+}
+.arrangements-row.is-out {
+  opacity: 0.38;
+}
+.arrangements-row {
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.arrangements-strike {
+  stroke: var(--danger);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.arrangements-by {
+  fill: var(--danger);
+  font-size: 10px;
+  font-weight: 600;
+}
+.arrangements__answers {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.arrangements__answers.is-enough {
+  color: var(--fg);
+}
+.arrangements__badge {
+  display: inline-block;
+  padding: 1px var(--sp-2);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--cat-reasoning) 18%, var(--bg-elevated));
+  color: var(--fg);
+  font-weight: 700;
+}
+.arrangements__answers.is-enough .arrangements__badge {
+  background: color-mix(in srgb, var(--success) 22%, var(--bg-elevated));
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrangements-row {
+    transition: none;
+  }
+}
+/* --- end sufficiency --- */

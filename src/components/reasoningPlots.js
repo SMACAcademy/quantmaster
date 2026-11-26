@@ -9,7 +9,8 @@
  *   chain   five letters with the signs between them and the path highlighted
  *   family  a family tree: squares for men, circles for women, diamonds unknown
  *
- * and, from reasoningPlotsMore.js: walk, wheels, queue, cubes, fold, mirrorclock.
+ * and, from reasoningPlotsMore.js: walk, wheels, queue, cubes, fold, mirrorclock;
+ * from reasoningPlotsFinal.js: points, strip, tiles, conveyor, arrangements.
  *
  * Every picture has a text summary for screen readers, and the lists (clues,
  * statements, conclusions) are real HTML lists. Things that have just changed
@@ -19,6 +20,7 @@
 
 import { el, svgEl } from '../utils/dom.js';
 import { MORE_REASONING_PLOT_KINDS, drawMoreReasoningPlot } from './reasoningPlotsMore.js';
+import { FINAL_REASONING_PLOT_KINDS, drawFinalReasoningPlot } from './reasoningPlotsFinal.js';
 
 const W = 560;
 const tone = (name) => `var(--cat-${name || 'reasoning'})`;
@@ -296,7 +298,7 @@ export function drawReasoningPlot(plot) {
   if (plot.kind === 'euler') return eulerPlot(plot);
   if (plot.kind === 'chain') return chainPlot(plot);
   if (plot.kind === 'family') return familyPlot(plot);
-  return drawMoreReasoningPlot(plot);
+  return drawMoreReasoningPlot(plot) || drawFinalReasoningPlot(plot);
 }
 
-export const REASONING_PLOT_KINDS = ['seats', 'grid', 'euler', 'chain', 'family', ...MORE_REASONING_PLOT_KINDS];
+export const REASONING_PLOT_KINDS = ['seats', 'grid', 'euler', 'chain', 'family', ...MORE_REASONING_PLOT_KINDS, ...FINAL_REASONING_PLOT_KINDS];

@@ -72,6 +72,11 @@ import { rankingTemplates } from './templates/reasoningRanking.js';
 import { cubesTemplates } from './templates/reasoningCubes.js';
 import { mirrorTemplates } from './templates/reasoningMirror.js';
 import { taxTemplates } from './templates/taxes.js';
+import { tournamentTemplates } from './templates/reasoningTournament.js';
+import { seriesTemplates } from './templates/reasoningSeries.js';
+import { operationsTemplates } from './templates/reasoningOperations.js';
+import { machineTemplates } from './templates/reasoningMachine.js';
+import { sufficiencyTemplates } from './templates/reasoningSufficiency.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -136,7 +141,12 @@ const TEMPLATES = [
   ...cubesTemplates,
   ...mirrorTemplates,
   // Taxes, GST and commission.
-  ...taxTemplates
+  ...taxTemplates,
+  ...tournamentTemplates,
+  ...seriesTemplates,
+  ...operationsTemplates,
+  ...machineTemplates,
+  ...sufficiencyTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

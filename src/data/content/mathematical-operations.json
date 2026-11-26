@@ -1,0 +1,1594 @@
+{
+  "topicId": "mathematical-operations",
+  "concepts": [
+    {
+      "id": "mo-substitute",
+      "topicId": "mathematical-operations",
+      "name": "Symbol substitution",
+      "description": "A sign or a letter stands for another operation. Rewrite the whole expression with the real signs at once, then apply BODMAS; a missing number is found the same way.",
+      "sortOrder": 1
+    },
+    {
+      "id": "mo-equation",
+      "topicId": "mathematical-operations",
+      "name": "Which equation is correct",
+      "description": "Decode every option and evaluate its left side; exactly one comes out equal to its right side.",
+      "sortOrder": 2
+    },
+    {
+      "id": "mo-interchange",
+      "topicId": "mathematical-operations",
+      "name": "Interchanging signs or numbers",
+      "description": "Interchange two signs (or two numbers) everywhere they appear, then evaluate; the right pair makes the equation true.",
+      "sortOrder": 3
+    },
+    {
+      "id": "mo-fill",
+      "topicId": "mathematical-operations",
+      "name": "Filling in the signs",
+      "description": "Choose the signs that, put in the blanks in order, make the equation true; size and last digit rule most options out.",
+      "sortOrder": 4
+    },
+    {
+      "id": "mo-defined",
+      "topicId": "mathematical-operations",
+      "name": "Defined operations",
+      "description": "A new symbol defined by a rule, such as a ★ b = 3a + 2b: put the first number for a and the second for b, brackets first.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "mo-substitute-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "title": "Rewrite, then calculate",
+      "prompt": "A question says ‘+’ means ‘×’, ‘×’ means ‘−’ and so on. What do you do before any arithmetic?",
+      "formula": "1. Write the real sign under every printed sign\n2. Rewrite the whole line at once\n3. Then apply BODMAS",
+      "variables": [],
+      "explanation": "Every sign is replaced at the same moment. A sign you have just written in is never replaced a second time.",
+      "example": "‘+’ means ‘×’ and ‘×’ means ‘+’: 6 + 3 × 2 becomes 6 × 3 + 2 = 20.",
+      "commonMistake": "Replacing + by ×, then going on to replace that new × by +, and ending where you began.",
+      "applicationPrompt": "If ‘−’ means ‘÷’ and ‘÷’ means ‘−’, what is 20 − 4 ÷ 2?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mo-bodmas-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "title": "BODMAS after decoding",
+      "prompt": "Once the real signs are written in, in what order are the operations done?",
+      "formula": "Brackets → × and ÷ → + and −\n(left to right within each pair)",
+      "variables": [],
+      "explanation": "The questions here are set so that a key which says \"÷ before ×, + before −\" gives the same answer. Working straight left to right does not.",
+      "example": "18 ÷ 3 × 2 + 8 − 5 = 6 × 2 + 8 − 5 = 12 + 8 − 5 = 15.",
+      "commonMistake": "Working left to right: 8 + 6 × 3 becomes 42 instead of 26.",
+      "applicationPrompt": "Find 7 × 6 + 45 ÷ 9 − 8.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mo-equation-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-equation",
+      "title": "Which equation is correct?",
+      "prompt": "Four coded equations are given. How do you find the one that is correct?",
+      "formula": "Decode each option → evaluate the left side → compare with the right side",
+      "variables": [],
+      "explanation": "Only one option survives; the others are usually built from a slip such as working left to right.",
+      "example": "‘+’ means ‘÷’ and ‘×’ means ‘+’: 12 + 4 × 2 = 5 decodes to 12 ÷ 4 + 2 = 5, which is true.",
+      "commonMistake": "Testing the options with the printed signs.",
+      "applicationPrompt": "If ‘−’ means ‘×’ and ‘×’ means ‘−’, is 6 − 3 × 4 = 14 correct?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mo-interchange-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "title": "Interchanging two signs or numbers",
+      "prompt": "An equation becomes correct when two signs (or two numbers) change places. How do you test a pair?",
+      "formula": "Interchange the two, everywhere they appear\nEvaluate with BODMAS and compare with the right side",
+      "variables": [],
+      "explanation": "An interchange changes both members of the pair; everything else stays put.",
+      "example": "15 + 36 × 4 ÷ 2 − 7 = 26: interchange × and ÷ → 15 + 36 ÷ 4 × 2 − 7 = 15 + 18 − 7 = 26.",
+      "commonMistake": "Changing only one of the two signs.",
+      "applicationPrompt": "Which two signs make 12 ÷ 4 × 6 − 10 = 28 correct?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mo-fill-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-fill",
+      "title": "Filling in the signs",
+      "prompt": "Blanks (*) stand between numbers. How do you choose the signs?",
+      "formula": "Put each option into the blanks, in order\nBODMAS each time; rule out by size and last digit first",
+      "variables": [],
+      "explanation": "The order of the signs matters, and BODMAS still applies after they are filled in.",
+      "example": "6 * 4 * 2 = 26: ×, + gives 6 × 4 + 2 = 26; +, × gives 6 + 8 = 14.",
+      "commonMistake": "Working the filled-in line left to right.",
+      "applicationPrompt": "Which signs make 9 * 3 * 4 * 5 = 7 true?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mo-defined-f",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "title": "A defined operation",
+      "prompt": "If a ★ b = 3a + 2b, how do you find 5 ★ 4, or (5 ★ 4) ★ 2?",
+      "formula": "a = the number before the symbol, b = the number after\n(x ★ y) ★ z: work x ★ y first, then use it as a",
+      "variables": [],
+      "explanation": "2a means 2 × a and ab means a × b. The bracket’s value becomes a or b of the outer operation, depending on its side.",
+      "example": "a ★ b = 3a + 2b: 5 ★ 4 = 15 + 8 = 23, but 4 ★ 5 = 12 + 10 = 22.",
+      "commonMistake": "Swapping a and b: most rules are not symmetric.",
+      "applicationPrompt": "If a ⊕ b = 2a − b, find (7 ⊕ 4) ⊕ 3.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mo-sc-table",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "kind": "shortcut",
+      "title": "Key as a table",
+      "prompt": "How do you keep a four-sign key straight?",
+      "formula": "Write the key as two rows:\nprinted  + − × ÷\nreal     × ÷ − +\nthen copy the real row under the expression",
+      "variables": [],
+      "explanation": "Reading the real sign straight down from the printed one removes all the back-and-forth.",
+      "example": "With that key, 18 − 3 + 4 ÷ 6 × 2 becomes 18 ÷ 3 × 4 + 6 − 2 = 24 + 6 − 2 = 28.",
+      "commonMistake": "Reading the key the wrong way round (real → printed).",
+      "applicationPrompt": "With the same key, what is 40 − 8 + 2 × 1?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mo-sc-unit",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-equation",
+      "kind": "shortcut",
+      "title": "Last-digit check",
+      "prompt": "How can you rule out an option without the full calculation?",
+      "formula": "Track only the last digit of each product, sum and difference\nA wrong last digit rules the option out",
+      "variables": [],
+      "explanation": "Last digits of + − × depend only on last digits. A division has to be worked out in full.",
+      "example": "Is 13 × 7 + 24 ÷ 6 = 93? 13 × 7 ends in 1 and 24 ÷ 6 = 4, so the left side ends in 5 (it is 95): not 93.",
+      "commonMistake": "Taking the last digit of a division (24 ÷ 6) instead of working it out.",
+      "applicationPrompt": "Without the full sum: can 17 × 3 + 8 = 61 be true?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mo-sc-gap",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "kind": "shortcut",
+      "title": "Measure the gap first",
+      "prompt": "In an interchange question, which pair should you try first?",
+      "formula": "Work out the printed left side; gap = right side − left side\nTry first the pair that would change the left side by about the gap",
+      "variables": [],
+      "explanation": "Six sign pairs (or ten number pairs) is a lot to test blindly; the gap points at one or two.",
+      "example": "12 ÷ 4 × 6 − 10 = 28: the left side is 18 − 10 = 8, so it must grow by 20. Turning − 10 into + 10 does exactly that: interchange + and −, 18 + 10 = 28.",
+      "commonMistake": "Testing all the pairs in order before looking at the size of the gap.",
+      "applicationPrompt": "In 15 + 36 × 4 ÷ 2 − 7 = 26 the left side is 80. Must × or ÷ change?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mathematical-operations-level-0",
+      "topicId": "mathematical-operations",
+      "order": 0,
+      "title": "Signs in Disguise",
+      "description": "Substitution, BODMAS, interchanges, blanks and defined operations.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "mo-substitute",
+        "mo-equation",
+        "mo-interchange",
+        "mo-fill",
+        "mo-defined"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "symbol-swap"
+          },
+          {
+            "type": "text",
+            "title": "Decode first, calculate second",
+            "body": "In \"If ‘+’ means ‘×’ and ‘×’ means ‘−’\", the printed signs are only labels. Write the real sign under every printed one, rewrite the whole line, and only then calculate. If you calculate as you decode, it is very easy to use a printed sign by mistake, or to replace a sign you have already replaced."
+          },
+          {
+            "type": "formula",
+            "title": "Two steps",
+            "body": "1. Decode: real sign under every printed sign, all at once\n2. Calculate: brackets, then × and ÷, then + and − (left to right in each pair)",
+            "caption": "A key such as P = ×, Q = +, R = ÷, S = − works the same way."
+          },
+          {
+            "type": "check",
+            "questionId": "mathematical-operations-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Interchanges and blanks",
+            "body": "Some questions give a wrong equation and ask which two signs (or numbers) to interchange: change both, everywhere, then evaluate. Others leave blanks for the signs. In both, work out how far the left side is from the right side first; that gap usually points to the answer."
+          },
+          {
+            "type": "example",
+            "title": "A defined operation",
+            "body": "If a ★ b = 3a + 2b, then 5 ★ 4 = 15 + 8 = 23 but 4 ★ 5 = 12 + 10 = 22: the order matters. For (5 ★ 4) ★ 2, work the bracket first and use 23 as a: 69 + 4 = 73."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Some books state the order as ÷, ×, +, − (DMAS). Every question here gives the same answer that way as with the usual rule (× and ÷ together, then + and −, left to right). What never works is going straight left to right."
+          },
+          {
+            "type": "check",
+            "questionId": "mathematical-operations-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "mathematical-operations-level-1",
+      "topicId": "mathematical-operations",
+      "order": 1,
+      "title": "Operation Rules",
+      "description": "Decoding, BODMAS, testing equations, interchanges, blanks and defined operations.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mathematical-operations-level-0"
+      ],
+      "conceptIds": [
+        "mo-substitute",
+        "mo-equation",
+        "mo-interchange",
+        "mo-fill",
+        "mo-defined"
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f",
+        "mo-equation-f",
+        "mo-interchange-f",
+        "mo-fill-f",
+        "mo-defined-f",
+        "mo-sc-table",
+        "mo-sc-unit",
+        "mo-sc-gap"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mathematical-operations-level-2",
+      "topicId": "mathematical-operations",
+      "order": 2,
+      "title": "Decode and Calculate",
+      "description": "Letter and sign keys, simple defined operations, and two blanks.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "mathematical-operations-level-1"
+      ],
+      "conceptIds": [
+        "mo-substitute",
+        "mo-defined",
+        "mo-equation",
+        "mo-fill"
+      ],
+      "questionIds": [
+        "mathematical-operations-q-001",
+        "mathematical-operations-q-002",
+        "mathematical-operations-q-003",
+        "mathematical-operations-q-004",
+        "mathematical-operations-q-005",
+        "mathematical-operations-q-006",
+        "mathematical-operations-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mathematical-operations-level-3",
+      "topicId": "mathematical-operations",
+      "order": 3,
+      "title": "Equations and Interchanges",
+      "description": "Missing numbers, which equation is correct, interchanging signs, three blanks and nested operations.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mathematical-operations-level-2"
+      ],
+      "conceptIds": [
+        "mo-substitute",
+        "mo-equation",
+        "mo-interchange",
+        "mo-fill",
+        "mo-defined"
+      ],
+      "questionIds": [
+        "mathematical-operations-q-008",
+        "mathematical-operations-q-009",
+        "mathematical-operations-q-010",
+        "mathematical-operations-q-011",
+        "mathematical-operations-q-012",
+        "mathematical-operations-q-013",
+        "mathematical-operations-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "mathematical-operations-level-4",
+      "topicId": "mathematical-operations",
+      "order": 4,
+      "title": "Double Interchanges and Two Rules",
+      "description": "Interchanging numbers, signs and numbers together, two defined operations and harder missing numbers.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mathematical-operations-level-3"
+      ],
+      "conceptIds": [
+        "mo-interchange",
+        "mo-defined",
+        "mo-equation",
+        "mo-substitute"
+      ],
+      "questionIds": [
+        "mathematical-operations-q-015",
+        "mathematical-operations-q-016",
+        "mathematical-operations-q-017",
+        "mathematical-operations-q-018",
+        "mathematical-operations-q-019",
+        "mathematical-operations-q-020",
+        "mathematical-operations-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mathematical-operations-level-5",
+      "topicId": "mathematical-operations",
+      "order": 5,
+      "title": "Mixed Operations Practice",
+      "description": "All mathematical-operations patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mathematical-operations-level-4"
+      ],
+      "conceptIds": [
+        "mo-substitute",
+        "mo-equation",
+        "mo-interchange",
+        "mo-fill",
+        "mo-defined"
+      ],
+      "questionQuery": {
+        "topicId": "mathematical-operations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "mathematical-operations-q-001",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a code used at a coaching centre in Patna, ‘P’ means ‘×’, ‘Q’ means ‘+’, ‘R’ means ‘÷’ and ‘S’ means ‘−’. What is the value of 16 R 4 Q 6 P 3 S 5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "17"
+        },
+        {
+          "id": "b",
+          "text": "25"
+        },
+        {
+          "id": "c",
+          "text": "27"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Decoded, the expression is 16 ÷ 4 + 6 × 3 − 5. Division and multiplication come first: 4 + 18 − 5 = 17.",
+      "solutionSteps": [
+        "Replace the letters: 16 ÷ 4 + 6 × 3 − 5.",
+        "16 ÷ 4 = 4 and 6 × 3 = 18.",
+        "4 + 18 − 5 = 17."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f"
+      ],
+      "method": "Decode every letter, then BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the real sign under each letter: R is ÷, Q is +, P is ×, S is −."
+        },
+        {
+          "level": 2,
+          "text": "In 16 ÷ 4 + 6 × 3 − 5, work out 16 ÷ 4 and 6 × 3 first."
+        }
+      ],
+      "commonMistakes": [
+        "25: working left to right (4 + 6 = 10, × 3 = 30, − 5 = 25).",
+        "27: reading S as + (4 + 18 + 5). 8: reading P as + (4 + 6 + 3 − 5)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-002",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If ‘+’ means ‘−’, ‘−’ means ‘+’, ‘×’ means ‘÷’ and ‘÷’ means ‘×’, find the value of 40 × 8 ÷ 3 − 7 + 2.",
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "Rewrite every sign at once: 40 × 8 ÷ 3 − 7 + 2 becomes 40 ÷ 8 × 3 + 7 − 2. Then 40 ÷ 8 = 5, 5 × 3 = 15, and 15 + 7 − 2 = 20.",
+      "solutionSteps": [
+        "Real signs: 40 ÷ 8 × 3 + 7 − 2.",
+        "40 ÷ 8 × 3 = 5 × 3 = 15.",
+        "15 + 7 − 2 = 20."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-sc-table"
+      ],
+      "method": "Swap each sign for its partner (+ ↔ −, × ↔ ÷) all at once, then calculate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The key simply swaps + with − and × with ÷. Rewrite the line before calculating."
+        },
+        {
+          "level": 2,
+          "text": "The real expression is 40 ÷ 8 × 3 + 7 − 2."
+        }
+      ],
+      "commonMistakes": [
+        "Calculating with the printed signs: 40 × 8 ÷ 3 is not even a whole number, a sign that the key has not been applied.",
+        "Replacing + by −, then every − (including the new one) by + again."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-003",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If a ★ b = 3a + 2b, find 5 ★ 4.",
+      "answer": {
+        "value": 23,
+        "tolerance": 0
+      },
+      "explanation": "Here a = 5 (before the star) and b = 4 (after it): 3 × 5 + 2 × 4 = 15 + 8 = 23.",
+      "solutionSteps": [
+        "a = 5, b = 4.",
+        "3a + 2b = 15 + 8 = 23."
+      ],
+      "formulaIds": [
+        "mo-defined-f"
+      ],
+      "method": "First number for a, second for b, then BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In 5 ★ 4, which number is a?"
+        },
+        {
+          "level": 2,
+          "text": "3a means 3 × a: 3 × 5 = 15. Now add 2 × 4."
+        }
+      ],
+      "commonMistakes": [
+        "22: swapping a and b (3 × 4 + 2 × 5).",
+        "14: reading 3a + 2b as 3 + a + 2 + b."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-004",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For any two numbers, a # b = a² − b. What is 6 # 9?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "75"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "45"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "a = 6 and b = 9, so a² − b = 36 − 9 = 27.",
+      "solutionSteps": [
+        "a = 6, b = 9.",
+        "a² − b = 6² − 9 = 36 − 9 = 27."
+      ],
+      "formulaIds": [
+        "mo-defined-f"
+      ],
+      "method": "Substitute in order: a is the first number, b the second.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Square the first number, not the second."
+        },
+        {
+          "level": 2,
+          "text": "6² = 36. Now take away 9."
+        }
+      ],
+      "commonMistakes": [
+        "75: swapping a and b (9² − 6).",
+        "3: reading a² as 2a (12 − 9). 45: adding b instead of subtracting it."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-005",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-equation",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If ‘+’ means ‘÷’, ‘−’ means ‘×’, ‘×’ means ‘+’ and ‘÷’ means ‘−’, which of the following equations is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6 − 3 × 4 = 30"
+        },
+        {
+          "id": "b",
+          "text": "12 + 4 × 2 = 5"
+        },
+        {
+          "id": "c",
+          "text": "20 + 5 ÷ 1 = 5"
+        },
+        {
+          "id": "d",
+          "text": "9 ÷ 3 − 2 = 12"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Decode each option. 12 + 4 × 2 becomes 12 ÷ 4 + 2 = 3 + 2 = 5, which matches. The others: 6 × 3 + 4 = 22, 20 ÷ 5 − 1 = 3 and 9 − 3 × 2 = 3.",
+      "solutionSteps": [
+        "6 − 3 × 4 → 6 × 3 + 4 = 22, not 30.",
+        "12 + 4 × 2 → 12 ÷ 4 + 2 = 5. Correct.",
+        "20 + 5 ÷ 1 → 20 ÷ 5 − 1 = 3, not 5.",
+        "9 ÷ 3 − 2 → 9 − 3 × 2 = 3, not 12."
+      ],
+      "formulaIds": [
+        "mo-equation-f",
+        "mo-substitute-f"
+      ],
+      "method": "Decode each option and evaluate its left side with BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rewrite each option with the real signs before you calculate."
+        },
+        {
+          "level": 2,
+          "text": "Option 2 becomes 12 ÷ 4 + 2. What is that?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 6 − 3 × 4 = 30: that needs 6 × (3 + 4), a bracket that is not there.",
+        "Choosing 9 ÷ 3 − 2 = 12: that is (9 − 3) × 2, worked left to right. Choosing 20 + 5 ÷ 1 = 5: that is 20 ÷ (5 − 1), subtracting before dividing."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-006",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a maths club at a school in Kochi, ‘A’ stands for ‘+’, ‘B’ for ‘−’, ‘C’ for ‘×’ and ‘D’ for ‘÷’. Find the value of 7 C 6 A 45 D 9 B 8.",
+      "answer": {
+        "value": 39,
+        "tolerance": 0
+      },
+      "explanation": "Decoded: 7 × 6 + 45 ÷ 9 − 8. Multiplication and division first: 42 + 5 − 8 = 39.",
+      "solutionSteps": [
+        "7 × 6 + 45 ÷ 9 − 8.",
+        "7 × 6 = 42 and 45 ÷ 9 = 5.",
+        "42 + 5 − 8 = 39."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f"
+      ],
+      "method": "Decode, then × and ÷ before + and −.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "C is × and D is ÷. Which parts do you work out first?"
+        },
+        {
+          "level": 2,
+          "text": "7 × 6 = 42 and 45 ÷ 9 = 5."
+        }
+      ],
+      "commonMistakes": [
+        "Working left to right: 42 + 45 = 87, ÷ 9 is not whole, which shows the order is wrong.",
+        "Reading B as + and getting 55."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-007",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-fill",
+      "levelId": "mathematical-operations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which two signs, in order, should replace the * signs to make the equation correct?\n6 * 4 * 2 = 26",
+      "options": [
+        {
+          "id": "a",
+          "text": "×, +"
+        },
+        {
+          "id": "b",
+          "text": "+, ×"
+        },
+        {
+          "id": "c",
+          "text": "×, −"
+        },
+        {
+          "id": "d",
+          "text": "+, +"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "With × then +: 6 × 4 + 2 = 24 + 2 = 26. With + then ×, BODMAS gives 6 + 8 = 14; ×, − gives 22; +, + gives 12.",
+      "solutionSteps": [
+        "×, +: 6 × 4 + 2 = 26. Correct.",
+        "+, ×: 6 + 4 × 2 = 14.",
+        "×, −: 24 − 2 = 22; +, +: 12."
+      ],
+      "formulaIds": [
+        "mo-fill-f"
+      ],
+      "method": "Put each option in the blanks and evaluate with BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "26 is bigger than 6 + 4 + 2, so one sign must be ×."
+        },
+        {
+          "level": 2,
+          "text": "Which number does the × go next to? Try both places."
+        }
+      ],
+      "commonMistakes": [
+        "+, ×: working 6 + 4 first gives 20, but BODMAS does 4 × 2 first, giving 14.",
+        "×, −: 22, the right first sign but the wrong second one."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-008",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If ‘P’ means ‘÷’, ‘Q’ means ‘×’, ‘R’ means ‘+’ and ‘S’ means ‘−’, find the number that replaces ? in\n36 P 4 R ? Q 3 S 5 = 22",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "Decoded: 36 ÷ 4 + ? × 3 − 5 = 22, that is 9 + 3 × ? − 5 = 22. So 3 × ? = 22 − 9 + 5 = 18 and ? = 6.",
+      "solutionSteps": [
+        "36 ÷ 4 + ? × 3 − 5 = 22.",
+        "9 + 3 × ? − 5 = 22, so 3 × ? = 18.",
+        "? = 6. Check: 9 + 18 − 5 = 22."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f"
+      ],
+      "method": "Decode, simplify the known parts, then solve for ? as you would for x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode first: 36 ÷ 4 + ? × 3 − 5 = 22."
+        },
+        {
+          "level": 2,
+          "text": "BODMAS ties the 3 to the ?: the ? × 3 part must be 22 − 9 + 5."
+        }
+      ],
+      "commonMistakes": [
+        "Working left to right: (9 + ?) × 3 − 5 = 22 gives ? = 0, which does not check out with BODMAS.",
+        "Forgetting to add back the 5: 3 × ? = 13 has no whole-number answer."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-009",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-equation",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "If ‘×’ means ‘+’, ‘+’ means ‘÷’, ‘÷’ means ‘−’ and ‘−’ means ‘×’, which of the following equations is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15 + 3 − 2 × 1 = 12"
+        },
+        {
+          "id": "b",
+          "text": "9 − 4 ÷ 6 + 2 = 15"
+        },
+        {
+          "id": "c",
+          "text": "8 × 6 + 2 ÷ 4 = 7"
+        },
+        {
+          "id": "d",
+          "text": "20 × 8 ÷ 12 + 2 = 8"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Decode each option and use BODMAS. 8 × 6 + 2 ÷ 4 becomes 8 + 6 ÷ 2 − 4 = 8 + 3 − 4 = 7, which matches. The others give 11 (15 ÷ 3 × 2 + 1), 33 (9 × 4 − 6 ÷ 2) and 22 (20 + 8 − 12 ÷ 2).",
+      "solutionSteps": [
+        "15 + 3 − 2 × 1 → 15 ÷ 3 × 2 + 1 = 11, not 12.",
+        "9 − 4 ÷ 6 + 2 → 9 × 4 − 6 ÷ 2 = 36 − 3 = 33, not 15.",
+        "8 × 6 + 2 ÷ 4 → 8 + 6 ÷ 2 − 4 = 7. Correct.",
+        "20 × 8 ÷ 12 + 2 → 20 + 8 − 12 ÷ 2 = 22, not 8."
+      ],
+      "formulaIds": [
+        "mo-equation-f",
+        "mo-sc-table"
+      ],
+      "method": "Make the key table, decode each option, evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Key table: printed × + ÷ −, real + ÷ − ×."
+        },
+        {
+          "level": 2,
+          "text": "Option 3 decodes to 8 + 6 ÷ 2 − 4. Do the division first."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 9 − 4 ÷ 6 + 2 = 15: that is ((9 × 4) − 6) ÷ 2, worked left to right.",
+        "Choosing 20 × 8 ÷ 12 + 2 = 8: also true only left to right, (20 + 8 − 12) ÷ 2. Choosing 15 + 3 − 2 × 1 = 12 after a slip in 15 ÷ 3 × 2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-010",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which two signs should be interchanged to make the equation correct?\n15 + 36 × 4 ÷ 2 − 7 = 26",
+      "options": [
+        {
+          "id": "a",
+          "text": "× and ÷"
+        },
+        {
+          "id": "b",
+          "text": "+ and −"
+        },
+        {
+          "id": "c",
+          "text": "+ and ×"
+        },
+        {
+          "id": "d",
+          "text": "− and ÷"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "As printed the left side is 15 + 72 − 7 = 80, far too big. Interchanging × and ÷ gives 15 + 36 ÷ 4 × 2 − 7 = 15 + 18 − 7 = 26. Interchanging + and − gives −50; + and × gives 535; − and ÷ leaves a division that is not whole.",
+      "solutionSteps": [
+        "Printed: 15 + 36 × 4 ÷ 2 − 7 = 15 + 72 − 7 = 80.",
+        "Interchange × and ÷: 15 + 36 ÷ 4 × 2 − 7.",
+        "36 ÷ 4 × 2 = 18; 15 + 18 − 7 = 26. Correct."
+      ],
+      "formulaIds": [
+        "mo-interchange-f",
+        "mo-sc-gap"
+      ],
+      "method": "Measure the gap, then test the pair that could close it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The printed left side is 80. It must come down by 54."
+        },
+        {
+          "level": 2,
+          "text": "The big part is 36 × 4 ÷ 2 = 72. What if 36 were divided by 4 instead?"
+        }
+      ],
+      "commonMistakes": [
+        "+ and −: 15 − 72 + 7 = −50, the wrong direction entirely.",
+        "+ and ×: 15 × 36 + 2 − 7 = 535. Changing only the × to ÷ and leaving the ÷ alone."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-011",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If a ⊕ b = 2a − b, find the value of (7 ⊕ 4) ⊕ 3.",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "Bracket first: 7 ⊕ 4 = 14 − 4 = 10. Then 10 ⊕ 3 = 20 − 3 = 17.",
+      "solutionSteps": [
+        "7 ⊕ 4 = 2 × 7 − 4 = 10.",
+        "10 ⊕ 3 = 2 × 10 − 3 = 17."
+      ],
+      "formulaIds": [
+        "mo-defined-f"
+      ],
+      "method": "Work the bracket, then use its value as a in the outer operation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start inside the bracket: 7 ⊕ 4."
+        },
+        {
+          "level": 2,
+          "text": "The bracket gives 10, and it is on the left, so it becomes a."
+        }
+      ],
+      "commonMistakes": [
+        "9: working 7 ⊕ (4 ⊕ 3) instead (4 ⊕ 3 = 5, 7 ⊕ 5 = 9).",
+        "−4: putting the bracket’s value in as b (3 ⊕ 10 = 6 − 10)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-012",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-fill",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which three different signs, in order, should replace the * signs to make the equation correct?\n9 * 3 * 4 * 5 = 7",
+      "options": [
+        {
+          "id": "a",
+          "text": "÷, ×, −"
+        },
+        {
+          "id": "b",
+          "text": "÷, ×, +"
+        },
+        {
+          "id": "c",
+          "text": "÷, +, −"
+        },
+        {
+          "id": "d",
+          "text": "×, ÷, −"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "With ÷, ×, −: 9 ÷ 3 × 4 − 5 = 3 × 4 − 5 = 12 − 5 = 7. The others give 17 (÷, ×, +), 2 (÷, +, −: 3 + 4 − 5) and a division that is not whole (×, ÷, −: 27 ÷ 4).",
+      "solutionSteps": [
+        "÷, ×, −: 9 ÷ 3 × 4 − 5 = 12 − 5 = 7. Correct.",
+        "÷, ×, +: 12 + 5 = 17.",
+        "÷, +, −: 3 + 4 − 5 = 2.",
+        "×, ÷, −: 27 ÷ 4 is not whole."
+      ],
+      "formulaIds": [
+        "mo-fill-f",
+        "mo-sc-unit"
+      ],
+      "method": "Test each option with BODMAS; discard any that leaves a division that is not whole.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "7 is small: something must shrink 9 first. Try 9 ÷ 3."
+        },
+        {
+          "level": 2,
+          "text": "9 ÷ 3 = 3. Which two signs then turn 3, 4, 5 into 7?"
+        }
+      ],
+      "commonMistakes": [
+        "÷, ×, +: the right first two signs, but adding the 5 gives 17.",
+        "÷, +, −: adding 4 instead of multiplying gives 2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-013",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "If ‘+’ means ‘−’, ‘−’ means ‘+’, ‘×’ means ‘÷’ and ‘÷’ means ‘×’, which of these expressions are equal to 10? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "30 × 6 ÷ 2"
+        },
+        {
+          "id": "b",
+          "text": "4 ÷ 3 − 2"
+        },
+        {
+          "id": "c",
+          "text": "13 − 2 + 5"
+        },
+        {
+          "id": "d",
+          "text": "40 × 8 + 3"
+        },
+        {
+          "id": "e",
+          "text": "2 ÷ 7 + 4"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "explanation": "Decode each: 30 ÷ 6 × 2 = 10; 4 × 3 + 2 = 14; 13 + 2 − 5 = 10; 40 ÷ 8 − 3 = 2; 2 × 7 − 4 = 10. Three are equal to 10.",
+      "solutionSteps": [
+        "30 × 6 ÷ 2 → 30 ÷ 6 × 2 = 10.",
+        "4 ÷ 3 − 2 → 4 × 3 + 2 = 14.",
+        "13 − 2 + 5 → 13 + 2 − 5 = 10.",
+        "40 × 8 + 3 → 40 ÷ 8 − 3 = 2.",
+        "2 ÷ 7 + 4 → 2 × 7 − 4 = 10."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-sc-table"
+      ],
+      "method": "The key swaps + with − and × with ÷; decode each option and evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rewrite each option with + and − swapped, and × and ÷ swapped."
+        },
+        {
+          "level": 2,
+          "text": "30 × 6 ÷ 2 becomes 30 ÷ 6 × 2. More than one option works."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the first option that equals 10.",
+        "Evaluating 30 × 6 ÷ 2 as printed (90)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-014",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If ‘L’ means ‘×’, ‘M’ means ‘−’, ‘N’ means ‘+’ and ‘O’ means ‘÷’, find the value of (18 N 6) O 4 L 3 M 5.",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "Decoded: (18 + 6) ÷ 4 × 3 − 5. Bracket first: 24 ÷ 4 × 3 − 5 = 6 × 3 − 5 = 18 − 5 = 13.",
+      "solutionSteps": [
+        "(18 + 6) ÷ 4 × 3 − 5.",
+        "Bracket: 24 ÷ 4 × 3 − 5.",
+        "6 × 3 − 5 = 13."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f"
+      ],
+      "method": "Decode, then brackets, then × and ÷, then + and −.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The bracket stays a bracket after decoding: (18 + 6)."
+        },
+        {
+          "level": 2,
+          "text": "Then 24 ÷ 4 × 3, left to right."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the bracket: 18 + 6 ÷ 4 is not even whole.",
+        "Working 4 × 3 before 24 ÷ 4: 24 ÷ 12 − 5 = −3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-015",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which two numbers must be interchanged to make the equation correct?\n3 × 7 + 45 ÷ 9 − 8 = 58",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 and 8"
+        },
+        {
+          "id": "b",
+          "text": "7 and 9"
+        },
+        {
+          "id": "c",
+          "text": "3 and 7"
+        },
+        {
+          "id": "d",
+          "text": "8 and 9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "As printed: 21 + 5 − 8 = 18, which is 40 short. Interchanging 3 and 8 gives 8 × 7 + 45 ÷ 9 − 3 = 56 + 5 − 3 = 58. Interchanging 3 and 7 changes nothing (3 × 7 = 7 × 3), and 7 and 9 or 8 and 9 leave a division that is not whole.",
+      "solutionSteps": [
+        "Printed: 3 × 7 + 45 ÷ 9 − 8 = 18; the gap is 40.",
+        "Interchange 3 and 8: 8 × 7 + 45 ÷ 9 − 3.",
+        "56 + 5 − 3 = 58. Correct."
+      ],
+      "formulaIds": [
+        "mo-interchange-f",
+        "mo-sc-gap"
+      ],
+      "method": "Find the gap, then look for a pair that makes the product bigger and the subtraction smaller.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The left side is 18; it must grow by 40. Which part can grow that much?"
+        },
+        {
+          "level": 2,
+          "text": "A bigger first factor and a smaller number taken away would both help."
+        }
+      ],
+      "commonMistakes": [
+        "3 and 7: they are both factors of one product, so nothing changes.",
+        "7 and 9 or 8 and 9: 45 ÷ 7 and 45 ÷ 8 are not whole."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-016",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which interchange makes the equation correct?\n12 ÷ 4 + 5 × 3 = 14",
+      "options": [
+        {
+          "id": "a",
+          "text": "Interchange + and ×, and 3 and 5"
+        },
+        {
+          "id": "b",
+          "text": "Interchange + and ×, and 3 and 4"
+        },
+        {
+          "id": "c",
+          "text": "Interchange ÷ and ×, and 4 and 5"
+        },
+        {
+          "id": "d",
+          "text": "Interchange + and −, and 3 and 5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Interchanging + and × gives 12 ÷ 4 × 5 + 3; then interchanging 3 and 5 gives 12 ÷ 4 × 3 + 5 = 9 + 5 = 14. The second option gives 12 ÷ 3 × 5 + 4 = 24, the third 12 × 5 + 4 ÷ 3 (not whole), the fourth 12 ÷ 4 − 3 × 5 = −12.",
+      "solutionSteps": [
+        "Signs first: + ↔ × turns 12 ÷ 4 + 5 × 3 into 12 ÷ 4 × 5 + 3.",
+        "Numbers: 3 ↔ 5 gives 12 ÷ 4 × 3 + 5.",
+        "3 × 3 + 5 = 14. Correct."
+      ],
+      "formulaIds": [
+        "mo-interchange-f"
+      ],
+      "method": "Do the sign interchange and the number interchange one after the other, then evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Apply both changes before calculating anything."
+        },
+        {
+          "level": 2,
+          "text": "Option 1 turns the line into 12 ÷ 4 × 3 + 5."
+        }
+      ],
+      "commonMistakes": [
+        "Doing only the sign interchange (12 ÷ 4 × 5 + 3 = 18).",
+        "Interchanging the numbers as positions instead of as values."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-017",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If a ★ b = a + b + ab and a ◆ b = (a + b) ÷ 2, find the value of (3 ★ 5) ◆ 9.",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Bracket first, with the ★ rule: 3 ★ 5 = 3 + 5 + 15 = 23. Then the ◆ rule: 23 ◆ 9 = (23 + 9) ÷ 2 = 16.",
+      "solutionSteps": [
+        "3 ★ 5 = 3 + 5 + 3 × 5 = 23.",
+        "23 ◆ 9 = (23 + 9) ÷ 2 = 32 ÷ 2 = 16."
+      ],
+      "formulaIds": [
+        "mo-defined-f"
+      ],
+      "method": "Bracket first; each symbol keeps its own rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Inside the bracket the symbol is ★: add a, b and ab."
+        },
+        {
+          "level": 2,
+          "text": "3 ★ 5 = 23. Now 23 ◆ 9 is the average of 23 and 9."
+        }
+      ],
+      "commonMistakes": [
+        "Using the ★ rule for ◆ as well (23 ★ 9 = 239).",
+        "Forgetting the ab term: 3 ★ 5 = 8, and then (8 + 9) ÷ 2 is not even whole, a warning sign."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-018",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-equation",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If the signs + and × are interchanged, and the numbers 2 and 7 are interchanged, which equation becomes correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 + 2 × 4 = 30"
+        },
+        {
+          "id": "b",
+          "text": "2 × 6 + 7 = 19"
+        },
+        {
+          "id": "c",
+          "text": "7 × 3 + 2 = 13"
+        },
+        {
+          "id": "d",
+          "text": "2 + 7 × 5 = 45"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Make both changes in each option. 2 × 6 + 7 becomes 7 + 6 × 2 = 19, which matches. The others become 2 × 7 + 4 = 18, 2 + 3 × 7 = 23 and 7 × 2 + 5 = 19.",
+      "solutionSteps": [
+        "7 + 2 × 4 → 2 × 7 + 4 = 18, not 30.",
+        "2 × 6 + 7 → 7 + 6 × 2 = 19. Correct.",
+        "7 × 3 + 2 → 2 + 3 × 7 = 23, not 13.",
+        "2 + 7 × 5 → 7 × 2 + 5 = 19, not 45."
+      ],
+      "formulaIds": [
+        "mo-equation-f",
+        "mo-interchange-f"
+      ],
+      "method": "Apply both interchanges to every option, then evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In every option, swap + with ×, and 2 with 7, before calculating."
+        },
+        {
+          "level": 2,
+          "text": "2 × 6 + 7 becomes 7 + 6 × 2."
+        }
+      ],
+      "commonMistakes": [
+        "7 + 2 × 4 = 30: true if you interchange only the numbers (2 + 7 × 4 = 30).",
+        "7 × 3 + 2 = 13: true if you interchange only the signs (7 + 3 × 2 = 13). 2 + 7 × 5 = 45: (2 + 7) × 5, worked left to right as printed."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-019",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-defined",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "An operation is defined by a ★ b = ab − (a + b). Which of the following are true? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 ★ 4 = 5"
+        },
+        {
+          "id": "b",
+          "text": "a ★ b = b ★ a for every pair of numbers"
+        },
+        {
+          "id": "c",
+          "text": "2 ★ 2 = 0"
+        },
+        {
+          "id": "d",
+          "text": "5 ★ 1 = 1"
+        },
+        {
+          "id": "e",
+          "text": "(2 ★ 3) ★ 4 = 3"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "3 ★ 4 = 12 − 7 = 5. Swapping a and b changes neither ab nor a + b, so the operation is symmetric. 2 ★ 2 = 4 − 4 = 0. But 5 ★ 1 = 5 − 6 = −1, and (2 ★ 3) ★ 4 = 1 ★ 4 = 4 − 5 = −1.",
+      "solutionSteps": [
+        "3 ★ 4 = 12 − 7 = 5: true.",
+        "ab and a + b do not change when a and b swap: true.",
+        "2 ★ 2 = 4 − 4 = 0: true.",
+        "5 ★ 1 = 5 − 6 = −1: false.",
+        "2 ★ 3 = 1, then 1 ★ 4 = −1: false."
+      ],
+      "formulaIds": [
+        "mo-defined-f"
+      ],
+      "method": "Test each statement by substituting; for \"every pair\", look at the rule’s form.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "ab means a × b. Check each numerical statement in turn."
+        },
+        {
+          "level": 2,
+          "text": "For the \"every pair\" statement: does ab − (a + b) change if a and b swap?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking 5 ★ 1 as 5 − 6 = 1 (dropping the minus sign).",
+        "For (2 ★ 3) ★ 4, using 2 ★ 3 = 6 (just ab) and getting 14."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-020",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-substitute",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If ‘P’ means ‘×’, ‘Q’ means ‘÷’, ‘R’ means ‘−’ and ‘S’ means ‘+’, find the number that replaces ? in\n84 Q ? P 3 S 15 R 9 = 42",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Decoded: 84 ÷ ? × 3 + 15 − 9 = 42. So 84 ÷ ? × 3 = 42 − 15 + 9 = 36, which makes 84 ÷ ? = 12 and ? = 7.",
+      "solutionSteps": [
+        "84 ÷ ? × 3 + 15 − 9 = 42.",
+        "84 ÷ ? × 3 = 36, so 84 ÷ ? = 12.",
+        "? = 7. Check: 12 × 3 + 15 − 9 = 42."
+      ],
+      "formulaIds": [
+        "mo-substitute-f",
+        "mo-bodmas-f"
+      ],
+      "method": "Decode, move the + and − terms across, then undo the × and ÷.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode: 84 ÷ ? × 3 + 15 − 9 = 42."
+        },
+        {
+          "level": 2,
+          "text": "The ÷ and × part must be 42 − 15 + 9 = 36."
+        }
+      ],
+      "commonMistakes": [
+        "28: taking 84 ÷ ? = 3 instead of 36 ÷ 3 = 12.",
+        "Forgetting the × 3: 84 ÷ ? = 36 has no whole-number answer."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mathematical-operations-q-021",
+      "topicId": "mathematical-operations",
+      "conceptId": "mo-interchange",
+      "levelId": "mathematical-operations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "If the signs × and ÷ are interchanged, which of these equations become correct? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 × 2 ÷ 3 = 12"
+        },
+        {
+          "id": "b",
+          "text": "36 × 4 + 1 = 10"
+        },
+        {
+          "id": "c",
+          "text": "5 ÷ 6 × 3 = 90"
+        },
+        {
+          "id": "d",
+          "text": "20 − 12 × 4 = 2"
+        },
+        {
+          "id": "e",
+          "text": "7 ÷ 3 − 1 = 20"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explanation": "Interchange × and ÷ in each: 8 ÷ 2 × 3 = 12 (true); 36 ÷ 4 + 1 = 10 (true); 5 × 6 ÷ 3 = 10, not 90; 20 − 12 ÷ 4 = 17, not 2; 7 × 3 − 1 = 20 (true).",
+      "solutionSteps": [
+        "8 ÷ 2 × 3 = 12: true.",
+        "36 ÷ 4 + 1 = 10: true.",
+        "5 × 6 ÷ 3 = 10: not 90.",
+        "20 − 12 ÷ 4 = 17: not 2.",
+        "7 × 3 − 1 = 20: true."
+      ],
+      "formulaIds": [
+        "mo-interchange-f"
+      ],
+      "method": "Make the interchange in every option, then evaluate with BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only × and ÷ change; + and − stay."
+        },
+        {
+          "level": 2,
+          "text": "20 − 12 ÷ 4: which operation comes first?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 20 − 12 × 4 = 2: that is (20 − 12) ÷ 4, worked left to right.",
+        "Choosing 5 ÷ 6 × 3 = 90: that forgets the interchange (5 × 6 × 3)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

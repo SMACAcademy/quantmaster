@@ -297,7 +297,7 @@ describe('integration with the learning engine', () => {
 });
 
 describe('fixed option order', () => {
-  it('keeps standard choices in their standard order (quantity and x-y comparison, data sufficiency, number of solutions, reasoning verdicts and signs)', () => {
+  it('keeps standard choices in their standard order (quantity and x-y comparison, data sufficiency (quant and reasoning), number of solutions, reasoning verdicts and signs)', () => {
     const fixed = getTemplates().filter((t) => t.optionOrder);
     expect(fixed.map((t) => t.id).sort()).toEqual([
       'ap-adv-qc-compare',
@@ -314,6 +314,14 @@ describe('fixed option order', () => {
       'qc-squares-roots',
       'qc-two-general',
       'qc-two-monic',
+      'rds-gen-circle',
+      'rds-gen-direction',
+      'rds-gen-floors',
+      'rds-gen-rank-place',
+      'rds-gen-ranking',
+      'rds-gen-relation',
+      'rds-gen-row',
+      'rds-gen-yes-no',
       'se-check-pair-status',
       'se-special-count',
       'sy-gen-definite',

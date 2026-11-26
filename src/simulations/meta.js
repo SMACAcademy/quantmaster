@@ -689,6 +689,48 @@ export const SIMULATION_META = [
     taskIds: ['equal', 'zero', 'total', 'igst']
   },
   // --- end of taxes.js ---
+  // The last reasoning topics, one file each, in the order of index.js.
+  // reasoningTournament.js
+  {
+    id: 'round-robin',
+    topicId: 'logical-sets',
+    title: 'A round-robin points table',
+    summary: 'Enter the six results of a four-team league and watch the crosstable, points and places update. The total is fixed by the number of matches (and the draws), and a count shows how many full sets of results give the same table: totals pin down the unknowns.',
+    taskIds: ['level', 'sixteen', 'many-ways', 'one-draw']
+  },
+  // reasoningSeries.js
+  {
+    id: 'alphabet-strip',
+    topicId: 'reasoning-series',
+    title: 'Letters are numbers',
+    summary: 'Mark a letter series on a numbered alphabet strip and read the gaps between the terms: a constant gap, gaps that grow, gaps that alternate, or two series taking turns. Switch on positions from the Z end (27 − n) to see a falling series rise.',
+    taskIds: ['growing', 'from-z', 'two-series', 'alternating']
+  },
+  // reasoningOperations.js
+  {
+    id: 'symbol-swap',
+    topicId: 'mathematical-operations',
+    title: 'Swap the symbols, then BODMAS',
+    summary: 'Turn a key on and every printed sign flips to the sign it stands for; or interchange two signs to mend a wrong equation. Then work the expression one operation at a time, × and ÷ before + and −.',
+    taskIds: ['decode', 'printed', 'fix', 'disagree']
+  },
+  // reasoningMachine.js
+  {
+    id: 'input-machine',
+    topicId: 'input-output',
+    title: 'The rearranging machine',
+    summary: 'Feed a line of words and numbers into a machine and step through its rule. Each step moves one element (or one word and one number) next to those already placed; the rest keep their order, which is why any step can be read without the ones before it.',
+    taskIds: ['finish-mixed', 'take-turns', 'place-64', 'back-to-start']
+  },
+  // reasoningSufficiency.js
+  {
+    id: 'ds-arrangements',
+    topicId: 'reasoning-data-sufficiency',
+    title: 'Enough to seat them? Strike out the rows',
+    summary: 'Every way four friends can sit in a row, as little rows of seats. Switch each statement on and watch it strike out the rows it rules out. The data is sufficient when every row left gives the same answer, even if more than one row is left.',
+    taskIds: ['one-alone', 'together', 'each', 'never']
+  },
+  // --- end of the last reasoning topics ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

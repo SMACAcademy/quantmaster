@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(90);
+  await expect(page.locator('.sim-card')).toHaveCount(95);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -340,6 +340,36 @@ test('CAT and placement pictures: a flat bottom, the remainder as a height, latt
   await page.keyboard.press('End');
   await expect(page.locator('.sim-crypt__cands tr.is-fixed')).toHaveCount(5);
   await expect(value('Letters with one digit left')).toHaveText('S = 8, I = 7, X = 2, H = 1, L = 4');
+  expect(errors).toEqual([]);
+});
+
+test('the last reasoning simulations: the points table, the alphabet strip, the symbol tiles, the machine, the arrangements', async ({ page }) => {
+  const errors = watchForErrors(page);
+
+  await page.goto('/#/explore/round-robin');
+  await page.locator('.sim-task', { hasText: 'add up to 16' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Total points' }).locator('dd')).toHaveText('3 × 6 − 2 draws = 16');
+  await expect(page.locator('.points-cell.is-d')).toHaveCount(4);
+
+  await page.goto('/#/explore/alphabet-strip');
+  await page.locator('.sim-task', { hasText: 'B, C, E, H, L' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Next letter' }).locator('dd')).toHaveText('Q (17)');
+  await expect(page.locator('.strip-list__term')).toHaveCount(6);
+
+  await page.goto('/#/explore/symbol-swap');
+  await page.locator('.sim-task', { hasText: 'switch the key on' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-steps__result')).toHaveText('= 20');
+  await expect(page.locator('.tiles-tile.is-changed')).toHaveCount(4);
+
+  await page.goto('/#/explore/input-machine');
+  await page.locator('.sim-task', { hasText: 'places 64' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Moved in this step' }).locator('dd')).toHaveText('64');
+  await expect(page.locator('.conveyor-chip.is-moved')).toHaveCount(2);
+
+  await page.goto('/#/explore/ds-arrangements');
+  await page.locator('.sim-task', { hasText: 'answer D' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Rows left' }).locator('dd')).toHaveText('2 of 24');
+  await expect(page.locator('.arrangements-row.is-out')).toHaveCount(22);
   expect(errors).toEqual([]);
 });
 

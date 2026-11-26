@@ -1,0 +1,1709 @@
+{
+  "topicId": "logical-sets",
+  "concepts": [
+    {
+      "id": "ls-round-robin",
+      "topicId": "logical-sets",
+      "name": "Round robins: matches and points",
+      "description": "Every pair meets once: nC2 matches (twice that home and away). Each match gives out a fixed number of points, so the table’s total is known before a ball is bowled, or tells you the draws.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ls-knockout",
+      "topicId": "logical-sets",
+      "name": "Knockouts: matches, byes and the draw",
+      "description": "Every match knocks one player out, so n players need n − 1 matches. Byes fill the draw up to the next power of 2, and two players can meet only when their blocks of the draw meet.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ls-qualify",
+      "topicId": "logical-sets",
+      "name": "Qualification: the most points and still out",
+      "description": "To find the most points a team can score and still miss the top k, let k + 1 teams beat the rest and share their own matches evenly; one more win than that is always enough.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ls-table",
+      "topicId": "logical-sets",
+      "name": "Points tables and partial results",
+      "description": "Rebuild results from a table: the total gives the draws, each team’s points split into 3 × wins + draws, and teams on 0 or full points fix their matches first.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ls-routes",
+      "topicId": "logical-sets",
+      "name": "Routes and schedules",
+      "description": "Count shortest routes on a grid with C(east + north, east), or add up routes into each junction; find the shortest road route by settling the nearest town first; a round robin needs n − 1 days (n if n is odd).",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ls-matches-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "title": "Matches in a round robin",
+      "prompt": "n teams each play every other team once. How many matches?",
+      "formula": "Matches = nC2 = n(n − 1) ÷ 2\nTwice each (home and away): n(n − 1)",
+      "variables": [],
+      "explanation": "Each team plays n − 1 others; n(n − 1) counts every match from both sides, so halve it.",
+      "example": "10 teams: 10 × 9 ÷ 2 = 45 matches; home and away, 90.",
+      "commonMistake": "Answering n(n − 1) for a single round robin.",
+      "applicationPrompt": "How many matches do 12 teams play, each meeting every other once?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ls-points-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "title": "Total points in a league",
+      "prompt": "In a round robin of m matches, how many points are given out in all?",
+      "formula": "Win 2, draw 1 each: total = 2m, always\nWin 3, draw 1 each: total = 3m − draws",
+      "variables": [],
+      "explanation": "A decisive match gives out win + loss points; a draw gives 2 × draw. With 2-1-0 both are 2, so the total never changes; with 3-1-0 each draw gives one point less.",
+      "example": "6 teams (15 matches), 3-1-0 scoring, 4 draws: 3 × 15 − 4 = 41 points.",
+      "commonMistake": "Taking 3 points off the total for each draw instead of 1.",
+      "applicationPrompt": "In a 3-1-0 league of 10 matches, 2 were drawn. What is the points total?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ls-knockout-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "title": "Knockout tournament",
+      "prompt": "n players play a knockout. How many matches, rounds and byes?",
+      "formula": "Matches = n − 1\nRounds = smallest r with 2^r ≥ n\nByes = 2^r − n (in the first round)",
+      "variables": [],
+      "explanation": "Each match puts exactly one player out, and all but the champion go out. Byes fill the empty places of the draw so that the second round is a power of 2.",
+      "example": "20 players: 19 matches, 2^5 = 32 so 5 rounds, 32 − 20 = 12 byes, (20 − 12) ÷ 2 = 4 first-round matches.",
+      "commonMistake": "Taking byes as n minus the power of 2 below (20 − 16 = 4): that is the number of first-round matches.",
+      "applicationPrompt": "A knockout has 45 players. How many byes, and how many matches in all?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ls-meet-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "title": "Who can meet whom",
+      "prompt": "Players are numbered 1 to 2^r down a knockout draw. In which round can two of them meet?",
+      "formula": "Round k is played inside blocks of 2^k places: 1–2, 3–4, … then 1–4, 5–8, …\nThey meet in the first round whose block holds both",
+      "variables": [],
+      "explanation": "A player who keeps winning has come through a block of 2^k places after round k, so two players meet when their blocks first merge.",
+      "example": "Players 3 and 6 of 16: blocks of 4 are 1–4 and 5–8 (apart); the block of 8, 1–8, holds both: round 3, the semi-final.",
+      "commonMistake": "Judging by the gap between the numbers (6 and 7 meet only in the semi-final, though they are next to each other).",
+      "applicationPrompt": "In a draw of 32, in which round can players 9 and 16 meet?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-qualify-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-qualify",
+      "title": "Most points and still out",
+      "prompt": "n teams, each pair meets once, no ties, w points a win; the top k qualify and ties go against you. What score can still miss out, and what score is safe?",
+      "formula": "Most points and still out = w × (n − k − 1 + ⌊k/2⌋)\nSafe = that + w",
+      "variables": [],
+      "explanation": "k + 1 teams beat the other n − k − 1 and share their own matches as evenly as possible; the weakest of them has n − k − 1 + ⌊k/2⌋ wins and can still finish (k + 1)th.",
+      "example": "6 teams, top 4, 2 points a win: 2 × (6 − 4 − 1 + 2) = 6 points can miss out; 8 is safe.",
+      "commonMistake": "Making only k teams strong: it takes k + 1 teams to push one out.",
+      "applicationPrompt": "8 teams, top 4, 2 points a win: what is the safe score?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ls-table-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "title": "Reading a points table",
+      "prompt": "How do you turn a team’s points into its results?",
+      "formula": "Points = 3 × wins + draws (3-1-0)\nWins + draws + losses = matches played\nDraws in the table = 3m − total",
+      "variables": [],
+      "explanation": "Each team’s points split into wins and draws in only a few ways; the total number of draws, and teams with only one split, decide the rest.",
+      "example": "7 points from 3 matches: 2 wins and 1 draw (the only way). 3 points: 1 win, or 3 draws.",
+      "commonMistake": "Treating one point as one win.",
+      "applicationPrompt": "A team has 5 points from 4 matches (3-1-0). What are its possible records?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-grid-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "title": "Shortest routes on a grid",
+      "prompt": "A place is a blocks east and b blocks north on a street grid. How many shortest routes lead there?",
+      "formula": "Routes = C(a + b, a)\nThrough a junction (x, y): C(x + y, x) × C(a − x + b − y, a − x)",
+      "variables": [],
+      "explanation": "Every shortest route is a + b blocks long, a of them east; choosing which ones gives the route.",
+      "example": "3 east, 2 north: C(5, 3) = 10. Through (1, 1): C(2, 1) × C(3, 2) = 2 × 3 = 6.",
+      "commonMistake": "Adding the two parts of a route through a junction instead of multiplying.",
+      "applicationPrompt": "How many shortest routes lead 4 blocks east and 4 blocks north?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-shortest-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "title": "Shortest road route",
+      "prompt": "How do you find the shortest route through a road network?",
+      "formula": "Fix the start at 0 km\nRepeat: fix the nearest unfixed town; update its neighbours (distance through it, if smaller)",
+      "variables": [],
+      "explanation": "This is Dijkstra’s method: a town is fixed only when no other route can reach it more cheaply.",
+      "example": "A–C 4, C–B 2, A–B 7: B is fixed at 6 (through C), not 7.",
+      "commonMistake": "Choosing the route with the fewest roads instead of the fewest kilometres.",
+      "applicationPrompt": "A–B 5, B–D 4, A–C 2, C–D 8. What is the shortest A to D?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-days-f",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "title": "Fewest days for a round robin",
+      "prompt": "No team may play twice in a day. How many days does a round robin of n teams need?",
+      "formula": "n even: n − 1 days\nn odd: n days (one team rests each day)",
+      "variables": [],
+      "explanation": "At most ⌊n/2⌋ matches fit in a day, and the circle method (fix one team, rotate the rest) reaches that bound.",
+      "example": "6 teams: 15 matches, 3 a day, 5 days. 7 teams: 21 matches, 3 a day, 7 days.",
+      "commonMistake": "Answering n − 1 for an odd number of teams.",
+      "applicationPrompt": "How many days do 10 teams need, playing every other team once?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ls-sc-draws",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "kind": "shortcut",
+      "title": "Draws from the total",
+      "prompt": "A 3-1-0 league has m matches and a points total T. How many draws were there?",
+      "formula": "Draws = 3m − T",
+      "variables": [],
+      "explanation": "A decisive match gives 3 points, a draw 2: each draw is one point short of 3m.",
+      "example": "15 matches, total 41: 45 − 41 = 4 draws.",
+      "commonMistake": "Using 2m − T (the 2-1-0 total, which never changes).",
+      "applicationPrompt": "21 matches, total 58. How many draws?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-sc-extremes",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "kind": "shortcut",
+      "title": "Start with 0 and full marks",
+      "prompt": "Where do you start in a points table with missing results?",
+      "formula": "A team on 0 lost every match\nA team on full points won every match\nA total with one split (7 = 2W + 1D) is fixed",
+      "variables": [],
+      "explanation": "These teams leave no choice, so their matches are fixed and every other team’s total shrinks.",
+      "example": "Assam 7, Bihar 5, Goa 4, Kerala 0: Kerala lost all three, so Bihar’s two draws were with Assam and Goa.",
+      "commonMistake": "Trying cases before placing the forced results.",
+      "applicationPrompt": "In a four-team 3-1-0 table a team has 9 points. What do you know at once?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-sc-avoid",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "kind": "shortcut",
+      "title": "Routes avoiding a junction",
+      "prompt": "How many shortest grid routes avoid a closed junction?",
+      "formula": "Avoiding = all routes − routes through it",
+      "variables": [],
+      "explanation": "Counting the routes through one point is easy (multiply two smaller counts); everything else avoids it.",
+      "example": "4 east, 3 north, closed at (2, 1): 35 − 3 × 6 = 17.",
+      "commonMistake": "Answering the routes through the junction.",
+      "applicationPrompt": "3 east, 3 north, closed at (1, 1). How many routes avoid it?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ls-sc-dp",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "kind": "shortcut",
+      "title": "Add the routes in",
+      "prompt": "How do you count routes on a map with closed roads or one-way streets?",
+      "formula": "Routes to a point = sum of the routes to the points one step before it\n(or work backwards: routes from a point = sum over the next points)",
+      "variables": [],
+      "explanation": "Write the count at each junction, starting with 1 at the start; a closed junction gets 0.",
+      "example": "One-way: P→Q, P→R, Q→R, Q→S, R→S, R→T, S→T. From T back: S 1, R 2, Q 3, P 5.",
+      "commonMistake": "Counting roads instead of routes.",
+      "applicationPrompt": "Grid 2 east, 2 north with the centre closed. How many routes?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "logical-sets-level-0",
+      "topicId": "logical-sets",
+      "order": 0,
+      "title": "Counting What Adds Up",
+      "description": "Round robins, knockouts, points tables, qualification and routes.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "round-robin"
+          },
+          {
+            "type": "text",
+            "title": "Count what must add up",
+            "body": "In a round robin of n teams every pair meets once, so there are nC2 matches: 4 teams play 6, 8 teams play 28. Each match gives out a fixed number of points (2 when a win is worth 2 and a draw 1 each; 3 or 2 with 3-1-0 scoring), so the total of the points table is known, or tells you how many matches were drawn. In a knockout every match puts one player out, so n players need n − 1 matches."
+          },
+          {
+            "type": "formula",
+            "title": "The counting rules",
+            "body": "Round robin: nC2 matches\n3-1-0 total = 3 × matches − draws\nKnockout: n − 1 matches, byes = next power of 2 − n\nGrid routes: C(east + north, east)",
+            "caption": "Write these totals down before you read the clues: they are what fix the unknowns."
+          },
+          {
+            "type": "check",
+            "questionId": "logical-sets-q-001"
+          },
+          {
+            "type": "example",
+            "title": "A table that tells you every result",
+            "body": "Assam 7, Bihar 5, Goa 4, Kerala 0 (3-1-0). Total 16 = 18 − 2, so 2 draws. Kerala lost all three. 7 = 2 wins + 1 draw, 5 = 1 win + 2 draws, 4 = 1 win + 1 draw. Bihar’s two draws cannot be with Kerala, so they were with Assam and Goa; Assam beat Goa and Kerala, Goa beat Kerala, Bihar beat Kerala."
+          },
+          {
+            "type": "text",
+            "title": "The most points and still out",
+            "body": "To keep a team with many points out of the top k, it needs k teams level with or above it. So make k + 1 teams strong: they beat everyone else and share their own matches as evenly as possible. Their weakest member is the highest score that can still miss out; one more win is always enough."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "With 2-1-0 scoring the total is always twice the number of matches, so it cannot tell you the draws. With 3-1-0 it can: every draw takes exactly one point off 3 × matches."
+          },
+          {
+            "type": "check",
+            "questionId": "logical-sets-q-008"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "logical-sets-level-1",
+      "topicId": "logical-sets",
+      "order": 1,
+      "title": "Set Rules",
+      "description": "Matches, points totals, knockouts, the draw, qualification, tables and routes.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "logical-sets-level-0"
+      ],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "formulaIds": [
+        "ls-matches-f",
+        "ls-points-f",
+        "ls-knockout-f",
+        "ls-meet-f",
+        "ls-qualify-f",
+        "ls-table-f",
+        "ls-grid-f",
+        "ls-shortest-f",
+        "ls-days-f",
+        "ls-sc-draws",
+        "ls-sc-extremes",
+        "ls-sc-avoid",
+        "ls-sc-dp"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "logical-sets-level-2",
+      "topicId": "logical-sets",
+      "order": 2,
+      "title": "Matches, Byes and Routes",
+      "description": "Counting matches, byes, days and grid routes.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "logical-sets-level-1"
+      ],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "questionIds": [
+        "logical-sets-q-001",
+        "logical-sets-q-002",
+        "logical-sets-q-003",
+        "logical-sets-q-004",
+        "logical-sets-q-005",
+        "logical-sets-q-006",
+        "logical-sets-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "logical-sets-level-3",
+      "topicId": "logical-sets",
+      "order": 3,
+      "title": "Totals and Tables",
+      "description": "Draws from totals, the knockout draw, qualification and a points table.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "logical-sets-level-2"
+      ],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "questionIds": [
+        "logical-sets-q-008",
+        "logical-sets-q-009",
+        "logical-sets-q-010",
+        "logical-sets-q-011",
+        "logical-sets-q-012",
+        "logical-sets-q-013",
+        "logical-sets-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "logical-sets-level-4",
+      "topicId": "logical-sets",
+      "order": 4,
+      "title": "Full Sets",
+      "description": "Closed junctions, shortest roads, smudged tables and play-off cut-offs.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "logical-sets-level-3"
+      ],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "questionIds": [
+        "logical-sets-q-015",
+        "logical-sets-q-016",
+        "logical-sets-q-017",
+        "logical-sets-q-018",
+        "logical-sets-q-019",
+        "logical-sets-q-020",
+        "logical-sets-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "logical-sets-level-5",
+      "topicId": "logical-sets",
+      "order": 5,
+      "title": "Mixed Logical Sets",
+      "description": "All logical-set patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "logical-sets-level-4"
+      ],
+      "conceptIds": [
+        "ls-round-robin",
+        "ls-knockout",
+        "ls-qualify",
+        "ls-table",
+        "ls-routes"
+      ],
+      "questionQuery": {
+        "topicId": "logical-sets",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "logical-sets-q-001",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In an inter-college kabaddi league in Madurai, 8 colleges take part and every college plays every other college exactly once. How many matches are played?",
+      "answer": {
+        "value": 28,
+        "tolerance": 0
+      },
+      "explanation": "A match is a pair of colleges, so the league has 8C2 = 8 × 7 ÷ 2 = 28 matches.",
+      "solutionSteps": [
+        "Each college plays the 7 others: 8 × 7 = 56.",
+        "That counts every match twice, once for each college: 56 ÷ 2 = 28."
+      ],
+      "formulaIds": [
+        "ls-matches-f"
+      ],
+      "method": "Matches in a round robin = nC2 = n(n − 1) ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many matches does one college play?"
+        },
+        {
+          "level": 2,
+          "text": "8 × 7 counts each match from both sides; halve it."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 56, counting each match twice.",
+        "Answering 7, the matches of a single college."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-002",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "32 players enter a knockout chess tournament in Pune: a player who loses a game is out. How many games are needed to find the champion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "31"
+        },
+        {
+          "id": "b",
+          "text": "32"
+        },
+        {
+          "id": "c",
+          "text": "16"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Every game knocks out exactly one player. To leave one champion, 31 players must go out, so 31 games are played (16 + 8 + 4 + 2 + 1).",
+      "solutionSteps": [
+        "Round by round: 16 + 8 + 4 + 2 + 1 = 31.",
+        "Or: one loser per game, and 32 − 1 = 31 losers."
+      ],
+      "formulaIds": [
+        "ls-knockout-f"
+      ],
+      "method": "Knockout matches = n − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many players does each game knock out?"
+        },
+        {
+          "level": 2,
+          "text": "Everyone except the champion loses exactly once."
+        }
+      ],
+      "commonMistakes": [
+        "32: counting the champion as a loser too.",
+        "16: only the first round. 5: the number of rounds, not games."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-003",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "6 teams play a hockey league in which every team meets every other team twice, once at home and once away. How many matches are played?",
+      "answer": {
+        "value": 30,
+        "tolerance": 0
+      },
+      "explanation": "A single round robin of 6 teams has 6C2 = 15 matches; playing home and away doubles it to 30.",
+      "solutionSteps": [
+        "Single round robin: 6 × 5 ÷ 2 = 15.",
+        "Home and away: 15 × 2 = 30."
+      ],
+      "formulaIds": [
+        "ls-matches-f"
+      ],
+      "method": "Twice each: n(n − 1).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many matches if each pair met only once?"
+        },
+        {
+          "level": 2,
+          "text": "Each pair meets twice, so double it."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 15, forgetting the return matches.",
+        "Answering 60, doubling n(n − 1) again."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-004",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A badminton knockout in Lucknow has 20 players. Some players get a bye in the first round so that the second round starts with a power of 2 players. How many byes are given?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The next power of 2 above 20 is 32, so the draw has 32 places and 32 − 20 = 12 of them are empty: 12 byes. The other 8 players play 4 matches, and 12 + 4 = 16 start the second round.",
+      "solutionSteps": [
+        "Next power of 2 at or above 20: 32.",
+        "Byes = 32 − 20 = 12.",
+        "Check: 8 players play 4 matches; 12 + 4 = 16 in round 2."
+      ],
+      "formulaIds": [
+        "ls-knockout-f"
+      ],
+      "method": "Byes = next power of 2 − number of players.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the smallest power of 2 that is at least 20?"
+        },
+        {
+          "level": 2,
+          "text": "Byes fill the empty places in a draw of that size."
+        }
+      ],
+      "commonMistakes": [
+        "4: 20 − 16, which is the number of first-round matches, not byes.",
+        "8: the players who do play in the first round. 16: the size of the second round."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-005",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "5 teams play a cricket league in which each pair meets once. A win earns 2 points, a tie or no-result 1 point to each side, and a loss 0. However the matches turn out, how many points are given out in all?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "There are 5C2 = 10 matches, and every match gives out exactly 2 points (2 + 0, or 1 + 1), so the table always adds up to 20.",
+      "solutionSteps": [
+        "Matches: 5 × 4 ÷ 2 = 10.",
+        "Each match gives out 2 points either way.",
+        "Total: 10 × 2 = 20."
+      ],
+      "formulaIds": [
+        "ls-matches-f",
+        "ls-points-f"
+      ],
+      "method": "With 2-1-0 scoring, total = 2 × matches.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many points does one match give out if it has a winner? If it is tied?"
+        },
+        {
+          "level": 2,
+          "text": "Count the matches: 5C2."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10, counting matches instead of points.",
+        "Answering 40, counting 2 points for each team in every match."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-006",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The streets of Ravi’s town form a square grid. His school is 3 blocks east and 2 blocks north of his house, and he walks only east or north. How many different routes can he take?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Every route is 5 blocks long with exactly 3 of them east, so a route is a choice of which 3 of the 5 blocks go east: C(5, 3) = 10.",
+      "solutionSteps": [
+        "Route length: 3 + 2 = 5 blocks.",
+        "Choose the 3 east blocks: C(5, 3) = 10."
+      ],
+      "formulaIds": [
+        "ls-grid-f"
+      ],
+      "method": "Shortest grid routes = C(east + north, east).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write a route as a word of E’s and N’s. How many letters, and how many E’s?"
+        },
+        {
+          "level": 2,
+          "text": "Count the ways to place 3 E’s among 5 letters."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6 (3 × 2) or 5 (3 + 2).",
+        "Answering 20, counting each route once for each direction."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-007",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "6 teams play a round robin in which each pair meets once, and no team plays more than one match on a day. What is the least number of days the league needs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "There are 15 matches, and at most 3 fit in a day (6 teams, two to a match), so at least 15 ÷ 3 = 5 days are needed. The circle method (fix one team, rotate the others one place a day) fits them into exactly 5.",
+      "solutionSteps": [
+        "Matches: 6C2 = 15.",
+        "Most matches in a day: 6 ÷ 2 = 3.",
+        "Days ≥ 15 ÷ 3 = 5, and 5 days are enough."
+      ],
+      "formulaIds": [
+        "ls-days-f"
+      ],
+      "method": "An even number n of teams needs n − 1 days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many matches can be played on one day if no team plays twice?"
+        },
+        {
+          "level": 2,
+          "text": "Divide the total matches by that."
+        }
+      ],
+      "commonMistakes": [
+        "6: thinking one team must rest each day (only for an odd number of teams).",
+        "15: one match a day. 3: the matches in a day, not the days."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-008",
+      "topicId": "logical-sets",
+      "conceptId": "ls-round-robin",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "6 teams play a football league in Kolkata in which each pair meets once: 3 points for a win, 1 point to each side for a draw and 0 for a loss. The final points table adds up to 41. How many matches were drawn?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "There are 6C2 = 15 matches. A match with a winner gives out 3 points and a draw only 2, so with no draws the total would be 45. Each draw takes one point off: 45 − 41 = 4 draws.",
+      "solutionSteps": [
+        "Matches: 6 × 5 ÷ 2 = 15.",
+        "No draws would give 3 × 15 = 45.",
+        "Draws = 45 − 41 = 4."
+      ],
+      "formulaIds": [
+        "ls-points-f",
+        "ls-sc-draws"
+      ],
+      "method": "With 3-1-0 scoring, draws = 3 × matches − total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many points does a match give out when it has a winner? When it is drawn?"
+        },
+        {
+          "level": 2,
+          "text": "Start from the total with no draws, 3 × 15."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 11, the matches that had a winner.",
+        "Answering 2, taking 2 points off for each draw."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-009",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In a 16-player table tennis knockout, the players are numbered 1 to 16 down the draw: 1 plays 2, 3 plays 4, and so on, and the winners of neighbouring matches meet in the next round. If both keep winning, in which round can player 3 meet player 6?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Round 1"
+        },
+        {
+          "id": "b",
+          "text": "Quarter-final"
+        },
+        {
+          "id": "c",
+          "text": "Semi-final"
+        },
+        {
+          "id": "d",
+          "text": "Final"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "After round 2 (the quarter-final) player 3 has come through places 1–4 and player 6 through places 5–8. Those two blocks meet in round 3, the semi-final.",
+      "solutionSteps": [
+        "Round 1: 3 plays 4, and 6 plays 5.",
+        "Quarter-final: the block 1–4 and the block 5–8 each produce one winner.",
+        "Semi-final: the winners of 1–4 and 5–8 meet."
+      ],
+      "formulaIds": [
+        "ls-meet-f"
+      ],
+      "method": "Two players meet in the first round whose block (2, 4, 8, … places) holds both.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Whom can player 3 meet in round 1? In round 2?"
+        },
+        {
+          "level": 2,
+          "text": "Players 3 and 6 are in places 1–8 but not in the same block of 4."
+        }
+      ],
+      "commonMistakes": [
+        "Quarter-final: thinking 3 and 6 are close enough to meet in round 2.",
+        "Final: thinking players in the top half never meet before the final."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-010",
+      "topicId": "logical-sets",
+      "conceptId": "ls-qualify",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "6 teams play a kabaddi league: each pair meets once, a win earns 2 points, a loss 0, and no match can be tied. The top 4 teams go to the play-offs, and if teams finish level on points, the tie is broken against the team in question. What is the greatest number of points a team can score and still miss the play-offs?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "To miss the top 4, a team needs 4 others level with or above it, so make 5 teams strong. Each beats the sixth team (1 win) and they share their 10 matches among themselves evenly, 2 wins each: 3 wins, 6 points, for all five, and one of them is 5th on the tie-break. 8 points (4 wins) for five teams would need 20 wins, but only 15 matches are played.",
+      "solutionSteps": [
+        "A team misses out if 4 others finish level or above: look at 5 strong teams.",
+        "Each beats the weakest team: 1 win; among themselves 10 matches, 2 wins each.",
+        "3 wins = 6 points each, so 6 can still miss out.",
+        "8 points for five teams needs 20 wins > 15 matches: impossible."
+      ],
+      "formulaIds": [
+        "ls-qualify-f"
+      ],
+      "method": "k + 1 teams beat the rest and share their own matches evenly: 2 × (n − k − 1 + ⌊k/2⌋).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many teams must finish level with or above a team for it to miss the top 4?"
+        },
+        {
+          "level": 2,
+          "text": "Let 5 teams beat the sixth, and share their 10 matches among themselves evenly."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8: five teams cannot all win 4 matches.",
+        "Answering 2: making only 4 teams strong. Forgetting the matches the strong teams play against each other."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-011",
+      "topicId": "logical-sets",
+      "conceptId": "ls-qualify",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "6 teams play a volleyball league: each pair meets once, a win earns 2 points, a loss 0, and no match can be tied. The top 3 teams reach the final round, and if teams finish level on points, the tie is broken against the team in question. What is the least number of points that guarantees a team a place in the final round?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "First, 6 points can miss out: four teams can each beat the other two (2 wins) and split their own 6 matches 2, 2, 1, 1, so two of them have 3 wins (6 points) and one of those is 4th on the tie-break. With 8 points (4 wins), three other teams would also need 4 wins: 16 wins, but there are only 15 matches. So 8 is always enough.",
+      "solutionSteps": [
+        "Four strong teams beat the other two: 2 wins each.",
+        "Their 6 matches split 2, 2, 1, 1: the last two have 3 wins = 6 points, and one can be 4th.",
+        "8 points: four teams with 4 wins need 16 wins > 15.",
+        "So 8 points guarantees a place."
+      ],
+      "formulaIds": [
+        "ls-qualify-f"
+      ],
+      "method": "Find the most points that can still miss out, then add one win.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Can 6 points miss out? Try four strong teams."
+        },
+        {
+          "level": 2,
+          "text": "With 8 points, could three other teams also reach 8? Count the wins needed."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6, which can still miss out.",
+        "Answering 10, the score of a team that wins every match."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-012",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What was the result of the match between Bihar and Goa?",
+      "context": "Four state teams, Assam, Bihar, Goa and Kerala, played a football round robin in Guwahati: each pair met once. A win earned 3 points, a draw 1 point to each team and a loss 0.",
+      "table": {
+        "caption": "Final points table",
+        "headers": [
+          "Team",
+          "Played",
+          "Points"
+        ],
+        "rows": [
+          [
+            "Assam",
+            "3",
+            "7"
+          ],
+          [
+            "Bihar",
+            "3",
+            "5"
+          ],
+          [
+            "Goa",
+            "3",
+            "4"
+          ],
+          [
+            "Kerala",
+            "3",
+            "0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Bihar won"
+        },
+        {
+          "id": "b",
+          "text": "Goa won"
+        },
+        {
+          "id": "c",
+          "text": "The match was drawn"
+        },
+        {
+          "id": "d",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The table adds up to 16; six matches with no draws would give 18, so there were 2 draws. Kerala, on 0, lost all three. Assam’s 7 can only be 2 wins and a draw, Bihar’s 5 only 1 win and 2 draws, Goa’s 4 only 1 win and 1 draw. Bihar’s two draws cannot be against Kerala, so they were against Assam and Goa: Bihar and Goa drew.",
+      "solutionSteps": [
+        "Draws: 18 − 16 = 2.",
+        "Kerala lost all three.",
+        "Assam 7 = 2W 1D; Bihar 5 = 1W 2D; Goa 4 = 1W 1D.",
+        "Bihar’s draws were with Assam and Goa, so Bihar v Goa was drawn."
+      ],
+      "formulaIds": [
+        "ls-table-f",
+        "ls-sc-extremes",
+        "ls-sc-draws"
+      ],
+      "method": "Draws from the total, each team’s points as 3W + D, then place the forced results.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many points would six matches give with no draws?"
+        },
+        {
+          "level": 2,
+          "text": "Bihar has two draws. Which teams could they have been against?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"cannot be determined\" before splitting each total into wins and draws.",
+        "Choosing \"Bihar won\": Bihar’s only win was against Kerala, the team on 0."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-013",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many matches did Goa win?",
+      "context": "Four state teams, Assam, Bihar, Goa and Kerala, played a football round robin in Guwahati: each pair met once. A win earned 3 points, a draw 1 point to each team and a loss 0.",
+      "table": {
+        "caption": "Final points table",
+        "headers": [
+          "Team",
+          "Played",
+          "Points"
+        ],
+        "rows": [
+          [
+            "Assam",
+            "3",
+            "7"
+          ],
+          [
+            "Bihar",
+            "3",
+            "5"
+          ],
+          [
+            "Goa",
+            "3",
+            "4"
+          ],
+          [
+            "Kerala",
+            "3",
+            "0"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "Goa has 4 points from 3 matches. As 3 × wins + draws with at most 3 matches, 4 can only be 1 win and 1 draw (the win was against Kerala, who lost every match).",
+      "solutionSteps": [
+        "4 = 3 × wins + draws, wins + draws ≤ 3.",
+        "Only 1 win + 1 draw works."
+      ],
+      "formulaIds": [
+        "ls-table-f"
+      ],
+      "method": "Split the points into 3 × wins + draws.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 4 as 3 × wins + draws."
+        },
+        {
+          "level": 2,
+          "text": "Could Goa have 4 draws? How many matches did it play?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4, reading points as wins.",
+        "Answering 2: two wins would already be 6 points."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-014",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many different routes can a van take from Ambattur to Guindy?",
+      "context": "Delivery vans in Chennai may use only these one-way routes between hubs:\nAmbattur → Anna Nagar\nAmbattur → Vadapalani\nAnna Nagar → Vadapalani\nAnna Nagar → T. Nagar\nVadapalani → T. Nagar\nVadapalani → Guindy\nT. Nagar → Guindy",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Work backwards from Guindy, adding the routes out of each hub: T. Nagar has 1 (straight to Guindy); Vadapalani has 2 (via T. Nagar, or direct); Anna Nagar has 2 + 1 = 3 (via Vadapalani or T. Nagar); Ambattur has 3 + 2 = 5.",
+      "solutionSteps": [
+        "T. Nagar → Guindy: 1 route.",
+        "Vadapalani: to T. Nagar (1) or Guindy (1) = 2.",
+        "Anna Nagar: to Vadapalani (2) or T. Nagar (1) = 3.",
+        "Ambattur: to Anna Nagar (3) or Vadapalani (2) = 5."
+      ],
+      "formulaIds": [
+        "ls-sc-dp"
+      ],
+      "method": "Routes from a hub = sum of the routes from the hubs its roads lead to.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which hubs have a road straight to Guindy?"
+        },
+        {
+          "level": 2,
+          "text": "Work backwards, adding up the routes out of each hub."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 7, the number of roads.",
+        "Answering 4, missing the route Ambattur → Anna Nagar → Vadapalani → Guindy or one like it."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-015",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The roads of a colony in Jaipur form a square grid. Meena’s office is 4 blocks east and 3 blocks north of her home, and she walks only east or north. The junction 2 blocks east and 1 block north of her home is closed for repairs. How many different routes can she take?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "All shortest routes: C(7, 4) = 35. Routes through the closed junction: C(3, 2) = 3 ways to reach it, times C(4, 2) = 6 ways from it to the office, 18 in all. Avoiding it: 35 − 18 = 17.",
+      "solutionSteps": [
+        "All routes: C(7, 4) = 35.",
+        "To the junction (2 east, 1 north): C(3, 2) = 3.",
+        "From it to the office (2 east, 2 north): C(4, 2) = 6.",
+        "Through it: 3 × 6 = 18. Avoiding it: 35 − 18 = 17."
+      ],
+      "formulaIds": [
+        "ls-grid-f",
+        "ls-sc-avoid",
+        "ls-sc-dp"
+      ],
+      "method": "Routes avoiding a junction = all routes − routes through it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count all the shortest routes first."
+        },
+        {
+          "level": 2,
+          "text": "Count the routes through the closed junction: to it, times from it."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 18, the routes that pass the closed junction.",
+        "Answering 26, adding the two parts (3 + 6 = 9) instead of multiplying."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-016",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the length of the shortest route from Alur to Hosur?",
+      "context": "Roads between villages near Hosur (each can be used in both directions):\nAlur – Belur: 7 km\nAlur – Chandur: 4 km\nChandur – Belur: 2 km\nBelur – Dharur: 5 km\nChandur – Dharur: 9 km\nDharur – Hosur: 3 km\nBelur – Hosur: 10 km",
+      "options": [
+        {
+          "id": "a",
+          "text": "14 km"
+        },
+        {
+          "id": "b",
+          "text": "15 km"
+        },
+        {
+          "id": "c",
+          "text": "16 km"
+        },
+        {
+          "id": "d",
+          "text": "17 km"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Settle the nearest villages first. From Alur: Chandur 4. Belur is 7 directly but 4 + 2 = 6 through Chandur. Dharur: 6 + 5 = 11 through Belur (Chandur gives 13). Hosur: 11 + 3 = 14 through Dharur (Belur gives 16). Shortest: Alur → Chandur → Belur → Dharur → Hosur, 14 km.",
+      "solutionSteps": [
+        "Chandur: 4 km.",
+        "Belur: min(7, 4 + 2) = 6 km.",
+        "Dharur: min(6 + 5, 4 + 9) = 11 km.",
+        "Hosur: min(11 + 3, 6 + 10) = 14 km."
+      ],
+      "formulaIds": [
+        "ls-shortest-f"
+      ],
+      "method": "Fix the nearest village each time and update its neighbours.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is the direct road Alur – Belur the shortest way to Belur?"
+        },
+        {
+          "level": 2,
+          "text": "Find the shortest distance to Belur and to Dharur before Hosur."
+        }
+      ],
+      "commonMistakes": [
+        "17 km: the route with the fewest roads, Alur → Belur → Hosur.",
+        "15 km: using the direct road Alur – Belur. 16 km: going Chandur → Dharur, or Belur → Hosur directly."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-017",
+      "topicId": "logical-sets",
+      "conceptId": "ls-qualify",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "5 teams play a football league: each pair meets once, with 3 points for a win, 1 point to each side for a draw and 0 for a loss. Only the top 2 reach the final, and if teams finish level on points, the tie is broken against the team in question. What is the greatest number of points a team can score and still miss the final?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "A team misses the final if 2 others finish level with or above it, so make 3 teams strong. Each beats the other two teams (6 points) and they beat each other in a circle (A beats B, B beats C, C beats A), 3 more each: 9 points for all three, and one is 3rd. They cannot all reach 10: their 3 matches among themselves give at most 9 points in all, so the three totals add up to at most 18 + 9 = 27.",
+      "solutionSteps": [
+        "Three strong teams beat the other two: 6 points each.",
+        "A circle of wins among the three: 3 more each, 9 points.",
+        "Their matches give at most 27 points in all, so all three cannot reach 10.",
+        "Answer: 9."
+      ],
+      "formulaIds": [
+        "ls-qualify-f"
+      ],
+      "method": "Make k + 1 teams strong; share their own matches so that the weakest scores as much as possible.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many teams must finish level with or above a team for it to miss the top 2?"
+        },
+        {
+          "level": 2,
+          "text": "Among three teams, which gives more points each: three draws, or a circle of wins?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8: drawing all three matches among the strong teams gives only 2 points each from them, less than a circle of wins.",
+        "Answering 12, the score of a team that wins every match."
+      ],
+      "tags": [],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-018",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Which of these must be true? Select all that apply.",
+      "context": "Five hockey teams, Odisha, Punjab, Haryana, Jharkhand and Karnataka, played a round robin in Bhubaneswar: each pair met once, with 3 points for a win, 1 point to each team for a draw and 0 for a loss. Exactly 3 matches were drawn. Jharkhand’s total in the final table has been smudged.",
+      "table": {
+        "caption": "Final points table (one entry smudged)",
+        "headers": [
+          "Team",
+          "Played",
+          "Points"
+        ],
+        "rows": [
+          [
+            "Odisha",
+            "4",
+            "10"
+          ],
+          [
+            "Punjab",
+            "4",
+            "4"
+          ],
+          [
+            "Haryana",
+            "4",
+            "4"
+          ],
+          [
+            "Karnataka",
+            "4",
+            "4"
+          ],
+          [
+            "Jharkhand",
+            "4",
+            "?"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Odisha did not lose a match."
+        },
+        {
+          "id": "b",
+          "text": "Jharkhand drew two of its matches."
+        },
+        {
+          "id": "c",
+          "text": "Odisha beat Punjab."
+        },
+        {
+          "id": "d",
+          "text": "Karnataka won exactly one match."
+        },
+        {
+          "id": "e",
+          "text": "Punjab beat Haryana."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": "Ten matches with 3 draws give 30 − 3 = 27 points, so Jharkhand has 27 − 22 = 5. Odisha’s 10 from 4 matches can only be 3 wins and a draw, so it is unbeaten. A team on 4 has 1 win and 1 draw (4 draws would need 4 drawn matches, but there are only 3), so Karnataka won exactly one. Jharkhand’s 5 is 1 win and 2 draws. Who Odisha drew with, and how Punjab v Haryana went, can be arranged in more than one way that fits the table.",
+      "solutionSteps": [
+        "Jharkhand: 27 − 22 = 5 points.",
+        "Odisha 10 = 3W 1D: unbeaten.",
+        "Punjab, Haryana, Karnataka 4 = 1W 1D each.",
+        "Jharkhand 5 = 1W 2D.",
+        "Odisha’s draw and Punjab v Haryana are not fixed."
+      ],
+      "formulaIds": [
+        "ls-table-f",
+        "ls-sc-draws"
+      ],
+      "method": "Fill the missing total from 3m − draws, split each total into wins and draws, and keep only what every arrangement shares.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out Jharkhand’s points from the total first."
+        },
+        {
+          "level": 2,
+          "text": "Write each team’s points as 3 × wins + draws from 4 matches, remembering there are only 3 draws."
+        }
+      ],
+      "commonMistakes": [
+        "Selecting \"Odisha beat Punjab\": Odisha’s one draw could have been with Punjab.",
+        "Selecting \"Punjab beat Haryana\": that match could also have been lost or drawn in a table that fits. Missing \"Karnataka won exactly one match\" by allowing 4 draws."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-019",
+      "topicId": "logical-sets",
+      "conceptId": "ls-knockout",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "A knockout tennis tournament in Chandigarh has 24 players. Byes are given in the first round so that the second round starts with a power of 2 players. Which of these are true? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "23 matches are played in all."
+        },
+        {
+          "id": "b",
+          "text": "8 players get a bye."
+        },
+        {
+          "id": "c",
+          "text": "12 matches are played in the first round."
+        },
+        {
+          "id": "d",
+          "text": "The tournament has 6 rounds."
+        },
+        {
+          "id": "e",
+          "text": "The tournament has 5 rounds."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explanation": "Every match knocks out one player, so 24 − 1 = 23 matches. The draw has 32 places (2^5), so 32 − 24 = 8 byes and 5 rounds. The other 16 players play 8 first-round matches, not 12.",
+      "solutionSteps": [
+        "Matches: 24 − 1 = 23.",
+        "Draw size: 32 = 2^5, so 5 rounds.",
+        "Byes: 32 − 24 = 8.",
+        "First round: (24 − 8) ÷ 2 = 8 matches."
+      ],
+      "formulaIds": [
+        "ls-knockout-f"
+      ],
+      "method": "Matches n − 1; rounds and byes from the next power of 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the smallest power of 2 that is at least 24?"
+        },
+        {
+          "level": 2,
+          "text": "How many players actually play in the first round?"
+        }
+      ],
+      "commonMistakes": [
+        "Selecting 12 first-round matches: that ignores the 8 byes.",
+        "Selecting 6 rounds: 2^5 = 32 is already enough."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-020",
+      "topicId": "logical-sets",
+      "conceptId": "ls-table",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many points did Jharkhand score?",
+      "context": "Five hockey teams, Odisha, Punjab, Haryana, Jharkhand and Karnataka, played a round robin in Bhubaneswar: each pair met once, with 3 points for a win, 1 point to each team for a draw and 0 for a loss. Exactly 3 matches were drawn. Jharkhand’s total in the final table has been smudged.",
+      "table": {
+        "caption": "Final points table (one entry smudged)",
+        "headers": [
+          "Team",
+          "Played",
+          "Points"
+        ],
+        "rows": [
+          [
+            "Odisha",
+            "4",
+            "10"
+          ],
+          [
+            "Punjab",
+            "4",
+            "4"
+          ],
+          [
+            "Haryana",
+            "4",
+            "4"
+          ],
+          [
+            "Karnataka",
+            "4",
+            "4"
+          ],
+          [
+            "Jharkhand",
+            "4",
+            "?"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "There are 5C2 = 10 matches. With 3 draws the table adds up to 3 × 10 − 3 = 27. The other teams have 10 + 4 + 4 + 4 = 22, so Jharkhand has 27 − 22 = 5.",
+      "solutionSteps": [
+        "Matches: 10.",
+        "Total: 30 − 3 = 27.",
+        "Jharkhand: 27 − 22 = 5."
+      ],
+      "formulaIds": [
+        "ls-points-f",
+        "ls-sc-draws"
+      ],
+      "method": "Total points = 3 × matches − draws.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many matches did five teams play in all?"
+        },
+        {
+          "level": 2,
+          "text": "Each draw gives out one point less than a win."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8, using 30 as the total and forgetting the draws.",
+        "Answering 2, taking 3 points off for each draw."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logical-sets-q-021",
+      "topicId": "logical-sets",
+      "conceptId": "ls-routes",
+      "levelId": "logical-sets-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "9 teams play a basketball league in Bengaluru in which every team meets every other team twice, and no team plays more than one match on a day. What is the least number of days the league needs?",
+      "answer": {
+        "value": 18,
+        "tolerance": 0
+      },
+      "explanation": "There are 2 × 9C2 = 72 matches. With 9 teams at most 4 matches fit in a day (one team always rests), so at least 72 ÷ 4 = 18 days are needed. Each round robin fits in 9 days by the circle method, so 18 days is enough.",
+      "solutionSteps": [
+        "Matches: 2 × 36 = 72.",
+        "Most matches in a day: ⌊9/2⌋ = 4.",
+        "Days ≥ 72 ÷ 4 = 18; two 9-day round robins reach it."
+      ],
+      "formulaIds": [
+        "ls-days-f",
+        "ls-matches-f"
+      ],
+      "method": "An odd number n of teams needs n days per round robin.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many matches can be played on a day when one team must rest?"
+        },
+        {
+          "level": 2,
+          "text": "Count all the matches of both round robins."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 16: 2 × (9 − 1), forgetting that one team rests each day.",
+        "Answering 9: only one round robin."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

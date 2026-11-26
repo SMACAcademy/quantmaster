@@ -34,6 +34,11 @@ import { groupedDataSims } from './groupedData.js';
 import { catTopicSims } from './catTopics.js';
 import { reasoningMoreSims } from './reasoningMore.js';
 import { taxSims } from './taxes.js';
+import { tournamentSims } from './reasoningTournament.js';
+import { seriesSims } from './reasoningSeries.js';
+import { operationsSims } from './reasoningOperations.js';
+import { machineSims } from './reasoningMachine.js';
+import { sufficiencySims } from './reasoningSufficiency.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -94,7 +99,14 @@ export const SIMULATIONS = [
   // More logical reasoning (reasoningMore.js). Their meta.js entries keep this order.
   ...reasoningMoreSims,
   // Taxes, GST and commission (taxes.js). Their meta.js entries keep this order.
-  ...taxSims
+  ...taxSims,
+  // The last reasoning topics, one file each (reasoningTournament.js, reasoningSeries.js, reasoningOperations.js,
+  // reasoningMachine.js, reasoningSufficiency.js). Their meta.js entries keep this order.
+  ...tournamentSims,
+  ...seriesSims,
+  ...operationsSims,
+  ...machineSims,
+  ...sufficiencySims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));
