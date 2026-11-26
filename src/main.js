@@ -38,6 +38,7 @@ import { MistakesView } from './views/MistakesView.js';
 import { ProgressView } from './views/ProgressView.js';
 import { SettingsView } from './views/SettingsView.js';
 import { PrivacyView } from './views/PrivacyView.js';
+import { AboutView } from './views/AboutView.js';
 
 async function boot() {
   const settings = getSettings();
@@ -113,6 +114,7 @@ function registerRoutes() {
   route('/progress', ProgressView);
   route('/settings', SettingsView);
   route('/privacy', PrivacyView);
+  route('/about', AboutView);
 
   setNotFound(() => ({
     title: 'Not found',

@@ -5,6 +5,35 @@ import { icon } from '../utils/icons.js';
 import { badge, disclosure } from './ui.js';
 import { formulaRepository, conceptRepository } from '../repositories/contentRepository.js';
 import { describeCorrectAnswer } from '../services/quizEngine.js';
+import { topicRepository } from '../repositories/contentRepository.js';
+import { newDiscussionUrl, newIssueUrl, pageUrl } from '../app/community.js';
+
+const external = { target: '_blank', rel: 'noopener noreferrer' };
+
+/** Ask others about a question, or report a mistake in it, on GitHub. */
+export function questionCommunityLinks(question) {
+  if (!question?.id) return null;
+  const topic = question.topicId ? topicRepository.getById(question.topicId) : null;
+  const text = String(question.question || '').slice(0, 1500);
+  return el('div.solution__community', {}, [
+    el('a', {
+      href: newDiscussionUrl('q-a', `Question ${question.id}: a quicker way?`, `> ${text}
+
+Topic: ${topic?.name || question.topicId || ''}
+From: ${pageUrl()}
+
+My question or method:
+`),
+      ...external
+    }, [icon('help', { size: 14 }), el('span', { text: 'Ask or share a quicker way' })]),
+    el('a', {
+      href: newIssueUrl('content-error.yml', `[${question.id}] `, { topic: topic?.name || question.topicId, question: `${question.id}
+
+${text}` }),
+      ...external
+    }, [icon('flag', { size: 14 }), el('span', { text: 'Report a problem with this question' })])
+  ]);
+}
 
 export function solutionPanel(question, { showAnswer = true, compact = false } = {}) {
   const formulas = formulaRepository.getByIds(question.formulaIds || []);
@@ -71,7 +100,8 @@ export function solutionPanel(question, { showAnswer = true, compact = false } =
           badge(concept.name, 'outline', { icon: 'brain' }),
           ...(question.tags || []).slice(0, 3).map((tag) => badge(tag, ''))
         ])
-      : null
+      : null,
+    compact ? null : questionCommunityLinks(question)
   ]);
 }
 

@@ -4,6 +4,10 @@
 
 **Use it now: https://smacacademy.github.io/quantmaster/**
 
+[![Stars](https://img.shields.io/github/stars/SMACAcademy/quantmaster?style=social)](https://github.com/SMACAcademy/quantmaster/stargazers) [![Puzzle of the week](https://img.shields.io/badge/puzzle%20of%20the%20week-join%20in-6f42c1)](https://github.com/SMACAcademy/quantmaster/discussions/categories/q-a)
+
+> **Puzzle of the week.** Every Monday a new aptitude puzzle appears on the app's dashboard and in [Discussions](https://github.com/SMACAcademy/quantmaster/discussions/categories/q-a). Check your answer in the app, then post your method: the quickest clear one is marked as the answer. If QuantMaster helps you, a ⭐ helps other aspirants find it.
+
 - **No account, no server, no tracking.** Your progress stays in your own browser.
 - **Works offline** once opened, and installs to your phone's home screen like an app.
 - **Free and open:** code under the MIT licence, content under CC BY-SA 4.0. Fork it, host your own copy, translate it, improve it.
@@ -124,9 +128,9 @@ More: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · [docs/DATA_MODEL.md](docs/
 
 ## Contributing and licences
 
-Corrections, new questions, translations and code are all welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Please follow the [Code of Conduct](CODE_OF_CONDUCT.md); report security issues as described in [SECURITY.md](SECURITY.md).
+Corrections, new questions, translations and code are all welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Ideas for missing topics or simulations go in [Discussions → Ideas](https://github.com/SMACAcademy/quantmaster/discussions/categories/ideas); every solution in the app also has an "Ask or share a quicker way" link and a "Report a problem" link that open GitHub with the question already filled in. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md); report security issues as described in [SECURITY.md](SECURITY.md).
 
 - **Code:** MIT licence, see [LICENSE](LICENSE).
 - **Content** (lessons, questions, explanations, formula and shortcut cards, in `src/data/`): Creative Commons Attribution-ShareAlike 4.0 International, see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
 
-Made by SMAC Academy and contributors.
+Made by [Muthukumar Subramanian](https://smacacademy.github.io/quantmaster/#/about) (SMAC Academy) and contributors.

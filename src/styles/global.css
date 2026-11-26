@@ -499,7 +499,12 @@ a:hover {
     display: flex;
   }
   .shell__content {
-    padding: var(--sp-5) var(--sp-4) calc(var(--bottom-nav-h) + var(--sp-10));
+    padding: var(--sp-5) var(--sp-4) var(--sp-10);
+  }
+  /* The footer clears the bottom navigation; without it (quiz, sheets) the content does. */
+  .shell--focus .shell__content,
+  .shell--bare .shell__content {
+    padding-bottom: calc(var(--bottom-nav-h) + var(--sp-10));
   }
   .shell--focus .shell__content {
     padding: 0 0 calc(var(--bottom-nav-h));
