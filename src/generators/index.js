@@ -62,6 +62,10 @@ import { advTrigTemplates } from './templates/advTrigonometry.js';
 import { advPrismTemplates } from './templates/advPrismsPyramids.js';
 import { advTwoCircleTemplates } from './templates/advTwoCircles.js';
 import { groupedDataTemplates } from './templates/groupedData.js';
+import { modulusTemplates } from './templates/modulus.js';
+import { polynomialTemplates } from './templates/polynomials.js';
+import { integerSolutionTemplates } from './templates/integerSolutions.js';
+import { cryptarithmTemplates } from './templates/cryptarithm.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -113,7 +117,12 @@ const TEMPLATES = [
   ...advTrigTemplates,
   ...advPrismTemplates,
   ...advTwoCircleTemplates,
-  ...groupedDataTemplates
+  ...groupedDataTemplates,
+  // CAT and placement topics: modulus, polynomials, integer solutions, cryptarithms.
+  ...modulusTemplates,
+  ...polynomialTemplates,
+  ...integerSolutionTemplates,
+  ...cryptarithmTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

@@ -4,7 +4,7 @@
 
 ```
 src/data/
-  topics.json               the catalogue (all 80 topics)
+  topics.json               the catalogue (all 84 topics)
   achievements.json
   content/<topicId>.json    { topicId, concepts[], formulas[], levels[], questions[] }
   concepts/percentages.json   ┐

@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(80);
+  await expect(page.locator('.sim-card')).toHaveCount(84);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -272,5 +272,45 @@ test('reasoning simulations: seats fill in, the grid fills itself, the tree grow
   await page.locator('.sim-task', { hasText: 'how A is related to F' }).getByRole('button', { name: 'Show me' }).click();
   await expect(page.locator('.sim-readout', { hasText: 'How A is related to F' }).locator('dd')).toHaveText('A is F’s grandfather.');
   await expect(page.locator('.rp-node')).toHaveCount(6);
+  expect(errors).toEqual([]);
+});
+
+test('CAT and placement pictures: a flat bottom, the remainder as a height, lattice points, a letter sum', async ({ page }) => {
+  const errors = watchForErrors(page);
+  const value = (label) => page.locator('.sim-readout', { hasText: label }).locator('dd');
+
+  // Each one is in its topic's first lesson.
+  await page.goto('/#/topics/modulus/levels/modulus-level-0');
+  await expect(page.locator('.lesson__block--simulation').first().getByRole('heading', { name: 'Modulus as distance, and the flat bottom' })).toBeVisible();
+
+  // |x + 1| + |x − 3| is least (4) all the way from −1 to 3; at that level there are infinitely many solutions.
+  await page.goto('/#/explore/modulus-distance');
+  await expect(value('Least value of f')).toHaveText('4, for every x from −1 to 3');
+  await page.locator('.sim-task', { hasText: 'infinitely many' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('Solutions of f(x) = 4')).toContainText('infinitely many');
+  await page.getByRole('button', { name: '|x − a|', exact: true }).click();
+  await expect(page.getByRole('slider', { name: 'b', exact: true })).toHaveCount(0);
+
+  // The remainder on dividing by (x − 2) is the curve's height there; x − 1 is a factor of x³ − 2x² − 5x + 6.
+  await page.goto('/#/explore/remainder-curve');
+  await expect(value('Remainder on dividing by (x − 2)')).toHaveText('p(2) = −6');
+  await page.locator('.sim-task', { hasText: 'a factor' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('Remainder on dividing by (x − 1)')).toHaveText('p(1) = 0');
+  await expect(page.locator('.sim-table td.is-derived').last()).toContainText('0');
+
+  // 3x + 5y = 47 has three positive solutions; 2x + 3y = 31 has five.
+  await page.goto('/#/explore/lattice-line');
+  await expect(value('How many')).toHaveText('3');
+  await expect(page.locator('.sim-lattice-point')).toHaveCount(3);
+  await page.locator('.sim-task', { hasText: 'exactly five' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-lattice-point')).toHaveCount(5);
+
+  // SIX + SIX = HILL: work every column and each letter has one digit left.
+  await page.goto('/#/explore/column-solver');
+  await expect(page.locator('.sim-crypt__cands tr.is-fixed')).toHaveCount(0);
+  await page.getByRole('slider', { name: 'Columns worked (from the right)' }).focus();
+  await page.keyboard.press('End');
+  await expect(page.locator('.sim-crypt__cands tr.is-fixed')).toHaveCount(5);
+  await expect(value('Letters with one digit left')).toHaveText('S = 8, I = 7, X = 2, H = 1, L = 4');
   expect(errors).toEqual([]);
 });

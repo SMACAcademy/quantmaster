@@ -1,0 +1,1994 @@
+{
+  "topicId": "polynomials",
+  "concepts": [
+    {
+      "id": "py-basics",
+      "topicId": "polynomials",
+      "name": "Polynomials and their values",
+      "description": "A polynomial is a sum of terms cxⁿ with whole-number powers; its degree is the highest power. p(a) means put a for every x. Multiplying adds degrees.",
+      "sortOrder": 1
+    },
+    {
+      "id": "py-remainder",
+      "topicId": "polynomials",
+      "name": "The remainder theorem",
+      "description": "p(x) divided by x − a leaves p(a); divided by ax − b it leaves p(b/a). One substitution replaces a long division.",
+      "sortOrder": 2
+    },
+    {
+      "id": "py-factor",
+      "topicId": "polynomials",
+      "name": "The factor theorem",
+      "description": "x − a is a factor of p(x) exactly when p(a) = 0. A missing coefficient comes from setting the value (or the given remainder) equal; two factors give two equations.",
+      "sortOrder": 3
+    },
+    {
+      "id": "py-division",
+      "topicId": "polynomials",
+      "name": "Dividing polynomials",
+      "description": "Dividend = divisor × quotient + remainder, with the remainder of lower degree than the divisor. Synthetic division divides by x − a in one row.",
+      "sortOrder": 4
+    },
+    {
+      "id": "py-roots",
+      "topicId": "polynomials",
+      "name": "Roots and coefficients",
+      "description": "For ax² + bx + c: α + β = −b/a, αβ = c/a. For ax³ + bx² + cx + d: Σα = −b/a, Σαβ = c/a, αβγ = −d/a. Symmetric expressions follow from these.",
+      "sortOrder": 5
+    },
+    {
+      "id": "py-graphs",
+      "topicId": "polynomials",
+      "name": "Real roots from a graph",
+      "description": "Real roots are where the graph meets the x-axis. A degree-n polynomial has at most n real roots and at most n − 1 turning points; an odd degree always has at least one. A sign change between two values traps a root.",
+      "sortOrder": 6
+    },
+    {
+      "id": "py-adv-quadratic-divisor",
+      "topicId": "polynomials",
+      "name": "Remainder on a quadratic divisor",
+      "description": "Dividing by (x − a)(x − b) leaves a remainder rx + s of degree at most 1, found from p(a) = ra + s and p(b) = rb + s.",
+      "sortOrder": 7
+    },
+    {
+      "id": "py-adv-transform",
+      "topicId": "polynomials",
+      "name": "New equations from old roots",
+      "description": "Equations whose roots are kα, α + h or 1/α come from substituting x/k, x − h, or reversing the coefficients. Expressions such as 1/α + 1/β are written in the sum and product.",
+      "sortOrder": 8
+    }
+  ],
+  "formulas": [
+    {
+      "id": "py-value-f",
+      "topicId": "polynomials",
+      "conceptId": "py-basics",
+      "title": "Value and degree of a polynomial",
+      "prompt": "What does p(a) mean, and what is the degree of a polynomial?",
+      "formula": "p(a) = the value of p(x) with x = a\nDegree = highest power of x with a non-zero coefficient",
+      "variables": [],
+      "explanation": "Substitute the number for every x and keep the signs. When two polynomials are multiplied, their degrees add.",
+      "example": "p(x) = x³ − 2x + 5: p(2) = 8 − 4 + 5 = 9; degree 3",
+      "commonMistake": "Reading 2x³ at x = 2 as (2 × 2)³ = 64 instead of 2 × 8 = 16.",
+      "applicationPrompt": "Find p(−1) for p(x) = 3x³ + x² − 4.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-remainder-f",
+      "topicId": "polynomials",
+      "conceptId": "py-remainder",
+      "title": "Remainder theorem",
+      "prompt": "What remainder does p(x) leave when divided by x − a, or by ax − b?",
+      "formula": "p(x) ÷ (x − a) leaves p(a)\np(x) ÷ (ax − b) leaves p(b/a)",
+      "variables": [
+        {
+          "symbol": "a",
+          "meaning": "the number that makes the divisor zero"
+        }
+      ],
+      "explanation": "Write p(x) = (x − a)q(x) + r and put x = a: the first part becomes 0, leaving r = p(a).",
+      "example": "x³ − 4x² + 2x + 9 ÷ (x − 3): p(3) = 27 − 36 + 6 + 9 = 6",
+      "commonMistake": "Putting x = 3 for the divisor x + 3; the divisor is zero at x = −3.",
+      "applicationPrompt": "Find the remainder when x³ + 5 is divided by x + 2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-factor-f",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "title": "Factor theorem",
+      "prompt": "How do you test whether x − a is a factor of p(x)?",
+      "formula": "(x − a) is a factor of p(x)  ⇔  p(a) = 0",
+      "variables": [],
+      "explanation": "A factor divides exactly, so the remainder p(a) must be zero. Setting p(a) = 0 also finds a missing coefficient.",
+      "example": "x³ + 3x² − 4 at x = −2: −8 + 12 − 4 = 0, so (x + 2) is a factor",
+      "commonMistake": "Testing p(2) for the factor x + 2.",
+      "applicationPrompt": "Is x − 1 a factor of x³ − 6x² + 11x − 6?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-division-f",
+      "topicId": "polynomials",
+      "conceptId": "py-division",
+      "title": "Division of polynomials",
+      "prompt": "How are the dividend, divisor, quotient and remainder related?",
+      "formula": "p(x) = d(x) × q(x) + r(x),  degree of r < degree of d",
+      "variables": [],
+      "explanation": "Dividing by a linear divisor leaves a constant; dividing by a quadratic leaves at most a linear remainder.",
+      "example": "(x² + 1)(2x − 3) + (x + 4) = 2x³ − 3x² + 3x + 1",
+      "commonMistake": "Leaving a remainder whose degree is not less than the divisor’s.",
+      "applicationPrompt": "A polynomial divided by x − 1 gives quotient x² + 2 and remainder 5. What is it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "py-quad-roots-f",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "title": "Roots of a quadratic",
+      "prompt": "For ax² + bx + c = 0 with roots α and β, what are α + β and αβ?",
+      "formula": "α + β = −b/a\nαβ = c/a",
+      "variables": [],
+      "explanation": "ax² + bx + c = a(x − α)(x − β); comparing coefficients gives both at once.",
+      "example": "2x² − 7x + 3 = 0: α + β = 7/2, αβ = 3/2 (roots 3 and 1/2)",
+      "commonMistake": "Dropping the minus sign in −b/a.",
+      "applicationPrompt": "Find the sum and product of the roots of 3x² + 6x − 9 = 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-cubic-roots-f",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "title": "Roots of a cubic",
+      "prompt": "For ax³ + bx² + cx + d = 0 with roots α, β, γ, what are Σα, Σαβ and αβγ?",
+      "formula": "α + β + γ = −b/a\nαβ + βγ + γα = c/a\nαβγ = −d/a",
+      "variables": [],
+      "explanation": "The signs alternate: minus, plus, minus. The relations hold for all three roots, real or not.",
+      "example": "x³ − 6x² + 11x − 6 = 0 (roots 1, 2, 3): sum 6, Σαβ 11, product 6",
+      "commonMistake": "Giving the product as d/a; for a cubic it is −d/a.",
+      "applicationPrompt": "Find the product of the roots of 2x³ + x² − 5x + 4 = 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "py-graph-f",
+      "topicId": "polynomials",
+      "conceptId": "py-graphs",
+      "title": "Roots and turning points",
+      "prompt": "How many real roots and turning points can a polynomial of degree n have?",
+      "formula": "At most n real roots and at most n − 1 turning points\nOdd degree ⇒ at least one real root\np(a) and p(b) of opposite signs ⇒ a root between a and b",
+      "variables": [],
+      "explanation": "Each real root is a point where the graph meets the x-axis. An odd-degree graph runs from −∞ to +∞, so it must cross.",
+      "example": "x³ − 3x + 1: p(0) = 1, p(1) = −1, so a root lies between 0 and 1",
+      "commonMistake": "Thinking a cubic always has three real roots; x³ + x has only one.",
+      "applicationPrompt": "Can a polynomial of degree 4 have 5 real roots?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-quad-divisor-f",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-quadratic-divisor",
+      "title": "Remainder on (x − a)(x − b)",
+      "prompt": "How do you find the remainder when p(x) is divided by (x − a)(x − b)?",
+      "formula": "Remainder = rx + s, where\nra + s = p(a),  rb + s = p(b)",
+      "variables": [],
+      "explanation": "The remainder has degree below 2. Both a and b make the divisor zero, giving two equations for r and s.",
+      "example": "p(1) = 5, p(3) = 11: r = (11 − 5)/(3 − 1) = 3, s = 2, remainder 3x + 2",
+      "commonMistake": "Expecting a constant remainder from a quadratic divisor.",
+      "applicationPrompt": "p(2) = 7 and p(−1) = 1. Find the remainder on division by (x − 2)(x + 1).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "py-transform-f",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-transform",
+      "title": "Equation with changed roots",
+      "prompt": "From p(x) = 0 with roots α, β, how do you get the equation whose roots are kα, α + h or 1/α?",
+      "formula": "Roots kα: p(x/k) = 0\nRoots α + h: p(x − h) = 0\nRoots 1/α: reverse the coefficients",
+      "variables": [],
+      "explanation": "If x = kα then x/k = α is a root of p, so p(x/k) = 0. The same idea gives the other two.",
+      "example": "x² − 5x + 3 = 0 → roots 2α, 2β: x² − 10x + 12 = 0",
+      "commonMistake": "Doubling only the sum and forgetting that the product is multiplied by 4.",
+      "applicationPrompt": "Form the equation whose roots are the reciprocals of the roots of 2x² − 6x + 1 = 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "py-sc-sum-coeffs",
+      "topicId": "polynomials",
+      "conceptId": "py-remainder",
+      "kind": "shortcut",
+      "title": "Remainder on x − 1 and x + 1",
+      "prompt": "What is the quickest way to the remainder on division by x − 1 or by x + 1?",
+      "formula": "p(1) = sum of the coefficients\np(−1) = (even-power coefficients) − (odd-power coefficients)",
+      "variables": [],
+      "explanation": "At x = 1 every power is 1; at x = −1 odd powers become −1.",
+      "example": "3x⁵ − 2x² + x + 4 ÷ (x + 1): p(−1) = −3 − 2 − 1 + 4 = −2",
+      "commonMistake": "Making even powers of −1 negative.",
+      "applicationPrompt": "Find the remainder when x²⁰ + 3x¹⁵ − 2 is divided by x + 1.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "py-sc-synthetic",
+      "topicId": "polynomials",
+      "conceptId": "py-division",
+      "kind": "shortcut",
+      "title": "Synthetic division",
+      "prompt": "How do you divide by x − a without long division?",
+      "formula": "Write the coefficients (0 for a missing power).\nBring the first down; multiply by a, add to the next; repeat.\nLast number = remainder; the rest = quotient",
+      "variables": [],
+      "explanation": "Each step is one multiplication and one addition, so a cubic takes three steps.",
+      "example": "2x³ − 3x² + 5 ÷ (x − 2): 2 | −3 | 0 | 5 → 2, 1, 2, 9: quotient 2x² + x + 2, remainder 9",
+      "commonMistake": "Skipping the 0 for a missing power, which shifts every later number.",
+      "applicationPrompt": "Divide x³ + 2x² − 5x + 7 by x − 2 synthetically.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "py-sc-alpha-sq",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "kind": "shortcut",
+      "title": "Sum of squares of the roots",
+      "prompt": "How do you find α² + β² without finding the roots?",
+      "formula": "α² + β² = (α + β)² − 2αβ\nα² + β² + γ² = (Σα)² − 2Σαβ",
+      "variables": [],
+      "explanation": "Squaring the sum adds twice every product, so subtract it back.",
+      "example": "x³ − 6x² + 11x − 6: 6² − 2 × 11 = 14 (and 1 + 4 + 9 = 14)",
+      "commonMistake": "Adding 2αβ instead of subtracting it.",
+      "applicationPrompt": "Find α² + β² for x² − 4x + 1 = 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "py-sc-integer-roots",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "kind": "shortcut",
+      "title": "Where to look for integer roots",
+      "prompt": "Which numbers can be integer roots of x³ + bx² + cx + d with whole-number coefficients?",
+      "formula": "An integer root must divide the constant term d",
+      "variables": [],
+      "explanation": "If r is a root then r(r² + br + c) = −d, so r divides d. Test only those divisors.",
+      "example": "x³ − 7x + 6: try ±1, ±2, ±3, ±6; p(1) = 0, p(2) = 0, p(−3) = 0",
+      "commonMistake": "Testing numbers that do not divide the constant term.",
+      "applicationPrompt": "List the candidates for an integer root of x³ + 2x² − x − 2.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "polynomials-level-0",
+      "topicId": "polynomials",
+      "order": 0,
+      "title": "Remainders Without Long Division",
+      "description": "Values of a polynomial, the remainder and factor theorems, and what the coefficients say about the roots.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "py-basics",
+        "py-remainder",
+        "py-factor",
+        "py-roots"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A polynomial and its value",
+            "body": "p(x) = 2x³ − 5x² + 3x − 7 is a polynomial of degree 3, the highest power of x. Its value at x = 2 comes from putting 2 for every x: p(2) = 16 − 20 + 6 − 7 = −5. Work each term on its own: 2x³ at x = 2 is 2 × 8, not (2 × 2)³."
+          },
+          {
+            "type": "check",
+            "questionId": "polynomials-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The remainder is a value",
+            "body": "Divide p(x) by x − a and write p(x) = (x − a) × q(x) + r. Now put x = a: the first part becomes 0, so r = p(a).\n\nSo the remainder when x³ − 4x² + 2x + 9 is divided by x − 3 is just p(3) = 27 − 36 + 6 + 9 = 6. No long division is needed."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "remainder-curve"
+          },
+          {
+            "type": "formula",
+            "title": "Remainder and factor theorems",
+            "body": "p(x) ÷ (x − a) leaves p(a)\n(x − a) is a factor ⇔ p(a) = 0",
+            "caption": "For a divisor ax − b, use x = b/a: the remainder is p(b/a). On the graph, the remainder is the height of the curve at x = a; a factor is a point where the curve meets the x-axis."
+          },
+          {
+            "type": "check",
+            "questionId": "polynomials-q-002"
+          },
+          {
+            "type": "text",
+            "title": "The coefficients know the roots",
+            "body": "If α and β are the roots of ax² + bx + c = 0, then α + β = −b/a and αβ = c/a. A cubic ax³ + bx² + cx + d = 0 has α + β + γ = −b/a, αβ + βγ + γα = c/a and αβγ = −d/a. The signs alternate: minus, plus, minus."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Watch the sign of the divisor: x + 2 is x − (−2), so put x = −2, not 2."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "polynomials-level-1",
+      "topicId": "polynomials",
+      "order": 1,
+      "title": "Polynomial Formulas",
+      "description": "Values, the remainder and factor theorems, division, and the relations between roots and coefficients.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "polynomials-level-0"
+      ],
+      "conceptIds": [
+        "py-basics",
+        "py-remainder",
+        "py-factor",
+        "py-division",
+        "py-roots",
+        "py-graphs"
+      ],
+      "formulaIds": [
+        "py-value-f",
+        "py-remainder-f",
+        "py-factor-f",
+        "py-division-f",
+        "py-quad-roots-f",
+        "py-cubic-roots-f",
+        "py-graph-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "polynomials-level-2",
+      "topicId": "polynomials",
+      "order": 2,
+      "title": "Direct Substitution",
+      "description": "Values, remainders, a factor test and the sum of roots, one step each.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "polynomials-level-1"
+      ],
+      "conceptIds": [
+        "py-basics",
+        "py-remainder",
+        "py-factor",
+        "py-roots"
+      ],
+      "questionIds": [
+        "polynomials-q-001",
+        "polynomials-q-002",
+        "polynomials-q-003",
+        "polynomials-q-004",
+        "polynomials-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "polynomials-level-3",
+      "topicId": "polynomials",
+      "order": 3,
+      "title": "Missing Coefficients and Division",
+      "description": "Find a coefficient from a factor or a remainder, divide synthetically, and use the roots of a cubic.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "polynomials-level-2"
+      ],
+      "conceptIds": [
+        "py-factor",
+        "py-division",
+        "py-roots",
+        "py-graphs",
+        "py-basics"
+      ],
+      "questionIds": [
+        "polynomials-q-006",
+        "polynomials-q-007",
+        "polynomials-q-008",
+        "polynomials-q-009",
+        "polynomials-q-010",
+        "polynomials-q-011",
+        "polynomials-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "polynomials-level-4",
+      "topicId": "polynomials",
+      "order": 4,
+      "title": "Two Conditions and Graphs",
+      "description": "Two factors at once, fractional divisors, rebuilding a dividend, and counting where a graph meets the axis.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "polynomials-level-3"
+      ],
+      "conceptIds": [
+        "py-factor",
+        "py-remainder",
+        "py-division",
+        "py-roots",
+        "py-graphs"
+      ],
+      "questionIds": [
+        "polynomials-q-013",
+        "polynomials-q-014",
+        "polynomials-q-015",
+        "polynomials-q-016",
+        "polynomials-q-017"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "polynomials-level-5",
+      "topicId": "polynomials",
+      "order": 5,
+      "title": "Mixed Polynomials Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "polynomials-level-4"
+      ],
+      "conceptIds": [
+        "py-remainder",
+        "py-factor"
+      ],
+      "questionQuery": {
+        "topicId": "polynomials",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "py-basics",
+          "py-remainder",
+          "py-factor",
+          "py-division",
+          "py-roots",
+          "py-graphs"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "polynomials-level-6",
+      "topicId": "polynomials",
+      "order": 6,
+      "title": "Advanced: Quadratic Divisors and New Roots",
+      "description": "The linear remainder left by a quadratic divisor, and equations whose roots are changed versions of the old ones.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "polynomials-level-5"
+      ],
+      "conceptIds": [
+        "py-adv-quadratic-divisor",
+        "py-adv-transform"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A quadratic divisor leaves a linear remainder",
+            "body": "When the divisor has degree 2, the remainder has degree at most 1: p(x) = (x − a)(x − b)q(x) + rx + s. Putting x = a and x = b gives ra + s = p(a) and rb + s = p(b): two equations for r and s."
+          },
+          {
+            "type": "check",
+            "questionId": "polynomials-q-018"
+          },
+          {
+            "type": "formula",
+            "title": "Remainder on (x − a)(x − b)",
+            "body": "r = (p(a) − p(b)) ÷ (a − b),  s = p(a) − ra",
+            "caption": "Example: p(1) = 5 and p(3) = 11 give r = 3 and s = 2, so the remainder is 3x + 2."
+          },
+          {
+            "type": "text",
+            "title": "New equations from old roots",
+            "body": "For roots 2α and 2β, put x/2 for x. For roots α + 1 and β + 1, put x − 1 for x. For roots 1/α and 1/β, write the coefficients in reverse: 2x² − 6x + 1 = 0 becomes x² − 6x + 2 = 0.\n\nOften you only need the new sum and product: for 2α and 2β they are 2(α + β) and 4αβ."
+          },
+          {
+            "type": "check",
+            "questionId": "polynomials-q-019"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Symmetric expressions such as α² + β², 1/α + 1/β or α³ + β³ can always be written using α + β and αβ, so you never need the roots themselves."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "polynomials-level-7",
+      "topicId": "polynomials",
+      "order": 7,
+      "title": "Challenge: Remainders and Roots",
+      "description": "Quadratic divisors, changed roots, products of roots and roots read from a table.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "polynomials-level-6"
+      ],
+      "conceptIds": [
+        "py-adv-quadratic-divisor",
+        "py-adv-transform"
+      ],
+      "questionIds": [
+        "polynomials-q-018",
+        "polynomials-q-019",
+        "polynomials-q-020",
+        "polynomials-q-021",
+        "polynomials-q-022",
+        "polynomials-q-023",
+        "polynomials-q-024"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 100,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "polynomials-q-001",
+      "topicId": "polynomials",
+      "conceptId": "py-basics",
+      "levelId": "polynomials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If p(x) = 2x³ − 5x² + 3x − 7, what is p(2)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "−5"
+        },
+        {
+          "id": "b",
+          "text": "43"
+        },
+        {
+          "id": "c",
+          "text": "−49"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Put 2 for every x: 2 × 8 − 5 × 4 + 3 × 2 − 7 = 16 − 20 + 6 − 7 = −5.",
+      "solutionSteps": [
+        "2x³ = 2 × 8 = 16 and 5x² = 5 × 4 = 20.",
+        "3x = 6.",
+        "16 − 20 + 6 − 7 = −5."
+      ],
+      "formulaIds": [
+        "py-value-f"
+      ],
+      "method": "Substitute, then work each term separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out 2³ first, then multiply by 2."
+        },
+        {
+          "level": 2,
+          "text": "p(2) = 16 − 20 + 6 − 7."
+        }
+      ],
+      "commonMistakes": [
+        "Reading 2x³ as (2x)³ = 64, which gives 43.",
+        "Putting x = −2, which gives −49."
+      ],
+      "tags": [
+        "basic",
+        "substitution"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-002",
+      "topicId": "polynomials",
+      "conceptId": "py-remainder",
+      "levelId": "polynomials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the remainder when x³ − 4x² + 2x + 9 is divided by x − 3.",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "By the remainder theorem the remainder is p(3) = 27 − 36 + 6 + 9 = 6. No long division is needed.",
+      "solutionSteps": [
+        "The divisor x − 3 is zero at x = 3.",
+        "p(3) = 27 − 36 + 6 + 9.",
+        "Remainder = 6."
+      ],
+      "formulaIds": [
+        "py-remainder-f"
+      ],
+      "method": "Remainder = p(a) for the divisor x − a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which value of x makes x − 3 zero?"
+        },
+        {
+          "level": 2,
+          "text": "Work out p(3)."
+        }
+      ],
+      "commonMistakes": [
+        "Putting x = −3, which gives −66."
+      ],
+      "tags": [
+        "remainder-theorem",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-003",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "levelId": "polynomials-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "(x + 2) is a factor of x³ + 3x² − 4.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "x + 2 is zero at x = −2, and p(−2) = −8 + 12 − 4 = 0. A zero remainder means x + 2 is a factor (x³ + 3x² − 4 = (x + 2)²(x − 1)).",
+      "solutionSteps": [
+        "x + 2 = 0 at x = −2.",
+        "p(−2) = −8 + 12 − 4 = 0.",
+        "Remainder 0, so it is a factor: true."
+      ],
+      "formulaIds": [
+        "py-factor-f"
+      ],
+      "method": "Test p at the value that makes the divisor zero.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For the divisor x + 2, put x = −2."
+        },
+        {
+          "level": 2,
+          "text": "(−2)³ = −8 and 3 × (−2)² = 12."
+        }
+      ],
+      "commonMistakes": [
+        "Testing p(2) = 16 instead of p(−2)."
+      ],
+      "tags": [
+        "true-false",
+        "factor-theorem"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-004",
+      "topicId": "polynomials",
+      "conceptId": "py-remainder",
+      "levelId": "polynomials-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "When a polynomial p(x) is divided by 2x − 3, the remainder is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "p(3/2)"
+        },
+        {
+          "id": "b",
+          "text": "p(−3/2)"
+        },
+        {
+          "id": "c",
+          "text": "p(3)"
+        },
+        {
+          "id": "d",
+          "text": "p(2/3)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The divisor 2x − 3 is zero at x = 3/2. Writing p(x) = (2x − 3)q(x) + r and putting x = 3/2 leaves r = p(3/2).",
+      "solutionSteps": [
+        "Solve 2x − 3 = 0: x = 3/2.",
+        "The remainder is p(3/2)."
+      ],
+      "formulaIds": [
+        "py-remainder-f"
+      ],
+      "method": "Find the zero of the divisor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which x makes 2x − 3 equal to 0?"
+        },
+        {
+          "level": 2,
+          "text": "Solve 2x = 3."
+        }
+      ],
+      "commonMistakes": [
+        "Using only the constant 3 and ignoring the 2 in front of x.",
+        "Inverting the fraction to 2/3."
+      ],
+      "tags": [
+        "formula",
+        "recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-005",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "levelId": "polynomials-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the sum of the roots of 2x² − 7x + 3 = 0?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7/2"
+        },
+        {
+          "id": "b",
+          "text": "−7/2"
+        },
+        {
+          "id": "c",
+          "text": "3/2"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Sum of roots = −b/a = −(−7)/2 = 7/2. Check: the roots are 3 and 1/2, and 3 + 1/2 = 7/2.",
+      "solutionSteps": [
+        "a = 2, b = −7.",
+        "Sum = −b/a = 7/2."
+      ],
+      "formulaIds": [
+        "py-quad-roots-f"
+      ],
+      "method": "Sum of roots = −b/a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use −b/a; here b = −7."
+        },
+        {
+          "level": 2,
+          "text": "Do not forget to divide by a = 2."
+        }
+      ],
+      "commonMistakes": [
+        "Keeping the sign of b: −7/2.",
+        "Giving the product c/a = 3/2; forgetting to divide by a."
+      ],
+      "tags": [
+        "basic",
+        "vieta"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-006",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If x − 2 is a factor of x³ + kx² − 5x + 6, find k.",
+      "answer": {
+        "value": -1,
+        "tolerance": 0
+      },
+      "explanation": "x − 2 is a factor, so p(2) = 0: 8 + 4k − 10 + 6 = 0, so 4k + 4 = 0 and k = −1. Check: x³ − x² − 5x + 6 at x = 2 is 8 − 4 − 10 + 6 = 0.",
+      "solutionSteps": [
+        "p(2) = 8 + 4k − 10 + 6 = 4k + 4.",
+        "Set 4k + 4 = 0.",
+        "k = −1."
+      ],
+      "formulaIds": [
+        "py-factor-f"
+      ],
+      "method": "Factor theorem: set p(a) = 0 and solve for the unknown.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A factor leaves remainder 0, so p(2) = 0."
+        },
+        {
+          "level": 2,
+          "text": "8 + 4k − 10 + 6 = 0."
+        }
+      ],
+      "commonMistakes": [
+        "Using p(−2) = 0, which gives k = −5."
+      ],
+      "tags": [
+        "factor-theorem",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-007",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "When 3x³ + ax² − 4x + 1 is divided by x + 1, the remainder is 7. Find a.",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The remainder is p(−1) = −3 + a + 4 + 1 = a + 2. Setting a + 2 = 7 gives a = 5.",
+      "solutionSteps": [
+        "p(−1) = 3(−1) + a(1) − 4(−1) + 1.",
+        "= −3 + a + 4 + 1 = a + 2.",
+        "a + 2 = 7, so a = 5."
+      ],
+      "formulaIds": [
+        "py-remainder-f"
+      ],
+      "method": "Remainder theorem, then solve for the coefficient.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Put x = −1, the zero of x + 1."
+        },
+        {
+          "level": 2,
+          "text": "−4x at x = −1 is +4."
+        }
+      ],
+      "commonMistakes": [
+        "Putting x = 1, which gives a = 7.",
+        "Taking −4x as −4 at x = −1, which gives a = 13; dropping the constant 1, which gives a = 6."
+      ],
+      "tags": [
+        "remainder-theorem",
+        "unknown-coefficient"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-008",
+      "topicId": "polynomials",
+      "conceptId": "py-division",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Divide x³ + 2x² − 5x + 7 by x − 2. What is the constant term of the quotient?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Synthetic division with 2: bring down 1; 1 × 2 + 2 = 4; 4 × 2 − 5 = 3; 3 × 2 + 7 = 13. The quotient is x² + 4x + 3 and the remainder 13, so the constant term is 3.",
+      "solutionSteps": [
+        "Coefficients 1, 2, −5, 7; divide by 2.",
+        "Row: 1, 4, 3 | 13.",
+        "Quotient x² + 4x + 3: constant term 3."
+      ],
+      "formulaIds": [
+        "py-division-f",
+        "py-sc-synthetic"
+      ],
+      "method": "Synthetic division: multiply by 2, add, repeat.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 1, 2, −5, 7 and bring the 1 down."
+        },
+        {
+          "level": 2,
+          "text": "The last number of the row is the remainder, not part of the quotient."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the remainder 13 as the constant term.",
+        "Dividing by −2 instead of 2."
+      ],
+      "tags": [
+        "synthetic-division",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-009",
+      "topicId": "polynomials",
+      "conceptId": "py-division",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "ordering",
+      "question": "Put the steps in order to divide 2x³ − 3x² + 5 by x − 2 by synthetic division.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Write the coefficients 2, −3, 0, 5 (0 for the missing x term) and the number 2"
+        },
+        {
+          "id": "s2",
+          "text": "Bring down the first coefficient, 2"
+        },
+        {
+          "id": "s3",
+          "text": "Multiply 2 × 2 = 4 and add to −3 to get 1"
+        },
+        {
+          "id": "s4",
+          "text": "Multiply 1 × 2 = 2 and add to 0 to get 2"
+        },
+        {
+          "id": "s5",
+          "text": "Multiply 2 × 2 = 4 and add to 5 to get 9, the remainder"
+        },
+        {
+          "id": "s6",
+          "text": "Read the quotient 2x² + x + 2 from 2, 1, 2"
+        }
+      ],
+      "explanation": "Synthetic division works on the coefficients alone. Each step multiplies the last number by 2 and adds it to the next coefficient. The final number, 9, is the remainder: check p(2) = 16 − 12 + 5 = 9.",
+      "solutionSteps": [
+        "Coefficients 2, −3, 0, 5.",
+        "Row: 2, 1, 2 | 9.",
+        "Quotient 2x² + x + 2, remainder 9 = p(2)."
+      ],
+      "formulaIds": [
+        "py-sc-synthetic"
+      ],
+      "method": "Bring down, multiply, add, repeat.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The missing x term still needs a place."
+        },
+        {
+          "level": 2,
+          "text": "Every step after the first is \"multiply by 2, then add\"."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out the 0 for the missing x term."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-010",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If α, β and γ are the roots of x³ − 6x² + 11x − 6 = 0, what is α² + β² + γ²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14"
+        },
+        {
+          "id": "b",
+          "text": "36"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "58"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Σα = 6 and Σαβ = 11, so α² + β² + γ² = 6² − 2 × 11 = 36 − 22 = 14. Check: the roots are 1, 2, 3 and 1 + 4 + 9 = 14.",
+      "solutionSteps": [
+        "Σα = −(−6)/1 = 6.",
+        "Σαβ = 11/1 = 11.",
+        "Σα² = 36 − 22 = 14."
+      ],
+      "formulaIds": [
+        "py-cubic-roots-f",
+        "py-sc-alpha-sq"
+      ],
+      "method": "Square the sum and subtract twice the pair sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(α + β + γ)² = α² + β² + γ² + 2(αβ + βγ + γα)."
+        },
+        {
+          "level": 2,
+          "text": "Σα = 6 and Σαβ = 11."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at (Σα)² = 36.",
+        "Subtracting Σαβ only once: 25; adding 2Σαβ: 58."
+      ],
+      "tags": [
+        "vieta",
+        "cubic"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-011",
+      "topicId": "polynomials",
+      "conceptId": "py-graphs",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "p(x) is a cubic polynomial with real coefficients. Select ALL the statements that must be true.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Its graph meets the x-axis at least once"
+        },
+        {
+          "id": "b",
+          "text": "It has exactly three real roots"
+        },
+        {
+          "id": "c",
+          "text": "Its graph has at most two turning points"
+        },
+        {
+          "id": "d",
+          "text": "Its graph meets the x-axis at most three times"
+        },
+        {
+          "id": "e",
+          "text": "If p(1) and p(2) are both positive, no root lies between 1 and 2"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "d"
+      ],
+      "explanation": "A cubic runs from −∞ to +∞ (or the reverse), so it crosses the axis at least once, and degree 3 allows at most 3 roots and at most 2 turning points. It need not have three real roots: x³ + x has one. Two positive values do not rule out a root between them: the curve can dip below the axis and come back, crossing twice.",
+      "solutionSteps": [
+        "(a) odd degree: true.",
+        "(b) x³ + x has one real root: false.",
+        "(c) at most n − 1 = 2 turning points: true.",
+        "(d) at most 3 roots: true.",
+        "(e) the curve may cross twice between 1 and 2: false."
+      ],
+      "formulaIds": [
+        "py-graph-f"
+      ],
+      "method": "Degree n: at most n roots and n − 1 turns; odd degree: at least one root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of x³ + x and of x³ − x."
+        },
+        {
+          "level": 2,
+          "text": "A sign change proves a root, but no sign change proves nothing."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming every cubic has three real roots.",
+        "Reading \"no sign change\" as \"no root\"."
+      ],
+      "tags": [
+        "multi-select",
+        "graphs"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-012",
+      "topicId": "polynomials",
+      "conceptId": "py-basics",
+      "levelId": "polynomials-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the coefficient of x² in (x² − 3x + 2)(2x + 5)?",
+      "answer": {
+        "value": -1,
+        "tolerance": 0
+      },
+      "explanation": "x² arises in two ways: x² × 5 = 5x² and (−3x) × 2x = −6x². Together 5 − 6 = −1. The full product is 2x³ − x² − 11x + 10.",
+      "solutionSteps": [
+        "x² × 5 = 5x².",
+        "−3x × 2x = −6x².",
+        "5 − 6 = −1."
+      ],
+      "formulaIds": [
+        "py-value-f"
+      ],
+      "method": "Pick out only the pairs of terms whose powers add to 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which pairs of terms multiply to give x²?"
+        },
+        {
+          "level": 2,
+          "text": "There are two: x² × 5 and (−3x) × 2x."
+        }
+      ],
+      "commonMistakes": [
+        "Taking only x² × 5 and answering 5."
+      ],
+      "tags": [
+        "multiplication",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-013",
+      "topicId": "polynomials",
+      "conceptId": "py-factor",
+      "levelId": "polynomials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Both x − 2 and x + 3 are factors of x³ + ax² + bx − 12. Find a − b.",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "p(2) = 8 + 4a + 2b − 12 = 0 gives 2a + b = 2. p(−3) = −27 + 9a − 3b − 12 = 0 gives 3a − b = 13. Adding, 5a = 15, so a = 3 and b = −4; a − b = 7. Check: (x − 2)(x + 3)(x + 2) = x³ + 3x² − 4x − 12.",
+      "solutionSteps": [
+        "p(2) = 0 → 2a + b = 2.",
+        "p(−3) = 0 → 3a − b = 13.",
+        "a = 3, b = −4, so a − b = 7."
+      ],
+      "formulaIds": [
+        "py-factor-f"
+      ],
+      "method": "One equation from each factor, then solve the pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each factor gives one equation: p(2) = 0 and p(−3) = 0."
+        },
+        {
+          "level": 2,
+          "text": "Add 2a + b = 2 and 3a − b = 13."
+        }
+      ],
+      "commonMistakes": [
+        "Answering a + b = −1.",
+        "Using p(3) for the factor x + 3."
+      ],
+      "tags": [
+        "factor-theorem",
+        "two-unknowns"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-014",
+      "topicId": "polynomials",
+      "conceptId": "py-remainder",
+      "levelId": "polynomials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the remainder when 4x³ − 2x² + x − 5 is divided by 2x − 1.",
+      "options": [
+        {
+          "id": "a",
+          "text": "−9/2"
+        },
+        {
+          "id": "b",
+          "text": "−13/2"
+        },
+        {
+          "id": "c",
+          "text": "21"
+        },
+        {
+          "id": "d",
+          "text": "−2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2x − 1 is zero at x = 1/2. p(1/2) = 4/8 − 2/4 + 1/2 − 5 = 1/2 − 1/2 + 1/2 − 5 = −9/2.",
+      "solutionSteps": [
+        "Zero of the divisor: x = 1/2.",
+        "p(1/2) = 1/2 − 1/2 + 1/2 − 5.",
+        "= −9/2."
+      ],
+      "formulaIds": [
+        "py-remainder-f"
+      ],
+      "method": "Remainder = p(b/a) for the divisor ax − b.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve 2x − 1 = 0."
+        },
+        {
+          "level": 2,
+          "text": "Work out (1/2)³ = 1/8 and (1/2)² = 1/4."
+        }
+      ],
+      "commonMistakes": [
+        "Using x = −1/2: −13/2.",
+        "Using x = 2: 21; using x = 1: −2."
+      ],
+      "tags": [
+        "remainder-theorem",
+        "fraction"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-015",
+      "topicId": "polynomials",
+      "conceptId": "py-division",
+      "levelId": "polynomials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A polynomial divided by x² + 1 gives quotient 2x − 3 and remainder x + 4. What is the coefficient of x in the polynomial?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Dividend = (x² + 1)(2x − 3) + (x + 4) = 2x³ − 3x² + 2x − 3 + x + 4 = 2x³ − 3x² + 3x + 1. The coefficient of x is 3.",
+      "solutionSteps": [
+        "(x² + 1)(2x − 3) = 2x³ − 3x² + 2x − 3.",
+        "Add x + 4.",
+        "2x³ − 3x² + 3x + 1: coefficient 3."
+      ],
+      "formulaIds": [
+        "py-division-f"
+      ],
+      "method": "Dividend = divisor × quotient + remainder.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rebuild the dividend: divisor × quotient + remainder."
+        },
+        {
+          "level": 2,
+          "text": "The x terms are 2x (from 1 × 2x) and x (from the remainder)."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add the remainder and answering 2."
+      ],
+      "tags": [
+        "division",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-016",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "levelId": "polynomials-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The length and breadth, in metres, of a rectangular plot in Pune are the roots of x² − 17x + 60 = 0. What is its perimeter?",
+      "options": [
+        {
+          "id": "a",
+          "text": "34 m"
+        },
+        {
+          "id": "b",
+          "text": "17 m"
+        },
+        {
+          "id": "c",
+          "text": "60 m"
+        },
+        {
+          "id": "d",
+          "text": "120 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Length + breadth = sum of roots = 17, so the perimeter is 2 × 17 = 34 m. (The roots are 12 and 5, and the area is the product, 60 m².)",
+      "solutionSteps": [
+        "Sum of roots = 17 = l + b.",
+        "Perimeter = 2(l + b) = 34 m."
+      ],
+      "formulaIds": [
+        "py-quad-roots-f"
+      ],
+      "method": "Use the sum of roots directly; no need to solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Perimeter needs l + b."
+        },
+        {
+          "level": 2,
+          "text": "l + b is the sum of the roots, −b/a."
+        }
+      ],
+      "commonMistakes": [
+        "Giving l + b = 17 m without doubling.",
+        "Using the product (the area, 60) instead."
+      ],
+      "tags": [
+        "vieta",
+        "word-problem"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-017",
+      "topicId": "polynomials",
+      "conceptId": "py-graphs",
+      "levelId": "polynomials-level-4",
+      "difficulty": "complex",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each polynomial with the number of points where its graph meets the x-axis.",
+      "pairs": [
+        {
+          "left": "x² + 4",
+          "right": "None"
+        },
+        {
+          "left": "x² − 6x + 9",
+          "right": "One (it touches)"
+        },
+        {
+          "left": "x² − 5x + 6",
+          "right": "Two"
+        },
+        {
+          "left": "x³ − 4x",
+          "right": "Three"
+        }
+      ],
+      "explanation": "x² + 4 is always at least 4, so it never meets the axis. x² − 6x + 9 = (x − 3)² touches at x = 3. x² − 5x + 6 = (x − 2)(x − 3) crosses at 2 and 3. x³ − 4x = x(x − 2)(x + 2) crosses at −2, 0 and 2.",
+      "solutionSteps": [
+        "x² + 4 ≥ 4: none.",
+        "(x − 3)²: one.",
+        "(x − 2)(x − 3): two.",
+        "x(x − 2)(x + 2): three."
+      ],
+      "formulaIds": [
+        "py-graph-f"
+      ],
+      "method": "Factorise and count the distinct real roots.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise each one where you can."
+        },
+        {
+          "level": 2,
+          "text": "A squared factor touches the axis once."
+        }
+      ],
+      "commonMistakes": [
+        "Counting (x − 3)² as two meeting points."
+      ],
+      "tags": [
+        "matching",
+        "graphs"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-018",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-quadratic-divisor",
+      "levelId": "polynomials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A polynomial p(x) leaves remainder 5 when divided by x − 1 and remainder 11 when divided by x − 3. What remainder does it leave when divided by (x − 1)(x − 3)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x + 2"
+        },
+        {
+          "id": "b",
+          "text": "2x + 3"
+        },
+        {
+          "id": "c",
+          "text": "6x − 1"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The remainder is rx + s with r + s = p(1) = 5 and 3r + s = p(3) = 11. Subtracting, 2r = 6, so r = 3 and s = 2: the remainder is 3x + 2.",
+      "solutionSteps": [
+        "p(x) = (x − 1)(x − 3)q(x) + rx + s.",
+        "x = 1: r + s = 5; x = 3: 3r + s = 11.",
+        "r = 3, s = 2 → 3x + 2."
+      ],
+      "formulaIds": [
+        "py-quad-divisor-f"
+      ],
+      "method": "Write the remainder as rx + s and use both zeros of the divisor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A quadratic divisor leaves a remainder of the form rx + s."
+        },
+        {
+          "level": 2,
+          "text": "Put x = 1 and x = 3."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping r and s: 2x + 3.",
+        "Forgetting to divide 6 by 2: 6x − 1; adding the two remainders: 16."
+      ],
+      "tags": [
+        "advanced",
+        "quadratic-divisor"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-019",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-transform",
+      "levelId": "polynomials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "α and β are the roots of x² − 5x + 3 = 0. Which equation has roots 2α and 2β?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x² − 10x + 12 = 0"
+        },
+        {
+          "id": "b",
+          "text": "x² − 10x + 6 = 0"
+        },
+        {
+          "id": "c",
+          "text": "x² − 5x + 12 = 0"
+        },
+        {
+          "id": "d",
+          "text": "x² − 10x + 3 = 0"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "New sum = 2(α + β) = 10; new product = 4αβ = 12. So the equation is x² − 10x + 12 = 0. (Equivalently, put x/2 for x: x²/4 − 5x/2 + 3 = 0, times 4.)",
+      "solutionSteps": [
+        "α + β = 5, αβ = 3.",
+        "2α + 2β = 10, (2α)(2β) = 4 × 3 = 12.",
+        "x² − 10x + 12 = 0."
+      ],
+      "formulaIds": [
+        "py-transform-f"
+      ],
+      "method": "New equation: x² − (new sum)x + (new product) = 0.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find α + β and αβ first."
+        },
+        {
+          "level": 2,
+          "text": "The product of 2α and 2β is 4αβ, not 2αβ."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the product instead of multiplying by 4: x² − 10x + 6 = 0.",
+        "Changing only the product."
+      ],
+      "tags": [
+        "advanced",
+        "transform-roots"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-020",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-transform",
+      "levelId": "polynomials-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "α and β are the roots of 2x² − 6x + 1 = 0. Find 1/α + 1/β.",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "1/α + 1/β = (α + β)/(αβ). Here α + β = 6/2 = 3 and αβ = 1/2, so the value is 3 ÷ 1/2 = 6.",
+      "solutionSteps": [
+        "α + β = 3, αβ = 1/2.",
+        "1/α + 1/β = (α + β)/αβ.",
+        "3 ÷ 1/2 = 6."
+      ],
+      "formulaIds": [
+        "py-quad-roots-f",
+        "py-transform-f"
+      ],
+      "method": "Combine over a common denominator, then use sum and product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the fractions: (β + α)/(αβ)."
+        },
+        {
+          "level": 2,
+          "text": "αβ = c/a = 1/2."
+        }
+      ],
+      "commonMistakes": [
+        "Computing αβ/(α + β) = 1/6."
+      ],
+      "tags": [
+        "advanced",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-021",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-quadratic-divisor",
+      "levelId": "polynomials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "When x¹⁰¹ + 2 is divided by x² − 1, the remainder is rx + s. Find s.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "x² − 1 = (x − 1)(x + 1). p(1) = 1 + 2 = 3 gives r + s = 3; p(−1) = −1 + 2 = 1 gives −r + s = 1. Adding, 2s = 4, so s = 2 (and r = 1): the remainder is x + 2.",
+      "solutionSteps": [
+        "x² − 1 = (x − 1)(x + 1).",
+        "r + s = p(1) = 3, −r + s = p(−1) = 1.",
+        "s = 2."
+      ],
+      "formulaIds": [
+        "py-quad-divisor-f",
+        "py-sc-sum-coeffs"
+      ],
+      "method": "Use the zeros 1 and −1 of the divisor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise x² − 1."
+        },
+        {
+          "level": 2,
+          "text": "(−1)¹⁰¹ = −1 because 101 is odd."
+        }
+      ],
+      "commonMistakes": [
+        "Taking (−1)¹⁰¹ as +1, which gives s = 3."
+      ],
+      "tags": [
+        "advanced",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-022",
+      "topicId": "polynomials",
+      "conceptId": "py-roots",
+      "levelId": "polynomials-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "The product of the three roots (real or not) of 2x³ − 4x² + 6x − 8 = 0 is 4.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For ax³ + bx² + cx + d, αβγ = −d/a = −(−8)/2 = 4. The relation holds whether or not the roots are real.",
+      "solutionSteps": [
+        "a = 2, d = −8.",
+        "αβγ = −d/a = 8/2 = 4: true."
+      ],
+      "formulaIds": [
+        "py-cubic-roots-f"
+      ],
+      "method": "Product of roots of a cubic = −d/a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For a cubic the product is −d/a, not d/a."
+        },
+        {
+          "level": 2,
+          "text": "d = −8, a = 2."
+        }
+      ],
+      "commonMistakes": [
+        "Using d/a and getting −4."
+      ],
+      "tags": [
+        "true-false",
+        "vieta"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-023",
+      "topicId": "polynomials",
+      "conceptId": "py-adv-transform",
+      "levelId": "polynomials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "α, β and γ are the roots of x³ − 3x² + 2x − 1 = 0. Find 1/α + 1/β + 1/γ.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "−2"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "1/α + 1/β + 1/γ = (βγ + γα + αβ)/(αβγ). Σαβ = c/a = 2 and αβγ = −d/a = 1, so the value is 2/1 = 2.",
+      "solutionSteps": [
+        "Σαβ = 2.",
+        "αβγ = −(−1)/1 = 1.",
+        "2 ÷ 1 = 2."
+      ],
+      "formulaIds": [
+        "py-cubic-roots-f",
+        "py-transform-f"
+      ],
+      "method": "Common denominator αβγ, numerator Σαβ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the three fractions over αβγ."
+        },
+        {
+          "level": 2,
+          "text": "The numerator becomes αβ + βγ + γα."
+        }
+      ],
+      "commonMistakes": [
+        "Using the sum of roots, 3, as the numerator.",
+        "Taking αβγ = d/a = −1, which gives −2; turning the fraction upside down: 1/2."
+      ],
+      "tags": [
+        "advanced",
+        "cubic"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polynomials-q-024",
+      "topicId": "polynomials",
+      "conceptId": "py-graphs",
+      "levelId": "polynomials-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "p(x) is a cubic polynomial with the values in the table. How many real roots does p(x) have?",
+      "table": {
+        "caption": "Values of the cubic p(x)",
+        "headers": [
+          "x",
+          "−2",
+          "−1",
+          "0",
+          "1",
+          "2"
+        ],
+        "rows": [
+          [
+            "p(x)",
+            "−1",
+            "3",
+            "1",
+            "−1",
+            "3"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The sign changes from −2 to −1 (− to +), from 0 to 1 (+ to −) and from 1 to 2 (− to +), so a root lies in each of these three gaps. A cubic has at most three real roots, so it has exactly 3. (This is p(x) = x³ − 3x + 1.)",
+      "solutionSteps": [
+        "Signs: −, +, +, −, +.",
+        "Three sign changes → at least three roots.",
+        "A cubic has at most three → exactly 3."
+      ],
+      "formulaIds": [
+        "py-graph-f"
+      ],
+      "method": "Count sign changes, then cap by the degree.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look for neighbouring values of opposite sign."
+        },
+        {
+          "level": 2,
+          "text": "A cubic cannot have more than three real roots."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the gap from 0 to 1.",
+        "Saying it cannot be determined, forgetting the cap of three."
+      ],
+      "tags": [
+        "graphs",
+        "table"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

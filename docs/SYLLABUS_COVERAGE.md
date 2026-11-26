@@ -6,7 +6,7 @@ How a simulation is tied to a topic:
 
 - Each simulation in `src/simulations/index.js` (mirrored in `meta.js`) has an `id` and an owning `topicId`. The topic page and the Explore gallery list it through `simulationsForTopic(topicId)`.
 - A lesson shows it inline through a block `{ "type": "simulation", "simulationId": "..." }` in `src/data/content/<topicId>.json`. A lesson may embed a simulation owned by another topic ("borrowed").
-- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, 80 after batch 4, which also gave races, work-and-wages and quadratic-comparison their own). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
+- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, which also gave races, work-and-wages and quadratic-comparison their own, 75 after batch 7a, 80 after batch 4, 84 after batch 6). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
 
 Terms used below:
 
@@ -227,6 +227,7 @@ Ordered by priority. "Partial" means some material exists in another topic but n
 
 ### 2.10 Modulus (absolute value) — Medium
 
+- **Built (batch 6):** topic `modulus` (7 concepts, 23 questions, an Advanced unit on nested moduli and |x| + |y| = k) with simulation `modulus-distance`.
 - **Exams:** MBA (CAT frequently has modulus equations and inequalities), XAT, SNAP, Placement (occasionally).
 - **Question types:**
   - Solve |x − a| = b and |x − a| < b.
@@ -237,6 +238,7 @@ Ordered by priority. "Partial" means some material exists in another topic but n
 
 ### 2.11 Polynomials: remainder and factor theorem — Medium
 
+- **Built (batch 6):** topic `polynomials` (8 concepts, 24 questions, an Advanced unit on quadratic divisors and new equations from old roots) with simulation `remainder-curve`.
 - **Exams:** CDS (remainder theorem listed by some sources), NDA, MBA (CAT occasionally), SSC (occasionally).
 - **Now:** one generator in moreAlgebra mentions polynomials.
 - **Question types:**
@@ -248,6 +250,7 @@ Ordered by priority. "Partial" means some material exists in another topic but n
 
 ### 2.12 Integer solutions of linear equations — Medium
 
+- **Built (batch 6):** topic `integer-solutions` (7 concepts, 23 questions, an Advanced unit on three unknowns and extreme values) with simulation `lattice-line`.
 - **Exams:** MBA (CAT and XAT occasionally), Placement (eLitmus occasionally).
 - **Question types:**
   - Number of positive integer solutions of 3x + 5y = 100.
@@ -258,6 +261,7 @@ Ordered by priority. "Partial" means some material exists in another topic but n
 
 ### 2.13 Cryptarithmetic — Medium for placement, Low elsewhere
 
+- **Built (batch 6):** topic `cryptarithmetic` (7 concepts, 22 questions, an Advanced unit on differences and three-word sums) with simulation `column-solver`; every generated puzzle has exactly one solution, proved by trying every digit assignment.
 - **Exams:** Placement (eLitmus frequently; some sources place it in Problem Solving), occasionally in TCS and Infosys tests.
 - **Question types:**
   - SEND + MORE = MONEY style addition.
@@ -381,6 +385,7 @@ Each batch is 4 to 6 items. Highest value first: topics tested in the most exams
 **Batch 6 — New CAT and placement topics, and dedicated sims for borrowed topics**
 - Modulus (2.10), polynomials (2.11), integer solutions (2.12), cryptarithmetic (2.13).
 - Dedicated sims for races, work-and-wages and quadratic-comparison.
+- Done: the four topics, each with its own simulation (84 topics and 84 simulations once merged with batch 4). The three dedicated sims came with batch 5.
 
 **Batch 7 onward — Reasoning (only if the scope widens)**
 - 7a: seating arrangement, puzzles, syllogism, inequalities (reasoning), blood relations.

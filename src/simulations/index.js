@@ -31,6 +31,7 @@ import { trigWaveSims } from './trigWaves.js';
 import { frustumSims } from './frustums.js';
 import { twoCircleSims } from './twoCircles.js';
 import { groupedDataSims } from './groupedData.js';
+import { catTopicSims } from './catTopics.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -85,7 +86,9 @@ export const SIMULATIONS = [
   ...trigWaveSims,
   ...frustumSims,
   ...twoCircleSims,
-  ...groupedDataSims
+  ...groupedDataSims,
+  // Modulus, polynomials, integer solutions and cryptarithms (catTopics.js). Their meta.js entries keep this order.
+  ...catTopicSims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));
