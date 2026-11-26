@@ -21,6 +21,8 @@ import { numberSims } from './numbers.js';
 import { patternSims } from './patterns.js';
 import { numberSenseSims } from './numberSense.js';
 import { basicsSims } from './basics.js';
+import { dataSims } from './dataInterpretation.js';
+import { geometrySims } from './geometry.js';
 import { numberMethodSims } from './numberMethods.js';
 
 export const SIMULATIONS = [
@@ -61,6 +63,10 @@ export const SIMULATIONS = [
   // Phase G: numberSense.js, then basics.js. Their meta.js entries keep this order.
   ...numberSenseSims,
   ...basicsSims,
+  // Data interpretation and data sufficiency (dataInterpretation.js). Their meta.js entries keep this order.
+  ...dataSims,
+  // Lines and angles, quadrilaterals, perimeter and area, 2D mensuration, recasting (geometry.js). Their meta.js entries keep this order.
+  ...geometrySims,
   // Remainders, factorials, roots and speed maths (numberMethods.js). Their meta.js entries keep this order.
   ...numberMethodSims
 ];

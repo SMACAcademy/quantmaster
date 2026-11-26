@@ -357,6 +357,78 @@ export const SIMULATION_META = [
     taskIds: ['cancel-x', 'x-squared-plus-one', 'zero', 'four-pairs']
   },
   // --- end of basics.js ---
+  {
+    id: 'di-bar-graphs',
+    topicId: 'di-bar-graphs',
+    title: 'Comparing two bars',
+    summary: 'Set the bars, pick two years, and read the ratio, the difference and the % change. A bar twice as tall is +100%, not +200%.',
+    taskIds: ['double', 'quarter', 'same-gap']
+  },
+  {
+    id: 'di-line-graphs',
+    topicId: 'di-line-graphs',
+    title: 'The biggest rise or the fastest growth?',
+    summary: 'Slide a window over eight years of a line graph. The year with the largest rise and the year with the largest % rise are often not the same.',
+    taskIds: ['same', 'opposite', 'double']
+  },
+  {
+    id: 'di-pie-charts',
+    topicId: 'di-pie-charts',
+    title: 'Angles, percentages and amounts in a pie',
+    summary: 'Resize the slices of a monthly budget and set the total. Every 1% of a pie is 3.6°, and a slice is worth total × angle ÷ 360°.',
+    taskIds: ['right-angle', 'amount', 'savings']
+  },
+  {
+    id: 'di-tables',
+    topicId: 'di-tables',
+    title: 'Percentage points or per cent?',
+    summary: 'Pick a base year and the table colours each cell by its change. A share going from 20% to 25% is up 5 percentage points, which is a 25% rise.',
+    taskIds: ['points', 'flat', 'same']
+  },
+  {
+    id: 'data-sufficiency',
+    topicId: 'data-sufficiency',
+    title: 'Is it enough? Watch the answers shrink',
+    summary: 'Switch each statement on and watch the set of possible answers shrink. The data is sufficient only when exactly one value is left.',
+    taskIds: ['two-roots', 'together', 'each', 'never']
+  },
+  // --- end of dataInterpretation.js ---
+  {
+    id: 'lines-angles',
+    topicId: 'lines-angles',
+    title: 'Parallel lines and a transversal',
+    summary: 'Turn a line across two parallel lines and only two angle sizes appear. Colour-matched pairs show which angles are equal and which add to 180°; tilt one line and the rules break.',
+    taskIds: ['right', 'co-interior', 'break', 'meet']
+  },
+  {
+    id: 'quadrilaterals',
+    topicId: 'quadrilaterals',
+    title: 'The quadrilateral family',
+    summary: 'Ask for parallel sides, equal sides or a right angle, and the shape snaps from parallelogram to rhombus or rectangle to square. The name, the diagonals and the 360° update as it changes.',
+    taskIds: ['rhombus', 'rectangle', 'square', 'snap']
+  },
+  {
+    id: 'perimeter-area',
+    topicId: 'perimeter-area',
+    title: 'Same fence, different area',
+    summary: 'Bend 24 m of fence into rectangles and watch the area trace a parabola that peaks at the square. Then fix the area instead: the square needs the least fence.',
+    taskIds: ['most', 'twenty', 'least', 'thirty']
+  },
+  {
+    id: 'mensuration-2d',
+    topicId: 'mensuration-2d',
+    title: 'Shaded area = outer − inner',
+    summary: 'Corners left by a circle in a square, a path round a garden, a ring: each shaded region is the outer area minus the inner one. Resize them and follow the formula.',
+    taskIds: ['corners', 'path-garden', 'ring']
+  },
+  {
+    id: 'volume-surface-area',
+    topicId: 'volume-surface-area',
+    title: 'Melt it down: volume stays, surface grows',
+    summary: 'Melt a sphere or a cylinder into many small spheres or cones. The total volume never changes, but the total surface area keeps growing.',
+    taskIds: ['double', 'three-four-five', 'cylinder']
+  },
+  // --- end of geometry.js ---
   // --- numberMethods.js: remainders, factorials, roots, speed maths ---
   {
     id: 'remainder-wheel',

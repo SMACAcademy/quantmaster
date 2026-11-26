@@ -189,6 +189,10 @@
             "caption": "Exactly one of these five is always the correct answer."
           },
           {
+            "type": "simulation",
+            "simulationId": "data-sufficiency"
+          },
+          {
             "type": "check",
             "questionId": "data-sufficiency-q-001"
           },

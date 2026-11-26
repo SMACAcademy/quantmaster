@@ -26,7 +26,7 @@
 - Wrong options are modelled on real, named mistakes, so a wrong choice teaches something
 
 **Pictures and simulations**
-- 51 interactive simulations with sliders, live pictures and "Try this" challenges: percentage changes, interest, alligation, work and pipes, trains, boats, clocks, parabolas, lines, inequalities, progressions, logarithms, triangles, circles, polygons, solids, trigonometry, probability, statistics, ratio bar models, HCF tiles, LCM bells, ages, calendars, fractions, identities as areas, Venn diagrams, counting, Pascal's triangle, the prime sieve, divisibility, decimals, index laws, units, algebra tiles, a remainder wheel, the primes inside n!, square roots from their two ends and the base method as an area
+- 61 interactive simulations with sliders, live pictures and "Try this" challenges: percentage changes, interest, alligation, work and pipes, trains, boats, clocks, parabolas, lines, inequalities, progressions, logarithms, triangles, circles, polygons, solids, trigonometry, probability, statistics, ratio bar models, HCF tiles, LCM bells, ages, calendars, fractions, identities as areas, Venn diagrams, counting, Pascal's triangle, the prime sieve, divisibility, decimals, index laws, units, algebra tiles, bar, line and pie charts, DI tables, data sufficiency, parallel lines and a transversal, the quadrilateral family, perimeter against area, shaded regions, recasting solids, a remainder wheel, the primes inside n!, square roots from their two ends and the base method as an area
 - Figures drawn to scale in the questions themselves: charts, tables, coordinate planes, geometry with angle marks, sectors and shaded regions, Venn diagrams, 3D solids, clock faces and number lines
 
 **Learning loop**
@@ -133,4 +133,4 @@ Corrections, new questions, translations and code are all welcome: see [CONTRIBU
 - **Code:** MIT licence, see [LICENSE](LICENSE).
 - **Content** (lessons, questions, explanations, formula and shortcut cards, in `src/data/`): Creative Commons Attribution-ShareAlike 4.0 International, see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
 
-Made by [Muthukumar Subramanian](https://smacacademy.github.io/quantmaster/#/about) (SMAC Academy) and contributors.
+Made by [Muthukumar Subramanian](https://www.linkedin.com/in/muthu4all/) (SMAC Academy) and [contributors](https://github.com/SMACAcademy/quantmaster/graphs/contributors).
