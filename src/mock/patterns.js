@@ -101,7 +101,7 @@ export const MOCK_PATTERNS = [
     subject: 'reasoning',
     name: 'IBPS / SBI Prelims: Reasoning',
     exam: 'Bank PO and clerk prelims: Reasoning Ability',
-    description: '35 questions in 20 minutes. Puzzles and seating carry the section; syllogism, inequalities, blood relations and coding are the quick marks.',
+    description: '35 questions in 20 minutes. Puzzles and seating carry the section; syllogism, inequalities, blood relations, coding and alphanumeric series are the quick marks, with an input-output or data sufficiency question or two.',
     minutes: 20,
     marks: { correct: 1, wrong: -0.25 },
     blueprint: [
@@ -109,7 +109,8 @@ export const MOCK_PATTERNS = [
       { label: 'Syllogism', topics: ['syllogism'], count: 5, difficulties: ['easy', 'medium'] },
       { label: 'Inequalities', topics: ['reasoning-inequalities'], count: 5, difficulties: ['easy', 'medium'] },
       { label: 'Blood relations and directions', topics: ['blood-relations', 'direction-sense'], count: 4, difficulties: ['easy', 'medium'] },
-      { label: 'Coding and ranking', topics: ['coding-decoding', 'order-ranking'], count: 6, difficulties: ['easy', 'medium'] }
+      { label: 'Coding, ranking and series', topics: ['coding-decoding', 'order-ranking', 'reasoning-series'], count: 4, difficulties: ['easy', 'medium'] },
+      { label: 'Input-output and data sufficiency', topics: ['input-output', 'reasoning-data-sufficiency'], count: 2, difficulties: ['easy', 'medium'] }
     ]
   },
   {
@@ -117,17 +118,19 @@ export const MOCK_PATTERNS = [
     subject: 'reasoning',
     name: 'SSC CGL Tier 1: Reasoning',
     exam: 'SSC CGL Tier 1: General Intelligence and Reasoning section',
-    description: '25 questions, 2 marks each, in about 15 minutes. Coding, relations, directions, ranking, syllogism, Venn diagrams, cubes and mirror images.',
+    description: '25 questions, 2 marks each, in about 15 minutes. Series, analogy and odd one out, coding, mathematical operations, relations, directions, ranking, syllogism, Venn diagrams, cubes and mirror images.',
     minutes: 15,
     marks: { correct: 2, wrong: -0.5 },
     blueprint: [
-      { label: 'Coding-decoding', topics: ['coding-decoding'], count: 4, difficulties: ['easy', 'medium'] },
-      { label: 'Order and ranking', topics: ['order-ranking'], count: 3, difficulties: ['easy', 'medium'] },
-      { label: 'Blood relations', topics: ['blood-relations'], count: 3, difficulties: ['easy', 'medium'] },
-      { label: 'Direction sense', topics: ['direction-sense'], count: 3, difficulties: ['easy', 'medium'] },
-      { label: 'Syllogism and Venn diagrams', topics: ['syllogism', 'venn-diagrams'], count: 4, difficulties: ['easy', 'medium'] },
-      { label: 'Cubes and dice', topics: ['cubes-dice'], count: 4, difficulties: ['easy', 'medium'] },
-      { label: 'Mirror images and paper folding', topics: ['mirror-paper-folding'], count: 4, difficulties: ['easy', 'medium'] }
+      { label: 'Series, analogy and classification', topics: ['reasoning-series'], count: 5, difficulties: ['easy', 'medium'] },
+      { label: 'Coding-decoding', topics: ['coding-decoding'], count: 3, difficulties: ['easy', 'medium'] },
+      { label: 'Mathematical operations', topics: ['mathematical-operations'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Order and ranking', topics: ['order-ranking'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Blood relations', topics: ['blood-relations'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Direction sense', topics: ['direction-sense'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Syllogism and Venn diagrams', topics: ['syllogism', 'venn-diagrams'], count: 3, difficulties: ['easy', 'medium'] },
+      { label: 'Cubes and dice', topics: ['cubes-dice'], count: 3, difficulties: ['easy', 'medium'] },
+      { label: 'Mirror images and paper folding', topics: ['mirror-paper-folding'], count: 3, difficulties: ['easy', 'medium'] }
     ]
   },
   {
@@ -135,14 +138,16 @@ export const MOCK_PATTERNS = [
     subject: 'reasoning',
     name: 'Campus placement: Logical reasoning',
     exam: 'Typical campus recruitment test: logical reasoning section',
-    description: '15 questions in 20 minutes, no negative marking. Arrangements, coding, relations and syllogism.',
+    description: '15 questions in 20 minutes, no negative marking. Arrangements, series, coding, relations, syllogism, and a logical set or data sufficiency question.',
     minutes: 20,
     marks: { correct: 1, wrong: 0 },
     blueprint: [
-      { label: 'Seating and puzzles', topics: REASONING_PUZZLES, count: 5, difficulties: ['easy', 'medium'] },
-      { label: 'Coding-decoding', topics: ['coding-decoding'], count: 3, difficulties: ['easy', 'medium'] },
-      { label: 'Blood relations and directions', topics: ['blood-relations', 'direction-sense'], count: 3, difficulties: ['easy', 'medium'] },
-      { label: 'Syllogism and ranking', topics: ['syllogism', 'order-ranking'], count: 4, difficulties: ['easy', 'medium'] }
+      { label: 'Seating and puzzles', topics: REASONING_PUZZLES, count: 4, difficulties: ['easy', 'medium'] },
+      { label: 'Series and analogy', topics: ['reasoning-series'], count: 3, difficulties: ['easy', 'medium'] },
+      { label: 'Coding-decoding', topics: ['coding-decoding'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Blood relations and directions', topics: ['blood-relations', 'direction-sense'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Syllogism and ranking', topics: ['syllogism', 'order-ranking'], count: 2, difficulties: ['easy', 'medium'] },
+      { label: 'Logical sets and data sufficiency', topics: ['logical-sets', 'reasoning-data-sufficiency'], count: 2, difficulties: ['easy', 'medium'] }
     ]
   }
 ];

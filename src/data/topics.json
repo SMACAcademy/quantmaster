@@ -1494,6 +1494,97 @@
       "tags": [
         "reasoning"
       ]
+    },
+    {
+      "id": "logical-sets",
+      "name": "Logical Sets (DILR)",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "CAT-style sets: round-robin and knockout tournaments, points tables, schedules and routes, and rankings or grids pinned down from partial results.",
+      "whyItMatters": "Most of CAT’s DILR section and many XAT and SNAP sets are built like this. The skill is counting what must add up (matches played, points given out, places filled) and letting those totals fix the unknowns.",
+      "glyph": "🏆",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 90,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "reasoning-series",
+      "name": "Series, Analogy and Classification",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Letter and alphanumeric series, letter positions (A = 1), number and letter analogies, and the odd one out.",
+      "whyItMatters": "SSC and railway papers set several of these every time, and placement tests open with them. Turning letters into numbers makes most of them a quick difference check.",
+      "glyph": "🔤",
+      "colorToken": "reasoning",
+      "prerequisites": [
+        "sequences"
+      ],
+      "sortOrder": 91,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "mathematical-operations",
+      "name": "Mathematical Operations",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Symbol substitution (+ means ×), interchanging signs or numbers to make an equation true, and BODMAS with coded symbols.",
+      "whyItMatters": "A regular in SSC, railway and bank papers. Rewrite the expression with the real signs first, then apply BODMAS: the marks come from not mixing those two steps.",
+      "glyph": "±",
+      "colorToken": "reasoning",
+      "prerequisites": [
+        "simplification"
+      ],
+      "sortOrder": 92,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "input-output",
+      "name": "Input-Output (Machine)",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "A machine rearranges words and numbers one step at a time: find the rule, then read any step, the last step, or the number of steps needed.",
+      "whyItMatters": "Bank mains papers set a five-question input-output block. Once the rule is spotted from two steps, every question is read straight off the steps.",
+      "glyph": "⚙",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 93,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "reasoning-data-sufficiency",
+      "name": "Data Sufficiency (Reasoning)",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Are the statements enough to settle an arrangement, a relation, a direction or a ranking? The five standard answers, applied to reasoning.",
+      "whyItMatters": "Bank prelims and mains, and many placement tests, set reasoning DS questions. They reward solving each statement alone before combining, the same habit as quant DS.",
+      "glyph": "⚖",
+      "colorToken": "reasoning",
+      "prerequisites": [
+        "data-sufficiency"
+      ],
+      "sortOrder": 94,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
     }
   ]
 }

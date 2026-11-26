@@ -1,0 +1,1755 @@
+{
+  "topicId": "reasoning-series",
+  "concepts": [
+    {
+      "id": "rs-positions",
+      "topicId": "reasoning-series",
+      "name": "Letter positions",
+      "description": "A = 1 ... Z = 26; from the Z end a letter is 27 − n. EJOTY (5, 10, 15, 20, 25) as anchors, opposite letters adding to 27, letters to the left or right of another, and letter pairs in a word.",
+      "sortOrder": 1
+    },
+    {
+      "id": "rs-letter-series",
+      "topicId": "reasoning-series",
+      "name": "Letter series",
+      "description": "Write letters as positions and read the gaps: constant, growing, alternating, or two series taking turns. Groups of letters are read place by place; repeating patterns are filled from the block.",
+      "sortOrder": 2
+    },
+    {
+      "id": "rs-alphanumeric",
+      "topicId": "reasoning-series",
+      "name": "Alphanumeric series and sequences",
+      "description": "Terms that mix letters and numbers are two series side by side. In a mixed sequence, count positions from one end: k from the right of n is n − k + 1 from the left.",
+      "sortOrder": 3
+    },
+    {
+      "id": "rs-analogy",
+      "topicId": "reasoning-series",
+      "name": "Number and letter analogy",
+      "description": "a : b :: c : ? — find the rule that turns a into b exactly (a square, a cube, a shift of letters), then apply it to c.",
+      "sortOrder": 4
+    },
+    {
+      "id": "rs-classification",
+      "topicId": "reasoning-series",
+      "name": "Classification (odd one out)",
+      "description": "Find the property three items share exactly — the same gaps, all squares, the same rule in each pair — and pick the item that breaks it.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "rs-position-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "title": "Positions from both ends",
+      "prompt": "What is a letter’s position counted from Z?",
+      "formula": "From A: A = 1 ... Z = 26\nFrom Z: 27 − (position from A)",
+      "variables": [],
+      "explanation": "Counting from both ends counts the letter twice: from A plus from Z is always 27.",
+      "example": "R is 18th from A, so 27 − 18 = 9th from Z.",
+      "commonMistake": "Using 26 − n (one short).",
+      "applicationPrompt": "What is the position of the letter G counted from Z?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-relative-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "title": "Left and right of a letter",
+      "prompt": "Which letter is m places to the right (or left) of the k-th letter from an end?",
+      "formula": "Turn the k-th into a position from A (from Z: 27 − k)\nTo the right: + m; to the left: − m",
+      "variables": [],
+      "explanation": "Right means towards Z, so positions grow; left means towards A.",
+      "example": "19th from the right is 27 − 19 = 8 (H); 5 to its right is 13, M.",
+      "commonMistake": "Counting the starting letter as one of the m moves.",
+      "applicationPrompt": "Which letter is 6th to the left of the 20th letter from the left?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-sc-ejoty",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "kind": "shortcut",
+      "title": "EJOTY anchors",
+      "prompt": "How do you find a letter’s position quickly without counting from A?",
+      "formula": "E = 5, J = 10, O = 15, T = 20, Y = 25\nCount from the nearest anchor",
+      "variables": [],
+      "explanation": "Five anchors are never more than two letters from any letter.",
+      "example": "R = T − 2 = 18; L = J + 2 = 12; W = Y − 2 = 23.",
+      "commonMistake": "Counting the anchor itself as a step (R = T − 3).",
+      "applicationPrompt": "What is the position of the letter V?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-sc-opposite",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "kind": "shortcut",
+      "title": "Opposite letters",
+      "prompt": "What is the opposite letter of a letter (A ↔ Z)?",
+      "formula": "Opposite = 27 − position\nAZ, BY, CX, DW, EV, FU, GT, HS, IR, JQ, KP, LO, MN",
+      "variables": [],
+      "explanation": "Opposite pairs sit at the same distance from the two ends, so their positions add to 27.",
+      "example": "Opposite of G (7) is 27 − 7 = 20, T.",
+      "commonMistake": "Using 26 − n, which gives the letter just before the opposite.",
+      "applicationPrompt": "What is the opposite of the letter K?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-pairs-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "title": "Letter pairs in a word",
+      "prompt": "When do two letters in a word have as many letters between them in the word as in the alphabet?",
+      "formula": "Letters d places apart in the word\npositions differ by exactly d (either direction)",
+      "variables": [],
+      "explanation": "Between them in the word are d − 1 letters; between them in the alphabet are |p − q| − 1.",
+      "example": "KITCHEN: IE (4 apart, 9 − 5 = 4), IN (5 apart, 14 − 9 = 5), CE (2 apart, 5 − 3 = 2): 3 pairs.",
+      "commonMistake": "Checking only pairs that go forward in the alphabet.",
+      "applicationPrompt": "How many such pairs are there in the word BLANKET?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-gaps-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "title": "Gaps between letters",
+      "prompt": "How do you find the next letter of a letter series?",
+      "formula": "Write positions; take gaps between neighbours\nEqual gaps: add the gap\nChanging gaps: look at how the gaps change",
+      "variables": [],
+      "explanation": "A letter series is a number series in disguise.",
+      "example": "B, D, G, K: positions 2, 4, 7, 11; gaps 2, 3, 4; next gap 5 → 16, P.",
+      "commonMistake": "Repeating the last gap when the gaps are growing.",
+      "applicationPrompt": "What comes next: E, G, J, N, ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-interleave-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "kind": "shortcut",
+      "title": "Zigzag gaps: two series",
+      "prompt": "The gaps of a series jump up and down with no pattern. What should you try?",
+      "formula": "Read the 1st, 3rd, 5th, ... terms as one series\nand the 2nd, 4th, 6th, ... as another",
+      "variables": [],
+      "explanation": "Two simple series taking turns make the gaps zigzag.",
+      "example": "A, Z, C, X, E, ?: A, C, E (+2) and Z, X (−2); next belongs to the second: V.",
+      "commonMistake": "Continuing the wrong one of the two series.",
+      "applicationPrompt": "What comes next: C, W, E, U, G, S, ?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-groups-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "title": "Groups of letters",
+      "prompt": "How do you continue a series of letter groups such as AZ, BY, CX?",
+      "formula": "Read each place down the groups:\nfirst letters form one series, second letters another",
+      "variables": [],
+      "explanation": "Each place of the group follows its own rule.",
+      "example": "BY, DW, FU: first letters B, D, F (+2) → H; second Y, W, U (−2) → S. Next: HS.",
+      "commonMistake": "Reading across a group instead of down the places.",
+      "applicationPrompt": "What comes next: CX, EV, GT, ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-pattern-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "title": "Repeating pattern with blanks",
+      "prompt": "How do you fill the blanks of a series like a b _ a b c _ b c?",
+      "formula": "Find the block that repeats (try lengths 3, 4, 5)\nEach blank takes the letter in the same place of the block",
+      "variables": [],
+      "explanation": "Letters in the same place of every copy of the block must agree.",
+      "example": "a b _ a b c _ b c: block abc, so the blanks are c, a.",
+      "commonMistake": "Fixing the block length too early, from the first few letters only.",
+      "applicationPrompt": "Fill the blanks: b c _ a b _ d a b c _ a",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-alnum-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "title": "Letters and numbers together",
+      "prompt": "How do you continue a series like B2, E5, H8?",
+      "formula": "Split each term: the letters form one series, the numbers another\nSolve each, then join them",
+      "variables": [],
+      "explanation": "The two parts usually follow different rules.",
+      "example": "C4, F8, I12: letters +3 → L; numbers +4 → 16. Next: L16.",
+      "commonMistake": "Mixing the letter and number gaps together.",
+      "applicationPrompt": "What comes next: Z1, X4, V9, T16, ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-element-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "title": "Positions in a mixed sequence",
+      "prompt": "In a sequence of n elements, which is m to the left of the k-th from the right?",
+      "formula": "k-th from the right = (n − k + 1)-th from the left\nTo the right: + m; to the left: − m",
+      "variables": [],
+      "explanation": "Change every count to a count from the left, then move.",
+      "example": "20 elements: 6th from the right is 20 − 6 + 1 = 15th from the left; 4 to its left is the 11th.",
+      "commonMistake": "Forgetting the + 1 in n − k + 1.",
+      "applicationPrompt": "In 24 elements, which position is 5 to the right of the 10th from the right?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-analogy-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-analogy",
+      "title": "Number analogy",
+      "prompt": "How do you solve a : b :: c : ?",
+      "formula": "Find f with f(a) = b exactly (n², n³, n² ± 1, n³ ± 1, n(n ± 1), ...)\nThen the answer is f(c)",
+      "variables": [],
+      "explanation": "Check the rule on the given pair exactly before using it.",
+      "example": "4 : 17 :: 6 : ? — 17 = 4² + 1, so 6² + 1 = 37.",
+      "commonMistake": "Using n² when the pair is n² + 1 (answering 36).",
+      "applicationPrompt": "5 : 124 :: 3 : ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rs-letter-analogy-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-analogy",
+      "title": "Letter analogy",
+      "prompt": "How do you solve ABC : DEF :: PQR : ?",
+      "formula": "Compare the groups place by place (as positions)\nApply the same change to the third group",
+      "variables": [],
+      "explanation": "The change can be the same shift everywhere, a growing shift, or opposite letters.",
+      "example": "BDF : CEG is +1 each, so PRT : QSU.",
+      "commonMistake": "Applying the shift in the wrong direction.",
+      "applicationPrompt": "ACE : BDF :: GIK : ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rs-odd-f",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-classification",
+      "title": "Odd one out",
+      "prompt": "How do you find the odd one out of four items?",
+      "formula": "Find a property that exactly three share\n(same gaps, squares, cubes, primes, the same rule in each pair)\nThe fourth is the odd one",
+      "variables": [],
+      "explanation": "A fair question has one property that splits the items 3 to 1.",
+      "example": "27, 64, 100, 125: three are cubes; 100 is not.",
+      "commonMistake": "Choosing an item for a weak reason (largest, has a vowel) when a stronger 3-to-1 split exists.",
+      "applicationPrompt": "Odd one out: BDF, HJL, MOQ, RTW",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "reasoning-series-level-0",
+      "topicId": "reasoning-series",
+      "order": 0,
+      "title": "Letters Are Numbers",
+      "description": "Positions, gaps, two series in turn, analogies and the odd one out.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "alphabet-strip"
+          },
+          {
+            "type": "text",
+            "title": "Letters are numbers",
+            "body": "Every letter has a position: A = 1, B = 2, ..., Z = 26. Learn five anchors, E = 5, J = 10, O = 15, T = 20, Y = 25 (EJOTY), and no letter is more than two steps from one: R is T − 2 = 18. Counted from Z, a letter’s position is 27 − n, because from A plus from Z always counts the letter twice: R is 27 − 18 = 9th from Z."
+          },
+          {
+            "type": "formula",
+            "title": "Three rules for positions",
+            "body": "From Z = 27 − (from A)\nm to the right: + m;  m to the left: − m\nOpposite letters add to 27: A–Z, B–Y, ..., M–N",
+            "caption": "Turn every count into a position from A before you move."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-series-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Reading a series",
+            "body": "Write the positions and the gaps between neighbours. Equal gaps: add the gap again. Gaps that grow by the same amount (1, 2, 3, ...) or double (1, 2, 4, ...): continue the gaps first. Gaps that zigzag usually mean two series taking turns, so read every other term. Groups such as AZ, BY, CX are read place by place, and an alphanumeric term such as B2 is a letter series and a number series side by side."
+          },
+          {
+            "type": "example",
+            "title": "Analogy and odd one out",
+            "body": "5 : 26 :: 8 : ?  26 is 5² + 1, and that rule must fit the pair exactly, so the answer is 8² + 1 = 65. In 27, 64, 100, 125 three numbers are cubes (3³, 4³, 5³); 100 is not, so it is the odd one out."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Three or four terms can fit more than one rule. Use the simplest rule that every given term confirms, and check it against all of them, not only the last two."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-series-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "reasoning-series-level-1",
+      "topicId": "reasoning-series",
+      "order": 1,
+      "title": "Series Rules",
+      "description": "Positions, gaps, groups, analogies and odd ones out.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "reasoning-series-level-0"
+      ],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "formulaIds": [
+        "rs-position-f",
+        "rs-relative-f",
+        "rs-sc-ejoty",
+        "rs-sc-opposite",
+        "rs-pairs-f",
+        "rs-gaps-f",
+        "rs-interleave-f",
+        "rs-groups-f",
+        "rs-pattern-f",
+        "rs-alnum-f",
+        "rs-element-f",
+        "rs-analogy-f",
+        "rs-letter-analogy-f",
+        "rs-odd-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "reasoning-series-level-2",
+      "topicId": "reasoning-series",
+      "order": 2,
+      "title": "Positions and Steady Gaps",
+      "description": "Letter positions, constant gaps, simple analogies and odd ones out.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "reasoning-series-level-1"
+      ],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "questionIds": [
+        "reasoning-series-q-001",
+        "reasoning-series-q-002",
+        "reasoning-series-q-003",
+        "reasoning-series-q-004",
+        "reasoning-series-q-005",
+        "reasoning-series-q-006",
+        "reasoning-series-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "reasoning-series-level-3",
+      "topicId": "reasoning-series",
+      "order": 3,
+      "title": "Changing Gaps and Groups",
+      "description": "Growing gaps, two series in turn, letter groups, blanks and mixed sequences.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "reasoning-series-level-2"
+      ],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "questionIds": [
+        "reasoning-series-q-008",
+        "reasoning-series-q-009",
+        "reasoning-series-q-010",
+        "reasoning-series-q-011",
+        "reasoning-series-q-012",
+        "reasoning-series-q-013",
+        "reasoning-series-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "reasoning-series-level-4",
+      "topicId": "reasoning-series",
+      "order": 4,
+      "title": "Harder Patterns",
+      "description": "Doubling gaps, letter pairs in a word, two-part series and rules tested on every pair.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "reasoning-series-level-3"
+      ],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "questionIds": [
+        "reasoning-series-q-015",
+        "reasoning-series-q-016",
+        "reasoning-series-q-017",
+        "reasoning-series-q-018",
+        "reasoning-series-q-019",
+        "reasoning-series-q-020",
+        "reasoning-series-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "reasoning-series-level-5",
+      "topicId": "reasoning-series",
+      "order": 5,
+      "title": "Mixed Series Practice",
+      "description": "Every series, analogy and classification pattern, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "reasoning-series-level-4"
+      ],
+      "conceptIds": [
+        "rs-positions",
+        "rs-letter-series",
+        "rs-alphanumeric",
+        "rs-analogy",
+        "rs-classification"
+      ],
+      "questionQuery": {
+        "topicId": "reasoning-series",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "reasoning-series-q-001",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In the English alphabet, which letter is the 8th to the right of the 11th letter from the left?",
+      "options": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "R"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        },
+        {
+          "id": "d",
+          "text": "T"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The 11th letter from the left is K (11). Eight places to the right means 11 + 8 = 19, which is S.",
+      "solutionSteps": [
+        "11th from the left: K = 11.",
+        "To the right adds: 11 + 8 = 19.",
+        "19 is S (T = 20, so S = 19)."
+      ],
+      "formulaIds": [
+        "rs-relative-f",
+        "rs-sc-ejoty"
+      ],
+      "method": "Position of the starting letter, then + m for \"to the right\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which letter is 11th from the left? (J = 10.)"
+        },
+        {
+          "level": 2,
+          "text": "Moving to the right adds to the position: 11 + 8."
+        }
+      ],
+      "commonMistakes": [
+        "T: moving 9 places (counting K itself as a move).",
+        "R: moving only 7 places. C: moving left instead of right (11 − 8 = 3)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-002",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Counting from Z (from the right), what is the position of the letter R in the English alphabet?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "R is 18th from A. Counting from Z, a letter’s position is 27 − 18 = 9: from A plus from Z always makes 27.",
+      "solutionSteps": [
+        "R from A: T is 20, so R = 18.",
+        "From Z: 27 − 18 = 9."
+      ],
+      "formulaIds": [
+        "rs-position-f",
+        "rs-sc-ejoty"
+      ],
+      "method": "Position from Z = 27 − position from A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find R from A first, using T = 20."
+        },
+        {
+          "level": 2,
+          "text": "From A + from Z = 27 for every letter."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8, using 26 − 18.",
+        "Answering 18, the position from A."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-003",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which letter comes next in the series? D, H, L, P, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "T"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        },
+        {
+          "id": "d",
+          "text": "Q"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "As positions the series is 4, 8, 12, 16: every gap is +4. The next is 16 + 4 = 20, which is T.",
+      "solutionSteps": [
+        "Positions: 4, 8, 12, 16.",
+        "Gaps: +4, +4, +4.",
+        "Next: 16 + 4 = 20 = T."
+      ],
+      "formulaIds": [
+        "rs-gaps-f",
+        "rs-sc-ejoty"
+      ],
+      "method": "Write the positions and continue the constant gap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Turn each letter into its position: D = 4, H = 8."
+        },
+        {
+          "level": 2,
+          "text": "The gap is the same every time. Add it to P = 16."
+        }
+      ],
+      "commonMistakes": [
+        "U or S: miscounting the gap by one.",
+        "Q: adding 1 instead of the gap."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-004",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which letter comes next in the series? Z, W, T, Q, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "N"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        },
+        {
+          "id": "d",
+          "text": "K"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Positions 26, 23, 20, 17: the series goes back 3 each time. The next is 17 − 3 = 14, which is N.",
+      "solutionSteps": [
+        "Positions: 26, 23, 20, 17.",
+        "Gaps: −3 each.",
+        "Next: 17 − 3 = 14 = N."
+      ],
+      "formulaIds": [
+        "rs-gaps-f"
+      ],
+      "method": "A falling series has a negative gap: subtract it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Z = 26 and T = 20. What is the gap?"
+        },
+        {
+          "level": 2,
+          "text": "Take 3 away from Q = 17."
+        }
+      ],
+      "commonMistakes": [
+        "M or O: miscounting the gap by one.",
+        "K: going back 6 (two gaps) instead of 3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-005",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-analogy",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the missing number: 7 : 49 :: 9 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "63"
+        },
+        {
+          "id": "b",
+          "text": "72"
+        },
+        {
+          "id": "c",
+          "text": "81"
+        },
+        {
+          "id": "d",
+          "text": "729"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "49 is 7², so the rule is \"square the first number\". 9² = 81.",
+      "solutionSteps": [
+        "49 = 7 × 7 = 7².",
+        "Apply the same rule to 9: 9² = 81."
+      ],
+      "formulaIds": [
+        "rs-analogy-f"
+      ],
+      "method": "Find what turns the first number into the second, then do it to the third.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How is 49 made from 7?"
+        },
+        {
+          "level": 2,
+          "text": "Do the same to 9."
+        }
+      ],
+      "commonMistakes": [
+        "63: multiplying by 7 instead of by itself.",
+        "72: 9 × 8, a product of neighbours. 729: cubing instead of squaring."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-006",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-classification",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which number is the odd one out? 49, 64, 121, 90",
+      "options": [
+        {
+          "id": "a",
+          "text": "49"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "121"
+        },
+        {
+          "id": "d",
+          "text": "90"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "49 = 7², 64 = 8² and 121 = 11² are perfect squares. 90 lies between 81 and 100 and is not a square, so it is the odd one out.",
+      "solutionSteps": [
+        "49 = 7², 64 = 8², 121 = 11².",
+        "90 is between 9² = 81 and 10² = 100: not a square."
+      ],
+      "formulaIds": [
+        "rs-odd-f"
+      ],
+      "method": "Test the common families first: squares, cubes, primes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Three of these are squares of whole numbers."
+        },
+        {
+          "level": 2,
+          "text": "Which number is not n × n for any whole n?"
+        }
+      ],
+      "commonMistakes": [
+        "121: picking the largest number.",
+        "64: noticing it is also a cube, but three numbers here are squares and only one is a cube."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-007",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "levelId": "reasoning-series-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What comes next in the series? A3, D6, G9, J12, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "M15"
+        },
+        {
+          "id": "b",
+          "text": "N15"
+        },
+        {
+          "id": "c",
+          "text": "M14"
+        },
+        {
+          "id": "d",
+          "text": "L15"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The letters A, D, G, J are positions 1, 4, 7, 10 (+3 each), so next is 13 = M. The numbers 3, 6, 9, 12 go up 3 each, so next is 15. The next term is M15.",
+      "solutionSteps": [
+        "Letters: 1, 4, 7, 10 → +3 → 13 = M.",
+        "Numbers: 3, 6, 9, 12 → +3 → 15.",
+        "Next term: M15."
+      ],
+      "formulaIds": [
+        "rs-alnum-f"
+      ],
+      "method": "Split each term into its letter and its number and solve each part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the letters alone: A, D, G, J."
+        },
+        {
+          "level": 2,
+          "text": "Now the numbers alone: 3, 6, 9, 12."
+        }
+      ],
+      "commonMistakes": [
+        "N15 or L15: miscounting the letter by one.",
+        "M14: miscounting the number."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-008",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which letter comes next in the series? C, D, F, I, M, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "R"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        },
+        {
+          "id": "d",
+          "text": "P"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Positions 3, 4, 6, 9, 13. The gaps are 1, 2, 3, 4, each one more than the last, so the next gap is 5: 13 + 5 = 18, which is R.",
+      "solutionSteps": [
+        "Positions: 3, 4, 6, 9, 13.",
+        "Gaps: +1, +2, +3, +4.",
+        "Next gap +5: 13 + 5 = 18 = R."
+      ],
+      "formulaIds": [
+        "rs-gaps-f"
+      ],
+      "method": "When the gaps are not equal, look at how the gaps change.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the gaps between neighbours."
+        },
+        {
+          "level": 2,
+          "text": "Each gap is one more than the one before."
+        }
+      ],
+      "commonMistakes": [
+        "Q: repeating the last gap (+4).",
+        "S: making the next gap +6. P: adding 3, the gap two steps back."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-009",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which letter comes next in the series? B, Y, D, W, F, U, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "G"
+        },
+        {
+          "id": "b",
+          "text": "H"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        },
+        {
+          "id": "d",
+          "text": "I"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The gaps zigzag (+23, −21, ...), so read every other term. B, D, F go up 2 each; Y, W, U go down 2 each. The 7th term belongs to the first series: F + 2 = H.",
+      "solutionSteps": [
+        "1st, 3rd, 5th terms: B, D, F (+2).",
+        "2nd, 4th, 6th terms: Y, W, U (−2).",
+        "The 7th term continues B, D, F: H."
+      ],
+      "formulaIds": [
+        "rs-interleave-f",
+        "rs-sc-opposite"
+      ],
+      "method": "Zigzag gaps mean two series taking turns.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at B, D, F on their own."
+        },
+        {
+          "level": 2,
+          "text": "Which of the two series does the 7th term belong to?"
+        }
+      ],
+      "commonMistakes": [
+        "S: continuing Y, W, U instead (that would be the 8th term).",
+        "G or I: miscounting the step of 2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-010",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What comes next in the series? AZ, CX, EV, GT, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IS"
+        },
+        {
+          "id": "b",
+          "text": "IR"
+        },
+        {
+          "id": "c",
+          "text": "HR"
+        },
+        {
+          "id": "d",
+          "text": "JR"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Read each place down the groups. First letters A, C, E, G go up 2: next I. Second letters Z, X, V, T go down 2: next R. So the next group is IR.",
+      "solutionSteps": [
+        "First letters: A, C, E, G (+2) → I.",
+        "Second letters: Z, X, V, T (−2) → R.",
+        "Next group: IR."
+      ],
+      "formulaIds": [
+        "rs-groups-f"
+      ],
+      "method": "Split the groups into places; each place is its own series.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Read only the first letters: A, C, E, G."
+        },
+        {
+          "level": 2,
+          "text": "Now the second letters: Z, X, V, T."
+        }
+      ],
+      "commonMistakes": [
+        "IS: going back 1 instead of 2 in the second place.",
+        "HR or JR: miscounting the first place."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-011",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which set of letters, filled into the blanks in order, completes the series? b _ d a b _ d a b c _ a _ c d",
+      "options": [
+        {
+          "id": "a",
+          "text": "cdcb"
+        },
+        {
+          "id": "b",
+          "text": "ccdb"
+        },
+        {
+          "id": "c",
+          "text": "ccbd"
+        },
+        {
+          "id": "d",
+          "text": "dccb"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The series repeats the block “bcda”: b c d a | b c d a | b c d a | b c d. Reading the block under each blank gives c, c, d, b.",
+      "solutionSteps": [
+        "From b _ d a b, the block looks four letters long: b ? d a.",
+        "The letters c in “dabc” and in “_ c d” fix the block as bcda.",
+        "Blanks: 2nd → c, 6th → c, 11th → d, 13th → b."
+      ],
+      "formulaIds": [
+        "rs-pattern-f"
+      ],
+      "method": "Find the repeating block, then fill each blank from the same place in the block.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The letters b and d repeat every four places."
+        },
+        {
+          "level": 2,
+          "text": "Write b c d a under the series and read off the blanks."
+        }
+      ],
+      "commonMistakes": [
+        "cdcb or ccbd: swapping two blanks.",
+        "dccb: filling the blanks one place out of step."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-012",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "context": "Study the arrangement below.\nM 4 # R 7 K $ 2 P E @ 9 T 5 % B 3 Q",
+      "question": "Which element is 3rd to the left of the 7th element from the right?",
+      "options": [
+        {
+          "id": "a",
+          "text": "R"
+        },
+        {
+          "id": "b",
+          "text": "P"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        },
+        {
+          "id": "d",
+          "text": "%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "There are 18 elements. The 7th from the right is 18 − 7 + 1 = 12th from the left (9). Three to its left is 12 − 3 = 9th from the left, which is P.",
+      "solutionSteps": [
+        "Count: 18 elements.",
+        "7th from the right = 18 − 7 + 1 = 12th from the left (9).",
+        "3 to the left: 12 − 3 = 9 → P."
+      ],
+      "formulaIds": [
+        "rs-element-f"
+      ],
+      "method": "Convert to a position from the left, then subtract for \"to the left\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many elements are there in all?"
+        },
+        {
+          "level": 2,
+          "text": "The 7th from the right is n − 7 + 1 from the left."
+        }
+      ],
+      "commonMistakes": [
+        "R: taking the 7th from the left instead.",
+        "%: moving to the right instead of the left. E: moving only 2 places."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-013",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-analogy",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "ACE : DFH :: KMO : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "NOQ"
+        },
+        {
+          "id": "b",
+          "text": "NPR"
+        },
+        {
+          "id": "c",
+          "text": "LNP"
+        },
+        {
+          "id": "d",
+          "text": "MOQ"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A → D, C → F, E → H: every letter moves 3 places forward. So K → N, M → P, O → R: NPR.",
+      "solutionSteps": [
+        "A (1) → D (4), C (3) → F (6), E (5) → H (8): +3 each.",
+        "K (11) → N, M (13) → P, O (15) → R."
+      ],
+      "formulaIds": [
+        "rs-letter-analogy-f"
+      ],
+      "method": "Compare the first two groups place by place, then apply the same change.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far is D from A?"
+        },
+        {
+          "level": 2,
+          "text": "Is it the same for C → F and E → H?"
+        }
+      ],
+      "commonMistakes": [
+        "LNP: moving 1 place instead of 3.",
+        "MOQ: moving 2 places. NOQ: moving the first letter right but the others by different amounts."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-014",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-classification",
+      "levelId": "reasoning-series-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Three of these letter groups follow the same pattern. Which is the odd one out? BDF, LNP, PRT, GJL",
+      "options": [
+        {
+          "id": "a",
+          "text": "BDF"
+        },
+        {
+          "id": "b",
+          "text": "LNP"
+        },
+        {
+          "id": "c",
+          "text": "PRT"
+        },
+        {
+          "id": "d",
+          "text": "GJL"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Inside BDF, LNP and PRT each letter is 2 after the one before (gaps +2, +2). In GJL the gaps are +3, +2, so GJL is the odd one out.",
+      "solutionSteps": [
+        "BDF: 2, 4, 6 → +2, +2.",
+        "LNP: 12, 14, 16 → +2, +2. PRT: 16, 18, 20 → +2, +2.",
+        "GJL: 7, 10, 12 → +3, +2: odd one out."
+      ],
+      "formulaIds": [
+        "rs-odd-f",
+        "rs-gaps-f"
+      ],
+      "method": "Compare the gaps inside each group.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each group as positions."
+        },
+        {
+          "level": 2,
+          "text": "Which group has a different first gap?"
+        }
+      ],
+      "commonMistakes": [
+        "BDF or PRT: comparing the starting letters rather than the gaps inside each group."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-015",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-positions",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many pairs of letters in the word KITCHEN have as many letters between them in the word as there are between them in the English alphabet (counting in either direction)?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Positions: K 11, I 9, T 20, C 3, H 8, E 5, N 14. Letters d apart in the word must differ by d. I and E are 4 apart and 9 − 5 = 4; I and N are 5 apart and 14 − 9 = 5; C and E are 2 apart and 5 − 3 = 2. So there are 3 pairs.",
+      "solutionSteps": [
+        "Write the positions: 11, 9, 20, 3, 8, 5, 14.",
+        "Check each pair: distance in the word against the difference of positions.",
+        "Pairs: IE, IN, CE → 3."
+      ],
+      "formulaIds": [
+        "rs-pairs-f"
+      ],
+      "method": "For letters d apart in the word, check whether their positions differ by exactly d.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Neighbours must be neighbours in the alphabet: are any?"
+        },
+        {
+          "level": 2,
+          "text": "I is 9th; look for letters whose positions differ from 9 by their distance from I."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only pairs that go forward in the alphabet (missing IE).",
+        "Comparing letters between them in the word with letters between them in the alphabet and slipping by one."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-016",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which letter comes next in the series? A, B, D, H, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "L"
+        },
+        {
+          "id": "b",
+          "text": "M"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        },
+        {
+          "id": "d",
+          "text": "P"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Positions 1, 2, 4, 8. The gaps are 1, 2, 4: each gap doubles. The next gap is 8, so 8 + 8 = 16, which is P.",
+      "solutionSteps": [
+        "Positions: 1, 2, 4, 8.",
+        "Gaps: +1, +2, +4 (each double the last).",
+        "Next gap +8: 8 + 8 = 16 = P."
+      ],
+      "formulaIds": [
+        "rs-gaps-f",
+        "rs-sc-ejoty"
+      ],
+      "method": "If the gaps are not equal and do not grow by a fixed amount, test whether they multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the gaps: 1, 2, 4."
+        },
+        {
+          "level": 2,
+          "text": "How does each gap compare with the one before?"
+        }
+      ],
+      "commonMistakes": [
+        "L: repeating the last gap (+4).",
+        "M: making the gaps grow by 1 (+5). O: doubling but slipping by one letter."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-017",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What comes next in the series? 2B, 5E, 10H, 17K, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24N"
+        },
+        {
+          "id": "b",
+          "text": "26N"
+        },
+        {
+          "id": "c",
+          "text": "26O"
+        },
+        {
+          "id": "d",
+          "text": "25N"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Numbers 2, 5, 10, 17: gaps 3, 5, 7, growing by 2, so the next gap is 9 and the number is 26. Letters B, E, H, K: +3 each, so N. The next term is 26N.",
+      "solutionSteps": [
+        "Numbers: 2, 5, 10, 17 → gaps 3, 5, 7 → next gap 9 → 26.",
+        "Letters: 2, 5, 8, 11 → +3 → 14 = N.",
+        "Next term: 26N."
+      ],
+      "formulaIds": [
+        "rs-alnum-f",
+        "rs-gaps-f"
+      ],
+      "method": "Solve the numbers and the letters as two separate series.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The numbers are one more than 1, 4, 9, 16."
+        },
+        {
+          "level": 2,
+          "text": "The letters move 3 places each time."
+        }
+      ],
+      "commonMistakes": [
+        "24N: repeating the last number gap (+7).",
+        "25N: taking 5² without the + 1. 26O: moving the letter 4 places."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-018",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-alphanumeric",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "context": "Study the arrangement below.\n7 # K 3 @ P 9 % 2 R $ M 5 & D 8 * T 4 # B",
+      "question": "How many symbols in the arrangement are immediately preceded by a number and immediately followed by a letter?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Check each symbol with the element before and after it. The ones with a number before and a letter after are 7 # K, 3 @ P, 5 & D, 8 * T, 4 # B: 5 in all. (In 9 % 2 the symbol is followed by a number, and in R $ M it is preceded by a letter.)",
+      "solutionSteps": [
+        "List every symbol: #, @, %, $, &, *, #.",
+        "Check the neighbours of each one.",
+        "Matches: 7#K, 3@P, 5&D, 8*T, 4#B → 5."
+      ],
+      "formulaIds": [
+        "rs-element-f"
+      ],
+      "method": "Stop at each symbol and check both neighbours; count only those that fit both conditions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Mark every symbol first."
+        },
+        {
+          "level": 2,
+          "text": "\"Preceded by\" is the element just before; \"followed by\" is the element just after."
+        }
+      ],
+      "commonMistakes": [
+        "Counting 9 % 2, where the symbol is followed by a number.",
+        "Counting R $ M, where the symbol is preceded by a letter."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-019",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-analogy",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Which of these pairs are related in the same way as 3 : 28? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 : 65"
+        },
+        {
+          "id": "b",
+          "text": "5 : 126"
+        },
+        {
+          "id": "c",
+          "text": "6 : 215"
+        },
+        {
+          "id": "d",
+          "text": "2 : 9"
+        },
+        {
+          "id": "e",
+          "text": "7 : 50"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": "28 = 3³ + 1, so the rule is n³ + 1. 4³ + 1 = 65, 5³ + 1 = 126 and 2³ + 1 = 9 fit. 6 : 215 is 6³ − 1, and 7 : 50 is 7² + 1.",
+      "solutionSteps": [
+        "3 : 28 → 27 + 1: n³ + 1.",
+        "Check each: 4 → 65 ✓, 5 → 126 ✓, 2 → 9 ✓.",
+        "6 → 217, not 215; 7 → 344, not 50."
+      ],
+      "formulaIds": [
+        "rs-analogy-f"
+      ],
+      "method": "Find the exact rule from the given pair, then test every option against it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far is 28 from 3³?"
+        },
+        {
+          "level": 2,
+          "text": "Test each pair: cube the first number and add 1."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 6 : 215, which is n³ − 1.",
+        "Choosing 7 : 50, which is n² + 1."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-020",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-classification",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In four of these pairs the second number comes from the first by the same rule. Which pair is the odd one out? 4 : 18; 6 : 38; 8 : 66; 3 : 11; 5 : 25",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 : 18"
+        },
+        {
+          "id": "b",
+          "text": "6 : 38"
+        },
+        {
+          "id": "c",
+          "text": "8 : 66"
+        },
+        {
+          "id": "d",
+          "text": "3 : 11"
+        },
+        {
+          "id": "e",
+          "text": "5 : 25"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "18 = 4² + 2, 38 = 6² + 2, 66 = 8² + 2 and 11 = 3² + 2: the rule is n² + 2. For 5 it would give 27, but the pair says 25 (= 5²), so 5 : 25 is the odd one out.",
+      "solutionSteps": [
+        "4 : 18 → 16 + 2; 6 : 38 → 36 + 2.",
+        "8 : 66 → 64 + 2; 3 : 11 → 9 + 2.",
+        "5 : 25 → 25 + 0: breaks n² + 2."
+      ],
+      "formulaIds": [
+        "rs-odd-f",
+        "rs-analogy-f"
+      ],
+      "method": "Find the rule that most pairs share exactly, then look for the pair that breaks it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare each second number with the square of the first."
+        },
+        {
+          "level": 2,
+          "text": "By how much does each second number exceed the square?"
+        }
+      ],
+      "commonMistakes": [
+        "3 : 11, thinking 11 is not a square-based number (it is 3² + 2).",
+        "5 : 25 looks the most \"natural\" pair, but it is the one that breaks the rule shared by the others."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-series-q-021",
+      "topicId": "reasoning-series",
+      "conceptId": "rs-letter-series",
+      "levelId": "reasoning-series-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "The series C, F, H, K, M, ... is continued in the same way. Which of these letters will appear in it? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "P"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        },
+        {
+          "id": "d",
+          "text": "V"
+        },
+        {
+          "id": "e",
+          "text": "Z"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "explanation": "Positions 3, 6, 8, 11, 13: the gaps alternate +3, +2. Continuing: 16, 18, 21, 23, 26, which are P, R, U, W, Z. So P, U and Z appear; Q and V do not.",
+      "solutionSteps": [
+        "Gaps: +3, +2, +3, +2.",
+        "Continue: 13 + 3 = 16 (P), 18 (R), 21 (U), 23 (W), 26 (Z).",
+        "Of the options, P, U and Z appear."
+      ],
+      "formulaIds": [
+        "rs-gaps-f"
+      ],
+      "method": "Find the pattern of gaps and write the series out to the end of the alphabet.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the gaps between the given terms."
+        },
+        {
+          "level": 2,
+          "text": "They alternate. Keep going until you pass Z."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Q or V by continuing with a single gap.",
+        "Stopping before reaching Z."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

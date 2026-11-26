@@ -33,6 +33,11 @@ import { twoCircleSims } from './twoCircles.js';
 import { groupedDataSims } from './groupedData.js';
 import { catTopicSims } from './catTopics.js';
 import { reasoningMoreSims } from './reasoningMore.js';
+import { tournamentSims } from './reasoningTournament.js';
+import { seriesSims } from './reasoningSeries.js';
+import { operationsSims } from './reasoningOperations.js';
+import { machineSims } from './reasoningMachine.js';
+import { sufficiencySims } from './reasoningSufficiency.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -91,7 +96,14 @@ export const SIMULATIONS = [
   // Modulus, polynomials, integer solutions and cryptarithms (catTopics.js). Their meta.js entries keep this order.
   ...catTopicSims,
   // More logical reasoning (reasoningMore.js). Their meta.js entries keep this order.
-  ...reasoningMoreSims
+  ...reasoningMoreSims,
+  // The last reasoning topics, one file each (reasoningTournament.js, reasoningSeries.js, reasoningOperations.js,
+  // reasoningMachine.js, reasoningSufficiency.js). Their meta.js entries keep this order.
+  ...tournamentSims,
+  ...seriesSims,
+  ...operationsSims,
+  ...machineSims,
+  ...sufficiencySims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));
