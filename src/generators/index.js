@@ -57,6 +57,10 @@ import { seatingTemplates } from './templates/reasoningSeating.js';
 import { puzzleTemplates } from './templates/reasoningPuzzles.js';
 import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
 import { bloodTemplates } from './templates/reasoningBlood.js';
+import { modulusTemplates } from './templates/modulus.js';
+import { polynomialTemplates } from './templates/polynomials.js';
+import { integerSolutionTemplates } from './templates/integerSolutions.js';
+import { cryptarithmTemplates } from './templates/cryptarithm.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -103,7 +107,12 @@ const TEMPLATES = [
   ...puzzleTemplates,
   ...syllogismTemplates,
   ...inequalityTemplates,
-  ...bloodTemplates
+  ...bloodTemplates,
+  // CAT and placement topics: modulus, polynomials, integer solutions, cryptarithms.
+  ...modulusTemplates,
+  ...polynomialTemplates,
+  ...integerSolutionTemplates,
+  ...cryptarithmTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

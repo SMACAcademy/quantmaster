@@ -1,0 +1,1837 @@
+{
+  "topicId": "modulus",
+  "concepts": [
+    {
+      "id": "md-distance",
+      "topicId": "modulus",
+      "name": "Modulus as distance",
+      "description": "|x| is the distance of x from 0, so it is never negative; |x − a| is the distance between x and a on the number line.",
+      "sortOrder": 1
+    },
+    {
+      "id": "md-equations",
+      "topicId": "modulus",
+      "name": "Modulus equations",
+      "description": "|x − a| = b gives x = a ± b when b > 0, one answer when b = 0 and none when b < 0. With two moduli, think distances or split at the points where each modulus changes sign, then check every answer.",
+      "sortOrder": 2
+    },
+    {
+      "id": "md-inequalities",
+      "topicId": "modulus",
+      "name": "Modulus inequalities",
+      "description": "|x − a| < b means x is within b of a: a − b < x < a + b. |x − a| > b means x is more than b away: x < a − b or x > a + b.",
+      "sortOrder": 3
+    },
+    {
+      "id": "md-minimum",
+      "topicId": "modulus",
+      "name": "Least value of a sum of distances",
+      "description": "|x − a| + |x − b| is least, and equal to |a − b|, for every x between a and b. A sum of several distances is least at the median of the points.",
+      "sortOrder": 4
+    },
+    {
+      "id": "md-graphs",
+      "topicId": "modulus",
+      "name": "Graphs and number of solutions",
+      "description": "y = |x − h| + k is a V with its vertex at (h, k). The number of solutions of f(x) = c is the number of times the horizontal line y = c meets the graph.",
+      "sortOrder": 5
+    },
+    {
+      "id": "md-adv-nested",
+      "topicId": "modulus",
+      "name": "Nested moduli and |f(x)|",
+      "description": "Peel a nested modulus from the outside: ||x − a| − b| = c means |x − a| = b + c or b − c. |f(x)| reflects the part of the graph below the x-axis upwards.",
+      "sortOrder": 6
+    },
+    {
+      "id": "md-adv-diamond",
+      "topicId": "modulus",
+      "name": "|x| + |y| = k",
+      "description": "|x| + |y| = k is a square standing on a corner, with vertices (±k, 0) and (0, ±k): area 2k², 4k points with whole-number coordinates on it, 2k² + 2k + 1 on or inside it.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "md-def-f",
+      "topicId": "modulus",
+      "conceptId": "md-distance",
+      "title": "Modulus",
+      "prompt": "What does |x| mean, and what does |x − a| measure?",
+      "formula": "|x| = x when x ≥ 0, and −x when x < 0\n|x − a| = distance between x and a",
+      "variables": [
+        {
+          "symbol": "a",
+          "meaning": "the point distances are measured from"
+        }
+      ],
+      "explanation": "Distance has no direction, so the modulus drops the sign. |x − a| and |a − x| are the same distance.",
+      "example": "|−7| = 7; |3 − 10| = |−7| = 7, the distance from 3 to 10.",
+      "commonMistake": "Thinking |−x| is negative, or that |x − a| = |x| − |a|.",
+      "applicationPrompt": "How far apart are −4 and 9 on the number line?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-eq-f",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "title": "Solving |x − a| = b",
+      "prompt": "How many solutions does |x − a| = b have, and what are they?",
+      "formula": "b > 0: x = a − b or x = a + b\nb = 0: x = a only\nb < 0: no solution",
+      "variables": [],
+      "explanation": "Points at distance b from a lie one on each side of a.",
+      "example": "|x − 3| = 5 → x = −2 or x = 8.",
+      "commonMistake": "Writing only x = a + b and losing the solution on the left.",
+      "applicationPrompt": "Solve |x + 1| = 6.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-sc-midpoint",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "kind": "shortcut",
+      "title": "Two equal moduli",
+      "prompt": "What is the quick answer to |x − a| = |x − b| (a ≠ b)?",
+      "formula": "x = (a + b) ÷ 2",
+      "variables": [],
+      "explanation": "x is equally far from a and b, so it is the midpoint. No squaring or cases needed.",
+      "example": "|x − 2| = |x + 8| → x = (2 − 8) ÷ 2 = −3.",
+      "commonMistake": "Setting x − a = x − b, which has no solution, and stopping there.",
+      "applicationPrompt": "Solve |x − 9| = |x − 1|.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-ineq-f",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "title": "Modulus inequalities",
+      "prompt": "What intervals do |x − a| < b and |x − a| > b describe (b > 0)?",
+      "formula": "|x − a| < b ⇔ a − b < x < a + b\n|x − a| > b ⇔ x < a − b or x > a + b",
+      "variables": [],
+      "explanation": "\"Less than\" keeps x close to a: one interval. \"Greater than\" pushes x away from a: two pieces.",
+      "example": "|x − 4| ≤ 3 → 1 ≤ x ≤ 7.",
+      "commonMistake": "Joining the two pieces of |x − a| > b with \"and\", which leaves nothing.",
+      "applicationPrompt": "Solve |x + 2| < 5.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "md-sc-intcount",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "kind": "shortcut",
+      "title": "Counting whole-number solutions",
+      "prompt": "How many integers satisfy |x − a| ≤ b, and |x − a| < b (a, b whole numbers)?",
+      "formula": "|x − a| ≤ b: 2b + 1 integers\n|x − a| < b: 2b − 1 integers",
+      "variables": [],
+      "explanation": "b steps each side of a, plus a itself; a strict sign loses the two end points.",
+      "example": "|x − 10| ≤ 4 → 9 integers (6 to 14).",
+      "commonMistake": "Answering 2b and forgetting the centre a.",
+      "applicationPrompt": "How many integers satisfy |x + 3| < 6?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-min-f",
+      "topicId": "modulus",
+      "conceptId": "md-minimum",
+      "title": "Least value of |x − a| + |x − b|",
+      "prompt": "What is the smallest value of |x − a| + |x − b|, and where is it reached?",
+      "formula": "Minimum = |a − b|, for every x from a to b",
+      "variables": [],
+      "explanation": "Between a and b the two distances always add up to the whole gap; outside, you walk past an end and come back.",
+      "example": "|x − 3| + |x − 11| ≥ 8, with equality for 3 ≤ x ≤ 11.",
+      "commonMistake": "Setting x = a and x = b separately and taking a value that is too large, or answering 0.",
+      "applicationPrompt": "Least value of |x + 4| + |x − 6|?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "md-sc-median",
+      "topicId": "modulus",
+      "conceptId": "md-minimum",
+      "kind": "shortcut",
+      "title": "Sum of many distances",
+      "prompt": "Where is |x − p₁| + |x − p₂| + … + |x − pₙ| smallest?",
+      "formula": "At the median of p₁, …, pₙ\n(anywhere between the two middle points when n is even)",
+      "variables": [],
+      "explanation": "Moving x towards the side holding more points shortens more distances than it lengthens, until the points balance.",
+      "example": "2, 5, 9 → x = 5: 3 + 0 + 4 = 7.",
+      "commonMistake": "Using the mean instead of the median.",
+      "applicationPrompt": "Least value of |x − 1| + |x − 4| + |x − 10|?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "md-graph-f",
+      "topicId": "modulus",
+      "conceptId": "md-graphs",
+      "title": "The V graph",
+      "prompt": "What does the graph of y = |x − h| + k look like, and how many solutions does |x − h| + k = c have?",
+      "formula": "A V with vertex (h, k), arms of slope ±1\nc > k: 2 solutions; c = k: 1; c < k: none",
+      "variables": [],
+      "explanation": "Moving h shifts the V sideways, moving k shifts it up or down. A horizontal line meets a V twice, touches its tip once, or misses it.",
+      "example": "y = |x + 2| − 3 has its tip at (−2, −3) and meets y = 0 at x = 1 and x = −5.",
+      "commonMistake": "Shifting the wrong way: |x + 2| moves the tip to −2, not +2.",
+      "applicationPrompt": "Where is the tip of y = |x − 5| + 1?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-nested-f",
+      "topicId": "modulus",
+      "conceptId": "md-adv-nested",
+      "title": "Nested moduli",
+      "prompt": "How do you solve ||x − a| − b| = c?",
+      "formula": "|x − a| = b + c or |x − a| = b − c\neach positive value gives 2 solutions, 0 gives 1, a negative gives none",
+      "variables": [],
+      "explanation": "Remove one modulus at a time, outside first. Each inner equation is a simple |x − a| = d.",
+      "example": "||x| − 5| = 2 → |x| = 7 or 3 → x = ±7, ±3: four solutions.",
+      "commonMistake": "Removing both moduli at once and finding only two solutions.",
+      "applicationPrompt": "How many solutions does ||x − 1| − 4| = 4 have?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "md-diamond-f",
+      "topicId": "modulus",
+      "conceptId": "md-adv-diamond",
+      "title": "The square |x| + |y| = k",
+      "prompt": "What shape is |x| + |y| = k (k > 0), what is its area, and how many whole-number points does it hold?",
+      "formula": "Square with vertices (±k, 0), (0, ±k)\nArea = 2k²\nInteger points on it: 4k; on or inside it: 2k² + 2k + 1",
+      "variables": [],
+      "explanation": "In each quadrant it is a straight line such as x + y = k. The diagonals are 2k long, and area = d₁ × d₂ ÷ 2.",
+      "example": "k = 3: area 18, 12 points on the boundary, 25 on or inside.",
+      "commonMistake": "Taking the side as k and giving area k² instead of 2k².",
+      "applicationPrompt": "Area enclosed by |x| + |y| = 5?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "modulus-level-0",
+      "topicId": "modulus",
+      "order": 0,
+      "title": "Modulus as Distance",
+      "description": "Read |x − a| as a distance, solve equations and inequalities on the number line, and find the flat bottom of a sum of distances.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "md-distance",
+        "md-equations",
+        "md-inequalities",
+        "md-minimum",
+        "md-graphs"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A modulus is a distance",
+            "body": "|x| is how far x is from 0, so |−6| = |6| = 6. In the same way |x − a| is how far x is from a, and |x + a| = |x − (−a)| is how far x is from −a.\n\nA distance is never negative, so |x − a| ≥ 0 always, and |x − a| = |a − x|."
+          },
+          {
+            "type": "check",
+            "questionId": "modulus-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Equations and inequalities as distances",
+            "body": "|x − 2| = 5 asks for the points 5 away from 2: x = −3 or x = 7.\n\n|x − 2| < 5 asks for the points closer than 5: one interval, −3 < x < 7.\n\n|x − 2| > 5 asks for the points farther than 5: two pieces, x < −3 or x > 7."
+          },
+          {
+            "type": "check",
+            "questionId": "modulus-q-003"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "modulus-distance"
+          },
+          {
+            "type": "formula",
+            "title": "Sum of two distances",
+            "body": "|x − a| + |x − b| ≥ |a − b|",
+            "caption": "Equality holds for every x between a and b: the graph has a flat bottom there. With more points, the sum is least at the median."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "When x also appears outside the modulus, as in |x − 4| = 2x + 1, solve both cases and substitute each answer back. One of them is often false."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "modulus-level-1",
+      "topicId": "modulus",
+      "order": 1,
+      "title": "Modulus Formulas",
+      "description": "Distances, equations, inequalities, the least value and the V graph.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "modulus-level-0"
+      ],
+      "conceptIds": [
+        "md-distance",
+        "md-equations",
+        "md-inequalities",
+        "md-minimum",
+        "md-graphs"
+      ],
+      "formulaIds": [
+        "md-def-f",
+        "md-eq-f",
+        "md-ineq-f",
+        "md-min-f",
+        "md-graph-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "modulus-level-2",
+      "topicId": "modulus",
+      "order": 2,
+      "title": "Direct Modulus",
+      "description": "One-step distances, equations, intervals and graphs.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "modulus-level-1"
+      ],
+      "conceptIds": [
+        "md-distance",
+        "md-equations",
+        "md-inequalities",
+        "md-graphs"
+      ],
+      "questionIds": [
+        "modulus-q-001",
+        "modulus-q-002",
+        "modulus-q-003",
+        "modulus-q-004",
+        "modulus-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "modulus-level-3",
+      "topicId": "modulus",
+      "order": 3,
+      "title": "Equations, Intervals and Meeting Points",
+      "description": "Two moduli, counting integers and the best meeting point.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "modulus-level-2"
+      ],
+      "conceptIds": [
+        "md-equations",
+        "md-inequalities",
+        "md-minimum",
+        "md-graphs"
+      ],
+      "questionIds": [
+        "modulus-q-006",
+        "modulus-q-007",
+        "modulus-q-008",
+        "modulus-q-009",
+        "modulus-q-010",
+        "modulus-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "modulus-level-4",
+      "topicId": "modulus",
+      "order": 4,
+      "title": "Cases, Counts and Least Values",
+      "description": "Check cases, count solutions and minimise sums of distances.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "modulus-level-3"
+      ],
+      "conceptIds": [
+        "md-equations",
+        "md-inequalities",
+        "md-minimum",
+        "md-graphs"
+      ],
+      "questionIds": [
+        "modulus-q-012",
+        "modulus-q-013",
+        "modulus-q-014",
+        "modulus-q-015",
+        "modulus-q-016",
+        "modulus-q-017"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "modulus-level-5",
+      "topicId": "modulus",
+      "order": 5,
+      "title": "Mixed Modulus Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "modulus-level-4"
+      ],
+      "conceptIds": [
+        "md-equations",
+        "md-minimum"
+      ],
+      "questionQuery": {
+        "topicId": "modulus",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "md-distance",
+          "md-equations",
+          "md-inequalities",
+          "md-minimum",
+          "md-graphs"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "modulus-level-6",
+      "topicId": "modulus",
+      "order": 6,
+      "title": "Advanced: Nested Moduli and |x| + |y| = k",
+      "description": "Peel nested moduli, reflect graphs with |f(x)|, and count the points on and inside the square |x| + |y| = k.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "modulus-level-5"
+      ],
+      "conceptIds": [
+        "md-adv-nested",
+        "md-adv-diamond"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Peel from the outside",
+            "body": "||x − 1| − 5| = 3 means |x − 1| − 5 = 3 or −3, so |x − 1| = 8 or |x − 1| = 2. Each positive value gives two solutions: x = 9, −7, 3, −1. Four in all.\n\nA value of 0 gives one solution and a negative value gives none, so the count can be 0, 1, 2, 3 or 4."
+          },
+          {
+            "type": "check",
+            "questionId": "modulus-q-018"
+          },
+          {
+            "type": "text",
+            "title": "The graph of |f(x)|",
+            "body": "Draw y = f(x), then reflect every part below the x-axis upwards. y = |x² − 9| has a hump of height 9 between −3 and 3, so the line y = c meets it 4 times for 0 < c < 9, 3 times at c = 9 and twice above."
+          },
+          {
+            "type": "formula",
+            "title": "The square |x| + |y| = k",
+            "body": "Area = 2k²; integer points on it = 4k; on or inside = 2k² + 2k + 1",
+            "caption": "In the first quadrant it is the line x + y = k; the other three quadrants are its mirror images, so the shape is a square standing on a corner."
+          },
+          {
+            "type": "check",
+            "questionId": "modulus-q-019"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "|x − h| + |y − v| = k is the same square moved to centre (h, v): same area, same number of integer points."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "modulus-level-7",
+      "topicId": "modulus",
+      "order": 7,
+      "title": "Challenge: Nested Moduli and Squares",
+      "description": "Counting solutions of nested moduli and points on |x| + |y| = k.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "modulus-level-6"
+      ],
+      "conceptIds": [
+        "md-adv-nested",
+        "md-adv-diamond"
+      ],
+      "questionIds": [
+        "modulus-q-018",
+        "modulus-q-019",
+        "modulus-q-020",
+        "modulus-q-021",
+        "modulus-q-022",
+        "modulus-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 100,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "modulus-q-001",
+      "topicId": "modulus",
+      "conceptId": "md-distance",
+      "levelId": "modulus-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Kavya’s flat is on floor 5 of a tower in Bengaluru, and her car is parked on level −7 of the basement. How many levels does the lift travel between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "35"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The gap between two levels is the distance between the numbers: |5 − (−7)| = |12| = 12.",
+      "solutionSteps": [
+        "Distance = |5 − (−7)|.",
+        "5 − (−7) = 5 + 7 = 12.",
+        "|12| = 12 levels."
+      ],
+      "formulaIds": [
+        "md-def-f"
+      ],
+      "method": "Distance between a and b is |a − b|.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The distance between two numbers is the modulus of their difference."
+        },
+        {
+          "level": 2,
+          "text": "Subtracting −7 means adding 7."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 5 + (−7) = −2 and answering 2."
+      ],
+      "tags": [
+        "basic",
+        "distance"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-002",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "levelId": "modulus-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve |x − 4| = 9. What is the sum of the two solutions?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "x is 9 away from 4, so x = 4 − 9 = −5 or x = 4 + 9 = 13. Their sum is −5 + 13 = 8 (always 2 × 4, since the two solutions sit symmetrically about 4).",
+      "solutionSteps": [
+        "x − 4 = 9 or x − 4 = −9.",
+        "x = 13 or x = −5.",
+        "Sum = 13 + (−5) = 8."
+      ],
+      "formulaIds": [
+        "md-eq-f"
+      ],
+      "method": "The two solutions are a ± b.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which two numbers are exactly 9 away from 4?"
+        },
+        {
+          "level": 2,
+          "text": "One lies to the right of 4 and one to the left."
+        }
+      ],
+      "commonMistakes": [
+        "Finding only x = 13."
+      ],
+      "tags": [
+        "equation",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-003",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "levelId": "modulus-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these is the solution of |x − 3| < 5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "−2 < x < 8"
+        },
+        {
+          "id": "b",
+          "text": "x < 8"
+        },
+        {
+          "id": "c",
+          "text": "−8 < x < 2"
+        },
+        {
+          "id": "d",
+          "text": "x < −2 or x > 8"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "|x − 3| < 5 means x is less than 5 away from 3: from 3 − 5 = −2 to 3 + 5 = 8, ends not included.",
+      "solutionSteps": [
+        "−5 < x − 3 < 5.",
+        "Add 3 throughout: −2 < x < 8."
+      ],
+      "formulaIds": [
+        "md-ineq-f"
+      ],
+      "method": "|x − a| < b ⇔ a − b < x < a + b.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Read |x − 3| as the distance from x to 3."
+        },
+        {
+          "level": 2,
+          "text": "Go 5 to the left and 5 to the right of 3."
+        }
+      ],
+      "commonMistakes": [
+        "Dropping the lower bound and writing x < 8.",
+        "Reading x − 3 as x + 3 and centring on −3."
+      ],
+      "tags": [
+        "inequality",
+        "interval"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-004",
+      "topicId": "modulus",
+      "conceptId": "md-distance",
+      "levelId": "modulus-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "|a + b| = |a| + |b| for all real numbers a and b.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "It fails when a and b have opposite signs: a = 3, b = −5 gives |−2| = 2 but |3| + |−5| = 8. The true rule is |a + b| ≤ |a| + |b|, with equality only when a and b do not have opposite signs.",
+      "solutionSteps": [
+        "Try a = 3, b = −5.",
+        "|3 + (−5)| = 2, while |3| + |−5| = 8.",
+        "One counter-example is enough: false."
+      ],
+      "formulaIds": [
+        "md-def-f"
+      ],
+      "method": "Test a pair with opposite signs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try one positive and one negative number."
+        },
+        {
+          "level": 2,
+          "text": "Compare |3 + (−5)| with |3| + |−5|."
+        }
+      ],
+      "commonMistakes": [
+        "Testing only positive numbers and concluding it is true."
+      ],
+      "tags": [
+        "true-false",
+        "properties"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-005",
+      "topicId": "modulus",
+      "conceptId": "md-graphs",
+      "levelId": "modulus-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which equation has a V-shaped graph whose lowest point is (2, −3)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "y = |x − 2| − 3"
+        },
+        {
+          "id": "b",
+          "text": "y = |x + 2| − 3"
+        },
+        {
+          "id": "c",
+          "text": "y = |x − 3| + 2"
+        },
+        {
+          "id": "d",
+          "text": "y = |x − 2| + 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "y = |x − h| + k has its tip at (h, k). For (2, −3) we need h = 2 and k = −3: y = |x − 2| − 3. Check: at x = 2, y = 0 − 3 = −3, and |x − 2| ≥ 0 so y is never lower.",
+      "solutionSteps": [
+        "Tip of y = |x − h| + k is (h, k).",
+        "h = 2, k = −3.",
+        "y = |x − 2| − 3."
+      ],
+      "formulaIds": [
+        "md-graph-f"
+      ],
+      "method": "Read the vertex from the shift inside and the shift outside.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is |x − 2| smallest?"
+        },
+        {
+          "level": 2,
+          "text": "The number added outside the modulus moves the V up or down."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking |x + 2| moves the tip to x = +2."
+      ],
+      "tags": [
+        "graph",
+        "recognition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-006",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve |2x − 7| = 11. What is the positive solution?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "2x − 7 = 11 gives x = 9; 2x − 7 = −11 gives x = −2. The positive solution is 9. Check: |18 − 7| = 11.",
+      "solutionSteps": [
+        "2x − 7 = 11 or 2x − 7 = −11.",
+        "2x = 18 or 2x = −4.",
+        "x = 9 or x = −2; the positive one is 9."
+      ],
+      "formulaIds": [
+        "md-eq-f"
+      ],
+      "method": "Split into the two signs, then solve each linear equation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The inside, 2x − 7, must be 11 or −11."
+        },
+        {
+          "level": 2,
+          "text": "Solve 2x − 7 = 11 and 2x − 7 = −11 separately."
+        }
+      ],
+      "commonMistakes": [
+        "Solving x − 7 = 11 and forgetting the 2: x = 18."
+      ],
+      "tags": [
+        "equation",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-007",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find x if |x − 3| = |x + 5|.",
+      "options": [
+        {
+          "id": "a",
+          "text": "−1"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "−4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "x is equally far from 3 and from −5, so x is their midpoint: (3 + (−5)) ÷ 2 = −1. Check: |−1 − 3| = 4 and |−1 + 5| = 4.",
+      "solutionSteps": [
+        "|x + 5| is the distance from x to −5.",
+        "Equal distances from 3 and −5: the midpoint.",
+        "x = (3 − 5) ÷ 2 = −1."
+      ],
+      "formulaIds": [
+        "md-sc-midpoint"
+      ],
+      "method": "Equal distances from two points: take the midpoint.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "|x + 5| is the distance from x to −5, not to 5."
+        },
+        {
+          "level": 2,
+          "text": "Which point is equally far from 3 and −5?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking the midpoint of 3 and +5 and answering 4.",
+        "Halving the gap (8 ÷ 2 = 4) instead of finding the middle point."
+      ],
+      "tags": [
+        "two-moduli",
+        "midpoint"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-008",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many integers x satisfy |x + 2| ≤ 6?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "|x + 2| ≤ 6 means −8 ≤ x ≤ 4. The integers from −8 to 4 number 4 − (−8) + 1 = 13 (that is 2 × 6 + 1).",
+      "solutionSteps": [
+        "−6 ≤ x + 2 ≤ 6.",
+        "−8 ≤ x ≤ 4.",
+        "Count: 4 − (−8) + 1 = 13."
+      ],
+      "formulaIds": [
+        "md-ineq-f",
+        "md-sc-intcount"
+      ],
+      "method": "Find the interval, then count its integers, ends included.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "|x + 2| is the distance from x to −2."
+        },
+        {
+          "level": 2,
+          "text": "Count the end points too, since the sign is ≤."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 12 by forgetting to count both ends.",
+        "Centring on +2 instead of −2 (the count stays 13, but the interval is wrong)."
+      ],
+      "tags": [
+        "inequality",
+        "count"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-009",
+      "topicId": "modulus",
+      "conceptId": "md-minimum",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Three friends live at the 3 km, 11 km and 20 km markers on a straight highway out of Pune. They meet at one point on the highway. What is the least possible total distance the three of them travel to get there?",
+      "options": [
+        {
+          "id": "a",
+          "text": "17 km"
+        },
+        {
+          "id": "b",
+          "text": "11 km"
+        },
+        {
+          "id": "c",
+          "text": "34 km"
+        },
+        {
+          "id": "d",
+          "text": "25 km"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The total is |x − 3| + |x − 11| + |x − 20|, least at the median, x = 11: 8 + 0 + 9 = 17 km. With three points the least total is always the gap between the outer two, 20 − 3 = 17.",
+      "solutionSteps": [
+        "Total = |x − 3| + |x − 11| + |x − 20|.",
+        "Least at the median marker, 11 km.",
+        "8 + 0 + 9 = 17 km."
+      ],
+      "formulaIds": [
+        "md-sc-median"
+      ],
+      "method": "Meet at the median.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the total distance as a sum of moduli."
+        },
+        {
+          "level": 2,
+          "text": "The best meeting point is the middle friend’s marker."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the meeting point (11 km) instead of the total distance.",
+        "Meeting at one end (3 km) and getting 8 + 17 = 25 km."
+      ],
+      "tags": [
+        "minimum",
+        "word-problem"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-010",
+      "topicId": "modulus",
+      "conceptId": "md-graphs",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The graph of y = |x + 3| − 4 crosses the x-axis at two points. How far apart are they?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "On the x-axis y = 0, so |x + 3| = 4: x = 1 or x = −7. They are 1 − (−7) = 8 apart. The arms of the V have slope ±1, so the gap is always twice the depth of the tip below the axis: 2 × 4.",
+      "solutionSteps": [
+        "Set y = 0: |x + 3| = 4.",
+        "x = −3 ± 4, so x = 1 or x = −7.",
+        "Distance = 1 − (−7) = 8."
+      ],
+      "formulaIds": [
+        "md-graph-f",
+        "md-eq-f"
+      ],
+      "method": "Crossing points are the solutions of y = 0.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where the graph crosses the x-axis, y = 0."
+        },
+        {
+          "level": 2,
+          "text": "Solve |x + 3| = 4."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4, the depth of the tip, instead of the width at the axis."
+      ],
+      "tags": [
+        "graph",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-011",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "levelId": "modulus-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve |x − 1| > 4.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x < −3 or x > 5"
+        },
+        {
+          "id": "b",
+          "text": "−3 < x < 5"
+        },
+        {
+          "id": "c",
+          "text": "x > 5"
+        },
+        {
+          "id": "d",
+          "text": "x < −5 or x > 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "x must be more than 4 away from 1: below 1 − 4 = −3 or above 1 + 4 = 5. Two separate pieces, joined by \"or\".",
+      "solutionSteps": [
+        "x − 1 > 4 or x − 1 < −4.",
+        "x > 5 or x < −3."
+      ],
+      "formulaIds": [
+        "md-ineq-f"
+      ],
+      "method": "|x − a| > b ⇔ x < a − b or x > a + b.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Greater than\" means far from 1, on either side."
+        },
+        {
+          "level": 2,
+          "text": "Go 4 to the left and 4 to the right of 1, then take the outsides."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the inside interval −3 < x < 5.",
+        "Keeping only x > 5."
+      ],
+      "tags": [
+        "inequality",
+        "interval"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-012",
+      "topicId": "modulus",
+      "conceptId": "md-minimum",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the least value of |x − 2| + |x − 5| + |x − 9| + |x − 14|?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "With four points the sum is least anywhere between the two middle points, 5 and 9. At x = 5: 3 + 0 + 4 + 9 = 16. Pairing outer with outer gives the same: (14 − 2) + (9 − 5) = 12 + 4 = 16.",
+      "solutionSteps": [
+        "Middle points: 5 and 9.",
+        "Pair the points: |x − 2| + |x − 14| ≥ 12 and |x − 5| + |x − 9| ≥ 4.",
+        "Both are least for 5 ≤ x ≤ 9: 12 + 4 = 16."
+      ],
+      "formulaIds": [
+        "md-min-f",
+        "md-sc-median"
+      ],
+      "method": "Pair the outermost points, then the next pair, and add the gaps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Group the terms in pairs: the outer two and the inner two."
+        },
+        {
+          "level": 2,
+          "text": "Each pair is at least the gap between its points."
+        }
+      ],
+      "commonMistakes": [
+        "Pairing only the outer points (12) and forgetting the inner pair.",
+        "Adding all four distances from 0: 2 + 5 + 9 + 14 = 30."
+      ],
+      "tags": [
+        "minimum",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-013",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many real solutions does |x − 2| + |x − 6| = 10 have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "Infinitely many"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The left side is the total distance from x to 2 and to 6. Its least value is 4 (between 2 and 6); 10 is more than 4, so x lies outside on either side: 2x − 8 = 10 gives x = 9, and 8 − 2x = 10 gives x = −1. Two solutions.",
+      "solutionSteps": [
+        "Least value of the left side: |6 − 2| = 4.",
+        "10 > 4, so there is one solution to the right of 6 and one to the left of 2.",
+        "x = 9 and x = −1."
+      ],
+      "formulaIds": [
+        "md-min-f",
+        "md-graph-f"
+      ],
+      "method": "Compare c with the flat bottom |a − b|.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the smallest value |x − 2| + |x − 6| can take?"
+        },
+        {
+          "level": 2,
+          "text": "If the target is above the flat bottom, the line y = 10 meets both arms."
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Infinitely many\" because the graph has a flat part; that only happens when c equals the flat value 4."
+      ],
+      "tags": [
+        "two-moduli",
+        "count"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-014",
+      "topicId": "modulus",
+      "conceptId": "md-graphs",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each equation with its number of real solutions.",
+      "pairs": [
+        {
+          "left": "|x − 3| = 5",
+          "right": "2"
+        },
+        {
+          "left": "|x + 1| = 0",
+          "right": "1"
+        },
+        {
+          "left": "|x − 2| = −4",
+          "right": "0"
+        },
+        {
+          "left": "|x − 1| + |x − 4| = 3",
+          "right": "Infinitely many"
+        }
+      ],
+      "explanation": "|x − 3| = 5: x = −2 or 8. |x + 1| = 0: only x = −1. A modulus is never negative, so |x − 2| = −4 has none. |x − 1| + |x − 4| equals 3 for every x from 1 to 4: the flat bottom of the graph lies exactly on y = 3.",
+      "solutionSteps": [
+        "Positive right side: two solutions.",
+        "Zero right side: one.",
+        "Negative right side: none.",
+        "Sum of two distances equal to the gap |4 − 1|: every x in between."
+      ],
+      "formulaIds": [
+        "md-eq-f",
+        "md-min-f"
+      ],
+      "method": "Picture the V (or the flat-bottomed graph) and the level line.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A modulus can never equal a negative number."
+        },
+        {
+          "level": 2,
+          "text": "What is |x − 1| + |x − 4| for x = 2? For x = 3?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving |x + 1| = 0 two solutions, ±1.",
+        "Giving the flat-bottom case two solutions, x = 1 and x = 4."
+      ],
+      "tags": [
+        "matching",
+        "count"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-015",
+      "topicId": "modulus",
+      "conceptId": "md-equations",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve |x − 4| = 2x + 1.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = 1 only"
+        },
+        {
+          "id": "b",
+          "text": "x = −5 and x = 1"
+        },
+        {
+          "id": "c",
+          "text": "x = −5 only"
+        },
+        {
+          "id": "d",
+          "text": "No solution"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Case x ≥ 4: x − 4 = 2x + 1 gives x = −5, which is not ≥ 4, so reject it (also 2x + 1 = −9 < 0, which a modulus can never equal). Case x < 4: 4 − x = 2x + 1 gives x = 1, which fits. Check: |1 − 4| = 3 = 2 + 1. So x = 1 only.",
+      "solutionSteps": [
+        "x ≥ 4: x − 4 = 2x + 1 → x = −5, outside the case: reject.",
+        "x < 4: 4 − x = 2x + 1 → x = 1, inside the case: keep.",
+        "Check x = 1: |−3| = 3 and 2(1) + 1 = 3."
+      ],
+      "formulaIds": [
+        "md-eq-f"
+      ],
+      "method": "When x appears outside the modulus, solve case by case and check each answer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The right side must not be negative, since a modulus never is."
+        },
+        {
+          "level": 2,
+          "text": "Substitute each candidate back into the original equation."
+        }
+      ],
+      "commonMistakes": [
+        "Keeping x = −5 without checking: |−9| = 9 but 2(−5) + 1 = −9."
+      ],
+      "tags": [
+        "equation",
+        "check"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-016",
+      "topicId": "modulus",
+      "conceptId": "md-inequalities",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "Select ALL the statements that are true.",
+      "options": [
+        {
+          "id": "a",
+          "text": "|x − 5| < 3 has exactly 5 integer solutions"
+        },
+        {
+          "id": "b",
+          "text": "|x| ≥ 0 for every real x"
+        },
+        {
+          "id": "c",
+          "text": "|x + 2| < −1 has no solution"
+        },
+        {
+          "id": "d",
+          "text": "|x − 1| > 2 means −1 < x < 3"
+        },
+        {
+          "id": "e",
+          "text": "If |x − 2| < 1, then |x| < 1"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "(a) 2 < x < 8 holds 3, 4, 5, 6, 7: five integers. (b) A distance is never negative. (c) A modulus cannot be below −1, so no x works. (d) That is the inside interval; |x − 1| > 2 is x < −1 or x > 3. (e) x = 2.5 has |x − 2| = 0.5 < 1 but |x| = 2.5.",
+      "solutionSteps": [
+        "(a) 2 < x < 8 → 3 to 7, five integers ✓.",
+        "(b) True by definition ✓.",
+        "(c) No modulus is negative ✓.",
+        "(d) Wrong direction ✗.",
+        "(e) Counter-example x = 2.5 ✗."
+      ],
+      "formulaIds": [
+        "md-ineq-f",
+        "md-sc-intcount"
+      ],
+      "method": "Turn each modulus into an interval, and look for a counter-example to each claim.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For (a), use 2b − 1 for a strict inequality."
+        },
+        {
+          "level": 2,
+          "text": "For (e), try a value close to 2."
+        }
+      ],
+      "commonMistakes": [
+        "Counting 2 and 8 in (a), which a strict sign excludes."
+      ],
+      "tags": [
+        "multi-select",
+        "inequality"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-017",
+      "topicId": "modulus",
+      "conceptId": "md-minimum",
+      "levelId": "modulus-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Five shops stand along a straight road at 2 km, 5 km, 7 km, 12 km and 20 km from Chennai Central. A delivery van will park at one spot on the road, and a runner walks from the van to each shop separately. What is the least possible total of the five one-way distances, in km?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "unit": "km"
+      },
+      "explanation": "The total |x − 2| + |x − 5| + |x − 7| + |x − 12| + |x − 20| is least at the median shop, x = 7: 5 + 2 + 0 + 5 + 13 = 25 km.",
+      "solutionSteps": [
+        "Median of 2, 5, 7, 12, 20 is 7.",
+        "Distances from 7: 5, 2, 0, 5, 13.",
+        "Total = 25 km."
+      ],
+      "formulaIds": [
+        "md-sc-median"
+      ],
+      "method": "Park at the median shop.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the total as a sum of five moduli."
+        },
+        {
+          "level": 2,
+          "text": "With five points the best spot is the third one in order."
+        }
+      ],
+      "commonMistakes": [
+        "Parking at the mean, 9.2 km, which gives a larger total (27.2 km)."
+      ],
+      "tags": [
+        "minimum",
+        "word-problem"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-018",
+      "topicId": "modulus",
+      "conceptId": "md-adv-nested",
+      "levelId": "modulus-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many real solutions does ||x − 3| − 4| = 2 have?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Remove the outer modulus: |x − 3| − 4 = 2 or −2, so |x − 3| = 6 or |x − 3| = 2. Each gives two solutions: x = 9, −3 and x = 5, 1. Four in all.",
+      "solutionSteps": [
+        "|x − 3| − 4 = ±2.",
+        "|x − 3| = 6 → x = 9 or −3.",
+        "|x − 3| = 2 → x = 5 or 1.",
+        "Four solutions."
+      ],
+      "formulaIds": [
+        "md-nested-f"
+      ],
+      "method": "Peel the moduli from the outside.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First remove the outer modulus: what can |x − 3| − 4 be?"
+        },
+        {
+          "level": 2,
+          "text": "Each positive value of |x − 3| gives two values of x."
+        }
+      ],
+      "commonMistakes": [
+        "Removing both moduli in one go and finding only x = 9 and x = −3."
+      ],
+      "tags": [
+        "nested",
+        "count"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-019",
+      "topicId": "modulus",
+      "conceptId": "md-adv-diamond",
+      "levelId": "modulus-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the area enclosed by the graph of |x| + |y| = 6?",
+      "answer": {
+        "value": 72,
+        "tolerance": 0,
+        "unit": "sq units"
+      },
+      "explanation": "The graph is a square with corners (6, 0), (0, 6), (−6, 0) and (0, −6). Its diagonals are 12 long, so the area is 12 × 12 ÷ 2 = 72, that is 2k² with k = 6.",
+      "solutionSteps": [
+        "Corners at (±6, 0) and (0, ±6).",
+        "Diagonals: 12 each.",
+        "Area = 12 × 12 ÷ 2 = 72."
+      ],
+      "formulaIds": [
+        "md-diamond-f"
+      ],
+      "method": "A square on its corner: area = d² ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find where the graph meets the axes."
+        },
+        {
+          "level": 2,
+          "text": "The shape is a square whose diagonals lie on the axes."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the side as 6 and answering 36.",
+        "Using the diagonal as the side and answering 144."
+      ],
+      "tags": [
+        "diamond",
+        "area"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-020",
+      "topicId": "modulus",
+      "conceptId": "md-adv-diamond",
+      "levelId": "modulus-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How many points with whole-number (integer) coordinates lie on |x| + |y| = 5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "21"
+        },
+        {
+          "id": "d",
+          "text": "61"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The four corners (±5, 0), (0, ±5) are on it, plus in each quadrant the points (1, 4), (2, 3), (3, 2), (4, 1) with signs: 4 × 4 = 16. Total 4 + 16 = 20 = 4k.",
+      "solutionSteps": [
+        "Corners: 4 points.",
+        "Each quadrant: x = 1 to 4, so 4 points, times 4 quadrants = 16.",
+        "4 + 16 = 20."
+      ],
+      "formulaIds": [
+        "md-diamond-f"
+      ],
+      "method": "On the square |x| + |y| = k there are 4k integer points.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the points with x = 0 or y = 0 first."
+        },
+        {
+          "level": 2,
+          "text": "In the first quadrant, x + y = 5 with x and y both at least 1."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only one quadrant’s 4 interior points per side and forgetting the corners (16).",
+        "Counting the points inside as well (61)."
+      ],
+      "tags": [
+        "diamond",
+        "lattice"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-021",
+      "topicId": "modulus",
+      "conceptId": "md-adv-nested",
+      "levelId": "modulus-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "For how many integer values of k does the equation ||x| − 3| = k have exactly four real solutions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "||x| − 3| = k gives |x| = 3 + k or |x| = 3 − k. Four solutions need both values positive and different: k > 0 and 3 − k > 0, so 0 < k < 3. The integers are 1 and 2. (k = 0 gives 2 solutions, k = 3 gives 3, k > 3 gives 2.)",
+      "solutionSteps": [
+        "|x| = 3 + k or |x| = 3 − k.",
+        "Need 3 − k > 0 and k ≠ 0.",
+        "k = 1 or 2: two values."
+      ],
+      "formulaIds": [
+        "md-nested-f"
+      ],
+      "method": "Each positive value of |x| gives two solutions; count the k that make both values positive and distinct.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the two possible values of |x|."
+        },
+        {
+          "level": 2,
+          "text": "What happens at k = 0 and at k = 3?"
+        }
+      ],
+      "commonMistakes": [
+        "Including k = 3, where |x| = 0 gives only one solution, so there are three in all.",
+        "Including k = 0, where both values coincide."
+      ],
+      "tags": [
+        "nested",
+        "parameter"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-022",
+      "topicId": "modulus",
+      "conceptId": "md-adv-nested",
+      "levelId": "modulus-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Consider the graph of y = |x² − 4|. Select ALL the statements that are true.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It meets the x-axis at x = −2 and x = 2"
+        },
+        {
+          "id": "b",
+          "text": "It cuts the y-axis at y = 4"
+        },
+        {
+          "id": "c",
+          "text": "The line y = 3 meets it at exactly 4 points"
+        },
+        {
+          "id": "d",
+          "text": "The line y = 5 meets it at exactly 4 points"
+        },
+        {
+          "id": "e",
+          "text": "Its least value is −4"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "The part of y = x² − 4 between −2 and 2 dips below the axis; the modulus reflects it upwards, making a hump of height 4 at x = 0. (a) x² = 4 → x = ±2 ✓. (b) At x = 0, y = |−4| = 4 ✓. (c) x² − 4 = ±3 → x² = 7 or 1 → four points ✓. (d) x² − 4 = ±5 → x² = 9 or −1 → only x = ±3 ✗. (e) A modulus is never negative; the least value is 0 ✗.",
+      "solutionSteps": [
+        "Reflect the dip of x² − 4 above the axis.",
+        "y = c meets it at 4 points when 0 < c < 4, 3 points at c = 4, 2 points when c > 4.",
+        "So (a), (b), (c) are true."
+      ],
+      "formulaIds": [
+        "md-nested-f"
+      ],
+      "method": "Reflect the negative part of the graph, then slide a horizontal line.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is x² − 4 negative? What does the modulus do to that part?"
+        },
+        {
+          "level": 2,
+          "text": "Solve x² − 4 = ±c for c = 3 and c = 5."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the reflected hump and counting only 2 points for y = 3."
+      ],
+      "tags": [
+        "multi-select",
+        "graph"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "modulus-q-023",
+      "topicId": "modulus",
+      "conceptId": "md-adv-diamond",
+      "levelId": "modulus-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many points (x, y) with integer coordinates satisfy |x| + |y| ≤ 4?",
+      "answer": {
+        "value": 41,
+        "tolerance": 0
+      },
+      "explanation": "Count by rows. y = 0: |x| ≤ 4 gives 9 points. y = ±1: 7 each. y = ±2: 5 each. y = ±3: 3 each. y = ±4: 1 each. Total 9 + 2(7 + 5 + 3 + 1) = 41 = 2k² + 2k + 1 with k = 4.",
+      "solutionSteps": [
+        "Row y = 0: 9 points.",
+        "Rows y = ±1, ±2, ±3, ±4: 7, 5, 3, 1 each, twice.",
+        "9 + 2 × 16 = 41."
+      ],
+      "formulaIds": [
+        "md-diamond-f"
+      ],
+      "method": "Count row by row, or use 2k² + 2k + 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix y and count the x that fit: |x| ≤ 4 − |y|."
+        },
+        {
+          "level": 2,
+          "text": "The rows hold 9, 7, 5, 3, 1 points going up (and the same going down)."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the boundary (16 points).",
+        "Using the area 2k² = 32 as the count."
+      ],
+      "tags": [
+        "diamond",
+        "lattice",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -563,6 +563,39 @@ export const SIMULATION_META = [
     taskIds: ['grandfather', 'unknown', 'reveal', 'in-law']
   },
   // --- end of reasoning.js ---
+  // --- catTopics.js: modulus, polynomials, integer solutions, cryptarithms ---
+  {
+    id: 'modulus-distance',
+    topicId: 'modulus',
+    alsoTopicIds: ['inequalities'],
+    title: 'Modulus as distance, and the flat bottom',
+    summary: 'Read |x − a| as the distance from x to a on a number line. Add a second distance and the V graph gets a flat bottom: its least value is the gap between a and b.',
+    taskIds: ['one-answer', 'on-bottom', 'flat', 'none']
+  },
+  {
+    id: 'remainder-curve',
+    topicId: 'polynomials',
+    alsoTopicIds: ['quadratic-equations'],
+    title: 'The remainder is the height of the curve',
+    summary: 'Change the coefficients of a cubic and the point a. Dividing p(x) by (x − a) leaves p(a), the height of the curve at a; when the curve crosses the axis there, x − a is a factor.',
+    taskIds: ['factor', 'sum-zero', 'one-root', 'touch']
+  },
+  {
+    id: 'lattice-line',
+    topicId: 'integer-solutions',
+    alsoTopicIds: ['linear-equations'],
+    title: 'Whole-number points on a line',
+    summary: 'Draw ax + by = c over a grid. The points where it passes exactly through a grid corner are its whole-number solutions, and they are evenly spaced: x steps by b/g and y by a/g.',
+    taskIds: ['miss', 'five', 'axes']
+  },
+  {
+    id: 'column-solver',
+    topicId: 'cryptarithmetic',
+    title: 'Solve a letter sum column by column',
+    summary: 'Work a letter sum from the units column leftwards. Each column, with its carry, rules out digits; watch each letter’s candidates shrink until one digit is left for every letter.',
+    taskIds: ['solve-six', 'units', 'three']
+  },
+  // --- end of catTopics.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));
