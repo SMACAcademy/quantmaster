@@ -19,8 +19,18 @@
  *   frustum { R, r, h }  (R at the bottom, r at the top)
  * `down: true` turns a cone point-down (an ice-cream cone) or a hemisphere
  * dome-down (a bowl); either can only be the bottom part.
+ *
+ * Flat-faced solids, on their own only, standing on a base of the given `base`:
+ * triangle (equilateral, side a), square (side a), hexagon (regular, side a), or,
+ * for a prism only, right-triangle (legs a and b):
+ *   prism { base, a, b?, h }  ·  pyramid { base, a, h }  (a right, regular pyramid)
+ *   pyramid-frustum { base, a, b, h }  (bottom side a, top side b < a)
+ * Their hidden edges are worked out from which faces turn towards the viewer.
+ *
  * Label keys: cube a, d · cuboid l, b, h, d · cylinder r, h · cone r, h, l ·
- * sphere r · hemisphere r · frustum R, r, h, l (d = space diagonal, l = slant).
+ * sphere r · hemisphere r · frustum R, r, h, l · prism a, b, h · pyramid a, h,
+ * l, e · pyramid-frustum a, b, h, l (d = space diagonal, l = slant height of a
+ * face or of the cone, e = lateral edge, b = the second leg or the top side).
  */
 
 /** How flat a circle looks from slightly above: the ellipse's height ÷ width. */
@@ -37,7 +47,11 @@ export const SOLID_SHAPES = {
   cylinder: { sizes: ['r', 'h'], labels: ['r', 'h'] },
   cone: { sizes: ['r', 'h'], labels: ['r', 'h', 'l'], canPointDown: true },
   hemisphere: { sizes: ['r'], labels: ['r'], canPointDown: true },
-  frustum: { sizes: ['R', 'r', 'h'], labels: ['R', 'r', 'h', 'l'] }
+  frustum: { sizes: ['R', 'r', 'h'], labels: ['R', 'r', 'h', 'l'] },
+  // `bases` lists the bases each flat-faced solid can stand on, with any extra size that base needs.
+  prism: { sizes: ['a', 'h'], labels: ['a', 'b', 'h'], alone: true, bases: { triangle: [], 'right-triangle': ['b'], square: [], hexagon: [] } },
+  pyramid: { sizes: ['a', 'h'], labels: ['a', 'h', 'l', 'e'], alone: true, bases: { triangle: [], square: [], hexagon: [] } },
+  'pyramid-frustum': { sizes: ['a', 'b', 'h'], labels: ['a', 'b', 'h', 'l'], alone: true, bases: { triangle: [], square: [], hexagon: [] } }
 };
 
 /** Problems with a figure's parts, as messages (empty when it can be drawn). */
@@ -53,9 +67,16 @@ export function solidProblems(figure) {
       return;
     }
     if (spec.alone && parts.length > 1) problems.push(`${where}: a ${part.shape} cannot be stacked with other parts`);
-    for (const key of spec.sizes) {
+    const extraSizes = spec.bases?.[part.base] || [];
+    if (spec.bases && !Object.hasOwn(spec.bases, part.base ?? '')) problems.push(`${where}: a ${part.shape} needs a base, one of ${Object.keys(spec.bases).join(', ')}`);
+    if (!spec.bases && part.base !== undefined) problems.push(`${where}: only a prism, pyramid or pyramid-frustum has a base`);
+    for (const key of [...spec.sizes, ...extraSizes]) {
       if (!(Number.isFinite(part[key]) && part[key] > 0)) problems.push(`${where}: ${part.shape} needs a positive ${key}`);
     }
+    if (part.shape === 'prism' && part.base !== 'right-triangle' && (part.b !== undefined || part.labels?.b !== undefined)) {
+      problems.push(`${where}: only a right-triangle prism has a second leg b`);
+    }
+    if (part.shape === 'pyramid-frustum' && part.b >= part.a) problems.push(`${where}: the top side b must be smaller than the base side a`);
     if (part.down && !spec.canPointDown) problems.push(`${where}: only a cone or hemisphere can point down`);
     if (part.down && i !== 0) problems.push(`${where}: only the bottom part can point down`);
     if (part.shape === 'cone' && !part.down && i !== parts.length - 1) problems.push(`${where}: nothing can sit on the point of a cone`);
@@ -222,6 +243,164 @@ function sphere(r, labels) {
   return { lines, fills: [], labels: out };
 }
 
+/* ------------------------------ flat-faced solids ------------------------------ */
+
+/**
+ * A point (x, y, z) on the page, with z running back into the page: the same view
+ * from slightly above that turns a circle into an ellipse ELLIPSE_RATIO tall.
+ */
+const project = ([x, y, z]) => [x, y + ELLIPSE_RATIO * z];
+/** The direction towards the viewer (in front, z < 0, and above). A face is seen when its outward normal points this way. */
+const TOWARDS_VIEWER = [0, ELLIPSE_RATIO, -1];
+const RAD = Math.PI / 180;
+/** Where a regular base's first corner sits (degrees round from the right, towards the back), chosen so two or three side faces show. */
+const FIRST_CORNER = { triangle: 222, square: 250, hexagon: 15 };
+const SIDES = { triangle: 3, square: 4, hexagon: 6 };
+/** A right-triangle base is turned this far, so its two legs both show. */
+const RIGHT_TRIANGLE_TURN = 20 * RAD;
+
+/** The corners of a base, as [x, z] pairs, centred on the origin. */
+export function baseCorners(base, a, b) {
+  if (base === 'right-triangle') {
+    const raw = [[0, 0], [a, 0], [0, b]].map(([x, z]) => [x - a / 3, z - b / 3]);
+    const [c, s] = [Math.cos(RIGHT_TRIANGLE_TURN), Math.sin(RIGHT_TRIANGLE_TURN)];
+    return raw.map(([x, z]) => [x * c - z * s, x * s + z * c]);
+  }
+  const n = SIDES[base];
+  const R = a / (2 * Math.sin(Math.PI / n));
+  return Array.from({ length: n }, (_, i) => {
+    const t = (FIRST_CORNER[base] + (360 * i) / n) * RAD;
+    return [R * Math.cos(t), R * Math.sin(t)];
+  });
+}
+
+const sub = (p, q) => p.map((v, i) => v - q[i]);
+const dot = (p, q) => p.reduce((sum, v, i) => sum + v * q[i], 0);
+const mean = (pts) => pts[0].map((_, i) => pts.reduce((sum, p) => sum + p[i], 0) / pts.length);
+
+/** A face's normal (Newell's method), turned to point away from the solid's centre. */
+function outwardNormal(face, centre) {
+  const n = [0, 0, 0];
+  face.forEach((p, i) => {
+    const q = face[(i + 1) % face.length];
+    n[0] += (p[1] - q[1]) * (p[2] + q[2]);
+    n[1] += (p[2] - q[2]) * (p[0] + q[0]);
+    n[2] += (p[0] - q[0]) * (p[1] + q[1]);
+  });
+  return dot(n, sub(mean(face), centre)) < 0 ? n.map((v) => -v) : n;
+}
+
+/**
+ * Every edge of a convex solid once, dashed when both faces that meet there turn
+ * away from the viewer (so the outline and the near edges stay solid).
+ * `faces` are lists of corner indices.
+ */
+function polyhedronEdges(vertices, faces) {
+  const centre = mean(vertices);
+  const seen = faces.map((face) => dot(outwardNormal(face.map((i) => vertices[i]), centre), TOWARDS_VIEWER) > 1e-9);
+  const edges = new Map();
+  faces.forEach((face, f) => {
+    face.forEach((i, k) => {
+      const j = face[(k + 1) % face.length];
+      const key = i < j ? `${i}-${j}` : `${j}-${i}`;
+      const edge = edges.get(key) || { i, j, seen: false };
+      edge.seen = edge.seen || seen[f];
+      edges.set(key, edge);
+    });
+  });
+  return [...edges.values()].map((e) => line([project(vertices[e.i]), project(vertices[e.j])], !e.seen));
+}
+
+/** Index of the base edge nearest the viewer (its middle furthest forward), and that middle. */
+function frontEdge(corners) {
+  let best = 0;
+  const mid = (k) => mean([corners[k], corners[(k + 1) % corners.length]]);
+  corners.forEach((_, k) => {
+    if (mid(k)[1] < mid(best)[1]) best = k;
+  });
+  return { k: best, mid: mid(best) };
+}
+
+const extremeCorner = (corners, sign) => corners.reduce((best, c) => (sign * c[0] > sign * best[0] ? c : best), corners[0]);
+
+function flatSolid(part) {
+  const L = part.labels || {};
+  const corners = baseCorners(part.base, part.a, part.b);
+  const n = corners.length;
+  const at = ([x, z], y, scale = 1) => [x * scale, y, z * scale];
+  const lines = [];
+  const fills = [];
+  const labels = [];
+  const front = frontEdge(corners);
+  const frontMid = (y, scale = 1) => project(at(front.mid, y, scale));
+
+  if (part.shape === 'prism') {
+    const { h } = part;
+    const vertices = [...corners.map((c) => at(c, 0)), ...corners.map((c) => at(c, h))];
+    const faces = [corners.map((_, i) => i), corners.map((_, i) => n + i), ...corners.map((_, i) => [i, (i + 1) % n, n + ((i + 1) % n), n + i])];
+    lines.push(...polyhedronEdges(vertices, faces));
+    fills.push(corners.map((c) => project(at(c, h))));
+    if (part.base === 'right-triangle') {
+      // a along the first leg (corners 0 → 1), b along the second (corners 0 → 2).
+      if (L.a) labels.push(label(L.a, ...project(at(mean([corners[0], corners[1]]), 0)), 0, 16));
+      if (L.b) labels.push(label(L.b, ...project(at(mean([corners[0], corners[2]]), 0)), -8, 8, 'end'));
+    } else if (L.a) {
+      labels.push(label(L.a, ...frontMid(0), 0, 16));
+    }
+    if (L.h) {
+      const right = extremeCorner(corners, 1);
+      labels.push(label(L.h, ...project(at(right, h / 2)), 8, 4, 'start'));
+    }
+    return { lines, fills, labels };
+  }
+
+  if (part.shape === 'pyramid') {
+    const { h } = part;
+    const apex = [0, h, 0];
+    const vertices = [...corners.map((c) => at(c, 0)), apex];
+    const faces = [corners.map((_, i) => i), ...corners.map((_, i) => [i, (i + 1) % n, n])];
+    lines.push(...polyhedronEdges(vertices, faces));
+    if (L.a) labels.push(label(L.a, ...frontMid(0), 0, 16));
+    // The height runs up the axis; the slant height runs up the middle of the front face.
+    if (L.h) {
+      lines.push(line([project([0, 0, 0]), project(apex)], true));
+      labels.push(label(L.h, ...project([0, 0.4 * h, 0]), 0, 4));
+    }
+    if (L.l) {
+      const foot = at(front.mid, 0);
+      lines.push(line([project(foot), project(apex)], true));
+      if (L.h) lines.push(line([project([0, 0, 0]), project(foot)], true));
+      const p = foot.map((v, i) => v + 0.6 * (apex[i] - v));
+      labels.push(label(L.l, ...project(p), 8, 4, 'start'));
+    }
+    if (L.e) {
+      const left = extremeCorner(corners, -1);
+      labels.push(label(L.e, ...project(at(left, 0).map((v, i) => (v + apex[i]) / 2)), -8, 4, 'end'));
+    }
+    return { lines, fills, labels };
+  }
+
+  // pyramid-frustum: the top is the base shrunk by b/a, straight above it.
+  const { a, b, h } = part;
+  const s = b / a;
+  const vertices = [...corners.map((c) => at(c, 0)), ...corners.map((c) => at(c, h, s))];
+  const faces = [corners.map((_, i) => i), corners.map((_, i) => n + i), ...corners.map((_, i) => [i, (i + 1) % n, n + ((i + 1) % n), n + i])];
+  lines.push(...polyhedronEdges(vertices, faces));
+  fills.push(corners.map((c) => project(at(c, h, s))));
+  if (L.a) labels.push(label(L.a, ...frontMid(0), 0, 16));
+  if (L.b) labels.push(label(L.b, ...frontMid(h, s), 0, -6));
+  if (L.h) {
+    lines.push(line([project([0, 0, 0]), project([0, h, 0])], true));
+    labels.push(label(L.h, ...project([0, 0.4 * h, 0]), 0, 4));
+  }
+  if (L.l) {
+    lines.push(line([frontMid(0), frontMid(h, s)], true));
+    const p = project(at(front.mid, h / 2, (1 + s) / 2));
+    labels.push(label(L.l, ...p, 8, 4, 'start'));
+  }
+  return { lines, fills, labels };
+}
+
 /**
  * The drawing for a solid figure, in model units (y up):
  * `{ lines: [{ pts, dashed }], fills: [pts], labels: [{ text, x, y, dx, dy, anchor }] }`,
@@ -234,6 +413,7 @@ export function solidDrawing(figure) {
   if (only.shape === 'cube') return cuboid(only.a, only.a, only.a, only.labels || {});
   if (only.shape === 'cuboid') return cuboid(only.l, only.b, only.h, only.labels || {});
   if (only.shape === 'sphere') return sphere(only.r, only.labels || {});
+  if (SOLID_SHAPES[only.shape].bases) return flatSolid(only);
 
   const drawing = { lines: [], fills: [], labels: [] };
   let y = 0;

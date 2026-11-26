@@ -57,6 +57,11 @@ import { seatingTemplates } from './templates/reasoningSeating.js';
 import { puzzleTemplates } from './templates/reasoningPuzzles.js';
 import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
 import { bloodTemplates } from './templates/reasoningBlood.js';
+import { advReciprocalTemplates } from './templates/advReciprocals.js';
+import { advTrigTemplates } from './templates/advTrigonometry.js';
+import { advPrismTemplates } from './templates/advPrismsPyramids.js';
+import { advTwoCircleTemplates } from './templates/advTwoCircles.js';
+import { groupedDataTemplates } from './templates/groupedData.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -103,7 +108,12 @@ const TEMPLATES = [
   ...puzzleTemplates,
   ...syllogismTemplates,
   ...inequalityTemplates,
-  ...bloodTemplates
+  ...bloodTemplates,
+  ...advReciprocalTemplates,
+  ...advTrigTemplates,
+  ...advPrismTemplates,
+  ...advTwoCircleTemplates,
+  ...groupedDataTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

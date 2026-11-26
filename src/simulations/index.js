@@ -26,6 +26,11 @@ import { geometrySims } from './geometry.js';
 import { numberMethodSims } from './numberMethods.js';
 import { moreTopicSims } from './moreTopics.js';
 import { reasoningSims } from './reasoning.js';
+import { reciprocalSims } from './reciprocals.js';
+import { trigWaveSims } from './trigWaves.js';
+import { frustumSims } from './frustums.js';
+import { twoCircleSims } from './twoCircles.js';
+import { groupedDataSims } from './groupedData.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -74,7 +79,13 @@ export const SIMULATIONS = [
   // Simplification, approximation, counting, sets, caselets, radar charts, races, wages and quadratic comparison (moreTopics.js). Their meta.js entries keep this order.
   ...moreTopicSims,
   // Logical reasoning (reasoning.js). Their meta.js entries keep this order.
-  ...reasoningSims
+  ...reasoningSims,
+  // Batch 4: x + 1/x, a sin θ + b cos θ, frustums, two circles, grouped data (one file each). Their meta.js entries keep this order.
+  ...reciprocalSims,
+  ...trigWaveSims,
+  ...frustumSims,
+  ...twoCircleSims,
+  ...groupedDataSims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));

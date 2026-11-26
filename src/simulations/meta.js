@@ -563,6 +563,52 @@ export const SIMULATION_META = [
     taskIds: ['grandfather', 'unknown', 'reveal', 'in-law']
   },
   // --- end of reasoning.js ---
+  // --- reciprocals.js ---
+  {
+    id: 'reciprocal-ladder',
+    topicId: 'algebraic-identities',
+    title: 'The x + 1/x ladder',
+    summary: 'Slide k = x + 1/x and climb to x⁸ + 1/x⁸ using only k, never x itself, and see why k cannot lie between −2 and 2.',
+    taskIds: ['no-real-x', 'touch', 'forty-seven', 'eleven']
+  },
+  // --- end of reciprocals.js ---
+  // --- trigWaves.js ---
+  {
+    id: 'trig-wave',
+    topicId: 'trigonometry',
+    title: 'a sin θ + b cos θ as a rotating vector',
+    summary: 'Two arrows at right angles add to one arrow of length √(a² + b²). Turn it: its height is a sin θ + b cos θ, and its peak is never a + b.',
+    taskIds: ['equal-peak', 'thirteen', 'least-cos', 'unit-equal']
+  },
+  // --- end of trigWaves.js ---
+  // --- frustums.js ---
+  {
+    id: 'frustum-slice',
+    topicId: 'mensuration-3d',
+    title: 'Slice the top off a cone',
+    summary: 'Cut a cone or a square pyramid parallel to its base. The small top keeps only the cube of the height ratio, and the frustum keeps the rest.',
+    taskIds: ['seven-eighths', 'one-in-64', 'slant-ten', 'pyramid-350']
+  },
+  // --- end of frustums.js ---
+  // --- twoCircles.js ---
+  {
+    id: 'two-circle-tangents',
+    topicId: 'circles',
+    title: 'Two circles and their common tangents',
+    summary: 'Move two circles apart and together: their common tangents appear and vanish, 4, 3, 2, 1, 0. The direct ones use r₁ − r₂, the transverse ones r₁ + r₂, and a right triangle shows why.',
+    taskIds: ['three', 'two', 'one', 'direct-twelve']
+  },
+  // --- end of twoCircles.js ---
+  // --- groupedData.js ---
+  {
+    id: 'histogram-ogive',
+    topicId: 'grouped-data',
+    alsoTopicIds: ['mean-median-mode'],
+    title: 'From raw data to histogram, polygon and ogive',
+    summary: 'Sort 50 values into classes, then change the width and move the class edges: the median barely moves, but the modal class jumps.',
+    taskIds: ['modal-jump', 'tie', 'first-class']
+  },
+  // --- end of groupedData.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

@@ -35,6 +35,27 @@
       "name": "Spheres and hemispheres",
       "description": "A sphere of radius r has volume 4/3πr³ and surface area 4πr². A hemisphere is exactly half a sphere, with an additional flat circular face.",
       "sortOrder": 5
+    },
+    {
+      "id": "td-adv-prism",
+      "topicId": "mensuration-3d",
+      "name": "Right prisms",
+      "description": "A right prism has the same cross-section all the way up. Volume = base area × height; lateral surface = base perimeter × height; total = lateral + 2 × base. An equilateral base is (√3/4)a², a regular hexagon (3√3/2)a².",
+      "sortOrder": 6
+    },
+    {
+      "id": "td-adv-pyramid",
+      "topicId": "mensuration-3d",
+      "name": "Pyramids",
+      "description": "A right pyramid holds ⅓ × base area × height. Slant height of a face = √(h² + apothem²); lateral edge = √(h² + centre-to-corner²); lateral surface = ½ × perimeter × slant height; total = lateral + base.",
+      "sortOrder": 7
+    },
+    {
+      "id": "td-adv-frustum",
+      "topicId": "mensuration-3d",
+      "name": "Frustums",
+      "description": "A frustum is what is left when the top of a cone or pyramid is cut off parallel to the base. Cone: V = (πh/3)(R² + Rr + r²), l = √(h² + (R − r)²), curved surface πl(R + r). The top cut off is similar, holding (h′/H)³ of the volume. Pyramid: V = (h/3)(A₁ + A₂ + √(A₁A₂)).",
+      "sortOrder": 8
     }
   ],
   "formulas": [
@@ -172,6 +193,111 @@
       "example": "r = 7: 3 × 22/7 × 49 = 462 cm².",
       "commonMistake": "Giving only the curved 2πr² when the solid has a flat face too.",
       "applicationPrompt": "A hemispherical bowl of radius 14 cm is painted inside and out (ignore thickness). What area is painted?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-adv-prism-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-prism",
+      "title": "Right prism: volume and surface",
+      "prompt": "A right prism has base area B, base perimeter P and height h. What are its volume, lateral surface and total surface?",
+      "formula": "Volume = B × h\nLateral surface = P × h\nTotal surface = P × h + 2B",
+      "variables": [],
+      "explanation": "Every horizontal slice is a copy of the base, so the volume is base × height. Unrolled, the side faces make one rectangle, the perimeter long and h high. The total adds the two equal ends.",
+      "example": "Base a right triangle with legs 5 and 12 (hypotenuse 13), h = 18 cm: B = 30, P = 30; volume 540 cm³, lateral surface 540 cm², total 600 cm².",
+      "commonMistake": "Adding only one of the two ends, or forgetting the ½ in a triangular base.",
+      "applicationPrompt": "A prism on an equilateral triangle of side 6 cm is 10 cm high. Find its volume.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-adv-pyramid-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "title": "Right pyramid: volume and surface",
+      "prompt": "A right pyramid on a regular base (area B, perimeter P) has height h. What are its volume, slant height and surfaces?",
+      "formula": "Volume = ⅓ × B × h\nSlant height l = √(h² + apothem²)\nLateral surface = ½ × P × l\nTotal surface = ½ × P × l + B",
+      "variables": [],
+      "explanation": "A pyramid holds a third of the prism on the same base and height. Each face is a triangle whose height is the slant height, so the faces add up to ½ × perimeter × slant height. The apothem is the distance from the centre of the base to the middle of a side.",
+      "example": "Square base of side 10 cm, h = 12 cm: apothem 5, l = 13; volume ⅓ × 100 × 12 = 400 cm³, lateral surface ½ × 40 × 13 = 260 cm², total 360 cm².",
+      "commonMistake": "Using the vertical height h in place of the slant height l in ½ × P × l.",
+      "applicationPrompt": "A square pyramid has base side 16 cm and height 15 cm. Find its lateral surface area.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-adv-frustum-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "title": "Frustum of a cone (and of a pyramid)",
+      "prompt": "A frustum of a cone has end radii R and r and height h. What are its volume, slant height and surfaces? And a pyramid frustum's volume?",
+      "formula": "V = (πh/3)(R² + Rr + r²)\nl = √(h² + (R − r)²)\nCurved surface = πl(R + r)\nTotal = πl(R + r) + πR² + πr²\nPyramid frustum: V = (h/3)(A₁ + A₂ + √(A₁A₂))",
+      "variables": [],
+      "explanation": "A frustum is a cone (or pyramid) with its top cut off parallel to the base, so its volume is the big cone minus the small one; the formula does the subtraction in one step. Count only the ends that are really there: a bucket open at the top has just its bottom circle.",
+      "example": "R = 10, r = 4, h = 8 cm: l = √(64 + 36) = 10; V = (π × 8/3)(100 + 40 + 16) = 416π cm³; curved surface π × 10 × 14 = 140π cm²; as an open bucket (bottom radius 4), 140π + 16π = 156π cm².",
+      "commonMistake": "Adding both circular ends for a bucket that is open at the top.",
+      "applicationPrompt": "A bucket has radii 20 cm (top) and 8 cm (bottom) and is 16 cm deep. Find its slant height.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "td-sc-hexagon-base",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-prism",
+      "kind": "shortcut",
+      "title": "A hexagon is six equilateral triangles",
+      "prompt": "What is the area of a regular hexagon of side a, and how far is each corner from its centre?",
+      "formula": "Hexagon = 6 × (√3/4)a² = (3√3/2)a²\nCentre to each corner = a",
+      "variables": [],
+      "explanation": "Joining the centre to the six corners cuts a regular hexagon into six equilateral triangles of side a, so each corner is exactly a from the centre.",
+      "example": "Side 6 cm: area = 6 × 9√3 = 54√3 cm²; a hexagonal prism 10 cm high holds 540√3 cm³.",
+      "commonMistake": "Using one triangle, (√3/4)a², for the whole hexagon.",
+      "applicationPrompt": "A hexagonal prism has base side 4 cm and height 5 cm. Find its volume.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-sc-slant-edge",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "kind": "shortcut",
+      "title": "Slant height or lateral edge?",
+      "prompt": "In a square pyramid of side a and height h, what are the slant height and the lateral edge?",
+      "formula": "Slant height (to the middle of a side) = √(h² + (a/2)²)\nLateral edge (to a corner) = √(h² + a²/2)\nedge² = slant² + (a/2)²",
+      "variables": [],
+      "explanation": "Both run down from the apex, but the slant height lands at the middle of a side and the edge at a corner, which is further from the centre, so the edge is always longer. A face is an isosceles triangle: its height (the slant height) comes from its edge and half the side by Pythagoras.",
+      "example": "a = 12, h = 8: slant = √(64 + 36) = 10; edge = √(64 + 72) = √136 ≈ 11.66, which is also √(10² + 6²).",
+      "commonMistake": "Using the lateral edge as the slant height in ½ × perimeter × slant.",
+      "applicationPrompt": "A square pyramid has base side 10 cm and lateral edges 13 cm. Find its slant height.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-sc-cone-cut",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "kind": "shortcut",
+      "title": "Cutting the top off a cone",
+      "prompt": "A cone is cut parallel to its base so that the small cone on top has k of the height. How is the volume shared?",
+      "formula": "Small cone = k³ × whole\nFrustum = (1 − k³) × whole\nCut halfway (k = ½): 1/8 and 7/8",
+      "variables": [],
+      "explanation": "The small cone is similar to the whole one, with every length k times as long, so its volume is k³ times as much. The same holds for a pyramid.",
+      "example": "k = 1/3 (cut two-thirds of the way up): the small cone holds 1/27 of the volume, the frustum 26/27. Three slices of equal height, from the top: 1 : 7 : 19.",
+      "commonMistake": "Using k (the height ratio) or k² (the area ratio) in place of k³.",
+      "applicationPrompt": "A cone is cut halfway up its height, parallel to the base. What fraction of its volume is in the frustum?",
       "tags": [
         "shortcut"
       ],
@@ -417,13 +543,251 @@
           "complex"
         ],
         "count": 8,
-        "preferUnseen": true
+        "preferUnseen": true,
+        "conceptIds": [
+          "td-cube",
+          "td-cuboid",
+          "td-cylinder",
+          "td-cone",
+          "td-sphere"
+        ]
       },
       "passCriteria": {
         "minimumAccuracy": 70,
         "minimumQuestionsAttempted": 5
       },
       "xpReward": 50
+    },
+    {
+      "id": "mensuration-3d-level-6",
+      "topicId": "mensuration-3d",
+      "order": 6,
+      "title": "Advanced: Prisms, Pyramids and Frustums",
+      "description": "Right prisms, pyramids (slant height versus lateral edge) and frustums of cones and pyramids, including a cone with its top sliced off.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-5"
+      ],
+      "conceptIds": [
+        "td-adv-prism",
+        "td-adv-pyramid",
+        "td-adv-frustum"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three solids, one idea",
+            "body": "A right prism is the same slice all the way up, like a stack of identical cards. A pyramid narrows to a point and holds a third as much as the prism on the same base and height, just as a cone holds a third of a cylinder. Slice the top off a cone or a pyramid, parallel to its base, and the piece left at the bottom is a frustum: the shape of a bucket or a lampshade."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "frustum-slice"
+          },
+          {
+            "type": "text",
+            "title": "Right prisms",
+            "body": "A right prism has two equal, parallel ends (its bases) joined by rectangles standing straight up. It is named by its base: a triangular prism, a hexagonal prism. Whatever the base, the volume is the area of the base times the height. Unrolled, the side faces make one long rectangle: the perimeter of the base by the height."
+          },
+          {
+            "type": "figure",
+            "title": "A triangular prism",
+            "body": "The base is a right triangle with legs a and b; h is the height of the prism. The dashed edge is the one hidden at the back.",
+            "figure": {
+              "type": "solid",
+              "caption": "A right prism on a right-triangle base with legs a and b, height h",
+              "parts": [
+                {
+                  "shape": "prism",
+                  "base": "right-triangle",
+                  "a": 3,
+                  "b": 4,
+                  "h": 6,
+                  "labels": {
+                    "a": "a",
+                    "b": "b",
+                    "h": "h"
+                  }
+                }
+              ],
+              "ariaSummary": "A right triangular prism. The two base edges at the right angle are labelled a and b, and a vertical edge is labelled h. The hidden back edge of the base is dashed."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Prism formulas",
+            "body": "Volume = base area × h\nLateral surface = base perimeter × h\nTotal surface = lateral surface + 2 × base area",
+            "caption": "Base areas: right triangle ½ × a × b; equilateral triangle (√3/4)a²; square a²; regular hexagon (3√3/2)a²."
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-3d-td-adv-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Pyramids: a third of the prism",
+            "body": "A right pyramid has its apex straight above the centre of its base, and holds ⅓ × base area × height. Two different lengths slope down from the apex: the slant height runs down the middle of a face to the middle of a base edge, and the lateral edge runs down to a corner. The lateral surface uses the slant height, because it is the height of each triangular face."
+          },
+          {
+            "type": "figure",
+            "title": "Height, slant height and lateral edge",
+            "body": "The height h, the line from the centre to the middle of a side (the apothem) and the slant height l make one right triangle. The height, the line from the centre to a corner and the lateral edge e make another; the corner is further out, so e is longer than l.",
+            "figure": {
+              "type": "solid",
+              "caption": "A square pyramid with its height h, slant height l and lateral edge e marked",
+              "parts": [
+                {
+                  "shape": "pyramid",
+                  "base": "square",
+                  "a": 6,
+                  "h": 6,
+                  "labels": {
+                    "a": "a",
+                    "h": "h",
+                    "l": "l",
+                    "e": "e"
+                  }
+                }
+              ],
+              "ariaSummary": "A right pyramid on a square base, with a base edge labelled a. A dashed vertical line from the centre of the base to the apex is labelled h; a dashed line from the apex down the middle of the front face is labelled l and is joined to the centre by a dashed line; a sloping edge to a corner is labelled e."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Pyramid formulas",
+            "body": "Volume = ⅓ × base area × h\nSlant height l = √(h² + apothem²)\nLateral edge e = √(h² + (centre to a corner)²)\nLateral surface = ½ × base perimeter × l\nTotal surface = lateral surface + base area",
+            "caption": "For a square of side a, the apothem is a/2 and the centre is a/√2 from each corner; for a regular hexagon they are (√3/2)a and a."
+          },
+          {
+            "type": "example",
+            "title": "A square pyramid, side 10 cm, height 12 cm",
+            "body": "The apothem is 5 cm, so l = √(144 + 25) = 13 cm. Lateral surface = ½ × 40 × 13 = 260 cm²; total = 260 + 100 = 360 cm². Volume = ⅓ × 100 × 12 = 400 cm³. The lateral edge reaches a corner 5√2 cm from the centre: √(144 + 50) = √194 ≈ 13.9 cm, longer than l."
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-3d-td-adv-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Slant height or lateral edge? The slant height ends at the middle of a side, the lateral edge at a corner. Mixing them up is the commonest pyramid mistake, and both numbers are usually among the options."
+          },
+          {
+            "type": "text",
+            "title": "Frustums: a cone with its top sliced off",
+            "body": "Cut a cone parallel to its base. The piece on top is a small cone similar to the whole one; the piece left below is a frustum, with a circle of radius R at one end and r at the other. Its volume is the big cone minus the small cone, which the frustum formula does in one step. Its slant side is the hypotenuse of a right triangle with legs h and R − r."
+          },
+          {
+            "type": "figure",
+            "title": "A frustum of a cone",
+            "body": "R and r are the radii of the two circular ends, h the height between them, and l the slant height along the side.",
+            "figure": {
+              "type": "solid",
+              "caption": "A frustum of a cone with radii R and r, height h and slant height l",
+              "parts": [
+                {
+                  "shape": "frustum",
+                  "R": 5,
+                  "r": 2,
+                  "h": 4,
+                  "labels": {
+                    "R": "R",
+                    "r": "r",
+                    "h": "h",
+                    "l": "l"
+                  }
+                }
+              ],
+              "ariaSummary": "A frustum of a cone, narrower at the top. The bottom radius is labelled R, the top radius r, the dashed axis between the ends h, and the sloping side l."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Frustum formulas",
+            "body": "Volume = (πh/3)(R² + Rr + r²)\nSlant height l = √(h² + (R − r)²)\nCurved surface = πl(R + r)\nTotal surface = πl(R + r) + πR² + πr²\nPyramid frustum: Volume = (h/3)(A₁ + A₂ + √(A₁A₂))",
+            "caption": "A bucket open at the top adds only its bottom circle to the curved surface."
+          },
+          {
+            "type": "example",
+            "title": "A bucket",
+            "body": "Radii 10 cm (top) and 4 cm (bottom), depth 8 cm. l = √(8² + 6²) = 10 cm. Volume = (π × 8/3)(100 + 40 + 16) = 416π cm³. Metal for the open bucket = π × 10 × (10 + 4) + π × 4² = 140π + 16π = 156π cm²."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "The small top cone is similar to the whole cone: if it has k of the height, it has k³ of the volume. Cutting halfway up leaves (1/2)³ = 1/8 in the top and 7/8 in the frustum."
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-3d-td-adv-q-003"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mensuration-3d-level-7",
+      "topicId": "mensuration-3d",
+      "order": 7,
+      "title": "Practice: Prisms, Pyramids and Frustums",
+      "description": "Surface areas and volumes of prisms and pyramids, the capacity of a tub and the metal in a bucket.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-6"
+      ],
+      "conceptIds": [
+        "td-adv-prism",
+        "td-adv-pyramid",
+        "td-adv-frustum"
+      ],
+      "questionIds": [
+        "mensuration-3d-td-adv-q-004",
+        "mensuration-3d-td-adv-q-005",
+        "mensuration-3d-td-adv-q-006",
+        "mensuration-3d-td-adv-q-007",
+        "mensuration-3d-td-adv-q-008",
+        "mensuration-3d-td-adv-q-009"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "mensuration-3d-level-8",
+      "topicId": "mensuration-3d",
+      "order": 8,
+      "title": "Challenge: Prisms, Pyramids and Frustums",
+      "description": "Cutting cones, lateral edges, hexagonal bases and pyramid frustums.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-7"
+      ],
+      "conceptIds": [
+        "td-adv-pyramid",
+        "td-adv-frustum"
+      ],
+      "questionIds": [
+        "mensuration-3d-td-adv-q-010",
+        "mensuration-3d-td-adv-q-011",
+        "mensuration-3d-td-adv-q-012",
+        "mensuration-3d-td-adv-q-013",
+        "mensuration-3d-td-adv-q-014",
+        "mensuration-3d-td-adv-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
     }
   ],
   "questions": [
@@ -1182,6 +1546,1187 @@
         "trap"
       ],
       "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-001",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-prism",
+      "levelId": "mensuration-3d-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A right prism stands on a right-angled triangle with legs 6 cm and 8 cm. The prism is 15 cm high. Find its volume.",
+      "figure": {
+        "type": "solid",
+        "caption": "A right prism on a right-triangle base with legs 6 cm and 8 cm, 15 cm high",
+        "parts": [
+          {
+            "shape": "prism",
+            "base": "right-triangle",
+            "a": 6,
+            "b": 8,
+            "h": 15,
+            "labels": {
+              "a": "6 cm",
+              "b": "8 cm",
+              "h": "15 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right triangular prism standing on its triangular base. The two base edges that meet at the right angle are labelled 6 cm and 8 cm, and a vertical edge is labelled 15 cm. The hidden back edge of the base is dashed."
+      },
+      "answer": {
+        "value": 360,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Every horizontal slice of a right prism is a copy of its base, so volume = base area × height. The base is a right triangle, whose area is half the product of its legs: ½ × 6 × 8 = 24 cm². Volume = 24 × 15 = 360 cm³.",
+      "solutionSteps": [
+        "Base area = ½ × 6 × 8 = 24 cm².",
+        "Volume = base area × height = 24 × 15 = 360 cm³."
+      ],
+      "formulaIds": [
+        "td-adv-prism-f"
+      ],
+      "method": "Volume of a right prism = area of the base × height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What shape is every horizontal slice of this prism?"
+        },
+        {
+          "level": 2,
+          "text": "Volume = base area × height."
+        },
+        {
+          "level": 3,
+          "text": "The base is a right triangle: its area is ½ × 6 × 8."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the base as 6 × 8 = 48 cm² (forgetting the ½), which gives 720 cm³.",
+        "Dividing by 3 as for a pyramid, which gives 120 cm³."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-002",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "levelId": "mensuration-3d-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A right pyramid stands on a square base of side 12 cm and is 8 cm high. What is its slant height, the height of each triangular face?",
+      "figure": {
+        "type": "solid",
+        "caption": "A square pyramid with base side 12 cm and height 8 cm; the slant height of a face is asked",
+        "parts": [
+          {
+            "shape": "pyramid",
+            "base": "square",
+            "a": 12,
+            "h": 8,
+            "labels": {
+              "a": "12 cm",
+              "h": "8 cm",
+              "l": "?"
+            }
+          }
+        ],
+        "ariaSummary": "A right pyramid on a square base. A base edge is labelled 12 cm. A dashed vertical line from the centre of the base up to the apex is labelled 8 cm. A dashed line from the apex down the middle of the front face to the middle of the base edge is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2√34 cm"
+        },
+        {
+          "id": "b",
+          "text": "10 cm"
+        },
+        {
+          "id": "c",
+          "text": "4√13 cm"
+        },
+        {
+          "id": "d",
+          "text": "14 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The slant height runs from the apex down the middle of a face to the middle of a base edge. That point is 6 cm (half the side) from the centre of the base, and the apex is 8 cm straight above the centre, so the slant height = √(8² + 6²) = √100 = 10 cm. The lateral edge goes to a corner instead, half a diagonal (6√2 cm) from the centre, and is longer: √136 = 2√34 cm.",
+      "solutionSteps": [
+        "Centre of the base to the middle of a side = 12 ÷ 2 = 6 cm.",
+        "The height, that 6 cm and the slant height form a right triangle.",
+        "Slant height = √(8² + 6²) = √100 = 10 cm."
+      ],
+      "formulaIds": [
+        "td-adv-pyramid-f",
+        "td-sc-slant-edge"
+      ],
+      "method": "Slant height = √(height² + (half the side)²) for a square pyramid.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where does the slant height meet the base: at a corner, or at the middle of a side?"
+        },
+        {
+          "level": 2,
+          "text": "Slant height² = height² + (centre of the base to the middle of a side)²."
+        },
+        {
+          "level": 3,
+          "text": "That distance is half the side, 6 cm."
+        }
+      ],
+      "commonMistakes": [
+        "Going to a corner (half the diagonal, 6√2 cm): that gives the lateral edge, √136 = 2√34 cm, not the slant height.",
+        "Using the whole side, 12 cm, in place of half of it, which gives √208 = 4√13 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-003",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A cone is cut by a plane parallel to its base, exactly halfway up its height. What fraction of the cone's volume is in the frustum, the piece at the bottom?",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone cut halfway up: a frustum below and a small cone on top, each of height h",
+        "parts": [
+          {
+            "shape": "frustum",
+            "R": 6,
+            "r": 3,
+            "h": 4,
+            "labels": {
+              "h": "h"
+            }
+          },
+          {
+            "shape": "cone",
+            "r": 3,
+            "h": 4,
+            "labels": {
+              "h": "h"
+            }
+          }
+        ],
+        "ariaSummary": "A cone with a horizontal cut halfway up, drawn as an ellipse with its back half dashed. The frustum below the cut and the small cone above it are each marked with the same height h."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "1/2"
+        },
+        {
+          "id": "b",
+          "text": "3/4"
+        },
+        {
+          "id": "c",
+          "text": "7/8"
+        },
+        {
+          "id": "d",
+          "text": "1/8"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The small cone on top is similar to the whole cone, with every length halved, so its volume is (1/2)³ = 1/8 of the cone's. The frustum keeps the rest: 1 − 1/8 = 7/8. Volume does not split like height, because the bottom half is also the wider half.",
+      "solutionSteps": [
+        "Small cone : whole cone, in every length = 1 : 2.",
+        "Volumes scale as the cube: (1/2)³ = 1/8.",
+        "Frustum = 1 − 1/8 = 7/8 of the volume."
+      ],
+      "formulaIds": [
+        "td-sc-cone-cut"
+      ],
+      "method": "Similar solids: volume ratio = (length ratio)³.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How does the small cone on top compare with the whole cone?"
+        },
+        {
+          "level": 2,
+          "text": "It is similar, with every length half as long. How does volume scale?"
+        },
+        {
+          "level": 3,
+          "text": "The small cone holds (1/2)³ of the volume; the frustum holds the rest."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1/2 because the cut is halfway: volume does not split like height.",
+        "Squaring instead of cubing (3/4 for the frustum), or giving the small cone's 1/8 itself."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-004",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-prism",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The base of a right prism is a triangle with sides 5 cm, 12 cm and 13 cm, and the prism is 18 cm high. Find its total surface area.",
+      "figure": {
+        "type": "solid",
+        "caption": "A right prism on a 5–12–13 triangle, 18 cm high",
+        "parts": [
+          {
+            "shape": "prism",
+            "base": "right-triangle",
+            "a": 5,
+            "b": 12,
+            "h": 18,
+            "labels": {
+              "a": "5 cm",
+              "b": "12 cm",
+              "h": "18 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right triangular prism. The two base edges that meet at a right angle are labelled 5 cm and 12 cm, and a vertical edge is labelled 18 cm. The hidden back edge of the base is dashed."
+      },
+      "answer": {
+        "value": 600,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "5² + 12² = 169 = 13², so the base is a right triangle with legs 5 and 12, of area ½ × 5 × 12 = 30 cm². The three rectangular side faces together are the perimeter times the height: (5 + 12 + 13) × 18 = 540 cm². The total adds both triangular ends: 540 + 2 × 30 = 600 cm².",
+      "solutionSteps": [
+        "5² + 12² = 13², so the base is right-angled: area = ½ × 5 × 12 = 30 cm².",
+        "Lateral surface = perimeter × height = 30 × 18 = 540 cm².",
+        "Total = 540 + 2 × 30 = 600 cm²."
+      ],
+      "formulaIds": [
+        "td-adv-prism-f"
+      ],
+      "method": "Total surface of a right prism = base perimeter × height + 2 × base area.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the base: is a 5, 12, 13 triangle right-angled?"
+        },
+        {
+          "level": 2,
+          "text": "Lateral surface = perimeter of the base × height."
+        },
+        {
+          "level": 3,
+          "text": "Add the two triangular ends, each ½ × 5 × 12."
+        }
+      ],
+      "commonMistakes": [
+        "Adding only one triangular end (570 cm²), or none (540 cm²).",
+        "Taking each end as 5 × 12 = 60 cm² without the ½, which gives 660 cm²."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-005",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-prism",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The base of a right prism is an equilateral triangle of side 8 cm, and the prism is 10 cm high. What is its volume?",
+      "figure": {
+        "type": "solid",
+        "caption": "A right prism on an equilateral triangle of side 8 cm, 10 cm high",
+        "parts": [
+          {
+            "shape": "prism",
+            "base": "triangle",
+            "a": 8,
+            "h": 10,
+            "labels": {
+              "a": "8 cm",
+              "h": "10 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right prism whose base is an equilateral triangle. A base edge is labelled 8 cm and a vertical edge 10 cm. The vertical edge at the back corner and the two base edges meeting it are dashed."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "320√3 cm³"
+        },
+        {
+          "id": "b",
+          "text": "160√3/3 cm³"
+        },
+        {
+          "id": "c",
+          "text": "160√3 cm³"
+        },
+        {
+          "id": "d",
+          "text": "640 cm³"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "An equilateral triangle of side a has area (√3/4)a² = (√3/4) × 64 = 16√3 cm². Every slice of the prism is that triangle, so the volume = 16√3 × 10 = 160√3 cm³.",
+      "solutionSteps": [
+        "Base area = (√3/4) × 8² = 16√3 cm².",
+        "Volume = base area × height = 16√3 × 10 = 160√3 cm³."
+      ],
+      "formulaIds": [
+        "td-adv-prism-f"
+      ],
+      "method": "Volume = base area × height, with (√3/4)a² for an equilateral base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the area of the triangular base first."
+        },
+        {
+          "level": 2,
+          "text": "An equilateral triangle of side a has area (√3/4)a²."
+        },
+        {
+          "level": 3,
+          "text": "(√3/4) × 64 = 16√3; now multiply by the height."
+        }
+      ],
+      "commonMistakes": [
+        "Using (√3/2)a², the side times the triangle's height without halving, which gives 320√3 cm³.",
+        "Dividing by 3 as for a pyramid (160√3/3 cm³), or treating the base as a square (640 cm³)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-006",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "A right pyramid has a square base of side 16 cm and a height of 15 cm. Which of these statements are true? Select all that apply.",
+      "figure": {
+        "type": "solid",
+        "caption": "A square pyramid with base side 16 cm and height 15 cm",
+        "parts": [
+          {
+            "shape": "pyramid",
+            "base": "square",
+            "a": 16,
+            "h": 15,
+            "labels": {
+              "a": "16 cm",
+              "h": "15 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right pyramid on a square base. A base edge is labelled 16 cm, and a dashed vertical line from the centre of the base up to the apex is labelled 15 cm."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "The slant height of each face is 17 cm."
+        },
+        {
+          "id": "b",
+          "text": "Each lateral edge (apex to a corner) is 17 cm."
+        },
+        {
+          "id": "c",
+          "text": "The lateral surface area is 544 cm²."
+        },
+        {
+          "id": "d",
+          "text": "The volume is 3840 cm³."
+        },
+        {
+          "id": "e",
+          "text": "The total surface area is 800 cm²."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "explanation": "The slant height reaches the middle of a side, 8 cm from the centre: √(15² + 8²) = 17 cm, so the first statement is true. A lateral edge reaches a corner, half a diagonal (8√2 cm) from the centre: √(225 + 128) = √353 ≈ 18.8 cm, so it is not 17 cm. Lateral surface = ½ × perimeter × slant = ½ × 64 × 17 = 544 cm², true. Volume = ⅓ × 256 × 15 = 1280 cm³; 3840 forgets the ⅓. Total = 544 + 256 = 800 cm², true.",
+      "solutionSteps": [
+        "Slant height = √(15² + 8²) = √289 = 17 cm.",
+        "Lateral edge = √(15² + (8√2)²) = √353 ≈ 18.8 cm, longer than the slant height.",
+        "Lateral surface = ½ × 64 × 17 = 544 cm²; total = 544 + 16² = 800 cm².",
+        "Volume = ⅓ × 16² × 15 = 1280 cm³, not 3840."
+      ],
+      "formulaIds": [
+        "td-adv-pyramid-f",
+        "td-sc-slant-edge"
+      ],
+      "method": "Slant height to the middle of a side, lateral edge to a corner; then ½ × perimeter × slant height and ⅓ × base × height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The slant height and a lateral edge end at different points of the base. Which point is further from the centre?"
+        },
+        {
+          "level": 2,
+          "text": "The middle of a side is 8 cm from the centre; a corner is 8√2 cm away."
+        },
+        {
+          "level": 3,
+          "text": "Lateral surface = ½ × perimeter × slant height; volume = ⅓ × base area × height."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the lateral edge to be the slant height: the edge runs to a corner, further out, so it is longer.",
+        "Forgetting the ⅓ in the volume: 3840 cm³ is the prism on the same base."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-007",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A right pyramid 6 m high has a square base whose diagonal is 24√2 m. What is its volume?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3456 m³"
+        },
+        {
+          "id": "b",
+          "text": "1152 m³"
+        },
+        {
+          "id": "c",
+          "text": "2304 m³"
+        },
+        {
+          "id": "d",
+          "text": "1728 m³"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A square with diagonal d has side d ÷ √2 = 24 m, so the base area is 24² = 576 m² (or d²/2 = 1152 ÷ 2). The pyramid holds a third of the prism on that base: ⅓ × 576 × 6 = 1152 m³.",
+      "solutionSteps": [
+        "Side = 24√2 ÷ √2 = 24 m, so the base area = 576 m².",
+        "Volume = ⅓ × base area × height = ⅓ × 576 × 6 = 1152 m³."
+      ],
+      "formulaIds": [
+        "td-adv-pyramid-f"
+      ],
+      "method": "Base area from the diagonal (d²/2), then ⅓ × base × height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the area of the square base from its diagonal."
+        },
+        {
+          "level": 2,
+          "text": "A square's area is half the square of its diagonal: d²/2."
+        },
+        {
+          "level": 3,
+          "text": "(24√2)² = 1152, so the base is 576 m². Now use ⅓ × base × height."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the diagonal squared, 1152, as the base area (2304 m³), or forgetting the ⅓ (3456 m³).",
+        "Using ½ in place of ⅓, which gives 1728 m³."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-008",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A tub is the frustum of a cone. The radii of its circular ends are 28 cm and 7 cm, and it is 45 cm deep. How many litres of water can it hold? (Use π = 22/7; 1 litre = 1000 cm³.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A tub shaped like a frustum: radii 28 cm at the top and 7 cm at the bottom, 45 cm deep",
+        "parts": [
+          {
+            "shape": "frustum",
+            "R": 7,
+            "r": 28,
+            "h": 45,
+            "labels": {
+              "R": "7 cm",
+              "r": "28 cm",
+              "h": "45 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A frustum of a cone, wider at the top. The top radius is labelled 28 cm, the bottom radius 7 cm, and the dashed axis between the two ends 45 cm."
+      },
+      "answer": {
+        "value": 48.51,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "Volume of a frustum = (πh/3)(R² + Rr + r²) = (22/7) × (45/3) × (28² + 28 × 7 + 7²) = (22/7) × 15 × (784 + 196 + 49) = (22/7) × 15 × 1029 = 22 × 15 × 147 = 48 510 cm³. Dividing by 1000 gives 48.51 litres.",
+      "solutionSteps": [
+        "R² + Rr + r² = 784 + 196 + 49 = 1029.",
+        "Volume = (22/7) × (45/3) × 1029 = 22 × 15 × 147 = 48 510 cm³.",
+        "48 510 ÷ 1000 = 48.51 litres."
+      ],
+      "formulaIds": [
+        "td-adv-frustum-f"
+      ],
+      "method": "Frustum volume (πh/3)(R² + Rr + r²), then cm³ to litres.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The tub is a cone with its tip cut off: use the frustum volume formula."
+        },
+        {
+          "level": 2,
+          "text": "V = (πh/3)(R² + Rr + r²)."
+        },
+        {
+          "level": 3,
+          "text": "28² + 28 × 7 + 7² = 1029, and 45 ÷ 3 = 15."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two end areas and multiplying by the depth: (22/7) × (784 + 49)/2 × 45 = 58 905 cm³, about 58.9 litres.",
+        "Leaving out the middle term Rr: (22/7) × 15 × 833 = 39 270 cm³, 39.27 litres."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-009",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A bucket, open at the top, is the frustum of a cone. Its top radius is 14 cm, its bottom radius 7 cm and its depth 24 cm. How much metal sheet is needed to make it? (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A bucket: radius 14 cm at the open top, 7 cm at the bottom, 24 cm deep",
+        "parts": [
+          {
+            "shape": "frustum",
+            "R": 7,
+            "r": 14,
+            "h": 24,
+            "labels": {
+              "R": "7 cm",
+              "r": "14 cm",
+              "h": "24 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A frustum of a cone, wider at the top, like a bucket. The top radius is labelled 14 cm, the bottom radius 7 cm, and the dashed axis between the two ends 24 cm."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2420 cm²"
+        },
+        {
+          "id": "b",
+          "text": "2266 cm²"
+        },
+        {
+          "id": "c",
+          "text": "1804 cm²"
+        },
+        {
+          "id": "d",
+          "text": "1738 cm²"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The slant height is √(24² + (14 − 7)²) = √(576 + 49) = √625 = 25 cm. Curved surface = πl(R + r) = (22/7) × 25 × 21 = 1650 cm². The bucket is open at the top, so only the bottom circle is added: (22/7) × 7² = 154 cm². Metal sheet = 1650 + 154 = 1804 cm².",
+      "solutionSteps": [
+        "Slant height = √(24² + 7²) = 25 cm.",
+        "Curved surface = (22/7) × 25 × (14 + 7) = 1650 cm².",
+        "Add the bottom only: (22/7) × 49 = 154 cm².",
+        "Metal sheet = 1650 + 154 = 1804 cm²."
+      ],
+      "formulaIds": [
+        "td-adv-frustum-f"
+      ],
+      "method": "Curved surface πl(R + r), plus the bottom circle only (the top is open).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which surfaces does the metal make? The bucket has no lid."
+        },
+        {
+          "level": 2,
+          "text": "Find the slant height first: √(h² + (R − r)²)."
+        },
+        {
+          "level": 3,
+          "text": "Curved surface = πl(R + r); then add π × 7² for the bottom."
+        }
+      ],
+      "commonMistakes": [
+        "Adding both circular ends (2420 cm²), or the wide top in place of the bottom (2266 cm²).",
+        "Using the depth 24 cm in place of the slant height 25 cm, which gives 1584 + 154 = 1738 cm²."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-010",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A cone 30 cm high is cut by a plane parallel to its base. The small cone cut off from the top has 1/27 of the volume of the whole cone. How far above the base is the cut made, in cm?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The small cone is similar to the whole cone, and the volumes of similar solids are in the ratio of the cubes of their heights. So (height ratio)³ = 1/27 and the height ratio is ∛(1/27) = 1/3. The small cone is 30 ÷ 3 = 10 cm tall, measured down from the apex, so the cut is 30 − 10 = 20 cm above the base.",
+      "solutionSteps": [
+        "(h′/H)³ = 1/27, so h′/H = 1/3.",
+        "The small cone's height h′ = 30 ÷ 3 = 10 cm, measured from the apex.",
+        "The cut is 30 − 10 = 20 cm above the base."
+      ],
+      "formulaIds": [
+        "td-sc-cone-cut"
+      ],
+      "method": "Volume ratio of similar cones = cube of the height ratio; take the cube root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The small cone on top is similar to the whole cone."
+        },
+        {
+          "level": 2,
+          "text": "Volume ratio = (height ratio)³. Which height ratio gives 1/27?"
+        },
+        {
+          "level": 3,
+          "text": "The small cone is a third as tall, 10 cm, but that is measured from the apex, not from the base."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10 cm: that is the small cone's own height, measured down from the apex.",
+        "Using the volume ratio as the height ratio, which puts the cut about 28.9 cm up."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-011",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A cone of base radius 21 cm and height 27 cm is cut by a plane parallel to its base, 18 cm above the base. What is the volume of the frustum left at the bottom? (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone of base radius 21 cm, cut 18 cm above its base",
+        "parts": [
+          {
+            "shape": "frustum",
+            "R": 21,
+            "r": 7,
+            "h": 18,
+            "labels": {
+              "R": "21 cm",
+              "h": "18 cm"
+            }
+          },
+          {
+            "shape": "cone",
+            "r": 7,
+            "h": 9
+          }
+        ],
+        "ariaSummary": "A cone with a horizontal cut drawn across it as an ellipse. The base radius is labelled 21 cm, and the height of the bottom piece, from the base up to the cut, is labelled 18 cm. The small cone above the cut is not labelled."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "8316 cm³"
+        },
+        {
+          "id": "b",
+          "text": "12012 cm³"
+        },
+        {
+          "id": "c",
+          "text": "462 cm³"
+        },
+        {
+          "id": "d",
+          "text": "11088 cm³"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The small cone on top is 27 − 18 = 9 cm tall, a third of the whole height, so it is similar with ratio 1/3: its radius is 7 cm and it holds (1/3)³ = 1/27 of the volume. Whole cone = ⅓ × 22/7 × 21² × 27 = 12 474 cm³; small cone = 12 474 ÷ 27 = 462 cm³; frustum = 12 474 − 462 = 12 012 cm³. The frustum formula agrees: (22/7) × (18/3) × (21² + 21 × 7 + 7²) = (22/7) × 6 × 637 = 12 012 cm³.",
+      "solutionSteps": [
+        "Small cone: height 27 − 18 = 9 cm, a third of 27, so its radius is 21 ÷ 3 = 7 cm.",
+        "Whole cone = ⅓ × 22/7 × 441 × 27 = 12 474 cm³.",
+        "Small cone = 12 474 × (1/3)³ = 462 cm³.",
+        "Frustum = 12 474 − 462 = 12 012 cm³.",
+        "Check: (22/7) × 6 × (441 + 147 + 49) = 12 012 cm³."
+      ],
+      "formulaIds": [
+        "td-adv-frustum-f",
+        "td-sc-cone-cut"
+      ],
+      "method": "Frustum = whole cone − small cone, the small cone holding (h′/H)³ of the whole.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The piece cut off the top is a small cone similar to the whole one. How tall is it?"
+        },
+        {
+          "level": 2,
+          "text": "It is 9 cm tall, a third of 27, so it holds (1/3)³ of the volume."
+        },
+        {
+          "level": 3,
+          "text": "Find the whole cone's volume and take away a 27th of it."
+        }
+      ],
+      "commonMistakes": [
+        "Taking away a third (the height ratio) instead of a 27th, which gives 8316 cm³; or a ninth (the area ratio), which gives 11 088 cm³.",
+        "Giving the small cone's volume, 462 cm³, instead of the frustum's."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-012",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A right pyramid stands on a regular hexagon of side 6 cm. Each of its lateral edges (from the apex to a corner of the base) is 10 cm long. What is its volume?",
+      "figure": {
+        "type": "solid",
+        "caption": "A right pyramid on a regular hexagon of side 6 cm, with lateral edges of 10 cm",
+        "parts": [
+          {
+            "shape": "pyramid",
+            "base": "hexagon",
+            "a": 6,
+            "h": 8,
+            "labels": {
+              "a": "6 cm",
+              "e": "10 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right pyramid on a regular hexagonal base. A base edge is labelled 6 cm, and a sloping edge from the apex down to a corner is labelled 10 cm. The height is not marked."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "432√3 cm³"
+        },
+        {
+          "id": "b",
+          "text": "180√3 cm³"
+        },
+        {
+          "id": "c",
+          "text": "144√3 cm³"
+        },
+        {
+          "id": "d",
+          "text": "24√3 cm³"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A regular hexagon is six equilateral triangles meeting at its centre, so each corner is 6 cm (one side) from the centre. The apex is straight above the centre, so the height = √(10² − 6²) = 8 cm. Base area = 6 × (√3/4) × 6² = 54√3 cm². Volume = ⅓ × 54√3 × 8 = 144√3 cm³.",
+      "solutionSteps": [
+        "Centre to a corner of a regular hexagon = its side = 6 cm.",
+        "Height = √(10² − 6²) = 8 cm.",
+        "Base area = 6 × (√3/4) × 36 = 54√3 cm².",
+        "Volume = ⅓ × 54√3 × 8 = 144√3 cm³."
+      ],
+      "formulaIds": [
+        "td-adv-pyramid-f",
+        "td-sc-hexagon-base"
+      ],
+      "method": "Height from the lateral edge and the centre-to-corner distance, then ⅓ × base × height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The lateral edge, the height and the line from the centre to a corner form a right triangle."
+        },
+        {
+          "level": 2,
+          "text": "In a regular hexagon, the centre is exactly one side length from each corner."
+        },
+        {
+          "level": 3,
+          "text": "Height = √(10² − 6²); the base is six equilateral triangles of side 6."
+        }
+      ],
+      "commonMistakes": [
+        "Using the lateral edge 10 as the height (180√3 cm³), or forgetting the ⅓ (432√3 cm³).",
+        "Counting only one of the six triangles in the base, which gives 24√3 cm³."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-013",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-pyramid",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A right pyramid stands on a square base of side 10 cm, and each of its lateral edges is 13 cm. Find its total surface area.",
+      "figure": {
+        "type": "solid",
+        "caption": "A square pyramid with base side 10 cm and lateral edges of 13 cm",
+        "parts": [
+          {
+            "shape": "pyramid",
+            "base": "square",
+            "a": 10,
+            "h": 10.91,
+            "labels": {
+              "a": "10 cm",
+              "e": "13 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A right pyramid on a square base. A base edge is labelled 10 cm, and a sloping edge from the apex down to a corner is labelled 13 cm. The height is not marked."
+      },
+      "answer": {
+        "value": 340,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Each face is an isosceles triangle with sides 13, 13 and 10. Its height, the slant height of the pyramid, drops to the middle of the 10 cm side: √(13² − 5²) = √144 = 12 cm. Lateral surface = ½ × perimeter × slant height = ½ × 40 × 12 = 240 cm². Adding the square base, 100 cm², gives 340 cm².",
+      "solutionSteps": [
+        "Each face has sides 13, 13 and 10; its height = √(13² − 5²) = 12 cm, the slant height.",
+        "Lateral surface = ½ × 40 × 12 = 240 cm².",
+        "Total = 240 + 10² = 340 cm²."
+      ],
+      "formulaIds": [
+        "td-adv-pyramid-f",
+        "td-sc-slant-edge"
+      ],
+      "method": "Slant height from the lateral edge and half the side, then ½ × perimeter × slant height + base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at one triangular face on its own: what are its three sides?"
+        },
+        {
+          "level": 2,
+          "text": "Its height (the slant height) splits the 10 cm side into 5 and 5."
+        },
+        {
+          "level": 3,
+          "text": "Slant height = √(13² − 5²) = 12. Then ½ × perimeter × slant height, plus the base."
+        }
+      ],
+      "commonMistakes": [
+        "Using the lateral edge 13 as the slant height, which gives 260 + 100 = 360 cm².",
+        "Leaving out the base (240 cm²) or the ½ (480 + 100 = 580 cm²)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-014",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A frustum of a right pyramid has square ends of side 12 cm and 6 cm, and it is 9 cm high. What is its volume?",
+      "figure": {
+        "type": "solid",
+        "caption": "A frustum of a square pyramid: sides 12 cm and 6 cm, height 9 cm",
+        "parts": [
+          {
+            "shape": "pyramid-frustum",
+            "base": "square",
+            "a": 12,
+            "b": 6,
+            "h": 9,
+            "labels": {
+              "a": "12 cm",
+              "b": "6 cm",
+              "h": "9 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A frustum of a square pyramid, its top a smaller square straight above the base. The base edge is labelled 12 cm, the top edge 6 cm, and the dashed axis between the two ends 9 cm."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "810 cm³"
+        },
+        {
+          "id": "b",
+          "text": "756 cm³"
+        },
+        {
+          "id": "c",
+          "text": "540 cm³"
+        },
+        {
+          "id": "d",
+          "text": "2268 cm³"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "For a frustum with end areas A₁ and A₂, V = (h/3)(A₁ + A₂ + √(A₁A₂)) = (9/3)(144 + 36 + √(144 × 36)) = 3 × (144 + 36 + 72) = 3 × 252 = 756 cm³. Check: the side halves over 9 cm, so the whole pyramid would be 18 cm tall, and ⅓ × 144 × 18 − ⅓ × 36 × 9 = 864 − 108 = 756 cm³.",
+      "solutionSteps": [
+        "A₁ = 12² = 144, A₂ = 6² = 36, √(A₁A₂) = √5184 = 72.",
+        "V = (9/3)(144 + 36 + 72) = 3 × 252 = 756 cm³.",
+        "Check: the whole pyramid is 18 cm tall: 864 − 108 = 756 cm³."
+      ],
+      "formulaIds": [
+        "td-adv-frustum-f"
+      ],
+      "method": "Frustum of a pyramid: (h/3)(A₁ + A₂ + √(A₁A₂)), or the big pyramid minus the small one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a pyramid with its top cut off: use the frustum formula, or big pyramid minus small pyramid."
+        },
+        {
+          "level": 2,
+          "text": "V = (h/3)(A₁ + A₂ + √(A₁A₂)), with A₁ and A₂ the areas of the two squares."
+        },
+        {
+          "level": 3,
+          "text": "144 + 36 + √(144 × 36) = 144 + 36 + 72."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the end areas and multiplying by the height (810 cm³), as if the frustum were a prism.",
+        "Leaving out √(A₁A₂) (540 cm³), or the ⅓ (2268 cm³)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-td-adv-q-015",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-adv-frustum",
+      "levelId": "mensuration-3d-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A cone is cut by two planes parallel to its base, which divide its height into three equal parts. In what ratio are the volumes of the three pieces, from the top down?",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone cut into three pieces of equal height h",
+        "parts": [
+          {
+            "shape": "frustum",
+            "R": 3,
+            "r": 2,
+            "h": 1,
+            "labels": {
+              "h": "h"
+            }
+          },
+          {
+            "shape": "frustum",
+            "R": 2,
+            "r": 1,
+            "h": 1,
+            "labels": {
+              "h": "h"
+            }
+          },
+          {
+            "shape": "cone",
+            "r": 1,
+            "h": 1,
+            "labels": {
+              "h": "h"
+            }
+          }
+        ],
+        "ariaSummary": "A cone cut by two horizontal planes into a small cone on top and two frustums below. Each of the three pieces is marked with the same height h."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "1 : 2 : 3"
+        },
+        {
+          "id": "b",
+          "text": "1 : 3 : 5"
+        },
+        {
+          "id": "c",
+          "text": "1 : 7 : 19"
+        },
+        {
+          "id": "d",
+          "text": "1 : 8 : 27"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Measured from the apex, the cuts make similar cones of heights h, 2h and 3h, whose volumes are in the ratio 1³ : 2³ : 3³ = 1 : 8 : 27. Each piece is the difference between neighbouring cones: top 1, middle 8 − 1 = 7, bottom 27 − 8 = 19. So the ratio is 1 : 7 : 19.",
+      "solutionSteps": [
+        "Cones from the apex have heights h, 2h, 3h, so volumes 1 : 8 : 27.",
+        "Top piece = 1; middle = 8 − 1 = 7; bottom = 27 − 8 = 19.",
+        "Ratio = 1 : 7 : 19."
+      ],
+      "formulaIds": [
+        "td-sc-cone-cut"
+      ],
+      "method": "Cones from the apex have volumes in the ratio of the cubes; take the differences.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Measure each cut from the apex: the cone above each cut is similar to the whole cone."
+        },
+        {
+          "level": 2,
+          "text": "Cones of heights h, 2h, 3h have volumes 1 : 8 : 27."
+        },
+        {
+          "level": 3,
+          "text": "Each piece is the difference between two neighbouring cones."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 1 : 8 : 27, the cones measured from the apex rather than the pieces.",
+        "Using the squares (1 : 3 : 5) or the heights (1 : 2 : 3) instead of the cubes."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
       "source": "original",
       "version": 1,
       "active": true
