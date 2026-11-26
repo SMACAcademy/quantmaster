@@ -357,6 +357,42 @@ export const SIMULATION_META = [
     taskIds: ['cancel-x', 'x-squared-plus-one', 'zero', 'four-pairs']
   },
   // --- end of basics.js ---
+  {
+    id: 'di-bar-graphs',
+    topicId: 'di-bar-graphs',
+    title: 'Comparing two bars',
+    summary: 'Set the bars, pick two years, and read the ratio, the difference and the % change. A bar twice as tall is +100%, not +200%.',
+    taskIds: ['double', 'quarter', 'same-gap']
+  },
+  {
+    id: 'di-line-graphs',
+    topicId: 'di-line-graphs',
+    title: 'The biggest rise or the fastest growth?',
+    summary: 'Slide a window over eight years of a line graph. The year with the largest rise and the year with the largest % rise are often not the same.',
+    taskIds: ['same', 'opposite', 'double']
+  },
+  {
+    id: 'di-pie-charts',
+    topicId: 'di-pie-charts',
+    title: 'Angles, percentages and amounts in a pie',
+    summary: 'Resize the slices of a monthly budget and set the total. Every 1% of a pie is 3.6°, and a slice is worth total × angle ÷ 360°.',
+    taskIds: ['right-angle', 'amount', 'savings']
+  },
+  {
+    id: 'di-tables',
+    topicId: 'di-tables',
+    title: 'Percentage points or per cent?',
+    summary: 'Pick a base year and the table colours each cell by its change. A share going from 20% to 25% is up 5 percentage points, which is a 25% rise.',
+    taskIds: ['points', 'flat', 'same']
+  },
+  {
+    id: 'data-sufficiency',
+    topicId: 'data-sufficiency',
+    title: 'Is it enough? Watch the answers shrink',
+    summary: 'Switch each statement on and watch the set of possible answers shrink. The data is sufficient only when exactly one value is left.',
+    taskIds: ['two-roots', 'together', 'each', 'never']
+  },
+  // --- end of dataInterpretation.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

@@ -6,6 +6,13 @@
  *   clock   a clock face: { hourAngle, minuteAngle }
  *   seesaw  a balance beam: { beam, weights, pivot }
  *
+ * and more below (tank, track, numberline, shapes, dots, solids, rects, venn),
+ * then three for data interpretation:
+ *
+ *   chart       a DI chart drawn by Chart.js, as in the questions: { chart }
+ *   table       a table of coloured cells: { columns, rows, caption }
+ *   candidates  the possible answers, row by row, as a set shrinks: { min, max, rows, badge }
+ *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.
  */
@@ -15,6 +22,7 @@ import { niceRange, show } from '../simulations/core.js';
 import { pieSectorPath, pointOnCircle } from '../utils/chartScale.js';
 import { solidDrawing } from '../utils/solidGeometry.js';
 import { renderVenn } from './venn.js';
+import { chartWidget } from './Chart.js';
 
 const W = 560;
 const H = 340;
@@ -669,7 +677,96 @@ function vennPlot(plot) {
   return el('div.sim-figure', {}, [svg || el('p.text-muted', { text: plot.summary || '' })]);
 }
 
+/** A bar, line or pie chart drawn the way DI questions draw theirs, so the simulation reads like the exam. */
+function chartPlot(plot) {
+  return el('div.sim-figure.sim-figure--chart', {}, [chartWidget({ ...plot.chart, ariaSummary: plot.summary })]);
+}
+
+/**
+ * A real table (so screen readers can walk it): `{ kind: 'table', caption, corner,
+ * columns, rows: [{ label, total?, cells: [{ text, note?, heat }] }], baseColumn,
+ * focusColumn, focusRow, summary }`. `heat` from −1 to 1 tints a cell red or
+ * green; the sign is always in the text too, so colour is never the only cue.
+ */
+function tablePlot(plot) {
+  const columnClass = (j) => [j === plot.baseColumn ? 'is-base' : '', j === plot.focusColumn ? 'is-focus' : ''].join(' ');
+  const tint = (heat) => {
+    if (!heat) return {};
+    const strength = Math.round(Math.min(1, Math.abs(heat)) * 38) + 8;
+    return { background: `color-mix(in srgb, var(${heat > 0 ? '--success' : '--danger'}) ${strength}%, transparent)` };
+  };
+  const table = el('table.data-table.sim-table', {}, [
+    plot.caption ? el('caption', { text: plot.caption }) : null,
+    el('thead', {}, [
+      el('tr', {}, [
+        el('th', { attrs: { scope: 'col' }, text: plot.corner || '' }),
+        ...plot.columns.map((column, j) =>
+          el('th', { class: columnClass(j), attrs: { scope: 'col' } }, [column, j === plot.baseColumn ? el('span.sim-table__tag', { text: 'base' }) : null])
+        )
+      ])
+    ]),
+    el(
+      'tbody',
+      {},
+      plot.rows.map((row, i) =>
+        el('tr', { class: [i === plot.focusRow ? 'is-focus' : '', row.total ? 'is-total' : ''].join(' ') }, [
+          el('th', { attrs: { scope: 'row' }, text: row.label }),
+          ...row.cells.map((cell, j) =>
+            el('td', { class: columnClass(j), style: tint(cell.heat) }, [cell.text, cell.note ? el('span.sim-table__note', { text: cell.note }) : null])
+          )
+        ])
+      )
+    )
+  ]);
+  return el('div.sim-figure.sim-figure--table', {}, [el('div.data-table-wrap', {}, [table]), el('p.sr-only', { text: plot.summary })]);
+}
+
+/**
+ * Every candidate answer from `min` to `max` as a dot, one row per condition:
+ * `{ kind: 'candidates', min, max, title, rows: [{ label, values, on, tone, result }],
+ * badge, summary }`. A value a row allows is a full dot; one it rules out is a
+ * speck. A row that is switched off is drawn faint.
+ */
+function candidatesPlot(plot) {
+  const left = 28;
+  const right = W - 28;
+  const top = 72;
+  const gap = 66;
+  const count = plot.max - plot.min;
+  const sx = (v) => left + ((v - plot.min) / count) * (right - left);
+  const values = Array.from({ length: count + 1 }, (_, i) => plot.min + i);
+  const height = top + plot.rows.length * gap + 4;
+  const rows = plot.rows.flatMap((row, r) => {
+    const y = top + r * gap;
+    const allowed = new Set(row.values);
+    const on = row.on !== false;
+    return [
+      svgEl('g', { class: `sim-candidates-row${on ? '' : ' is-off'}${row.result ? ' is-result' : ''}` }, [
+        svgEl('text', { x: left - 6, y: y - 18, class: 'sim-marker-label', text: on ? row.label : `${row.label} (off)` }),
+        svgEl('line', { x1: left, x2: right, y1: y, y2: y, class: 'sim-candidates-track' }),
+        ...values.map((v) =>
+          allowed.has(v)
+            ? svgEl('circle', { cx: sx(v), cy: y, r: row.result ? 8 : 6.5, class: 'sim-data-dot', style: { fill: tone(row.tone) } })
+            : svgEl('circle', { cx: sx(v), cy: y, r: 2.5, class: 'sim-candidate-out' })
+        )
+      ]),
+      row.result ? values.filter((v) => v % 2 === 0).map((v) => svgEl('text', { x: sx(v), y: y + 28, 'text-anchor': 'middle', class: 'chart-axis-label', text: show(v) })) : null
+    ];
+  });
+  const badge = plot.badge
+    ? svgEl('g', { class: 'sim-badge' }, [
+        svgEl('rect', { x: W - 150, y: 8, width: 142, height: 30, rx: 15 }),
+        svgEl('text', { x: W - 79, y: 23, 'text-anchor': 'middle', 'dominant-baseline': 'middle', text: plot.badge })
+      ])
+    : null;
+  const children = [svgEl('text', { x: left - 6, y: 27, class: 'sim-measure-label', text: plot.title }), badge, ...rows];
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { height: height + 18 })]);
+}
+
 export function drawPlot(plot) {
+  if (plot.kind === 'chart') return chartPlot(plot);
+  if (plot.kind === 'table') return tablePlot(plot);
+  if (plot.kind === 'candidates') return candidatesPlot(plot);
   if (plot.kind === 'xy') return xyPlot(plot);
   if (plot.kind === 'bars') return barPlot(plot);
   if (plot.kind === 'clock') return clockPlot(plot);

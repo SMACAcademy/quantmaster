@@ -21,6 +21,7 @@ import { numberSims } from './numbers.js';
 import { patternSims } from './patterns.js';
 import { numberSenseSims } from './numberSense.js';
 import { basicsSims } from './basics.js';
+import { dataSims } from './dataInterpretation.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -59,7 +60,9 @@ export const SIMULATIONS = [
   ...patternSims,
   // Phase G: numberSense.js, then basics.js. Their meta.js entries keep this order.
   ...numberSenseSims,
-  ...basicsSims
+  ...basicsSims,
+  // Data interpretation and data sufficiency (dataInterpretation.js). Their meta.js entries keep this order.
+  ...dataSims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));

@@ -3124,6 +3124,118 @@ kbd {
   min-height: 120px;
 }
 
+/* Data-interpretation simulations: DI charts (Chart.js), tables, answer sets */
+.sim-figure--chart .chart-wrap {
+  border: 0;
+  padding: var(--sp-1);
+  background: none;
+}
+.sim-figure--chart .chart-axis-label {
+  font-size: 14px;
+}
+.sim-figure--chart .chart-value-label {
+  font-size: 13px;
+}
+.chart-bar--dim {
+  opacity: 0.35;
+}
+.chart-guide {
+  stroke: var(--fg-subtle);
+  stroke-width: 2;
+  stroke-dasharray: 7 5;
+}
+.chart-window {
+  fill: var(--accent-soft);
+}
+.chart-highlight {
+  stroke-width: 14;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+.chart-highlight-label {
+  fill: var(--fg);
+}
+.chart-pie-sector--selected {
+  stroke: var(--fg);
+  stroke-width: 2.5;
+}
+.chart-pie-label {
+  /* Dark on the sector colours, in either theme. */
+  fill: #1f2937;
+  font-size: 15px;
+  font-weight: 700;
+}
+.chart-legend__swatch--dashed {
+  width: 18px;
+  height: 0;
+  border-top: 2px dashed;
+  border-radius: 0;
+}
+.sim-table th,
+.sim-table td {
+  text-align: right;
+}
+.sim-table th:first-child {
+  text-align: left;
+}
+.sim-table tbody th {
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.sim-table tr.is-focus th {
+  color: var(--fg);
+  font-weight: 700;
+}
+.sim-table tr.is-focus td {
+  font-weight: 700;
+}
+.sim-table tr.is-total th,
+.sim-table tr.is-total td {
+  border-top: 2px solid var(--border-strong);
+}
+.sim-table .is-focus {
+  box-shadow: inset 2px 0 0 var(--accent), inset -2px 0 0 var(--accent);
+}
+.sim-table tr.is-focus td.is-focus {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.sim-table__note {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.sim-table__tag {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+.sim-candidates-track {
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+.sim-candidate-out {
+  fill: var(--fg-subtle);
+  opacity: 0.6;
+}
+.sim-candidates-row.is-off {
+  opacity: 0.4;
+}
+.sim-badge rect {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.sim-badge text {
+  fill: var(--fg);
+  font-size: 15px;
+  font-weight: 700;
+}
+
 /* ---------------- Must-know tables and speed drills ---------------- */
 .tables__head {
   display: flex;

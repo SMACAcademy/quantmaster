@@ -192,6 +192,10 @@
             "body": "'Percentage points' and 'percent increase' are different questions. A share moving from 26.7% to 33.3% is up 6.6 percentage points, which is a 25% increase in the share itself."
           },
           {
+            "type": "simulation",
+            "simulationId": "di-tables"
+          },
+          {
             "type": "check",
             "questionId": "di-tables-q-001"
           },

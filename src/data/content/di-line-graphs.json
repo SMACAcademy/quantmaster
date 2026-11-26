@@ -146,6 +146,10 @@
             "body": "To compare two lines properly, compute the actual difference at each point — do not just judge visually which looks higher."
           },
           {
+            "type": "simulation",
+            "simulationId": "di-line-graphs"
+          },
+          {
             "type": "check",
             "questionId": "di-line-graphs-q-002"
           }

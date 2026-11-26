@@ -16,7 +16,8 @@ import { initialValues, normaliseValues, show, solvedTasks } from '../simulation
 import { rememberSolved } from '../simulations/progress.js';
 
 const valueText = (control, value) => {
-  const shown = show(value, 2);
+  // `plain` values such as years are written without digit grouping (2023, not 2,023).
+  const shown = control.plain ? String(value) : show(value, 2);
   if (!control.unit) return shown;
   return control.unit === '₹' ? `₹${shown}` : `${shown}${control.unit === '%' ? '%' : ` ${control.unit}`}`;
 };
@@ -45,14 +46,14 @@ export function simulationPanel(simulation, { heading = 'h2', showTitle = true }
       controlsBox,
       simulation.controls.filter(visible).map((control) => {
         if (control.type === 'choice') {
-          return el('div.sim-control', {}, [
-            el('div.sim-control__label', { text: control.label }),
-            segmented(control.options, values[control.id], (id) => {
-              setValues({ [control.id]: id });
-              drawControls();
-              update();
-            })
-          ]);
+          const group = segmented(control.options, values[control.id], (id) => {
+            setValues({ [control.id]: id });
+            drawControls();
+            update();
+          });
+          // Name the group, so two groups of the same buttons (Off / On) can be told apart.
+          group.setAttribute('aria-label', control.label);
+          return el('div.sim-control', {}, [el('div.sim-control__label', { text: control.label }), group]);
         }
         if (control.type === 'reroll') {
           return button(control.label, {
