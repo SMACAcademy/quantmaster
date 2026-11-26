@@ -43,6 +43,12 @@ describe('patterns', () => {
     expect(questionCount(getPattern('cat-qa'))).toBe(22);
     expect(getPattern('cat-qa').marks).toMatchObject({ correct: 3, wrong: -1, typedNoNegative: true });
     expect(questionCount(getPattern('campus'))).toBe(20);
+    expect(questionCount(getPattern('bank-prelims-reasoning'))).toBe(35);
+    expect(getPattern('bank-prelims-reasoning').marks).toEqual({ correct: 1, wrong: -0.25 });
+    expect(questionCount(getPattern('ssc-cgl-reasoning'))).toBe(25);
+    expect(maxScore(getPattern('ssc-cgl-reasoning'))).toBe(50);
+    expect(questionCount(getPattern('campus-reasoning'))).toBe(15);
+    for (const pattern of MOCK_PATTERNS) expect(['quant', 'reasoning'], pattern.id).toContain(pattern.subject);
   });
 
   it('only use topics the app has', () => {

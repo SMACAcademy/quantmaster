@@ -33,7 +33,7 @@
 - Concept lessons with inline checks; formula revision in five modes (recall, recognise, apply, browse, weak)
 - Progressive, question-specific hints; worked solutions and common mistakes; a mistakes list that clears only once you get it right
 - Per-concept mastery (0–100, with decay) and spaced repetition; Smart Practice mixes weak concepts, due reviews, new material and maintenance
-- Mock tests in four exam patterns (IBPS/SBI prelims, SSC CGL tier 1, CAT quant, campus placement) with the exam's clock and marking, a question palette, and an analysis of time, sections, topics and what to skip next time
+- Mock tests in seven exam patterns: quantitative aptitude (IBPS/SBI prelims, SSC CGL tier 1, CAT quant, campus placement) and logical reasoning (IBPS/SBI prelims reasoning, SSC CGL tier 1 reasoning, campus reasoning), with the exam's clock and marking, a question palette, and an analysis of time, sections, topics and what to skip next time
 - Must-know tables with 60-second speed drills, and printable quick sheets of formulas, shortcuts, common traps and exam strategy for the day before the exam
 
 **Motivation**
