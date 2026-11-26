@@ -35,6 +35,34 @@
       "name": "From one ratio to all the others",
       "description": "Draw the right triangle a single ratio describes and read off every other ratio.",
       "sortOrder": 5
+    },
+    {
+      "id": "trig-adv-radians",
+      "topicId": "trigonometry",
+      "name": "Radian measure",
+      "description": "π radians = 180°: converting between degrees and radians, arc length l = rθ, and clock and polygon angles in radians.",
+      "sortOrder": 6
+    },
+    {
+      "id": "trig-adv-values",
+      "topicId": "trigonometry",
+      "name": "Compound angles and identity tricks",
+      "description": "sin(A ± B), cos(A ± B) and tan(A ± B) for 15° and 75°, the cosec θ ± cot θ pair, and complementary-angle sums and products.",
+      "sortOrder": 7
+    },
+    {
+      "id": "trig-adv-maxmin",
+      "topicId": "trigonometry",
+      "name": "Greatest and least values",
+      "description": "a sin θ + b cos θ lies within ±√(a² + b²); a sin²θ + b cos²θ lies between a and b; a² tan²θ + b² cot²θ is at least 2ab.",
+      "sortOrder": 8
+    },
+    {
+      "id": "trig-adv-equations",
+      "topicId": "trigonometry",
+      "name": "Simple trigonometric equations",
+      "description": "Solving for an acute θ at the standard angles: sin θ + cos θ = √2, tan θ + cot θ = 2, quadratics in one ratio, and sin A = cos B.",
+      "sortOrder": 9
     }
   ],
   "formulas": [
@@ -188,6 +216,146 @@
         "shortcut"
       ],
       "difficulty": "complex"
+    },
+    {
+      "id": "trig-adv-radian-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-radians",
+      "title": "Degrees, radians and arc length",
+      "prompt": "How do you turn degrees into radians and back, and how long is the arc an angle θ cuts off?",
+      "formula": "π radians = 180°\nRadians = degrees × π/180\nDegrees = radians × 180/π\nArc length l = rθ (θ in radians)",
+      "variables": [
+        {
+          "symbol": "r",
+          "meaning": "the radius"
+        },
+        {
+          "symbol": "θ",
+          "meaning": "the angle at the centre, in radians"
+        },
+        {
+          "symbol": "l",
+          "meaning": "the arc length"
+        }
+      ],
+      "explanation": "One radian is the angle whose arc is exactly one radius long. A full turn has an arc of 2πr, so a full turn is 2π radians = 360°, and π radians = 180°. In radians the angle is simply arc ÷ radius.",
+      "example": "150° = 150 × π/180 = 5π/6 radians. An arc of radius 12 cm at 5π/6 is 12 × 5π/6 = 10π ≈ 31.4 cm.",
+      "commonMistake": "Multiplying by 180/π when going from degrees to radians, or putting degrees straight into l = rθ.",
+      "applicationPrompt": "Convert 225° to radians.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-adv-compound-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "title": "Sum and difference of two angles",
+      "prompt": "What are sin(A ± B), cos(A ± B) and tan(A ± B)?",
+      "formula": "sin(A ± B) = sin A cos B ± cos A sin B\ncos(A ± B) = cos A cos B ∓ sin A sin B\ntan(A ± B) = (tan A ± tan B) ÷ (1 ∓ tan A tan B)\nWith B = A: sin 2A = 2 sin A cos A, cos 2A = cos²A − sin²A",
+      "variables": [],
+      "explanation": "These turn an awkward angle into two standard ones: 15° = 45° − 30°, 75° = 45° + 30°. Watch the signs in the cosine: cos(A + B) has a minus, cos(A − B) a plus.",
+      "example": "cos 75° = cos 45° cos 30° − sin 45° sin 30° = (1/√2)(√3/2) − (1/√2)(1/2) = (√3 − 1)/(2√2).",
+      "commonMistake": "Splitting sin(A + B) into sin A + sin B: sin 75° is not sin 45° + sin 30°.",
+      "applicationPrompt": "Find sin 75° from the standard angles.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "trig-adv-maxmin-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-maxmin",
+      "title": "Greatest and least values",
+      "prompt": "Between what values do a sin θ + b cos θ, a sin²θ + b cos²θ and a² tan²θ + b² cot²θ lie?",
+      "formula": "a sin θ + b cos θ: from −√(a² + b²) to √(a² + b²)\na sin²θ + b cos²θ: between a and b\na² tan²θ + b² cot²θ ≥ 2ab\nsin²θ + cosec²θ ≥ 2",
+      "variables": [],
+      "explanation": "a sin θ + b cos θ = √(a² + b²) sin(θ + α), and a sine stays between −1 and 1. a sin²θ + b cos²θ = b + (a − b) sin²θ, and sin²θ runs from 0 to 1. When two positive terms have a fixed product (tan²θ × cot²θ = 1), AM ≥ GM makes their sum at least 2√(product), reached when the terms are equal.",
+      "example": "9 tan²θ + 4 cot²θ ≥ 2 × 3 × 2 = 12 (at tan²θ = 2/3); 5 sin²θ + 2 cos²θ lies from 2 to 5.",
+      "commonMistake": "Answering a + b: 3 sin θ + 4 cos θ never reaches 7, and 9 tan²θ + 4 cot²θ is not least at 13.",
+      "applicationPrompt": "Find the least value of 16 tan²θ + 25 cot²θ.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "trig-adv-sc-15-75",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "kind": "shortcut",
+      "title": "The 15° and 75° values",
+      "prompt": "What are sin 15°, cos 15°, tan 15° and tan 75°?",
+      "formula": "sin 15° = cos 75° = (√3 − 1)/(2√2)\ncos 15° = sin 75° = (√3 + 1)/(2√2)\ntan 15° = cot 75° = 2 − √3\ntan 75° = cot 15° = 2 + √3",
+      "variables": [],
+      "explanation": "Each comes from 45° ± 30°. A quick check: tan 15° must be less than 1, so it is 2 − √3 ≈ 0.27; and tan 15° × tan 75° = 1 because the angles are complementary.",
+      "example": "tan 15° + tan 75° = (2 − √3) + (2 + √3) = 4, and tan 75° − tan 15° = 2√3.",
+      "commonMistake": "Swapping 2 − √3 and 2 + √3: tan 75° is the big one, about 3.73.",
+      "applicationPrompt": "Find tan 15° + cot 15°.",
+      "tags": [
+        "advanced",
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-adv-sc-cosec-cot",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "kind": "shortcut",
+      "title": "cosec θ + cot θ given",
+      "prompt": "cosec θ + cot θ = k. What is cosec θ − cot θ?",
+      "formula": "cosec θ − cot θ = 1 ÷ k\n(because cosec²θ − cot²θ = 1)\nThen cosec θ = (k + 1/k) ÷ 2, cot θ = (k − 1/k) ÷ 2",
+      "variables": [],
+      "explanation": "cosec²θ − cot²θ = 1 factorises as (cosec θ + cot θ)(cosec θ − cot θ) = 1, so the two are reciprocals. Adding and subtracting them gives cosec θ and cot θ, and from those every other ratio.",
+      "example": "cosec θ + cot θ = 3: cosec θ − cot θ = 1/3, so cosec θ = 5/3, cot θ = 4/3, and cos θ = cot θ ÷ cosec θ = 4/5.",
+      "commonMistake": "Mixing it up with sec θ + tan θ: here k = (hypotenuse + adjacent) ÷ opposite.",
+      "applicationPrompt": "If cosec θ + cot θ = 5, find sin θ.",
+      "tags": [
+        "advanced",
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "trig-adv-sc-pairs",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "kind": "shortcut",
+      "title": "Complementary chains",
+      "prompt": "What are tan 1° × tan 2° × … × tan 89° and sin²1° + sin²2° + … + sin²89°?",
+      "formula": "tan 1° × tan 2° × … × tan 89° = 1\nsin²1° + sin²2° + … + sin²89° = 44½\n(pair θ with 90° − θ)",
+      "variables": [],
+      "explanation": "tan(90° − θ) = cot θ, so each pair multiplies to 1 and tan 45° = 1 is left. sin²(90° − θ) = cos²θ, so each pair adds to 1: 44 pairs, plus sin²45° = 1/2.",
+      "example": "sin²5° + sin²10° + … + sin²85°: 17 terms make 8 pairs and sin²45°, so the sum is 8½.",
+      "commonMistake": "Forgetting the unpaired middle term sin²45° = 1/2, or counting it as 1.",
+      "applicationPrompt": "Find cos²1° + cos²2° + … + cos²89°.",
+      "tags": [
+        "advanced",
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-adv-sc-equations",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-equations",
+      "kind": "shortcut",
+      "title": "Equations at standard angles",
+      "prompt": "For an acute θ, how do you solve sin θ + cos θ = √2, tan θ + cot θ = 2 or a quadratic such as 2 sin²θ − 3 sin θ + 1 = 0?",
+      "formula": "sin θ + cos θ = √2 or tan θ + cot θ = 2 ⇒ θ = 45°\nsin A = cos B (both acute) ⇒ A + B = 90°\nQuadratic in one ratio: factorise, keep only roots the ratio can take",
+      "variables": [],
+      "explanation": "sin θ + cos θ = √2 sin(θ + 45°) reaches √2 only at θ = 45°; tan θ + cot θ = 2 gives (tan θ − 1)² = 0. In a quadratic, treat the ratio as x, factorise, and throw out roots the ratio cannot take for an acute angle (sin θ and cos θ lie strictly between 0 and 1, tan θ is positive).",
+      "example": "2 sin²θ − 3 sin θ + 1 = 0 ⇒ (2 sin θ − 1)(sin θ − 1) = 0 ⇒ sin θ = 1/2 or 1. sin θ = 1 means θ = 90°, not acute, so θ = 30°.",
+      "commonMistake": "Keeping a root the ratio cannot take, such as sin θ = 1 (θ = 90°, not acute) or cos θ = 2.",
+      "applicationPrompt": "Solve tan θ + cot θ = 2 for acute θ.",
+      "tags": [
+        "advanced",
+        "shortcut"
+      ],
+      "difficulty": "medium"
     }
   ],
   "levels": [
@@ -401,13 +569,193 @@
           "complex"
         ],
         "count": 8,
-        "preferUnseen": true
+        "preferUnseen": true,
+        "conceptIds": [
+          "trig-ratios",
+          "trig-standard",
+          "trig-complementary",
+          "trig-identities",
+          "trig-one-ratio"
+        ]
       },
       "passCriteria": {
         "minimumAccuracy": 70,
         "minimumQuestionsAttempted": 5
       },
       "xpReward": 50
+    },
+    {
+      "id": "trigonometry-level-6",
+      "topicId": "trigonometry",
+      "order": 6,
+      "title": "Advanced: Radians, Compound Angles and Greatest Values",
+      "description": "Radian measure and arcs, the 15° and 75° values, identity tricks, greatest and least values, and simple equations.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-5"
+      ],
+      "conceptIds": [
+        "trig-adv-radians",
+        "trig-adv-values",
+        "trig-adv-maxmin",
+        "trig-adv-equations"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Measuring an angle by its arc",
+            "body": "Turn a radius about the centre of a circle. The angle it turns can be measured in degrees, or by the arc its tip draws: one radian is the angle whose arc is exactly one radius long. A full turn draws the whole circumference, 2πr, so a full turn is 2π radians. Half a turn gives the rule everything else follows from: π radians = 180°."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "trig-wave"
+          },
+          {
+            "type": "formula",
+            "title": "Degrees, radians and arcs",
+            "body": "π radians = 180°\nRadians = degrees × π/180\nDegrees = radians × 180/π\nArc length l = rθ (θ in radians)",
+            "caption": "l = rθ needs θ in radians. With degrees, use l = (θ/360) × 2πr instead."
+          },
+          {
+            "type": "example",
+            "title": "Clocks and polygons in radians",
+            "body": "A minute hand turns 6° a minute, so in 20 minutes it turns 120° = 2π/3 radians; a 21 cm hand sweeps an arc of 21 × 2π/3 = 14π = 44 cm (π = 22/7). Each exterior angle of a regular hexagon is 360° ÷ 6 = 60° = π/3, so each interior angle is π − π/3 = 2π/3."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-trig-adv-q-001"
+          },
+          {
+            "type": "text",
+            "title": "New angles from standard ones",
+            "body": "15° and 75° are not in the table, but 15° = 45° − 30° and 75° = 45° + 30°. The sum and difference formulas build their values from the table. Putting B = A gives the double-angle forms, which turn sin 15° cos 15° into ½ sin 30°."
+          },
+          {
+            "type": "formula",
+            "title": "Sum and difference formulas",
+            "body": "sin(A ± B) = sin A cos B ± cos A sin B\ncos(A ± B) = cos A cos B ∓ sin A sin B\ntan(A ± B) = (tan A ± tan B) ÷ (1 ∓ tan A tan B)\ntan 15° = 2 − √3, tan 75° = 2 + √3",
+            "caption": "sin 15° = cos 75° = (√3 − 1)/(2√2) and cos 15° = sin 75° = (√3 + 1)/(2√2)."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "To tell 2 − √3 from 2 + √3, remember tan 15° is less than tan 45° = 1, so it is the small one, about 0.27. And tan 15° × tan 75° = 1, because 15° + 75° = 90°."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-trig-adv-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Identity tricks the SSC way",
+            "body": "Each Pythagorean identity factorises: sec²θ − tan²θ = 1 means sec θ − tan θ = 1/(sec θ + tan θ), and cosec²θ − cot²θ = 1 means cosec θ − cot θ = 1/(cosec θ + cot θ). Given one of the pair, you get the other at once; adding and subtracting then gives each ratio. Long chains of angles collapse when you pair θ with 90° − θ."
+          },
+          {
+            "type": "example",
+            "title": "Two chains and a pair",
+            "body": "tan 1° × tan 2° × … × tan 89° = 1: each tan θ meets tan(90° − θ) = cot θ, and tan 45° = 1 is left over. sin²1° + sin²2° + … + sin²89° = 44½: 44 pairs that each add to 1, plus sin²45° = 1/2. If cosec θ + cot θ = 3, then cosec θ − cot θ = 1/3, so cosec θ = 5/3, cot θ = 4/3 and cos θ = 4/5."
+          },
+          {
+            "type": "text",
+            "title": "Greatest and least values",
+            "body": "The simulation shows a sin θ + b cos θ as two arrows at right angles, a and b, which add to one arrow of length √(a² + b²). As θ turns, the height of its tip is the value, so the value runs from −√(a² + b²) to √(a² + b²) and never reaches a + b. With squares the rule changes: sin²θ and cos²θ share a total of 1, so a sin²θ + b cos²θ always lies between a and b. And when two terms multiply to a constant, such as a² tan²θ and b² cot²θ, AM ≥ GM makes their sum at least 2ab."
+          },
+          {
+            "type": "formula",
+            "title": "The ranges to know",
+            "body": "a sin θ + b cos θ: from −√(a² + b²) to √(a² + b²)\na sin²θ + b cos²θ: between a and b\na² tan²θ + b² cot²θ ≥ 2ab\nsin²θ + cosec²θ ≥ 2",
+            "caption": "3 sin θ + 4 cos θ peaks at 5; 5 sin²θ + 2 cos²θ lies from 2 to 5; 9 tan²θ + 4 cot²θ is least at 12."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-trig-adv-q-003"
+          },
+          {
+            "type": "text",
+            "title": "Simple equations at standard angles",
+            "body": "Exam equations are built so that θ is a standard angle. sin θ + cos θ = √2 and tan θ + cot θ = 2 both force θ = 45°. sin A = cos B with both angles acute means A + B = 90°. An equation with squares is a quadratic in one ratio: call the ratio x, factorise, and keep only the root the ratio can take."
+          },
+          {
+            "type": "example",
+            "title": "A quadratic in sin θ",
+            "body": "2 sin²θ − 3 sin θ + 1 = 0 factorises as (2 sin θ − 1)(sin θ − 1) = 0, so sin θ = 1/2 or sin θ = 1. sin θ = 1 means θ = 90°, which is not acute, so θ = 30°."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "For an acute θ, sin θ and cos θ lie strictly between 0 and 1 and tan θ is positive. Throw out any root outside that range before you read the angle off the table, and check you are reading the right ratio: sin θ = 1/2 is 30°, but cos θ = 1/2 is 60°."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trigonometry-level-7",
+      "topicId": "trigonometry",
+      "order": 7,
+      "title": "Practice: Radians, Identities and Equations",
+      "description": "Arcs and angles in radians, the 15° values, complementary chains, least values and a quadratic in cos θ.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-6"
+      ],
+      "conceptIds": [
+        "trig-adv-radians",
+        "trig-adv-values",
+        "trig-adv-maxmin",
+        "trig-adv-equations"
+      ],
+      "questionIds": [
+        "trigonometry-trig-adv-q-004",
+        "trigonometry-trig-adv-q-005",
+        "trigonometry-trig-adv-q-006",
+        "trigonometry-trig-adv-q-007",
+        "trigonometry-trig-adv-q-008",
+        "trigonometry-trig-adv-q-009"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "trigonometry-level-8",
+      "topicId": "trigonometry",
+      "order": 8,
+      "title": "Challenge: Trigonometry Extension",
+      "description": "cosec θ + cot θ, ranges, sin 3θ = cos(θ − 6°), tan θ + cot θ = 2, and a train turning on a curve.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-7"
+      ],
+      "conceptIds": [
+        "trig-adv-radians",
+        "trig-adv-values",
+        "trig-adv-maxmin",
+        "trig-adv-equations"
+      ],
+      "questionIds": [
+        "trigonometry-trig-adv-q-010",
+        "trigonometry-trig-adv-q-011",
+        "trigonometry-trig-adv-q-012",
+        "trigonometry-trig-adv-q-013",
+        "trigonometry-trig-adv-q-014",
+        "trigonometry-trig-adv-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
     }
   ],
   "questions": [
@@ -1268,6 +1616,932 @@
       ],
       "tags": [],
       "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-001",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-radians",
+      "levelId": "trigonometry-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is 210° in radians?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7π/6"
+        },
+        {
+          "id": "b",
+          "text": "6π/7"
+        },
+        {
+          "id": "c",
+          "text": "7π/12"
+        },
+        {
+          "id": "d",
+          "text": "37,800/π"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "π radians = 180°, so multiply by π/180: 210 × π/180 = (210/180)π = 7π/6. Check: 210° is a little more than 180°, and 7π/6 is a little more than π.",
+      "solutionSteps": [
+        "Radians = degrees × π/180.",
+        "210/180 = 7/6 in lowest terms.",
+        "210° = 7π/6."
+      ],
+      "formulaIds": [
+        "trig-adv-radian-f"
+      ],
+      "method": "Multiply the degrees by π/180 and simplify.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many degrees make π radians?"
+        },
+        {
+          "level": 2,
+          "text": "π radians = 180°, so 210° is 210/180 of π."
+        },
+        {
+          "level": 3,
+          "text": "Simplify 210/180."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 180/π instead of π/180, which gives 37,800/π.",
+        "Taking π as 360°, which gives 7π/12; or writing the fraction upside down, 6π/7."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-002",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "levelId": "trigonometry-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the value of tan 75°?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 + √3"
+        },
+        {
+          "id": "b",
+          "text": "2 − √3"
+        },
+        {
+          "id": "c",
+          "text": "1 + 1/√3"
+        },
+        {
+          "id": "d",
+          "text": "(√3 + 1)/(2√2)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "75° = 45° + 30°, so tan 75° = (tan 45° + tan 30°) ÷ (1 − tan 45° tan 30°) = (1 + 1/√3) ÷ (1 − 1/√3) = (√3 + 1)/(√3 − 1). Multiplying top and bottom by √3 + 1 gives (√3 + 1)²/2 = (4 + 2√3)/2 = 2 + √3 ≈ 3.73. It must be more than tan 60° = √3 ≈ 1.73, which rules out 2 − √3.",
+      "solutionSteps": [
+        "tan(45° + 30°) = (1 + 1/√3) ÷ (1 − 1/√3).",
+        "= (√3 + 1)/(√3 − 1) = (√3 + 1)²/2.",
+        "= (4 + 2√3)/2 = 2 + √3."
+      ],
+      "formulaIds": [
+        "trig-adv-compound-f",
+        "trig-adv-sc-15-75"
+      ],
+      "method": "Write 75° as 45° + 30° and use tan(A + B).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 75° as the sum of two standard angles."
+        },
+        {
+          "level": 2,
+          "text": "tan(A + B) = (tan A + tan B) ÷ (1 − tan A tan B), with A = 45° and B = 30°."
+        },
+        {
+          "level": 3,
+          "text": "Rationalise (√3 + 1)/(√3 − 1) by multiplying top and bottom by √3 + 1."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 2 − √3, which is tan 15° (less than 1).",
+        "Adding tan 45° + tan 30° = 1 + 1/√3, as if tan(A + B) were tan A + tan B; or giving (√3 + 1)/(2√2), which is sin 75°."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-003",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-maxmin",
+      "levelId": "trigonometry-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "statement_evaluation",
+      "question": "The greatest value of 3 sin θ + 4 cos θ is 7.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "False. 3 sin θ + 4 cos θ = 5 sin(θ + α) with 5 = √(3² + 4²), so its greatest value is 5. It could be 7 only if sin θ and cos θ were both 1 at the same θ, which never happens: when sin θ = 1, θ = 90° and cos θ = 0.",
+      "solutionSteps": [
+        "The greatest value of a sin θ + b cos θ is √(a² + b²).",
+        "√(9 + 16) = 5, not 7.",
+        "sin θ and cos θ cannot both be 1, because sin²θ + cos²θ = 1."
+      ],
+      "formulaIds": [
+        "trig-sc-max",
+        "trig-adv-maxmin-f"
+      ],
+      "method": "Greatest value of a sin θ + b cos θ = √(a² + b²).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Can sin θ and cos θ both equal 1 at the same θ?"
+        },
+        {
+          "level": 2,
+          "text": "In the simulation the arrows 3 and 4 are always at right angles, so they add like the legs of a right triangle."
+        },
+        {
+          "level": 3,
+          "text": "Work out √(3² + 4²)."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the coefficients, 3 + 4 = 7.",
+        "Forgetting that sin²θ + cos²θ = 1 stops both from being 1 together."
+      ],
+      "tags": [
+        "advanced",
+        "true-false"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-004",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-radians",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The minute hand of a clock is 21 cm long. How far, in cm, does its tip travel in 20 minutes? (Use π = 22/7.)",
+      "answer": {
+        "value": 44,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The minute hand turns 360° in 60 minutes, which is 6° a minute, so in 20 minutes it turns 120° = 120 × π/180 = 2π/3 radians. The tip travels an arc l = rθ = 21 × 2π/3 = 14π = 14 × 22/7 = 44 cm.",
+      "solutionSteps": [
+        "20 minutes × 6° = 120°.",
+        "120° = 2π/3 radians.",
+        "l = rθ = 21 × 2π/3 = 14π = 44 cm."
+      ],
+      "formulaIds": [
+        "trig-adv-radian-f"
+      ],
+      "method": "Find the angle turned, convert it to radians, then l = rθ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many degrees does the minute hand turn in one minute?"
+        },
+        {
+          "level": 2,
+          "text": "In 20 minutes it turns 120°; convert that to radians."
+        },
+        {
+          "level": 3,
+          "text": "l = rθ = 21 × 2π/3."
+        }
+      ],
+      "commonMistakes": [
+        "Putting 120 (the degrees) into l = rθ, which gives 2,520.",
+        "Using the hour hand's speed, ½° a minute; or giving the whole circumference, 132 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-005",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-radians",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "match_following",
+      "question": "Match each angle with its measure in radians.",
+      "pairs": [
+        {
+          "left": "Each exterior angle of a regular decagon",
+          "right": "π/5"
+        },
+        {
+          "left": "Each interior angle of a regular hexagon",
+          "right": "2π/3"
+        },
+        {
+          "left": "The angle between the hands of a clock at 3:00",
+          "right": "π/2"
+        },
+        {
+          "left": "The angle the minute hand turns through in 25 minutes",
+          "right": "5π/6"
+        }
+      ],
+      "explanation": "Decagon: each exterior angle is 360° ÷ 10 = 36° = π/5. Hexagon: each interior angle is 180° − 360°/6 = 120° = 2π/3. At 3:00 the hands are a quarter-turn apart: 90° = π/2. The minute hand turns 6° a minute, so 25 minutes is 150° = 5π/6.",
+      "solutionSteps": [
+        "Decagon exterior: 360° ÷ 10 = 36° = π/5.",
+        "Hexagon interior: 180° − 60° = 120° = 2π/3.",
+        "Clock at 3:00: 90° = π/2.",
+        "Minute hand in 25 minutes: 25 × 6° = 150° = 5π/6."
+      ],
+      "formulaIds": [
+        "trig-adv-radian-f"
+      ],
+      "method": "Find each angle in degrees, then multiply by π/180.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find each angle in degrees first."
+        },
+        {
+          "level": 2,
+          "text": "Exterior angle of a regular n-gon = 360°/n and interior = 180° − exterior; the minute hand turns 6° a minute."
+        },
+        {
+          "level": 3,
+          "text": "Then multiply each by π/180 and simplify."
+        }
+      ],
+      "commonMistakes": [
+        "Using the decagon's interior angle, 144° = 4π/5, instead of the exterior angle.",
+        "Confusing the hexagon's interior angle 2π/3 (120°) with its exterior angle π/3 (60°)."
+      ],
+      "tags": [
+        "advanced",
+        "matching"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-006",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of cos 15° − sin 15°?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/√2"
+        },
+        {
+          "id": "b",
+          "text": "√6/2"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "(√3 − 1)/(2√2)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "cos 15° = (√3 + 1)/(2√2) and sin 15° = (√3 − 1)/(2√2). Their difference is [(√3 + 1) − (√3 − 1)]/(2√2) = 2/(2√2) = 1/√2. (Another route: cos 15° − sin 15° = √2 cos(15° + 45°) = √2 cos 60° = √2/2 = 1/√2.)",
+      "solutionSteps": [
+        "cos 15° = (√3 + 1)/(2√2) and sin 15° = (√3 − 1)/(2√2).",
+        "Their difference is 2/(2√2).",
+        "= 1/√2."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-15-75",
+        "trig-adv-compound-f"
+      ],
+      "method": "Write both from 45° − 30°; the √3 terms cancel.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find cos 15° and sin 15° from 45° − 30°."
+        },
+        {
+          "level": 2,
+          "text": "Both have the same denominator, 2√2."
+        },
+        {
+          "level": 3,
+          "text": "Subtract: the √3 terms cancel and 1 − (−1) = 2 is left."
+        }
+      ],
+      "commonMistakes": [
+        "Adding instead of subtracting, which gives √6/2.",
+        "Assuming cos 15° = sin 15°, which is true only at 45°; or giving sin 15° alone, (√3 − 1)/(2√2)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-007",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the value of sin²5° + sin²10° + sin²15° + … + sin²85° + sin²90°?",
+      "answer": {
+        "value": 9.5,
+        "tolerance": 0
+      },
+      "explanation": "From 5° to 85° there are 17 terms. Pair 5° with 85°, 10° with 80°, …, 40° with 50°: since sin 85° = cos 5°, each pair is sin²x + cos²x = 1, giving 8. The middle term sin²45° = 1/2 has no partner, and sin²90° = 1. Total: 8 + 1/2 + 1 = 9.5.",
+      "solutionSteps": [
+        "17 terms from 5° to 85°, plus sin²90°.",
+        "8 pairs (x, 90° − x), each adding to 1: 8.",
+        "sin²45° = 1/2 and sin²90° = 1, so the total is 9.5."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-pairs",
+        "trig-complementary-f"
+      ],
+      "method": "Pair angles that add to 90°; deal with 45° and 90° on their own.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which angles in the list add up to 90°?"
+        },
+        {
+          "level": 2,
+          "text": "sin²(90° − x) = cos²x, so each such pair adds to 1."
+        },
+        {
+          "level": 3,
+          "text": "Count the pairs, then add sin²45° and sin²90°."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting sin²45° = 1/2, which gives 9.",
+        "Leaving out sin²90° = 1, which gives 8.5; or counting 18 terms and halving to get 9."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-008",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-maxmin",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the least value of 9 tan²θ + 4 cot²θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "72"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "tan²θ × cot²θ = 1, so the two terms multiply to 9 × 4 = 36, a constant. Two positive numbers with a fixed product have their least sum when they are equal (AM ≥ GM), so the sum is at least 2√36 = 12. It is reached when 9 tan²θ = 4 cot²θ, that is tan²θ = 2/3.",
+      "solutionSteps": [
+        "9 tan²θ × 4 cot²θ = 36.",
+        "AM ≥ GM: the sum is at least 2√36 = 12.",
+        "Equality at tan²θ = 2/3, so the least value is 12."
+      ],
+      "formulaIds": [
+        "trig-adv-maxmin-f"
+      ],
+      "method": "a² tan²θ + b² cot²θ ≥ 2ab.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is tan²θ × cot²θ?"
+        },
+        {
+          "level": 2,
+          "text": "When two positive terms have a fixed product, their sum is least when they are equal."
+        },
+        {
+          "level": 3,
+          "text": "The least value is 2√(9 × 4)."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the coefficients to get 13.",
+        "Forgetting the 2 in 2√(ab), which gives 6; or working out 2 × 9 × 4 = 72, forgetting that 9 and 4 are the squares of 3 and 2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-009",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-equations",
+      "levelId": "trigonometry-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If 2 sin²θ + 3 cos θ − 3 = 0 and θ is acute, what is θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60°"
+        },
+        {
+          "id": "b",
+          "text": "30°"
+        },
+        {
+          "id": "c",
+          "text": "0°"
+        },
+        {
+          "id": "d",
+          "text": "45°"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Write sin²θ = 1 − cos²θ: 2 − 2 cos²θ + 3 cos θ − 3 = 0, so 2 cos²θ − 3 cos θ + 1 = 0, which factorises as (2 cos θ − 1)(cos θ − 1) = 0. cos θ = 1 gives θ = 0°, which is not acute, so cos θ = 1/2 and θ = 60°.",
+      "solutionSteps": [
+        "sin²θ = 1 − cos²θ turns the equation into 2 cos²θ − 3 cos θ + 1 = 0.",
+        "(2 cos θ − 1)(cos θ − 1) = 0, so cos θ = 1/2 or 1.",
+        "cos θ = 1 gives 0°, which is not acute; cos θ = 1/2 gives θ = 60°."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-equations",
+        "trig-pythag-f"
+      ],
+      "method": "Write everything in one ratio, solve the quadratic, reject the root that is not acute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the equation in terms of cos θ only."
+        },
+        {
+          "level": 2,
+          "text": "Use sin²θ = 1 − cos²θ; you get a quadratic in cos θ."
+        },
+        {
+          "level": 3,
+          "text": "Factorise 2 cos²θ − 3 cos θ + 1."
+        }
+      ],
+      "commonMistakes": [
+        "Reading cos θ = 1/2 as 30°, which is where sin θ = 1/2.",
+        "Keeping cos θ = 1, which gives 0°, not an acute angle; or writing sin²θ as 1 + cos²θ."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-010",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If cosec θ + cot θ = 5 and θ is acute, what is cos θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12/13"
+        },
+        {
+          "id": "b",
+          "text": "5/13"
+        },
+        {
+          "id": "c",
+          "text": "13/12"
+        },
+        {
+          "id": "d",
+          "text": "12/5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "cosec²θ − cot²θ = 1 factorises as (cosec θ + cot θ)(cosec θ − cot θ) = 1, so cosec θ − cot θ = 1/5. Adding the two: 2 cosec θ = 26/5, so cosec θ = 13/5. Subtracting: 2 cot θ = 24/5, so cot θ = 12/5. Then cos θ = cot θ ÷ cosec θ = 12/13.",
+      "solutionSteps": [
+        "cosec θ − cot θ = 1/5.",
+        "cosec θ = 13/5 and cot θ = 12/5.",
+        "cos θ = cot θ ÷ cosec θ = (12/5) ÷ (13/5) = 12/13."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-cosec-cot",
+        "trig-pythag-f"
+      ],
+      "method": "cosec θ + cot θ and cosec θ − cot θ are reciprocals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which identity links cosec θ and cot θ?"
+        },
+        {
+          "level": 2,
+          "text": "cosec²θ − cot²θ = 1 factorises, so cosec θ − cot θ = 1/5."
+        },
+        {
+          "level": 3,
+          "text": "cos θ = cot θ × sin θ = cot θ ÷ cosec θ."
+        }
+      ],
+      "commonMistakes": [
+        "Giving sin θ = 5/13 instead of cos θ.",
+        "Stopping at cot θ = 12/5; or giving sec θ = 13/12, the reciprocal of the answer."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-011",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-maxmin",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of these are true? I: the greatest value of 3 sin θ + 4 cos θ is 7. II: 5 sin²θ + 2 cos²θ always lies from 2 to 5. III: the least value of sin²θ + cosec²θ is 2.",
+      "options": [
+        {
+          "id": "a",
+          "text": "I and II only"
+        },
+        {
+          "id": "b",
+          "text": "II and III only"
+        },
+        {
+          "id": "c",
+          "text": "I and III only"
+        },
+        {
+          "id": "d",
+          "text": "I, II and III"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "I is false: the greatest value is √(9 + 16) = 5, not 3 + 4. II is true: 5 sin²θ + 2 cos²θ = 2 + 3 sin²θ, which runs from 2 (at θ = 0°) to 5 (at θ = 90°). III is true: sin²θ × cosec²θ = 1, so by AM ≥ GM the sum is at least 2, reached at θ = 90° where both are 1.",
+      "solutionSteps": [
+        "I: the greatest value is √(3² + 4²) = 5, so I is false.",
+        "II: 2 + 3 sin²θ runs from 2 to 5, so II is true.",
+        "III: x + 1/x ≥ 2 with x = sin²θ, equal at sin²θ = 1, so III is true."
+      ],
+      "formulaIds": [
+        "trig-adv-maxmin-f",
+        "trig-sc-max"
+      ],
+      "method": "Test each statement with its own rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each statement on its own."
+        },
+        {
+          "level": 2,
+          "text": "a sin θ + b cos θ peaks at √(a² + b²); a sin²θ + b cos²θ lies between a and b."
+        },
+        {
+          "level": 3,
+          "text": "For III, x + 1/x ≥ 2 for every positive x."
+        }
+      ],
+      "commonMistakes": [
+        "Accepting I by adding 3 + 4.",
+        "Rejecting III by expecting the least value at sin²θ = 1/2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-012",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-equations",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If sin 3θ = cos(θ − 6°), where 3θ and θ − 6° are both acute, what is θ in degrees?",
+      "answer": {
+        "value": 24,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "sin A = cos B with both angles acute means A + B = 90°, because sin A = cos(90° − A). So 3θ + (θ − 6°) = 90°, giving 4θ = 96° and θ = 24°. Check: 3θ = 72° and θ − 6° = 18° add to 90°.",
+      "solutionSteps": [
+        "sin 3θ = cos(90° − 3θ), so 90° − 3θ = θ − 6°.",
+        "4θ = 96°.",
+        "θ = 24°."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-equations",
+        "trig-complementary-f"
+      ],
+      "method": "sin A = cos B (both acute) means A + B = 90°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "sin A = cos B: how are A and B related when both are acute?"
+        },
+        {
+          "level": 2,
+          "text": "They add up to 90°."
+        },
+        {
+          "level": 3,
+          "text": "Solve 3θ + θ − 6 = 90."
+        }
+      ],
+      "commonMistakes": [
+        "Setting 3θ = θ − 6°, as if sin and cos were the same ratio.",
+        "Dropping the 6°: 4θ = 90° gives 22.5°; or moving the 6 the wrong way: 4θ = 84° gives 21°."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-013",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-equations",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If tan θ + cot θ = 2 and θ is acute, what is tan¹⁰θ + cot¹⁰θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "1,024"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "tan θ + 1/tan θ = 2 gives tan²θ − 2 tan θ + 1 = 0, that is (tan θ − 1)² = 0, so tan θ = 1 (θ = 45°) and cot θ = 1. Then tan¹⁰θ + cot¹⁰θ = 1 + 1 = 2. In fact tanⁿθ + cotⁿθ = 2 for every power n.",
+      "solutionSteps": [
+        "Multiply tan θ + 1/tan θ = 2 by tan θ: tan²θ − 2 tan θ + 1 = 0.",
+        "(tan θ − 1)² = 0, so tan θ = cot θ = 1.",
+        "1¹⁰ + 1¹⁰ = 2."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-equations"
+      ],
+      "method": "Find tan θ first (it is 1), then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write cot θ as 1/tan θ and clear the fraction."
+        },
+        {
+          "level": 2,
+          "text": "The quadratic is a perfect square: (tan θ − 1)² = 0."
+        },
+        {
+          "level": 3,
+          "text": "Any power of 1 is 1."
+        }
+      ],
+      "commonMistakes": [
+        "Raising the sum to the power: 2¹⁰ = 1,024.",
+        "Multiplying 2 by 10 to get 20; or using tan θ × cot θ = 1 instead of adding."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-014",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-values",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If sin θ + cos θ = √2 cos θ and θ is acute, what is cot θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "√2 + 1"
+        },
+        {
+          "id": "b",
+          "text": "√2 − 1"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "1/√2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Move cos θ across: sin θ = √2 cos θ − cos θ = (√2 − 1) cos θ, so tan θ = √2 − 1. Then cot θ = 1/(√2 − 1) = (√2 + 1)/[(√2 − 1)(√2 + 1)] = (√2 + 1)/1 = √2 + 1 ≈ 2.414. (θ is 22.5°.)",
+      "solutionSteps": [
+        "sin θ = (√2 − 1) cos θ.",
+        "tan θ = √2 − 1.",
+        "cot θ = 1/(√2 − 1) = √2 + 1."
+      ],
+      "formulaIds": [
+        "trig-adv-sc-equations",
+        "trig-reciprocal-f"
+      ],
+      "method": "Collect the cos θ terms, divide to get tan θ, then take the reciprocal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Collect the cos θ terms on one side."
+        },
+        {
+          "level": 2,
+          "text": "Divide both sides by cos θ to get tan θ."
+        },
+        {
+          "level": 3,
+          "text": "Rationalise 1/(√2 − 1) by multiplying top and bottom by √2 + 1."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at tan θ = √2 − 1.",
+        "Assuming θ = 45° because of the √2 (that needs sin θ + cos θ = √2); or ignoring the cos θ on the left, which gives cot θ = 1/√2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-trig-adv-q-015",
+      "topicId": "trigonometry",
+      "conceptId": "trig-adv-radians",
+      "levelId": "trigonometry-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A train runs at 66 km/h along a circular curve of radius 1,500 m. Through what angle, in degrees, does it turn in 10 seconds? (Use π = 22/7.)",
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "66 km/h = 66 × 5/18 = 55/3 m/s, so in 10 seconds the train covers an arc of 550/3 m. The angle in radians is l ÷ r = (550/3) ÷ 1500 = 11/90. In degrees: 11/90 × 180/π = 11/90 × 180 × 7/22 = 7°.",
+      "solutionSteps": [
+        "Speed = 66 × 5/18 = 55/3 m/s; the arc in 10 s is 550/3 m.",
+        "θ = l ÷ r = (550/3) ÷ 1500 = 11/90 radian.",
+        "In degrees: 11/90 × 180 × 7/22 = 7°."
+      ],
+      "formulaIds": [
+        "trig-adv-radian-f"
+      ],
+      "method": "Arc ÷ radius gives radians; multiply by 180/π for degrees.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the speed to m/s and find the length of arc travelled."
+        },
+        {
+          "level": 2,
+          "text": "The angle in radians is arc ÷ radius."
+        },
+        {
+          "level": 3,
+          "text": "Multiply by 180/π = 180 × 7/22 to get degrees."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the answer in radians (11/90, about 0.12).",
+        "Using 66 km/h as if it were 66 m/s; or multiplying by π/180 instead of 180/π."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
       "source": "original",
       "version": 1,
       "active": true

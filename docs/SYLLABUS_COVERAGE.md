@@ -6,7 +6,7 @@ How a simulation is tied to a topic:
 
 - Each simulation in `src/simulations/index.js` (mirrored in `meta.js`) has an `id` and an owning `topicId`. The topic page and the Explore gallery list it through `simulationsForTopic(topicId)`.
 - A lesson shows it inline through a block `{ "type": "simulation", "simulationId": "..." }` in `src/data/content/<topicId>.json`. A lesson may embed a simulation owned by another topic ("borrowed").
-- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
+- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 66 after batch 4). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
 
 Terms used below:
 

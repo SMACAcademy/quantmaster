@@ -53,6 +53,11 @@ import { remainderTemplates } from './templates/remainders.js';
 import { factorialTemplates } from './templates/factorials.js';
 import { squaresRootsTemplates } from './templates/squaresRoots.js';
 import { speedMathsTemplates } from './templates/speedMaths.js';
+import { advReciprocalTemplates } from './templates/advReciprocals.js';
+import { advTrigTemplates } from './templates/advTrigonometry.js';
+import { advPrismTemplates } from './templates/advPrismsPyramids.js';
+import { advTwoCircleTemplates } from './templates/advTwoCircles.js';
+import { groupedDataTemplates } from './templates/groupedData.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -93,7 +98,12 @@ const TEMPLATES = [
   ...remainderTemplates,
   ...factorialTemplates,
   ...squaresRootsTemplates,
-  ...speedMathsTemplates
+  ...speedMathsTemplates,
+  ...advReciprocalTemplates,
+  ...advTrigTemplates,
+  ...advPrismTemplates,
+  ...advTwoCircleTemplates,
+  ...groupedDataTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

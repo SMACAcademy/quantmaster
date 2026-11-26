@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(61);
+  await expect(page.locator('.sim-card')).toHaveCount(66);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);

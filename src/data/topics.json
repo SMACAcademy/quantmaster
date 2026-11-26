@@ -1203,6 +1203,23 @@
       "tags": []
     },
     {
+      "id": "grouped-data",
+      "name": "Grouped Data and Graphs",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Frequency tables and class marks, histograms, frequency polygons and ogives, and the mean, median and mode of grouped data (direct, assumed-mean and step-deviation methods).",
+      "whyItMatters": "CDS, NDA and SSC CGL Tier 2 set grouped frequency tables every year: the mean by step deviation, the median and mode classes, a missing frequency, or a value read off an ogive.",
+      "glyph": "▥",
+      "colorToken": "data",
+      "prerequisites": [
+        "mean-median-mode"
+      ],
+      "sortOrder": 73,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
       "id": "weighted-mean",
       "name": "Weighted Mean",
       "category": "data",
@@ -1214,7 +1231,7 @@
       "prerequisites": [
         "weighted-average"
       ],
-      "sortOrder": 73,
+      "sortOrder": 74,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1231,7 +1248,7 @@
       "prerequisites": [
         "mean-median-mode"
       ],
-      "sortOrder": 74,
+      "sortOrder": 75,
       "contentStatus": "seeded",
       "active": true,
       "tags": []

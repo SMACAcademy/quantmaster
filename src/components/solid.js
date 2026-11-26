@@ -1,6 +1,7 @@
 /**
  * Draws `figure.type === 'solid'` (cubes, cuboids, cylinders, cones, spheres,
- * hemispheres, frustums and stacks of them) as SVG. The geometry, in model
+ * hemispheres, frustums and stacks of them; prisms, pyramids and pyramid
+ * frustums) as SVG. The geometry, in model
  * units, comes from utils/solidGeometry.js; this file only fits it into the
  * box at one scale (so proportions stay true) and draws it.
  */

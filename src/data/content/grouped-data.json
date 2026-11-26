@@ -1,0 +1,2511 @@
+{
+  "topicId": "grouped-data",
+  "concepts": [
+    {
+      "id": "gd-tables",
+      "topicId": "grouped-data",
+      "name": "Frequency tables and classes",
+      "description": "Class limits and boundaries, class width and class marks; turning inclusive classes (10–19, 20–29) into exclusive ones (9.5–19.5, 19.5–29.5) by half the gap.",
+      "sortOrder": 1
+    },
+    {
+      "id": "gd-cumulative",
+      "topicId": "grouped-data",
+      "name": "Cumulative frequency",
+      "description": "Less-than counts add frequencies up to each upper boundary; more-than counts add from each lower boundary to the end. Differences of cumulative frequencies give class frequencies back.",
+      "sortOrder": 2
+    },
+    {
+      "id": "gd-graphs",
+      "topicId": "grouped-data",
+      "name": "Histograms and frequency polygons",
+      "description": "A histogram draws each class as a bar whose area shows its frequency; with equal widths the height is the frequency, with unequal widths it is scaled. A frequency polygon joins the class marks, closed at the empty classes either end.",
+      "sortOrder": 3
+    },
+    {
+      "id": "gd-ogive",
+      "topicId": "grouped-data",
+      "name": "Ogives",
+      "description": "The less-than ogive plots cumulative frequency against upper boundaries, the more-than ogive against lower boundaries. They cross at the median, at height n/2, and values or counts can be read off them by straight-line interpolation.",
+      "sortOrder": 4
+    },
+    {
+      "id": "gd-mean",
+      "topicId": "grouped-data",
+      "name": "Mean of grouped data",
+      "description": "Each class stands at its class mark. Direct method Σfx ÷ Σf; assumed-mean method A + Σfd ÷ Σf; step-deviation method A + (Σfu ÷ Σf) × h.",
+      "sortOrder": 5
+    },
+    {
+      "id": "gd-median",
+      "topicId": "grouped-data",
+      "name": "Median of grouped data",
+      "description": "Find n/2, the median class (first cumulative frequency to reach n/2), then l + ((n/2 − cf) ÷ f) × h.",
+      "sortOrder": 6
+    },
+    {
+      "id": "gd-mode",
+      "topicId": "grouped-data",
+      "name": "Mode of grouped data",
+      "description": "The modal class has the highest frequency; mode = l + ((f₁ − f₀) ÷ (2f₁ − f₀ − f₂)) × h. For moderately skewed data, mode ≈ 3 median − 2 mean.",
+      "sortOrder": 7
+    },
+    {
+      "id": "gd-missing",
+      "topicId": "grouped-data",
+      "name": "Missing frequencies",
+      "description": "Recover an unknown frequency from a given mean (deviations from the mean balance out), median (locate the median class, then solve) or mode, sometimes with the total n given as well.",
+      "sortOrder": 8
+    }
+  ],
+  "formulas": [
+    {
+      "id": "gd-class-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-tables",
+      "title": "Class mark, width and boundaries",
+      "prompt": "How do you find a class mark and width, and turn inclusive classes into boundaries?",
+      "formula": "Class mark = (lower limit + upper limit) ÷ 2\nWidth h = upper boundary − lower boundary\nInclusive classes: lower limit − d/2, upper limit + d/2",
+      "variables": [
+        {
+          "symbol": "d",
+          "meaning": "the gap between one class’s upper limit and the next class’s lower limit (usually 1)"
+        },
+        {
+          "symbol": "h",
+          "meaning": "class width"
+        }
+      ],
+      "explanation": "Inclusive classes such as 10–19, 20–29 leave a gap that no value can fall into only because the data are whole numbers. Moving each limit half the gap gives continuous boundaries, and the width is measured between boundaries.",
+      "example": "Classes 10–19, 20–29, 30–39: gap 1, so 20–29 becomes 19.5–29.5. Width 10, class mark 24.5.",
+      "commonMistake": "Taking the width of 20–29 as 29 − 20 = 9 instead of 10.",
+      "applicationPrompt": "In the classes 20–29, 30–39, 40–49, what are the boundaries of 30–39?",
+      "tags": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gd-sc-class-from-marks",
+      "topicId": "grouped-data",
+      "conceptId": "gd-tables",
+      "kind": "shortcut",
+      "title": "Classes from the class marks",
+      "prompt": "You are given only the class marks. How do you rebuild a class?",
+      "formula": "h = difference of two consecutive marks\nClass = mark − h/2 to mark + h/2",
+      "variables": [],
+      "explanation": "Marks are the mid-points of classes of equal width, so consecutive marks are one width apart and each class reaches half a width either side of its mark.",
+      "example": "Marks 47, 52, 57, 62, 67: h = 5, so the class of 57 is 54.5–59.5.",
+      "commonMistake": "Treating the mark as a class limit, as in 57–62.",
+      "applicationPrompt": "The class marks are 15, 25, 35, 45. Which class has the mark 35?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gd-cf-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-cumulative",
+      "title": "Cumulative frequency",
+      "prompt": "How are less-than and more-than cumulative frequencies built, and how do you get a class frequency back?",
+      "formula": "Less than an upper boundary: add the frequencies up to it\nMore than (or equal to) a lower boundary = n − (count below it)\nClass frequency = its cf − cf of the class before",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "total frequency"
+        },
+        {
+          "symbol": "cf",
+          "meaning": "cumulative frequency"
+        }
+      ],
+      "explanation": "A cumulative frequency counts everything below (or above) a boundary, not one class. The last less-than figure is n, and any class is the step between two consecutive cumulative figures.",
+      "example": "f = 4, 7, 12, 9, 8 on 0–10 … 40–50: less than 30 is 4 + 7 + 12 = 23; 30 or more is 40 − 23 = 17.",
+      "commonMistake": "Reading a cumulative frequency as the frequency of that class alone.",
+      "applicationPrompt": "Less than 20: 11, less than 30: 23. How many lie in 20–30?",
+      "tags": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gd-hist-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-graphs",
+      "title": "Histogram and frequency polygon",
+      "prompt": "What height does a histogram bar get, and how is a frequency polygon drawn?",
+      "formula": "Equal widths: bar height = f\nUnequal widths: height = f × (standard width ÷ class width)\nPolygon: join (class mark, f), closed at the marks of the empty classes at both ends",
+      "variables": [
+        {
+          "symbol": "f",
+          "meaning": "class frequency"
+        }
+      ],
+      "explanation": "In a histogram the area of a bar shows the frequency. When every class has the same width the heights can be the frequencies; a class twice as wide must be drawn half as high. The polygon, closed at both ends, encloses the same area as the histogram.",
+      "example": "Class 40–70 (width 30) with f = 21, standard width 10: height 21 × 10 ÷ 30 = 7.",
+      "commonMistake": "Drawing a wide class at its full frequency, which makes it look far bigger than it is.",
+      "applicationPrompt": "Classes 0–10, 10–20 and 20–40 hold 6, 9 and 16. How tall is the bar for 20–40?",
+      "tags": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gd-ogive-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-ogive",
+      "title": "Ogives",
+      "prompt": "What does each ogive plot, and what does their meeting point tell you?",
+      "formula": "Less-than ogive: (upper boundary, less-than cf), rising from 0 to n\nMore-than ogive: (lower boundary, more-than cf), falling from n to 0\nThey cross at (median, n/2)",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "total frequency"
+        }
+      ],
+      "explanation": "Joining the points with straight lines spreads each class evenly across its width, so values and counts in between can be read by proportion. At the crossing, as many values lie below as above: n/2 each.",
+      "example": "The two ogives meet at (42.5, 35): the median is 42.5 and n = 2 × 35 = 70.",
+      "commonMistake": "Plotting the less-than cumulative frequency against class marks or lower limits instead of upper boundaries.",
+      "applicationPrompt": "The ogives of a distribution cross at (61.5, 40). What are the median and the total frequency?",
+      "tags": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gd-mean-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "title": "Mean of grouped data",
+      "prompt": "How do you find the mean of a grouped frequency table?",
+      "formula": "Direct: x̄ = Σfx ÷ Σf\nAssumed mean: x̄ = A + Σfd ÷ Σf, with d = x − A",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "class mark"
+        },
+        {
+          "symbol": "f",
+          "meaning": "class frequency"
+        },
+        {
+          "symbol": "A",
+          "meaning": "assumed mean, usually a central class mark"
+        }
+      ],
+      "explanation": "Every value in a class is taken to sit at the class mark. The assumed-mean method only shifts the numbers by A to keep them small; it gives exactly the same answer.",
+      "example": "f = 3, 5, 8, 4 on 0–10, 10–20, 20–30, 30–40: Σfx = 15 + 75 + 200 + 140 = 430, Σf = 20, x̄ = 21.5.",
+      "commonMistake": "Dividing Σfx by the number of classes instead of by Σf.",
+      "applicationPrompt": "Marks 5, 15, 25 have frequencies 2, 6, 2. What is the mean?",
+      "tags": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gd-sc-step",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "kind": "shortcut",
+      "title": "Step-deviation method",
+      "prompt": "The class marks are large and evenly spaced. How do you find the mean with small numbers?",
+      "formula": "u = (x − A) ÷ h\nx̄ = A + (Σfu ÷ Σf) × h",
+      "variables": [
+        {
+          "symbol": "h",
+          "meaning": "class width"
+        },
+        {
+          "symbol": "u",
+          "meaning": "steps of the class mark away from A"
+        }
+      ],
+      "explanation": "Dividing the deviations by the common width makes u small whole numbers (… −2, −1, 0, 1, 2 …). Multiplying by h at the end undoes the division.",
+      "example": "Marks 110, 130, …, 210 with f = 5, 8, 12, 15, 6, 4; A = 150, h = 20: u = −2, −1, 0, 1, 2, 3, Σfu = 21, x̄ = 150 + (21 ÷ 50) × 20 = 158.4.",
+      "commonMistake": "Forgetting the final × h (150 + 0.42 = 150.42).",
+      "applicationPrompt": "A = 45, h = 10, Σfu = −8, Σf = 40. What is the mean?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gd-median-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-median",
+      "title": "Median of grouped data",
+      "prompt": "How do you find the median of a grouped frequency table?",
+      "formula": "Median = l + ((n/2 − cf) ÷ f) × h",
+      "variables": [
+        {
+          "symbol": "l",
+          "meaning": "lower boundary of the median class"
+        },
+        {
+          "symbol": "n",
+          "meaning": "total frequency"
+        },
+        {
+          "symbol": "cf",
+          "meaning": "cumulative frequency of the class before the median class"
+        },
+        {
+          "symbol": "f",
+          "meaning": "frequency of the median class"
+        },
+        {
+          "symbol": "h",
+          "meaning": "width of the median class"
+        }
+      ],
+      "explanation": "The median class is the first whose cumulative frequency reaches n/2. Inside it, the median sits the same share of the way across as n/2 − cf is of f, which is exactly reading n/2 off the less-than ogive.",
+      "example": "f = 6, 9, 7, 15, 7, 6 on 0–10 … 50–60: n/2 = 25, cumulative 6, 15, 22, 37, so the median class is 30–40 with cf = 22, f = 15: 30 + (3 ÷ 15) × 10 = 32.",
+      "commonMistake": "Using the median class’s own cumulative frequency (37) for cf instead of the class before it (22).",
+      "applicationPrompt": "n = 40, median class 20–30, cf before it 14, f = 12. What is the median?",
+      "tags": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gd-mode-f",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mode",
+      "title": "Mode of grouped data",
+      "prompt": "How do you find the mode of a grouped frequency table?",
+      "formula": "Mode = l + ((f₁ − f₀) ÷ (2f₁ − f₀ − f₂)) × h",
+      "variables": [
+        {
+          "symbol": "l",
+          "meaning": "lower boundary of the modal class"
+        },
+        {
+          "symbol": "f₁",
+          "meaning": "frequency of the modal class"
+        },
+        {
+          "symbol": "f₀",
+          "meaning": "frequency of the class before it (0 if none)"
+        },
+        {
+          "symbol": "f₂",
+          "meaning": "frequency of the class after it (0 if none)"
+        },
+        {
+          "symbol": "h",
+          "meaning": "class width"
+        }
+      ],
+      "explanation": "The modal class has the highest frequency. The mode leans towards whichever neighbour is bigger: the formula splits the class in the ratio (f₁ − f₀) : (f₁ − f₂). As a check, for moderately skewed data mode ≈ 3 median − 2 mean.",
+      "example": "f = 6, 10, 16, 12, 5, 1 on 20–30 … 70–80: modal class 40–50, mode = 40 + ((16 − 10) ÷ (32 − 10 − 12)) × 10 = 40 + 0.6 × 10 = 46.",
+      "commonMistake": "Writing f₁ − f₂ in the denominator (here 40 + (6 ÷ 4) × 10 = 55, which is not even in the modal class).",
+      "applicationPrompt": "Modal class 30–40 with f₁ = 20, f₀ = 14, f₂ = 16. What is the mode?",
+      "tags": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gd-sc-missing-mean",
+      "topicId": "grouped-data",
+      "conceptId": "gd-missing",
+      "kind": "shortcut",
+      "title": "Missing frequency from the mean",
+      "prompt": "One frequency is missing and the mean is given. What is the quickest equation for it?",
+      "formula": "Σf(x − x̄) = 0\n(deviations from the true mean balance out)",
+      "variables": [
+        {
+          "symbol": "x̄",
+          "meaning": "the given mean"
+        }
+      ],
+      "explanation": "Above and below the true mean the deviations cancel. Measuring from x̄ leaves one equation with the unknown only once, instead of in both Σfx and Σf.",
+      "example": "Marks 10, 30, 50, 70, 90 with f = 8, 12, p, 10, 5 and x̄ = 46.8: 8(−36.8) + 12(−16.8) + p(3.2) + 10(23.2) + 5(43.2) = 0, so −48 + 3.2p = 0 and p = 15.",
+      "commonMistake": "Using x̄ = Σfx ÷ Σf but leaving p out of Σf.",
+      "applicationPrompt": "Marks 5, 15, 25 have frequencies 4, p, 6 and the mean is 16. Find p.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "grouped-data-level-0",
+      "topicId": "grouped-data",
+      "order": 0,
+      "title": "From a Table to a Picture",
+      "description": "Classes and class marks, cumulative frequency, the three graphs, and the mean, median and mode of grouped data.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "gd-tables",
+        "gd-cumulative",
+        "gd-graphs",
+        "gd-ogive",
+        "gd-mean",
+        "gd-median",
+        "gd-mode"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Classes, limits and boundaries",
+            "body": "Fifty test marks are easier to read in groups: 0–10, 10–20, 20–30, … Each group is a class, and the count in it is its frequency. In 10–20 the value 20 belongs to the next class, so the classes meet without gaps (exclusive classes).\n\nThe middle of a class is its class mark, (10 + 20) ÷ 2 = 15, and stands for every value in the class. The class width h is upper boundary − lower boundary.\n\nWhole-number data are often grouped as 10–19, 20–29, … (inclusive classes). Their true boundaries lie halfway across the gaps: 20–29 really runs from 19.5 to 29.5, and its width is 10, not 9."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "histogram-ogive"
+          },
+          {
+            "type": "check",
+            "questionId": "grouped-data-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Cumulative frequency",
+            "body": "Add the frequencies as you go down the table and you get the less-than cumulative frequency: with 4, 7, 12, 9, 8 in 0–10 … 40–50, 4 are below 10, 11 below 20, 23 below 30, 32 below 40 and all 40 below 50.\n\nA more-than count runs the other way: 30 or more is 40 − 23 = 17. And any single class is the step between two cumulative figures: 30–40 holds 32 − 23 = 9."
+          },
+          {
+            "type": "text",
+            "title": "Three pictures of one table",
+            "body": "A histogram stands a bar on each class, touching its neighbours. The area of a bar shows its frequency; with equal widths the height can simply be the frequency.\n\nA frequency polygon joins the tops of the bars at their mid-points (class mark, frequency) and is closed on the axis at the marks of the empty classes just beyond each end.\n\nAn ogive plots cumulative frequency: the less-than ogive at upper boundaries, rising from 0 to n; the more-than ogive at lower boundaries, falling from n to 0. They cross at height n/2, right above the median."
+          },
+          {
+            "type": "formula",
+            "title": "Mean: step deviation",
+            "body": "x̄ = A + (Σfu ÷ Σf) × h,   u = (x − A) ÷ h",
+            "caption": "x is the class mark, A a central class mark (the assumed mean), h the class width. The direct method Σfx ÷ Σf gives the same answer with bigger numbers."
+          },
+          {
+            "type": "example",
+            "title": "Mean daily wage",
+            "body": "Wages 100–120, 120–140, …, 200–220 with 5, 8, 12, 15, 6, 4 workers. Marks 110, 130, …, 210. Take A = 150, h = 20: u = −2, −1, 0, 1, 2, 3 and fu = −10, −8, 0, 15, 12, 12, so Σfu = 21.\nx̄ = 150 + (21 ÷ 50) × 20 = 150 + 8.4 = ₹158.40."
+          },
+          {
+            "type": "formula",
+            "title": "Median",
+            "body": "Median = l + ((n/2 − cf) ÷ f) × h",
+            "caption": "The median class is the first whose cumulative frequency reaches n/2; l is its lower boundary, f its frequency, and cf the cumulative frequency of the class before it."
+          },
+          {
+            "type": "example",
+            "title": "Median of 50 marks",
+            "body": "Frequencies 6, 9, 7, 15, 7, 6 in 0–10 … 50–60. n/2 = 25; cumulative 6, 15, 22, 37, … so 30–40 is the median class, with cf = 22 and f = 15.\nMedian = 30 + ((25 − 22) ÷ 15) × 10 = 32."
+          },
+          {
+            "type": "formula",
+            "title": "Mode",
+            "body": "Mode = l + ((f₁ − f₀) ÷ (2f₁ − f₀ − f₂)) × h",
+            "caption": "The modal class has the highest frequency f₁; f₀ and f₂ are the classes before and after it (0 beyond the ends of the table)."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "In the simulation, slide the class width or move the edges: the median hardly changes, because it only depends on where half the values lie, but the modal class can jump a whole class or more. For moderately skewed data the three measures are tied by mode ≈ 3 median − 2 mean, a handy check."
+          },
+          {
+            "type": "check",
+            "questionId": "grouped-data-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "grouped-data-level-1",
+      "topicId": "grouped-data",
+      "order": 1,
+      "title": "Grouped Data Formulas",
+      "description": "Class marks and boundaries, cumulative frequency, histogram heights, ogives, and the mean, median and mode formulas.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-0"
+      ],
+      "conceptIds": [
+        "gd-tables",
+        "gd-cumulative",
+        "gd-graphs",
+        "gd-ogive",
+        "gd-mean",
+        "gd-median",
+        "gd-mode"
+      ],
+      "formulaIds": [
+        "gd-class-f",
+        "gd-cf-f",
+        "gd-hist-f",
+        "gd-ogive-f",
+        "gd-mean-f",
+        "gd-sc-step",
+        "gd-median-f",
+        "gd-mode-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "grouped-data-level-2",
+      "topicId": "grouped-data",
+      "order": 2,
+      "title": "Classes, Counts and the Direct Mean",
+      "description": "Boundaries and class marks, less-than and more-than counts, the frequency polygon and the mean by the direct method.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-1"
+      ],
+      "conceptIds": [
+        "gd-tables",
+        "gd-cumulative",
+        "gd-graphs",
+        "gd-mean"
+      ],
+      "questionIds": [
+        "grouped-data-q-001",
+        "grouped-data-q-002",
+        "grouped-data-q-003",
+        "grouped-data-q-004",
+        "grouped-data-q-005",
+        "grouped-data-q-006"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "grouped-data-level-3",
+      "topicId": "grouped-data",
+      "order": 3,
+      "title": "Mean, Median and Mode by Formula",
+      "description": "Step deviation, the median and mode formulas, reading the median off an ogive, and the empirical relation.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 13,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-2"
+      ],
+      "conceptIds": [
+        "gd-mean",
+        "gd-median",
+        "gd-mode",
+        "gd-ogive",
+        "gd-graphs"
+      ],
+      "questionIds": [
+        "grouped-data-q-007",
+        "grouped-data-q-008",
+        "grouped-data-q-009",
+        "grouped-data-q-010",
+        "grouped-data-q-011",
+        "grouped-data-q-012",
+        "grouped-data-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "grouped-data-level-4",
+      "topicId": "grouped-data",
+      "order": 4,
+      "title": "Comparing Measures and Reading Graphs",
+      "description": "All three measures from one table, inclusive classes, crossing ogives, a mean from a histogram, and spotting the missing × h.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-3"
+      ],
+      "conceptIds": [
+        "gd-mean",
+        "gd-median",
+        "gd-mode",
+        "gd-ogive",
+        "gd-tables"
+      ],
+      "questionIds": [
+        "grouped-data-q-014",
+        "grouped-data-q-015",
+        "grouped-data-q-016",
+        "grouped-data-q-017",
+        "grouped-data-q-018"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "grouped-data-level-5",
+      "topicId": "grouped-data",
+      "order": 5,
+      "title": "Mixed Grouped Data Practice",
+      "description": "Tables, graphs, and the three measures, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-4"
+      ],
+      "conceptIds": [
+        "gd-tables",
+        "gd-cumulative",
+        "gd-graphs",
+        "gd-ogive",
+        "gd-mean",
+        "gd-median",
+        "gd-mode"
+      ],
+      "questionQuery": {
+        "topicId": "grouped-data",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "gd-tables",
+          "gd-cumulative",
+          "gd-graphs",
+          "gd-ogive",
+          "gd-mean",
+          "gd-median",
+          "gd-mode"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "grouped-data-level-6",
+      "topicId": "grouped-data",
+      "order": 6,
+      "title": "Advanced: Missing Frequencies and Unequal Widths",
+      "description": "Recover a missing frequency from the mean, median or mode, and draw honest histograms when the classes differ in width.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-5"
+      ],
+      "conceptIds": [
+        "gd-missing",
+        "gd-graphs"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A missing frequency from the mean",
+            "body": "Call the missing frequency p. It appears twice: in Σfx and in Σf. Write the mean with both, cross-multiply and solve a linear equation.\n\nA faster route measures from the given mean: deviations from the true mean balance out, Σf(x − x̄) = 0, so p appears only once."
+          },
+          {
+            "type": "example",
+            "title": "Marks with a gap",
+            "body": "Marks 10, 30, 50, 70, 90 with frequencies 8, 12, p, 10, 5, and the mean is 46.8.\nDeviations from 46.8: −36.8, −16.8, 3.2, 23.2, 43.2. Known classes: −294.4 − 201.6 + 232 + 216 = −48. So 3.2p = 48 and p = 15."
+          },
+          {
+            "type": "text",
+            "title": "From the median or the mode",
+            "body": "The given median (or mode) tells you which class it lies in, and so which class is the median (or modal) class. Put everything you know into the formula and solve for the unknown. Remember that n contains every unknown, and cf contains an unknown only if its class comes before the median class.\n\nWith two unknowns, the question also gives the total n: one equation from n, one from the formula."
+          },
+          {
+            "type": "check",
+            "questionId": "grouped-data-q-019"
+          },
+          {
+            "type": "text",
+            "title": "Unequal class widths",
+            "body": "A histogram shows frequency by area. If 40–70 is three times as wide as the standard 10, its bar must be a third as tall: height = f × (standard width ÷ class width). Drawn at full height, a wide class looks far more crowded than it is.\n\nThe same goes for the modal class: compare frequencies per unit width (frequency density), not raw frequencies."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Classes 20–40 with 18 values and 40–70 with 21: per 10 units these hold 9 and 7, so 20–40 is the more crowded class even though 21 > 18."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "grouped-data-level-7",
+      "topicId": "grouped-data",
+      "order": 7,
+      "title": "Challenge: Missing Frequencies and Unequal Widths",
+      "description": "Missing frequencies from the mean, median and mode, adjusted heights, the modal class with unequal widths, and counts between two values on an ogive.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "grouped-data-level-6"
+      ],
+      "conceptIds": [
+        "gd-missing",
+        "gd-graphs",
+        "gd-ogive"
+      ],
+      "questionIds": [
+        "grouped-data-q-019",
+        "grouped-data-q-020",
+        "grouped-data-q-021",
+        "grouped-data-q-022",
+        "grouped-data-q-023",
+        "grouped-data-q-024"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "grouped-data-q-001",
+      "topicId": "grouped-data",
+      "conceptId": "gd-tables",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "single_choice",
+      "question": "The class marks of a frequency distribution are 47, 52, 57, 62 and 67. Which is the class whose mark is 57?",
+      "options": [
+        {
+          "id": "a",
+          "text": "54.5–59.5"
+        },
+        {
+          "id": "b",
+          "text": "57–62"
+        },
+        {
+          "id": "c",
+          "text": "52–57"
+        },
+        {
+          "id": "d",
+          "text": "55–60"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Consecutive marks differ by the class width, 52 − 47 = 5. A mark is the middle of its class, so the class runs 2.5 either side of 57: 54.5 to 59.5.",
+      "solutionSteps": [
+        "Width = 52 − 47 = 5.",
+        "Half the width = 2.5.",
+        "Class = 57 − 2.5 to 57 + 2.5 = 54.5–59.5."
+      ],
+      "formulaIds": [
+        "gd-sc-class-from-marks",
+        "gd-class-f"
+      ],
+      "method": "Width from the gap between marks; class = mark ± half the width.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A class mark is the mid-point of its class. How wide is each class?"
+        },
+        {
+          "level": 2,
+          "text": "The marks go up in steps of 5, so the width is 5; go half of it either side of 57."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the mark as the lower limit (57–62) or the upper limit (52–57).",
+        "Rounding the half-width away (55–60), which no longer has 57 at its middle."
+      ],
+      "tags": [
+        "classes",
+        "class-mark"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-002",
+      "topicId": "grouped-data",
+      "conceptId": "gd-tables",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Marks are grouped as 10–19, 20–29, 30–39, 40–49. What are the true class boundaries of 20–29, and the class width?",
+      "options": [
+        {
+          "id": "a",
+          "text": "19.5–29.5; width 10"
+        },
+        {
+          "id": "b",
+          "text": "20–29; width 9"
+        },
+        {
+          "id": "c",
+          "text": "20–30; width 10"
+        },
+        {
+          "id": "d",
+          "text": "20.5–28.5; width 8"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "These are inclusive classes with a gap of 1 between 19 and 20, 29 and 30. The boundaries lie halfway across each gap, so 20–29 becomes 19.5–29.5. The width is measured between boundaries: 29.5 − 19.5 = 10 (also the step between lower limits, 20 − 10).",
+      "solutionSteps": [
+        "Gap between classes = 20 − 19 = 1; half of it = 0.5.",
+        "Boundaries of 20–29: 20 − 0.5 = 19.5 and 29 + 0.5 = 29.5.",
+        "Width = 29.5 − 19.5 = 10."
+      ],
+      "formulaIds": [
+        "gd-class-f"
+      ],
+      "method": "Subtract half the gap from each lower limit and add it to each upper limit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is there a gap between one class and the next? Where should the boundary between 29 and 30 sit?"
+        },
+        {
+          "level": 2,
+          "text": "Move each limit outwards by half the gap, 0.5; the width is the difference of the boundaries."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the limits as boundaries and the width as 29 − 20 = 9.",
+        "Moving only one limit (20–30), or moving the limits inwards."
+      ],
+      "tags": [
+        "classes",
+        "inclusive"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-003",
+      "topicId": "grouped-data",
+      "conceptId": "gd-cumulative",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "From the table, how many students scored less than 30 marks?",
+      "table": {
+        "caption": "Marks of 40 students",
+        "headers": [
+          "Marks",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "4"
+          ],
+          [
+            "10–20",
+            "7"
+          ],
+          [
+            "20–30",
+            "12"
+          ],
+          [
+            "30–40",
+            "9"
+          ],
+          [
+            "40–50",
+            "8"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 23,
+        "tolerance": 0
+      },
+      "explanation": "Less than 30 takes in every class that ends at or before 30: 0–10, 10–20 and 20–30. Their frequencies add to 4 + 7 + 12 = 23, the less-than cumulative frequency at 30.",
+      "solutionSteps": [
+        "Classes below 30: 0–10, 10–20, 20–30.",
+        "4 + 7 + 12 = 23."
+      ],
+      "formulaIds": [
+        "gd-cf-f"
+      ],
+      "method": "Add the frequencies of every class below the boundary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which classes lie wholly below 30?"
+        },
+        {
+          "level": 2,
+          "text": "Add the first three frequencies."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 20 (4 + 7 = 11) because the class 20–30 “contains” 30.",
+        "Adding the class 30–40 as well."
+      ],
+      "tags": [
+        "cumulative"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-004",
+      "topicId": "grouped-data",
+      "conceptId": "gd-graphs",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "single_choice",
+      "question": "Which points are joined to draw a frequency polygon?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(class mark, frequency), closed at the marks of an empty class at each end"
+        },
+        {
+          "id": "b",
+          "text": "(upper class boundary, frequency)"
+        },
+        {
+          "id": "c",
+          "text": "(upper class boundary, less-than cumulative frequency)"
+        },
+        {
+          "id": "d",
+          "text": "(lower class boundary, more-than cumulative frequency)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A frequency polygon joins the mid-points of the tops of the histogram bars, which are (class mark, frequency), and is brought down to the axis at the marks of the empty classes just outside the table. The two cumulative pairs are the less-than and more-than ogives.",
+      "solutionSteps": [
+        "The top of each bar is centred on the class mark at height f.",
+        "Join these points and add (mark of an empty class, 0) at both ends."
+      ],
+      "formulaIds": [
+        "gd-hist-f",
+        "gd-ogive-f"
+      ],
+      "method": "Polygon: class marks; ogives: boundaries and cumulative frequencies.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The polygon joins the middles of the tops of the histogram bars. Where is the middle of a class?"
+        },
+        {
+          "level": 2,
+          "text": "Cumulative frequencies belong to ogives, not to the polygon."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the frequency polygon with the less-than ogive.",
+        "Leaving the polygon open instead of closing it on the axis."
+      ],
+      "tags": [
+        "graphs",
+        "recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-005",
+      "topicId": "grouped-data",
+      "conceptId": "gd-cumulative",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The table gives the daily wages of 60 workers as a less-than cumulative frequency distribution. How many workers earn ₹300 or more?",
+      "table": {
+        "caption": "Daily wages of 60 workers (cumulative)",
+        "headers": [
+          "Daily wage (₹)",
+          "Number of workers"
+        ],
+        "rows": [
+          [
+            "Less than 200",
+            "6"
+          ],
+          [
+            "Less than 250",
+            "18"
+          ],
+          [
+            "Less than 300",
+            "35"
+          ],
+          [
+            "Less than 350",
+            "47"
+          ],
+          [
+            "Less than 400",
+            "55"
+          ],
+          [
+            "Less than 450",
+            "60"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "35"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "42"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "35 workers earn less than ₹300 (the “less than 300” row). Everyone else earns ₹300 or more: 60 − 35 = 25.",
+      "solutionSteps": [
+        "Total = 60 (the last row).",
+        "Less than ₹300: 35.",
+        "₹300 or more: 60 − 35 = 25."
+      ],
+      "formulaIds": [
+        "gd-cf-f"
+      ],
+      "method": "More-than count = n − less-than count at the same boundary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The last row of a less-than table is the total number of workers."
+        },
+        {
+          "level": 2,
+          "text": "Take away the workers who earn less than ₹300."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 35, the number below ₹300.",
+        "Subtracting the row for ₹350 (60 − 47 = 13) or for ₹250 (60 − 18 = 42)."
+      ],
+      "tags": [
+        "cumulative",
+        "more-than"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-006",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "levelId": "grouped-data-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the mean of the distribution.",
+      "table": {
+        "caption": "Marks of 20 students",
+        "headers": [
+          "Marks",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "3"
+          ],
+          [
+            "10–20",
+            "5"
+          ],
+          [
+            "20–30",
+            "8"
+          ],
+          [
+            "30–40",
+            "4"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 21.5,
+        "tolerance": 0.01
+      },
+      "explanation": "Each class stands at its mark: 5, 15, 25, 35. Σfx = 3 × 5 + 5 × 15 + 8 × 25 + 4 × 35 = 15 + 75 + 200 + 140 = 430, and Σf = 20, so the mean is 430 ÷ 20 = 21.5.",
+      "solutionSteps": [
+        "Class marks: 5, 15, 25, 35.",
+        "fx: 15, 75, 200, 140; Σfx = 430.",
+        "Mean = 430 ÷ 20 = 21.5."
+      ],
+      "formulaIds": [
+        "gd-mean-f"
+      ],
+      "method": "Direct method: Σfx ÷ Σf with class marks.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Represent each class by its mid-point."
+        },
+        {
+          "level": 2,
+          "text": "Multiply each mark by its frequency, add, and divide by 20."
+        }
+      ],
+      "commonMistakes": [
+        "Using upper limits (10, 20, 30, 40), which gives 26.5.",
+        "Dividing by 4, the number of classes."
+      ],
+      "tags": [
+        "mean",
+        "direct"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-007",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the mean daily wage of the 50 workers.",
+      "table": {
+        "caption": "Daily wages of 50 workers",
+        "headers": [
+          "Daily wage (₹)",
+          "Number of workers"
+        ],
+        "rows": [
+          [
+            "100–120",
+            "5"
+          ],
+          [
+            "120–140",
+            "8"
+          ],
+          [
+            "140–160",
+            "12"
+          ],
+          [
+            "160–180",
+            "15"
+          ],
+          [
+            "180–200",
+            "6"
+          ],
+          [
+            "200–220",
+            "4"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "₹158.40"
+        },
+        {
+          "id": "b",
+          "text": "₹150.42"
+        },
+        {
+          "id": "c",
+          "text": "₹168.40"
+        },
+        {
+          "id": "d",
+          "text": "₹141.60"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Use step deviation with A = 150 (the mark of 140–160) and h = 20. The marks 110, 130, …, 210 give u = −2, −1, 0, 1, 2, 3, so Σfu = −10 − 8 + 0 + 15 + 12 + 12 = 21. Mean = 150 + (21 ÷ 50) × 20 = 150 + 8.4 = ₹158.40. (Directly: Σfx = 7,920, and 7,920 ÷ 50 = 158.4.)",
+      "solutionSteps": [
+        "A = 150, h = 20; u = −2, −1, 0, 1, 2, 3.",
+        "fu = −10, −8, 0, 15, 12, 12; Σfu = 21.",
+        "Mean = 150 + (21 ÷ 50) × 20 = 158.4."
+      ],
+      "formulaIds": [
+        "gd-sc-step",
+        "gd-mean-f"
+      ],
+      "method": "Step deviation: A + (Σfu ÷ Σf) × h.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The marks are large but evenly spaced 20 apart: step deviation keeps the numbers small."
+        },
+        {
+          "level": 2,
+          "text": "Take A = 150 and h = 20, so u runs −2 to 3. Find Σfu."
+        },
+        {
+          "level": 3,
+          "text": "Σfu = 21. Now A + (21 ÷ 50) × 20."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to multiply by h: 150 + 0.42 = 150.42.",
+        "Using the upper limits instead of the marks (168.40), or subtracting the correction from A (141.60)."
+      ],
+      "tags": [
+        "mean",
+        "step-deviation"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-008",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "ordering",
+      "question": "Put the steps of the step-deviation method in order.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Write the class mark x of every class"
+        },
+        {
+          "id": "s2",
+          "text": "Choose an assumed mean A (a central class mark) and the class width h"
+        },
+        {
+          "id": "s3",
+          "text": "Work out u = (x − A) ÷ h for every class"
+        },
+        {
+          "id": "s4",
+          "text": "Multiply each u by its frequency and add, to get Σfu"
+        },
+        {
+          "id": "s5",
+          "text": "Mean = A + (Σfu ÷ Σf) × h"
+        }
+      ],
+      "explanation": "The marks are needed before A can be chosen from among them; u comes from x, A and h; the products fu need u; and the final formula needs Σfu, with × h restoring the scale divided out in u.",
+      "solutionSteps": [
+        "Marks → A and h → u → Σfu → A + (Σfu ÷ Σf) × h."
+      ],
+      "formulaIds": [
+        "gd-sc-step"
+      ],
+      "method": "Marks, choose A and h, steps u, Σfu, then the formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot choose A until you know the class marks."
+        },
+        {
+          "level": 2,
+          "text": "The last step uses Σfu and multiplies by h."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by h when forming u and then forgetting to multiply by h at the end."
+      ],
+      "tags": [
+        "mean",
+        "step-deviation",
+        "ordering"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-009",
+      "topicId": "grouped-data",
+      "conceptId": "gd-median",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the median of the distribution.",
+      "table": {
+        "caption": "Marks of 50 students",
+        "headers": [
+          "Marks",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "6"
+          ],
+          [
+            "10–20",
+            "9"
+          ],
+          [
+            "20–30",
+            "7"
+          ],
+          [
+            "30–40",
+            "15"
+          ],
+          [
+            "40–50",
+            "7"
+          ],
+          [
+            "50–60",
+            "6"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "32"
+        },
+        {
+          "id": "b",
+          "text": "22"
+        },
+        {
+          "id": "c",
+          "text": "42"
+        },
+        {
+          "id": "d",
+          "text": "30.2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "n = 50, so n/2 = 25. The cumulative frequencies are 6, 15, 22, 37, …; the first to reach 25 is 37, so 30–40 is the median class. The class before it has cf = 22, and f = 15, h = 10: median = 30 + ((25 − 22) ÷ 15) × 10 = 30 + 2 = 32.",
+      "solutionSteps": [
+        "n/2 = 25; cumulative frequencies 6, 15, 22, 37, 44, 50.",
+        "Median class 30–40: l = 30, cf = 22, f = 15, h = 10.",
+        "Median = 30 + (3 ÷ 15) × 10 = 32."
+      ],
+      "formulaIds": [
+        "gd-median-f"
+      ],
+      "method": "Median = l + ((n/2 − cf) ÷ f) × h.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find n/2 and the cumulative frequencies."
+        },
+        {
+          "level": 2,
+          "text": "The median class is 30–40; cf is the total before it, 22."
+        },
+        {
+          "level": 3,
+          "text": "Median = 30 + ((25 − 22) ÷ 15) × 10."
+        }
+      ],
+      "commonMistakes": [
+        "Using the median class’s own cumulative frequency, 37: 30 + ((25 − 37) ÷ 15) × 10 = 22.",
+        "Using 40, the upper boundary, as l (42), or forgetting × h (30 + 0.2 = 30.2)."
+      ],
+      "tags": [
+        "median"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-010",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mode",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the mode of the ages of the 50 patients.",
+      "table": {
+        "caption": "Ages of 50 patients",
+        "headers": [
+          "Age (years)",
+          "Number of patients"
+        ],
+        "rows": [
+          [
+            "20–30",
+            "6"
+          ],
+          [
+            "30–40",
+            "10"
+          ],
+          [
+            "40–50",
+            "16"
+          ],
+          [
+            "50–60",
+            "12"
+          ],
+          [
+            "60–70",
+            "5"
+          ],
+          [
+            "70–80",
+            "1"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 46,
+        "tolerance": 0.01
+      },
+      "explanation": "The highest frequency, 16, makes 40–50 the modal class: l = 40, f₁ = 16, f₀ = 10, f₂ = 12, h = 10. Mode = 40 + ((16 − 10) ÷ (32 − 10 − 12)) × 10 = 40 + (6 ÷ 10) × 10 = 46.",
+      "solutionSteps": [
+        "Modal class 40–50: f₁ = 16, f₀ = 10, f₂ = 12.",
+        "2f₁ − f₀ − f₂ = 32 − 22 = 10.",
+        "Mode = 40 + (6 ÷ 10) × 10 = 46 years."
+      ],
+      "formulaIds": [
+        "gd-mode-f"
+      ],
+      "method": "Mode = l + ((f₁ − f₀) ÷ (2f₁ − f₀ − f₂)) × h.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which class has the highest frequency?"
+        },
+        {
+          "level": 2,
+          "text": "Modal class 40–50 with f₀ = 10 before it and f₂ = 12 after it."
+        },
+        {
+          "level": 3,
+          "text": "Denominator: 2 × 16 − 10 − 12 = 10."
+        }
+      ],
+      "commonMistakes": [
+        "Using f₁ − f₂ = 4 as the denominator, giving 55, which is not even inside 40–50.",
+        "Swapping f₀ and f₂ (40 + 4 ÷ 10 × 10 = 44)."
+      ],
+      "tags": [
+        "mode"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-011",
+      "topicId": "grouped-data",
+      "conceptId": "gd-ogive",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The less-than ogive of the marks of 60 students passes through the points shown. Estimate the median from it.",
+      "chart": {
+        "type": "line",
+        "caption": "Less-than ogive: marks of 60 students",
+        "unit": "",
+        "categories": [
+          "0",
+          "10",
+          "20",
+          "30",
+          "40",
+          "50",
+          "60"
+        ],
+        "series": [
+          {
+            "label": "Students below the mark",
+            "data": [
+              0,
+              5,
+              14,
+              26,
+              46,
+              54,
+              60
+            ],
+            "colorToken": "data"
+          }
+        ],
+        "ariaSummary": "Less-than ogive. Cumulative frequency at 0: 0, 10: 5, 20: 14, 30: 26, 40: 46, 50: 54, 60: 60."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "32"
+        },
+        {
+          "id": "b",
+          "text": "35"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "32.25"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "n/2 = 30. The ogive passes 26 at 30 and 46 at 40, so 30 is reached 4 of the 20 students into that class: 30 + (4 ÷ 20) × 10 = 32. Reading n/2 off a less-than ogive is exactly the median formula.",
+      "solutionSteps": [
+        "n = 60, n/2 = 30.",
+        "Between (30, 26) and (40, 46): 30 is 4 of the 20 steps up.",
+        "Median = 30 + (4 ÷ 20) × 10 = 32."
+      ],
+      "formulaIds": [
+        "gd-ogive-f",
+        "gd-median-f"
+      ],
+      "method": "Go across at n/2 to the ogive and down to the axis, interpolating along the straight segment.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where does the ogive reach half of 60?"
+        },
+        {
+          "level": 2,
+          "text": "It goes from 26 (at 30) to 46 (at 40). How far along is 30?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving the mark of the median class (35) or its lower boundary (30) without interpolating.",
+        "Using (n + 1)/2 = 30.5 for grouped data (32.25)."
+      ],
+      "tags": [
+        "ogive",
+        "median",
+        "chart"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-012",
+      "topicId": "grouped-data",
+      "conceptId": "gd-graphs",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each graph with what it plots.",
+      "pairs": [
+        {
+          "left": "Histogram",
+          "right": "Bars standing on the class boundaries, with areas showing frequency"
+        },
+        {
+          "left": "Frequency polygon",
+          "right": "Class mark against frequency"
+        },
+        {
+          "left": "Less-than ogive",
+          "right": "Upper boundary against less-than cumulative frequency"
+        },
+        {
+          "left": "More-than ogive",
+          "right": "Lower boundary against more-than cumulative frequency"
+        }
+      ],
+      "explanation": "Histograms and polygons show the frequency of each class (as an area, or at the class mark). Ogives show running totals: a less-than total is complete only at a class’s upper boundary, a more-than total starts at its lower boundary.",
+      "solutionSteps": [
+        "Histogram: areas of bars on boundaries.",
+        "Polygon: marks and frequencies.",
+        "Less-than ogive: upper boundaries; more-than ogive: lower boundaries."
+      ],
+      "formulaIds": [
+        "gd-hist-f",
+        "gd-ogive-f"
+      ],
+      "method": "Frequency graphs use f; ogives use cumulative frequency at the right boundary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two of these show frequencies, two show running totals."
+        },
+        {
+          "level": 2,
+          "text": "A “less than 40” count is complete at 40, the upper boundary of 30–40."
+        }
+      ],
+      "commonMistakes": [
+        "Plotting the less-than ogive at lower boundaries.",
+        "Calling a bar chart with gaps a histogram."
+      ],
+      "tags": [
+        "graphs",
+        "match"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-013",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mode",
+      "levelId": "grouped-data-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For a moderately skewed grouped distribution, the mean is 34.5 and the mode is 30. Estimate the median using the empirical relation.",
+      "options": [
+        {
+          "id": "a",
+          "text": "33"
+        },
+        {
+          "id": "b",
+          "text": "31.5"
+        },
+        {
+          "id": "c",
+          "text": "43.5"
+        },
+        {
+          "id": "d",
+          "text": "32.25"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mode = 3 median − 2 mean, so 3 median = mode + 2 mean = 30 + 69 = 99 and the median is 33. It lies between the mode and the mean, two-thirds of the way from the mode, as it should.",
+      "solutionSteps": [
+        "Mode = 3 median − 2 mean.",
+        "3 median = 30 + 2 × 34.5 = 99.",
+        "Median = 33."
+      ],
+      "formulaIds": [
+        "gd-mode-f"
+      ],
+      "method": "Median = (mode + 2 mean) ÷ 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use mode = 3 median − 2 mean."
+        },
+        {
+          "level": 2,
+          "text": "Rearrange: 3 median = mode + 2 mean."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping the weights: (2 × 30 + 34.5) ÷ 3 = 31.5, or simply averaging the mean and mode (32.25).",
+        "Using 3 mean − 2 mode = 43.5, as if finding the mode."
+      ],
+      "tags": [
+        "empirical",
+        "mode"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-014",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mode",
+      "levelId": "grouped-data-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For the times below, which order of the mean, median and mode is correct?",
+      "table": {
+        "caption": "Minutes taken by 40 students to finish a test",
+        "headers": [
+          "Time (minutes)",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "4"
+          ],
+          [
+            "10–20",
+            "6"
+          ],
+          [
+            "20–30",
+            "7"
+          ],
+          [
+            "30–40",
+            "10"
+          ],
+          [
+            "40–50",
+            "7"
+          ],
+          [
+            "50–60",
+            "6"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean < Median < Mode"
+        },
+        {
+          "id": "b",
+          "text": "Mode < Median < Mean"
+        },
+        {
+          "id": "c",
+          "text": "Median < Mean < Mode"
+        },
+        {
+          "id": "d",
+          "text": "Mean = Median < Mode"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mean: Σfx = 20 + 90 + 175 + 350 + 315 + 330 = 1,280, so 1,280 ÷ 40 = 32. Median: n/2 = 20, cumulative 4, 10, 17, 27, so 30 + ((20 − 17) ÷ 10) × 10 = 33. Mode: modal class 30–40 with f₀ = f₂ = 7, so 30 + (3 ÷ 6) × 10 = 35. So mean 32 < median 33 < mode 35; the data lean left. Check: 3 × 33 − 2 × 32 = 35.",
+      "solutionSteps": [
+        "Mean = 1,280 ÷ 40 = 32.",
+        "Median = 30 + (3 ÷ 10) × 10 = 33.",
+        "Mode = 30 + (3 ÷ 6) × 10 = 35.",
+        "32 < 33 < 35."
+      ],
+      "formulaIds": [
+        "gd-mean-f",
+        "gd-median-f",
+        "gd-mode-f"
+      ],
+      "method": "Compute all three, then compare (and check with mode ≈ 3 median − 2 mean).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need all three measures; start with the mean by Σfx ÷ Σf."
+        },
+        {
+          "level": 2,
+          "text": "Median class and modal class are both 30–40 here."
+        },
+        {
+          "level": 3,
+          "text": "Mean 32, median 33; now the mode with f₀ = 7, f₁ = 10, f₂ = 7."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the right-skewed order (mode < median < mean) without computing.",
+        "Using the cumulative frequency of the median class itself, which drags the median below the mean."
+      ],
+      "tags": [
+        "mean",
+        "median",
+        "mode",
+        "skew"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-015",
+      "topicId": "grouped-data",
+      "conceptId": "gd-median",
+      "levelId": "grouped-data-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the median of the distribution. (Note the classes are inclusive.)",
+      "table": {
+        "caption": "Marks of 50 students",
+        "headers": [
+          "Marks",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "1–10",
+            "4"
+          ],
+          [
+            "11–20",
+            "12"
+          ],
+          [
+            "21–30",
+            "20"
+          ],
+          [
+            "31–40",
+            "8"
+          ],
+          [
+            "41–50",
+            "6"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 25,
+        "tolerance": 0.01
+      },
+      "explanation": "Convert to boundaries first: the gap is 1, so 21–30 becomes 20.5–30.5. n/2 = 25 and the cumulative frequencies are 4, 16, 36, so 20.5–30.5 is the median class with cf = 16, f = 20, h = 10. Median = 20.5 + ((25 − 16) ÷ 20) × 10 = 20.5 + 4.5 = 25.",
+      "solutionSteps": [
+        "Boundaries: 0.5–10.5, 10.5–20.5, 20.5–30.5, …",
+        "n/2 = 25; median class 20.5–30.5, cf = 16, f = 20.",
+        "Median = 20.5 + (9 ÷ 20) × 10 = 25."
+      ],
+      "formulaIds": [
+        "gd-class-f",
+        "gd-median-f"
+      ],
+      "method": "Turn inclusive classes into boundaries, then apply the median formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With inclusive classes, l must be a boundary, not a limit."
+        },
+        {
+          "level": 2,
+          "text": "The median class 21–30 has lower boundary 20.5."
+        },
+        {
+          "level": 3,
+          "text": "Median = 20.5 + ((25 − 16) ÷ 20) × 10."
+        }
+      ],
+      "commonMistakes": [
+        "Using the limit 21 as l, which gives 25.5.",
+        "Taking the width as 9 (30 − 21), which gives 24.55."
+      ],
+      "tags": [
+        "median",
+        "inclusive"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-016",
+      "topicId": "grouped-data",
+      "conceptId": "gd-ogive",
+      "levelId": "grouped-data-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The less-than and more-than ogives of a distribution cross at the point (42.5, 35). What are the median and the total frequency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Median 42.5; total frequency 70"
+        },
+        {
+          "id": "b",
+          "text": "Median 42.5; total frequency 35"
+        },
+        {
+          "id": "c",
+          "text": "Median 35; total frequency 70"
+        },
+        {
+          "id": "d",
+          "text": "Median 35; total frequency 85"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "At the crossing, the number below equals the number above, so the height is n/2 and the x-value is the median. Median = 42.5, and n/2 = 35 gives n = 70.",
+      "solutionSteps": [
+        "x-coordinate of the crossing = median = 42.5.",
+        "y-coordinate = n/2 = 35, so n = 70."
+      ],
+      "formulaIds": [
+        "gd-ogive-f"
+      ],
+      "method": "Ogives cross at (median, n/2).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "At the crossing, how many values lie below and how many above?"
+        },
+        {
+          "level": 2,
+          "text": "Equal numbers: the height is half the total."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the height 35 as the total frequency.",
+        "Mixing up the axes: the median is on the horizontal axis."
+      ],
+      "tags": [
+        "ogive",
+        "median"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-017",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "levelId": "grouped-data-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The histogram shows the ages of 50 people, in classes 20–30, 30–40, …, 60–70. Find their mean age.",
+      "chart": {
+        "type": "bar",
+        "caption": "Ages of 50 people",
+        "unit": "",
+        "categories": [
+          "20–30",
+          "30–40",
+          "40–50",
+          "50–60",
+          "60–70"
+        ],
+        "series": [
+          {
+            "label": "Number of people",
+            "data": [
+              6,
+              10,
+              14,
+              12,
+              8
+            ],
+            "colorToken": "data"
+          }
+        ],
+        "ariaSummary": "Histogram of ages: 20–30: 6, 30–40: 10, 40–50: 14, 50–60: 12, 60–70: 8."
+      },
+      "answer": {
+        "value": 46.2,
+        "tolerance": 0.01
+      },
+      "explanation": "Read the frequencies 6, 10, 14, 12, 8 off the bars. With A = 45 and h = 10, u = −2, −1, 0, 1, 2 and Σfu = −12 − 10 + 0 + 12 + 16 = 6. Mean = 45 + (6 ÷ 50) × 10 = 46.2 years. (Directly: Σfx = 2,310 and 2,310 ÷ 50 = 46.2.)",
+      "solutionSteps": [
+        "Frequencies: 6, 10, 14, 12, 8 (Σf = 50).",
+        "A = 45, h = 10: Σfu = 6.",
+        "Mean = 45 + 0.12 × 10 = 46.2."
+      ],
+      "formulaIds": [
+        "gd-sc-step",
+        "gd-mean-f"
+      ],
+      "method": "Read the frequencies from the bar heights, then step deviation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each bar’s height is the frequency of its class (the widths are equal)."
+        },
+        {
+          "level": 2,
+          "text": "Take A = 45, the mark of 40–50, and h = 10."
+        }
+      ],
+      "commonMistakes": [
+        "Using 45 + 6 ÷ 50 = 45.12 by forgetting × h.",
+        "Using the lower limits of the classes as x (41.2)."
+      ],
+      "tags": [
+        "mean",
+        "histogram",
+        "chart"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-018",
+      "topicId": "grouped-data",
+      "conceptId": "gd-mean",
+      "levelId": "grouped-data-level-4",
+      "difficulty": "complex",
+      "learningStage": "guided",
+      "type": "identify_error",
+      "question": "In which step does this solution first go wrong?",
+      "context": "Find the mean: classes 0–10, 10–20, 20–30, 30–40, 40–50 with frequencies 6, 8, 14, 12, 10.\n\nStep 1: Class marks 5, 15, 25, 35, 45; take A = 25 and h = 10, so u = −2, −1, 0, 1, 2.\nStep 2: fu = −12, −8, 0, 12, 20, so Σfu = 12, and Σf = 50.\nStep 3: Mean = 25 + 12 ÷ 50 = 25.24.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Step 1: A must be the first class mark, 5"
+        },
+        {
+          "id": "b",
+          "text": "Step 2: Σfu has been added wrongly"
+        },
+        {
+          "id": "c",
+          "text": "Step 3: the correction must be multiplied by h = 10, giving 27.4"
+        },
+        {
+          "id": "d",
+          "text": "There is no error; 25.24 is right"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Steps 1 and 2 are correct (any class mark can be A). Because u was found by dividing by h = 10, the correction Σfu ÷ Σf = 0.24 is in “class widths” and must be multiplied by 10: mean = 25 + 0.24 × 10 = 27.4. Directly, Σfx = 1,370 and 1,370 ÷ 50 = 27.4.",
+      "solutionSteps": [
+        "Step 1 ✓ (A can be any mark).",
+        "Step 2 ✓: −12 − 8 + 0 + 12 + 20 = 12.",
+        "Step 3 ✗: 25 + (12 ÷ 50) × 10 = 27.4."
+      ],
+      "formulaIds": [
+        "gd-sc-step"
+      ],
+      "method": "Step deviation needs × h at the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each step against x̄ = A + (Σfu ÷ Σf) × h."
+        },
+        {
+          "level": 2,
+          "text": "Where did the h go after dividing by it to make u?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking A must be the first or the largest class mark."
+      ],
+      "tags": [
+        "mean",
+        "step-deviation",
+        "error"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-019",
+      "topicId": "grouped-data",
+      "conceptId": "gd-missing",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The mean of the distribution is 46.8. Find the missing frequency p.",
+      "table": {
+        "caption": "Marks: one frequency missing",
+        "headers": [
+          "Marks",
+          "Number of students"
+        ],
+        "rows": [
+          [
+            "0–20",
+            "8"
+          ],
+          [
+            "20–40",
+            "12"
+          ],
+          [
+            "40–60",
+            "p"
+          ],
+          [
+            "60–80",
+            "10"
+          ],
+          [
+            "80–100",
+            "5"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "Marks 10, 30, 50, 70, 90. Σfx = 80 + 360 + 50p + 700 + 450 = 1,590 + 50p and Σf = 35 + p. So (1,590 + 50p) ÷ (35 + p) = 46.8: 1,590 + 50p = 1,638 + 46.8p, 3.2p = 48, p = 15. (Shortcut: deviations from 46.8 balance out, and the known classes give −48, so 3.2p = 48.)",
+      "solutionSteps": [
+        "Σfx = 1,590 + 50p; Σf = 35 + p.",
+        "1,590 + 50p = 46.8 × (35 + p) = 1,638 + 46.8p.",
+        "3.2p = 48, so p = 15."
+      ],
+      "formulaIds": [
+        "gd-sc-missing-mean",
+        "gd-mean-f"
+      ],
+      "method": "Write the mean with p in both Σfx and Σf, then solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both Σfx and Σf contain p."
+        },
+        {
+          "level": 2,
+          "text": "Set (1,590 + 50p) ÷ (35 + p) = 46.8 and cross-multiply."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 35 instead of 35 + p.",
+        "Using the class limits instead of the marks."
+      ],
+      "tags": [
+        "missing-frequency",
+        "mean"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-020",
+      "topicId": "grouped-data",
+      "conceptId": "gd-missing",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The table has 60 values in all and its median is 27.5. Find x and y.",
+      "table": {
+        "caption": "Two frequencies missing (total 60)",
+        "headers": [
+          "Class",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "5"
+          ],
+          [
+            "10–20",
+            "x"
+          ],
+          [
+            "20–30",
+            "20"
+          ],
+          [
+            "30–40",
+            "y"
+          ],
+          [
+            "40–50",
+            "7"
+          ],
+          [
+            "50–60",
+            "3"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x = 10, y = 15"
+        },
+        {
+          "id": "b",
+          "text": "x = 15, y = 10"
+        },
+        {
+          "id": "c",
+          "text": "x = 10, y = 25"
+        },
+        {
+          "id": "d",
+          "text": "x = 9, y = 16"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From the total: 5 + x + 20 + y + 7 + 3 = 60, so x + y = 25. The median 27.5 lies in 20–30, so l = 20, cf = 5 + x, f = 20, h = 10: 27.5 = 20 + ((30 − 5 − x) ÷ 20) × 10, so 25 − x = 15 and x = 10. Then y = 15.",
+      "solutionSteps": [
+        "x + y = 60 − 35 = 25.",
+        "Median class 20–30: 27.5 = 20 + ((30 − (5 + x)) ÷ 20) × 10.",
+        "(25 − x) ÷ 2 = 7.5 → x = 10; y = 15."
+      ],
+      "formulaIds": [
+        "gd-median-f"
+      ],
+      "method": "One equation from the total, one from the median formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two unknowns need two equations: one from n = 60, one from the median."
+        },
+        {
+          "level": 2,
+          "text": "The median 27.5 lies in 20–30; its cf is 5 + x."
+        },
+        {
+          "level": 3,
+          "text": "Solve 20 + ((30 − 5 − x) ÷ 20) × 10 = 27.5."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the first class’s 5 out of cf, which gives x = 15, y = 10.",
+        "Forgetting the classes 40–50 and 50–60 in the total (x + y = 35), or working with 30–40 as the median class (x = 9, y = 16)."
+      ],
+      "tags": [
+        "missing-frequency",
+        "median"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-021",
+      "topicId": "grouped-data",
+      "conceptId": "gd-missing",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The mode of the distribution is 27. Find the missing frequency p.",
+      "table": {
+        "caption": "One frequency missing",
+        "headers": [
+          "Class",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "5"
+          ],
+          [
+            "10–20",
+            "8"
+          ],
+          [
+            "20–30",
+            "15"
+          ],
+          [
+            "30–40",
+            "p"
+          ],
+          [
+            "40–50",
+            "6"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "The mode 27 lies in 20–30, so that is the modal class: l = 20, f₁ = 15, f₀ = 8, f₂ = p, h = 10. 27 = 20 + ((15 − 8) ÷ (30 − 8 − p)) × 10, so 70 ÷ (22 − p) = 7, 22 − p = 10 and p = 12 (less than 15, so 20–30 is indeed modal).",
+      "solutionSteps": [
+        "Modal class 20–30 (the mode is inside it).",
+        "27 − 20 = 7 = (7 ÷ (22 − p)) × 10.",
+        "22 − p = 10, so p = 12."
+      ],
+      "formulaIds": [
+        "gd-mode-f"
+      ],
+      "method": "Locate the modal class from the mode, then solve the mode formula for f₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which class does the mode 27 lie in? That is the modal class."
+        },
+        {
+          "level": 2,
+          "text": "p is the frequency after the modal class, f₂."
+        },
+        {
+          "level": 3,
+          "text": "7 = (7 ÷ (30 − 8 − p)) × 10."
+        }
+      ],
+      "commonMistakes": [
+        "Using f₁ − f₂ as the denominator, which gives p = 5.",
+        "Putting p in place of f₁."
+      ],
+      "tags": [
+        "missing-frequency",
+        "mode"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-022",
+      "topicId": "grouped-data",
+      "conceptId": "gd-graphs",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A histogram of this table is drawn with width 10 as the standard. What height (adjusted frequency) should the bar for 40–70 have?",
+      "table": {
+        "caption": "Classes of unequal width",
+        "headers": [
+          "Class",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "0–10",
+            "5"
+          ],
+          [
+            "10–20",
+            "8"
+          ],
+          [
+            "20–40",
+            "18"
+          ],
+          [
+            "40–70",
+            "21"
+          ],
+          [
+            "70–80",
+            "4"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "The widths differ, so area, not height, must show the frequency. 40–70 is 30 wide, three standard widths, so its height is 21 ÷ 3 = 7 (adjusted frequency 21 × 10 ÷ 30).",
+      "solutionSteps": [
+        "Width of 40–70 = 30 = 3 × 10.",
+        "Height = 21 × 10 ÷ 30 = 7."
+      ],
+      "formulaIds": [
+        "gd-hist-f"
+      ],
+      "method": "Adjusted frequency = f × standard width ÷ class width.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With unequal widths, a bar’s area shows its frequency."
+        },
+        {
+          "level": 2,
+          "text": "40–70 is three times as wide as the standard 10."
+        }
+      ],
+      "commonMistakes": [
+        "Drawing it 21 high, which makes the class look three times too big.",
+        "Multiplying by 3 instead of dividing (63)."
+      ],
+      "tags": [
+        "histogram",
+        "unequal-widths"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-023",
+      "topicId": "grouped-data",
+      "conceptId": "gd-graphs",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "For the table (classes 0–10: 5, 10–20: 8, 20–40: 18, 40–70: 21, 70–80: 4), the modal class is 40–70, because 21 is the largest frequency.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "With unequal widths, compare frequency per unit width. Per 10 units the classes hold 5, 8, 9, 7 and 4, so the values are most crowded in 20–40 (density 0.9), not 40–70 (0.7). The tallest bar of a correct histogram, and so the modal class, is 20–40.",
+      "solutionSteps": [
+        "Adjusted frequencies (width 10): 5, 8, 18 ÷ 2 = 9, 21 ÷ 3 = 7, 4.",
+        "Highest: 9, for 20–40.",
+        "So the statement is false."
+      ],
+      "formulaIds": [
+        "gd-hist-f",
+        "gd-mode-f"
+      ],
+      "method": "Unequal widths: find the modal class by frequency density.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Are the classes all the same width?"
+        },
+        {
+          "level": 2,
+          "text": "Divide each frequency by its width (or scale to width 10) before comparing."
+        }
+      ],
+      "commonMistakes": [
+        "Picking the class with the biggest raw frequency when the widths differ."
+      ],
+      "tags": [
+        "histogram",
+        "unequal-widths",
+        "true-false"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "grouped-data-q-024",
+      "topicId": "grouped-data",
+      "conceptId": "gd-ogive",
+      "levelId": "grouped-data-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The less-than ogive of the daily wages of 80 workers passes through the points shown. Joining them with straight lines, estimate how many workers earn between ₹150 and ₹190.",
+      "chart": {
+        "type": "line",
+        "caption": "Less-than ogive: daily wages of 80 workers (₹)",
+        "unit": "",
+        "categories": [
+          "100",
+          "120",
+          "140",
+          "160",
+          "180",
+          "200",
+          "220"
+        ],
+        "series": [
+          {
+            "label": "Workers earning less",
+            "data": [
+              0,
+              8,
+              20,
+              44,
+              64,
+              72,
+              80
+            ],
+            "colorToken": "data"
+          }
+        ],
+        "ariaSummary": "Less-than ogive. Cumulative frequency at 100: 0, 120: 8, 140: 20, 160: 44, 180: 64, 200: 72, 220: 80."
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "₹150 is halfway from 140 (20 workers) to 160 (44), so about 20 + 12 = 32 earn less than ₹150. ₹190 is halfway from 180 (64) to 200 (72), so about 64 + 4 = 68 earn less than ₹190. Between them: 68 − 32 = 36.",
+      "solutionSteps": [
+        "Below ₹150: 20 + ½ × 24 = 32.",
+        "Below ₹190: 64 + ½ × 8 = 68.",
+        "Between: 68 − 32 = 36."
+      ],
+      "formulaIds": [
+        "gd-ogive-f"
+      ],
+      "method": "Read both values off the ogive by interpolation and subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find how many earn less than ₹190 and less than ₹150; the difference is the answer."
+        },
+        {
+          "level": 2,
+          "text": "Each is halfway along a segment: halfway from 20 to 44, and from 64 to 72."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the nearest plotted points instead (64 − 20 = 44, or 72 − 44 = 28).",
+        "Adding the two readings instead of subtracting."
+      ],
+      "tags": [
+        "ogive",
+        "chart",
+        "interpolation"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}
