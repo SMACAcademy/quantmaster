@@ -4,7 +4,7 @@
 
 ```
 src/data/
-  topics.json               the catalogue (all 74 topics)
+  topics.json               the catalogue (all 79 topics)
   achievements.json
   content/<topicId>.json    { topicId, concepts[], formulas[], levels[], questions[] }
   concepts/percentages.json   ┐
@@ -37,7 +37,7 @@ Both layouts are loaded automatically and can be mixed.
 
 A topic is "playable" when at least one level references it. Level ids are derived from the levels, not stored on the topic, so they can't drift apart.
 
-`colorToken` maps to a CSS variable `--cat-<token>`: `arithmetic`, `algebra`, `geometry`, `combinatorics`, `data`, `advanced`.
+`colorToken` maps to a CSS variable `--cat-<token>`: `arithmetic`, `algebra`, `geometry`, `combinatorics`, `data`, `reasoning`, `advanced`. `reasoning` (Logical Reasoning) is the only token with a separate light-theme value, a deeper cyan for contrast.
 
 ## Concept
 

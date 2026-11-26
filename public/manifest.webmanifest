@@ -1,7 +1,7 @@
 {
   "name": "QuantMaster — Quantitative Aptitude",
   "short_name": "QuantMaster",
-  "description": "Learn quantitative aptitude properly: concepts, formula recall, guided practice and spaced repetition. Works offline.",
+  "description": "Learn quantitative aptitude and logical reasoning properly: concepts, formula recall, guided practice and spaced repetition. Works offline.",
   "id": "./",
   "start_url": "./",
   "scope": "./",

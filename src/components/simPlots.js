@@ -28,6 +28,9 @@
  *   subsets      the power set, grouped by size
  *   passage      a paragraph read sentence by sentence
  *
+ * and five for logical reasoning (seats, grid, euler, chain, family), drawn by
+ * reasoningPlots.js.
+ *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.
  */
@@ -40,6 +43,7 @@ import { makeTransform } from '../utils/planeGeometry.js';
 import { chevronPoints, circlePath, rightAngleMarkerPoints, tickMarkSegments } from '../utils/diagramGeometry.js';
 import { renderVenn } from './venn.js';
 import { chartWidget } from './Chart.js';
+import { drawReasoningPlot } from './reasoningPlots.js';
 
 const W = 560;
 const H = 340;
@@ -1300,5 +1304,7 @@ export function drawPlot(plot) {
   if (plot.kind === 'setdots') return setDotsPlot(plot);
   if (plot.kind === 'subsets') return subsetsPlot(plot);
   if (plot.kind === 'passage') return passagePlot(plot);
+  const reasoning = drawReasoningPlot(plot);
+  if (reasoning) return reasoning;
   return el('p.text-muted', { text: plot.summary || '' });
 }

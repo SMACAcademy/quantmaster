@@ -53,6 +53,10 @@ import { remainderTemplates } from './templates/remainders.js';
 import { factorialTemplates } from './templates/factorials.js';
 import { squaresRootsTemplates } from './templates/squaresRoots.js';
 import { speedMathsTemplates } from './templates/speedMaths.js';
+import { seatingTemplates } from './templates/reasoningSeating.js';
+import { puzzleTemplates } from './templates/reasoningPuzzles.js';
+import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
+import { bloodTemplates } from './templates/reasoningBlood.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -93,7 +97,13 @@ const TEMPLATES = [
   ...remainderTemplates,
   ...factorialTemplates,
   ...squaresRootsTemplates,
-  ...speedMathsTemplates
+  ...speedMathsTemplates,
+  // Logical reasoning: every answer is checked by brute force over all arrangements.
+  ...seatingTemplates,
+  ...puzzleTemplates,
+  ...syllogismTemplates,
+  ...inequalityTemplates,
+  ...bloodTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

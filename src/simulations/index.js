@@ -25,6 +25,7 @@ import { dataSims } from './dataInterpretation.js';
 import { geometrySims } from './geometry.js';
 import { numberMethodSims } from './numberMethods.js';
 import { moreTopicSims } from './moreTopics.js';
+import { reasoningSims } from './reasoning.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -71,7 +72,9 @@ export const SIMULATIONS = [
   // Remainders, factorials, roots and speed maths (numberMethods.js). Their meta.js entries keep this order.
   ...numberMethodSims,
   // Simplification, approximation, counting, sets, caselets, radar charts, races, wages and quadratic comparison (moreTopics.js). Their meta.js entries keep this order.
-  ...moreTopicSims
+  ...moreTopicSims,
+  // Logical reasoning (reasoning.js). Their meta.js entries keep this order.
+  ...reasoningSims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));

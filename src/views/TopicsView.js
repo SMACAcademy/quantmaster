@@ -160,7 +160,7 @@ export function TopicsView(ctx) {
     el('div.page-head', {}, [
       el('div.page-head__text', {}, [
         el('h1', { text: 'Topics' }),
-        el('p', { text: 'The full quantitative aptitude syllabus. Start anywhere, but Percentages pays off fastest.' })
+        el('p', { text: 'Quantitative aptitude and logical reasoning. Start anywhere, but Percentages pays off fastest.' })
       ]),
       badge(`${topicRepository.getAll().length} in catalogue`, 'outline')
     ]),

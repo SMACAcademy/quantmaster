@@ -75,7 +75,7 @@ To show a simulation inside a lesson, add a block `{ "type": "simulation", "simu
 
 ## Add a topic
 
-1. **The catalogue entry** probably already exists in `src/data/topics.json` (all 74 current topics are there). If not, add one with a unique `id`, a `category` from `arithmetic | algebra | geometry | combinatorics | data | advanced`, a short `glyph` and a `description`. Adding `whyItMatters` shows a callout on the topic page.
+1. **The catalogue entry** probably already exists in `src/data/topics.json` (all 79 current topics are there). If not, add one with a unique `id`, a `category` from `arithmetic | algebra | geometry | combinatorics | data | reasoning` (with the matching `colorToken`; `advanced` is a colour only), a short `glyph` and a `description`. Adding `whyItMatters` shows a callout on the topic page.
 2. **The content** goes in one new file: `src/data/content/<topicId>.json`
 
 ```json

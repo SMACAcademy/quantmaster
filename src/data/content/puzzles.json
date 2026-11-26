@@ -1,0 +1,1707 @@
+{
+  "topicId": "puzzles",
+  "concepts": [
+    {
+      "id": "pz-floor",
+      "topicId": "puzzles",
+      "name": "Floor and flat puzzles",
+      "description": "People on numbered floors: place fixed floors, then \"immediately above\", \"somewhere above\" and \"k people between\".",
+      "sortOrder": 1
+    },
+    {
+      "id": "pz-box",
+      "topicId": "puzzles",
+      "name": "Box and stack puzzles",
+      "description": "Boxes stacked one above another work like floors: position 1 is the bottom.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pz-schedule",
+      "topicId": "puzzles",
+      "name": "Scheduling: days and months",
+      "description": "Days of a week, or months given in a list, are positions in order; \"after\" means a later position.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pz-grid",
+      "topicId": "puzzles",
+      "name": "Grids of people and attributes",
+      "description": "Each attribute (city, colour, fruit) is a one-to-one match; ticks, crosses and links fill the grid.",
+      "sortOrder": 4
+    },
+    {
+      "id": "pz-cases",
+      "topicId": "puzzles",
+      "name": "The case method",
+      "description": "When a clue allows two placements, follow both; an answer is certain if every surviving case gives it.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pz-order-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "title": "Floors and stacks",
+      "prompt": "How do you set out a floor or box puzzle, and what do \"immediately above\" and \"somewhere above\" mean?",
+      "formula": "Draw a column, lowest position at the bottom\nImmediately above: the very next position up\nSomewhere above: any higher position",
+      "variables": [],
+      "explanation": "One column with numbered positions turns every clue into a statement about numbers.",
+      "example": "A is immediately above B, and B is on floor 2: A is on floor 3. \"A is somewhere above B\" allows floors 3, 4, 5, …",
+      "commonMistake": "Reading \"somewhere above\" as \"immediately above\".",
+      "applicationPrompt": "In a 5-floor building B is on floor 3 and A lives somewhere above B. Which floors are possible for A?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pz-gap-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "title": "Exactly k between",
+      "prompt": "Exactly k people live between A and B. How far apart are their positions?",
+      "formula": "Positions differ by k + 1\nTry both: B = A + (k + 1) and B = A − (k + 1)",
+      "variables": [
+        {
+          "symbol": "k",
+          "meaning": "number of people between"
+        }
+      ],
+      "explanation": "Counting k people between means k empty-looking rungs and one more step to reach B.",
+      "example": "A on floor 2, two people between A and B: B on floor 5 (floor −1 does not exist).",
+      "commonMistake": "Moving k positions instead of k + 1.",
+      "applicationPrompt": "A is on floor 6 of 7 and one person lives between A and B. Where can B be?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pz-days-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "title": "Days and months as positions",
+      "prompt": "How do you handle \"on some day after\" and \"the day immediately after\"?",
+      "formula": "Monday = 1, Tuesday = 2, …\nAfter = a later position; the day after = position + 1\nListed months: number them in the order given",
+      "variables": [],
+      "explanation": "A schedule is a floor puzzle turned on its side; only the words change.",
+      "example": "X visits on Wednesday (3) and Y the day after X: Y is Thursday (4).",
+      "commonMistake": "Counting calendar months between listed months instead of places in the list.",
+      "applicationPrompt": "P visits on Tuesday and two people visit between P and Q. Which days are possible for Q?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pz-grid-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "title": "Grid elimination",
+      "prompt": "How does a person × attribute grid fill itself in?",
+      "formula": "One tick per row and per column in each attribute\nA tick crosses out the rest of its row and column\nA row or column with one blank left gets the tick",
+      "variables": [],
+      "explanation": "Every attribute is a one-to-one matching, so each tick removes many options at once.",
+      "example": "4 people, 4 cities: Arjun–Chennai ticked ⇒ the other three cities are crossed for Arjun, and Chennai is crossed for the other three people.",
+      "commonMistake": "Forgetting to cross out the column as well as the row.",
+      "applicationPrompt": "In a 4 × 4 grid, three cities are crossed out for Bhumi. What does that tell you?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pz-link-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "title": "Carry a link as a block",
+      "prompt": "\"The person from Delhi likes banana.\" How do you use a clue that joins two attributes?",
+      "formula": "Treat Delhi–banana as one block:\nwhoever is from Delhi likes banana, and whoever likes banana is from Delhi\nA cross on one half crosses the other",
+      "variables": [],
+      "explanation": "The clue names no person, so keep it as a pair until one half lands on someone.",
+      "example": "Dimple does not like banana ⇒ Dimple is not from Delhi.",
+      "commonMistake": "Creating an extra person for \"the person from Delhi\".",
+      "applicationPrompt": "The person from Pune likes mango, and Ravi does not like mango. What else do you know about Ravi?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pz-cases-f",
+      "topicId": "puzzles",
+      "conceptId": "pz-cases",
+      "title": "The case method",
+      "prompt": "A clue allows two or more placements. How do you go on?",
+      "formula": "Write each possibility as its own column\nApply every clue to every column; strike out a column that breaks one\nAn answer is certain when all surviving columns agree",
+      "variables": [],
+      "explanation": "Exam puzzles often leave some positions open; the questions are chosen so their answers are the same in every case.",
+      "example": "Two cases survive and Uday is on floor 6 in both: \"Who is on the top floor?\" has a certain answer.",
+      "commonMistake": "Answering from one case without checking the others.",
+      "applicationPrompt": "Two cases survive; in one X is on floor 2, in the other on floor 3. Can you say where X lives?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "pz-sc-room",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "kind": "shortcut",
+      "title": "Room above and below",
+      "prompt": "X has k people somewhere below and m somewhere above. Which floors can X be on?",
+      "formula": "Floor of X ≥ k + 1\nFloor of X ≤ n − m",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "number of floors"
+        }
+      ],
+      "explanation": "Each person known to be below needs a floor of their own under X, and each one above a floor over X.",
+      "example": "6 floors; someone is below Kavin and Nila above him, with the top floor taken: Kavin is on 2, 3 or 4.",
+      "commonMistake": "Forgetting floors already taken by fixed people.",
+      "applicationPrompt": "In 5 floors, two people live below A and one above. Which floors can A be on?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pz-sc-edge",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "kind": "shortcut",
+      "title": "The edge decides the gap",
+      "prompt": "A is near the bottom or top and k people are between A and B. How do you find B fast?",
+      "formula": "If A − (k + 1) < 1, B = A + (k + 1)\nIf A + (k + 1) > n, B = A − (k + 1)",
+      "variables": [],
+      "explanation": "Only one direction fits inside the building, so the gap clue fixes B at once.",
+      "example": "A on floor 2, two people between: 2 − 3 < 1, so B is on floor 5.",
+      "commonMistake": "Writing down both cases when one of them falls off the building.",
+      "applicationPrompt": "A is on floor 7 of 8 and two people live between A and B. Where is B?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "puzzles-level-0",
+      "topicId": "puzzles",
+      "order": 0,
+      "title": "Positions and Grids",
+      "description": "Floors, stacks and days as positions; ticks and crosses in a grid.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pz-floor",
+        "pz-grid"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Turn the story into positions",
+            "body": "Floors, a stack of boxes, days of the week and months in a list are all the same puzzle: numbered positions, one person each. Draw a column with the lowest position at the bottom, write in every clue that fixes a position, then hang the relative clues (\"immediately above\", \"two people between\") on what you have."
+          },
+          {
+            "type": "formula",
+            "title": "Exactly k between",
+            "body": "Positions differ by k + 1",
+            "caption": "Try both directions; the top or bottom of the building usually rules one out."
+          },
+          {
+            "type": "check",
+            "questionId": "puzzles-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Grids: a tick crosses out a row and a column",
+            "body": "When people have attributes (a city, a fruit), draw a grid with people down the side and every value across the top. A tick for \"is\", a cross for \"is not\". Because each value belongs to exactly one person, a tick crosses out the rest of its row and its column, and a row with one blank left must take the tick. Clues that join two values (\"the person from Delhi likes banana\") travel together as a block."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "puzzle-grid"
+          },
+          {
+            "type": "example",
+            "title": "One clue, two cases",
+            "body": "Tara is on floor 4 and one person lives between Tara and Uday: Uday is on floor 2 or 6. Write both as columns. If another clue breaks one column, the other is the answer. If both survive, answer only what is the same in both."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "\"Somewhere above\" is not \"immediately above\", and \"two people between\" means the positions differ by three. These two slips cause most wrong answers."
+          },
+          {
+            "type": "check",
+            "questionId": "puzzles-q-013"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "puzzles-level-1",
+      "topicId": "puzzles",
+      "order": 1,
+      "title": "Puzzle Tools",
+      "description": "Order words, gaps, grid elimination, links and the case method.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "puzzles-level-0"
+      ],
+      "conceptIds": [
+        "pz-floor",
+        "pz-box",
+        "pz-schedule",
+        "pz-grid",
+        "pz-cases"
+      ],
+      "formulaIds": [
+        "pz-order-f",
+        "pz-gap-f",
+        "pz-days-f",
+        "pz-grid-f",
+        "pz-link-f",
+        "pz-cases-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "puzzles-level-2",
+      "topicId": "puzzles",
+      "order": 2,
+      "title": "Floors and Days",
+      "description": "Five floors and a week of clinic visits.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "puzzles-level-1"
+      ],
+      "conceptIds": [
+        "pz-floor",
+        "pz-schedule"
+      ],
+      "questionIds": [
+        "puzzles-q-001",
+        "puzzles-q-002",
+        "puzzles-q-003",
+        "puzzles-q-004",
+        "puzzles-q-005",
+        "puzzles-q-006",
+        "puzzles-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "puzzles-level-3",
+      "topicId": "puzzles",
+      "order": 3,
+      "title": "Boxes, Months and Grids",
+      "description": "A stack of boxes, birthdays in listed months, and a city–fruit grid.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "puzzles-level-2"
+      ],
+      "conceptIds": [
+        "pz-box",
+        "pz-schedule",
+        "pz-grid"
+      ],
+      "questionIds": [
+        "puzzles-q-008",
+        "puzzles-q-009",
+        "puzzles-q-010",
+        "puzzles-q-011",
+        "puzzles-q-012",
+        "puzzles-q-013",
+        "puzzles-q-014",
+        "puzzles-q-015",
+        "puzzles-q-016"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "puzzles-level-4",
+      "topicId": "puzzles",
+      "order": 4,
+      "title": "Attributes and Cases",
+      "description": "Floors with colours, and a building with two possible cases.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "puzzles-level-3"
+      ],
+      "conceptIds": [
+        "pz-floor",
+        "pz-grid",
+        "pz-cases"
+      ],
+      "questionIds": [
+        "puzzles-q-017",
+        "puzzles-q-018",
+        "puzzles-q-019",
+        "puzzles-q-020",
+        "puzzles-q-021",
+        "puzzles-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "puzzles-level-5",
+      "topicId": "puzzles",
+      "order": 5,
+      "title": "Mixed Puzzle Practice",
+      "description": "All puzzle types, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "puzzles-level-4"
+      ],
+      "conceptIds": [
+        "pz-cases",
+        "pz-grid"
+      ],
+      "questionQuery": {
+        "topicId": "puzzles",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "puzzles-q-001",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who lives on floor 2?",
+      "context": "Five friends, Anu, Bala, Chandra, Deepa and Elango, live on the five floors of a building, one on each floor. The lowest floor is floor 1 and the top floor is floor 5.\n1. Anu lives on floor 3.\n2. Bala lives on floor 5.\n3. Deepa lives immediately above Anu.\n4. Elango lives on a floor somewhere above Chandra.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Elango"
+        },
+        {
+          "id": "b",
+          "text": "Chandra"
+        },
+        {
+          "id": "c",
+          "text": "Anu"
+        },
+        {
+          "id": "d",
+          "text": "Deepa"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Anu is on floor 3 and Bala on floor 5, so Deepa, immediately above Anu, is on floor 4. Chandra and Elango take floors 1 and 2, and Elango is above Chandra. Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra.",
+      "solutionSteps": [
+        "Write Anu on floor 3 and Bala on floor 5.",
+        "Deepa is immediately above Anu: floor 4.",
+        "Floors 1 and 2 are left; Elango is above Chandra, so Elango 2, Chandra 1.",
+        "Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra."
+      ],
+      "formulaIds": [
+        "pz-order-f"
+      ],
+      "method": "Fixed floors first, then \"immediately above\", then \"somewhere above\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the floors as a column with floor 1 at the bottom, and write in what is certain first."
+        },
+        {
+          "level": 2,
+          "text": "Only floors 1 and 2 are left for Chandra and Elango. Which of them is higher?"
+        }
+      ],
+      "commonMistakes": [
+        "Putting Chandra higher because \"below\" was read as \"above\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-002",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who lives immediately below Bala?",
+      "context": "Five friends, Anu, Bala, Chandra, Deepa and Elango, live on the five floors of a building, one on each floor. The lowest floor is floor 1 and the top floor is floor 5.\n1. Anu lives on floor 3.\n2. Bala lives on floor 5.\n3. Deepa lives immediately above Anu.\n4. Elango lives on a floor somewhere above Chandra.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deepa"
+        },
+        {
+          "id": "b",
+          "text": "Anu"
+        },
+        {
+          "id": "c",
+          "text": "Elango"
+        },
+        {
+          "id": "d",
+          "text": "Chandra"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra. Bala is on floor 5, so the person immediately below is on floor 4: Deepa.",
+      "solutionSteps": [
+        "Write Anu on floor 3 and Bala on floor 5.",
+        "Deepa is immediately above Anu: floor 4.",
+        "Floors 1 and 2 are left; Elango is above Chandra, so Elango 2, Chandra 1.",
+        "Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra."
+      ],
+      "formulaIds": [
+        "pz-order-f"
+      ],
+      "method": "Immediately below = one floor lower.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the floors as a column with floor 1 at the bottom, and write in what is certain first."
+        },
+        {
+          "level": 2,
+          "text": "Deepa is immediately above Anu, who is on floor 3."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Anu, who is two floors below Bala."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-003",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many people live between Chandra and Deepa?",
+      "context": "Five friends, Anu, Bala, Chandra, Deepa and Elango, live on the five floors of a building, one on each floor. The lowest floor is floor 1 and the top floor is floor 5.\n1. Anu lives on floor 3.\n2. Bala lives on floor 5.\n3. Deepa lives immediately above Anu.\n4. Elango lives on a floor somewhere above Chandra.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra. Chandra is on floor 1 and Deepa on floor 4: 4 − 1 − 1 = 2 people (Elango and Anu) live between them.",
+      "solutionSteps": [
+        "Write Anu on floor 3 and Bala on floor 5.",
+        "Deepa is immediately above Anu: floor 4.",
+        "Floors 1 and 2 are left; Elango is above Chandra, so Elango 2, Chandra 1.",
+        "Floor 5: Bala; floor 4: Deepa; floor 3: Anu; floor 2: Elango; floor 1: Chandra."
+      ],
+      "formulaIds": [
+        "pz-gap-f"
+      ],
+      "method": "People between = difference in floors − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the floors as a column with floor 1 at the bottom, and write in what is certain first."
+        },
+        {
+          "level": 2,
+          "text": "Find both floors, then count only the floors strictly between them."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 3, the difference in floor numbers."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-004",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "numerical_input",
+      "question": "On which floor does Yash live?",
+      "context": "Seven people, Xavier, Yash, Zubin, Aditi, Bela, Charu and Dhruv, live on the seven floors of a building, one on each floor. The lowest floor is floor 1.\n1. Xavier lives on floor 2.\n2. Exactly two people live between Xavier and Yash.",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Two people between Xavier and Yash means their floors differ by 3. Xavier is on floor 2, so Yash is on floor 5; floor −1 does not exist. Nothing else is needed to fix Yash, even though the other five people could be anywhere.",
+      "solutionSteps": [
+        "k people between ⇒ floors differ by k + 1 = 3.",
+        "Floor 2 + 3 = 5; floor 2 − 3 is not a floor."
+      ],
+      "formulaIds": [
+        "pz-gap-f"
+      ],
+      "method": "Try both directions; the edge of the building often rules one out.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Exactly two people between\" means the floors differ by 3, not 2."
+        },
+        {
+          "level": 2,
+          "text": "Count 3 floors up and 3 floors down from floor 2. Which one exists?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding 2 instead of 3 and answering floor 4."
+      ],
+      "tags": [
+        "recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-005",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who visits the clinic on Thursday?",
+      "context": "Seven patients, Ajay, Bhanu, Chitra, Dinesh, Ekta, Firoz and Gita, visit a clinic on the seven days of one week, Monday to Sunday, one patient a day.\n1. Ajay visits on Wednesday.\n2. Exactly two people visit between Ajay and Firoz.\n3. Chitra visits on some day after Firoz.\n4. Firoz visits on the day immediately after Bhanu.\n5. Gita visits on the day immediately after Dinesh.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ekta"
+        },
+        {
+          "id": "b",
+          "text": "Bhanu"
+        },
+        {
+          "id": "c",
+          "text": "Gita"
+        },
+        {
+          "id": "d",
+          "text": "Dinesh"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Ajay is on Wednesday. Two people between Ajay and Firoz puts Firoz on Saturday (three days earlier would be before Monday). Chitra comes after Firoz: Sunday. Bhanu is the day before Firoz: Friday. Of Monday, Tuesday and Thursday, only Monday–Tuesday are consecutive free days, so Dinesh is on Monday, Gita on Tuesday, and Ekta on Thursday. Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra.",
+      "solutionSteps": [
+        "Ajay: Wednesday. Firoz is 3 days away: Saturday.",
+        "Chitra after Firoz: Sunday. Bhanu just before Firoz: Friday.",
+        "Dinesh then Gita need two free consecutive days: Monday and Tuesday. Ekta takes Thursday.",
+        "Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra."
+      ],
+      "formulaIds": [
+        "pz-days-f",
+        "pz-gap-f"
+      ],
+      "method": "Days are positions 1 to 7; place the fixed day, then the gaps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the days Monday = 1 to Sunday = 7. Ajay is on day 3."
+        },
+        {
+          "level": 2,
+          "text": "Two people between Ajay and Firoz means three days apart. Which direction fits in the week?"
+        }
+      ],
+      "commonMistakes": [
+        "Putting Firoz on Friday (two days after Ajay instead of three)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-006",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many people visit between Gita and Bhanu?",
+      "context": "Seven patients, Ajay, Bhanu, Chitra, Dinesh, Ekta, Firoz and Gita, visit a clinic on the seven days of one week, Monday to Sunday, one patient a day.\n1. Ajay visits on Wednesday.\n2. Exactly two people visit between Ajay and Firoz.\n3. Chitra visits on some day after Firoz.\n4. Firoz visits on the day immediately after Bhanu.\n5. Gita visits on the day immediately after Dinesh.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra. Gita is on Tuesday and Bhanu on Friday; Ajay and Ekta come between them: 2.",
+      "solutionSteps": [
+        "Ajay: Wednesday. Firoz is 3 days away: Saturday.",
+        "Chitra after Firoz: Sunday. Bhanu just before Firoz: Friday.",
+        "Dinesh then Gita need two free consecutive days: Monday and Tuesday. Ekta takes Thursday.",
+        "Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra."
+      ],
+      "formulaIds": [
+        "pz-gap-f"
+      ],
+      "method": "Between = difference in day numbers − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve the week first; Bhanu is the day before Firoz."
+        },
+        {
+          "level": 2,
+          "text": "Count only the days strictly between Tuesday and Friday."
+        }
+      ],
+      "commonMistakes": [
+        "Counting Gita or Bhanu as well."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-007",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "levelId": "puzzles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who visits on the day immediately before Ajay?",
+      "context": "Seven patients, Ajay, Bhanu, Chitra, Dinesh, Ekta, Firoz and Gita, visit a clinic on the seven days of one week, Monday to Sunday, one patient a day.\n1. Ajay visits on Wednesday.\n2. Exactly two people visit between Ajay and Firoz.\n3. Chitra visits on some day after Firoz.\n4. Firoz visits on the day immediately after Bhanu.\n5. Gita visits on the day immediately after Dinesh.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Gita"
+        },
+        {
+          "id": "b",
+          "text": "Dinesh"
+        },
+        {
+          "id": "c",
+          "text": "Ekta"
+        },
+        {
+          "id": "d",
+          "text": "Bhanu"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra. Ajay visits on Wednesday, so the day before is Tuesday: Gita.",
+      "solutionSteps": [
+        "Ajay: Wednesday. Firoz is 3 days away: Saturday.",
+        "Chitra after Firoz: Sunday. Bhanu just before Firoz: Friday.",
+        "Dinesh then Gita need two free consecutive days: Monday and Tuesday. Ekta takes Thursday.",
+        "Monday Dinesh, Tuesday Gita, Wednesday Ajay, Thursday Ekta, Friday Bhanu, Saturday Firoz, Sunday Chitra."
+      ],
+      "formulaIds": [
+        "pz-days-f"
+      ],
+      "method": "The day before = position − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Ajay is on Wednesday. Who is on Tuesday?"
+        },
+        {
+          "level": 2,
+          "text": "Gita visits the day after Dinesh, and only Monday–Tuesday are free together."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Ekta, who visits the day after Ajay."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-008",
+      "topicId": "puzzles",
+      "conceptId": "pz-box",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which box is at the bottom of the stack?",
+      "context": "Six boxes, P, Q, R, S, T and U, are stacked one above another. The bottom box is at position 1 and the top box at position 6.\n1. Exactly two boxes are kept between box P and box T.\n2. Box R is kept somewhere above box T.\n3. Box Q is at position 6.\n4. Box Q is kept immediately above box S.\n5. Box U is kept immediately above box R.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Box T"
+        },
+        {
+          "id": "b",
+          "text": "Box R"
+        },
+        {
+          "id": "c",
+          "text": "Box P"
+        },
+        {
+          "id": "d",
+          "text": "Box U"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Q is at the top (position 6) and S just below it (5). P and T have two boxes between them, so they are at 1 and 4 (the only such pair left). R is above T, so T cannot be at 4 (positions 5 and 6 are full): T is at 1 and P at 4. R and U fill 2 and 3, with U immediately above R. From the top: Q, S, P, U, R, T (T at the bottom).",
+      "solutionSteps": [
+        "Q at 6, S at 5.",
+        "Two boxes between P and T: positions 1 and 4.",
+        "R above T rules out T at 4, so T at 1, P at 4.",
+        "U immediately above R: R at 2, U at 3.",
+        "From the top: Q, S, P, U, R, T (T at the bottom)."
+      ],
+      "formulaIds": [
+        "pz-order-f",
+        "pz-gap-f"
+      ],
+      "method": "Stack the definite boxes, then try both places for the \"two between\" pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw six positions, 1 at the bottom. Q and S fill the top two."
+        },
+        {
+          "level": 2,
+          "text": "Two boxes between P and T: which pairs of free positions are three apart?"
+        },
+        {
+          "level": 3,
+          "text": "R must be above T. Does that rule out T at position 4?"
+        }
+      ],
+      "commonMistakes": [
+        "Putting T at position 4, which leaves no room above it for R."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-009",
+      "topicId": "puzzles",
+      "conceptId": "pz-box",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many boxes are kept between box R and box Q?",
+      "context": "Six boxes, P, Q, R, S, T and U, are stacked one above another. The bottom box is at position 1 and the top box at position 6.\n1. Exactly two boxes are kept between box P and box T.\n2. Box R is kept somewhere above box T.\n3. Box Q is at position 6.\n4. Box Q is kept immediately above box S.\n5. Box U is kept immediately above box R.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "From the top: Q, S, P, U, R, T (T at the bottom). R is at 2 and Q at 6, so boxes 3, 4 and 5 (U, P, S) are between them: 3.",
+      "solutionSteps": [
+        "Q at 6, S at 5.",
+        "Two boxes between P and T: positions 1 and 4.",
+        "R above T rules out T at 4, so T at 1, P at 4.",
+        "U immediately above R: R at 2, U at 3.",
+        "From the top: Q, S, P, U, R, T (T at the bottom)."
+      ],
+      "formulaIds": [
+        "pz-gap-f"
+      ],
+      "method": "Between = difference in positions − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve the stack first. Q is at the top."
+        },
+        {
+          "level": 2,
+          "text": "R is directly below U. Count the boxes strictly between R and Q."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4, the difference in positions."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-010",
+      "topicId": "puzzles",
+      "conceptId": "pz-box",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which box is kept immediately above box U?",
+      "context": "Six boxes, P, Q, R, S, T and U, are stacked one above another. The bottom box is at position 1 and the top box at position 6.\n1. Exactly two boxes are kept between box P and box T.\n2. Box R is kept somewhere above box T.\n3. Box Q is at position 6.\n4. Box Q is kept immediately above box S.\n5. Box U is kept immediately above box R.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Box P"
+        },
+        {
+          "id": "b",
+          "text": "Box S"
+        },
+        {
+          "id": "c",
+          "text": "Box R"
+        },
+        {
+          "id": "d",
+          "text": "Box Q"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From the top: Q, S, P, U, R, T (T at the bottom). U is at position 3, so the box immediately above is at 4: P.",
+      "solutionSteps": [
+        "Q at 6, S at 5.",
+        "Two boxes between P and T: positions 1 and 4.",
+        "R above T rules out T at 4, so T at 1, P at 4.",
+        "U immediately above R: R at 2, U at 3.",
+        "From the top: Q, S, P, U, R, T (T at the bottom)."
+      ],
+      "formulaIds": [
+        "pz-order-f"
+      ],
+      "method": "Immediately above = the next position up.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "P and T are three positions apart, and T is at the bottom."
+        },
+        {
+          "level": 2,
+          "text": "U is at position 3. What is at position 4?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering R, which is immediately below U."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-011",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In which month was Manav born?",
+      "context": "Five friends, Ishaan, Jaya, Kunal, Leela and Manav, were born in January, March, June, August and November of the same year, one in each month.\n1. Jaya was born in June.\n2. Jaya was born in a later month than Kunal.\n3. Leela was born in the month that comes next after Jaya’s in the list.\n4. Exactly two people were born between Kunal and Ishaan.",
+      "options": [
+        {
+          "id": "a",
+          "text": "January"
+        },
+        {
+          "id": "b",
+          "text": "March"
+        },
+        {
+          "id": "c",
+          "text": "August"
+        },
+        {
+          "id": "d",
+          "text": "November"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Jaya: June. Leela is next after Jaya in the list: August. Kunal is before Jaya: January or March. Two people between Kunal and Ishaan: from January that is August (taken); from March it is November. So Kunal is March, Ishaan November, and Manav January. January Manav, March Kunal, June Jaya, August Leela, November Ishaan.",
+      "solutionSteps": [
+        "Treat the five months as positions 1 to 5.",
+        "Jaya 3 (June), Leela 4 (August).",
+        "Kunal at 1 or 2; Ishaan three places after Kunal must be free: Kunal 2 (March), Ishaan 5 (November).",
+        "January Manav, March Kunal, June Jaya, August Leela, November Ishaan."
+      ],
+      "formulaIds": [
+        "pz-days-f",
+        "pz-gap-f"
+      ],
+      "method": "Months listed in order act as positions 1 to 5.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the listed months 1 to 5: January 1, March 2, June 3, August 4, November 5."
+        },
+        {
+          "level": 2,
+          "text": "\"Two people between Kunal and Ishaan\" means three positions apart."
+        }
+      ],
+      "commonMistakes": [
+        "Counting calendar months (June to August is two months) instead of positions in the list."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-012",
+      "topicId": "puzzles",
+      "conceptId": "pz-schedule",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who was born in the month that comes just before Jaya’s in the list?",
+      "context": "Five friends, Ishaan, Jaya, Kunal, Leela and Manav, were born in January, March, June, August and November of the same year, one in each month.\n1. Jaya was born in June.\n2. Jaya was born in a later month than Kunal.\n3. Leela was born in the month that comes next after Jaya’s in the list.\n4. Exactly two people were born between Kunal and Ishaan.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kunal"
+        },
+        {
+          "id": "b",
+          "text": "Manav"
+        },
+        {
+          "id": "c",
+          "text": "Leela"
+        },
+        {
+          "id": "d",
+          "text": "Ishaan"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "January Manav, March Kunal, June Jaya, August Leela, November Ishaan. Jaya is June; just before it in the list is March: Kunal.",
+      "solutionSteps": [
+        "Treat the five months as positions 1 to 5.",
+        "Jaya 3 (June), Leela 4 (August).",
+        "Kunal at 1 or 2; Ishaan three places after Kunal must be free: Kunal 2 (March), Ishaan 5 (November).",
+        "January Manav, March Kunal, June Jaya, August Leela, November Ishaan."
+      ],
+      "formulaIds": [
+        "pz-days-f"
+      ],
+      "method": "Just before = position − 1 in the list.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Kunal is born before Jaya: January or March."
+        },
+        {
+          "level": 2,
+          "text": "Only March leaves a free place three positions later for Ishaan."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Manav (January), two places before Jaya."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-013",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who likes mango?",
+      "context": "Four friends, Arjun, Bhumi, Chirag and Dimple, live in four different cities (Chennai, Delhi, Kolkata and Mumbai), and each likes a different fruit (apple, banana, mango and guava).\n1. Bhumi is not from Mumbai.\n2. The person from Kolkata likes mango.\n3. Chirag likes guava.\n4. Arjun is from Chennai.\n5. Dimple does not like banana.\n6. The person from Delhi likes banana.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dimple"
+        },
+        {
+          "id": "b",
+          "text": "Bhumi"
+        },
+        {
+          "id": "c",
+          "text": "Chirag"
+        },
+        {
+          "id": "d",
+          "text": "Arjun"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Arjun is from Chennai. Chirag likes guava, so he is not from Kolkata (mango) or Delhi (banana): Chirag is from Mumbai. Bhumi and Dimple share Delhi and Kolkata. Dimple does not like banana, so she is not from Delhi: Dimple is from Kolkata (mango) and Bhumi from Delhi (banana). The only fruit left, apple, is Arjun’s. Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango.",
+      "solutionSteps": [
+        "Tick Arjun–Chennai and Chirag–guava; treat Kolkata–mango and Delhi–banana as blocks.",
+        "Chirag’s guava rules out Kolkata and Delhi for him, so Chirag–Mumbai.",
+        "Dimple is not banana, so not Delhi: Dimple–Kolkata–mango, Bhumi–Delhi–banana.",
+        "Arjun gets the last fruit, apple.",
+        "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango."
+      ],
+      "formulaIds": [
+        "pz-grid-f",
+        "pz-link-f"
+      ],
+      "method": "Grid elimination, carrying the city–fruit links as blocks.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw a grid: four names down the side; four cities and four fruits across."
+        },
+        {
+          "level": 2,
+          "text": "Chirag likes guava, so he cannot be from Kolkata (mango) or Delhi (banana)."
+        },
+        {
+          "level": 3,
+          "text": "Dimple does not like banana, so she cannot be from Delhi."
+        }
+      ],
+      "commonMistakes": [
+        "Treating \"the person from Kolkata likes mango\" as a fifth person."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-014",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which city is Bhumi from?",
+      "context": "Four friends, Arjun, Bhumi, Chirag and Dimple, live in four different cities (Chennai, Delhi, Kolkata and Mumbai), and each likes a different fruit (apple, banana, mango and guava).\n1. Bhumi is not from Mumbai.\n2. The person from Kolkata likes mango.\n3. Chirag likes guava.\n4. Arjun is from Chennai.\n5. Dimple does not like banana.\n6. The person from Delhi likes banana.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Delhi"
+        },
+        {
+          "id": "b",
+          "text": "Kolkata"
+        },
+        {
+          "id": "c",
+          "text": "Mumbai"
+        },
+        {
+          "id": "d",
+          "text": "Chennai"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango. With Chennai and Mumbai taken by Arjun and Chirag, Bhumi is from Delhi or Kolkata; Dimple cannot be from Delhi (she does not like banana), so Bhumi is.",
+      "solutionSteps": [
+        "Tick Arjun–Chennai and Chirag–guava; treat Kolkata–mango and Delhi–banana as blocks.",
+        "Chirag’s guava rules out Kolkata and Delhi for him, so Chirag–Mumbai.",
+        "Dimple is not banana, so not Delhi: Dimple–Kolkata–mango, Bhumi–Delhi–banana.",
+        "Arjun gets the last fruit, apple.",
+        "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango."
+      ],
+      "formulaIds": [
+        "pz-grid-f",
+        "pz-link-f"
+      ],
+      "method": "Last blank in a row or column gets the tick.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Arjun is from Chennai and Chirag ends up in Mumbai."
+        },
+        {
+          "level": 2,
+          "text": "Between Bhumi and Dimple, who cannot take Delhi’s banana?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Kolkata by stopping after \"Bhumi is not from Mumbai\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-015",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which fruit does Arjun like?",
+      "context": "Four friends, Arjun, Bhumi, Chirag and Dimple, live in four different cities (Chennai, Delhi, Kolkata and Mumbai), and each likes a different fruit (apple, banana, mango and guava).\n1. Bhumi is not from Mumbai.\n2. The person from Kolkata likes mango.\n3. Chirag likes guava.\n4. Arjun is from Chennai.\n5. Dimple does not like banana.\n6. The person from Delhi likes banana.",
+      "options": [
+        {
+          "id": "a",
+          "text": "apple"
+        },
+        {
+          "id": "b",
+          "text": "banana"
+        },
+        {
+          "id": "c",
+          "text": "mango"
+        },
+        {
+          "id": "d",
+          "text": "guava"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango. Mango goes with Kolkata, banana with Delhi and guava with Chirag; Arjun is from Chennai, so the remaining fruit, apple, is his.",
+      "solutionSteps": [
+        "Tick Arjun–Chennai and Chirag–guava; treat Kolkata–mango and Delhi–banana as blocks.",
+        "Chirag’s guava rules out Kolkata and Delhi for him, so Chirag–Mumbai.",
+        "Dimple is not banana, so not Delhi: Dimple–Kolkata–mango, Bhumi–Delhi–banana.",
+        "Arjun gets the last fruit, apple.",
+        "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango."
+      ],
+      "formulaIds": [
+        "pz-grid-f"
+      ],
+      "method": "When three values in a column are placed, the fourth goes to the last person.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Arjun is from Chennai, so neither the Kolkata nor the Delhi fruit is his."
+        },
+        {
+          "level": 2,
+          "text": "Chirag has guava. Which fruit is left?"
+        }
+      ],
+      "commonMistakes": [
+        "Guessing banana from the Delhi link without checking who is from Delhi."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-016",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Which of these combinations are correct? Select all that apply.",
+      "context": "Four friends, Arjun, Bhumi, Chirag and Dimple, live in four different cities (Chennai, Delhi, Kolkata and Mumbai), and each likes a different fruit (apple, banana, mango and guava).\n1. Bhumi is not from Mumbai.\n2. The person from Kolkata likes mango.\n3. Chirag likes guava.\n4. Arjun is from Chennai.\n5. Dimple does not like banana.\n6. The person from Delhi likes banana.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Chirag – Mumbai – guava"
+        },
+        {
+          "id": "b",
+          "text": "Dimple – Delhi – mango"
+        },
+        {
+          "id": "c",
+          "text": "Arjun – Chennai – apple"
+        },
+        {
+          "id": "d",
+          "text": "Bhumi – Kolkata – banana"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c"
+      ],
+      "explanation": "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango. Dimple is from Kolkata, not Delhi, and Bhumi from Delhi, not Kolkata, so the second and fourth combinations are wrong.",
+      "solutionSteps": [
+        "Tick Arjun–Chennai and Chirag–guava; treat Kolkata–mango and Delhi–banana as blocks.",
+        "Chirag’s guava rules out Kolkata and Delhi for him, so Chirag–Mumbai.",
+        "Dimple is not banana, so not Delhi: Dimple–Kolkata–mango, Bhumi–Delhi–banana.",
+        "Arjun gets the last fruit, apple.",
+        "Arjun: Chennai, apple. Bhumi: Delhi, banana. Chirag: Mumbai, guava. Dimple: Kolkata, mango."
+      ],
+      "formulaIds": [
+        "pz-grid-f",
+        "pz-link-f"
+      ],
+      "method": "Solve the full grid, then check each combination part by part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve every row of the grid first."
+        },
+        {
+          "level": 2,
+          "text": "A combination is right only if both the city and the fruit match."
+        }
+      ],
+      "commonMistakes": [
+        "Accepting \"Dimple – Delhi – mango\": the fruit is right but the city is not."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-017",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who lives on floor 3?",
+      "context": "Six people, Kavin, Latha, Manoj, Nila, Om and Padma, live on the six floors of a building, one on each floor (floor 1 is the lowest, floor 6 the top). Each likes a different colour: red, blue, green, yellow, white or black.\n1. Exactly two people live between Kavin and Om.\n2. Kavin lives immediately above the person who likes red.\n3. Manoj lives on floor 6.\n4. Manoj likes yellow.\n5. Nila likes black.\n6. Nila lives on a floor somewhere above Kavin.\n7. Latha likes blue.\n8. Om does not like green.\n9. Padma lives on a floor somewhere above Om.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Padma"
+        },
+        {
+          "id": "b",
+          "text": "Latha"
+        },
+        {
+          "id": "c",
+          "text": "Kavin"
+        },
+        {
+          "id": "d",
+          "text": "Om"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Manoj is on floor 6. Kavin has someone below him (the red one) and Nila above him, so Kavin is on floor 2, 3 or 4. Two people between Kavin and Om: Kavin 3 would need Om on 6 (taken); Kavin 2 puts Om on 5, but Padma must be above Om and floor 6 is Manoj’s, so that fails too. So Kavin is on 4, Om on 1, Nila on 5, and the red-lover on 3. Latha likes blue, so she is not on 3: Latha on 2 and Padma (red) on 3. Om does not like green, so Om likes white and Kavin green. Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white).",
+      "solutionSteps": [
+        "Manoj: floor 6. Kavin is on 2, 3 or 4 (someone below, Nila above).",
+        "Try each case for Kavin with \"two people between Kavin and Om\"; only Kavin 4, Om 1 survives the other clues.",
+        "Red is on floor 3, Nila on 5. Latha likes blue, so Latha 2 and Padma 3 (red).",
+        "Om is not green: Om white, Kavin green.",
+        "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white)."
+      ],
+      "formulaIds": [
+        "pz-order-f",
+        "pz-cases-f"
+      ],
+      "method": "List Kavin’s possible floors as cases and test each against every clue.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the floors as a column with floor 1 at the bottom, and write in what is certain first."
+        },
+        {
+          "level": 2,
+          "text": "Kavin has the red-lover below him and Nila above him. Which floors are possible for Kavin?"
+        },
+        {
+          "level": 3,
+          "text": "Try Kavin on 2, 3 and 4 in turn with \"two people between Kavin and Om\"."
+        }
+      ],
+      "commonMistakes": [
+        "Fixing Kavin on floor 2 without checking that Padma can still be above Om."
+      ],
+      "tags": [],
+      "estimatedSeconds": 180,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-018",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which colour does Om like?",
+      "context": "Six people, Kavin, Latha, Manoj, Nila, Om and Padma, live on the six floors of a building, one on each floor (floor 1 is the lowest, floor 6 the top). Each likes a different colour: red, blue, green, yellow, white or black.\n1. Exactly two people live between Kavin and Om.\n2. Kavin lives immediately above the person who likes red.\n3. Manoj lives on floor 6.\n4. Manoj likes yellow.\n5. Nila likes black.\n6. Nila lives on a floor somewhere above Kavin.\n7. Latha likes blue.\n8. Om does not like green.\n9. Padma lives on a floor somewhere above Om.",
+      "options": [
+        {
+          "id": "a",
+          "text": "white"
+        },
+        {
+          "id": "b",
+          "text": "green"
+        },
+        {
+          "id": "c",
+          "text": "blue"
+        },
+        {
+          "id": "d",
+          "text": "red"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white). Red, yellow, black and blue belong to Padma, Manoj, Nila and Latha. Om and Kavin share white and green, and Om does not like green.",
+      "solutionSteps": [
+        "Manoj: floor 6. Kavin is on 2, 3 or 4 (someone below, Nila above).",
+        "Try each case for Kavin with \"two people between Kavin and Om\"; only Kavin 4, Om 1 survives the other clues.",
+        "Red is on floor 3, Nila on 5. Latha likes blue, so Latha 2 and Padma 3 (red).",
+        "Om is not green: Om white, Kavin green.",
+        "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white)."
+      ],
+      "formulaIds": [
+        "pz-grid-f"
+      ],
+      "method": "Place the floors, then hang the colours on people.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Four of the colours are tied to named people or to floor 3."
+        },
+        {
+          "level": 2,
+          "text": "Om and Kavin are left with two colours. Which clue separates them?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving Om green by mixing him up with Kavin."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-019",
+      "topicId": "puzzles",
+      "conceptId": "pz-grid",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who likes green?",
+      "context": "Six people, Kavin, Latha, Manoj, Nila, Om and Padma, live on the six floors of a building, one on each floor (floor 1 is the lowest, floor 6 the top). Each likes a different colour: red, blue, green, yellow, white or black.\n1. Exactly two people live between Kavin and Om.\n2. Kavin lives immediately above the person who likes red.\n3. Manoj lives on floor 6.\n4. Manoj likes yellow.\n5. Nila likes black.\n6. Nila lives on a floor somewhere above Kavin.\n7. Latha likes blue.\n8. Om does not like green.\n9. Padma lives on a floor somewhere above Om.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kavin"
+        },
+        {
+          "id": "b",
+          "text": "Om"
+        },
+        {
+          "id": "c",
+          "text": "Padma"
+        },
+        {
+          "id": "d",
+          "text": "Latha"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white). Om likes white, so the other free colour, green, is Kavin’s.",
+      "solutionSteps": [
+        "Manoj: floor 6. Kavin is on 2, 3 or 4 (someone below, Nila above).",
+        "Try each case for Kavin with \"two people between Kavin and Om\"; only Kavin 4, Om 1 survives the other clues.",
+        "Red is on floor 3, Nila on 5. Latha likes blue, so Latha 2 and Padma 3 (red).",
+        "Om is not green: Om white, Kavin green.",
+        "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white)."
+      ],
+      "formulaIds": [
+        "pz-grid-f"
+      ],
+      "method": "The last free value in a column goes to the last free person.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find who likes red first: the person immediately below Kavin."
+        },
+        {
+          "level": 2,
+          "text": "Only Om and Kavin are left without a colour."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Padma, who likes red."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-020",
+      "topicId": "puzzles",
+      "conceptId": "pz-floor",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many people live between the person who likes blue and the person who likes black?",
+      "context": "Six people, Kavin, Latha, Manoj, Nila, Om and Padma, live on the six floors of a building, one on each floor (floor 1 is the lowest, floor 6 the top). Each likes a different colour: red, blue, green, yellow, white or black.\n1. Exactly two people live between Kavin and Om.\n2. Kavin lives immediately above the person who likes red.\n3. Manoj lives on floor 6.\n4. Manoj likes yellow.\n5. Nila likes black.\n6. Nila lives on a floor somewhere above Kavin.\n7. Latha likes blue.\n8. Om does not like green.\n9. Padma lives on a floor somewhere above Om.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white). Blue is Latha on floor 2 and black is Nila on floor 5: floors 3 and 4 lie between, so 2 people.",
+      "solutionSteps": [
+        "Manoj: floor 6. Kavin is on 2, 3 or 4 (someone below, Nila above).",
+        "Try each case for Kavin with \"two people between Kavin and Om\"; only Kavin 4, Om 1 survives the other clues.",
+        "Red is on floor 3, Nila on 5. Latha likes blue, so Latha 2 and Padma 3 (red).",
+        "Om is not green: Om white, Kavin green.",
+        "Floor 6 Manoj (yellow), 5 Nila (black), 4 Kavin (green), 3 Padma (red), 2 Latha (blue), 1 Om (white)."
+      ],
+      "formulaIds": [
+        "pz-gap-f"
+      ],
+      "method": "Turn each colour into its person, then count floors between.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Who likes blue and who likes black? Both are given directly."
+        },
+        {
+          "level": 2,
+          "text": "Find their floors, then count the floors strictly between."
+        }
+      ],
+      "commonMistakes": [
+        "Counting Latha or Nila themselves."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-021",
+      "topicId": "puzzles",
+      "conceptId": "pz-cases",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who lives on the top floor?",
+      "context": "Six neighbours, Rhea, Sahil, Tara, Uday, Vani and Wasim, live on the six floors of a building, one on each floor. Floor 1 is the lowest and floor 6 the top.\n1. Tara lives on floor 4.\n2. Only one person lives between Tara and Uday.\n3. Rhea lives immediately above Sahil.\n4. Vani lives immediately above Tara.\n5. Tara lives on a floor somewhere above Wasim.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uday"
+        },
+        {
+          "id": "b",
+          "text": "Vani"
+        },
+        {
+          "id": "c",
+          "text": "Rhea"
+        },
+        {
+          "id": "d",
+          "text": "Wasim"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Tara is on floor 4 and Vani on 5. Uday has one person between him and Tara: floor 2 or 6. If Uday were on 2, floors 1, 3 and 6 would be left, and Rhea could not be immediately above Sahil. So Uday is on 6. Floors 1, 2 and 3 hold Rhea, Sahil and Wasim, with Rhea immediately above Sahil: two cases. Case 1: floor 1 Sahil, 2 Rhea, 3 Wasim. Case 2: floor 1 Wasim, 2 Sahil, 3 Rhea. In both: 4 Tara, 5 Vani, 6 Uday. Uday is on the top floor in both cases, so the answer is certain even though floors 1–3 are not.",
+      "solutionSteps": [
+        "Tara 4, Vani 5.",
+        "Uday: floor 2 or 6. Floor 2 leaves no two adjacent floors for Rhea and Sahil, so Uday 6.",
+        "Rhea–Sahil as a block on floors 1–2 or 2–3, Wasim on the other: two cases.",
+        "Case 1: floor 1 Sahil, 2 Rhea, 3 Wasim. Case 2: floor 1 Wasim, 2 Sahil, 3 Rhea. In both: 4 Tara, 5 Vani, 6 Uday."
+      ],
+      "formulaIds": [
+        "pz-cases-f",
+        "pz-gap-f"
+      ],
+      "method": "Case method: the answer is certain if every surviving case gives it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the floors as a column with floor 1 at the bottom, and write in what is certain first."
+        },
+        {
+          "level": 2,
+          "text": "Uday has one person between him and Tara: floor 2 or 6. Try both."
+        },
+        {
+          "level": 3,
+          "text": "With Uday on floor 2, can Rhea still live immediately above Sahil?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving up because floors 1–3 cannot all be fixed."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "puzzles-q-022",
+      "topicId": "puzzles",
+      "conceptId": "pz-cases",
+      "levelId": "puzzles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "On which floors could Wasim live? Select every floor that is possible.",
+      "context": "Six neighbours, Rhea, Sahil, Tara, Uday, Vani and Wasim, live on the six floors of a building, one on each floor. Floor 1 is the lowest and floor 6 the top.\n1. Tara lives on floor 4.\n2. Only one person lives between Tara and Uday.\n3. Rhea lives immediately above Sahil.\n4. Vani lives immediately above Tara.\n5. Tara lives on a floor somewhere above Wasim.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Floor 1"
+        },
+        {
+          "id": "b",
+          "text": "Floor 2"
+        },
+        {
+          "id": "c",
+          "text": "Floor 3"
+        },
+        {
+          "id": "d",
+          "text": "Floor 5"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c"
+      ],
+      "explanation": "Case 1: floor 1 Sahil, 2 Rhea, 3 Wasim. Case 2: floor 1 Wasim, 2 Sahil, 3 Rhea. In both: 4 Tara, 5 Vani, 6 Uday. Wasim is on floor 3 in the first case and floor 1 in the second. Floor 2 is always part of the Rhea–Sahil pair, and floor 5 is Vani’s.",
+      "solutionSteps": [
+        "Tara 4, Vani 5.",
+        "Uday: floor 2 or 6. Floor 2 leaves no two adjacent floors for Rhea and Sahil, so Uday 6.",
+        "Rhea–Sahil as a block on floors 1–2 or 2–3, Wasim on the other: two cases.",
+        "Case 1: floor 1 Sahil, 2 Rhea, 3 Wasim. Case 2: floor 1 Wasim, 2 Sahil, 3 Rhea. In both: 4 Tara, 5 Vani, 6 Uday."
+      ],
+      "formulaIds": [
+        "pz-cases-f"
+      ],
+      "method": "Collect the answer from every surviving case.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Floors 4, 5 and 6 are fixed. Rhea and Sahil need two adjacent floors among 1, 2 and 3."
+        },
+        {
+          "level": 2,
+          "text": "Where can the Rhea–Sahil block go, and where does that leave Wasim each time?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing only one case and missing the other.",
+        "Choosing floor 2, which the Rhea–Sahil block always uses."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}
