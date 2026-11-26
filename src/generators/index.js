@@ -57,6 +57,11 @@ import { seatingTemplates } from './templates/reasoningSeating.js';
 import { puzzleTemplates } from './templates/reasoningPuzzles.js';
 import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
 import { bloodTemplates } from './templates/reasoningBlood.js';
+import { directionTemplates } from './templates/reasoningDirection.js';
+import { codingTemplates } from './templates/reasoningCoding.js';
+import { rankingTemplates } from './templates/reasoningRanking.js';
+import { cubesTemplates } from './templates/reasoningCubes.js';
+import { mirrorTemplates } from './templates/reasoningMirror.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -103,7 +108,12 @@ const TEMPLATES = [
   ...puzzleTemplates,
   ...syllogismTemplates,
   ...inequalityTemplates,
-  ...bloodTemplates
+  ...bloodTemplates,
+  ...directionTemplates,
+  ...codingTemplates,
+  ...rankingTemplates,
+  ...cubesTemplates,
+  ...mirrorTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

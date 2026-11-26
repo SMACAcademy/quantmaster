@@ -1,0 +1,1411 @@
+{
+  "topicId": "order-ranking",
+  "concepts": [
+    {
+      "id": "or-position",
+      "topicId": "order-ranking",
+      "name": "Position from both ends",
+      "description": "A person k-th from one end of n people is (n − k + 1)-th from the other; total = left + right − 1.",
+      "sortOrder": 1
+    },
+    {
+      "id": "or-between",
+      "topicId": "order-ranking",
+      "name": "People between two others",
+      "description": "Count both positions from the same end; between them are |p − q| − 1 people. When the order is not given, try both orders.",
+      "sortOrder": 2
+    },
+    {
+      "id": "or-interchange",
+      "topicId": "order-ranking",
+      "name": "Interchanging places",
+      "description": "After a swap each person stands in the other’s old place, so a new position is the other person’s old one.",
+      "sortOrder": 3
+    },
+    {
+      "id": "or-compare",
+      "topicId": "order-ranking",
+      "name": "Ranking by comparisons",
+      "description": "Chain statements like \"A is taller than B\" into one line, tallest first, and read positions off it.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "or-total-f",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "title": "Total from both ends",
+      "prompt": "A person is L-th from the left and R-th from the right. How many people are in the row?",
+      "formula": "Total = L + R − 1",
+      "variables": [
+        "L = position from the left",
+        "R = position from the right"
+      ],
+      "explanation": "Counting from both ends counts that person twice.",
+      "example": "9th from the left and 14th from the right: 9 + 14 − 1 = 22.",
+      "commonMistake": "Forgetting the − 1 (answering 23).",
+      "applicationPrompt": "Seema is 18th from both ends. How many people are there?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "or-other-end-f",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "title": "From the other end",
+      "prompt": "There are n people and a person is k-th from one end. Where are they from the other end?",
+      "formula": "Position from the other end = n − k + 1",
+      "variables": [],
+      "explanation": "There are n − k people after the person, so the person is next: n − k + 1.",
+      "example": "Rank 12th from the top in a class of 45: 45 − 12 + 1 = 34th from the bottom.",
+      "commonMistake": "Answering n − k (forgetting the person themselves).",
+      "applicationPrompt": "Vikram is 17th from the front of a queue of 30. Where is he from the back?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "or-between-f",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "title": "People between two people",
+      "prompt": "Two people are at positions p and q from the same end. How many people are between them?",
+      "formula": "Between = |p − q| − 1\n(convert both positions to the same end first)",
+      "variables": [],
+      "explanation": "The gap |p − q| counts one of the two people, so take one away.",
+      "example": "6th and 14th from the left: 14 − 6 − 1 = 7 between.",
+      "commonMistake": "Subtracting a left position from a right position without converting.",
+      "applicationPrompt": "In a row of 40, A is 11th from the left and B is 16th from the right. How many are between them?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "or-swap-f",
+      "topicId": "order-ranking",
+      "conceptId": "or-interchange",
+      "title": "Interchange",
+      "prompt": "A and B swap places. What do you know about A’s new position?",
+      "formula": "A’s new position = B’s old position (from either end)\nNew from the left + B’s old from the right − 1 = total",
+      "variables": [],
+      "explanation": "A swap moves nobody else, so each person simply takes the other’s seat.",
+      "example": "A 10th from the left, B 15th from the right; after the swap A is 18th from the left: total 18 + 15 − 1 = 32.",
+      "commonMistake": "Adding A’s old position to B’s position.",
+      "applicationPrompt": "After swapping with B, A is 21st from the left; B was 8th from the right. How many people are there?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "or-compare-f",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "title": "Chaining comparisons",
+      "prompt": "How do you rank people from statements like \"A is taller than B\"?",
+      "formula": "Write each statement as A > B\nJoin chains at shared people: A > B and B > C give A > B > C",
+      "variables": [],
+      "explanation": "Turn every \"less than\" round so all statements point the same way, then build one line.",
+      "example": "Chitra > Anu, Anu > Bala, Bala > Deepa: Chitra > Anu > Bala > Deepa.",
+      "commonMistake": "Reading \"A is shorter than B\" as A > B.",
+      "applicationPrompt": "Kiran scored more than Lata but less than Meena. Who scored the most of the three?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "or-sc-overlap",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "kind": "shortcut",
+      "title": "Overlapping counts",
+      "prompt": "A is a-th from the left and B is b-th from the right in a row of n, with a + b > n. How many people are between them?",
+      "formula": "If a + b > n: between = a + b − n − 2\nIf a + b ≤ n: between = n − a − b",
+      "variables": [],
+      "explanation": "When a + b is more than n the two counts overlap, so B is to the left of A.",
+      "example": "n = 25, a = 15, b = 18: 15 + 18 − 25 − 2 = 6.",
+      "commonMistake": "Using n − a − b when the counts overlap (a negative answer is the clue).",
+      "applicationPrompt": "n = 30, a = 20, b = 14. How many between?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "or-sc-min",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "kind": "shortcut",
+      "title": "Smallest possible queue",
+      "prompt": "A is a-th from the front, B is b-th from the back, with k people between them. What is the smallest the queue can be?",
+      "formula": "A ahead of B: a + k + b\nB ahead of A: a + b − k − 2 (if k ≤ a − 2 and k ≤ b − 2)\nSmallest: the second",
+      "variables": [],
+      "explanation": "If B can stand ahead of A, the two counts overlap and the queue is shorter.",
+      "example": "a = 9, b = 8, k = 4: 21 or 9 + 8 − 4 − 2 = 11. Smallest 11.",
+      "commonMistake": "Taking only the case where A is ahead.",
+      "applicationPrompt": "a = 6, b = 10, k = 3. What are the two possible totals?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "order-ranking-level-0",
+      "topicId": "order-ranking",
+      "order": 0,
+      "title": "Counting from Both Ends",
+      "description": "Positions, totals, gaps, swaps and comparisons.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "or-position",
+        "or-between",
+        "or-interchange",
+        "or-compare"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "ranking-row"
+          },
+          {
+            "type": "text",
+            "title": "Counted twice",
+            "body": "If Radha is 9th from the left, 8 people are to her left. If she is 14th from the right, 13 are to her right. The row has 8 + 13 + 1 = 22 people, which is 9 + 14 − 1: counting from both ends counts Radha twice."
+          },
+          {
+            "type": "formula",
+            "title": "Three rules",
+            "body": "Total = L + R − 1\nFrom the other end = n − k + 1\nBetween p and q (same end) = |p − q| − 1",
+            "caption": "Always turn both positions into counts from the same end before subtracting."
+          },
+          {
+            "type": "check",
+            "questionId": "order-ranking-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Swaps and overlaps",
+            "body": "When two people interchange places, nobody else moves: each takes the other’s old seat. So \"after the swap, A is 18th from the left\" tells you B’s old seat. If A is near one end and B near the other but A’s count from the left plus B’s count from the right is more than the row, the counts overlap: B is actually to the left of A."
+          },
+          {
+            "type": "example",
+            "title": "Ranking by comparisons",
+            "body": "Anu is taller than Bala, Chitra is taller than Anu, and Deepa is shorter than Bala. Write each as a chain, tallest first: Chitra > Anu > Bala > Deepa. The shortest is Deepa and the second tallest is Anu."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "When a question does not say who is ahead, both orders may be possible. \"At least\" or \"smallest possible\" asks for the overlapping case."
+          },
+          {
+            "type": "check",
+            "questionId": "order-ranking-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "order-ranking-level-1",
+      "topicId": "order-ranking",
+      "order": 1,
+      "title": "Ranking Rules",
+      "description": "Totals, the other end, people between, swaps and chains.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "order-ranking-level-0"
+      ],
+      "conceptIds": [
+        "or-position",
+        "or-between",
+        "or-interchange",
+        "or-compare"
+      ],
+      "formulaIds": [
+        "or-total-f",
+        "or-other-end-f",
+        "or-between-f",
+        "or-swap-f",
+        "or-compare-f",
+        "or-sc-overlap",
+        "or-sc-min"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "order-ranking-level-2",
+      "topicId": "order-ranking",
+      "order": 2,
+      "title": "Positions and Totals",
+      "description": "One person counted from both ends, and simple comparisons.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "order-ranking-level-1"
+      ],
+      "conceptIds": [
+        "or-position",
+        "or-compare",
+        "or-between"
+      ],
+      "questionIds": [
+        "order-ranking-q-001",
+        "order-ranking-q-002",
+        "order-ranking-q-003",
+        "order-ranking-q-004",
+        "order-ranking-q-005",
+        "order-ranking-q-006",
+        "order-ranking-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "order-ranking-level-3",
+      "topicId": "order-ranking",
+      "order": 3,
+      "title": "Gaps, Swaps and Chains",
+      "description": "People between two others, overlaps, interchanges and five-person chains.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "order-ranking-level-2"
+      ],
+      "conceptIds": [
+        "or-between",
+        "or-interchange",
+        "or-compare",
+        "or-position"
+      ],
+      "questionIds": [
+        "order-ranking-q-008",
+        "order-ranking-q-009",
+        "order-ranking-q-010",
+        "order-ranking-q-011",
+        "order-ranking-q-012",
+        "order-ranking-q-013",
+        "order-ranking-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "order-ranking-level-4",
+      "topicId": "order-ranking",
+      "order": 4,
+      "title": "Cases and Combinations",
+      "description": "Smallest queues, two possible totals, swaps from the right and longer chains.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "order-ranking-level-3"
+      ],
+      "conceptIds": [
+        "or-between",
+        "or-interchange",
+        "or-compare",
+        "or-position"
+      ],
+      "questionIds": [
+        "order-ranking-q-015",
+        "order-ranking-q-016",
+        "order-ranking-q-017",
+        "order-ranking-q-018",
+        "order-ranking-q-019",
+        "order-ranking-q-020",
+        "order-ranking-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "order-ranking-level-5",
+      "topicId": "order-ranking",
+      "order": 5,
+      "title": "Mixed Ranking Practice",
+      "description": "All order-and-ranking patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "order-ranking-level-4"
+      ],
+      "conceptIds": [
+        "or-position",
+        "or-between",
+        "or-interchange",
+        "or-compare"
+      ],
+      "questionQuery": {
+        "topicId": "order-ranking",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "order-ranking-q-001",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a row of girls facing north, Radha is 9th from the left and 14th from the right. How many girls are there in the row?",
+      "answer": {
+        "value": 22,
+        "tolerance": 0
+      },
+      "explanation": "Radha is counted from both ends, so 9 + 14 counts her twice: 9 + 14 − 1 = 22.",
+      "solutionSteps": [
+        "8 girls to her left, 13 to her right.",
+        "8 + 13 + 1 = 22 (or 9 + 14 − 1)."
+      ],
+      "formulaIds": [
+        "or-total-f"
+      ],
+      "method": "Total = left + right − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many girls are to Radha’s left? To her right?"
+        },
+        {
+          "level": 2,
+          "text": "Add the two positions and subtract 1."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 23, forgetting she is counted twice."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-002",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a class of 45 students, Arjun is 12th from the top in the exam results. What is his rank from the bottom?",
+      "answer": {
+        "value": 34,
+        "tolerance": 0
+      },
+      "explanation": "45 − 12 = 33 students are below him, so he is 34th from the bottom (45 − 12 + 1).",
+      "solutionSteps": [
+        "Students below Arjun: 45 − 12 = 33.",
+        "Rank from the bottom: 33 + 1 = 34."
+      ],
+      "formulaIds": [
+        "or-other-end-f"
+      ],
+      "method": "From the other end = n − k + 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many students rank below Arjun?"
+        },
+        {
+          "level": 2,
+          "text": "He comes right after them, counting from the bottom."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 33 (n − k)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-003",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a queue of 30 people at a bank counter, Vikram is 17th from the front. What is his position from the back?",
+      "options": [
+        {
+          "id": "a",
+          "text": "13"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Position from the back = 30 − 17 + 1 = 14.",
+      "solutionSteps": [
+        "30 − 17 = 13 people behind him.",
+        "He is 14th from the back."
+      ],
+      "formulaIds": [
+        "or-other-end-f"
+      ],
+      "method": "n − k + 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many people are behind Vikram?"
+        },
+        {
+          "level": 2,
+          "text": "Add 1 for Vikram himself."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 13, the number of people behind him."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-004",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Anu is taller than Bala. Chitra is taller than Anu. Deepa is shorter than Bala. Who is the shortest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bala"
+        },
+        {
+          "id": "b",
+          "text": "Anu"
+        },
+        {
+          "id": "c",
+          "text": "Deepa"
+        },
+        {
+          "id": "d",
+          "text": "Chitra"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Chain the statements, tallest first: Chitra > Anu > Bala > Deepa. The shortest is Deepa.",
+      "solutionSteps": [
+        "Chitra > Anu; Anu > Bala; Bala > Deepa.",
+        "Chitra > Anu > Bala > Deepa."
+      ],
+      "formulaIds": [
+        "or-compare-f"
+      ],
+      "method": "Join the comparisons into one line.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each statement as \"taller > shorter\"."
+        },
+        {
+          "level": 2,
+          "text": "\"Deepa is shorter than Bala\" means Bala > Deepa."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Bala, forgetting Deepa is shorter still."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-005",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a row of students, Ravi is 6th from the left and Mohan is 14th from the left. How many students sit between Ravi and Mohan?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Both positions are from the left: between = 14 − 6 − 1 = 7.",
+      "solutionSteps": [
+        "Same end, so subtract: 14 − 6 = 8.",
+        "Take away 1: 7 students between."
+      ],
+      "formulaIds": [
+        "or-between-f"
+      ],
+      "method": "Between = |p − q| − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both are counted from the left, so subtract."
+        },
+        {
+          "level": 2,
+          "text": "The difference counts Mohan too: take 1 away."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-006",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Seema is 18th from either end of a row of people. How many people are in the row?",
+      "answer": {
+        "value": 35,
+        "tolerance": 0
+      },
+      "explanation": "18 from the left and 18 from the right: 18 + 18 − 1 = 35.",
+      "solutionSteps": [
+        "17 people on each side of Seema.",
+        "17 + 17 + 1 = 35."
+      ],
+      "formulaIds": [
+        "or-total-f"
+      ],
+      "method": "Total = L + R − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many people are on each side of her?"
+        },
+        {
+          "level": 2,
+          "text": "Count both sides and Seema once."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 36."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-007",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "levelId": "order-ranking-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a test, Kiran scored more than Lata but less than Meena. Naveen scored more than Meena. Who scored the second highest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kiran"
+        },
+        {
+          "id": "b",
+          "text": "Naveen"
+        },
+        {
+          "id": "c",
+          "text": "Meena"
+        },
+        {
+          "id": "d",
+          "text": "Lata"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Meena > Kiran > Lata, and Naveen > Meena. So Naveen > Meena > Kiran > Lata: Meena is second.",
+      "solutionSteps": [
+        "Meena > Kiran > Lata.",
+        "Naveen above Meena.",
+        "Naveen > Meena > Kiran > Lata."
+      ],
+      "formulaIds": [
+        "or-compare-f"
+      ],
+      "method": "Chain the comparisons, highest first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Kiran scored more than Lata but less than Meena\" puts Kiran between them."
+        },
+        {
+          "level": 2,
+          "text": "Where does Naveen go?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering Kiran by reading only the first statement."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-008",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a row of 40 students, Rohit is 11th from the left and Sameer is 16th from the right. How many students are there between Rohit and Sameer?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "Sameer from the left: 40 − 16 + 1 = 25. Between 11th and 25th: 25 − 11 − 1 = 13.",
+      "solutionSteps": [
+        "Sameer: 25th from the left.",
+        "Between: 25 − 11 − 1 = 13."
+      ],
+      "formulaIds": [
+        "or-other-end-f",
+        "or-between-f"
+      ],
+      "method": "Convert to the same end, then subtract and take 1 away.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write Sameer’s position from the left."
+        },
+        {
+          "level": 2,
+          "text": "Then use |p − q| − 1."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 11 from 16 directly (4).",
+        "Answering 14 (forgetting the − 1)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-009",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a row of 25 children, Tara is 15th from the left and Uday is 18th from the right. How many children are there between Tara and Uday?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "Uday from the left: 25 − 18 + 1 = 8. So Uday is to Tara’s left: between 8th and 15th there are 15 − 8 − 1 = 6.",
+      "solutionSteps": [
+        "Uday: 8th from the left.",
+        "Between 8 and 15: 6."
+      ],
+      "formulaIds": [
+        "or-other-end-f",
+        "or-between-f",
+        "or-sc-overlap"
+      ],
+      "method": "Convert to one end; the counts overlap, so Uday is on Tara’s left.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "15 + 18 is more than 25: what does that tell you?"
+        },
+        {
+          "level": 2,
+          "text": "Find Uday’s place from the left."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 25 − 15 − 18 = −8 and stopping.",
+        "Answering 7."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-010",
+      "topicId": "order-ranking",
+      "conceptId": "or-interchange",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a row, Nisha is 10th from the left and Om is 15th from the right. When they interchange their places, Nisha becomes 18th from the left. How many people are there in the row?",
+      "answer": {
+        "value": 32,
+        "tolerance": 0
+      },
+      "explanation": "After the swap Nisha is in Om’s old place, which is therefore 18th from the left and 15th from the right. Total = 18 + 15 − 1 = 32.",
+      "solutionSteps": [
+        "Om’s old place = Nisha’s new place = 18th from the left.",
+        "That place is 15th from the right.",
+        "18 + 15 − 1 = 32."
+      ],
+      "formulaIds": [
+        "or-swap-f",
+        "or-total-f"
+      ],
+      "method": "Pair the new position with the other person’s old position from the other end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Whose old seat does Nisha sit in after the swap?"
+        },
+        {
+          "level": 2,
+          "text": "That seat is known from both ends now."
+        }
+      ],
+      "commonMistakes": [
+        "Using 10 + 15 − 1 = 24 (Nisha’s old place with Om’s)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-011",
+      "topicId": "order-ranking",
+      "conceptId": "or-interchange",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a row of 30 students, Gita is 7th from the left and Hari is 12th from the right. If they interchange their places, what will Gita’s new position be from the left?",
+      "answer": {
+        "value": 19,
+        "tolerance": 0
+      },
+      "explanation": "Gita moves to Hari’s place. Hari is 12th from the right, that is 30 − 12 + 1 = 19th from the left. So Gita becomes 19th from the left.",
+      "solutionSteps": [
+        "Gita takes Hari’s seat.",
+        "Hari’s seat from the left: 30 − 12 + 1 = 19."
+      ],
+      "formulaIds": [
+        "or-swap-f",
+        "or-other-end-f"
+      ],
+      "method": "The new position is the other person’s old one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where will Gita sit after the swap?"
+        },
+        {
+          "level": 2,
+          "text": "Convert Hari’s position to the left end."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 12 (Hari’s position from the right).",
+        "Answering 18 (forgetting the + 1)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-012",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Pavan is taller than Qadir. Rekha is shorter than Sonu but taller than Pavan. Tanu is shorter than Qadir. Who is in the middle when the five stand in order of height?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Qadir"
+        },
+        {
+          "id": "b",
+          "text": "Rekha"
+        },
+        {
+          "id": "c",
+          "text": "Pavan"
+        },
+        {
+          "id": "d",
+          "text": "Sonu"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Sonu > Rekha > Pavan, Pavan > Qadir, Qadir > Tanu. Order: Sonu > Rekha > Pavan > Qadir > Tanu. The middle (3rd) is Pavan.",
+      "solutionSteps": [
+        "Sonu > Rekha > Pavan > Qadir > Tanu.",
+        "Middle of five: 3rd = Pavan."
+      ],
+      "formulaIds": [
+        "or-compare-f"
+      ],
+      "method": "Build one chain, then count to the middle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with the statement that names three people."
+        },
+        {
+          "level": 2,
+          "text": "Attach Qadir below Pavan and Tanu below Qadir."
+        }
+      ],
+      "commonMistakes": [
+        "Placing Rekha below Pavan by misreading \"shorter than Sonu\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-013",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In an exam, Leela ranked 8th from the top and 27th from the bottom among the students who passed. 6 students failed and 3 were absent. How many students were there in the class?",
+      "answer": {
+        "value": 43,
+        "tolerance": 0
+      },
+      "explanation": "Passed: 8 + 27 − 1 = 34. Class: 34 + 6 (failed) + 3 (absent) = 43.",
+      "solutionSteps": [
+        "Passed students: 8 + 27 − 1 = 34.",
+        "Add those not ranked: 34 + 6 + 3 = 43."
+      ],
+      "formulaIds": [
+        "or-total-f"
+      ],
+      "method": "Rank only those in the list, then add the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many students passed?"
+        },
+        {
+          "level": 2,
+          "text": "Students who failed or were absent are not in the ranking."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out the absent students (40)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-014",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Kamal is 10th from the left in a row of 26 people. How many people are to his right?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "9 people are to his left; the rest, 26 − 10 = 16, are to his right.",
+      "solutionSteps": [
+        "People to his left: 9.",
+        "To his right: 26 − 9 − 1 = 16."
+      ],
+      "formulaIds": [
+        "or-other-end-f"
+      ],
+      "method": "People to the right = n − L.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many people does \"10th from the left\" put to his left?"
+        },
+        {
+          "level": 2,
+          "text": "Take those and Kamal away from 26."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 17, his position from the right, instead of the number of people."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-015",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a queue, Jaya is 9th from the front and Kunal is 8th from the back. There are 4 people between Jaya and Kunal. What is the smallest possible number of people in the queue?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "If Jaya is ahead of Kunal: 9 + 4 + 8 = 21. If Kunal is ahead of Jaya, Kunal is 4th from the front (9 − 4 − 1), and the queue has 4 + 8 − 1 = 11. The smallest is 11.",
+      "solutionSteps": [
+        "Jaya ahead: 9 + 4 + 8 = 21.",
+        "Kunal ahead: Kunal 4th from the front; total 4 + 8 − 1 = 11.",
+        "Smallest: 11."
+      ],
+      "formulaIds": [
+        "or-between-f",
+        "or-sc-min"
+      ],
+      "method": "Try both orders; the overlapping one is smaller.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does the question say who is ahead?"
+        },
+        {
+          "level": 2,
+          "text": "If Kunal is ahead, he is 5 places in front of Jaya."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 21, taking only one order."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-016",
+      "topicId": "order-ranking",
+      "conceptId": "or-between",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "In a queue, Arun is 6th from the front and Bina is 10th from the back. There are 3 people between them. How many people could there be in the queue? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "11"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "17"
+        },
+        {
+          "id": "d",
+          "text": "19"
+        },
+        {
+          "id": "e",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "d"
+      ],
+      "explanation": "Arun ahead of Bina: 6 + 3 + 10 = 19. Bina ahead of Arun: Bina is 6 − 3 − 1 = 2nd from the front, so the queue has 2 + 10 − 1 = 11. Both are possible.",
+      "solutionSteps": [
+        "Arun ahead: 19.",
+        "Bina ahead: Bina 2nd from the front; 2 + 10 − 1 = 11."
+      ],
+      "formulaIds": [
+        "or-between-f",
+        "or-sc-min"
+      ],
+      "method": "Both orders give an answer; list both.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the total with Arun ahead, then with Bina ahead."
+        },
+        {
+          "level": 2,
+          "text": "If Bina is ahead, she is 4 places in front of Arun."
+        }
+      ],
+      "commonMistakes": [
+        "Selecting only 19.",
+        "Selecting 17 or 20 by adding or dropping a person."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-017",
+      "topicId": "order-ranking",
+      "conceptId": "or-interchange",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a row, P is 14th from the left and Q is 8th from the right. When P and Q interchange their places, P becomes 21st from the left. What is Q’s new position from the right?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "P’s new place is Q’s old place: 21st from the left and 8th from the right, so the row has 21 + 8 − 1 = 28 people. Q moves to P’s old place, 14th from the left, which is 28 − 14 + 1 = 15th from the right.",
+      "solutionSteps": [
+        "Total: 21 + 8 − 1 = 28.",
+        "Q takes P’s old place, 14th from the left.",
+        "From the right: 28 − 14 + 1 = 15."
+      ],
+      "formulaIds": [
+        "or-swap-f",
+        "or-total-f",
+        "or-other-end-f"
+      ],
+      "method": "Find the total from one seat known from both ends, then convert.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which seat is now known from both ends?"
+        },
+        {
+          "level": 2,
+          "text": "Q moves to P’s old seat."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 14 (Q’s new position from the left)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-018",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Arjun earns more than Bhanu and Charu. Dev earns less than Charu but more than Bhanu. Esha earns the most. Who earns the least?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dev"
+        },
+        {
+          "id": "b",
+          "text": "Charu"
+        },
+        {
+          "id": "c",
+          "text": "Bhanu"
+        },
+        {
+          "id": "d",
+          "text": "Arjun"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Esha is at the top. Arjun > Charu and Arjun > Bhanu; Charu > Dev > Bhanu. Order: Esha > Arjun > Charu > Dev > Bhanu. The least is Bhanu.",
+      "solutionSteps": [
+        "Charu > Dev > Bhanu.",
+        "Arjun above Charu; Esha above everyone.",
+        "Esha > Arjun > Charu > Dev > Bhanu."
+      ],
+      "formulaIds": [
+        "or-compare-f"
+      ],
+      "method": "Place the person named most often, then fit the rest round them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Dev sits between Charu and Bhanu."
+        },
+        {
+          "level": 2,
+          "text": "Who is below Dev?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Dev because he \"earns less than Charu\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-019",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a row of 41 students facing north, Ritu is 12th from the left. Sanjay is 6 places to the right of Ritu. What is Sanjay’s position from the right end?",
+      "answer": {
+        "value": 24,
+        "tolerance": 0
+      },
+      "explanation": "Sanjay is 12 + 6 = 18th from the left, so 41 − 18 + 1 = 24th from the right.",
+      "solutionSteps": [
+        "Sanjay from the left: 18.",
+        "From the right: 41 − 18 + 1 = 24."
+      ],
+      "formulaIds": [
+        "or-other-end-f"
+      ],
+      "method": "Move along the row, then convert to the other end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Facing north, moving right adds to the position from the left."
+        },
+        {
+          "level": 2,
+          "text": "Then use n − k + 1."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the 6 places (6th from the left)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-020",
+      "topicId": "order-ranking",
+      "conceptId": "or-position",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Ramesh is 13th from the front and 17th from the back of a queue. Which of these statements are true? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "There are 29 people in the queue."
+        },
+        {
+          "id": "b",
+          "text": "Exactly 12 people are ahead of Ramesh."
+        },
+        {
+          "id": "c",
+          "text": "Exactly 17 people are behind Ramesh."
+        },
+        {
+          "id": "d",
+          "text": "Ramesh is exactly in the middle of the queue."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b"
+      ],
+      "explanation": "Total: 13 + 17 − 1 = 29. Ahead of him: 12. Behind him: 16, not 17. The middle of 29 is the 15th place, and he is 13th, so not the middle.",
+      "solutionSteps": [
+        "Total 29.",
+        "Ahead 12, behind 16.",
+        "Middle of 29 is 15th: not Ramesh."
+      ],
+      "formulaIds": [
+        "or-total-f",
+        "or-other-end-f"
+      ],
+      "method": "Position k means k − 1 people before you.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"13th from the front\" means how many people ahead?"
+        },
+        {
+          "level": 2,
+          "text": "He would be in the middle only if his two positions were equal."
+        }
+      ],
+      "commonMistakes": [
+        "Taking \"17th from the back\" to mean 17 people behind."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "order-ranking-q-021",
+      "topicId": "order-ranking",
+      "conceptId": "or-compare",
+      "levelId": "order-ranking-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Sunil is older than Tanvi but younger than Uday. Vani is older than Uday. Who is the second oldest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sunil"
+        },
+        {
+          "id": "b",
+          "text": "Vani"
+        },
+        {
+          "id": "c",
+          "text": "Uday"
+        },
+        {
+          "id": "d",
+          "text": "Tanvi"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Uday > Sunil > Tanvi, and Vani > Uday. So Vani > Uday > Sunil > Tanvi: the second oldest is Uday.",
+      "solutionSteps": [
+        "Uday > Sunil > Tanvi.",
+        "Vani above Uday.",
+        "Vani > Uday > Sunil > Tanvi."
+      ],
+      "formulaIds": [
+        "or-compare-f"
+      ],
+      "method": "Chain, oldest first, then count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Older than Tanvi but younger than Uday\" puts Sunil between them."
+        },
+        {
+          "level": 2,
+          "text": "Where does Vani go?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering Vani, the oldest."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

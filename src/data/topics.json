@@ -1322,6 +1322,91 @@
       "tags": [
         "reasoning"
       ]
+    },
+    {
+      "id": "direction-sense",
+      "name": "Direction Sense",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Turns and walks on a compass: the final direction, the shortest way back to the start, where one place lies from another, and which way a shadow falls.",
+      "whyItMatters": "Direction questions appear in almost every SSC, railway and bank reasoning paper. A quick sketch and the right-angled triangle answer nearly all of them in under a minute.",
+      "glyph": "🧭",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 80,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "coding-decoding",
+      "name": "Coding-Decoding",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Letter shifts, opposite letters (A ↔ Z), reversed and number codes, and codes for words worked out from whole sentences.",
+      "whyItMatters": "A staple of SSC, bank, railway and placement tests. Once letter positions are automatic, most coding questions take seconds.",
+      "glyph": "🔐",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 81,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "order-ranking",
+      "name": "Order and Ranking",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Positions in a row or queue counted from either end, people between two others, interchanges, and orders built from comparisons.",
+      "whyItMatters": "Ranking questions are short, frequent marks in SSC, railway and bank papers, and the left + right − 1 idea comes back inside seating and puzzle sets.",
+      "glyph": "🏅",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 82,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "cubes-dice",
+      "name": "Cubes and Dice",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Opposite faces from views of a die, standard dice and nets, and a painted cube cut into small cubes: how many have 0, 1, 2 or 3 painted faces.",
+      "whyItMatters": "Asked in SSC, railway, placement and CSAT papers. The painted-cube counts are four formulas, and dice questions yield to one clear rule about faces seen together.",
+      "glyph": "🎲",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 83,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "mirror-paper-folding",
+      "name": "Mirror Images and Paper Folding",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Mirror and water images of letters, words and clocks, and paper folded, punched and opened out.",
+      "whyItMatters": "Spatial questions in SSC, railway and GATE aptitude papers. Each has a rule you can check without drawing: 11:60 − t for a clock, doubling with every fold for holes.",
+      "glyph": "🪞",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 84,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
     }
   ]
 }

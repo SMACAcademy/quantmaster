@@ -28,8 +28,9 @@
  *   subsets      the power set, grouped by size
  *   passage      a paragraph read sentence by sentence
  *
- * and five for logical reasoning (seats, grid, euler, chain, family), drawn by
- * reasoningPlots.js.
+ * and for logical reasoning (seats, grid, euler, chain, family, walk, wheels,
+ * queue, cubes, fold, mirrorclock), drawn by reasoningPlots.js and
+ * reasoningPlotsMore.js.
  *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.

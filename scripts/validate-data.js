@@ -14,6 +14,8 @@ import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { solidProblems } from '../src/utils/solidGeometry.js';
 import { clockProblems, numberLineProblems } from '../src/utils/figureMath.js';
+import { diceFigureProblems } from '../src/utils/reasoning/cubes.js';
+import { paperFigureProblems } from '../src/utils/reasoning/mirror.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'src', 'data');
@@ -387,7 +389,7 @@ function checkSupportingData(question, where) {
 }
 
 function checkFigure(figure, where) {
-  const validTypes = ['coordinate-plane', 'diagram', 'venn', 'solid', 'clock', 'numberline'];
+  const validTypes = ['coordinate-plane', 'diagram', 'venn', 'solid', 'clock', 'numberline', 'dice', 'paper'];
   if (!validTypes.includes(figure.type)) {
     error(where, `figure type must be one of ${validTypes.join(', ')}`);
     return;
@@ -398,6 +400,8 @@ function checkFigure(figure, where) {
   if (figure.type === 'solid') for (const problem of solidProblems(figure)) error(where, problem);
   if (figure.type === 'clock') for (const problem of clockProblems(figure)) error(where, problem);
   if (figure.type === 'numberline') for (const problem of numberLineProblems(figure)) error(where, problem);
+  if (figure.type === 'dice') for (const problem of diceFigureProblems(figure)) error(where, problem);
+  if (figure.type === 'paper') for (const problem of paperFigureProblems(figure)) error(where, problem);
   if (!figure.ariaSummary || figure.ariaSummary.length < 10) {
     error(where, 'figure needs an ariaSummary of at least 10 characters, for screen readers');
   }
