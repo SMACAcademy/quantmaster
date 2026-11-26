@@ -19,7 +19,7 @@ export const CREATOR = {
   /** A short credentials line. */
   credentials: '25 years in technology · Founder, SMAC Academy',
   /** Full LinkedIn profile URL, e.g. "https://www.linkedin.com/in/your-name/". Empty hides the button. */
-  linkedin: ''
+  linkedin: 'https://www.linkedin.com/in/muthu4all/'
 };
 
 export const REPO_URL = 'https://github.com/SMACAcademy/quantmaster';

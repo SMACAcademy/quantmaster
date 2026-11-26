@@ -11,6 +11,9 @@ test('About introduces the app and its maker, with ways to join in', async ({ pa
   await expect(creator).toContainText('Muthukumar Subramanian');
   await expect(creator).toContainText('Agentic AI');
   await expect(creator).toContainText('Created by');
+  const linkedin = creator.getByRole('link', { name: 'Connect on LinkedIn' });
+  await expect(linkedin).toHaveAttribute('href', 'https://www.linkedin.com/in/muthu4all/');
+  await expect(linkedin).toHaveAttribute('rel', 'noopener noreferrer');
   await expect(creator.getByRole('link', { name: 'everyone who has contributed' })).toHaveAttribute('href', /graphs\/contributors$/);
   const star = page.getByRole('link', { name: /Star the project/ });
   await expect(star).toHaveAttribute('href', 'https://github.com/SMACAcademy/quantmaster');
@@ -20,6 +23,7 @@ test('About introduces the app and its maker, with ways to join in', async ({ pa
   // The quiet footer on every page links back here.
   const footer = page.locator('.site-footer');
   await expect(footer).toContainText('Made by Muthukumar Subramanian');
+  await expect(footer.getByRole('link', { name: 'Muthukumar Subramanian' })).toHaveAttribute('href', 'https://www.linkedin.com/in/muthu4all/');
   await page.goto('/#/topics');
   await footer.getByRole('link', { name: 'About' }).click();
   await expect(page).toHaveURL(/#\/about$/);

@@ -133,4 +133,4 @@ Corrections, new questions, translations and code are all welcome: see [CONTRIBU
 - **Code:** MIT licence, see [LICENSE](LICENSE).
 - **Content** (lessons, questions, explanations, formula and shortcut cards, in `src/data/`): Creative Commons Attribution-ShareAlike 4.0 International, see [CONTENT-LICENSE.md](CONTENT-LICENSE.md).
 
-Made by [Muthukumar Subramanian](https://smacacademy.github.io/quantmaster/#/about) (SMAC Academy) and contributors.
+Made by [Muthukumar Subramanian](https://www.linkedin.com/in/muthu4all/) (SMAC Academy) and [contributors](https://github.com/SMACAcademy/quantmaster/graphs/contributors).
