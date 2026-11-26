@@ -1,0 +1,14 @@
+title: "Show and tell: "
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you do?
+      description: A shortcut you found, an exam you cleared with QuantMaster's help, a study plan, a fork you built.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: Optional. Where others can see it.

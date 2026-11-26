@@ -14,6 +14,7 @@ import { getMistakes } from '../services/learningEngine.js';
 import { iconButton } from './ui.js';
 import { installSidebarButton } from './InstallPrompt.js';
 import { PWA_EVENTS } from '../pwa/pwa.js';
+import { COMMUNITY, CREATOR, REPO_URL, hasCreator } from '../app/community.js';
 
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: 'home', href: '/', match: (p) => p === '/' },
@@ -66,10 +67,41 @@ const NAV_ITEMS = [
     icon: 'settings',
     href: '/settings',
     match: (p) => p.startsWith('/settings')
+  },
+  {
+    id: 'about',
+    label: 'About',
+    icon: 'info',
+    href: '/about',
+    match: (p) => p.startsWith('/about')
   }
 ];
 
 const MOBILE_NAV_IDS = ['dashboard', 'topics', 'practice', 'revise', 'progress'];
+
+/** A small, quiet footer on every page: who made it, and where to join in. */
+function siteFooter() {
+  const external = { target: '_blank', rel: 'noopener noreferrer' };
+  const dot = () => el('span', { 'aria-hidden': 'true', text: '·' });
+  return el('footer.site-footer', {}, [
+    hasCreator()
+      ? el('span', {}, [
+          'Made by ',
+          CREATOR.linkedin
+            ? el('a.site-footer__name', { href: CREATOR.linkedin, ...external, text: CREATOR.name })
+            : el('a.site-footer__name', { href: '#/about', text: CREATOR.name })
+        ])
+      : null,
+    hasCreator() ? dot() : null,
+    el('a', { href: REPO_URL, ...external, text: 'Open source' }),
+    dot(),
+    el('a', { href: COMMUNITY.discussions, ...external, text: 'Discussions' }),
+    dot(),
+    el('a', { href: REPO_URL, ...external, text: 'Star on GitHub' }),
+    dot(),
+    el('a', { href: '#/about', text: 'About' })
+  ]);
+}
 
 function brandMark() {
   return el('div.brand-mark', { text: 'Q', 'aria-hidden': 'true' });
@@ -157,7 +189,8 @@ export function createAppShell() {
         el('div.topbar__spacer'),
         topbarStats
       ]),
-      content
+      content,
+      siteFooter()
     ]),
     el('nav.bottom-nav', { 'aria-label': 'Main' }, [bottomNavInner])
   ]);

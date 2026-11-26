@@ -32,6 +32,9 @@ export function PrivacyView() {
       el('p', {
         text: 'If you switch on the daily reminder, it is scheduled by this browser on this device. If you share a result, it goes only where you send it, through your phone’s share sheet or the clipboard.'
       }),
+      el('p', {
+        text: 'Links such as “Discuss it”, “Report a problem” and “Star on GitHub” open github.com in a new tab. Nothing is sent unless you post there yourself, and what you post on GitHub is public and covered by GitHub’s own terms.'
+      }),
       el('p.text-muted', {
         text: 'The app is served as static files by GitHub Pages. Like any website host, GitHub keeps standard technical logs of page requests; see GitHub’s own privacy statement.'
       })

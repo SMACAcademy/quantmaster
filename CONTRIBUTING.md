@@ -3,10 +3,16 @@
 Thank you for helping learners. Corrections, new questions, translations and code
 are all welcome. Every change is checked automatically before it is merged.
 
+## Talk about it first
+
+- **Puzzle of the week:** a new puzzle every Monday in [Discussions → Q&A](https://github.com/SMACAcademy/quantmaster/discussions/categories/q-a). Post your method.
+- **Ideas:** a topic your exam has and QuantMaster lacks, a simulation you wish existed: [Discussions → Ideas](https://github.com/SMACAcademy/quantmaster/discussions/categories/ideas).
+- **Stuck on a question?** Every solution in the app has an "Ask or share a quicker way" link that starts a discussion with the question filled in.
+
 ## Report a mistake
 
 Found a wrong answer, a confusing question or a figure that does not match its
-text? Open an issue with the **Content error** template. Include the topic, the
+text? Use **Report a problem with this question** under any solution in the app (it fills in the topic and question for you), or open an issue with the **Content error** template. Include the topic, the
 question (or a screenshot) and what you think is wrong. That alone is a big help.
 
 ## Change or add content

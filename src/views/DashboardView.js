@@ -37,6 +37,7 @@ import { LEVEL_TYPE_META } from '../app/config.js';
 import { installAvailable, installNudgeCard } from '../components/InstallPrompt.js';
 import { isInstallNudgeDismissed } from '../pwa/pwa.js';
 import { withAllContent } from '../services/contentGate.js';
+import { puzzleCard } from '../components/PuzzleCard.js';
 
 export function DashboardView() {
   const progress = getUserProgress();
@@ -83,6 +84,8 @@ export function DashboardView() {
         ])
       ])
     ]),
+
+    el('div.section', {}, [puzzleCard()]),
 
     el('section.section', {}, [
       sectionHead('Quick actions', { hint: 'Five minutes is enough' }),

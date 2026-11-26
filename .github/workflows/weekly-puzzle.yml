@@ -1,0 +1,76 @@
+# Every Monday, posts the puzzle of the week as a discussion in Q&A.
+# The puzzle list and start date match src/app/community.js, so the app's
+# "Puzzle of the week #N" card and the discussion always agree.
+name: Weekly puzzle
+
+on:
+  schedule:
+    - cron: "30 3 * * 1" # Mondays 03:30 UTC (09:00 in India)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  discussions: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: src/data/puzzles.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const { puzzles } = JSON.parse(fs.readFileSync("src/data/puzzles.json", "utf8"));
+            const EPOCH = Date.UTC(2026, 10, 30); // Monday 30 November 2026
+            const WEEK = 7 * 24 * 60 * 60 * 1000;
+            const week = Math.max(0, Math.floor((Date.now() - EPOCH) / WEEK));
+            const puzzle = puzzles[week % puzzles.length];
+            const number = week + 1;
+            const title = `Puzzle of the week #${number}: ${puzzle.hook}`;
+
+            const { owner, repo } = context.repo;
+            const site = `https://${owner.toLowerCase()}.github.io/${repo}/`;
+            const { repository } = await github.graphql(
+              `query($owner: String!, $repo: String!) {
+                repository(owner: $owner, name: $repo) {
+                  id
+                  discussionCategories(first: 25) { nodes { id slug } }
+                  discussions(first: 20, orderBy: { field: CREATED_AT, direction: DESC }) {
+                    nodes { title }
+                  }
+                }
+              }`,
+              { owner, repo },
+            );
+            if (repository.discussions.nodes.some((d) => d.title.startsWith(`Puzzle of the week #${number}:`))) {
+              core.info(`Puzzle #${number} is already posted.`);
+              return;
+            }
+            const category = repository.discussionCategories.nodes.find((c) => c.slug === "q-a");
+            if (!category) throw new Error("No Q&A discussion category");
+
+            const body = [
+              `**This week's puzzle:**`,
+              "",
+              `> ${puzzle.question}`,
+              "",
+              `Check your answer on [QuantMaster](${site}) (it's on the dashboard all week), then reply here with **your method**. The quickest clear method gets marked as the answer at the end of the week.`,
+              "",
+              "Please don't post just the number: show how you got it, so others learn the trick.",
+              "",
+              `Want to see it move first? Try the [simulation](${site}#/explore/${puzzle.simulationId}).`,
+            ].join("\n");
+
+            const { createDiscussion } = await github.graphql(
+              `mutation($repositoryId: ID!, $categoryId: ID!, $title: String!, $body: String!) {
+                createDiscussion(input: { repositoryId: $repositoryId, categoryId: $categoryId, title: $title, body: $body }) {
+                  discussion { url }
+                }
+              }`,
+              { repositoryId: repository.id, categoryId: category.id, title, body },
+            );
+            core.info(`Posted ${createDiscussion.discussion.url}`);

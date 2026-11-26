@@ -13,6 +13,8 @@ import { solutionPanel } from '../components/SolutionPanel.js';
 import { disclosure } from '../components/ui.js';
 import { resultGrid, shareResult } from '../services/shareService.js';
 import { emit, EVENTS } from '../app/eventBus.js';
+import { getUserProgress } from '../repositories/progressRepository.js';
+import { communityNudgeCard, shouldShowCommunityNudge } from '../components/CommunityNudge.js';
 
 export function ResultsView() {
   const result = getLastResult();
@@ -69,6 +71,8 @@ export function ResultsView() {
           })
         : null
     ]),
+
+    shouldShowCommunityNudge(getUserProgress().stats.sessionsCompleted || 0) ? communityNudgeCard() : null,
 
     el('div.stat-grid', {}, [
       statTile(result.attempted, 'Attempted'),

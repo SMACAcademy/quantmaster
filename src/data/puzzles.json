@@ -1,0 +1,181 @@
+{
+  "about": "The weekly puzzle, one a week in this order from Monday 30 November 2026 (see src/app/community.js and .github/workflows/weekly-puzzle.yml). Each answer is a single number. Add new puzzles at the end so past weeks keep their numbers.",
+  "puzzles": [
+    {
+      "id": "leaky-tank",
+      "hook": "Two taps and a leak. Does the tank ever fill?",
+      "question": "Tap A fills a tank in 6 hours and tap B in 3 hours. A leak empties a full tank in 4 hours. With both taps and the leak open on an empty tank, how many hours until it is full?",
+      "answer": 4,
+      "unit": "hours",
+      "hint": "Think in 'tank per hour': add what the taps put in and subtract what the leak takes out.",
+      "method": ["In one hour: A fills 1/6, B fills 1/3, the leak empties 1/4.", "Net: 1/6 + 1/3 − 1/4 = 2/12 + 4/12 − 3/12 = 3/12 = 1/4 of the tank per hour.", "So the tank is full in 4 hours."],
+      "topicId": "pipes-cisterns",
+      "simulationId": "tank-filling"
+    },
+    {
+      "id": "markup-then-discount",
+      "hook": "Mark up 25%, discount 20%. Who wins: the shop or you?",
+      "question": "A shopkeeper marks an item 25% above its cost price, then gives a 20% discount on the marked price. What is the profit percentage?",
+      "answer": 0,
+      "unit": "%",
+      "hint": "Take the cost as 100 and follow the price through both changes.",
+      "method": ["Cost 100, so the marked price is 125.", "A 20% discount on 125 is 25, so the selling price is 100.", "Selling price equals cost: 0% profit. A 25% rise is undone by a 20% fall, because 1.25 × 0.8 = 1."],
+      "topicId": "profit-loss-discount",
+      "simulationId": "markup-discount"
+    },
+    {
+      "id": "there-and-back",
+      "hook": "30 km/h there, 60 km/h back. The average is not 45.",
+      "question": "You drive to a town at 30 km/h and come back the same way at 60 km/h. What is your average speed for the whole trip, in km/h?",
+      "answer": 40,
+      "unit": "km/h",
+      "hint": "Average speed is total distance over total time. Pick a convenient distance, like 60 km each way.",
+      "method": ["Say the town is 60 km away.", "Going takes 60/30 = 2 hours; coming back takes 60/60 = 1 hour.", "Total: 120 km in 3 hours, so 40 km/h. (Shortcut for equal distances: 2ab/(a+b) = 2·30·60/90 = 40.)"],
+      "topicId": "time-speed-distance",
+      "simulationId": "tsd-meeting"
+    },
+    {
+      "id": "trains-passing",
+      "hook": "Two trains, head on. How long until they are past each other?",
+      "question": "A 120 m train at 50 km/h and a 180 m train at 40 km/h run towards each other on parallel tracks. How many seconds do they take to cross each other completely?",
+      "answer": 12,
+      "unit": "seconds",
+      "hint": "Moving towards each other, their speeds add. The distance to cover is both lengths together.",
+      "method": ["Relative speed: 50 + 40 = 90 km/h = 90 × 5/18 = 25 m/s.", "Distance: 120 + 180 = 300 m.", "Time: 300 / 25 = 12 seconds."],
+      "topicId": "trains",
+      "simulationId": "train-crossing"
+    },
+    {
+      "id": "price-rise-budget",
+      "hook": "Petrol goes up 25%. Your budget does not. Cut by how much?",
+      "question": "The price of petrol rises by 25%. By what percentage must you reduce how much you use, so that you spend exactly the same as before?",
+      "answer": 20,
+      "unit": "%",
+      "hint": "Spending = price × quantity. The new quantity must bring the product back to where it was.",
+      "method": ["Price goes from 100 to 125.", "To keep spending at 100, quantity must fall to 100/125 = 0.8 of what it was.", "That is a 20% cut. In general a rise of r% needs a cut of r/(100 + r) × 100%."],
+      "topicId": "percentages",
+      "simulationId": "successive-change"
+    },
+    {
+      "id": "clock-340",
+      "hook": "At 3:40 the hands look close. They are not.",
+      "question": "What is the angle, in degrees, between the hour hand and the minute hand of a clock at 3:40?",
+      "answer": 130,
+      "unit": "degrees",
+      "hint": "The hour hand does not wait at 3: it moves half a degree every minute.",
+      "method": ["Minute hand: 40 × 6 = 240° from 12.", "Hour hand: 3 × 30 + 40 × 0.5 = 110° from 12.", "Angle: 240 − 110 = 130°."],
+      "topicId": "clocks",
+      "simulationId": "clock-angle"
+    },
+    {
+      "id": "bells-together",
+      "hook": "Three bells ring together at 9:00. When is the next time?",
+      "question": "Three bells ring every 6, 8 and 12 minutes. They ring together at 9:00. After how many minutes do they next ring together?",
+      "answer": 24,
+      "unit": "minutes",
+      "hint": "You need a number of minutes that each of 6, 8 and 12 divides.",
+      "method": ["6 = 2 × 3, 8 = 2³, 12 = 2² × 3.", "LCM = 2³ × 3 = 24.", "So they ring together again after 24 minutes, at 9:24."],
+      "topicId": "hcf-lcm",
+      "simulationId": "lcm-bells"
+    },
+    {
+      "id": "father-son",
+      "hook": "Three times as old now, twice as old later. How old is the son?",
+      "question": "A father is three times as old as his son. In 12 years he will be twice as old as his son. How old is the son now?",
+      "answer": 12,
+      "unit": "years",
+      "hint": "Both of them get 12 years older. Write the 'in 12 years' sentence as an equation.",
+      "method": ["Son s, father 3s.", "In 12 years: 3s + 12 = 2(s + 12).", "3s + 12 = 2s + 24, so s = 12. The father is 36."],
+      "topicId": "problems-on-ages",
+      "simulationId": "ages-timeline"
+    },
+    {
+      "id": "handshakes",
+      "hook": "Ten people, everyone shakes everyone's hand once. How many handshakes?",
+      "question": "At a meeting of 10 people, each person shakes hands exactly once with every other person. How many handshakes are there?",
+      "answer": 45,
+      "unit": "handshakes",
+      "hint": "A handshake is a pair of people. How many pairs can you choose from 10?",
+      "method": ["Each handshake is a choice of 2 people out of 10.", "10C2 = 10 × 9 / 2 = 45.", "(Counting 10 × 9 = 90 counts each handshake twice, once from each side.)"],
+      "topicId": "combinations",
+      "simulationId": "pascal-ncr"
+    },
+    {
+      "id": "two-workers",
+      "hook": "A takes 10 days, B takes 15. Together: not 12.5.",
+      "question": "A can finish a job in 10 days and B in 15 days. Working together, in how many days do they finish it?",
+      "answer": 6,
+      "unit": "days",
+      "hint": "Add their work per day, not their days.",
+      "method": ["A does 1/10 of the job a day, B does 1/15.", "Together: 1/10 + 1/15 = 3/30 + 2/30 = 1/6 per day.", "So 6 days."],
+      "topicId": "time-and-work",
+      "simulationId": "work-together"
+    },
+    {
+      "id": "stream-speed",
+      "hook": "Downstream in 2 hours, back up in 3. How fast is the river?",
+      "question": "A boat goes 24 km downstream in 2 hours and the same 24 km upstream in 3 hours. What is the speed of the stream, in km/h?",
+      "answer": 2,
+      "unit": "km/h",
+      "hint": "Downstream speed = boat + stream; upstream speed = boat − stream.",
+      "method": ["Downstream: 24/2 = 12 km/h. Upstream: 24/3 = 8 km/h.", "Stream = (12 − 8)/2 = 2 km/h.", "(And the boat in still water: (12 + 8)/2 = 10 km/h.)"],
+      "topicId": "boats-streams",
+      "simulationId": "boats-streams"
+    },
+    {
+      "id": "zeros-of-100-factorial",
+      "hook": "100! is a 158-digit number. How many zeros does it end with?",
+      "question": "How many zeros are at the end of 100! (that is, 1 × 2 × 3 × … × 100)?",
+      "answer": 24,
+      "unit": "zeros",
+      "hint": "Each trailing zero needs a 10 = 2 × 5. There are plenty of 2s: count the 5s.",
+      "method": ["Multiples of 5 up to 100: 100/5 = 20.", "Multiples of 25 give an extra 5 each: 100/25 = 4.", "20 + 4 = 24 fives, so 24 trailing zeros."],
+      "topicId": "number-system",
+      "simulationId": "prime-sieve"
+    },
+    {
+      "id": "round-table",
+      "hook": "Five friends, one round table. How many different seatings?",
+      "question": "In how many different ways can 5 people sit around a round table, if only who sits next to whom matters (rotations of the same seating count once)?",
+      "answer": 24,
+      "unit": "ways",
+      "hint": "Seat one person anywhere: around a circle that fixes the rotation. Then arrange the rest.",
+      "method": ["Fix one person's seat to remove rotations.", "The other 4 can be arranged in 4! = 24 ways.", "In general, n people around a table: (n − 1)! ways."],
+      "topicId": "permutations",
+      "simulationId": "counting-slots"
+    },
+    {
+      "id": "ci-minus-si",
+      "hook": "Same money, same rate, same time. Why does compound interest pay more?",
+      "question": "On ₹10,000 at 10% a year for 2 years, how many rupees more does compound interest (compounded yearly) give than simple interest?",
+      "answer": 100,
+      "unit": "rupees",
+      "hint": "In year 2, compound interest also earns interest on year 1's interest.",
+      "method": ["Simple interest: 10,000 × 10% × 2 = ₹2,000.", "Compound: 10,000 × 1.1² = 12,100, so ₹2,100 interest.", "Difference ₹100: year 1's ₹1,000 interest earning 10% in year 2. (Shortcut: P × (r/100)² = 10,000 × 0.01.)"],
+      "topicId": "compound-interest",
+      "simulationId": "ci-vs-si"
+    },
+    {
+      "id": "dilute-salt",
+      "hook": "Make salty water weaker without removing any salt.",
+      "question": "How many litres of water must be added to 30 litres of a 20% salt solution to make it a 15% solution?",
+      "answer": 10,
+      "unit": "litres",
+      "hint": "Adding water does not change the amount of salt.",
+      "method": ["Salt: 20% of 30 = 6 litres.", "For 6 litres to be 15% of the mixture, the mixture must be 6 / 0.15 = 40 litres.", "So add 40 − 30 = 10 litres of water."],
+      "topicId": "mixtures-alligation",
+      "simulationId": "alligation-seesaw"
+    },
+    {
+      "id": "last-digit-power",
+      "hook": "7 to the power 2026 has 1,713 digits. You only need the last one.",
+      "question": "What is the last (units) digit of 7^2026?",
+      "answer": 9,
+      "unit": "",
+      "hint": "Write out the last digits of 7, 7², 7³, 7⁴, 7⁵… and look for a cycle.",
+      "method": ["Last digits of powers of 7 repeat: 7, 9, 3, 1, 7, 9, 3, 1, …", "The cycle is 4 long; 2026 = 4 × 506 + 2.", "So 7^2026 ends like 7², which ends in 9."],
+      "topicId": "number-system",
+      "simulationId": "index-laws"
+    }
+  ]
+}
