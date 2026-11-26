@@ -216,6 +216,10 @@
             "body": "For a triangle, the height must be measured perpendicular to the base — never use a slanted side as the height."
           },
           {
+            "type": "simulation",
+            "simulationId": "perimeter-area"
+          },
+          {
             "type": "check",
             "questionId": "perimeter-area-q-003"
           }

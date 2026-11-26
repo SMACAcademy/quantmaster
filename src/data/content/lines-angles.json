@@ -164,6 +164,10 @@
             "body": "Angles on one straight line always sum to 180° — use this to find the angle right next to the one you know."
           },
           {
+            "type": "simulation",
+            "simulationId": "lines-angles"
+          },
+          {
             "type": "check",
             "questionId": "lines-angles-q-002"
           }

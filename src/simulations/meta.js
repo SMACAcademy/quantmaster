@@ -393,6 +393,42 @@ export const SIMULATION_META = [
     taskIds: ['two-roots', 'together', 'each', 'never']
   },
   // --- end of dataInterpretation.js ---
+  {
+    id: 'lines-angles',
+    topicId: 'lines-angles',
+    title: 'Parallel lines and a transversal',
+    summary: 'Turn a line across two parallel lines and only two angle sizes appear. Colour-matched pairs show which angles are equal and which add to 180°; tilt one line and the rules break.',
+    taskIds: ['right', 'co-interior', 'break', 'meet']
+  },
+  {
+    id: 'quadrilaterals',
+    topicId: 'quadrilaterals',
+    title: 'The quadrilateral family',
+    summary: 'Ask for parallel sides, equal sides or a right angle, and the shape snaps from parallelogram to rhombus or rectangle to square. The name, the diagonals and the 360° update as it changes.',
+    taskIds: ['rhombus', 'rectangle', 'square', 'snap']
+  },
+  {
+    id: 'perimeter-area',
+    topicId: 'perimeter-area',
+    title: 'Same fence, different area',
+    summary: 'Bend 24 m of fence into rectangles and watch the area trace a parabola that peaks at the square. Then fix the area instead: the square needs the least fence.',
+    taskIds: ['most', 'twenty', 'least', 'thirty']
+  },
+  {
+    id: 'mensuration-2d',
+    topicId: 'mensuration-2d',
+    title: 'Shaded area = outer − inner',
+    summary: 'Corners left by a circle in a square, a path round a garden, a ring: each shaded region is the outer area minus the inner one. Resize them and follow the formula.',
+    taskIds: ['corners', 'path-garden', 'ring']
+  },
+  {
+    id: 'volume-surface-area',
+    topicId: 'volume-surface-area',
+    title: 'Melt it down: volume stays, surface grows',
+    summary: 'Melt a sphere or a cylinder into many small spheres or cones. The total volume never changes, but the total surface area keeps growing.',
+    taskIds: ['double', 'three-four-five', 'cylinder']
+  },
+  // --- end of geometry.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));
