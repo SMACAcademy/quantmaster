@@ -160,6 +160,10 @@
             "body": "Each spoke is one category and the distance from the centre is the value. Two series make two shapes; where they are furthest apart is where the difference is largest."
           },
           {
+            "type": "simulation",
+            "simulationId": "radar-or-bars"
+          },
+          {
             "type": "check",
             "questionId": "di-mixed-radar-q-002"
           },

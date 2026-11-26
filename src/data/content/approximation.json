@@ -239,6 +239,10 @@
             "caption": "Pick round numbers that make the next step easy, such as 25 × 4 or 50 × 20."
           },
           {
+            "type": "simulation",
+            "simulationId": "estimate-band"
+          },
+          {
             "type": "check",
             "questionId": "approximation-q-003"
           },

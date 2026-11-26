@@ -180,6 +180,10 @@
             "body": "If two sets share no elements at all, |A∩B| = 0 and the union is just the sum."
           },
           {
+            "type": "simulation",
+            "simulationId": "set-elements"
+          },
+          {
             "type": "check",
             "questionId": "set-theory-q-001"
           }
