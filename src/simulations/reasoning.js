@@ -3,7 +3,7 @@
  * syllogisms, an inequality chain and a family tree. Each works its picture out
  * with the same brute-force solvers the question generators use
  * (src/utils/reasoning), so what the learner sees is what is provably true.
- * Plot kinds: seats, grid, euler, chain, tree (components/reasoningPlots.js).
+ * Plot kinds: seats, grid, euler, chain, family (components/reasoningPlots.js).
  */
 
 import { clueText, solveSeating, seatOf } from '../utils/reasoning/seating.js';
@@ -708,7 +708,7 @@ export const familyTree = {
         { label: `How ${from} is related to ${to}`, value: relationText }
       ],
       plot: {
-        kind: 'tree',
+        kind: 'family',
         nodes,
         edges,
         statements: fam.statements.map((s, i) => ({ text: familyText(PEOPLE, s), state: i < k ? (i === k - 1 ? 'new' : 'applied') : 'pending' })),

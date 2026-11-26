@@ -18,7 +18,17 @@
  *   geometry    a flat figure in model units, drawn to scale: { view, items }
  *   stack       several plots, one above the other: { plots }
  *
- * and five for logical reasoning (seats, grid, euler, chain, tree), drawn by
+ * and, for the topics that only borrowed a simulation before (each is described
+ * above its function):
+ *
+ *   numberlines  number lines sharing one scale, with points and bands
+ *   steps        an expression collapsing one operation at a time
+ *   tree         a tree of choices, one layer per stage
+ *   setdots      elements placed in two or three sets
+ *   subsets      the power set, grouped by size
+ *   passage      a paragraph read sentence by sentence
+ *
+ * and five for logical reasoning (seats, grid, euler, chain, family), drawn by
  * reasoningPlots.js.
  *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
@@ -674,7 +684,7 @@ function rectsPlot(plot) {
   for (const n of plot.notes || []) {
     children.push(svgEl('text', { x: sx(n.x), y: sy(n.y), class: 'sim-marker-label', 'text-anchor': n.anchor || 'middle', text: n.text }));
   }
-  return el('div.sim-figure', {}, [svgRoot(plot.summary, children)]);
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children), plot.legend ? legendOf(plot.legend) : null]);
 }
 
 /** A two- or three-set Venn diagram, drawn like the figures in questions. */
@@ -698,6 +708,8 @@ function chartPlot(plot) {
  * columns, rows: [{ label, total?, cells: [{ text, note?, heat }] }], baseColumn,
  * focusColumn, focusRow, summary }`. `heat` from −1 to 1 tints a cell red or
  * green; the sign is always in the text too, so colour is never the only cue.
+ * A cell's `kind` ('given', 'derived' or 'blank') and `fresh` style it as a
+ * caselet fills in; its note says the same in words.
  */
 function tablePlot(plot) {
   const columnClass = (j) => [j === plot.baseColumn ? 'is-base' : '', j === plot.focusColumn ? 'is-focus' : ''].join(' ');
@@ -723,7 +735,10 @@ function tablePlot(plot) {
         el('tr', { class: [i === plot.focusRow ? 'is-focus' : '', row.total ? 'is-total' : ''].join(' ') }, [
           el('th', { attrs: { scope: 'row' }, text: row.label }),
           ...row.cells.map((cell, j) =>
-            el('td', { class: columnClass(j), style: tint(cell.heat) }, [cell.text, cell.note ? el('span.sim-table__note', { text: cell.note }) : null])
+            el('td', { class: [columnClass(j), cell.kind ? `is-${cell.kind}` : '', cell.fresh ? 'is-fresh' : ''].join(' '), style: tint(cell.heat) }, [
+              cell.text,
+              cell.note ? el('span.sim-table__note', { text: cell.note }) : null
+            ])
           )
         ])
       )
@@ -932,6 +947,336 @@ function wheelPlot(plot) {
   return el('div.sim-figure.sim-figure--square', {}, [svgRoot(plot.summary, children, { width: size, height: size })]);
 }
 
+/**
+ * Number lines sharing one scale, one row each:
+ *   { kind: 'numberlines', min, max, step, labelStep, badge?, guides: [{ value, label? }],
+ *     rows: [{ label, tone, empty?, bands: [{ from, to, tone, label? }],
+ *              points: [{ value, label, tone, shape: 'dot' | 'ring' | 'diamond' | 'option' | 'runner', slot? }] }], summary }
+ * A point's label sits in a slot, 'above' (the default), 'high', 'below' or 'low', so
+ * labels that would collide are kept apart. Ticks every `step`, numbers every `labelStep`.
+ */
+function numberLinesPlot(plot) {
+  const left = 34 + 11 * Math.max(...plot.rows.map((row) => row.label.length));
+  const right = W - 34;
+  const top = plot.badge ? 58 : 34;
+  const gap = 116;
+  const span = plot.max - plot.min || 1;
+  const sx = (v) => left + ((Math.min(plot.max, Math.max(plot.min, v)) - plot.min) / span) * (right - left);
+  const rowY = (i) => top + 46 + i * gap;
+  const height = rowY(plot.rows.length - 1) + 76;
+  const ticks = [];
+  for (let v = plot.min; v <= plot.max + plot.step / 1000; v += plot.step) ticks.push(Number(v.toFixed(6)));
+  const labelled = (v) => plot.labelStep && Math.abs(v / plot.labelStep - Math.round(v / plot.labelStep)) < 1e-6;
+  const slotDy = { above: -17, high: -38, below: 44, low: 62 };
+  const anchorAt = (x) => (x < left + 34 ? 'start' : x > right - 34 ? 'end' : 'middle');
+  const shapeOf = (p, y) => {
+    const x = sx(p.value);
+    const fill = p.tone ? tone(p.tone) : 'var(--fg-muted)';
+    if (p.shape === 'option') return svgEl('line', { x1: x, x2: x, y1: y - 13, y2: y + 13, class: 'sim-nl-option', style: { stroke: fill } });
+    if (p.shape === 'ring') return svgEl('circle', { cx: x, cy: y, r: 7, class: 'sim-nl-ring', style: { stroke: fill } });
+    if (p.shape === 'diamond') return svgEl('path', { d: `M ${x} ${y - 10} L ${x + 10} ${y} L ${x} ${y + 10} L ${x - 10} ${y} Z`, class: 'sim-data-dot', style: { fill } });
+    return svgEl('circle', { cx: x, cy: y, r: p.shape === 'runner' ? 11 : 7.5, class: 'sim-data-dot', style: { fill } });
+  };
+  const rows = plot.rows.flatMap((row, i) => {
+    const y = rowY(i);
+    return [
+      svgEl('text', { x: left - 16, y, 'text-anchor': 'end', 'dominant-baseline': 'middle', class: 'sim-nl-row', style: { fill: tone(row.tone) }, text: row.label }),
+      svgEl('line', { x1: left, x2: right, y1: y, y2: y, class: 'sim-axis' }),
+      ...ticks.map((v) =>
+        svgEl('g', {}, [
+          svgEl('line', { x1: sx(v), x2: sx(v), y1: y - (labelled(v) ? 7 : 4), y2: y + (labelled(v) ? 7 : 4), class: 'sim-axis' }),
+          labelled(v) ? svgEl('text', { x: sx(v), y: y + 24, 'text-anchor': 'middle', class: 'chart-axis-label', text: show(v) }) : null
+        ])
+      ),
+      ...(row.bands || []).flatMap((band) => {
+        const x1 = sx(Math.min(band.from, band.to));
+        const x2 = sx(Math.max(band.from, band.to));
+        return [
+          svgEl('rect', { x: x1, y: y - 8, width: Math.max(2, x2 - x1), height: 16, rx: 8, class: 'sim-nl-band', style: { fill: tone(band.tone) } }),
+          band.label ? svgEl('text', { x: (x1 + x2) / 2, y: y + slotDy.high, 'text-anchor': anchorAt((x1 + x2) / 2), class: 'sim-marker-label', text: band.label }) : null
+        ];
+      }),
+      ...(row.points || []).flatMap((p) => [
+        shapeOf(p, y),
+        p.label ? svgEl('text', { x: sx(p.value), y: y + slotDy[p.slot || 'above'], 'text-anchor': anchorAt(sx(p.value)), class: 'sim-nl-label', text: p.label }) : null
+      ]),
+      row.empty ? svgEl('text', { x: (left + right) / 2, y: y - 17, 'text-anchor': 'middle', class: 'sim-measure-label', text: row.empty }) : null
+    ];
+  });
+  const lastY = rowY(plot.rows.length - 1);
+  const guides = (plot.guides || []).map((g) =>
+    svgEl('g', {}, [
+      svgEl('line', { x1: sx(g.value), x2: sx(g.value), y1: top + 4, y2: lastY + 12, class: 'sim-guide' }),
+      g.label ? svgEl('text', { x: sx(g.value), y: top - 2, 'text-anchor': anchorAt(sx(g.value)), class: 'sim-guide-label', text: g.label }) : null
+    ])
+  );
+  const badgeWidth = plot.badge ? 26 + 8.4 * plot.badge.length : 0;
+  const badge = plot.badge
+    ? svgEl('g', { class: 'sim-badge' }, [
+        svgEl('rect', { x: W - 8 - badgeWidth, y: 8, width: badgeWidth, height: 32, rx: 16 }),
+        svgEl('text', { x: W - 8 - badgeWidth / 2, y: 24, 'text-anchor': 'middle', 'dominant-baseline': 'middle', text: plot.badge })
+      ])
+    : null;
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, [...guides, ...rows, badge], { height })]);
+}
+
+/**
+ * An expression worked one operation at a time:
+ *   { kind: 'steps', lines: [{ note, tokens: [{ text, mark: 'next' | 'used' | 'done' | null }] }], result?, wrong?, summary }
+ * The operation about to be done is marked 'next'; earlier lines show the one done
+ * ('used') and where its result landed ('done').
+ */
+function stepsPlot(plot) {
+  const last = plot.lines.length - 1;
+  return el('div', { class: `sim-figure sim-steps${plot.wrong ? ' is-wrong' : ''}` }, [
+    el(
+      'ol.sim-steps__list',
+      {},
+      plot.lines.map((line, i) => {
+        const nextAt = line.tokens.map((t) => t.mark).lastIndexOf('next');
+        return el('li', { class: `sim-steps__line${i === last ? ' is-current' : ''}` }, [
+          el('span.sim-steps__note', { text: line.note }),
+          el(
+            'span.sim-steps__expr',
+            {},
+            line.tokens.flatMap((token, j) => [
+              token.mark === 'next'
+                ? el('mark.sim-steps__token.is-next', { text: token.text })
+                : el('span', { class: `sim-steps__token${token.mark ? ` is-${token.mark}` : ''}`, text: token.text }),
+              j === nextAt ? el('span.sr-only', { text: ' (next)' }) : null
+            ])
+          )
+        ]);
+      })
+    ),
+    plot.result ? el('p.sim-steps__result', { text: plot.result }) : null
+  ]);
+}
+
+/**
+ * A tree of choices: `{ kind: 'tree', levels: [a label per depth], nodes: [{ depth, parent, tone, label }],
+ * caption?, legend?, summary }`, nodes listed depth first (a parent before its children).
+ * Leaves are spread evenly; a parent sits above the middle of its children.
+ */
+function treePlot(plot) {
+  const { nodes } = plot;
+  const kids = nodes.map(() => []);
+  nodes.forEach((node, i) => {
+    if (node.parent >= 0) kids[node.parent].push(i);
+  });
+  const leaves = nodes.map((_, i) => i).filter((i) => !kids[i].length);
+  const deepest = Math.max(1, ...nodes.map((node) => node.depth));
+  const left = 122;
+  const right = W - 20;
+  const top = 30;
+  const bottom = H - 58;
+  const slot = (right - left) / Math.max(1, leaves.length);
+  const xs = new Array(nodes.length).fill(0);
+  leaves.forEach((i, k) => {
+    xs[i] = left + slot * (k + 0.5);
+  });
+  for (let i = nodes.length - 1; i >= 0; i--) if (kids[i].length) xs[i] = kids[i].reduce((total, k) => total + xs[k], 0) / kids[i].length;
+  const ys = nodes.map((node) => top + (node.depth * (bottom - top)) / deepest);
+  const r = Math.max(3, Math.min(9, slot * 0.3));
+  const leafCount = (i) => (kids[i].length ? kids[i].reduce((total, k) => total + leafCount(k), 0) : 1);
+  const children = [
+    ...plot.levels.map((label, depth) =>
+      svgEl('text', { x: 10, y: top + (depth * (bottom - top)) / deepest, 'dominant-baseline': 'middle', class: 'sim-marker-label', text: label })
+    ),
+    ...nodes.map((node, i) =>
+      node.parent >= 0 ? svgEl('line', { x1: xs[node.parent], y1: ys[node.parent], x2: xs[i], y2: ys[i], class: 'sim-tree-edge', style: { stroke: tone(node.tone) } }) : null
+    ),
+    ...nodes.flatMap((node, i) => {
+      const room = slot * leafCount(i);
+      const isLeaf = !kids[i].length;
+      const root = node.parent < 0;
+      return [
+        svgEl('circle', { cx: xs[i], cy: ys[i], r: root ? 7 : r, class: root ? 'sim-vertex' : 'sim-data-dot', style: root ? {} : { fill: tone(node.tone) } }),
+        node.label && room >= 26
+          ? svgEl('text', {
+              x: isLeaf ? xs[i] : xs[i] + r + 4,
+              y: isLeaf ? ys[i] + r + 15 : ys[i] - r - 2,
+              'text-anchor': isLeaf ? 'middle' : 'start',
+              class: 'sim-tree-label',
+              text: node.label
+            })
+          : null
+      ];
+    }),
+    plot.caption ? svgEl('text', { x: (left + right) / 2, y: H - 12, 'text-anchor': 'middle', class: 'sim-measure-label', text: plot.caption }) : null
+  ];
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children), plot.legend ? legendOf(plot.legend) : null]);
+}
+
+const SET_LAYOUTS = {
+  2: {
+    circles: [
+      { x: 212, y: 186, r: 128 },
+      { x: 348, y: 186, r: 128 }
+    ],
+    names: [
+      { x: 120, y: 38, anchor: 'middle' },
+      { x: 440, y: 38, anchor: 'middle' }
+    ]
+  },
+  3: {
+    circles: [
+      { x: 222, y: 150, r: 106 },
+      { x: 338, y: 150, r: 106 },
+      { x: 280, y: 246, r: 106 }
+    ],
+    names: [
+      { x: 132, y: 36, anchor: 'middle' },
+      { x: 428, y: 36, anchor: 'middle' },
+      { x: 398, y: 336, anchor: 'start' }
+    ]
+  }
+};
+
+/**
+ * Places each element ({ value, in: 'ab' }) on a grid point inside exactly the
+ * circles its key names, nearest the middle of its region first. The grid is made
+ * finer until every region has room. Returns { spacing, spots }, or null.
+ */
+export function placeSetElements(sets, elements, box = { width: W, height: 360 }) {
+  const layout = SET_LAYOUTS[sets];
+  const letters = 'abc';
+  for (const spacing of [28, 24, 20, 17, 14, 12]) {
+    const margin = spacing * 0.5;
+    const free = new Map();
+    for (let y = 22; y <= box.height - 18; y += spacing) {
+      for (let x = 22; x <= box.width - 22; x += spacing) {
+        let key = '';
+        let clear = true;
+        layout.circles.forEach((c, i) => {
+          const d = Math.hypot(x - c.x, y - c.y);
+          if (Math.abs(d - c.r) < margin) clear = false;
+          else if (d < c.r) key += letters[i];
+        });
+        // Keep the empty region clear of the set names and the universe label.
+        if (!key && (y < 54 || (y > box.height - 34 && x < 150) || (sets === 3 && y > box.height - 44 && x > 380))) clear = false;
+        if (!clear) continue;
+        if (!free.has(key)) free.set(key, []);
+        free.get(key).push({ x, y });
+      }
+    }
+    const need = new Map();
+    for (const e of elements) need.set(e.in, (need.get(e.in) || 0) + 1);
+    if ([...need].every(([key, count]) => (free.get(key) || []).length >= count)) {
+      const spots = new Map();
+      for (const [key, points] of free) {
+        const cx = points.reduce((t, p) => t + p.x, 0) / points.length;
+        const cy = points.reduce((t, p) => t + p.y, 0) / points.length;
+        spots.set(key, points.slice().sort((p, q) => Math.hypot(p.x - cx, p.y - cy) - Math.hypot(q.x - cx, q.y - cy)));
+      }
+      const used = new Map();
+      return {
+        spacing,
+        spots: elements.map((e) => {
+          const k = used.get(e.in) || 0;
+          used.set(e.in, k + 1);
+          return spots.get(e.in)[k];
+        })
+      };
+    }
+  }
+  return null;
+}
+
+/** Which of the layout's circles a point is inside, as letters ('', 'a', 'bc', …): for tests. */
+export function setRegionAt(sets, point) {
+  return SET_LAYOUTS[sets].circles
+    .map((c, i) => (Math.hypot(point.x - c.x, point.y - c.y) < c.r ? 'abc'[i] : ''))
+    .join('');
+}
+
+/**
+ * Elements as numbered dots inside two or three set circles:
+ * `{ kind: 'setdots', sets: [{ label, tone }], elements: [{ value, in }], universe, summary }`,
+ * where `in` names the circles an element is in ('a', 'bc', '' for none).
+ */
+function setDotsPlot(plot) {
+  const layout = SET_LAYOUTS[plot.sets.length];
+  const height = 360;
+  const placed = placeSetElements(plot.sets.length, plot.elements, { width: W, height });
+  const r = placed ? Math.min(13, placed.spacing * 0.46) : 10;
+  const children = [
+    svgEl('rect', { x: 6, y: 6, width: W - 12, height: height - 12, rx: 12, class: 'venn-universe' }),
+    svgEl('text', { x: 18, y: height - 16, class: 'sim-marker-label', text: plot.universe }),
+    ...layout.circles.map((c, i) => svgEl('circle', { cx: c.x, cy: c.y, r: c.r, class: 'sim-set-circle', style: { stroke: tone(plot.sets[i].tone), fill: tone(plot.sets[i].tone) } })),
+    ...plot.sets.map((set, i) =>
+      svgEl('text', { x: layout.names[i].x, y: layout.names[i].y, 'text-anchor': layout.names[i].anchor, class: 'sim-set-name', style: { fill: tone(set.tone) }, text: set.label })
+    ),
+    ...(placed
+      ? plot.elements.map((e, i) =>
+          svgEl('g', {}, [
+            svgEl('circle', { cx: placed.spots[i].x, cy: placed.spots[i].y, r, class: 'sim-set-dot' }),
+            svgEl('text', {
+              x: placed.spots[i].x,
+              y: placed.spots[i].y,
+              'text-anchor': 'middle',
+              'dominant-baseline': 'central',
+              class: 'sim-set-value',
+              style: { fontSize: `${Math.round(r * 1.05)}px` },
+              text: String(e.value)
+            })
+          ])
+        )
+      : [])
+  ];
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { height })]);
+}
+
+/**
+ * The power set, one row per subset size:
+ * `{ kind: 'subsets', columns: [{ label, items: [{ text, fresh }] }], summary }`.
+ * Subsets holding the newest element are marked `fresh` (and say so to screen readers).
+ */
+function subsetsPlot(plot) {
+  return el('div.sim-figure.sim-subsets', {}, [
+    el(
+      'dl.sim-subsets__rows',
+      {},
+      plot.columns.map((column) =>
+        el('div.sim-subsets__row', {}, [
+          el('dt.sim-subsets__head', { text: column.label }),
+          el(
+            'dd.sim-subsets__items',
+            {},
+            column.items.map((item) =>
+              el('span', { class: `sim-subsets__item${item.fresh ? ' is-fresh' : ''}` }, [item.text, item.fresh ? el('span.sr-only', { text: ' (new)' }) : null])
+            )
+          )
+        ])
+      )
+    ),
+    el('p.sim-subsets__key', {}, [el('span.sim-subsets__item.is-fresh', { text: 'new' }), ' holds the newest element: each older subset, with it added'])
+  ]);
+}
+
+/**
+ * A paragraph read one sentence at a time:
+ * `{ kind: 'passage', title, sentences: [{ text, state: 'read' | 'new' | 'unread' | 'skipped' }], summary }`.
+ */
+function passagePlot(plot) {
+  const said = { new: ' (just read)', skipped: ' (left out)', unread: ' (not read yet)' };
+  return el('div.sim-figure.sim-passage', {}, [
+    plot.title ? el('p.sim-passage__title', { text: plot.title }) : null,
+    el(
+      'p.sim-passage__text',
+      {},
+      plot.sentences.flatMap((sentence, i) => [
+        el(sentence.state === 'new' ? 'mark' : 'span', { class: `sim-passage__sentence is-${sentence.state}` }, [
+          el('span.sim-passage__num', { text: String(i + 1), attrs: { 'aria-hidden': 'true' } }),
+          sentence.text,
+          said[sentence.state] ? el('span.sr-only', { text: said[sentence.state] }) : null
+        ]),
+        ' '
+      ])
+    )
+  ]);
+}
+
 export function drawPlot(plot) {
   if (plot.kind === 'geometry') return geometryPlot(plot);
   if (plot.kind === 'stack') return stackPlot(plot);
@@ -953,6 +1298,12 @@ export function drawPlot(plot) {
   if (plot.kind === 'rects') return rectsPlot(plot);
   if (plot.kind === 'venn') return vennPlot(plot);
   if (plot.kind === 'wheel') return wheelPlot(plot);
+  if (plot.kind === 'numberlines') return numberLinesPlot(plot);
+  if (plot.kind === 'steps') return stepsPlot(plot);
+  if (plot.kind === 'tree') return treePlot(plot);
+  if (plot.kind === 'setdots') return setDotsPlot(plot);
+  if (plot.kind === 'subsets') return subsetsPlot(plot);
+  if (plot.kind === 'passage') return passagePlot(plot);
   const reasoning = drawReasoningPlot(plot);
   if (reasoning) return reasoning;
   return el('p.text-muted', { text: plot.summary || '' });

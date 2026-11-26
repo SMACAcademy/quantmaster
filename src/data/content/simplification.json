@@ -235,6 +235,10 @@
             "body": "Never assume multiplication comes before division. 48 ÷ 6 × 2 is 16, not 4: within a level you always go left to right."
           },
           {
+            "type": "simulation",
+            "simulationId": "bodmas-stack"
+          },
+          {
             "type": "check",
             "questionId": "simplification-q-002"
           }

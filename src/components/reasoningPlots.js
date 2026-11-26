@@ -7,7 +7,7 @@
  *   grid    a person × value table of ticks and crosses
  *   euler   three circles placed as the chosen relations say
  *   chain   five letters with the signs between them and the path highlighted
- *   tree    a family tree: squares for men, circles for women, diamonds unknown
+ *   family  a family tree: squares for men, circles for women, diamonds unknown
  *
  * Every picture has a text summary for screen readers, and the lists (clues,
  * statements, conclusions) are real HTML lists. Things that have just changed
@@ -232,7 +232,7 @@ function chainPlot(plot) {
 
 /* ------------------------------ tree ------------------------------ */
 
-function treePlot(plot) {
+function familyPlot(plot) {
   const visible = plot.nodes.filter((n) => n.visible);
   const rows = Math.max(...plot.nodes.map((n) => n.y)) + 1;
   const height = 40 + rows * 86;
@@ -292,8 +292,8 @@ export function drawReasoningPlot(plot) {
   if (plot.kind === 'grid') return gridPlot(plot);
   if (plot.kind === 'euler') return eulerPlot(plot);
   if (plot.kind === 'chain') return chainPlot(plot);
-  if (plot.kind === 'tree') return treePlot(plot);
+  if (plot.kind === 'family') return familyPlot(plot);
   return null;
 }
 
-export const REASONING_PLOT_KINDS = ['seats', 'grid', 'euler', 'chain', 'tree'];
+export const REASONING_PLOT_KINDS = ['seats', 'grid', 'euler', 'chain', 'family'];

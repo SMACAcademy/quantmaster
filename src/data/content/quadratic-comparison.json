@@ -178,6 +178,10 @@
             "body": "x² − 7x + 12 = 0 gives x = 3 or 4. y² + 9y + 20 = 0 gives y = −4 or −5. Every x is above every y, so x > y."
           },
           {
+            "type": "simulation",
+            "simulationId": "compare-roots"
+          },
+          {
             "type": "check",
             "questionId": "quadratic-comparison-q-001"
           },

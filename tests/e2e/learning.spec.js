@@ -160,7 +160,8 @@ test('radar and combo charts draw with their values', async ({ page }) => {
   const errors = watchForErrors(page);
   await page.goto('/#/topics/di-mixed-radar/levels/di-mixed-radar-level-0');
   await expect(page.getByRole('heading', { name: 'Radar Charts, Combos and Missing Data', level: 1 })).toBeVisible();
-  const radar = page.locator('svg.chart-svg--radar');
+  // The question's radar, not the one in the lesson's simulation.
+  const radar = page.locator('.lesson__block:not(.lesson__block--simulation) svg.chart-svg--radar');
   await expect(radar).toBeVisible();
   await expect(radar.locator('.chart-radar-value')).toHaveCount(10); // two students × five subjects
   await expect(page.locator('.chart-value-label--inside')).toHaveCount(5); // production bars
