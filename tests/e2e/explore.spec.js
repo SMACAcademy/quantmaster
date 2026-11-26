@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(52);
+  await expect(page.locator('.sim-card')).toHaveCount(57);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -126,5 +126,31 @@ test('the data pictures respond: DI charts, a table, a shrinking answer set', as
   await page.getByRole('group', { name: 'Statement (2)' }).getByRole('button', { name: 'On' }).click();
   await expect(left).toHaveText('4');
   await expect(page.locator('.sim-badge')).toHaveText('DS answer: C');
+  expect(errors).toEqual([]);
+});
+
+test('reasoning simulations: seats fill in, the grid fills itself, the tree grows', async ({ page }) => {
+  const errors = watchForErrors(page);
+
+  await page.goto('/#/explore/seating-clues');
+  const possible = page.locator('.sim-readout', { hasText: 'Arrangements still possible' }).locator('dd');
+  await expect(possible).toHaveText('720');
+  await page.getByRole('slider', { name: 'Clues applied' }).focus();
+  await page.keyboard.press('End');
+  await expect(possible).toHaveText('1');
+  await expect(page.locator('.rp-token:not(.is-waiting)')).toHaveCount(6);
+  await page.getByRole('group', { name: 'Add a clue that contradicts' }).getByRole('button', { name: 'On' }).click();
+  await expect(possible).toHaveText('0');
+  await expect(page.locator('.rp-clue.is-conflict')).toHaveCount(1);
+
+  await page.goto('/#/explore/puzzle-grid');
+  await page.locator('.sim-task', { hasText: 'Five floors' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Cells settled' }).locator('dd')).toHaveText('25 of 25');
+  await expect(page.locator('.rp-cell.is-yes')).toHaveCount(5);
+
+  await page.goto('/#/explore/family-tree');
+  await page.locator('.sim-task', { hasText: 'how A is related to F' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'How A is related to F' }).locator('dd')).toHaveText('A is F’s grandfather.');
+  await expect(page.locator('.rp-node')).toHaveCount(6);
   expect(errors).toEqual([]);
 });

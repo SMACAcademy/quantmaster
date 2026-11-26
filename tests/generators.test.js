@@ -297,20 +297,30 @@ describe('integration with the learning engine', () => {
 });
 
 describe('fixed option order', () => {
-  it('keeps standard choices in their standard order (quantity and x-y comparison, data sufficiency, number of solutions)', () => {
+  it('keeps standard choices in their standard order (quantity and x-y comparison, data sufficiency, number of solutions, reasoning verdicts and signs)', () => {
     const fixed = getTemplates().filter((t) => t.optionOrder);
     expect(fixed.map((t) => t.id).sort()).toEqual([
       'ap-adv-qc-compare',
       'ap-adv-qc-unknown',
       'dsq-options-value-x',
       'dsq-strategy-divisible',
+      'iq-gen-coded',
+      'iq-gen-combined',
+      'iq-gen-direct',
+      'iq-gen-either',
+      'iq-gen-missing',
       'qc-format-mixed-values',
       'qc-format-read-values',
       'qc-squares-roots',
       'qc-two-general',
       'qc-two-monic',
       'se-check-pair-status',
-      'se-special-count'
+      'se-special-count',
+      'sy-gen-definite',
+      'sy-gen-either',
+      'sy-gen-only-few',
+      'sy-gen-possibility',
+      'sy-gen-three'
     ]);
     for (const template of fixed) {
       for (let seed = 1; seed <= 60; seed++) {

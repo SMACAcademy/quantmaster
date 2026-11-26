@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "QuantMaster: free, open, offline quantitative aptitude practice. No accounts, no server.",
+  "description": "QuantMaster: free, open, offline quantitative aptitude and logical reasoning practice. No accounts, no server.",
   "license": "MIT",
   "homepage": "https://smacacademy.github.io/quantmaster/",
   "repository": {

@@ -1,6 +1,6 @@
 # QuantMaster
 
-**Free, open practice for quantitative aptitude**: concept first, then formula recall, then method, then graded practice, with spaced repetition and mistake review keeping it from fading. Built for bank PO and clerk exams (IBPS, SBI), SSC CGL and CHSL, CAT, railway exams and campus placement tests.
+**Free, open practice for quantitative aptitude and logical reasoning**: concept first, then formula recall, then method, then graded practice, with spaced repetition and mistake review keeping it from fading. Built for bank PO and clerk exams (IBPS, SBI), SSC CGL and CHSL, CAT, railway exams and campus placement tests.
 
 **Use it now: https://smacacademy.github.io/quantmaster/**
 
@@ -15,18 +15,18 @@
 ## What is in it
 
 **Content**
-- 70 topics across arithmetic, algebra, geometry, counting and probability, and data interpretation, all with full content
+- 75 topics across arithmetic, algebra, geometry, counting and probability, data interpretation and logical reasoning (seating arrangement, puzzles, syllogism, inequalities, blood relations), all with full content
 - 16 Advanced units inside their topics (an Advanced lesson and a timed Challenge each): circular tracks, conditional probability, quantitative comparison, sectors and segments, centres of a triangle and congruence, equal instalments (EMI), AM ≥ GM and maximum values, number bases, true and banker's discount, stocks and shares, and more
-- Over 1,000 hand-written questions (every topic has at least 13), 377 concepts, formula and shortcut cards for every topic
+- Over 1,150 hand-written questions (every topic has at least 13), 402 concepts, formula and shortcut cards for every topic
 - 11 question types: single choice, multiple choice, numeric entry, formula and method recognition, true/false, assertion–reason, match the following, ordering steps, identify the error, select the next step
 
 **Unlimited practice**
-- About 500 question generators cover every concept and produce fresh questions without end (about 119,000 distinct ones in a validation run), including generated tables, charts and geometry figures
-- Every generated answer is checked a second, independent way (substitution, simulation or brute-force counting) and thrown away if the two disagree
+- About 540 question generators cover every concept and produce fresh questions without end (about 129,000 distinct ones in a validation run), including generated tables, charts, geometry figures and reasoning puzzles
+- Every generated answer is checked a second, independent way (substitution, simulation or brute-force counting; for reasoning puzzles, trying every possible arrangement) and thrown away if the two disagree
 - Wrong options are modelled on real, named mistakes, so a wrong choice teaches something
 
 **Pictures and simulations**
-- 52 interactive simulations with sliders, live pictures and "Try this" challenges: percentage changes, interest, alligation, work and pipes, trains, boats, clocks, parabolas, lines, inequalities, progressions, logarithms, triangles, circles, polygons, solids, trigonometry, probability, statistics, ratio bar models, HCF tiles, LCM bells, ages, calendars, fractions, identities as areas, Venn diagrams, counting, Pascal's triangle, the prime sieve, divisibility, decimals, index laws, units, algebra tiles, bar, line and pie charts, DI tables and data sufficiency
+- 57 interactive simulations with sliders, live pictures and "Try this" challenges: percentage changes, interest, alligation, work and pipes, trains, boats, clocks, parabolas, lines, inequalities, progressions, logarithms, triangles, circles, polygons, solids, trigonometry, probability, statistics, ratio bar models, HCF tiles, LCM bells, ages, calendars, fractions, identities as areas, Venn diagrams, counting, Pascal's triangle, the prime sieve, divisibility, decimals, index laws, units, algebra tiles, bar, line and pie charts, DI tables, data sufficiency, and for reasoning: seating clues, a puzzle grid, syllogism circles, inequality chains and a growing family tree
 - Figures drawn to scale in the questions themselves: charts, tables, coordinate planes, geometry with angle marks, sectors and shaded regions, Venn diagrams, 3D solids, clock faces and number lines
 
 **Learning loop**

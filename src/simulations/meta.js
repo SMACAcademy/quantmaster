@@ -393,6 +393,43 @@ export const SIMULATION_META = [
     taskIds: ['two-roots', 'together', 'each', 'never']
   },
   // --- end of dataInterpretation.js ---
+  // Logical reasoning (reasoning.js), in the order of reasoningSims.
+  {
+    id: 'seating-clues',
+    topicId: 'seating-arrangement',
+    title: 'Seat people one clue at a time',
+    summary: 'Apply the clues in order and watch people slide into the seats that are certain. A clue that contradicts the others leaves no arrangement at all.',
+    taskIds: ['first-fixed', 'two-left', 'all-seated', 'contradiction']
+  },
+  {
+    id: 'puzzle-grid',
+    topicId: 'puzzles',
+    title: 'Ticks, crosses and forced cells',
+    summary: 'Read the clues one by one into a person × value grid. Switch on forced cells to see every tick and cross that follows, not just the ones a clue states.',
+    taskIds: ['floors-solved', 'stated-only', 'leela-city']
+  },
+  {
+    id: 'syllogism-venn',
+    topicId: 'syllogism',
+    title: 'Every picture the statements allow',
+    summary: 'Move the three circles into every arrangement the two statements allow. A conclusion definitely follows only if it stays true in all of them; a possibility needs just one.',
+    taskIds: ['break', 'possible', 'cannot-touch', 'either']
+  },
+  {
+    id: 'inequality-chain',
+    topicId: 'reasoning-inequalities',
+    title: 'Follow the path between two letters',
+    summary: 'Set the signs between five letters and pick two of them. A definite relation needs every sign on the path between them to point the same way.',
+    taskIds: ['break', 'weak', 'equal', 'q-s-t']
+  },
+  {
+    id: 'family-tree',
+    topicId: 'blood-relations',
+    title: 'A family tree, one statement at a time',
+    summary: 'Read the statements one by one and watch the tree grow. Squares are men, circles women, diamonds people whose gender is not known yet. Pick any two people to name their relation.',
+    taskIds: ['grandfather', 'unknown', 'reveal', 'in-law']
+  },
+  // --- end of reasoning.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

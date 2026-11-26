@@ -123,7 +123,7 @@ describe.each(SIMULATIONS.map((simulation) => [simulation.id, simulation]))('%s'
     for (const values of corners(simulation)) {
       const { result } = run(simulation, values);
       const where = `${id} ${JSON.stringify(values)}`;
-      expect(['xy', 'bars', 'clock', 'seesaw', 'tank', 'track', 'numberline', 'triangle', 'circle', 'polygon', 'dots', 'solids', 'rects', 'venn', 'chart', 'table', 'candidates'], where).toContain(result.plot.kind);
+      expect(['xy', 'bars', 'clock', 'seesaw', 'tank', 'track', 'numberline', 'triangle', 'circle', 'polygon', 'dots', 'solids', 'rects', 'venn', 'chart', 'table', 'candidates', 'seats', 'grid', 'euler', 'chain', 'tree'], where).toContain(result.plot.kind);
       expect(result.plot.summary, where).toBeTruthy();
       expect(result.insight, where).toBeTruthy();
       for (const readout of result.readouts) {

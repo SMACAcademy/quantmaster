@@ -62,7 +62,7 @@ export function AboutView() {
       el('div.page-head__text', {}, [
         el('h1', { text: 'About QuantMaster' }),
         el('p', {
-          text: 'Free practice for the quantitative aptitude in CAT, bank, SSC, railway and campus placement exams. Every topic starts with a short lesson and a picture you can move, then questions with hints that teach the method, not just the answer.'
+          text: 'Free practice for the quantitative aptitude and logical reasoning in CAT, bank, SSC, railway and campus placement exams. Every topic starts with a short lesson and a picture you can move, then questions with hints that teach the method, not just the answer.'
         })
       ])
     ]),

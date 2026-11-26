@@ -1,0 +1,1830 @@
+{
+  "topicId": "syllogism",
+  "concepts": [
+    {
+      "id": "sy-statements",
+      "topicId": "syllogism",
+      "name": "The four statements and what they allow",
+      "description": "All, Some, No and Some … not; which of them can be read the other way round.",
+      "sortOrder": 1
+    },
+    {
+      "id": "sy-definite",
+      "topicId": "syllogism",
+      "name": "Definite conclusions by Venn diagram",
+      "description": "Draw the least overlap the statements force; a conclusion follows only if no allowed drawing breaks it.",
+      "sortOrder": 2
+    },
+    {
+      "id": "sy-either",
+      "topicId": "syllogism",
+      "name": "Either–or pairs",
+      "description": "When neither conclusion follows but they are a Some/No or All/Some-not pair on the same terms, one of them must be true.",
+      "sortOrder": 3
+    },
+    {
+      "id": "sy-possibility",
+      "topicId": "syllogism",
+      "name": "Possibility conclusions",
+      "description": "A possibility follows if one allowed drawing makes it true, and fails only if a statement forbids it.",
+      "sortOrder": 4
+    },
+    {
+      "id": "sy-only-few",
+      "topicId": "syllogism",
+      "name": "Only a few",
+      "description": "\"Only a few A are B\" means some are and some are not, so \"All A are B\" is impossible.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "sy-conversion-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-statements",
+      "title": "What each statement allows",
+      "prompt": "Which statements can be read the other way round?",
+      "formula": "All A are B ⇒ Some A are B, Some B are A\nSome A are B ⇔ Some B are A\nNo A are B ⇔ No B are A\nSome A are not B: no conversion",
+      "variables": [],
+      "explanation": "\"All\" turns into \"Some\" when reversed; \"Some\" and \"No\" reverse as they are; \"Some … not\" does not reverse.",
+      "example": "All doctors are graduates ⇒ Some graduates are doctors (but not all).",
+      "commonMistake": "Reversing \"All A are B\" into \"All B are A\".",
+      "applicationPrompt": "No pens are pencils. Which reversed statement is certain?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sy-venn-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "title": "The least-overlap diagram",
+      "prompt": "How do you test whether a conclusion definitely follows?",
+      "formula": "Draw only the overlaps the statements force\nTry to draw a version that breaks the conclusion\nIf none exists, it follows",
+      "variables": [],
+      "explanation": "A conclusion is definite only if it survives every way the circles may sit.",
+      "example": "Some A are B, Some B are C: A and C can be drawn apart, so \"Some A are C\" fails.",
+      "commonMistake": "Checking only the first picture you draw.",
+      "applicationPrompt": "All A are B; Some B are C. Can you draw A and C apart?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sy-chain-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "title": "Chaining two statements",
+      "prompt": "What do two statements joined by a middle term give?",
+      "formula": "All + All = All\nAll + No = No\nSome + All = Some\nSome + No = Some … not\nSome + Some = nothing definite",
+      "variables": [],
+      "explanation": "Read the pair in order (A–B, then B–C). The conclusion links A and C.",
+      "example": "Some cups are plates; All plates are bowls ⇒ Some cups are bowls.",
+      "commonMistake": "Linking A and C through two \"Some\" statements.",
+      "applicationPrompt": "All A are B; No B are C. What follows about A and C?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sy-either-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "title": "Either–or pairs",
+      "prompt": "When is the answer \"Either I or II follows\"?",
+      "formula": "Neither conclusion follows alone, and\nthey are about the same two terms, and\nthey are a Some/No pair, or an All/Some-not pair",
+      "variables": [],
+      "explanation": "Such a pair can never both be false: in every drawing exactly one of them is true.",
+      "example": "I. Some pens are bags. II. No pens are bags. If neither is certain, either I or II follows.",
+      "commonMistake": "Choosing either-or for conclusions about different terms, or when one already follows.",
+      "applicationPrompt": "I. All A are B. II. Some A are not B. Neither is certain. What is the answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sy-possibility-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-possibility",
+      "title": "Possibility conclusions",
+      "prompt": "When does \"All A being B is a possibility\" follow?",
+      "formula": "It follows if at least one allowed drawing makes it true\nIt fails only if a statement forbids it",
+      "variables": [],
+      "explanation": "A possibility is a weaker claim than a definite conclusion: one example is enough.",
+      "example": "All chairs are tables; Some tables are desks ⇒ \"All chairs being desks is a possibility\" follows.",
+      "commonMistake": "Rejecting a possibility because it is not certain.",
+      "applicationPrompt": "No A are B; All B are C. Is \"Some A being C\" a possibility?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "sy-only-few-f",
+      "topicId": "syllogism",
+      "conceptId": "sy-only-few",
+      "title": "Only a few",
+      "prompt": "What does \"Only a few A are B\" say?",
+      "formula": "Only a few A are B = Some A are B + Some A are not B\nSo \"All A are B\" is impossible",
+      "variables": [],
+      "explanation": "The phrase promises both a part inside and a part outside.",
+      "example": "Only a few teachers are writers ⇒ \"All teachers being writers is a possibility\" does not follow.",
+      "commonMistake": "Reading it as plain \"some\".",
+      "applicationPrompt": "Only a few coins are rings. Is \"All coins being rings\" possible?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sy-sc-all-no",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "kind": "shortcut",
+      "title": "All then No",
+      "prompt": "All A are B and No B are C. What follows at once?",
+      "formula": "No A are C (and No C are A)",
+      "variables": [],
+      "explanation": "A lives inside B, and B is kept apart from C, so A is too.",
+      "example": "All roses are flowers; No flowers are trees ⇒ No roses are trees.",
+      "commonMistake": "Reading it in the other order: No A are B + All B are C does not give No A are C (it gives only Some C are not A).",
+      "applicationPrompt": "All kites are birds; No birds are clouds. Are some kites clouds?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sy-sc-some-no",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "kind": "shortcut",
+      "title": "Some then No",
+      "prompt": "Some A are B and No B are C. What follows at once?",
+      "formula": "Some A are not C\n(never \"Some C are not A\")",
+      "variables": [],
+      "explanation": "The A’s that are B are kept out of C.",
+      "example": "Some doctors are teachers; No teachers are singers ⇒ Some doctors are not singers.",
+      "commonMistake": "Writing it the other way round as \"Some singers are not doctors\".",
+      "applicationPrompt": "Some cats are dogs; No dogs are wolves. What follows about cats and wolves?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sy-sc-some-some",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "kind": "shortcut",
+      "title": "Some + Some",
+      "prompt": "Some A are B and Some B are C. What follows about A and C?",
+      "formula": "Nothing definite\n(but Some A–C / No A–C is an either-or pair)",
+      "variables": [],
+      "explanation": "A and C can both touch B in different places, or in the same place.",
+      "example": "Some pens are books; Some books are bags: \"Some pens are bags\" or \"No pens are bags\" — either.",
+      "commonMistake": "Concluding \"Some A are C\".",
+      "applicationPrompt": "Some P are Q; Some Q are R. Does \"Some P are R\" follow?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "syllogism-level-0",
+      "topicId": "syllogism",
+      "order": 0,
+      "title": "Circles and Conclusions",
+      "description": "The four statements as pictures, and how to break a conclusion.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "sy-statements",
+        "sy-definite"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Four statements, four pictures",
+            "body": "\"All A are B\" draws A inside B. \"Some A are B\" makes the circles overlap. \"No A are B\" keeps them apart. \"Some A are not B\" leaves part of A outside B. Each picture is the least the statement promises; the circles may overlap more unless a statement forbids it."
+          },
+          {
+            "type": "formula",
+            "title": "Reading a statement the other way round",
+            "body": "All A are B ⇒ Some B are A\nSome A are B ⇔ Some B are A\nNo A are B ⇔ No B are A",
+            "caption": "\"Some A are not B\" cannot be reversed."
+          },
+          {
+            "type": "check",
+            "questionId": "syllogism-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Try to break the conclusion",
+            "body": "Draw the statements with as little overlap as they allow. Then, for each conclusion, try to move the circles into a position that keeps every statement true but makes the conclusion false. If you can, it does not definitely follow. If you cannot, it does. A \"possibility\" conclusion is the opposite test: it follows if you can find one allowed drawing that makes it true."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "syllogism-venn"
+          },
+          {
+            "type": "example",
+            "title": "Some + All",
+            "body": "Some cups are plates; all plates are bowls. The cups that are plates sit inside the plates circle, which sits inside bowls, so those cups are bowls: \"Some cups are bowls\" follows. But the bowls circle can be drawn bigger than plates, so \"All bowls are plates\" fails."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Either–or needs all three: neither conclusion follows on its own, both are about the same two terms, and they are a complementary pair (Some / No, or All / Some … not)."
+          },
+          {
+            "type": "check",
+            "questionId": "syllogism-q-009"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "syllogism-level-1",
+      "topicId": "syllogism",
+      "order": 1,
+      "title": "Syllogism Rules",
+      "description": "Conversions, chains, either–or, possibilities and \"only a few\".",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "syllogism-level-0"
+      ],
+      "conceptIds": [
+        "sy-statements",
+        "sy-definite",
+        "sy-either",
+        "sy-possibility",
+        "sy-only-few"
+      ],
+      "formulaIds": [
+        "sy-conversion-f",
+        "sy-venn-f",
+        "sy-chain-f",
+        "sy-either-f",
+        "sy-possibility-f",
+        "sy-only-few-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "syllogism-level-2",
+      "topicId": "syllogism",
+      "order": 2,
+      "title": "Reversals and Simple Chains",
+      "description": "Single statements read both ways, and two-statement chains.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "syllogism-level-1"
+      ],
+      "conceptIds": [
+        "sy-statements",
+        "sy-definite"
+      ],
+      "questionIds": [
+        "syllogism-q-001",
+        "syllogism-q-002",
+        "syllogism-q-003",
+        "syllogism-q-004",
+        "syllogism-q-005",
+        "syllogism-q-006"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "syllogism-level-3",
+      "topicId": "syllogism",
+      "order": 3,
+      "title": "Linked Statements and Either–Or",
+      "description": "Some–No chains, either–or pairs, and a select-all check.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "syllogism-level-2"
+      ],
+      "conceptIds": [
+        "sy-definite",
+        "sy-either"
+      ],
+      "questionIds": [
+        "syllogism-q-007",
+        "syllogism-q-008",
+        "syllogism-q-009",
+        "syllogism-q-010",
+        "syllogism-q-011",
+        "syllogism-q-012",
+        "syllogism-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "syllogism-level-4",
+      "topicId": "syllogism",
+      "order": 4,
+      "title": "Possibilities, Only a Few, Three Statements",
+      "description": "Possibility conclusions, \"only a few\", and three-statement chains.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "syllogism-level-3"
+      ],
+      "conceptIds": [
+        "sy-possibility",
+        "sy-only-few",
+        "sy-definite",
+        "sy-either"
+      ],
+      "questionIds": [
+        "syllogism-q-013",
+        "syllogism-q-014",
+        "syllogism-q-015",
+        "syllogism-q-016",
+        "syllogism-q-017",
+        "syllogism-q-018",
+        "syllogism-q-019",
+        "syllogism-q-020",
+        "syllogism-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "syllogism-level-5",
+      "topicId": "syllogism",
+      "order": 5,
+      "title": "Mixed Syllogism Practice",
+      "description": "All syllogism patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "syllogism-level-4"
+      ],
+      "conceptIds": [
+        "sy-possibility",
+        "sy-either"
+      ],
+      "questionQuery": {
+        "topicId": "syllogism",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "syllogism-q-001",
+      "topicId": "syllogism",
+      "conceptId": "sy-statements",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which one of the following definitely follows from the statement?",
+      "context": "Statement:\nAll doctors are graduates.",
+      "options": [
+        {
+          "id": "a",
+          "text": "All graduates are doctors."
+        },
+        {
+          "id": "b",
+          "text": "Some graduates are doctors."
+        },
+        {
+          "id": "c",
+          "text": "No graduates are doctors."
+        },
+        {
+          "id": "d",
+          "text": "Some doctors are not graduates."
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Every doctor is inside the graduates circle, so the doctors are graduates who exist: some graduates are doctors. \"All graduates are doctors\" may fail (the graduates circle can be bigger), and the other two contradict the statement.",
+      "solutionSteps": [
+        "Draw the doctors circle inside the graduates circle.",
+        "Graduates may stick out beyond doctors, so \"All graduates are doctors\" is not certain.",
+        "The doctors themselves are graduates: some graduates are doctors."
+      ],
+      "formulaIds": [
+        "sy-conversion-f"
+      ],
+      "method": "All A are B converts to Some B are A, never to All B are A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw A inside B."
+        },
+        {
+          "level": 2,
+          "text": "Is every graduate a doctor in your drawing? Is at least one?"
+        }
+      ],
+      "commonMistakes": [
+        "Turning \"All doctors are graduates\" round into \"All graduates are doctors\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-002",
+      "topicId": "syllogism",
+      "conceptId": "sy-statements",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which one of the following definitely follows from the statement?",
+      "context": "Statement:\nNo rivers are lakes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "No lakes are rivers."
+        },
+        {
+          "id": "b",
+          "text": "Some lakes are rivers."
+        },
+        {
+          "id": "c",
+          "text": "All rivers are lakes."
+        },
+        {
+          "id": "d",
+          "text": "Some rivers are lakes."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "If no river is a lake, the two circles are apart, so no lake is a river either: \"No\" can be read both ways round. The other options all need the circles to touch.",
+      "solutionSteps": [
+        "Draw the two circles apart.",
+        "Apart is apart from either side: No lakes are rivers."
+      ],
+      "formulaIds": [
+        "sy-conversion-f"
+      ],
+      "method": "No A are B ⇔ No B are A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw \"No rivers are lakes\" as two separate circles."
+        },
+        {
+          "level": 2,
+          "text": "Which option is just the same picture read from the other circle?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking \"No\" cannot be reversed."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-003",
+      "topicId": "syllogism",
+      "conceptId": "sy-statements",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which one of the following definitely follows from the statement?",
+      "context": "Statement:\nSome poets are singers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Some singers are poets."
+        },
+        {
+          "id": "b",
+          "text": "All singers are poets."
+        },
+        {
+          "id": "c",
+          "text": "Some poets are not singers."
+        },
+        {
+          "id": "d",
+          "text": "No singers are poets."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Some poets are singers means the two circles share at least one member, and a shared member is a singer who is a poet: some singers are poets. \"Some poets are not singers\" is not certain: all poets might be singers.",
+      "solutionSteps": [
+        "Draw the circles overlapping.",
+        "The overlap is shared, so it reads both ways: Some singers are poets.",
+        "Nothing says part of the poets circle lies outside, so \"Some poets are not singers\" is not certain."
+      ],
+      "formulaIds": [
+        "sy-conversion-f"
+      ],
+      "method": "Some A are B ⇔ Some B are A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Some\" only promises an overlap."
+        },
+        {
+          "level": 2,
+          "text": "Could every poet be a singer without breaking the statement?"
+        }
+      ],
+      "commonMistakes": [
+        "Reading \"Some poets are singers\" as also saying \"Some poets are not singers\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-004",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll pens are pencils.\nAll pencils are erasers.\nConclusions:\nI. All pens are erasers.\nII. Some erasers are pens.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Pens sit inside pencils and pencils inside erasers, so pens sit inside erasers: I follows. The pens are erasers that exist, so some erasers are pens: II follows too.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Pens ⊂ pencils ⊂ erasers, so all pens are erasers (I).",
+        "Since the pens are erasers, some erasers are pens (II)."
+      ],
+      "formulaIds": [
+        "sy-chain-f"
+      ],
+      "method": "All + All = All; and All converts to Some.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting II because the statements never mention erasers being pens."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-005",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nSome cups are plates.\nAll plates are bowls.\nConclusions:\nI. Some cups are bowls.\nII. All bowls are plates.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The cups that are plates are inside the plates circle, which is inside bowls, so those cups are bowls: I follows. Bowls can be larger than plates, so \"All bowls are plates\" does not follow.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "The cup–plate overlap lies inside bowls, so some cups are bowls (I).",
+        "Draw bowls bigger than plates: II fails."
+      ],
+      "formulaIds": [
+        "sy-chain-f"
+      ],
+      "method": "Some + All = Some.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Accepting \"All bowls are plates\" by reversing the second statement."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-006",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll roses are flowers.\nNo flowers are trees.\nConclusions:\nI. No roses are trees.\nII. Some trees are roses.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Roses are inside flowers, and flowers are apart from trees, so roses are apart from trees: I follows. II says roses and trees share a member, which I rules out.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Roses ⊂ flowers, flowers apart from trees.",
+        "So no roses are trees (I); II contradicts this."
+      ],
+      "formulaIds": [
+        "sy-chain-f",
+        "sy-sc-all-no"
+      ],
+      "method": "All + No = No.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking II might still be possible: it cannot be, once I is certain."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-007",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nSome doctors are teachers.\nNo teachers are singers.\nConclusions:\nI. Some doctors are not singers.\nII. No doctors are singers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The doctors who are teachers cannot be singers, so at least those doctors are not singers: I follows. Other doctors might still be singers, so II does not follow.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "The doctor–teacher overlap lies outside singers.",
+        "So some doctors are not singers (I).",
+        "Doctors outside teachers may touch singers, so II is not certain."
+      ],
+      "formulaIds": [
+        "sy-chain-f",
+        "sy-sc-some-no"
+      ],
+      "method": "Some + No = Some … not.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"No doctors are singers\": the statements say nothing about doctors who are not teachers."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-008",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nNo cars are buses.\nSome buses are trains.\nConclusions:\nI. Some trains are not cars.\nII. Some cars are trains.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Some buses are trains, and no bus is a car, so those trains are not cars: I follows. Cars and trains may or may not meet outside the buses circle, so II is not certain.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "The bus–train overlap is outside cars: some trains are not cars (I).",
+        "Cars may or may not touch the rest of trains: II is not certain."
+      ],
+      "formulaIds": [
+        "sy-chain-f",
+        "sy-sc-some-no"
+      ],
+      "method": "No + Some: the shared part of the \"Some\" stays outside the \"No\" circle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the result as \"Some cars are not trains\": the direction matters with \"not\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-009",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nSome pens are books.\nSome books are bags.\nConclusions:\nI. Some pens are bags.\nII. No pens are bags.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Some + Some gives no link between pens and bags, so neither I nor II follows. But they are a complementary pair about pens and bags (\"Some\" against \"No\"): one of them must be true. So either I or II follows.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Pens and bags each touch books, but may or may not touch each other: neither conclusion is certain.",
+        "I and II are about the same two terms and are exact opposites (Some / No).",
+        "So either I or II follows."
+      ],
+      "formulaIds": [
+        "sy-either-f",
+        "sy-sc-some-some"
+      ],
+      "method": "Neither follows + same two terms + Some/No pair ⇒ either-or.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each conclusion alone first."
+        },
+        {
+          "level": 2,
+          "text": "If neither follows, are they a Some/No pair about the same two terms?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Neither\" without checking for a complementary pair."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-010",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll rings are coins.\nSome coins are chains.\nConclusions:\nI. All rings are chains.\nII. Some rings are not chains.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Rings are inside coins, and coins only partly touch chains, so the rings may all be chains, partly chains, or not chains at all. Neither conclusion is certain, but \"All rings are chains\" and \"Some rings are not chains\" are exact opposites: one must be true.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Rings ⊂ coins; chains overlap coins somewhere.",
+        "Rings may lie fully inside chains, partly, or not at all: neither conclusion is certain.",
+        "All / Some … not on the same terms in the same direction are complementary: either I or II."
+      ],
+      "formulaIds": [
+        "sy-either-f"
+      ],
+      "method": "All A are B and Some A are not B always split the cases between them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each conclusion alone first."
+        },
+        {
+          "level": 2,
+          "text": "\"All rings are chains\" and \"Some rings are not chains\": can both be false at once?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"Neither\" because neither is certain on its own."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-011",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll apples are fruits.\nSome fruits are seeds.\nConclusions:\nI. Some apples are seeds.\nII. No seeds are apples.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Apples are inside fruits, and seeds only touch fruits somewhere, so apples and seeds may or may not meet: neither conclusion is certain. \"Some apples are seeds\" and \"No seeds are apples\" are a Some/No pair on the same two terms (No reads both ways), so one of them must be true.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Seeds may touch the apple part of fruits, or another part: neither conclusion is certain.",
+        "\"No seeds are apples\" is the same as \"No apples are seeds\", the exact opposite of I.",
+        "So either I or II follows."
+      ],
+      "formulaIds": [
+        "sy-either-f"
+      ],
+      "method": "Some/No pairs work in either word order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each conclusion alone first."
+        },
+        {
+          "level": 2,
+          "text": "Rewrite II as \"No apples are seeds\". Is it the opposite of I?"
+        }
+      ],
+      "commonMistakes": [
+        "Missing the pair because II is written the other way round."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-012",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll kites are birds.\nNo birds are clouds.\nConclusions:\nI. Some kites are clouds.\nII. No kites are clouds.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Kites are inside birds, and birds are apart from clouds, so no kites are clouds: II follows outright. Because II is certain, this is not an either-or case: only II follows.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Kites ⊂ birds, birds apart from clouds: No kites are clouds (II).",
+        "I contradicts II, so it does not follow.",
+        "Either-or applies only when neither follows; here II does."
+      ],
+      "formulaIds": [
+        "sy-either-f",
+        "sy-sc-all-no"
+      ],
+      "method": "Check for a definite conclusion before thinking of either-or.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is either conclusion certain on its own?"
+        },
+        {
+          "level": 2,
+          "text": "Either-or is only for when neither is certain."
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Either I or II\" because the pair is Some/No."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-013",
+      "topicId": "syllogism",
+      "conceptId": "sy-possibility",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll chairs are tables.\nSome tables are desks.\nConclusions:\nI. All chairs being desks is a possibility.\nII. All tables being chairs is a possibility.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Draw chairs inside desks inside or overlapping tables: nothing forbids it, so \"All chairs being desks\" is possible (I). Draw tables equal to chairs: All chairs are tables still holds, and desks can still overlap tables, so \"All tables being chairs\" is possible too (II).",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "I: put the chairs circle inside the part where tables and desks meet. No statement is broken.",
+        "II: make tables and chairs the same circle. Still all chairs are tables; desks still overlap tables.",
+        "Both possibilities follow."
+      ],
+      "formulaIds": [
+        "sy-possibility-f"
+      ],
+      "method": "A possibility follows if one allowed drawing makes it true.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For a possibility, try to draw it while keeping both statements true."
+        },
+        {
+          "level": 2,
+          "text": "Two circles can be the same circle; that makes \"All tables are chairs\" true without breaking \"All chairs are tables\"."
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting II because the statement only says \"All chairs are tables\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-014",
+      "topicId": "syllogism",
+      "conceptId": "sy-possibility",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nNo stars are planets.\nAll planets are moons.\nConclusions:\nI. Some stars being moons is a possibility.\nII. All planets being stars is a possibility.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Stars must stay apart from planets, but moons are bigger than planets, so stars can overlap the part of moons outside planets: I is possible. II would put planets inside stars, but no star is a planet: impossible.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Planets ⊂ moons; stars apart from planets.",
+        "Stars may overlap moons outside planets: I is possible.",
+        "All planets being stars contradicts \"No stars are planets\": II fails."
+      ],
+      "formulaIds": [
+        "sy-possibility-f"
+      ],
+      "method": "A possibility fails only when a statement forbids it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where could the stars circle go without touching planets?"
+        },
+        {
+          "level": 2,
+          "text": "Does any statement directly forbid II?"
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting I because stars and moons are not linked directly."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-015",
+      "topicId": "syllogism",
+      "conceptId": "sy-possibility",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nSome actors are painters.\nNo painters are writers.\nConclusions:\nI. All actors being writers is a possibility.\nII. Some writers are not painters.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Some actors are painters, and no painter is a writer, so those actors are not writers: \"All actors being writers\" is impossible (I fails). Writers are entirely outside painters, and writers exist, so some writers are not painters: II follows for certain.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "The actor–painter overlap lies outside writers, so not all actors can be writers: I fails.",
+        "Writers are apart from painters, so every writer is a non-painter: II follows."
+      ],
+      "formulaIds": [
+        "sy-possibility-f",
+        "sy-sc-some-no"
+      ],
+      "method": "A \"Some\" that meets a \"No\" blocks the matching \"All\" possibility.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the actors who are painters. Can they be writers?"
+        },
+        {
+          "level": 2,
+          "text": "What does \"No painters are writers\" say about every writer?"
+        }
+      ],
+      "commonMistakes": [
+        "Accepting I because \"possibility\" questions feel generous."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-016",
+      "topicId": "syllogism",
+      "conceptId": "sy-possibility",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll singers are dancers.\nSome dancers are poets.\nConclusions:\nI. Some singers being poets is a possibility.\nII. All poets being singers is a possibility.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Singers sit inside dancers and poets overlap dancers somewhere, so poets can reach the singers: I is possible. Poets could even sit inside singers: they would still be dancers, and some dancers would still be poets. So II is possible too.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Move the poets circle over the singers: no statement breaks, so I is possible.",
+        "Shrink poets inside singers: still some dancers are poets. II is possible."
+      ],
+      "formulaIds": [
+        "sy-possibility-f"
+      ],
+      "method": "Try to draw the possibility; if no statement breaks, it follows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Can you slide the poets circle onto the singers circle?"
+        },
+        {
+          "level": 2,
+          "text": "If all poets were singers, would \"Some dancers are poets\" still be true?"
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting II because the statements do not mention poets and singers together."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-017",
+      "topicId": "syllogism",
+      "conceptId": "sy-only-few",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nOnly a few teachers are writers.\nAll writers are poets.\nConclusions:\nI. All teachers being writers is a possibility.\nII. Some teachers are poets.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "\"Only a few teachers are writers\" means some teachers are writers and some are not. So all teachers being writers is impossible (I fails). The teachers who are writers are inside poets, so some teachers are poets (II).",
+      "solutionSteps": [
+        "Split the first statement: Some teachers are writers; Some teachers are not writers.",
+        "I needs all teachers to be writers: impossible.",
+        "Teacher–writers are inside poets: Some teachers are poets (II)."
+      ],
+      "formulaIds": [
+        "sy-only-few-f"
+      ],
+      "method": "\"Only a few\" = Some are + Some are not.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rewrite \"Only a few A are B\" as two statements."
+        },
+        {
+          "level": 2,
+          "text": "Which of the two rules out I?"
+        }
+      ],
+      "commonMistakes": [
+        "Treating \"only a few\" as plain \"some\" and accepting I."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-018",
+      "topicId": "syllogism",
+      "conceptId": "sy-only-few",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nOnly a few coins are rings.\nNo rings are chains.\nConclusions:\nI. Some coins are not chains.\nII. All coins being chains is a possibility.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Some coins are rings, and no ring is a chain, so those coins are not chains: I follows. For II, all coins would have to be chains, including the ring-coins, which \"No rings are chains\" forbids.",
+      "solutionSteps": [
+        "Some coins are rings (and some are not).",
+        "The ring-coins are outside chains: Some coins are not chains (I).",
+        "II would put the ring-coins inside chains: impossible."
+      ],
+      "formulaIds": [
+        "sy-only-few-f",
+        "sy-sc-some-no"
+      ],
+      "method": "Split \"only a few\", then chain the \"Some\" part with the \"No\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the coins that are rings."
+        },
+        {
+          "level": 2,
+          "text": "Could every coin be a chain if some coins are rings?"
+        }
+      ],
+      "commonMistakes": [
+        "Accepting II because coins and chains are not mentioned together."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-019",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nAll lions are cats.\nSome cats are dogs.\nNo dogs are wolves.\nConclusions:\nI. Some cats are not wolves.\nII. Some lions are dogs.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Some cats are dogs, and no dog is a wolf, so those cats are not wolves: I follows. Lions are inside cats, but the cat–dog overlap may lie outside the lions, so II is not certain.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "The cat–dog overlap lies outside wolves: Some cats are not wolves (I).",
+        "Lions sit inside cats, but dogs may touch only the part of cats without lions: II is not certain."
+      ],
+      "formulaIds": [
+        "sy-chain-f",
+        "sy-sc-some-no"
+      ],
+      "method": "Work through the shared terms, one link at a time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the lions must be where the cats meet the dogs."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-020",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nSome bags are boxes.\nAll boxes are cartons.\nAll cartons are crates.\nConclusions:\nI. Some bags are crates.\nII. Some crates are boxes.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Boxes ⊂ cartons ⊂ crates, so the bags that are boxes are crates: I follows. The boxes themselves are crates, so some crates are boxes: II follows.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Boxes ⊂ cartons ⊂ crates.",
+        "The bag–box overlap lies inside crates: I.",
+        "Boxes are crates, so some crates are boxes: II."
+      ],
+      "formulaIds": [
+        "sy-chain-f"
+      ],
+      "method": "All + All = All; Some + All = Some.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw the circles with as little overlap as the statements allow."
+        },
+        {
+          "level": 2,
+          "text": "A conclusion follows only if no allowed drawing makes it false."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at cartons and missing that the chain continues to crates."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-021",
+      "topicId": "syllogism",
+      "conceptId": "sy-either",
+      "levelId": "syllogism-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which conclusion(s) follow? Take the statements to be true even if they seem to be at variance with known facts.",
+      "context": "Statements:\nNo pens are inks.\nAll inks are papers.\nSome papers are files.\nConclusions:\nI. Some files are pens.\nII. No files are pens.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I follows"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II follows"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II follows"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II follows"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II follow"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Pens are apart from inks, and inks are inside papers. Files overlap papers somewhere, and pens may or may not touch files, so neither conclusion is certain. \"Some files are pens\" and \"No files are pens\" are a Some/No pair on the same terms: either I or II follows.",
+      "solutionSteps": [
+        "Draw the least-overlap diagram for the statements.",
+        "Nothing links pens to files: both I and II can fail.",
+        "They are a Some/No pair on files and pens.",
+        "So either I or II follows."
+      ],
+      "formulaIds": [
+        "sy-either-f"
+      ],
+      "method": "Neither follows + complementary pair on the same terms ⇒ either-or.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is there any chain of statements from pens to files?"
+        },
+        {
+          "level": 2,
+          "text": "If neither is certain, check for a Some/No pair."
+        }
+      ],
+      "commonMistakes": [
+        "Concluding \"No files are pens\" from \"No pens are inks\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "syllogism-q-022",
+      "topicId": "syllogism",
+      "conceptId": "sy-definite",
+      "levelId": "syllogism-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Which of these conclusions definitely follow? Select all that apply.",
+      "context": "Statements:\nAll mangoes are fruits.\nSome fruits are sweets.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Some fruits are mangoes."
+        },
+        {
+          "id": "b",
+          "text": "Some mangoes are sweets."
+        },
+        {
+          "id": "c",
+          "text": "Some sweets are fruits."
+        },
+        {
+          "id": "d",
+          "text": "All fruits are mangoes."
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c"
+      ],
+      "explanation": "Mangoes are fruits, so some fruits are mangoes. Some fruits are sweets, read the other way, is some sweets are fruits. Mangoes and sweets may never meet, and fruits may be more than mangoes.",
+      "solutionSteps": [
+        "All mangoes are fruits ⇒ Some fruits are mangoes.",
+        "Some fruits are sweets ⇒ Some sweets are fruits.",
+        "Sweets may touch only the non-mango fruits, so \"Some mangoes are sweets\" is not certain."
+      ],
+      "formulaIds": [
+        "sy-conversion-f",
+        "sy-chain-f"
+      ],
+      "method": "Convert each statement; then try to break each linked conclusion.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two of the options are simply statements read the other way round."
+        },
+        {
+          "level": 2,
+          "text": "Can the sweets circle touch the fruits without touching the mangoes?"
+        }
+      ],
+      "commonMistakes": [
+        "Selecting \"Some mangoes are sweets\" by linking through fruits."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

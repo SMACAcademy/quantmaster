@@ -1166,6 +1166,93 @@
       "contentStatus": "seeded",
       "active": true,
       "tags": []
+    },
+    {
+      "id": "seating-arrangement",
+      "name": "Seating Arrangement",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "People in a row, in two facing rows or around a table: turn clues into one arrangement and read off neighbours, opposites and positions.",
+      "whyItMatters": "Seating sets are a fixture of bank prelims and mains reasoning, and they train the habit every puzzle needs: fix the certain clue first, then branch on the cases.",
+      "glyph": "🪑",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 71,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "puzzles",
+      "name": "Puzzles",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Floors, stacked boxes, days of the week and person–city–colour grids, solved by placing what is certain and eliminating the rest.",
+      "whyItMatters": "Puzzles carry the most marks in bank reasoning sections and appear in CAT and placement DILR. A tidy grid and the case method turn a long set into quick marks.",
+      "glyph": "🧩",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 72,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "syllogism",
+      "name": "Syllogism",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "All, some and no statements; which conclusions definitely follow, either-or pairs, and possibilities, decided with Venn diagrams.",
+      "whyItMatters": "Syllogisms come in almost every bank, SSC and railway paper. With the least-overlap diagram they take under a minute each.",
+      "glyph": "∴",
+      "colorToken": "reasoning",
+      "prerequisites": [
+        "venn-diagrams"
+      ],
+      "sortOrder": 73,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "reasoning-inequalities",
+      "name": "Inequalities (Reasoning)",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Chains like P ≥ Q > R = S and coded symbols: which conclusions are definitely true, either-or cases, and the missing sign.",
+      "whyItMatters": "Bank prelims set four or five of these in a row. Once the path rule is automatic they are among the fastest marks in the paper.",
+      "glyph": "≷",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 74,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
+    },
+    {
+      "id": "blood-relations",
+      "name": "Blood Relations",
+      "category": "reasoning",
+      "categoryName": "Logical Reasoning",
+      "description": "Family statements, family-tree puzzles and coded relations: name how two people are related, count generations, and spot what cannot be known.",
+      "whyItMatters": "Asked in bank, SSC, railway and placement tests, often inside a puzzle. Drawing the tree first prevents almost every mistake.",
+      "glyph": "👪",
+      "colorToken": "reasoning",
+      "prerequisites": [],
+      "sortOrder": 75,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": [
+        "reasoning"
+      ]
     }
   ]
 }

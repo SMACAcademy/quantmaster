@@ -1,0 +1,1765 @@
+{
+  "topicId": "blood-relations",
+  "concepts": [
+    {
+      "id": "br-direct",
+      "topicId": "blood-relations",
+      "name": "Direct statements and pointing",
+      "description": "Combine one or two steps into a single relation word; unwind \"pointing\" sentences from the speaker outwards.",
+      "sortOrder": 1
+    },
+    {
+      "id": "br-tree",
+      "topicId": "blood-relations",
+      "name": "Family-tree puzzles",
+      "description": "Draw everyone once, by generation, with marriages and children, then read any relation off the tree.",
+      "sortOrder": 2
+    },
+    {
+      "id": "br-coded",
+      "topicId": "blood-relations",
+      "name": "Coded relations",
+      "description": "Symbols stand for relations; decode the expression left to right into statements.",
+      "sortOrder": 3
+    },
+    {
+      "id": "br-generation",
+      "topicId": "blood-relations",
+      "name": "Generations",
+      "description": "Parent–child links move one generation; spouses and siblings share a generation.",
+      "sortOrder": 4
+    },
+    {
+      "id": "br-gender",
+      "topicId": "blood-relations",
+      "name": "Gender ambiguity",
+      "description": "A statement fixes only its subject’s gender; when the answer needs an unknown gender, it cannot be determined.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "br-chain-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "title": "Combining two steps",
+      "prompt": "How do you name a relation that goes through one middle person?",
+      "formula": "Father’s / mother’s brother = uncle; their sister = aunt\nFather’s / mother’s father = grandfather\nBrother’s / sister’s son = nephew; daughter = niece\nUncle’s or aunt’s child = cousin",
+      "variables": [],
+      "explanation": "Walk from the person asked about, one step at a time, and name the whole walk.",
+      "example": "Meena is Arjun’s mother and Ravi is Meena’s brother: Ravi is Arjun’s uncle.",
+      "commonMistake": "Answering the reverse question (how Arjun is related to Ravi).",
+      "applicationPrompt": "X is the sister of Y, and Y is the father of Z. How is X related to Z?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "br-tree-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "title": "Draw the tree",
+      "prompt": "How do you set out a family-tree puzzle?",
+      "formula": "Square = man, circle = woman\nDouble line = married; line down = parent to child\nOne row per generation",
+      "variables": [],
+      "explanation": "Once the picture is drawn, every relation is a short walk on it.",
+      "example": "Mohan = Kamala (top row); Suresh, Lata below; Arun, Bindu in the third row.",
+      "commonMistake": "Starting to answer before every statement is on the drawing.",
+      "applicationPrompt": "A is the wife of B, and C is the son of A. Draw the three people.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "br-inlaw-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "title": "In-laws",
+      "prompt": "Who are a person’s in-laws?",
+      "formula": "Spouse’s parents = father-/mother-in-law\nChild’s spouse = son-/daughter-in-law\nSpouse’s sibling, or sibling’s spouse = brother-/sister-in-law",
+      "variables": [],
+      "explanation": "\"In-law\" relations always pass through exactly one marriage.",
+      "example": "Vikram married Lata, Mohan’s daughter: Vikram is Mohan’s son-in-law.",
+      "commonMistake": "Calling a daughter’s husband \"son\".",
+      "applicationPrompt": "Priya is the wife of Lata’s brother. How is Priya related to Lata?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "br-coded-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-coded",
+      "title": "Coded relations",
+      "prompt": "How do you read an expression like P × Q + R?",
+      "formula": "Each symbol links the letter before it to the letter after it:\n\"P × Q\" says what P is to Q\nDecode left to right, drawing as you go",
+      "variables": [],
+      "explanation": "The expression is just a list of statements written in symbols.",
+      "example": "+ father, × brother: P × Q + R = P is Q’s brother, Q is R’s father ⇒ P is R’s uncle.",
+      "commonMistake": "Reading a symbol the wrong way round (what Q is to P).",
+      "applicationPrompt": "÷ means daughter, − means wife. Decode \"P ÷ Q − R\".",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "br-generation-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-generation",
+      "title": "Generations",
+      "prompt": "How do you count generations?",
+      "formula": "Parent → child: one row down\nHusband, wife, brother, sister: same row\nGenerations apart = difference in rows",
+      "variables": [],
+      "explanation": "Only parent–child links change the generation.",
+      "example": "Grandmother and grandson are 2 generations apart.",
+      "commonMistake": "Moving a husband or wife to a different row.",
+      "applicationPrompt": "A is B’s father and C is B’s wife. How many generations do A, B and C span?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "br-gender-f",
+      "topicId": "blood-relations",
+      "conceptId": "br-gender",
+      "title": "Where gender comes from",
+      "prompt": "When is a person’s gender known?",
+      "formula": "Only from the word used for that person (father, sister, wife, …)\nor from a marriage (a wife’s husband is male)\n\"Child\", \"parent\", \"sibling\" and being the object of a statement say nothing",
+      "variables": [],
+      "explanation": "\"A is the brother of B\" tells you A is male and nothing about B.",
+      "example": "Neel is the brother of Kavi: Kavi could be Neel’s brother or sister.",
+      "commonMistake": "Guessing a gender from a name or a usual role.",
+      "applicationPrompt": "P is the mother of Q. Is Q’s gender known?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "br-sc-only",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "kind": "shortcut",
+      "title": "\"My father’s only son\"",
+      "prompt": "A man says \"my father’s only son\". Who is that?",
+      "formula": "Said by a man: himself\nSaid by a woman: her brother\n(same for \"my mother’s only daughter\" said by a woman: herself)",
+      "variables": [],
+      "explanation": "A man is his father’s son; if there is only one son, it is him.",
+      "example": "Arun: \"the only son of my father’s father\" is Arun’s father, since he is his grandfather’s son.",
+      "commonMistake": "Treating the only son as a different person when the speaker is male.",
+      "applicationPrompt": "Ravi says, \"He is my father’s only son’s son.\" Who is \"he\" to Ravi?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "br-sc-reverse",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "kind": "shortcut",
+      "title": "Reverse a relation",
+      "prompt": "If A is B’s uncle, how is B related to A?",
+      "formula": "Uncle/aunt ↔ nephew/niece\nGrandparent ↔ grandchild\nFather-/mother-in-law ↔ son-/daughter-in-law\nThe reverse needs B’s gender, not A’s",
+      "variables": [],
+      "explanation": "Going the other way changes the word and the gender it depends on.",
+      "example": "Ravi is Arjun’s uncle, so Arjun is Ravi’s nephew (Arjun is male).",
+      "commonMistake": "Keeping A’s gender in the reversed word.",
+      "applicationPrompt": "Kamala is Uma’s grandmother. How is Uma related to Kamala?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "blood-relations-level-0",
+      "topicId": "blood-relations",
+      "order": 0,
+      "title": "Families on Paper",
+      "description": "Walking from one person to another, drawing the tree, and gender.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "br-direct",
+        "br-tree",
+        "br-gender"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Walk from the person asked about",
+            "body": "\"How is Ravi related to Arjun?\" asks what Ravi is to Arjun. Start at Arjun and walk to Ravi one step at a time: Arjun’s mother is Meena, and Meena’s brother is Ravi. Mother’s brother is uncle, so Ravi is Arjun’s uncle. Answering the other way round (Arjun is Ravi’s nephew) is the most common slip."
+          },
+          {
+            "type": "formula",
+            "title": "Two steps, one word",
+            "body": "Parent’s brother = uncle   Parent’s sister = aunt\nSibling’s son = nephew   Sibling’s daughter = niece\nUncle’s or aunt’s child = cousin",
+            "caption": "A parent’s husband or wife is the other parent."
+          },
+          {
+            "type": "check",
+            "questionId": "blood-relations-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Draw the tree, then read it",
+            "body": "For longer sets, draw before you answer: a square for a man, a circle for a woman, a double line for a marriage and a line down to children, one row per generation. Brothers and sisters share parents, so join them under the same couple. Someone whose gender no statement gives stays a plain shape until a later statement settles it."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "family-tree"
+          },
+          {
+            "type": "example",
+            "title": "Coded relations",
+            "body": "If P + Q means \"P is the father of Q\" and P × Q means \"P is the brother of Q\", then P × Q + R reads: P is Q’s brother, and Q is R’s father. So P is the brother of R’s father: R’s uncle."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "\"A is the brother of B\" tells you A is male and nothing about B. If the answer depends on a gender no statement gives, the answer is \"cannot be determined\"."
+          },
+          {
+            "type": "check",
+            "questionId": "blood-relations-q-019"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "blood-relations-level-1",
+      "topicId": "blood-relations",
+      "order": 1,
+      "title": "Relation Words",
+      "description": "Two-step relations, in-laws, codes, generations and gender.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "blood-relations-level-0"
+      ],
+      "conceptIds": [
+        "br-direct",
+        "br-tree",
+        "br-coded",
+        "br-generation",
+        "br-gender"
+      ],
+      "formulaIds": [
+        "br-chain-f",
+        "br-tree-f",
+        "br-inlaw-f",
+        "br-coded-f",
+        "br-generation-f",
+        "br-gender-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "blood-relations-level-2",
+      "topicId": "blood-relations",
+      "order": 2,
+      "title": "Two Steps and Gender",
+      "description": "Two statements, one relation, and an unknown gender.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "blood-relations-level-1"
+      ],
+      "conceptIds": [
+        "br-direct",
+        "br-gender"
+      ],
+      "questionIds": [
+        "blood-relations-q-001",
+        "blood-relations-q-002",
+        "blood-relations-q-003",
+        "blood-relations-q-006",
+        "blood-relations-q-019"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "blood-relations-level-3",
+      "topicId": "blood-relations",
+      "order": 3,
+      "title": "Pointing and Family Trees",
+      "description": "Pointing riddles, a three-generation tree, and generations.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "blood-relations-level-2"
+      ],
+      "conceptIds": [
+        "br-direct",
+        "br-tree",
+        "br-gender",
+        "br-generation"
+      ],
+      "questionIds": [
+        "blood-relations-q-004",
+        "blood-relations-q-005",
+        "blood-relations-q-007",
+        "blood-relations-q-008",
+        "blood-relations-q-009",
+        "blood-relations-q-010",
+        "blood-relations-q-020",
+        "blood-relations-q-021",
+        "blood-relations-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "blood-relations-level-4",
+      "topicId": "blood-relations",
+      "order": 4,
+      "title": "Bigger Trees and Codes",
+      "description": "A tree with in-laws, coded expressions and generations apart.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "blood-relations-level-3"
+      ],
+      "conceptIds": [
+        "br-tree",
+        "br-coded",
+        "br-generation"
+      ],
+      "questionIds": [
+        "blood-relations-q-011",
+        "blood-relations-q-012",
+        "blood-relations-q-013",
+        "blood-relations-q-014",
+        "blood-relations-q-015",
+        "blood-relations-q-016",
+        "blood-relations-q-017",
+        "blood-relations-q-018",
+        "blood-relations-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "blood-relations-level-5",
+      "topicId": "blood-relations",
+      "order": 5,
+      "title": "Mixed Blood Relations Practice",
+      "description": "All blood-relation patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "blood-relations-level-4"
+      ],
+      "conceptIds": [
+        "br-coded",
+        "br-tree"
+      ],
+      "questionQuery": {
+        "topicId": "blood-relations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "blood-relations-q-001",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How is Ravi related to Arjun?",
+      "context": "1. Ravi is the brother of Meena.\n2. Meena is the mother of Arjun.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uncle"
+        },
+        {
+          "id": "b",
+          "text": "Father"
+        },
+        {
+          "id": "c",
+          "text": "Brother"
+        },
+        {
+          "id": "d",
+          "text": "Cousin"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Meena is Arjun’s mother, and Ravi is Meena’s brother. A mother’s brother is an uncle (maternal uncle).",
+      "solutionSteps": [
+        "Meena → mother of Arjun.",
+        "Ravi → brother of Meena.",
+        "Mother’s brother = uncle."
+      ],
+      "formulaIds": [
+        "br-chain-f"
+      ],
+      "method": "Combine the two steps from Arjun’s side.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from Arjun: who is Meena to him?"
+        },
+        {
+          "level": 2,
+          "text": "What do you call your mother’s brother?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering how Arjun is related to Ravi (nephew)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-002",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How is Sunita related to Nisha?",
+      "context": "1. Sunita is the wife of Prakash.\n2. Prakash is the father of Nisha.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mother"
+        },
+        {
+          "id": "b",
+          "text": "Aunt"
+        },
+        {
+          "id": "c",
+          "text": "Sister"
+        },
+        {
+          "id": "d",
+          "text": "Grandmother"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Prakash is Nisha’s father, and Sunita is Prakash’s wife. A father’s wife is the mother (the exam convention).",
+      "solutionSteps": [
+        "Prakash → father of Nisha.",
+        "Sunita → wife of Prakash.",
+        "Father’s wife = mother."
+      ],
+      "formulaIds": [
+        "br-chain-f"
+      ],
+      "method": "A parent’s husband or wife is the other parent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Who is Prakash to Nisha?"
+        },
+        {
+          "level": 2,
+          "text": "What is your father’s wife to you?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Aunt\" by treating the wife as a separate family."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-003",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How is Kamala related to Uma?",
+      "context": "1. Kamala is the mother of Deepak.\n2. Deepak is the father of Uma.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grandmother"
+        },
+        {
+          "id": "b",
+          "text": "Mother"
+        },
+        {
+          "id": "c",
+          "text": "Aunt"
+        },
+        {
+          "id": "d",
+          "text": "Great-grandmother"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Deepak is Uma’s father and Kamala is Deepak’s mother. A father’s mother is a grandmother.",
+      "solutionSteps": [
+        "Deepak → father of Uma.",
+        "Kamala → mother of Deepak.",
+        "Father’s mother = grandmother."
+      ],
+      "formulaIds": [
+        "br-chain-f",
+        "br-generation-f"
+      ],
+      "method": "Two generations up = grandparent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the generations from Uma up to Kamala."
+        },
+        {
+          "level": 2,
+          "text": "Two generations up is grandfather or grandmother."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping one generation short and answering \"Mother\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-004",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Neha related to the man?",
+      "context": "Pointing to a man in a photograph, Neha said, “His mother is the only daughter of my mother.”",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mother"
+        },
+        {
+          "id": "b",
+          "text": "Aunt"
+        },
+        {
+          "id": "c",
+          "text": "Sister"
+        },
+        {
+          "id": "d",
+          "text": "Grandmother"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Neha is a daughter of her mother, and that mother has only one daughter, so \"the only daughter of my mother\" is Neha herself. The man’s mother is Neha: Neha is his mother.",
+      "solutionSteps": [
+        "\"The only daughter of my mother\" — Neha is her mother’s daughter, and there is only one.",
+        "So the man’s mother is Neha."
+      ],
+      "formulaIds": [
+        "br-sc-only"
+      ],
+      "method": "When \"only son/daughter of my parent\" matches the speaker’s own gender, it is the speaker.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Neha is a woman. Is she a daughter of her own mother?"
+        },
+        {
+          "level": 2,
+          "text": "If her mother has only one daughter, who is it?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Aunt\" by assuming the only daughter is someone else."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-005",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is the girl related to Arun?",
+      "context": "Pointing to a girl, Arun said, “She is the daughter of the only son of my father’s father.”",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sister"
+        },
+        {
+          "id": "b",
+          "text": "Cousin"
+        },
+        {
+          "id": "c",
+          "text": "Niece"
+        },
+        {
+          "id": "d",
+          "text": "Daughter"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Arun’s father’s father is Arun’s grandfather, whose only son must be Arun’s father. The girl is the daughter of Arun’s father, so she is Arun’s sister.",
+      "solutionSteps": [
+        "My father’s father = my grandfather.",
+        "His only son = my father.",
+        "My father’s daughter = my sister."
+      ],
+      "formulaIds": [
+        "br-chain-f",
+        "br-sc-only"
+      ],
+      "method": "Unwind the description from the speaker outwards.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from Arun: who is his father’s father?"
+        },
+        {
+          "level": 2,
+          "text": "That man has only one son. Who must it be?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Cousin\" by taking the only son to be an uncle."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-006",
+      "topicId": "blood-relations",
+      "conceptId": "br-direct",
+      "levelId": "blood-relations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How is Radha related to Gopal?",
+      "context": "Gopal is the son of Radha’s only brother.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aunt"
+        },
+        {
+          "id": "b",
+          "text": "Mother"
+        },
+        {
+          "id": "c",
+          "text": "Sister"
+        },
+        {
+          "id": "d",
+          "text": "Cousin"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Gopal’s father is Radha’s brother, so Radha is Gopal’s father’s sister: his aunt.",
+      "solutionSteps": [
+        "Radha’s brother → Gopal’s father.",
+        "Father’s sister = aunt."
+      ],
+      "formulaIds": [
+        "br-chain-f"
+      ],
+      "method": "Find the person who links the two, then combine the steps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Who is Gopal’s father?"
+        },
+        {
+          "level": 2,
+          "text": "What is your father’s sister to you?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Mother\" by misreading \"son of Radha’s brother\" as \"son of Radha\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-007",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Bindu related to Arun?",
+      "context": "1. Mohan is the husband of Kamala.\n2. Suresh is the son of Kamala.\n3. Lata is the sister of Suresh.\n4. Priya is the wife of Suresh.\n5. Arun is the son of Priya.\n6. Vikram is the husband of Lata.\n7. Bindu is the daughter of Vikram.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cousin"
+        },
+        {
+          "id": "b",
+          "text": "Sister"
+        },
+        {
+          "id": "c",
+          "text": "Niece"
+        },
+        {
+          "id": "d",
+          "text": "Aunt"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu. Bindu’s mother Lata and Arun’s father Suresh are brother and sister, so Bindu and Arun are cousins.",
+      "solutionSteps": [
+        "Mohan–Kamala at the top; Suresh is their son and Lata (his sister) their daughter.",
+        "Suresh marries Priya; Arun is their son. Lata marries Vikram; Bindu is their daughter.",
+        "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu."
+      ],
+      "formulaIds": [
+        "br-tree-f"
+      ],
+      "method": "Draw the tree, then walk from Arun to Bindu: father, his sister, her daughter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Lata is Suresh’s sister. Whose children are Arun and Bindu?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Sister\" because both are grandchildren of Mohan."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-008",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Vikram related to Mohan?",
+      "context": "1. Mohan is the husband of Kamala.\n2. Suresh is the son of Kamala.\n3. Lata is the sister of Suresh.\n4. Priya is the wife of Suresh.\n5. Arun is the son of Priya.\n6. Vikram is the husband of Lata.\n7. Bindu is the daughter of Vikram.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Son-in-law"
+        },
+        {
+          "id": "b",
+          "text": "Son"
+        },
+        {
+          "id": "c",
+          "text": "Nephew"
+        },
+        {
+          "id": "d",
+          "text": "Brother-in-law"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu. Vikram is married to Lata, Mohan’s daughter, so Vikram is Mohan’s son-in-law.",
+      "solutionSteps": [
+        "Mohan–Kamala at the top; Suresh is their son and Lata (his sister) their daughter.",
+        "Suresh marries Priya; Arun is their son. Lata marries Vikram; Bindu is their daughter.",
+        "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu."
+      ],
+      "formulaIds": [
+        "br-tree-f",
+        "br-inlaw-f"
+      ],
+      "method": "A daughter’s husband is a son-in-law.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Lata is Suresh’s sister, so she is Mohan’s daughter. Who is her husband?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Son\" for a daughter’s husband."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-009",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Priya related to Lata?",
+      "context": "1. Mohan is the husband of Kamala.\n2. Suresh is the son of Kamala.\n3. Lata is the sister of Suresh.\n4. Priya is the wife of Suresh.\n5. Arun is the son of Priya.\n6. Vikram is the husband of Lata.\n7. Bindu is the daughter of Vikram.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sister-in-law"
+        },
+        {
+          "id": "b",
+          "text": "Sister"
+        },
+        {
+          "id": "c",
+          "text": "Aunt"
+        },
+        {
+          "id": "d",
+          "text": "Mother-in-law"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu. Priya is the wife of Lata’s brother, Suresh, so Priya is Lata’s sister-in-law.",
+      "solutionSteps": [
+        "Mohan–Kamala at the top; Suresh is their son and Lata (his sister) their daughter.",
+        "Suresh marries Priya; Arun is their son. Lata marries Vikram; Bindu is their daughter.",
+        "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu."
+      ],
+      "formulaIds": [
+        "br-tree-f",
+        "br-inlaw-f"
+      ],
+      "method": "A brother’s wife is a sister-in-law.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "How is Suresh related to Lata, and Priya to Suresh?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Sister\" for a brother’s wife."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-010",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Kamala related to Bindu?",
+      "context": "1. Mohan is the husband of Kamala.\n2. Suresh is the son of Kamala.\n3. Lata is the sister of Suresh.\n4. Priya is the wife of Suresh.\n5. Arun is the son of Priya.\n6. Vikram is the husband of Lata.\n7. Bindu is the daughter of Vikram.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grandmother"
+        },
+        {
+          "id": "b",
+          "text": "Mother"
+        },
+        {
+          "id": "c",
+          "text": "Aunt"
+        },
+        {
+          "id": "d",
+          "text": "Mother-in-law"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu. Bindu’s mother Lata is Kamala’s daughter, so Kamala is Bindu’s grandmother.",
+      "solutionSteps": [
+        "Mohan–Kamala at the top; Suresh is their son and Lata (his sister) their daughter.",
+        "Suresh marries Priya; Arun is their son. Lata marries Vikram; Bindu is their daughter.",
+        "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu."
+      ],
+      "formulaIds": [
+        "br-tree-f",
+        "br-generation-f"
+      ],
+      "method": "Two generations up through a parent is a grandparent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Lata is Kamala’s daughter. Who is Lata to Bindu?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking a mother’s mother is not a grandmother because the line goes through a daughter."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-011",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is U related to Q?",
+      "context": "1. P is the father of Q.\n2. R is the wife of P.\n3. S is the brother of Q.\n4. T is the wife of S.\n5. U is the daughter of T.\n6. V is the son of Q.\n7. W is the husband of Q.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Niece"
+        },
+        {
+          "id": "b",
+          "text": "Daughter"
+        },
+        {
+          "id": "c",
+          "text": "Sister"
+        },
+        {
+          "id": "d",
+          "text": "Cousin"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V. U is the daughter of S’s wife T, so S is U’s father. S is Q’s brother, so U is Q’s brother’s daughter: Q’s niece.",
+      "solutionSteps": [
+        "P–R at the top. Q is P’s child, and S is Q’s brother, so S is P’s son too.",
+        "W is Q’s husband, so Q is a woman; V is Q’s son. S’s wife is T; U is T’s daughter.",
+        "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V."
+      ],
+      "formulaIds": [
+        "br-tree-f",
+        "br-inlaw-f"
+      ],
+      "method": "A brother’s daughter is a niece.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "T is S’s wife, so U is S’s daughter. How is S related to Q?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Daughter\": U is T’s daughter, not Q’s."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-012",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is W related to S?",
+      "context": "1. P is the father of Q.\n2. R is the wife of P.\n3. S is the brother of Q.\n4. T is the wife of S.\n5. U is the daughter of T.\n6. V is the son of Q.\n7. W is the husband of Q.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Brother-in-law"
+        },
+        {
+          "id": "b",
+          "text": "Brother"
+        },
+        {
+          "id": "c",
+          "text": "Cousin"
+        },
+        {
+          "id": "d",
+          "text": "Uncle"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V. W is the husband of S’s sister Q, so W is S’s brother-in-law.",
+      "solutionSteps": [
+        "P–R at the top. Q is P’s child, and S is Q’s brother, so S is P’s son too.",
+        "W is Q’s husband, so Q is a woman; V is Q’s son. S’s wife is T; U is T’s daughter.",
+        "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V."
+      ],
+      "formulaIds": [
+        "br-inlaw-f"
+      ],
+      "method": "A sister’s husband is a brother-in-law.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Statement 7 tells you Q is a woman. How is Q related to S?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Brother\" because W and S are in the same generation."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-013",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is R related to V?",
+      "context": "1. P is the father of Q.\n2. R is the wife of P.\n3. S is the brother of Q.\n4. T is the wife of S.\n5. U is the daughter of T.\n6. V is the son of Q.\n7. W is the husband of Q.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grandmother"
+        },
+        {
+          "id": "b",
+          "text": "Mother"
+        },
+        {
+          "id": "c",
+          "text": "Aunt"
+        },
+        {
+          "id": "d",
+          "text": "Mother-in-law"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V. V is Q’s son, Q is P’s child, and R is P’s wife, so R is V’s mother’s mother: his grandmother.",
+      "solutionSteps": [
+        "P–R at the top. Q is P’s child, and S is Q’s brother, so S is P’s son too.",
+        "W is Q’s husband, so Q is a woman; V is Q’s son. S’s wife is T; U is T’s daughter.",
+        "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V."
+      ],
+      "formulaIds": [
+        "br-tree-f",
+        "br-generation-f"
+      ],
+      "method": "A parent’s husband or wife is the other parent; then count two generations.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "R is P’s wife, so R is Q’s mother. Who is Q to V?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Mother-in-law\": R is W’s mother-in-law, not V’s."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-014",
+      "topicId": "blood-relations",
+      "conceptId": "br-tree",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is T related to P?",
+      "context": "1. P is the father of Q.\n2. R is the wife of P.\n3. S is the brother of Q.\n4. T is the wife of S.\n5. U is the daughter of T.\n6. V is the son of Q.\n7. W is the husband of Q.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Daughter-in-law"
+        },
+        {
+          "id": "b",
+          "text": "Daughter"
+        },
+        {
+          "id": "c",
+          "text": "Sister-in-law"
+        },
+        {
+          "id": "d",
+          "text": "Wife"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V. T is married to S, P’s son, so T is P’s daughter-in-law.",
+      "solutionSteps": [
+        "P–R at the top. Q is P’s child, and S is Q’s brother, so S is P’s son too.",
+        "W is Q’s husband, so Q is a woman; V is Q’s son. S’s wife is T; U is T’s daughter.",
+        "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V."
+      ],
+      "formulaIds": [
+        "br-inlaw-f"
+      ],
+      "method": "A son’s wife is a daughter-in-law.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "S is Q’s brother, so S is P’s son. Who is S’s wife?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Daughter\" for a son’s wife."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-015",
+      "topicId": "blood-relations",
+      "conceptId": "br-coded",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is P related to R?",
+      "context": "'P + Q' means 'P is the father of Q'.\n'P − Q' means 'P is the wife of Q'.\n'P × Q' means 'P is the brother of Q'.\n'P ÷ Q' means 'P is the daughter of Q'.\nExpression: P × Q + R",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uncle"
+        },
+        {
+          "id": "b",
+          "text": "Father"
+        },
+        {
+          "id": "c",
+          "text": "Brother"
+        },
+        {
+          "id": "d",
+          "text": "Nephew"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P × Q: P is the brother of Q. Q + R: Q is the father of R. So P is the brother of R’s father: R’s uncle.",
+      "solutionSteps": [
+        "Decode P × Q: P is Q’s brother.",
+        "Decode Q + R: Q is R’s father.",
+        "Father’s brother = uncle."
+      ],
+      "formulaIds": [
+        "br-coded-f"
+      ],
+      "method": "Decode left to right; each symbol links the letters on either side of it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each symbol out as a sentence: \"P × Q\" says what P is to Q."
+        },
+        {
+          "level": 2,
+          "text": "Then combine: P is the brother of R’s father."
+        }
+      ],
+      "commonMistakes": [
+        "Reading \"Q + R\" as \"R is the father of Q\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-016",
+      "topicId": "blood-relations",
+      "conceptId": "br-coded",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is R related to P?",
+      "context": "'P + Q' means 'P is the father of Q'.\n'P − Q' means 'P is the wife of Q'.\n'P × Q' means 'P is the brother of Q'.\n'P ÷ Q' means 'P is the daughter of Q'.\nExpression: P ÷ Q − R",
+      "options": [
+        {
+          "id": "a",
+          "text": "Father"
+        },
+        {
+          "id": "b",
+          "text": "Uncle"
+        },
+        {
+          "id": "c",
+          "text": "Husband"
+        },
+        {
+          "id": "d",
+          "text": "Brother"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P ÷ Q: P is the daughter of Q. Q − R: Q is the wife of R. R is the husband of P’s mother, so R is P’s father.",
+      "solutionSteps": [
+        "P ÷ Q: P is Q’s daughter (so Q is P’s parent).",
+        "Q − R: Q is R’s wife, so Q is a woman: P’s mother.",
+        "Mother’s husband = father."
+      ],
+      "formulaIds": [
+        "br-coded-f"
+      ],
+      "method": "A parent’s husband or wife is the other parent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode both symbols first."
+        },
+        {
+          "level": 2,
+          "text": "Q is P’s mother. Who is her husband?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Husband\": R is Q’s husband, but P’s father."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-017",
+      "topicId": "blood-relations",
+      "conceptId": "br-coded",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is R related to P?",
+      "context": "'P + Q' means 'P is the father of Q'.\n'P − Q' means 'P is the wife of Q'.\n'P × Q' means 'P is the brother of Q'.\n'P ÷ Q' means 'P is the daughter of Q'.\nExpression: P + Q − R × S",
+      "options": [
+        {
+          "id": "a",
+          "text": "Son-in-law"
+        },
+        {
+          "id": "b",
+          "text": "Son"
+        },
+        {
+          "id": "c",
+          "text": "Brother-in-law"
+        },
+        {
+          "id": "d",
+          "text": "Nephew"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P + Q: P is Q’s father. Q − R: Q is R’s wife. R × S: R is S’s brother. R is married to P’s daughter Q, so R is P’s son-in-law. (S is not needed.)",
+      "solutionSteps": [
+        "P + Q: P is the father of Q.",
+        "Q − R: Q (a woman) is the wife of R.",
+        "R is the husband of P’s daughter: son-in-law. R × S only says R has a sibling S."
+      ],
+      "formulaIds": [
+        "br-coded-f",
+        "br-inlaw-f"
+      ],
+      "method": "Decode every link, then use only the ones on the path between the two people asked about.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode all three symbols."
+        },
+        {
+          "level": 2,
+          "text": "Q is P’s daughter. Who is Q married to?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Son\" for a daughter’s husband."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-018",
+      "topicId": "blood-relations",
+      "conceptId": "br-coded",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How is P related to S?",
+      "context": "'P + Q' means 'P is the father of Q'.\n'P − Q' means 'P is the wife of Q'.\n'P × Q' means 'P is the brother of Q'.\n'P ÷ Q' means 'P is the daughter of Q'.\nExpression: P × Q ÷ R + S",
+      "options": [
+        {
+          "id": "a",
+          "text": "Brother"
+        },
+        {
+          "id": "b",
+          "text": "Cousin"
+        },
+        {
+          "id": "c",
+          "text": "Uncle"
+        },
+        {
+          "id": "d",
+          "text": "Son"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P × Q: P is Q’s brother. Q ÷ R: Q is R’s daughter. R + S: R is S’s father. So P, Q and S are all R’s children, and P (a man) is S’s brother.",
+      "solutionSteps": [
+        "P × Q: P is Q’s brother, so P is male and shares Q’s parents.",
+        "Q ÷ R: Q is R’s daughter, so P is R’s child too.",
+        "R + S: S is R’s child. Children of the same parent are brothers and sisters: P is S’s brother."
+      ],
+      "formulaIds": [
+        "br-coded-f"
+      ],
+      "method": "Siblings share parents; decode, then group the children.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode each symbol; who are R’s children?"
+        },
+        {
+          "level": 2,
+          "text": "P’s gender comes from \"brother\"."
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Uncle\" by putting P a generation above S."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-019",
+      "topicId": "blood-relations",
+      "conceptId": "br-gender",
+      "levelId": "blood-relations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How is Kavi related to Neel?",
+      "context": "1. Neel is the brother of Kavi.\n2. Kavi is the child of Asha.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Brother"
+        },
+        {
+          "id": "b",
+          "text": "Sister"
+        },
+        {
+          "id": "c",
+          "text": "Cannot be determined"
+        },
+        {
+          "id": "d",
+          "text": "Cousin"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Neel is Kavi’s brother, so Kavi is Neel’s brother or sister. Nothing says whether Kavi is male or female (\"child\" does not), so the relation cannot be determined.",
+      "solutionSteps": [
+        "\"Neel is the brother of Kavi\" gives Neel’s gender only.",
+        "\"Kavi is the child of Asha\" gives no gender.",
+        "So Kavi is Neel’s brother or sister: cannot be determined."
+      ],
+      "formulaIds": [
+        "br-gender-f"
+      ],
+      "method": "A statement gives the gender of its subject only.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which words tell you someone’s gender?"
+        },
+        {
+          "level": 2,
+          "text": "Is Kavi ever called son, daughter, brother or sister?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Brother\" by giving Kavi Neel’s gender."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-020",
+      "topicId": "blood-relations",
+      "conceptId": "br-gender",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Whose gender can be determined from these statements? Select all that apply.",
+      "context": "1. P is the father of Q.\n2. R is the sister of Q.\n3. S is the husband of R.\n4. T is the child of S.",
+      "options": [
+        {
+          "id": "a",
+          "text": "P"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "R"
+        },
+        {
+          "id": "d",
+          "text": "S"
+        },
+        {
+          "id": "e",
+          "text": "T"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "d"
+      ],
+      "explanation": "P is a father (male), R a sister (female) and S a husband (male). Q is only ever the person someone else is related to, and T is only \"the child\", so their genders are unknown.",
+      "solutionSteps": [
+        "Go person by person and look for a gendered word used for them.",
+        "P: father. R: sister. S: husband.",
+        "Q and T: no gendered word."
+      ],
+      "formulaIds": [
+        "br-gender-f"
+      ],
+      "method": "Gender comes only from the word used for that person, or from a marriage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In \"P is the father of Q\", only P’s gender is known."
+        },
+        {
+          "level": 2,
+          "text": "Check each of the five names in turn."
+        }
+      ],
+      "commonMistakes": [
+        "Giving Q a gender from \"R is the sister of Q\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-021",
+      "topicId": "blood-relations",
+      "conceptId": "br-gender",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How is Kiran related to Mala?",
+      "context": "Pointing to Kiran, Mala (a woman) said, “Kiran’s father is my father’s only son.”",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nephew"
+        },
+        {
+          "id": "b",
+          "text": "Niece"
+        },
+        {
+          "id": "c",
+          "text": "Cannot be determined"
+        },
+        {
+          "id": "d",
+          "text": "Son"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Mala is a woman, so her father’s only son is her brother. Kiran’s father is Mala’s brother, so Kiran is Mala’s nephew or niece. Nothing says whether Kiran is a boy or a girl, so the answer cannot be determined.",
+      "solutionSteps": [
+        "My father’s only son, said by a woman = my brother.",
+        "Kiran’s father is Mala’s brother.",
+        "Kiran is a nephew or a niece: Kiran’s gender is not given."
+      ],
+      "formulaIds": [
+        "br-gender-f",
+        "br-sc-only"
+      ],
+      "method": "Work out the relation, then check you know the gender it needs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Could Mala be her father’s son?"
+        },
+        {
+          "level": 2,
+          "text": "You can tell Kiran is a brother’s child. Can you tell if Kiran is a boy or a girl?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming Kiran is a boy and answering \"Nephew\".",
+        "Answering \"Son\" by treating Mala as the only son."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-022",
+      "topicId": "blood-relations",
+      "conceptId": "br-generation",
+      "levelId": "blood-relations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many generations of this family are named in the statements?",
+      "context": "1. Mohan is the husband of Kamala.\n2. Suresh is the son of Kamala.\n3. Lata is the sister of Suresh.\n4. Priya is the wife of Suresh.\n5. Arun is the son of Priya.\n6. Vikram is the husband of Lata.\n7. Bindu is the daughter of Vikram.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Mohan and Kamala are married; their children are Suresh and Lata. Suresh and Priya are married, with a son, Arun. Lata and Vikram are married, with a daughter, Bindu. Oldest first: Mohan, Kamala | Suresh, Lata, Priya, Vikram | Arun, Bindu. That is 3 generations.",
+      "solutionSteps": [
+        "Husbands, wives, brothers and sisters share a generation.",
+        "Mohan and Kamala; then their children and the children’s spouses; then Arun and Bindu.",
+        "Three rows: 3 generations."
+      ],
+      "formulaIds": [
+        "br-generation-f"
+      ],
+      "method": "One row per generation; only parent–child links move between rows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Spouses stay in the same row as each other."
+        }
+      ],
+      "commonMistakes": [
+        "Putting Priya and Vikram in a row of their own because they married into the family."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "blood-relations-q-023",
+      "topicId": "blood-relations",
+      "conceptId": "br-generation",
+      "levelId": "blood-relations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many generations apart are R and U?",
+      "context": "1. P is the father of Q.\n2. R is the wife of P.\n3. S is the brother of Q.\n4. T is the wife of S.\n5. U is the daughter of T.\n6. V is the son of Q.\n7. W is the husband of Q.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "P (a man) and R are married; their children are Q (a woman, since W is her husband) and S. S and T are married, with a daughter, U. Q and W are married, with a son, V. R is in the top generation (with P); U is a grandchild (with V). They are 2 generations apart.",
+      "solutionSteps": [
+        "R is P’s wife: top row.",
+        "S, Q, T and W: middle row.",
+        "U and V: bottom row. R to U is 2 rows."
+      ],
+      "formulaIds": [
+        "br-generation-f"
+      ],
+      "method": "Count rows, not people or links.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw it: a square for a man, a circle for a woman, a double line for a marriage, a line down from parents to children."
+        },
+        {
+          "level": 2,
+          "text": "Which row is R in, and which row is U in?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting the links between R and U instead of the rows."
+      ],
+      "tags": [],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

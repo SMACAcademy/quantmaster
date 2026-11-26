@@ -49,6 +49,10 @@ import { advNumberBasesTemplates } from './templates/advNumberBases.js';
 import { advDiscountTemplates } from './templates/advDiscount.js';
 import { advStocksTemplates } from './templates/advStocks.js';
 import { advCircleSectorsTemplates } from './templates/advCircleSectors.js';
+import { seatingTemplates } from './templates/reasoningSeating.js';
+import { puzzleTemplates } from './templates/reasoningPuzzles.js';
+import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
+import { bloodTemplates } from './templates/reasoningBlood.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -85,7 +89,13 @@ const TEMPLATES = [
   ...advNumberBasesTemplates,
   ...advDiscountTemplates,
   ...advStocksTemplates,
-  ...advCircleSectorsTemplates
+  ...advCircleSectorsTemplates,
+  // Logical reasoning: every answer is checked by brute force over all arrangements.
+  ...seatingTemplates,
+  ...puzzleTemplates,
+  ...syllogismTemplates,
+  ...inequalityTemplates,
+  ...bloodTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

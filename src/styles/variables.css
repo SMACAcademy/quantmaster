@@ -192,4 +192,12 @@
   --cat-combinatorics: #f472b6;
   --cat-data: #fbbf24;
   --cat-advanced: #fb923c;
+  --cat-reasoning: #06b6d4;
+}
+
+/* Reasoning gets a deeper cyan on the light theme. Contrast of the cyan against
+   the card background: 7.4:1 on dark (#111728), 3.7:1 on light (#ffffff), at or
+   above the other accents in both (they range 6.6–10.7:1 and 1.7–2.7:1). */
+:root[data-theme='light'] {
+  --cat-reasoning: #0891b2;
 }

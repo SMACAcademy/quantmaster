@@ -13,6 +13,9 @@
  *   table       a table of coloured cells: { columns, rows, caption }
  *   candidates  the possible answers, row by row, as a set shrinks: { min, max, rows, badge }
  *
+ * and five for logical reasoning (seats, grid, euler, chain, tree), drawn by
+ * reasoningPlots.js.
+ *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.
  */
@@ -23,6 +26,7 @@ import { pieSectorPath, pointOnCircle } from '../utils/chartScale.js';
 import { solidDrawing } from '../utils/solidGeometry.js';
 import { renderVenn } from './venn.js';
 import { chartWidget } from './Chart.js';
+import { drawReasoningPlot } from './reasoningPlots.js';
 
 const W = 560;
 const H = 340;
@@ -781,5 +785,7 @@ export function drawPlot(plot) {
   if (plot.kind === 'solids') return solidsPlot(plot);
   if (plot.kind === 'rects') return rectsPlot(plot);
   if (plot.kind === 'venn') return vennPlot(plot);
+  const reasoning = drawReasoningPlot(plot);
+  if (reasoning) return reasoning;
   return el('p.text-muted', { text: plot.summary || '' });
 }
