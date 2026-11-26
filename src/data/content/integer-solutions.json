@@ -1,0 +1,1916 @@
+{
+  "topicId": "integer-solutions",
+  "concepts": [
+    {
+      "id": "is-solvable",
+      "topicId": "integer-solutions",
+      "name": "When solutions exist",
+      "description": "ax + by = c has integer solutions exactly when g = gcd(a, b) divides c. If g does not divide c, the left side is always a multiple of g and can never equal c.",
+      "sortOrder": 1
+    },
+    {
+      "id": "is-particular",
+      "topicId": "integer-solutions",
+      "name": "Finding one solution",
+      "description": "Make c − ax a multiple of b by trying x = 0, 1, 2, … (at most b tries), or by working with remainders on division by b.",
+      "sortOrder": 2
+    },
+    {
+      "id": "is-step",
+      "topicId": "integer-solutions",
+      "name": "The step between solutions",
+      "description": "From one solution (x₀, y₀), every other is x = x₀ + (b/g)t, y = y₀ − (a/g)t: x moves by b/g and y by a/g, in opposite directions.",
+      "sortOrder": 3
+    },
+    {
+      "id": "is-count",
+      "topicId": "integer-solutions",
+      "name": "Counting solutions",
+      "description": "Positive solutions need x, y ≥ 1; non-negative ones allow 0. Find the first and last solution in range and count the steps between them, plus one.",
+      "sortOrder": 4
+    },
+    {
+      "id": "is-word",
+      "topicId": "integer-solutions",
+      "name": "Coins, stamps and purchases",
+      "description": "Turn a payment into a value equation such as 2x + 5y = 60. \"At least one of each\" means positive solutions; \"any number, possibly none\" means non-negative.",
+      "sortOrder": 5
+    },
+    {
+      "id": "is-adv-three",
+      "topicId": "integer-solutions",
+      "name": "Three variables",
+      "description": "x + y + z = n has C(n + 2, 2) non-negative and C(n − 1, 2) positive solutions. With unequal coefficients, fix the variable with the largest coefficient and count the rest.",
+      "sortOrder": 6
+    },
+    {
+      "id": "is-adv-extreme",
+      "topicId": "integer-solutions",
+      "name": "Largest and smallest values",
+      "description": "Over the solutions, x + y changes by a fixed amount each step, so its extremes are at the two ends. With coprime coins a and b, every amount above ab − a − b can be paid.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "is-solvable-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-solvable",
+      "title": "When ax + by = c has integer solutions",
+      "prompt": "When does ax + by = c have solutions in integers?",
+      "formula": "Integer solutions exist ⇔ gcd(a, b) divides c",
+      "variables": [
+        {
+          "symbol": "a, b, c",
+          "meaning": "whole numbers"
+        },
+        {
+          "symbol": "gcd(a, b)",
+          "meaning": "the highest common factor of a and b"
+        }
+      ],
+      "explanation": "ax + by is always a multiple of g = gcd(a, b). So c must be a multiple of g; and when it is, solutions always exist.",
+      "example": "6x + 9y = 20: gcd 3 does not divide 20, so no solution. 6x + 9y = 21: x = 2, y = 1.",
+      "commonMistake": "Thinking the coefficients must be coprime: 9x + 12y = 102 is solvable because 3 divides 102.",
+      "applicationPrompt": "Does 8x + 12y = 30 have integer solutions?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "is-particular-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-particular",
+      "title": "One solution by trial",
+      "prompt": "How do you find one solution of ax + by = c quickly?",
+      "formula": "Try x = 0, 1, 2, …, b − 1 until b divides c − ax",
+      "variables": [
+        {
+          "symbol": "b",
+          "meaning": "the coefficient you divide by (take the larger one to make trials few)"
+        }
+      ],
+      "explanation": "Only the remainder of ax on division by b matters, and it repeats every b values of x, so at most b tries are needed.",
+      "example": "7x + 5y = 96: 96 − 7 = 89, 96 − 14 = 82, 96 − 21 = 75 ✓ → x = 3, y = 15.",
+      "commonMistake": "Trying values of x far beyond b; the remainders repeat after b tries.",
+      "applicationPrompt": "Find a solution of 5x + 3y = 52 in positive integers.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "is-step-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-step",
+      "title": "The general solution",
+      "prompt": "From one solution (x₀, y₀), how do you get all the others?",
+      "formula": "x = x₀ + (b/g)t\ny = y₀ − (a/g)t   (t any integer, g = gcd(a, b))",
+      "variables": [
+        {
+          "symbol": "t",
+          "meaning": "any integer"
+        },
+        {
+          "symbol": "g",
+          "meaning": "gcd(a, b)"
+        }
+      ],
+      "explanation": "Adding b/g to x adds ab/g to the left side; taking a/g from y removes the same ab/g. These are the smallest such moves.",
+      "example": "3x + 8y = 100 from (4, 11): (12, 8), (20, 5), (28, 2).",
+      "commonMistake": "Stepping x by its own coefficient a, or moving x and y the same way.",
+      "applicationPrompt": "One solution of 5x + 7y = 100 is (6, 10). Find the next one.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-count-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "title": "Counting solutions",
+      "prompt": "How do you count the solutions in positive (or non-negative) integers?",
+      "formula": "Count = (last x − first x) ÷ (b/g) + 1",
+      "variables": [
+        {
+          "symbol": "first x, last x",
+          "meaning": "the smallest and largest x that keep both variables in range"
+        },
+        {
+          "symbol": "b/g",
+          "meaning": "the step in x"
+        }
+      ],
+      "explanation": "The solutions in range form an arithmetic progression in x with common difference b/g, so count the terms.",
+      "example": "3x + 5y = 100: x = 5, 10, …, 30 → (30 − 5) ÷ 5 + 1 = 6.",
+      "commonMistake": "Forgetting the + 1, or including y = 0 when positive integers are asked for.",
+      "applicationPrompt": "How many positive solutions has 2x + 7y = 80?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-word-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-word",
+      "title": "Coins and stamps",
+      "prompt": "How do you set up \"pay ₹T with ₹a and ₹b coins\"?",
+      "formula": "ax + by = T\nat least one of each → x, y ≥ 1\nany number → x, y ≥ 0",
+      "variables": [
+        {
+          "symbol": "x, y",
+          "meaning": "the numbers of each coin or stamp"
+        },
+        {
+          "symbol": "T",
+          "meaning": "the total amount"
+        }
+      ],
+      "explanation": "The value of the coins, not their number, makes the equation; the wording decides whether 0 is allowed.",
+      "example": "₹60 with ₹2 and ₹5 coins, at least one each: 2x + 5y = 60 → y = 2, 4, 6, 8, 10 → 5 ways.",
+      "commonMistake": "Counting the ways that use only one kind when \"at least one of each\" is asked.",
+      "applicationPrompt": "In how many ways can ₹40 be paid with ₹2 and ₹5 coins, at least one of each?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-three-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-three",
+      "title": "x + y + z = n",
+      "prompt": "How many solutions does x + y + z = n have?",
+      "formula": "Non-negative: C(n + 2, 2)\nPositive: C(n − 1, 2)",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "the total being shared"
+        }
+      ],
+      "explanation": "Place 2 dividers among n items (stars and bars). For positive solutions, give each variable 1 first, leaving n − 3.",
+      "example": "x + y + z = 10: 66 non-negative, 36 positive.",
+      "commonMistake": "Using C(n, 3) or forgetting to subtract the minimums first.",
+      "applicationPrompt": "How many positive solutions has x + y + z = 12?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-frobenius-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-extreme",
+      "title": "Largest amount that cannot be paid",
+      "prompt": "With coprime coins of ₹a and ₹b, what is the largest amount that cannot be paid exactly?",
+      "formula": "Largest impossible amount = ab − a − b",
+      "variables": [
+        {
+          "symbol": "a, b",
+          "meaning": "coin values with gcd 1"
+        }
+      ],
+      "explanation": "Every amount above ab − a − b can be made, and ab − a − b itself cannot. If a and b share a factor, infinitely many amounts are impossible.",
+      "example": "₹3 and ₹5 coins: 15 − 8 = ₹7 is the largest that cannot be paid.",
+      "commonMistake": "Using the formula when the coins share a factor (₹4 and ₹6 can never pay an odd amount).",
+      "applicationPrompt": "Coins of ₹5 and ₹9: largest amount that cannot be paid?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-extreme-f",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-extreme",
+      "title": "Most and fewest items",
+      "prompt": "Over the solutions of ax + by = c, where is x + y largest?",
+      "formula": "x + y is largest with the most of the cheaper item (largest x when a < b), and smallest at the other end",
+      "variables": [
+        {
+          "symbol": "a < b",
+          "meaning": "x counts the cheaper item"
+        }
+      ],
+      "explanation": "Each step swaps a of the dearer items for b of the cheaper, changing the count by b − a, so the extremes sit at the ends.",
+      "example": "3x + 5y = 71: (22, 1) gives 23 stamps, the most; (2, 13) gives 15, the fewest.",
+      "commonMistake": "Looking for the extreme in the middle of the list.",
+      "applicationPrompt": "Pay ₹80 with ₹3 and ₹7 coins, at least one of each: most coins?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-sc-residue",
+      "topicId": "integer-solutions",
+      "conceptId": "is-particular",
+      "kind": "shortcut",
+      "title": "Work with remainders",
+      "prompt": "How can remainders find x without trial?",
+      "formula": "ax + by = c → ax ≡ c (mod b)",
+      "variables": [
+        {
+          "symbol": "≡ (mod b)",
+          "meaning": "same remainder on division by b"
+        }
+      ],
+      "explanation": "Divide everything by b and keep remainders: the by term vanishes, leaving a small equation for x.",
+      "example": "7x + 5y = 96 → mod 5: 2x ≡ 1 → x ≡ 3. So x = 3, 8, 13 → (3, 15), (8, 8), (13, 1).",
+      "commonMistake": "Reducing by the wrong coefficient, so the unknown does not vanish.",
+      "applicationPrompt": "Use remainders to find x in 4x + 9y = 100.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-sc-ends",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "kind": "shortcut",
+      "title": "Count from the two ends",
+      "prompt": "What is the quickest way to count the positive solutions once you have one?",
+      "formula": "Count = (largest x − smallest x) ÷ step + 1",
+      "variables": [
+        {
+          "symbol": "step",
+          "meaning": "b/g"
+        }
+      ],
+      "explanation": "Find the first x that works and the last x before y drops below 1, then count the arithmetic progression.",
+      "example": "13x + 9y = 500: x = 8, 17, 26, 35 → (35 − 8) ÷ 9 + 1 = 4.",
+      "commonMistake": "Dividing c by a coefficient and calling it the count.",
+      "applicationPrompt": "Count the positive solutions of 2x + 7y = 80.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "is-sc-nonneg",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "kind": "shortcut",
+      "title": "Non-negative from positive",
+      "prompt": "How do non-negative solutions relate to positive ones?",
+      "formula": "Non-negative solutions of ax + by = c\n= positive solutions of ax + by = c + a + b",
+      "variables": [
+        {
+          "symbol": "X",
+          "meaning": "x + 1 (each variable shifted up by one)"
+        },
+        {
+          "symbol": "Y",
+          "meaning": "y + 1"
+        }
+      ],
+      "explanation": "Putting x = X − 1 and y = Y − 1 turns x, y ≥ 0 into X, Y ≥ 1 and adds a + b to the right side.",
+      "example": "2x + 3y = 12 has 3 non-negative solutions; 2X + 3Y = 17 has 3 positive ones: (1, 5), (4, 3), (7, 1).",
+      "commonMistake": "Adding 1 to c instead of a + b.",
+      "applicationPrompt": "Turn 4x + 7y = 200 (x, y ≥ 0) into a positive-solution count.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "is-sc-share",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-three",
+      "kind": "shortcut",
+      "title": "Hand out the minimum first",
+      "prompt": "How do you count x + y + z = n when each variable must be at least k?",
+      "formula": "Give k to each first: x + y + z = n − 3k, all ≥ 0 → C(n − 3k + 2, 2)",
+      "variables": [
+        {
+          "symbol": "k",
+          "meaning": "the minimum each must get"
+        }
+      ],
+      "explanation": "After the minimum is handed out, what is left can be shared with no restriction.",
+      "example": "x + y + z = 15, each ≥ 2: 15 − 6 = 9 → C(11, 2) = 55.",
+      "commonMistake": "Subtracting k only once instead of three times.",
+      "applicationPrompt": "x + y + z = 20 with each at least 3: how many solutions?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "integer-solutions-level-0",
+      "topicId": "integer-solutions",
+      "order": 0,
+      "title": "Lattice Points on a Line",
+      "description": "When ax + by = c has whole-number solutions, how to find one, and the steady step from one solution to the next.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "is-solvable",
+        "is-particular",
+        "is-step"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Only multiples of the gcd can be reached",
+            "body": "4x + 6y is even for every pair of integers, so 4x + 6y = 15 has no solution at all. In general ax + by is always a multiple of g = gcd(a, b), and every multiple of g can be reached. So ax + by = c has integer solutions exactly when g divides c."
+          },
+          {
+            "type": "check",
+            "questionId": "integer-solutions-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Find one, then step",
+            "body": "To solve 7x + 5y = 96 in positive integers, make 96 − 7x a multiple of 5. x = 1 gives 89, x = 2 gives 82, x = 3 gives 75 ✓, so (3, 15) is a solution.\n\nNow raise x by 5 and lower y by 7: the left side gains 35 and loses 35, so it stays 96. That gives (8, 8) and (13, 1). One more step would make y negative, so there are exactly 3 positive solutions."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "lattice-line"
+          },
+          {
+            "type": "formula",
+            "title": "Every solution from one",
+            "body": "x = x₀ + (b/g)t,   y = y₀ − (a/g)t",
+            "caption": "x steps by the other coefficient, y by its own partner’s, in opposite directions. Divide by g = gcd(a, b) first: 4x + 6y = 40 steps by 3 and 2, not 6 and 4."
+          },
+          {
+            "type": "check",
+            "questionId": "integer-solutions-q-003"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "\"Positive integers\" means x, y ≥ 1; \"non-negative\" allows 0. The two counts differ exactly by the end points where x = 0 or y = 0, so read the question for \"at least one of each\"."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "integer-solutions-level-1",
+      "topicId": "integer-solutions",
+      "order": 1,
+      "title": "Integer Solution Formulas",
+      "description": "When solutions exist, one solution, the general solution, counting and coin problems.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-0"
+      ],
+      "conceptIds": [
+        "is-solvable",
+        "is-particular",
+        "is-step",
+        "is-count",
+        "is-word"
+      ],
+      "formulaIds": [
+        "is-solvable-f",
+        "is-particular-f",
+        "is-step-f",
+        "is-count-f",
+        "is-word-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "integer-solutions-level-2",
+      "topicId": "integer-solutions",
+      "order": 2,
+      "title": "Direct Integer Solutions",
+      "description": "Decide whether solutions exist, find one, and take one step.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-1"
+      ],
+      "conceptIds": [
+        "is-solvable",
+        "is-particular",
+        "is-step",
+        "is-count"
+      ],
+      "questionIds": [
+        "integer-solutions-q-001",
+        "integer-solutions-q-002",
+        "integer-solutions-q-003",
+        "integer-solutions-q-004",
+        "integer-solutions-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "integer-solutions-level-3",
+      "topicId": "integer-solutions",
+      "order": 3,
+      "title": "Counting and Coins",
+      "description": "Count positive and non-negative solutions and set up coin and stamp problems.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-2"
+      ],
+      "conceptIds": [
+        "is-solvable",
+        "is-particular",
+        "is-count",
+        "is-word"
+      ],
+      "questionIds": [
+        "integer-solutions-q-006",
+        "integer-solutions-q-007",
+        "integer-solutions-q-008",
+        "integer-solutions-q-009",
+        "integer-solutions-q-010",
+        "integer-solutions-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "integer-solutions-level-4",
+      "topicId": "integer-solutions",
+      "order": 4,
+      "title": "Ranges, Counts and Purchases",
+      "description": "Multi-step counting, purchases with an extra condition, and the full method in order.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-3"
+      ],
+      "conceptIds": [
+        "is-particular",
+        "is-step",
+        "is-count",
+        "is-word"
+      ],
+      "questionIds": [
+        "integer-solutions-q-012",
+        "integer-solutions-q-013",
+        "integer-solutions-q-014",
+        "integer-solutions-q-015",
+        "integer-solutions-q-016",
+        "integer-solutions-q-017"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "integer-solutions-level-5",
+      "topicId": "integer-solutions",
+      "order": 5,
+      "title": "Mixed Integer Solutions Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-4"
+      ],
+      "conceptIds": [
+        "is-count",
+        "is-word"
+      ],
+      "questionQuery": {
+        "topicId": "integer-solutions",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "is-solvable",
+          "is-particular",
+          "is-step",
+          "is-count",
+          "is-word"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "integer-solutions-level-6",
+      "topicId": "integer-solutions",
+      "order": 6,
+      "title": "Advanced: Three Unknowns and Extremes",
+      "description": "Share n things among three people, count ax + y + z = n, find the most or fewest items, and the largest amount two coins cannot pay.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-5"
+      ],
+      "conceptIds": [
+        "is-adv-three",
+        "is-adv-extreme"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three unknowns: dividers among items",
+            "body": "x + y + z = 10 in non-negative integers is 10 items and 2 dividers in a row: choose where the 2 dividers go among 12 places, C(12, 2) = 66 ways. If each must be at least 1, hand out 1 each first: x + y + z = 7 with no limit, C(9, 2) = 36.\n\nWith a larger coefficient, as in 2x + y + z = 12, fix x = 0, 1, …, 6 and count y + z = 12 − 2x each time: 13 + 11 + 9 + 7 + 5 + 3 + 1 = 49."
+          },
+          {
+            "type": "check",
+            "questionId": "integer-solutions-q-018"
+          },
+          {
+            "type": "text",
+            "title": "Extremes sit at the ends",
+            "body": "For 3x + 5y = 71 the solutions are (2, 13), (7, 10), (12, 7), (17, 4), (22, 1). Each step trades 3 five-rupee stamps for 5 three-rupee ones, adding 2 to the count, so the most stamps is at the end with the largest x: 23. The fewest is at the other end: 15."
+          },
+          {
+            "type": "formula",
+            "title": "Amounts two coins cannot pay",
+            "body": "Largest impossible amount = ab − a − b   (gcd(a, b) = 1)",
+            "caption": "With ₹3 and ₹5 coins, ₹7 is the last amount that cannot be paid; ₹8, ₹9 and ₹10 can, and adding ₹3 coins reaches everything after."
+          },
+          {
+            "type": "check",
+            "questionId": "integer-solutions-q-019"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "If the two coins share a factor, the formula does not apply: ₹4 and ₹6 coins can never pay an odd amount, however large."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "integer-solutions-level-7",
+      "topicId": "integer-solutions",
+      "order": 7,
+      "title": "Challenge: Sharing, Coins and Extremes",
+      "description": "Three-variable counts, the largest unpayable amount, and the most or fewest items.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "integer-solutions-level-6"
+      ],
+      "conceptIds": [
+        "is-adv-three",
+        "is-adv-extreme"
+      ],
+      "questionIds": [
+        "integer-solutions-q-018",
+        "integer-solutions-q-019",
+        "integer-solutions-q-020",
+        "integer-solutions-q-021",
+        "integer-solutions-q-022",
+        "integer-solutions-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 100,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "integer-solutions-q-001",
+      "topicId": "integer-solutions",
+      "conceptId": "is-solvable",
+      "levelId": "integer-solutions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these equations has no solution in integers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4x + 6y = 15"
+        },
+        {
+          "id": "b",
+          "text": "3x + 5y = 7"
+        },
+        {
+          "id": "c",
+          "text": "6x + 9y = 21"
+        },
+        {
+          "id": "d",
+          "text": "2x + 7y = 11"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "4x + 6y = 2(2x + 3y) is even for every pair of integers, and 15 is odd, so it can never hold. The others work: 3(−1) + 5(2) = 7, 6(2) + 9(1) = 21 and 2(2) + 7(1) = 11.",
+      "solutionSteps": [
+        "gcd(4, 6) = 2, and 2 does not divide 15.",
+        "gcd(3, 5) = 1, gcd(6, 9) = 3 divides 21, gcd(2, 7) = 1.",
+        "Only 4x + 6y = 15 has no solution."
+      ],
+      "formulaIds": [
+        "is-solvable-f"
+      ],
+      "method": "Check whether gcd(a, b) divides c.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the gcd of the two coefficients in each equation."
+        },
+        {
+          "level": 2,
+          "text": "Can an even number ever equal 15?"
+        }
+      ],
+      "commonMistakes": [
+        "Ruling out 6x + 9y = 21 because 6 and 9 share a factor; 3 divides 21, so it is solvable."
+      ],
+      "tags": [
+        "basic",
+        "gcd"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-002",
+      "topicId": "integer-solutions",
+      "conceptId": "is-particular",
+      "levelId": "integer-solutions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "x and y are positive integers with 7x + 5y = 96. What is the smallest possible value of x?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "96 − 7x must be a positive multiple of 5. x = 1 gives 89, x = 2 gives 82, x = 3 gives 75 = 5 × 15. So the smallest x is 3, with y = 15.",
+      "solutionSteps": [
+        "Need 96 − 7x divisible by 5.",
+        "x = 1 → 89, x = 2 → 82, x = 3 → 75 ✓.",
+        "x = 3, y = 15."
+      ],
+      "formulaIds": [
+        "is-particular-f",
+        "is-sc-residue"
+      ],
+      "method": "Try x = 1, 2, … until 96 − 7x is a multiple of 5.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For y to be whole, 96 − 7x must end in 0 or 5."
+        },
+        {
+          "level": 2,
+          "text": "7x must end in 1 or 6."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the smallest y (1, at x = 13) instead of the smallest x."
+      ],
+      "tags": [
+        "basic",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-003",
+      "topicId": "integer-solutions",
+      "conceptId": "is-step",
+      "levelId": "integer-solutions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "x = 4, y = 11 is a solution of 3x + 8y = 100. Which is the next solution in positive integers with a larger x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = 12, y = 8"
+        },
+        {
+          "id": "b",
+          "text": "x = 7, y = 3"
+        },
+        {
+          "id": "c",
+          "text": "x = 12, y = 3"
+        },
+        {
+          "id": "d",
+          "text": "x = 5, y = 10"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "gcd(3, 8) = 1, so x steps by 8 and y by 3, in opposite directions: (4 + 8, 11 − 3) = (12, 8). Check: 36 + 64 = 100.",
+      "solutionSteps": [
+        "x goes up by the other coefficient, 8.",
+        "y goes down by 3.",
+        "(12, 8): 36 + 64 = 100 ✓."
+      ],
+      "formulaIds": [
+        "is-step-f"
+      ],
+      "method": "x moves by b/g, y by a/g, in opposite directions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If x goes up, which way must y go to keep the total at 100?"
+        },
+        {
+          "level": 2,
+          "text": "Adding 8 to x adds 24; take 3 from y to remove 24."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping x by its own coefficient 3 and y by 8, which gives (7, 3) and a total of 45."
+      ],
+      "tags": [
+        "basic",
+        "step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-004",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "2x + 3y = 12 has exactly one solution in positive integers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The non-negative solutions are (0, 4), (3, 2) and (6, 0). Only (3, 2) has both values at least 1, so there is exactly one positive solution: true.",
+      "solutionSteps": [
+        "Non-negative: (0, 4), (3, 2), (6, 0).",
+        "Positive needs x, y ≥ 1.",
+        "Only (3, 2) qualifies: true."
+      ],
+      "formulaIds": [
+        "is-count-f"
+      ],
+      "method": "List the solutions and drop those with a zero.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "y can only be 0, 2 or 4 (12 − 3y must be even)."
+        },
+        {
+          "level": 2,
+          "text": "Which of those also give x ≥ 1?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting (0, 4) and (6, 0), which are non-negative but not positive."
+      ],
+      "tags": [
+        "true-false"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-005",
+      "topicId": "integer-solutions",
+      "conceptId": "is-step",
+      "levelId": "integer-solutions-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "(x₀, y₀) is one solution of ax + by = c, and g = gcd(a, b). Which formula gives every integer solution?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = x₀ + (b/g)t, y = y₀ − (a/g)t"
+        },
+        {
+          "id": "b",
+          "text": "x = x₀ + (a/g)t, y = y₀ − (b/g)t"
+        },
+        {
+          "id": "c",
+          "text": "x = x₀ + t, y = y₀ − t"
+        },
+        {
+          "id": "d",
+          "text": "x = x₀ + (b/g)t, y = y₀ + (a/g)t"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Adding b/g to x adds ab/g to the left side; taking a/g from y removes the same ab/g, so the total stays c. These are the smallest such moves, so every solution is reached.",
+      "solutionSteps": [
+        "a × (b/g) = b × (a/g) = ab/g.",
+        "So the two changes cancel.",
+        "x = x₀ + (b/g)t, y = y₀ − (a/g)t."
+      ],
+      "formulaIds": [
+        "is-step-f"
+      ],
+      "method": "Each variable steps by the other’s coefficient over g, in opposite directions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Raising x must be balanced by lowering y."
+        },
+        {
+          "level": 2,
+          "text": "x is multiplied by a, so its step must be the other coefficient."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping x by a/g: the change a²/g in the left side is not cancelled by b²/g unless a = b."
+      ],
+      "tags": [
+        "formula",
+        "recognition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-006",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many solutions in positive integers does 3x + 5y = 100 have?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "100 − 3x must be a multiple of 5, so x is a multiple of 5: x = 5, 10, 15, 20, 25, 30 give y = 17, 14, 11, 8, 5, 2. x = 35 would give y = −1. That is 6 solutions.",
+      "solutionSteps": [
+        "100 and 5y are multiples of 5, so 3x is too: x = 5k.",
+        "y = (100 − 15k)/5 = 20 − 3k ≥ 1 → k ≤ 6.",
+        "k = 1 to 6: 6 solutions."
+      ],
+      "formulaIds": [
+        "is-count-f",
+        "is-sc-ends"
+      ],
+      "method": "First and last solution, then count the steps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which values of x make 100 − 3x a multiple of 5?"
+        },
+        {
+          "level": 2,
+          "text": "x = 5 is the first; x rises by 5 while y falls by 3."
+        }
+      ],
+      "commonMistakes": [
+        "Including x = 0 (y = 20), which is not positive, to get 7."
+      ],
+      "tags": [
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-007",
+      "topicId": "integer-solutions",
+      "conceptId": "is-word",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Ananya wants to pay exactly ₹60 at a toll booth using only ₹2 and ₹5 coins, with at least one coin of each kind. In how many ways can she do it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2x + 5y = 60 with x, y ≥ 1. 5y must be even, so y = 2, 4, 6, 8, 10, giving x = 25, 20, 15, 10, 5. y = 12 would leave x = 0. So 5 ways.",
+      "solutionSteps": [
+        "2x + 5y = 60, x, y ≥ 1.",
+        "y even: 2, 4, 6, 8, 10.",
+        "5 ways."
+      ],
+      "formulaIds": [
+        "is-word-f",
+        "is-count-f"
+      ],
+      "method": "Value equation, then positive solutions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Let x = number of ₹2 coins and y = number of ₹5 coins."
+        },
+        {
+          "level": 2,
+          "text": "60 − 5y must be even, so y is even."
+        }
+      ],
+      "commonMistakes": [
+        "Allowing all ₹2 coins (y = 0) or all ₹5 coins (x = 0), giving 7."
+      ],
+      "tags": [
+        "coins"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-008",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many pairs of non-negative integers (x, y) satisfy 4x + 7y = 200?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "7y must be a multiple of 4, so y = 0, 4, 8, …, 28, giving x = 50, 43, 36, …, 1. y = 32 would make x negative. That is 28 ÷ 4 + 1 = 8 pairs.",
+      "solutionSteps": [
+        "200 − 7y divisible by 4 → y a multiple of 4.",
+        "y = 0, 4, …, 28 (7 × 28 = 196 ≤ 200).",
+        "8 pairs."
+      ],
+      "formulaIds": [
+        "is-count-f",
+        "is-sc-nonneg"
+      ],
+      "method": "Non-negative: both ends (0 allowed) count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which y make 200 − 7y a multiple of 4?"
+        },
+        {
+          "level": 2,
+          "text": "y can be 0 here."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out y = 0, which non-negative allows, to get 7."
+      ],
+      "tags": [
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-009",
+      "topicId": "integer-solutions",
+      "conceptId": "is-solvable",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "9x + 12y = 102 has no solution in integers, because 9 and 12 are not coprime.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "gcd(9, 12) = 3 and 102 = 3 × 34, so solutions exist: x = 2, y = 7 gives 18 + 84 = 102. Coefficients that share a factor only matter when that factor does not divide c: false.",
+      "solutionSteps": [
+        "gcd(9, 12) = 3.",
+        "3 divides 102.",
+        "x = 2, y = 7 works: false."
+      ],
+      "formulaIds": [
+        "is-solvable-f"
+      ],
+      "method": "The test is whether gcd(a, b) divides c, not whether a and b are coprime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide the whole equation by 3."
+        },
+        {
+          "level": 2,
+          "text": "Does 3x + 4y = 34 have a solution?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking only coprime coefficients give solutions."
+      ],
+      "tags": [
+        "true-false",
+        "gcd"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-010",
+      "topicId": "integer-solutions",
+      "conceptId": "is-word",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Meena buys ₹3 and ₹5 postage stamps for exactly ₹71, at least one of each. How many different combinations of stamps could she have bought?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "3x + 5y = 71 with x, y ≥ 1. 71 − 5y must be a multiple of 3: y = 1, 4, 7, 10, 13 give x = 22, 17, 12, 7, 2. y = 16 would need 80 > 71. So 5 combinations.",
+      "solutionSteps": [
+        "3x + 5y = 71.",
+        "y = 1 works (x = 22); y steps by 3.",
+        "y = 1, 4, 7, 10, 13: 5 combinations."
+      ],
+      "formulaIds": [
+        "is-word-f",
+        "is-count-f"
+      ],
+      "method": "One solution, then step y by 3 and x by 5.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with y = 1: is 71 − 5 a multiple of 3?"
+        },
+        {
+          "level": 2,
+          "text": "Then y rises by 3 while x falls by 5."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping y by 5 instead of 3."
+      ],
+      "tags": [
+        "stamps",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-011",
+      "topicId": "integer-solutions",
+      "conceptId": "is-particular",
+      "levelId": "integer-solutions-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which pair (x, y) of positive integers satisfies 11x + 4y = 101?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x = 3, y = 17"
+        },
+        {
+          "id": "b",
+          "text": "x = 5, y = 11"
+        },
+        {
+          "id": "c",
+          "text": "x = 7, y = 5"
+        },
+        {
+          "id": "d",
+          "text": "x = 1, y = 22"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "11 × 3 + 4 × 17 = 33 + 68 = 101. The others give 55 + 44 = 99, 77 + 20 = 97 and 11 + 88 = 99.",
+      "solutionSteps": [
+        "101 − 11x must be a multiple of 4.",
+        "101 − 33 = 68 = 4 × 17.",
+        "x = 3, y = 17."
+      ],
+      "formulaIds": [
+        "is-particular-f",
+        "is-sc-residue"
+      ],
+      "method": "Substitute, or use remainders on division by 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "101 is odd and 4y is even, so 11x must be odd."
+        },
+        {
+          "level": 2,
+          "text": "Try odd x: which makes 101 − 11x a multiple of 4?"
+        }
+      ],
+      "commonMistakes": [
+        "Accepting (7, 5) as close enough: it gives 97, not 101."
+      ],
+      "tags": [
+        "substitution"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-012",
+      "topicId": "integer-solutions",
+      "conceptId": "is-word",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A school canteen buys pens at ₹7 each and notebooks at ₹12 each, spending exactly ₹250 and buying at least one of each. It bought more notebooks than pens. How many pens did it buy?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "7x + 12y = 250. 250 − 12y must be a multiple of 7: y = 1 gives 238 = 7 × 34. So the solutions are (34, 1), (22, 8) and (10, 15), stepping x by 12 and y by 7. Only (10, 15) has more notebooks than pens: 10 pens.",
+      "solutionSteps": [
+        "7x + 12y = 250, x, y ≥ 1.",
+        "Solutions: (34, 1), (22, 8), (10, 15).",
+        "More notebooks than pens: (10, 15) → 10 pens."
+      ],
+      "formulaIds": [
+        "is-word-f",
+        "is-step-f"
+      ],
+      "method": "List every positive solution, then apply the extra condition.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find one solution first: try y = 1."
+        },
+        {
+          "level": 2,
+          "text": "x steps by 12 and y by 7. Which solution has y > x?"
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the first solution found (34 pens), which has fewer notebooks."
+      ],
+      "tags": [
+        "purchase",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-013",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many pairs of non-negative integers satisfy 5x + 8y = 200?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "200 − 8y must be a multiple of 5, so y is a multiple of 5: y = 0, 5, 10, 15, 20, 25 give x = 40, 32, 24, 16, 8, 0. That is 6 pairs; the 4 with both values positive leave out the two ends.",
+      "solutionSteps": [
+        "y must be a multiple of 5.",
+        "y = 0 to 25 in steps of 5: x = 40 down to 0.",
+        "6 pairs."
+      ],
+      "formulaIds": [
+        "is-count-f",
+        "is-sc-nonneg"
+      ],
+      "method": "Both ends count when zero is allowed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which y make 200 − 8y a multiple of 5?"
+        },
+        {
+          "level": 2,
+          "text": "Both (40, 0) and (0, 25) are allowed here."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only positive solutions (4).",
+        "Dividing 200 by 8 to get 25."
+      ],
+      "tags": [
+        "counting"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-014",
+      "topicId": "integer-solutions",
+      "conceptId": "is-step",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "x and y are positive integers with 13x + 9y = 500. What is the difference between the largest and the smallest possible value of x?",
+      "answer": {
+        "value": 27,
+        "tolerance": 0
+      },
+      "explanation": "500 − 13x must be a multiple of 9. 500 leaves 5 on division by 9 and 13 leaves 4, so 4x must leave 5: x = 8 (32 leaves 5). Then x = 8, 17, 26, 35 with y = 44, 31, 18, 5; x = 44 would make y negative. The difference is 35 − 8 = 27.",
+      "solutionSteps": [
+        "Mod 9: 4x ≡ 5 → x ≡ 8.",
+        "x = 8, 17, 26, 35 (y = 44, 31, 18, 5).",
+        "35 − 8 = 27."
+      ],
+      "formulaIds": [
+        "is-step-f",
+        "is-sc-residue"
+      ],
+      "method": "Smallest x by remainders, then step by 9 while y stays positive.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work with remainders on division by 9."
+        },
+        {
+          "level": 2,
+          "text": "x steps by 9; how many steps fit before y drops below 1?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking x up to 44, which makes y negative."
+      ],
+      "tags": [
+        "range",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-015",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "Select ALL the equations that have exactly three solutions in positive integers.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2x + 3y = 20"
+        },
+        {
+          "id": "b",
+          "text": "3x + 4y = 30"
+        },
+        {
+          "id": "c",
+          "text": "2x + 5y = 31"
+        },
+        {
+          "id": "d",
+          "text": "4x + 9y = 100"
+        },
+        {
+          "id": "e",
+          "text": "2x + 3y = 12"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c"
+      ],
+      "explanation": "2x + 3y = 20: (1, 6), (4, 4), (7, 2). 3x + 4y = 30: (2, 6), (6, 3). 2x + 5y = 31: (3, 5), (8, 3), (13, 1). 4x + 9y = 100: (7, 8), (16, 4). 2x + 3y = 12: (3, 2) only.",
+      "solutionSteps": [
+        "2x + 3y = 20 → 3 ✓.",
+        "3x + 4y = 30 → 2; 4x + 9y = 100 → 2; 2x + 3y = 12 → 1.",
+        "2x + 5y = 31 → 3 ✓."
+      ],
+      "formulaIds": [
+        "is-count-f"
+      ],
+      "method": "Count each one from its first and last solution.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the first solution of each, then step."
+        },
+        {
+          "level": 2,
+          "text": "In 2x + 5y = 31, y must be odd."
+        }
+      ],
+      "commonMistakes": [
+        "Counting end points with a zero, such as (10, 0) for 3x + 4y = 30, which are not positive."
+      ],
+      "tags": [
+        "multi-select",
+        "counting"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-016",
+      "topicId": "integer-solutions",
+      "conceptId": "is-count",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each equation with the number of its solutions in positive integers.",
+      "pairs": [
+        {
+          "left": "2x + 3y = 12",
+          "right": "1"
+        },
+        {
+          "left": "5x + 7y = 100",
+          "right": "2"
+        },
+        {
+          "left": "7x + 5y = 96",
+          "right": "3"
+        },
+        {
+          "left": "2x + 5y = 50",
+          "right": "4"
+        }
+      ],
+      "explanation": "2x + 3y = 12: (3, 2). 5x + 7y = 100: (6, 10), (13, 5). 7x + 5y = 96: (3, 15), (8, 8), (13, 1). 2x + 5y = 50: (5, 8), (10, 6), (15, 4), (20, 2).",
+      "solutionSteps": [
+        "2x + 3y = 12 → 1.",
+        "5x + 7y = 100 → 2.",
+        "7x + 5y = 96 → 3.",
+        "2x + 5y = 50 → 4."
+      ],
+      "formulaIds": [
+        "is-count-f",
+        "is-sc-ends"
+      ],
+      "method": "First solution, step, count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the first solution of each."
+        },
+        {
+          "level": 2,
+          "text": "Count how many steps keep both values at least 1."
+        }
+      ],
+      "commonMistakes": [
+        "Counting (0, 10) and (25, 0) for 2x + 5y = 50 and getting 6."
+      ],
+      "tags": [
+        "matching",
+        "counting"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-017",
+      "topicId": "integer-solutions",
+      "conceptId": "is-particular",
+      "levelId": "integer-solutions-level-4",
+      "difficulty": "complex",
+      "learningStage": "recognition",
+      "type": "ordering",
+      "question": "Put the steps in order to count the positive integer solutions of 7x + 5y = 96.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Check that gcd(7, 5) = 1 divides 96, so solutions exist"
+        },
+        {
+          "id": "s2",
+          "text": "Find one solution: 96 − 7 × 3 = 75 = 5 × 15, so (3, 15)"
+        },
+        {
+          "id": "s3",
+          "text": "Write the step: x goes up by 5 while y goes down by 7"
+        },
+        {
+          "id": "s4",
+          "text": "Step until y would drop below 1: (8, 8), (13, 1)"
+        },
+        {
+          "id": "s5",
+          "text": "Count the solutions found: 3"
+        }
+      ],
+      "explanation": "Existence first, then one solution, then the step, then the end of the range, then the count. Without one solution there is nothing to step from.",
+      "solutionSteps": [
+        "gcd(7, 5) = 1 divides 96.",
+        "One solution: (3, 15).",
+        "Step: (+5, −7).",
+        "Solutions: (3, 15), (8, 8), (13, 1) → 3."
+      ],
+      "formulaIds": [
+        "is-solvable-f",
+        "is-particular-f",
+        "is-step-f"
+      ],
+      "method": "Exists → one solution → step → range → count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot step until you have one solution."
+        },
+        {
+          "level": 2,
+          "text": "Checking the gcd comes before any search."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping by 7 in x (its own coefficient)."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-018",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-three",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many ways can 10 identical laddoos be shared among three children so that each child gets at least one?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "Give each child one laddoo first; 7 remain to be shared with no limit. x + y + z = 7 in non-negative integers has C(7 + 2, 2) = C(9, 2) = 36 solutions. (Directly: C(10 − 1, 2) = 36.)",
+      "solutionSteps": [
+        "x + y + z = 10, each ≥ 1.",
+        "Hand out 1 each: x′ + y′ + z′ = 7, each ≥ 0.",
+        "C(9, 2) = 36."
+      ],
+      "formulaIds": [
+        "is-three-f",
+        "is-sc-share"
+      ],
+      "method": "Remove the minimums, then stars and bars.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write x + y + z = 10 with x, y, z ≥ 1."
+        },
+        {
+          "level": 2,
+          "text": "Positive solutions of x + y + z = n: C(n − 1, 2)."
+        }
+      ],
+      "commonMistakes": [
+        "Using C(12, 2) = 66, which allows a child to get none."
+      ],
+      "tags": [
+        "sharing",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-019",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-extreme",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A vending machine at a railway station accepts only ₹5 and ₹8 coins and gives no change. What is the largest whole-rupee price that cannot be paid exactly?",
+      "answer": {
+        "value": 27,
+        "tolerance": 0
+      },
+      "explanation": "5 and 8 are coprime, so the largest amount that cannot be made is 5 × 8 − 5 − 8 = 27. Check: 27, 19, 11 and 3 (27 minus 0 to 3 eights) are not multiples of 5, so 27 fails; 28 = 20 + 8, 29 = 5 + 24, 30, 31 = 15 + 16 and 32 all work, and adding ₹5 coins reaches everything after.",
+      "solutionSteps": [
+        "gcd(5, 8) = 1.",
+        "5 × 8 − 5 − 8 = 27.",
+        "28, 29, 30, 31, 32 are all payable, so everything above is too."
+      ],
+      "formulaIds": [
+        "is-frobenius-f"
+      ],
+      "method": "ab − a − b for coprime coins.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every large enough amount can be paid. Where does the run of payable amounts begin?"
+        },
+        {
+          "level": 2,
+          "text": "For coprime a and b the answer is ab − a − b."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 5 × 8 = 40, or 39."
+      ],
+      "tags": [
+        "frobenius",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-020",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-three",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many solutions in non-negative integers does 2x + y + z = 12 have?",
+      "answer": {
+        "value": 49,
+        "tolerance": 0
+      },
+      "explanation": "x can be 0 to 6. For each x, y + z = 12 − 2x has 13 − 2x non-negative solutions: 13 + 11 + 9 + 7 + 5 + 3 + 1 = 49.",
+      "solutionSteps": [
+        "x = 0, 1, …, 6.",
+        "y + z = 12 − 2x has 13 − 2x solutions.",
+        "13 + 11 + 9 + 7 + 5 + 3 + 1 = 49."
+      ],
+      "formulaIds": [
+        "is-three-f"
+      ],
+      "method": "Fix the variable with the larger coefficient and add up.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try x = 0, 1, 2, … in turn."
+        },
+        {
+          "level": 2,
+          "text": "y + z = m has m + 1 non-negative solutions."
+        }
+      ],
+      "commonMistakes": [
+        "Using C(14, 2) = 91 as if every coefficient were 1."
+      ],
+      "tags": [
+        "three-variables",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-021",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-extreme",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Meena spends exactly ₹71 on ₹3 and ₹5 stamps, buying at least one of each. What is the largest number of stamps she can buy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "23"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "19"
+        },
+        {
+          "id": "d",
+          "text": "14"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "3x + 5y = 71 has positive solutions (2, 13), (7, 10), (12, 7), (17, 4), (22, 1), with x three-rupee stamps. Each step swaps 3 five-rupee stamps for 5 three-rupee ones, adding 2 stamps. So the most is 22 + 1 = 23.",
+      "solutionSteps": [
+        "Solutions: (2, 13), (7, 10), (12, 7), (17, 4), (22, 1).",
+        "Totals: 15, 17, 19, 21, 23.",
+        "Largest: 23."
+      ],
+      "formulaIds": [
+        "is-extreme-f",
+        "is-word-f"
+      ],
+      "method": "Most items → most of the cheaper item.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use as many ₹3 stamps as possible."
+        },
+        {
+          "level": 2,
+          "text": "She still needs at least one ₹5 stamp."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 15, the fewest.",
+        "Dividing 71 by 5 to get 14."
+      ],
+      "tags": [
+        "extremes",
+        "stamps"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-022",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-extreme",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "With an unlimited supply of ₹3 and ₹7 coins, every whole-rupee amount from ₹12 upwards can be paid exactly.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "gcd(3, 7) = 1, so the largest amount that cannot be paid is 3 × 7 − 3 − 7 = 11. ₹12 = 4 × 3, ₹13 = 2 × 3 + 7, ₹14 = 2 × 7, and adding ₹3 coins reaches everything after: true.",
+      "solutionSteps": [
+        "3 × 7 − 3 − 7 = 11.",
+        "12, 13 and 14 are payable.",
+        "Adding 3 repeatedly covers the rest: true."
+      ],
+      "formulaIds": [
+        "is-frobenius-f"
+      ],
+      "method": "ab − a − b is the last amount that fails.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the largest amount ₹3 and ₹7 coins cannot make."
+        },
+        {
+          "level": 2,
+          "text": "Three payable amounts in a row, plus ₹3 coins, cover everything above."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking ₹11 can be paid (11 − 7 = 4 is not a multiple of 3)."
+      ],
+      "tags": [
+        "true-false",
+        "frobenius"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "integer-solutions-q-023",
+      "topicId": "integer-solutions",
+      "conceptId": "is-adv-three",
+      "levelId": "integer-solutions-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How many solutions does x + y + z = 15 have if x, y and z are whole numbers, each at least 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "55"
+        },
+        {
+          "id": "b",
+          "text": "136"
+        },
+        {
+          "id": "c",
+          "text": "91"
+        },
+        {
+          "id": "d",
+          "text": "78"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Give 2 to each first: x′ + y′ + z′ = 15 − 6 = 9 with no limit, which has C(9 + 2, 2) = C(11, 2) = 55 solutions.",
+      "solutionSteps": [
+        "Subtract 2 from each: 15 − 6 = 9.",
+        "x′ + y′ + z′ = 9, all ≥ 0.",
+        "C(11, 2) = 55."
+      ],
+      "formulaIds": [
+        "is-three-f",
+        "is-sc-share"
+      ],
+      "method": "Hand out the minimum, then stars and bars.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set x = x′ + 2 and so on."
+        },
+        {
+          "level": 2,
+          "text": "Then count non-negative solutions of a smaller sum."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the minimum (C(17, 2) = 136).",
+        "Using the at-least-one count (C(14, 2) = 91)."
+      ],
+      "tags": [
+        "three-variables"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

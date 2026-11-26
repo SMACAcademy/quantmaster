@@ -35,6 +35,27 @@
       "name": "Applying identities numerically",
       "description": "Rewriting a number as a sum or difference near a round number lets an identity replace heavy arithmetic.",
       "sortOrder": 5
+    },
+    {
+      "id": "ai-adv-reciprocal",
+      "topicId": "algebraic-identities",
+      "name": "x + 1/x and its powers",
+      "description": "From x + 1/x = k alone: x² + 1/x² = k² − 2, x³ + 1/x³ = k³ − 3k, and every higher power by squaring or multiplying earlier ones. With x − 1/x the cross terms change sign, and (x + 1/x)² − (x − 1/x)² = 4. x² − kx + 1 = 0 and x = a + √b with a² − b = 1 are the same thing in disguise.",
+      "sortOrder": 6
+    },
+    {
+      "id": "ai-adv-three-var",
+      "topicId": "algebraic-identities",
+      "name": "a³ + b³ + c³ − 3abc",
+      "description": "a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca) = ½(a + b + c)[(a − b)² + (b − c)² + (c − a)²]. So a + b + c = 0 gives a³ + b³ + c³ = 3abc, and a² + b² + c² = ab + bc + ca forces a = b = c.",
+      "sortOrder": 7
+    },
+    {
+      "id": "ai-adv-extremes",
+      "topicId": "algebraic-identities",
+      "name": "Least and greatest values from squares",
+      "description": "A square is never negative. Rewrite an expression as a square plus a constant, and the constant is its least value: x² + 1/x² = (x − 1/x)² + 2 ≥ 2. A sum of squares is zero only when every square is zero.",
+      "sortOrder": 8
     }
   ],
   "formulas": [
@@ -157,6 +178,112 @@
       "applicationPrompt": "If x − 1/x = 4, find x² + 1/x² (hint: the sign of the middle term changes).",
       "tags": [
         "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ai-adv-ladder-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "title": "The x + 1/x ladder",
+      "prompt": "x + 1/x = k. How do you get x⁴ + 1/x⁴, x⁵ + 1/x⁵ and x⁶ + 1/x⁶ without finding x?",
+      "formula": "x² + 1/x² = k² − 2\nx³ + 1/x³ = k³ − 3k\nx⁴ + 1/x⁴ = (x² + 1/x²)² − 2\nx⁵ + 1/x⁵ = (x² + 1/x²)(x³ + 1/x³) − k\nx⁶ + 1/x⁶ = (x³ + 1/x³)² − 2",
+      "variables": [],
+      "explanation": "Squaring xⁿ + 1/xⁿ gives x²ⁿ + 1/x²ⁿ plus a middle term 2, because xⁿ × 1/xⁿ = 1. Multiplying (x² + 1/x²)(x³ + 1/x³) gives x⁵ + 1/x⁵ plus the cross terms x + 1/x. So each rung comes from earlier rungs, and all of them from k.",
+      "example": "x + 1/x = 3: x² + 1/x² = 7, x³ + 1/x³ = 18, x⁴ + 1/x⁴ = 49 − 2 = 47, x⁵ + 1/x⁵ = 7 × 18 − 3 = 123, x⁶ + 1/x⁶ = 18² − 2 = 322.",
+      "commonMistake": "Writing x⁴ + 1/x⁴ = k⁴ − 2. Square the rung below, (k² − 2)², not k itself.",
+      "applicationPrompt": "If x + 1/x = 4, find x⁴ + 1/x⁴.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ai-adv-minus-sc",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "kind": "shortcut",
+      "title": "x − 1/x and x + 1/x together",
+      "prompt": "You know x − 1/x = m. What are x² + 1/x², x³ − 1/x³ and x + 1/x?",
+      "formula": "x² + 1/x² = m² + 2\nx³ − 1/x³ = m³ + 3m\n(x + 1/x)² = (x − 1/x)² + 4\nx² − 1/x² = (x + 1/x)(x − 1/x)",
+      "variables": [],
+      "explanation": "Squaring x − 1/x gives x² − 2 + 1/x², so the 2 is added back. Cubing gives x³ − 1/x³ − 3(x − 1/x), so 3m is added back. The two squares differ by 4 because (x + 1/x)² − (x − 1/x)² = 4 × x × 1/x.",
+      "example": "x − 1/x = 3: x² + 1/x² = 9 + 2 = 11, x³ − 1/x³ = 27 + 9 = 36, x⁴ + 1/x⁴ = 11² − 2 = 119, and (x + 1/x)² = 9 + 4 = 13.",
+      "commonMistake": "Using k² − 2 and k³ − 3k here. With a minus sign the cross terms come back with a plus: m² + 2 and m³ + 3m.",
+      "applicationPrompt": "If x − 1/x = 5, find x³ − 1/x³.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ai-adv-disguise-sc",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "kind": "shortcut",
+      "title": "x + 1/x in disguise",
+      "prompt": "How do x² − kx + 1 = 0, and x = a + √b with a² − b = 1, turn into \"x + 1/x = …\"?",
+      "formula": "x² − kx + 1 = 0  ⇒  divide by x  ⇒  x + 1/x = k\nx = a + √b with a² − b = 1  ⇒  1/x = a − √b  ⇒  x + 1/x = 2a\nGiven x² + 1/x² = N: x + 1/x = √(N + 2), x − 1/x = √(N − 2) (for x > 1)",
+      "variables": [],
+      "explanation": "Dividing x² − kx + 1 = 0 by x leaves x − k + 1/x = 0. And (a + √b)(a − √b) = a² − b = 1, so a − √b is exactly 1/x. Going back from x² + 1/x² = N, add or take away the 2 and take the square root.",
+      "example": "x = 2 + √3: (2 + √3)(2 − √3) = 1, so 1/x = 2 − √3 and x + 1/x = 4. Then x² + 1/x² = 16 − 2 = 14 and x³ + 1/x³ = 64 − 12 = 52.",
+      "commonMistake": "Assuming 1/(a + √b) = a − √b without checking that a² − b = 1. For x = 3 + √5, the product is 4, so 1/x = (3 − √5)/4.",
+      "applicationPrompt": "If x² − 6x + 1 = 0, find x² + 1/x².",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ai-adv-three-cubes-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "title": "a³ + b³ + c³ − 3abc",
+      "prompt": "How does a³ + b³ + c³ − 3abc factorise, and how do you find it from a + b + c and ab + bc + ca?",
+      "formula": "a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca)\n= ½(a + b + c)[(a − b)² + (b − c)² + (c − a)²]\na² + b² + c² = (a + b + c)² − 2(ab + bc + ca)",
+      "variables": [],
+      "explanation": "Multiplying out (a + b + c)(a² + b² + c² − ab − bc − ca) leaves only the three cubes and −3abc. The second bracket is half of (a − b)² + (b − c)² + (c − a)², which is how the ½ form arises.",
+      "example": "a + b + c = 9 and ab + bc + ca = 26: a² + b² + c² = 81 − 52 = 29, so a³ + b³ + c³ − 3abc = 9 × (29 − 26) = 27. Check with 2, 3, 4: 8 + 27 + 64 − 72 = 27.",
+      "commonMistake": "Taking a² + b² + c² as (a + b + c)² and forgetting to subtract 2(ab + bc + ca).",
+      "applicationPrompt": "a + b + c = 6, ab + bc + ca = 11 and abc = 6. Find a³ + b³ + c³.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ai-adv-zero-equal-sc",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "kind": "shortcut",
+      "title": "When a³ + b³ + c³ = 3abc",
+      "prompt": "When is a³ + b³ + c³ = 3abc, and what does a² + b² + c² = ab + bc + ca tell you?",
+      "formula": "a³ + b³ + c³ = 3abc  ⇔  a + b + c = 0 or a = b = c\na² + b² + c² = ab + bc + ca  ⇒  a = b = c\n(x − y)³ + (y − z)³ + (z − x)³ = 3(x − y)(y − z)(z − x)",
+      "variables": [],
+      "explanation": "a³ + b³ + c³ − 3abc is ½(a + b + c) times a sum of three squares, so it is zero only when the sum is zero or all three squares are zero. The three differences x − y, y − z, z − x always add to 0.",
+      "example": "3³ + (−1)³ + (−2)³ = 27 − 1 − 8 = 18 = 3 × 3 × (−1) × (−2), since 3 − 1 − 2 = 0. And a = b = c = 2 gives 24 = 3abc although a + b + c = 6.",
+      "commonMistake": "Concluding a + b + c = 0 from a³ + b³ + c³ = 3abc: a = b = c works too.",
+      "applicationPrompt": "Find the value of (x − y)³ + (y − z)³ + (z − x)³ ÷ [(x − y)(y − z)(z − x)].",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ai-adv-square-floor-sc",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-extremes",
+      "kind": "shortcut",
+      "title": "A square is never negative",
+      "prompt": "How do you find the least value of x² + 1/x², 9x² + 1/x² or x² + y² with x + y fixed, without calculus?",
+      "formula": "Rewrite as (a square) + constant: the least value is the constant, reached when the square is 0\nx² + 1/x² = (x − 1/x)² + 2 ≥ 2\nx² + y² = ½[(x + y)² + (x − y)²],  xy = ¼[(x + y)² − (x − y)²]\nA sum of squares = 0  ⇒  each square = 0",
+      "variables": [],
+      "explanation": "No real square is below 0, so a square plus c is never below c, and equals c only where the square vanishes. With x + y fixed, the only part that changes is (x − y)², so x = y gives the least x² + y² and the largest xy.",
+      "example": "9x² + 1/x² = (3x − 1/x)² + 6, so its least value is 6, at x² = 1/3. And (a − 1)² + (b + 2)² = 0 forces a = 1 and b = −2.",
+      "commonMistake": "Adding the least values of separate parts. The parts must reach their least at the same x, so rewrite the whole expression as one square plus a constant.",
+      "applicationPrompt": "For real x ≠ 0, find the least value of 4x² + 25/x².",
+      "tags": [
+        "advanced"
       ],
       "difficulty": "medium"
     }
@@ -350,13 +477,180 @@
           "complex"
         ],
         "count": 8,
-        "preferUnseen": true
+        "preferUnseen": true,
+        "conceptIds": [
+          "ai-squares",
+          "ai-diffsquares",
+          "ai-cubes",
+          "ai-sumdiffcubes",
+          "ai-apply"
+        ]
       },
       "passCriteria": {
         "minimumAccuracy": 70,
         "minimumQuestionsAttempted": 5
       },
       "xpReward": 50
+    },
+    {
+      "id": "algebraic-identities-level-6",
+      "topicId": "algebraic-identities",
+      "order": 6,
+      "title": "Advanced: x + 1/x and Three-Variable Identities",
+      "description": "Powers of x + 1/x from k alone, x − 1/x, a³ + b³ + c³ − 3abc, and least values from squares.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-5"
+      ],
+      "conceptIds": [
+        "ai-adv-reciprocal",
+        "ai-adv-three-var",
+        "ai-adv-extremes"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "One number, a whole ladder",
+            "body": "When a question gives x + 1/x = k, never solve for x. Squaring gives (x + 1/x)² = x² + 2 + 1/x², because the middle term is 2 × x × 1/x = 2. Cubing gives (x + 1/x)³ = x³ + 1/x³ + 3(x + 1/x). So x² + 1/x² and x³ + 1/x³ need only k, and every higher power follows from them."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "reciprocal-ladder"
+          },
+          {
+            "type": "formula",
+            "title": "The ladder",
+            "body": "x² + 1/x² = k² − 2\nx³ + 1/x³ = k³ − 3k\nx⁴ + 1/x⁴ = (x² + 1/x²)² − 2\nx⁵ + 1/x⁵ = (x² + 1/x²)(x³ + 1/x³) − k\nx⁶ + 1/x⁶ = (x³ + 1/x³)² − 2",
+            "caption": "Squaring a rung doubles the power: take 2 away. Multiplying two neighbouring rungs adds the powers: take k away."
+          },
+          {
+            "type": "example",
+            "title": "x + 1/x = 3",
+            "body": "x² + 1/x² = 9 − 2 = 7. x³ + 1/x³ = 27 − 9 = 18. x⁴ + 1/x⁴ = 7² − 2 = 47. x⁵ + 1/x⁵ = 7 × 18 − 3 = 123. x⁶ + 1/x⁶ = 18² − 2 = 322. We never needed x itself, which is (3 + √5)/2."
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-identities-ai-adv-q-001"
+          },
+          {
+            "type": "text",
+            "title": "x − 1/x, and going back",
+            "body": "With x − 1/x = m the cross terms change sign: x² + 1/x² = m² + 2 and x³ − 1/x³ = m³ + 3m. The two are tied together: (x + 1/x)² − (x − 1/x)² = 4, and x² − 1/x² = (x + 1/x)(x − 1/x). Given x² + 1/x² = N, go back with x + 1/x = √(N + 2) and x − 1/x = √(N − 2), choosing the sign from what you know about x."
+          },
+          {
+            "type": "formula",
+            "title": "With a minus sign",
+            "body": "x² + 1/x² = m² + 2\nx³ − 1/x³ = m³ + 3m\n(x + 1/x)² = (x − 1/x)² + 4",
+            "caption": "m = x − 1/x can be any real number; x + 1/x cannot lie between −2 and 2."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Spot the disguises. x² − 5x + 1 = 0 divided by x is x + 1/x = 5. x = 2 + √3 has 1/x = 2 − √3, because (2 + √3)(2 − √3) = 4 − 3 = 1, so x + 1/x = 4."
+          },
+          {
+            "type": "text",
+            "title": "Three variables: a³ + b³ + c³ − 3abc",
+            "body": "a³ + b³ + c³ − 3abc factorises as (a + b + c)(a² + b² + c² − ab − bc − ca). The second bracket is half of (a − b)² + (b − c)² + (c − a)², a sum of squares. Two results follow. If a + b + c = 0, then a³ + b³ + c³ = 3abc. And the expression is 0 only when a + b + c = 0 or a = b = c."
+          },
+          {
+            "type": "formula",
+            "title": "The three-variable identity",
+            "body": "a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca)\n= ½(a + b + c)[(a − b)² + (b − c)² + (c − a)²]\na² + b² + c² = (a + b + c)² − 2(ab + bc + ca)",
+            "caption": "Given a + b + c and ab + bc + ca, find a² + b² + c² first."
+          },
+          {
+            "type": "example",
+            "title": "Bases that add to zero",
+            "body": "25³ − 15³ − 10³ is a³ + b³ + c³ with a = 25, b = −15, c = −10, which add to 0. So it equals 3 × 25 × (−15) × (−10) = 11,250. In the same way (x − y)³ + (y − z)³ + (z − x)³ = 3(x − y)(y − z)(z − x), since the three bases always add to 0."
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-identities-ai-adv-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Least values: a square is never negative",
+            "body": "x² + 1/x² = (x − 1/x)² + 2, so it is never below 2 and equals 2 at x = ±1. In general, rewrite an expression as a square plus a constant; the constant is the least value. With x + y fixed, x² + y² = ½[(x + y)² + (x − y)²] is least and xy = ¼[(x + y)² − (x − y)²] is greatest when x = y. And a sum of squares equal to 0 forces every square to be 0, which is why a² + b² + c² = ab + bc + ca makes a = b = c."
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-identities-ai-adv-q-003"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "The least value of a sum is not the sum of the least values unless both happen at the same x. Rewrite the whole expression as one square plus a constant before reading off the answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "algebraic-identities-level-7",
+      "topicId": "algebraic-identities",
+      "order": 7,
+      "title": "Practice: x + 1/x and Three-Variable Identities",
+      "description": "Higher powers, x − 1/x, sums of cubes whose bases add to zero, and completing squares.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-6"
+      ],
+      "conceptIds": [
+        "ai-adv-reciprocal",
+        "ai-adv-three-var",
+        "ai-adv-extremes"
+      ],
+      "questionIds": [
+        "algebraic-identities-ai-adv-q-004",
+        "algebraic-identities-ai-adv-q-005",
+        "algebraic-identities-ai-adv-q-006",
+        "algebraic-identities-ai-adv-q-007",
+        "algebraic-identities-ai-adv-q-008",
+        "algebraic-identities-ai-adv-q-009"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "algebraic-identities-level-8",
+      "topicId": "algebraic-identities",
+      "order": 8,
+      "title": "Challenge: Advanced Identities",
+      "description": "Disguised x + 1/x, surds, going back down the ladder, a³ + b³ + c³ and least values.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-7"
+      ],
+      "conceptIds": [
+        "ai-adv-reciprocal",
+        "ai-adv-three-var",
+        "ai-adv-extremes"
+      ],
+      "questionIds": [
+        "algebraic-identities-ai-adv-q-010",
+        "algebraic-identities-ai-adv-q-011",
+        "algebraic-identities-ai-adv-q-012",
+        "algebraic-identities-ai-adv-q-013",
+        "algebraic-identities-ai-adv-q-014",
+        "algebraic-identities-ai-adv-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
     }
   ],
   "questions": [
@@ -977,6 +1271,943 @@
         "multi-step"
       ],
       "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-001",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If x + 1/x = 4, what is x³ + 1/x³?",
+      "answer": {
+        "value": 52,
+        "tolerance": 0
+      },
+      "explanation": "Cube both sides: (x + 1/x)³ = x³ + 1/x³ + 3 × x × (1/x) × (x + 1/x) = x³ + 1/x³ + 3(x + 1/x). So 64 = x³ + 1/x³ + 3 × 4, and x³ + 1/x³ = 64 − 12 = 52.",
+      "solutionSteps": [
+        "(x + 1/x)³ = x³ + 1/x³ + 3(x + 1/x), because x × 1/x = 1.",
+        "4³ = x³ + 1/x³ + 3 × 4.",
+        "x³ + 1/x³ = 64 − 12 = 52."
+      ],
+      "formulaIds": [
+        "ai-adv-ladder-f",
+        "ai-sc-x-plus-reciprocal"
+      ],
+      "method": "x³ + 1/x³ = k³ − 3k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not solve for x: cube x + 1/x and see what the extra terms are."
+        },
+        {
+          "level": 2,
+          "text": "(a + b)³ = a³ + b³ + 3ab(a + b), and here ab = x × 1/x = 1."
+        },
+        {
+          "level": 3,
+          "text": "So 4³ = x³ + 1/x³ + 3 × 4."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 3 instead of 3k, which gives 61.",
+        "Adding 3k instead of subtracting it, which gives 76."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-002",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "levelId": "algebraic-identities-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "If a + b + c = 9 and ab + bc + ca = 26, what is a³ + b³ + c³ − 3abc?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "261"
+        },
+        {
+          "id": "c",
+          "text": "495"
+        },
+        {
+          "id": "d",
+          "text": "729"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca). First a² + b² + c² = 9² − 2 × 26 = 29, so the bracket is 29 − 26 = 3 and the value is 9 × 3 = 27. (a, b, c = 2, 3, 4 fit: 8 + 27 + 64 − 72 = 27.)",
+      "solutionSteps": [
+        "a² + b² + c² = (a + b + c)² − 2(ab + bc + ca) = 81 − 52 = 29.",
+        "a² + b² + c² − ab − bc − ca = 29 − 26 = 3.",
+        "a³ + b³ + c³ − 3abc = 9 × 3 = 27."
+      ],
+      "formulaIds": [
+        "ai-adv-three-cubes-f"
+      ],
+      "method": "Factorise as (a + b + c)(a² + b² + c² − ab − bc − ca), finding a² + b² + c² first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which identity has a³ + b³ + c³ − 3abc on one side?"
+        },
+        {
+          "level": 2,
+          "text": "It is (a + b + c)(a² + b² + c² − ab − bc − ca); you still need a² + b² + c²."
+        },
+        {
+          "level": 3,
+          "text": "a² + b² + c² = 9² − 2 × 26."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 9 × 29 = 261, without subtracting ab + bc + ca from a² + b² + c².",
+        "Taking a² + b² + c² as 9² = 81 (giving 9 × 55 = 495), or cubing the sum alone (729)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-003",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-extremes",
+      "levelId": "algebraic-identities-level-6",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "For real x ≠ 0, what is the least value of 9x² + 1/x²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "(3x − 1/x)² = 9x² − 6 + 1/x², so 9x² + 1/x² = (3x − 1/x)² + 6. A square is never negative, so the expression is never below 6, and it equals 6 when 3x = 1/x, that is x² = 1/3.",
+      "solutionSteps": [
+        "Pick the square whose cross term is a constant: (3x − 1/x)² = 9x² − 6 + 1/x².",
+        "So 9x² + 1/x² = (3x − 1/x)² + 6 ≥ 6.",
+        "It equals 6 at x² = 1/3, so the least value is 6."
+      ],
+      "formulaIds": [
+        "ai-adv-square-floor-sc"
+      ],
+      "method": "Write the expression as a square plus a constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which square has 9x² and 1/x² as its outer terms?"
+        },
+        {
+          "level": 2,
+          "text": "(3x − 1/x)² = 9x² − 2 × 3x × (1/x) + 1/x²."
+        },
+        {
+          "level": 3,
+          "text": "Its middle term is the constant −6, so 9x² + 1/x² = (3x − 1/x)² + 6."
+        }
+      ],
+      "commonMistakes": [
+        "Copying \"x² + 1/x² ≥ 2\" without the coefficient 9, or taking the middle term as 3 and forgetting its factor 2.",
+        "Putting x = 1, which gives 10, not the least value."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-004",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If x + 1/x = 3, what is x⁴ + 1/x⁴?",
+      "options": [
+        {
+          "id": "a",
+          "text": "47"
+        },
+        {
+          "id": "b",
+          "text": "49"
+        },
+        {
+          "id": "c",
+          "text": "79"
+        },
+        {
+          "id": "d",
+          "text": "81"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Climb the ladder: x² + 1/x² = 3² − 2 = 7. Squaring again, (x² + 1/x²)² = x⁴ + 2 + 1/x⁴, so x⁴ + 1/x⁴ = 7² − 2 = 47. Each squaring creates a middle term 2 that must be taken away.",
+      "solutionSteps": [
+        "x² + 1/x² = 3² − 2 = 7.",
+        "(x² + 1/x²)² = x⁴ + 1/x⁴ + 2.",
+        "x⁴ + 1/x⁴ = 49 − 2 = 47."
+      ],
+      "formulaIds": [
+        "ai-adv-ladder-f"
+      ],
+      "method": "Square twice, subtracting 2 each time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Get to the fourth power in two squarings, not one."
+        },
+        {
+          "level": 2,
+          "text": "First x² + 1/x² = k² − 2."
+        },
+        {
+          "level": 3,
+          "text": "Then square x² + 1/x² = 7 and take 2 away again."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the second −2, which gives 49.",
+        "Squaring only once: k⁴ − 2 = 79, or k⁴ = 81."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-005",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If x > 0 and x − 1/x = 4, what is x + 1/x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2√5"
+        },
+        {
+          "id": "b",
+          "text": "2√3"
+        },
+        {
+          "id": "c",
+          "text": "3√2"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(x + 1/x)² and (x − 1/x)² have the same x² + 1/x² but middle terms +2 and −2, so they differ by 4: (x + 1/x)² = (x − 1/x)² + 4 = 16 + 4 = 20. As x > 0, x + 1/x is positive, so it is √20 = 2√5. (Here x = 2 + √5.)",
+      "solutionSteps": [
+        "(x + 1/x)² − (x − 1/x)² = 4.",
+        "(x + 1/x)² = 16 + 4 = 20.",
+        "x > 0, so x + 1/x = √20 = 2√5."
+      ],
+      "formulaIds": [
+        "ai-adv-minus-sc"
+      ],
+      "method": "Use (x + 1/x)² = (x − 1/x)² + 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both expressions square to x² + 1/x² plus or minus something."
+        },
+        {
+          "level": 2,
+          "text": "(x + 1/x)² − (x − 1/x)² = 4."
+        },
+        {
+          "level": 3,
+          "text": "So (x + 1/x)² = 4² + 4."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 4 instead of adding it: √12 = 2√3.",
+        "Adding 2 as for x² + 1/x²: √18 = 3√2 (or 4 + 2 = 6 without squaring)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-006",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "match_following",
+      "question": "x − 1/x = 3. Match each expression with its value.",
+      "pairs": [
+        {
+          "left": "x² + 1/x²",
+          "right": "11"
+        },
+        {
+          "left": "(x + 1/x)²",
+          "right": "13"
+        },
+        {
+          "left": "x³ − 1/x³",
+          "right": "36"
+        },
+        {
+          "left": "x⁴ + 1/x⁴",
+          "right": "119"
+        }
+      ],
+      "explanation": "Squaring x − 1/x gives x² − 2 + 1/x², so x² + 1/x² = 9 + 2 = 11. (x + 1/x)² = (x − 1/x)² + 4 = 13. Cubing gives x³ − 1/x³ − 3(x − 1/x), so x³ − 1/x³ = 27 + 9 = 36. Squaring x² + 1/x² = 11 gives x⁴ + 1/x⁴ = 121 − 2 = 119.",
+      "solutionSteps": [
+        "x² + 1/x² = 3² + 2 = 11.",
+        "(x + 1/x)² = 3² + 4 = 13.",
+        "x³ − 1/x³ = 3³ + 3 × 3 = 36.",
+        "x⁴ + 1/x⁴ = 11² − 2 = 119."
+      ],
+      "formulaIds": [
+        "ai-adv-minus-sc",
+        "ai-adv-ladder-f"
+      ],
+      "method": "With x − 1/x the cross terms come back with a plus sign; from x² + 1/x² on, square as usual.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Square and cube x − 1/x; the cross terms are constants or multiples of x − 1/x."
+        },
+        {
+          "level": 2,
+          "text": "x² + 1/x² = m² + 2 and x³ − 1/x³ = m³ + 3m."
+        },
+        {
+          "level": 3,
+          "text": "For x⁴ + 1/x⁴, square x² + 1/x² = 11 and take 2 away."
+        }
+      ],
+      "commonMistakes": [
+        "Using the plus-sign rules: 3² − 2 = 7 and 3³ − 9 = 18.",
+        "Squaring 11 for x⁴ + 1/x⁴ without taking 2 away (121)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-007",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Without cubing each number, find the value of 25³ − 15³ − 10³.",
+      "answer": {
+        "value": 11250,
+        "tolerance": 0
+      },
+      "explanation": "Write it as a³ + b³ + c³ with a = 25, b = −15, c = −10. These add to 0, so a³ + b³ + c³ = 3abc = 3 × 25 × (−15) × (−10) = 11,250. (Check: 15,625 − 3,375 − 1,000 = 11,250.)",
+      "solutionSteps": [
+        "Take a = 25, b = −15, c = −10; a + b + c = 0.",
+        "So a³ + b³ + c³ = 3abc.",
+        "3 × 25 × (−15) × (−10) = 11,250."
+      ],
+      "formulaIds": [
+        "ai-adv-zero-equal-sc",
+        "ai-sc-zero-sum-cubes"
+      ],
+      "method": "If a + b + c = 0, then a³ + b³ + c³ = 3abc.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat the minus signs as part of the numbers: 25, −15 and −10."
+        },
+        {
+          "level": 2,
+          "text": "What do 25, −15 and −10 add up to?"
+        },
+        {
+          "level": 3,
+          "text": "Their sum is 0, so the sum of cubes is 3 × their product."
+        }
+      ],
+      "commonMistakes": [
+        "Dropping the 3 and giving 25 × 15 × 10 = 3,750.",
+        "Getting a negative answer by losing one of the two minus signs."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-008",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For distinct x, y, z, what is the value of [(x − y)³ + (y − z)³ + (z − x)³] ÷ [9(x − y)(y − z)(z − x)]?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/3"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "1/9"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The three bases x − y, y − z and z − x add up to 0, so the sum of their cubes is 3 times their product: 3(x − y)(y − z)(z − x). Dividing by 9(x − y)(y − z)(z − x) leaves 3/9 = 1/3. (Try x, y, z = 5, 3, 2: (8 + 1 − 27) ÷ (9 × 2 × 1 × (−3)) = −18 ÷ −54 = 1/3.)",
+      "solutionSteps": [
+        "(x − y) + (y − z) + (z − x) = 0.",
+        "So the numerator is 3(x − y)(y − z)(z − x).",
+        "Divide by 9(x − y)(y − z)(z − x): 3/9 = 1/3."
+      ],
+      "formulaIds": [
+        "ai-adv-zero-equal-sc"
+      ],
+      "method": "Three bases that add to 0: the sum of cubes is 3 × the product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the three bases x − y, y − z and z − x."
+        },
+        {
+          "level": 2,
+          "text": "They add to 0, so use a³ + b³ + c³ = 3abc."
+        },
+        {
+          "level": 3,
+          "text": "The numerator is 3(x − y)(y − z)(z − x); now divide."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking the cubes cancel because the bases add to 0, giving 0.",
+        "Dropping the 9 in the denominator (3) or the 3 in 3abc (1/9)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-009",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-extremes",
+      "levelId": "algebraic-identities-level-7",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Real numbers a, b, c satisfy a² + b² + c² + 14 = 2(a − 2b + 3c). What is a + b + c?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "−2"
+        },
+        {
+          "id": "d",
+          "text": "14"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Bring everything to one side and complete three squares: a² − 2a + 1 + b² + 4b + 4 + c² − 6c + 9 = 0, since 1 + 4 + 9 = 14. That is (a − 1)² + (b + 2)² + (c − 3)² = 0. Squares are never negative, so each is 0: a = 1, b = −2, c = 3, and a + b + c = 2.",
+      "solutionSteps": [
+        "a² + b² + c² − 2a + 4b − 6c + 14 = 0.",
+        "Split 14 = 1 + 4 + 9: (a − 1)² + (b + 2)² + (c − 3)² = 0.",
+        "Each square is 0: a = 1, b = −2, c = 3.",
+        "a + b + c = 1 − 2 + 3 = 2."
+      ],
+      "formulaIds": [
+        "ai-adv-square-floor-sc"
+      ],
+      "method": "Complete the squares; a sum of squares is 0 only if each is 0.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Move everything to the left-hand side and look for perfect squares."
+        },
+        {
+          "level": 2,
+          "text": "The constant 14 splits as 1 + 4 + 9 to complete (a − 1)², (b + 2)² and (c − 3)²."
+        },
+        {
+          "level": 3,
+          "text": "A sum of squares equal to 0 makes every square 0."
+        }
+      ],
+      "commonMistakes": [
+        "Reading b = 2 from (b + 2)², which gives 6.",
+        "Flipping every sign (a = −1, b = 2, c = −3), which gives −2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-010",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If x² − 3x + 1 = 0, what is x⁶ + 1/x⁶?",
+      "answer": {
+        "value": 322,
+        "tolerance": 0
+      },
+      "explanation": "x is not 0, so divide the equation by x: x − 3 + 1/x = 0, that is x + 1/x = 3. Then x³ + 1/x³ = 27 − 9 = 18, and squaring, x⁶ + 1/x⁶ = 18² − 2 = 322. (Or x² + 1/x² = 7 and x⁶ + 1/x⁶ = 7³ − 3 × 7 = 322.)",
+      "solutionSteps": [
+        "Divide by x: x + 1/x = 3.",
+        "x³ + 1/x³ = 3³ − 3 × 3 = 18.",
+        "x⁶ + 1/x⁶ = 18² − 2 = 322."
+      ],
+      "formulaIds": [
+        "ai-adv-disguise-sc",
+        "ai-adv-ladder-f"
+      ],
+      "method": "Divide by x to get x + 1/x, then square the cube rung.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "An equation x² − kx + 1 = 0 is x + 1/x = k in disguise."
+        },
+        {
+          "level": 2,
+          "text": "Divide by x: x + 1/x = 3. Which rung, squared, gives the sixth power?"
+        },
+        {
+          "level": 3,
+          "text": "x³ + 1/x³ = 18; square it and take 2 away."
+        }
+      ],
+      "commonMistakes": [
+        "Squaring 18 without taking 2 away (324).",
+        "Cubing 3 twice as if x⁶ + 1/x⁶ were k⁶ (729)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-011",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If x = 5 + 2√6, what is x³ + 1/x³?",
+      "options": [
+        {
+          "id": "a",
+          "text": "970"
+        },
+        {
+          "id": "b",
+          "text": "1000"
+        },
+        {
+          "id": "c",
+          "text": "997"
+        },
+        {
+          "id": "d",
+          "text": "1030"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(5 + 2√6)(5 − 2√6) = 25 − 24 = 1, so 1/x = 5 − 2√6 and x + 1/x = 10. Then x³ + 1/x³ = 10³ − 3 × 10 = 970. (Numerically x ≈ 9.899 and x³ ≈ 969.999, with 1/x³ making up the rest.)",
+      "solutionSteps": [
+        "(5 + 2√6)(5 − 2√6) = 25 − 24 = 1, so 1/x = 5 − 2√6.",
+        "x + 1/x = 10.",
+        "x³ + 1/x³ = 1000 − 30 = 970."
+      ],
+      "formulaIds": [
+        "ai-adv-disguise-sc",
+        "ai-adv-ladder-f"
+      ],
+      "method": "Find 1/x by the conjugate, add to get k, then use k³ − 3k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply 5 + 2√6 by 5 − 2√6. What do you get?"
+        },
+        {
+          "level": 2,
+          "text": "The product is 1, so 1/x = 5 − 2√6 and x + 1/x = 10."
+        },
+        {
+          "level": 3,
+          "text": "Now x³ + 1/x³ = k³ − 3k with k = 10."
+        }
+      ],
+      "commonMistakes": [
+        "Giving k³ = 1000 and forgetting −3k.",
+        "Subtracting 3 instead of 3k (997), or adding 3k instead of subtracting it (1030)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-012",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-reciprocal",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If x > 0 and x² + 1/x² = 34, what is x³ + 1/x³?",
+      "options": [
+        {
+          "id": "a",
+          "text": "198"
+        },
+        {
+          "id": "b",
+          "text": "216"
+        },
+        {
+          "id": "c",
+          "text": "234"
+        },
+        {
+          "id": "d",
+          "text": "213"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Go back down the ladder first: (x + 1/x)² = x² + 1/x² + 2 = 36, and x > 0 makes x + 1/x positive, so x + 1/x = 6. Then x³ + 1/x³ = 6³ − 3 × 6 = 216 − 18 = 198. (Here x = 3 + 2√2.)",
+      "solutionSteps": [
+        "(x + 1/x)² = 34 + 2 = 36.",
+        "x > 0, so x + 1/x = 6.",
+        "x³ + 1/x³ = 216 − 18 = 198."
+      ],
+      "formulaIds": [
+        "ai-adv-disguise-sc",
+        "ai-adv-ladder-f"
+      ],
+      "method": "Recover x + 1/x = √(N + 2), then cube.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find x + 1/x first; you cannot cube x² + 1/x² directly."
+        },
+        {
+          "level": 2,
+          "text": "(x + 1/x)² = x² + 1/x² + 2."
+        },
+        {
+          "level": 3,
+          "text": "x + 1/x = √36 = 6; now use k³ − 3k."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 6³ = 216 and forgetting −3k.",
+        "Adding 3k instead of subtracting it (234), or subtracting 3 instead of 3k (213)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-013",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If a + b + c = 6, a² + b² + c² = 14 and abc = 6, what is a³ + b³ + c³?",
+      "options": [
+        {
+          "id": "a",
+          "text": "36"
+        },
+        {
+          "id": "b",
+          "text": "18"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "84"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "First ab + bc + ca = (6² − 14) ÷ 2 = 11. Then a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca) = 6 × (14 − 11) = 18, so a³ + b³ + c³ = 18 + 3 × 6 = 36. (a, b, c = 1, 2, 3 fit: 1 + 8 + 27 = 36.)",
+      "solutionSteps": [
+        "ab + bc + ca = (36 − 14) ÷ 2 = 11.",
+        "a³ + b³ + c³ − 3abc = 6 × (14 − 11) = 18.",
+        "a³ + b³ + c³ = 18 + 3 × 6 = 36."
+      ],
+      "formulaIds": [
+        "ai-adv-three-cubes-f"
+      ],
+      "method": "Find ab + bc + ca, use the identity, then add 3abc back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The identity gives a³ + b³ + c³ − 3abc; you will need ab + bc + ca for it."
+        },
+        {
+          "level": 2,
+          "text": "2(ab + bc + ca) = (a + b + c)² − (a² + b² + c²)."
+        },
+        {
+          "level": 3,
+          "text": "Work out 6 × (14 − 11), then add 3abc back."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at a³ + b³ + c³ − 3abc = 18, or adding back abc instead of 3abc (24).",
+        "Multiplying the sum by the sum of squares, 6 × 14 = 84."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-014",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-three-var",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "If a³ + b³ + c³ = 3abc for real numbers a, b, c, then a + b + c must be 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "a³ + b³ + c³ − 3abc = ½(a + b + c)[(a − b)² + (b − c)² + (c − a)²]. It is 0 when a + b + c = 0 or when the bracket is 0, which happens when a = b = c. For example a = b = c = 1: 1 + 1 + 1 = 3 = 3abc, yet a + b + c = 3. So the statement is false.",
+      "solutionSteps": [
+        "a³ + b³ + c³ − 3abc = ½(a + b + c)[(a − b)² + (b − c)² + (c − a)²].",
+        "The product is 0 if either factor is 0.",
+        "a = b = c = 1 gives 3 = 3 with a + b + c = 3, so the statement is false."
+      ],
+      "formulaIds": [
+        "ai-adv-zero-equal-sc",
+        "ai-adv-three-cubes-f"
+      ],
+      "method": "Factorise and ask when each factor can be 0; test a = b = c.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write a³ + b³ + c³ − 3abc as a product of two factors."
+        },
+        {
+          "level": 2,
+          "text": "The second factor is half a sum of the squares of differences. When is that 0?"
+        },
+        {
+          "level": 3,
+          "text": "Try a = b = c = 1."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the shortcut \"a + b + c = 0 ⇒ a³ + b³ + c³ = 3abc\" backwards."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-ai-adv-q-015",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-adv-extremes",
+      "levelId": "algebraic-identities-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "For real x ≠ 0, what is the least value of x² + 1/x² − 2(x − 1/x)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "−1"
+        },
+        {
+          "id": "d",
+          "text": "−3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Let m = x − 1/x, which can be any real number. Then x² + 1/x² = m² + 2, so the expression is m² − 2m + 2 = (m − 1)² + 1. Its least value is 1, reached when x − 1/x = 1 (x = (1 + √5)/2 works). Putting x = 1 gives 2, but that is not where the minimum is.",
+      "solutionSteps": [
+        "Put m = x − 1/x; then x² + 1/x² = m² + 2.",
+        "The expression is m² − 2m + 2 = (m − 1)² + 1.",
+        "Least value 1, when x − 1/x = 1."
+      ],
+      "formulaIds": [
+        "ai-adv-square-floor-sc",
+        "ai-adv-minus-sc"
+      ],
+      "method": "Rewrite in terms of x − 1/x, then complete the square.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write everything in terms of one quantity, m = x − 1/x."
+        },
+        {
+          "level": 2,
+          "text": "x² + 1/x² = (x − 1/x)² + 2 = m² + 2."
+        },
+        {
+          "level": 3,
+          "text": "Complete the square in m² − 2m + 2."
+        }
+      ],
+      "commonMistakes": [
+        "Putting x = 1, where x² + 1/x² is least, which gives 2.",
+        "Writing x² + 1/x² as m² (giving −1) or as m² − 2 (giving −3) instead of m² + 2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
       "source": "original",
       "version": 1,
       "active": true

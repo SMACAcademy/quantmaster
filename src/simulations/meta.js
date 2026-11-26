@@ -563,6 +563,85 @@ export const SIMULATION_META = [
     taskIds: ['grandfather', 'unknown', 'reveal', 'in-law']
   },
   // --- end of reasoning.js ---
+  // --- reciprocals.js ---
+  {
+    id: 'reciprocal-ladder',
+    topicId: 'algebraic-identities',
+    title: 'The x + 1/x ladder',
+    summary: 'Slide k = x + 1/x and climb to x⁸ + 1/x⁸ using only k, never x itself, and see why k cannot lie between −2 and 2.',
+    taskIds: ['no-real-x', 'touch', 'forty-seven', 'eleven']
+  },
+  // --- end of reciprocals.js ---
+  // --- trigWaves.js ---
+  {
+    id: 'trig-wave',
+    topicId: 'trigonometry',
+    title: 'a sin θ + b cos θ as a rotating vector',
+    summary: 'Two arrows at right angles add to one arrow of length √(a² + b²). Turn it: its height is a sin θ + b cos θ, and its peak is never a + b.',
+    taskIds: ['equal-peak', 'thirteen', 'least-cos', 'unit-equal']
+  },
+  // --- end of trigWaves.js ---
+  // --- frustums.js ---
+  {
+    id: 'frustum-slice',
+    topicId: 'mensuration-3d',
+    title: 'Slice the top off a cone',
+    summary: 'Cut a cone or a square pyramid parallel to its base. The small top keeps only the cube of the height ratio, and the frustum keeps the rest.',
+    taskIds: ['seven-eighths', 'one-in-64', 'slant-ten', 'pyramid-350']
+  },
+  // --- end of frustums.js ---
+  // --- twoCircles.js ---
+  {
+    id: 'two-circle-tangents',
+    topicId: 'circles',
+    title: 'Two circles and their common tangents',
+    summary: 'Move two circles apart and together: their common tangents appear and vanish, 4, 3, 2, 1, 0. The direct ones use r₁ − r₂, the transverse ones r₁ + r₂, and a right triangle shows why.',
+    taskIds: ['three', 'two', 'one', 'direct-twelve']
+  },
+  // --- end of twoCircles.js ---
+  // --- groupedData.js ---
+  {
+    id: 'histogram-ogive',
+    topicId: 'grouped-data',
+    alsoTopicIds: ['mean-median-mode'],
+    title: 'From raw data to histogram, polygon and ogive',
+    summary: 'Sort 50 values into classes, then change the width and move the class edges: the median barely moves, but the modal class jumps.',
+    taskIds: ['modal-jump', 'tie', 'first-class']
+  },
+  // --- end of groupedData.js ---
+  // --- catTopics.js: modulus, polynomials, integer solutions, cryptarithms ---
+  {
+    id: 'modulus-distance',
+    topicId: 'modulus',
+    alsoTopicIds: ['inequalities'],
+    title: 'Modulus as distance, and the flat bottom',
+    summary: 'Read |x − a| as the distance from x to a on a number line. Add a second distance and the V graph gets a flat bottom: its least value is the gap between a and b.',
+    taskIds: ['one-answer', 'on-bottom', 'flat', 'none']
+  },
+  {
+    id: 'remainder-curve',
+    topicId: 'polynomials',
+    alsoTopicIds: ['quadratic-equations'],
+    title: 'The remainder is the height of the curve',
+    summary: 'Change the coefficients of a cubic and the point a. Dividing p(x) by (x − a) leaves p(a), the height of the curve at a; when the curve crosses the axis there, x − a is a factor.',
+    taskIds: ['factor', 'sum-zero', 'one-root', 'touch']
+  },
+  {
+    id: 'lattice-line',
+    topicId: 'integer-solutions',
+    alsoTopicIds: ['linear-equations'],
+    title: 'Whole-number points on a line',
+    summary: 'Draw ax + by = c over a grid. The points where it passes exactly through a grid corner are its whole-number solutions, and they are evenly spaced: x steps by b/g and y by a/g.',
+    taskIds: ['miss', 'five', 'axes']
+  },
+  {
+    id: 'column-solver',
+    topicId: 'cryptarithmetic',
+    title: 'Solve a letter sum column by column',
+    summary: 'Work a letter sum from the units column leftwards. Each column, with its carry, rules out digits; watch each letter’s candidates shrink until one digit is left for every letter.',
+    taskIds: ['solve-six', 'units', 'three']
+  },
+  // --- end of catTopics.js ---
   // More logical reasoning (reasoningMore.js), in the order of reasoningMoreSims.
   {
     id: 'direction-walk',

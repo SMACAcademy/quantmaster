@@ -28,9 +28,12 @@
  *   subsets      the power set, grouped by size
  *   passage      a paragraph read sentence by sentence
  *
- * and for logical reasoning (seats, grid, euler, chain, family, walk, wheels,
+ * for logical reasoning (seats, grid, euler, chain, family, walk, wheels,
  * queue, cubes, fold, mirrorclock), drawn by reasoningPlots.js and
- * reasoningPlotsMore.js.
+ * reasoningPlotsMore.js, and two for integer solutions and cryptarithms:
+ *
+ *   lattice      whole-number points on a line ax + by = c, with the step between them
+ *   cryptarithm  a letter sum worked column by column, with each letter's digits left
  *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.
@@ -171,12 +174,14 @@ function xyPlot(plot) {
     svgEl('g', { 'clip-path': `url(#${clipId})` }, [...fills, ...guides, ...lines, ...markers])
   ]);
 
+  // A series without a label (a baseline drawn only to close a fill) stays out of the legend.
+  const named = plot.series.filter((series) => series.label);
   const legend =
-    plot.series.length > 1
+    named.length > 1
       ? el(
           'ul.chart-legend',
           {},
-          plot.series.map((series) =>
+          named.map((series) =>
             el('li.chart-legend__item', {}, [el('span.chart-legend__swatch', { style: { background: tone(series.tone) } }), el('span', { text: series.label })])
           )
         )
@@ -612,7 +617,8 @@ function dotPlot(plot) {
 /**
  * Solids side by side at one shared scale, so their sizes compare truly:
  * `{ kind: 'solids', items: [{ label, caption, tone, parts }], summary }`
- * (each `parts` list as in a `figure.type: 'solid'`).
+ * (each `parts` list as in a `figure.type: 'solid'`). With `fit: true` the picture is only as
+ * tall as the solids need at that scale, so wide, low solids leave no empty band above.
  */
 function solidsPlot(plot) {
   const drawings = plot.items.map((item) => solidDrawing({ type: 'solid', parts: item.parts }));
@@ -625,11 +631,13 @@ function solidsPlot(plot) {
   const boxes = drawings.map(box);
   const cellW = W / plot.items.length;
   const top = 20;
-  const bottom = H - 56;
   const scale = Math.min(
     ...boxes.map((b) => (cellW - 40) / (b.maxX - b.minX || 1)),
-    ...boxes.map((b) => (bottom - top) / (b.maxY - b.minY || 1))
+    ...boxes.map((b) => (H - 56 - top) / (b.maxY - b.minY || 1))
   );
+  const tallest = Math.max(...boxes.map((b) => (b.maxY - b.minY) * scale));
+  const height = plot.fit ? Math.min(H, Math.max(170, Math.ceil(top + tallest + 56))) : H;
+  const bottom = height - 56;
   const children = drawings.flatMap((d, i) => {
     const b = boxes[i];
     const cx = cellW * i + cellW / 2;
@@ -640,11 +648,11 @@ function solidsPlot(plot) {
     return [
       ...d.fills.map((f) => svgEl('polygon', { points: pts(f), class: 'solid-face', style: { fill: tone(item.tone), fillOpacity: 0.18 } })),
       ...d.lines.map((l) => svgEl('polyline', { points: pts(l.pts), class: `solid-edge${l.dashed ? ' solid-edge--hidden' : ''}`, style: l.dashed ? {} : { stroke: tone(item.tone) } })),
-      svgEl('text', { x: cx, y: H - 32, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.label }),
-      item.caption ? svgEl('text', { x: cx, y: H - 14, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.caption }) : null
+      svgEl('text', { x: cx, y: height - 32, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.label }),
+      item.caption ? svgEl('text', { x: cx, y: height - 14, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.caption }) : null
     ];
   });
-  return el('div.sim-figure', {}, [svgRoot(plot.summary, children)]);
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { height })]);
 }
 
 /**
@@ -1278,7 +1286,121 @@ function passagePlot(plot) {
   ]);
 }
 
+/**
+ * Whole-number points on a line ax + by = c in the first quadrant:
+ * `{ kind: 'lattice', xMax, yMax, line: { a, b, c }, points: [{ x, y }], excluded: [{ x, y }],
+ * step: { from: [x, y], to: [x, y] } | null, summary }`. Grid lines mark the whole
+ * numbers; solutions are filled dots, grid points on the line that do not count
+ * (on an axis when only positive solutions count) are rings, and the step from one
+ * solution to the next is drawn as a dashed right angle.
+ */
+function latticePlot(plot) {
+  const left = 52;
+  const right = W - 24;
+  const top = 22;
+  const bottom = H - 46;
+  const sx = (x) => left + (x / plot.xMax) * (right - left);
+  const sy = (y) => bottom - (y / plot.yMax) * (bottom - top);
+  const gridStep = (m) => (m <= 24 ? 1 : 5);
+  const labelStep = (m) => (m <= 10 ? 1 : m <= 24 ? 2 : m <= 40 ? 5 : 10);
+  const grid = [];
+  for (let x = 0; x <= plot.xMax; x += gridStep(plot.xMax)) {
+    grid.push(svgEl('line', { x1: sx(x), x2: sx(x), y1: top, y2: bottom, class: 'sim-lattice-grid' }));
+    if (x % labelStep(plot.xMax) === 0) grid.push(svgEl('text', { x: sx(x), y: bottom + 18, 'text-anchor': 'middle', class: 'chart-axis-label', text: show(x) }));
+  }
+  for (let y = 0; y <= plot.yMax; y += gridStep(plot.yMax)) {
+    grid.push(svgEl('line', { x1: left, x2: right, y1: sy(y), y2: sy(y), class: 'sim-lattice-grid' }));
+    if (y % labelStep(plot.yMax) === 0) grid.push(svgEl('text', { x: left - 8, y: sy(y), 'text-anchor': 'end', 'dominant-baseline': 'middle', class: 'chart-axis-label', text: show(y) }));
+  }
+  const { a, b, c } = plot.line;
+  const axes = [
+    svgEl('line', { x1: left, x2: right, y1: bottom, y2: bottom, class: 'sim-axis' }),
+    svgEl('line', { x1: left, x2: left, y1: top, y2: bottom, class: 'sim-axis' }),
+    svgEl('text', { x: (left + right) / 2, y: H - 8, 'text-anchor': 'middle', class: 'sim-axis-title', text: 'x' }),
+    svgEl('text', { x: 14, y: (top + bottom) / 2, 'text-anchor': 'middle', class: 'sim-axis-title', text: 'y' })
+  ];
+  const line = svgEl('line', { x1: sx(0), y1: sy(c / b), x2: sx(c / a), y2: sy(0), class: 'sim-line', style: { stroke: tone('algebra') } });
+  let step = [];
+  if (plot.step) {
+    const [x1, y1] = plot.step.from;
+    const [x2, y2] = plot.step.to;
+    step = [
+      svgEl('path', { d: `M ${sx(x1)} ${sy(y1)} H ${sx(x2)} V ${sy(y2)}`, class: 'sim-lattice-step' }),
+      svgEl('text', { x: (sx(x1) + sx(x2)) / 2, y: sy(y1) - 8, 'text-anchor': 'middle', class: 'sim-marker-label', text: `+${x2 - x1}` }),
+      svgEl('text', { x: sx(x2) + 8, y: (sy(y1) + sy(y2)) / 2, 'dominant-baseline': 'middle', class: 'sim-marker-label', text: `−${y1 - y2}` })
+    ];
+  }
+  const labelled = plot.points.length <= 6;
+  const points = plot.points.flatMap((p) => [
+    svgEl('circle', { cx: sx(p.x), cy: sy(p.y), r: 7, class: 'sim-data-dot sim-lattice-point', style: { fill: tone('geometry') } }),
+    labelled
+      ? svgEl('text', { x: sx(p.x) + (sx(p.x) > right - 70 ? -10 : 10), y: sy(p.y) - 10, 'text-anchor': sx(p.x) > right - 70 ? 'end' : 'start', class: 'sim-nl-label', text: `(${p.x}, ${p.y})` })
+      : null
+  ]);
+  const excluded = (plot.excluded || []).map((p) => svgEl('circle', { cx: sx(p.x), cy: sy(p.y), r: 7, class: 'sim-lattice-excluded' }));
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, [...grid, ...axes, line, ...step, ...excluded, ...points])]);
+}
+
+/**
+ * A letter sum worked column by column, and each letter's remaining digits:
+ * `{ kind: 'cryptarithm', columns, done, rows: [{ sign, word }], carries: [text per worked column],
+ * digits: { letter: digit | null }, candidates: [{ letter, digits, leading }], summary }`.
+ * Worked columns are tinted, the latest one strongly; a letter with one digit left
+ * shows it under the letter. Both parts are real tables, so screen readers can walk them.
+ */
+function cryptarithmPlot(plot) {
+  // Left to right on screen: the highest place first.
+  const cols = Array.from({ length: plot.columns }, (_, j) => plot.columns - 1 - j);
+  const colClass = (i) => (i < plot.done ? (i === plot.done - 1 ? 'is-current' : 'is-done') : '');
+  const letterAt = (word, i) => (i < word.length ? word[word.length - 1 - i] : '');
+  const carryRow = el('tr.sim-crypt__carries', {}, [
+    el('th', { attrs: { scope: 'row' }, text: 'carry' }),
+    ...cols.map((i) => el('td', { class: colClass(i) }, [i >= 1 && i - 1 < plot.carries.length ? plot.carries[i - 1] : '']))
+  ]);
+  const wordRows = plot.rows.map((row, r) =>
+    el('tr', { class: r === plot.rows.length - 1 ? 'sim-crypt__result' : '' }, [
+      el('th', { attrs: { scope: 'row' }, text: row.sign || ' ' }),
+      ...cols.map((i) => {
+        const letter = letterAt(row.word, i);
+        const digit = letter ? plot.digits[letter] : null;
+        return el(
+          'td',
+          { class: colClass(i) },
+          letter ? [el('span.sim-crypt__letter', { text: letter }), el('span.sim-crypt__digit', { text: digit === null ? '' : String(digit) })] : []
+        );
+      })
+    ])
+  );
+  const sum = el('table.sim-crypt__sum', {}, [
+    el('caption.sr-only', { text: 'The sum, column by column, with the carries above' }),
+    el('tbody', {}, [carryRow, ...wordRows])
+  ]);
+  const digits = Array.from({ length: 10 }, (_, d) => d);
+  const cands = el('table.sim-crypt__cands', {}, [
+    el('caption', { text: 'Digits each letter can still be' }),
+    el('thead', {}, [el('tr', {}, [el('th', { attrs: { scope: 'col' }, text: 'Letter' }), ...digits.map((d) => el('th', { attrs: { scope: 'col' }, text: String(d) }))])]),
+    el(
+      'tbody',
+      {},
+      plot.candidates.map((row) => {
+        const allowed = new Set(row.digits);
+        return el('tr', { class: row.digits.length === 1 ? 'is-fixed' : '' }, [
+          el('th', { attrs: { scope: 'row' } }, [row.letter, row.leading ? el('span.sim-crypt__lead', { text: ' ≠ 0' }) : null]),
+          ...digits.map((d) =>
+            allowed.has(d)
+              ? el('td.is-on', { text: String(d) })
+              : el('td.is-off', {}, [el('span', { text: '·', attrs: { 'aria-hidden': 'true' } }), el('span.sr-only', { text: 'ruled out' })])
+          )
+        ]);
+      })
+    )
+  ]);
+  return el('div.sim-figure.sim-crypt', {}, [sum, el('div.sim-crypt__scroll', {}, [cands]), el('p.sr-only', { text: plot.summary })]);
+}
+
 export function drawPlot(plot) {
+  if (plot.kind === 'lattice') return latticePlot(plot);
+  if (plot.kind === 'cryptarithm') return cryptarithmPlot(plot);
   if (plot.kind === 'geometry') return geometryPlot(plot);
   if (plot.kind === 'stack') return stackPlot(plot);
   if (plot.kind === 'chart') return chartPlot(plot);

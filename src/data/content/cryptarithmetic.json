@@ -1,0 +1,1738 @@
+{
+  "topicId": "cryptarithmetic",
+  "concepts": [
+    {
+      "id": "cr-rules",
+      "topicId": "cryptarithmetic",
+      "name": "The rules of a letter sum",
+      "description": "Each letter stands for one digit, different letters for different digits, the same letter for the same digit everywhere, and no number of two or more digits starts with 0.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cr-carry",
+      "topicId": "cryptarithmetic",
+      "name": "Carries and the leading 1",
+      "description": "When two numbers are added, a column passes on a carry of 0 or 1. If the answer has one more digit than both numbers, its first digit is that final carry, so it is 1.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cr-columns",
+      "topicId": "cryptarithmetic",
+      "name": "Column-by-column deduction",
+      "description": "Work from the units column leftwards: top digits + carry in = digit written + 10 × carry out. Patterns such as A + A ending in A (so A = 0) fix letters quickly; the same working counts how many solutions a puzzle has.",
+      "sortOrder": 3
+    },
+    {
+      "id": "cr-addition",
+      "topicId": "cryptarithmetic",
+      "name": "Solving letter sums",
+      "description": "Fix the leading 1, then use the columns with the fewest unknowns, trying only the cases a carry allows, until every letter is found. Check the whole sum at the end.",
+      "sortOrder": 4
+    },
+    {
+      "id": "cr-multiplication",
+      "topicId": "cryptarithmetic",
+      "name": "Multiplication cryptarithms",
+      "description": "In AB × C = DEB the units digit of the product comes from the units digits alone, and the number of digits limits the size. Facts such as A × A ending in A (A = 0, 1, 5 or 6) cut the cases.",
+      "sortOrder": 5
+    },
+    {
+      "id": "cr-adv-subtraction",
+      "topicId": "cryptarithmetic",
+      "name": "Letter differences",
+      "description": "A − B = C is the same puzzle as B + C = A. Rewrite a difference as a sum and use the carry rules on it.",
+      "sortOrder": 6
+    },
+    {
+      "id": "cr-adv-three",
+      "topicId": "cryptarithmetic",
+      "name": "Sums of three words",
+      "description": "With three numbers a column can carry 0, 1 or 2 (at most 9 + 9 + 9 + 2 = 29). A + A + A = 3 × A, so a tripled word is a multiplication by 3.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "cr-rules-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-rules",
+      "title": "Rules of a cryptarithm",
+      "prompt": "What three rules does every letter sum follow?",
+      "formula": "Different letters → different digits\nSame letter → same digit everywhere\nA number of 2 or more digits never starts with 0",
+      "variables": [],
+      "explanation": "The rules are what make the puzzle solvable: without them, any sum of the right length would do.",
+      "example": "In BAT + BAT = TALA, A appears three times, so all three places hold the same digit (2 in 621 + 621 = 1242).",
+      "commonMistake": "Using one digit for two different letters because the arithmetic works.",
+      "applicationPrompt": "In DAL + DAL = RAGA, can D be 0?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-carry-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-carry",
+      "title": "Carry in a column",
+      "prompt": "When two numbers are added, what carries can a column produce, and what does an extra leading letter equal?",
+      "formula": "Two numbers: carry = 0 or 1 (9 + 9 + 1 = 19)\nAnswer one digit longer ⇒ its first digit = 1",
+      "variables": [],
+      "explanation": "The biggest a column can reach is 9 + 9 + 1 = 19, so the carry is at most 1. A new leading digit is only that last carry.",
+      "example": "KITE + KITE = TIGER: two 4-digit numbers give a 5-digit answer, so T = 1.",
+      "commonMistake": "Letting the leading letter be 2 because it \"looks free\".",
+      "applicationPrompt": "In TEA + TEA = ROOT, what is R?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-sc-leading-one",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-carry",
+      "kind": "shortcut",
+      "title": "The leading 1 at once",
+      "prompt": "Two n-digit numbers add to an (n + 1)-digit number. What is the first digit of the answer, without any working?",
+      "formula": "n-digit + n-digit = (n + 1)-digit ⇒ first digit = 1",
+      "variables": [],
+      "explanation": "Two numbers below 10ⁿ add to less than 2 × 10ⁿ, so the answer is between 10ⁿ and 2 × 10ⁿ − 2. It starts with 1.",
+      "example": "TABLA + TABLA = BANYAN ⇒ B = 1 (87137 + 87137 = 174274).",
+      "commonMistake": "Applying it when the answer has the same number of digits as the longer word.",
+      "applicationPrompt": "In RAKHI + RAKHI = BIHAR, what is B?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-columns-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "title": "The column equation",
+      "prompt": "Write the equation every column of a sum obeys.",
+      "formula": "top digits + carry in = digit written + 10 × carry out",
+      "variables": [],
+      "explanation": "Every column is an ordinary addition. Writing it as an equation shows which letters it links and what carries it allows.",
+      "example": "DAL + DAL = BALL, units column: L + L = L + 10 × carry, so L = 0 and the carry is 0.",
+      "commonMistake": "Forgetting the carry coming in from the column to the right.",
+      "applicationPrompt": "Write the tens column of BAT + BAT = TALA as an equation.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-sc-same-digit",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "kind": "shortcut",
+      "title": "A letter that reappears below itself",
+      "prompt": "In one column of a two-word sum, A + B gives A again. What can B be?",
+      "formula": "A + B ends in A ⇒ B = 0 (carry in 0) or B = 9 (carry in 1)\nA + A ends in A ⇒ A = 0 (carry in 0)",
+      "variables": [],
+      "explanation": "Adding B left A unchanged in that column, so B + carry is 0 or 10.",
+      "example": "DAL + DAL = BALL: L + L ends in L in the units column (no carry in), so L = 0.",
+      "commonMistake": "Ruling out 9 by forgetting that a carry of 1 can come in.",
+      "applicationPrompt": "In a sum, the tens column reads E + R = E with a carry in of 1. What is R?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-addition-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "title": "Order of attack",
+      "prompt": "In what order should you work a letter sum?",
+      "formula": "1. Leading 1 (if the answer is longer)\n2. Columns with a repeated letter\n3. Units column, then leftwards with carries\n4. Check the whole sum",
+      "variables": [],
+      "explanation": "Start where the rules give a value outright, then where letters repeat. Each fixed letter shrinks the choices for the rest.",
+      "example": "TEA + TEAM = MATH: units A + M ends in H; the thousands column T + carry = M, so M = T + 1; trying T = 6 gives 651 + 6517 = 7168.",
+      "commonMistake": "Guessing digits from the left without tracking the carries.",
+      "applicationPrompt": "Which letter of IDLI + IDLI = VADA would you look at first?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cr-mult-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-multiplication",
+      "title": "Units digit of a product",
+      "prompt": "Which digits decide the units digit of a product?",
+      "formula": "units(P × Q) = units(units of P × units of Q)\n2-digit × 1-digit = 2 or 3 digits",
+      "variables": [],
+      "explanation": "Only the units digits reach the units column of a product, and the size of the factors limits how many digits the answer has.",
+      "example": "AB × B = ACA: B × B ends in A, and the product has 3 digits; 19 × 9 = 171 fits.",
+      "commonMistake": "Using the tens digit to find the units digit of a product.",
+      "applicationPrompt": "In AB × C = BBB, what does C × B end in?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cr-sc-self-end",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-multiplication",
+      "kind": "shortcut",
+      "title": "Digits that end their own square",
+      "prompt": "Which digits A make A × A end in A?",
+      "formula": "A × A ends in A ⇒ A = 0, 1, 5 or 6",
+      "variables": [],
+      "explanation": "0² = 0, 1² = 1, 5² = 25, 6² = 36: only these four keep their own last digit.",
+      "example": "If a product reads …B × B = …B, then B is 0, 1, 5 or 6; as a multiplier B = 0 or 1 is useless, so B = 5 or 6.",
+      "commonMistake": "Including 4 or 9 because 4² = 16 and 9² = 81 \"look close\".",
+      "applicationPrompt": "In AB × B = CDB, which values can B take?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cr-sub-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-subtraction",
+      "title": "A difference as a sum",
+      "prompt": "How do you turn a letter difference into a letter sum?",
+      "formula": "A − B = C ⇔ B + C = A",
+      "variables": [],
+      "explanation": "Adding back what was taken away rebuilds the top number, so all the carry rules for sums apply.",
+      "example": "CURD − DAL = CAR is CAR + DAL = CURD, so C = 1 (124 + 925 = 1049).",
+      "commonMistake": "Borrowing column by column in the difference and losing track of borrows.",
+      "applicationPrompt": "Rewrite READ − TEA = TREE as a sum.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cr-three-f",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-three",
+      "title": "Carries with three numbers",
+      "prompt": "What carries can a column of three added numbers produce?",
+      "formula": "Three numbers: carry = 0, 1 or 2 (9 + 9 + 9 + 2 = 29)\nA + A + A = 3 × A",
+      "variables": [],
+      "explanation": "A column of three digits plus a carry is at most 29, so the carry is at most 2. A word added three times is that word times 3.",
+      "example": "GOA + GOA + GOA = SONG: units 3 × A ends in G with a carry of 2 when A = 9 (719 × 3 = 2157).",
+      "commonMistake": "Assuming the carry is always 0 or 1, as with two numbers.",
+      "applicationPrompt": "In TEA + TEA + TEA = EAR, what is the largest carry the units column could pass on?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "cryptarithmetic-level-0",
+      "topicId": "cryptarithmetic",
+      "order": 0,
+      "title": "Letters That Hide Digits",
+      "description": "The three rules, the leading 1 and working a letter sum column by column with its carries.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "cr-rules",
+        "cr-carry",
+        "cr-columns"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three rules",
+            "body": "In a cryptarithm such as DAL + DAL = BALL, each letter stands for a digit. Different letters are different digits, the same letter is the same digit wherever it appears, and a number of two or more digits never starts with 0. A correct sum that breaks a rule is not a solution."
+          },
+          {
+            "type": "check",
+            "questionId": "cryptarithmetic-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The carry is small, so the leading letter is 1",
+            "body": "Adding two digits and a carry gives at most 9 + 9 + 1 = 19, so a column of a two-number sum passes on a carry of 0 or 1. When the answer has one more digit than both numbers, that extra digit is the last carry: it is 1.\n\nIn KITE + KITE = TIGER, two 4-digit numbers add to less than 20,000, so T = 1 before anything else is known."
+          },
+          {
+            "type": "check",
+            "questionId": "cryptarithmetic-q-002"
+          },
+          {
+            "type": "formula",
+            "title": "Every column is an equation",
+            "body": "top digits + carry in = digit written + 10 × carry out",
+            "caption": "DAL + DAL = BALL: the units column L + L writes L again, so L = 0. Then the tens column A + A writes L = 0, so A = 5 and the carry is 1."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "column-solver"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Work from the units column leftwards and write the carry above each column. Start with the leading 1 and with any column where a letter repeats: those fix digits outright."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "cryptarithmetic-level-1",
+      "topicId": "cryptarithmetic",
+      "order": 1,
+      "title": "Cryptarithm Rules and Shortcuts",
+      "description": "The rules, carries, the column equation, units digits of products and differences as sums.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-0"
+      ],
+      "conceptIds": [
+        "cr-rules",
+        "cr-carry",
+        "cr-columns",
+        "cr-addition",
+        "cr-multiplication"
+      ],
+      "formulaIds": [
+        "cr-rules-f",
+        "cr-carry-f",
+        "cr-columns-f",
+        "cr-addition-f",
+        "cr-mult-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "cryptarithmetic-level-2",
+      "topicId": "cryptarithmetic",
+      "order": 2,
+      "title": "First Letter Sums",
+      "description": "The rules, the leading 1, one column at a time and a first full puzzle.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-1"
+      ],
+      "conceptIds": [
+        "cr-rules",
+        "cr-carry",
+        "cr-columns",
+        "cr-addition",
+        "cr-multiplication"
+      ],
+      "questionIds": [
+        "cryptarithmetic-q-001",
+        "cryptarithmetic-q-002",
+        "cryptarithmetic-q-003",
+        "cryptarithmetic-q-004",
+        "cryptarithmetic-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "cryptarithmetic-level-3",
+      "topicId": "cryptarithmetic",
+      "order": 3,
+      "title": "Solving and Counting",
+      "description": "Full letter sums, how many solutions a puzzle has, carries and a first product.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-2"
+      ],
+      "conceptIds": [
+        "cr-rules",
+        "cr-carry",
+        "cr-columns",
+        "cr-addition",
+        "cr-multiplication"
+      ],
+      "questionIds": [
+        "cryptarithmetic-q-006",
+        "cryptarithmetic-q-007",
+        "cryptarithmetic-q-008",
+        "cryptarithmetic-q-009",
+        "cryptarithmetic-q-010",
+        "cryptarithmetic-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "cryptarithmetic-level-4",
+      "topicId": "cryptarithmetic",
+      "order": 4,
+      "title": "Longer Puzzles and Products",
+      "description": "Five-letter words, matching letters to digits, the order of a solution and repeated-digit products.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 16,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-3"
+      ],
+      "conceptIds": [
+        "cr-columns",
+        "cr-addition",
+        "cr-multiplication"
+      ],
+      "questionIds": [
+        "cryptarithmetic-q-012",
+        "cryptarithmetic-q-013",
+        "cryptarithmetic-q-014",
+        "cryptarithmetic-q-015",
+        "cryptarithmetic-q-016"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "cryptarithmetic-level-5",
+      "topicId": "cryptarithmetic",
+      "order": 5,
+      "title": "Mixed Cryptarithmetic Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-4"
+      ],
+      "conceptIds": [
+        "cr-columns",
+        "cr-addition"
+      ],
+      "questionQuery": {
+        "topicId": "cryptarithmetic",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "cr-rules",
+          "cr-carry",
+          "cr-columns",
+          "cr-addition",
+          "cr-multiplication"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "cryptarithmetic-level-6",
+      "topicId": "cryptarithmetic",
+      "order": 6,
+      "title": "Advanced: Differences and Three-Word Sums",
+      "description": "Turn a letter difference into a sum, and handle carries of 2 when three words are added.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-5"
+      ],
+      "conceptIds": [
+        "cr-adv-subtraction",
+        "cr-adv-three"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A difference is a sum in disguise",
+            "body": "A − B = C says exactly the same as B + C = A. Rewrite CURD − DAL = CAR as CAR + DAL = CURD, and every sum rule applies: the answer is one digit longer, so C = 1. Borrowing never has to be tracked."
+          },
+          {
+            "type": "check",
+            "questionId": "cryptarithmetic-q-017"
+          },
+          {
+            "type": "formula",
+            "title": "Three numbers carry up to 2",
+            "body": "carry ≤ 2, since 9 + 9 + 9 + 2 = 29",
+            "caption": "With two numbers the carry is 0 or 1; with three it can be 2. The answer can also start with 1 or 2."
+          },
+          {
+            "type": "text",
+            "title": "A word added three times",
+            "body": "TEA + TEA + TEA = 3 × TEA. If the answer EAR still has three digits, TEA is at most 333, so T is 1, 2 or 3. Then each column reads 3 × digit + carry."
+          },
+          {
+            "type": "check",
+            "questionId": "cryptarithmetic-q-018"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "In GOA + GOA + GOA = SONG the units column is 9 + 9 + 9 = 27: it writes 7 and carries 2. Assuming the carry is 1 makes this puzzle look impossible."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "cryptarithmetic-level-7",
+      "topicId": "cryptarithmetic",
+      "order": 7,
+      "title": "Challenge: Differences, Triples and Counts",
+      "description": "Letter differences, three-word sums and counting the solutions of a puzzle, against the clock.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 16,
+      "prerequisiteLevelIds": [
+        "cryptarithmetic-level-6"
+      ],
+      "conceptIds": [
+        "cr-adv-subtraction",
+        "cr-adv-three",
+        "cr-columns"
+      ],
+      "questionIds": [
+        "cryptarithmetic-q-017",
+        "cryptarithmetic-q-018",
+        "cryptarithmetic-q-019",
+        "cryptarithmetic-q-020",
+        "cryptarithmetic-q-021",
+        "cryptarithmetic-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "cryptarithmetic-q-001",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-rules",
+      "levelId": "cryptarithmetic-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "In a letter sum, two different letters, say K and T, may both stand for 7 if that makes the addition come out right.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The rules say different letters stand for different digits. If K and T were both 7, the puzzle would not be solved, however well the arithmetic works.",
+      "solutionSteps": [
+        "Rule: different letters → different digits.",
+        "K = T = 7 breaks it.",
+        "So the statement is false."
+      ],
+      "formulaIds": [
+        "cr-rules-f"
+      ],
+      "method": "Check the three rules before the arithmetic.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many digits can one letter stand for, and can two letters share one?"
+        },
+        {
+          "level": 2,
+          "text": "Read the first rule on the formula card: different letters, different digits."
+        }
+      ],
+      "commonMistakes": [
+        "Accepting any assignment that makes the sum correct."
+      ],
+      "tags": [
+        "true-false",
+        "rules"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-002",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-carry",
+      "levelId": "cryptarithmetic-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "KITE + KITE = TIGER, where each letter stands for a different digit. Without solving the rest, what digit is T?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "Two 4-digit numbers add to less than 2 × 10,000 = 20,000, so a 5-digit answer must start with 1. T = 1. (The full solution is 7512 + 7512 = 15024.)",
+      "solutionSteps": [
+        "KITE + KITE < 10,000 + 10,000 = 20,000.",
+        "TIGER has 5 digits, so it is between 10,000 and 19,998.",
+        "Its first digit T = 1."
+      ],
+      "formulaIds": [
+        "cr-carry-f",
+        "cr-sc-leading-one"
+      ],
+      "method": "An extra leading digit is the final carry, which is 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How big can the sum of two 4-digit numbers be?"
+        },
+        {
+          "level": 2,
+          "text": "Below 20,000, so what must a 5-digit answer start with?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 2 because K + K looks like it doubles.",
+        "Answering 0: a number cannot start with 0."
+      ],
+      "tags": [
+        "leading-one",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-003",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "levelId": "cryptarithmetic-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "DAL + DAL = BALL, where each letter stands for a different digit. Look only at the units column. What is L?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The units column reads L + L = L (with a carry out). So L + L − L = L must be 0 or 10; L = 0 gives 0 + 0 = 0 with no carry. L = 5 gives 5 + 5 = 10, which writes 0, not 5. The puzzle solves as 750 + 750 = 1500.",
+      "solutionSteps": [
+        "Units: L + L ends in L.",
+        "So L itself ends in 0: L = 0.",
+        "Check: 750 + 750 = 1500 fits DAL + DAL = BALL."
+      ],
+      "formulaIds": [
+        "cr-columns-f",
+        "cr-sc-same-digit"
+      ],
+      "method": "A letter that reappears under itself after adding forces the other addend to be 0.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the units column: L + L = ? and the digit written is L."
+        },
+        {
+          "level": 2,
+          "text": "Which digit doubled ends in itself?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 5 because 5 + 5 = 10 \"ends nicely\": it writes 0, not 5."
+      ],
+      "tags": [
+        "units-column"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-004",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-multiplication",
+      "levelId": "cryptarithmetic-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "In a multiplication puzzle, A × A ends in the digit A. Which set holds every possible value of A?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0, 1, 5, 6"
+        },
+        {
+          "id": "b",
+          "text": "0, 1, 5"
+        },
+        {
+          "id": "c",
+          "text": "1, 5, 6"
+        },
+        {
+          "id": "d",
+          "text": "0, 1, 4, 5, 6, 9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "0 × 0 = 0, 1 × 1 = 1, 5 × 5 = 25 and 6 × 6 = 36 all end in the digit squared. 4 × 4 = 16 and 9 × 9 = 81 do not, and nor does any other digit.",
+      "solutionSteps": [
+        "Squares of 0 to 9 end in 0, 1, 4, 9, 6, 5, 6, 9, 4, 1.",
+        "Only 0, 1, 5, 6 end in themselves."
+      ],
+      "formulaIds": [
+        "cr-sc-self-end"
+      ],
+      "method": "Check the units digit of each square.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the last digits of 0², 1², …, 9²."
+        },
+        {
+          "level": 2,
+          "text": "Which of those equal the digit you started with?"
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out 0 or 6.",
+        "Including 4 or 9, whose squares end in 6 and 1."
+      ],
+      "tags": [
+        "unit-digit",
+        "recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-005",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "levelId": "cryptarithmetic-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "DAL + DAL = RAGA, where each letter stands for a different digit and no number starts with 0. What number is RAGA?",
+      "answer": {
+        "value": 1484,
+        "tolerance": 0
+      },
+      "explanation": "R = 1 (two 3-digit numbers make a 4-digit one). Hundreds: D + D + carry = 1A, and tens A + A + carry gives G while units L + L gives A. Trying A even from the units column, A = 4 with L = 2 gives tens 4 + 4 = 8 = G and hundreds 7 + 7 = 14, so D = 7: 742 + 742 = 1484.",
+      "solutionSteps": [
+        "R = 1.",
+        "Units: L + L = A (A is even).",
+        "Hundreds: 2D + carry = 10 + A.",
+        "A = 4, L = 2, G = 8, D = 7 fits: 742 + 742 = 1484."
+      ],
+      "formulaIds": [
+        "cr-carry-f",
+        "cr-columns-f"
+      ],
+      "method": "Leading 1 first, then pair the units and hundreds columns, which share A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "R is the extra leading digit. What must it be?"
+        },
+        {
+          "level": 2,
+          "text": "A appears in the units of the answer and in its hundreds place: units L + L = A, hundreds D + D + carry = 1A."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the value of DAL (742) instead of RAGA."
+      ],
+      "tags": [
+        "full-solve",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-006",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "IDLI + IDLI = VADA, where each letter stands for a different digit and no number starts with 0. What number is VADA?",
+      "answer": {
+        "value": 7686,
+        "tolerance": 0
+      },
+      "explanation": "A appears in the tens and the units of VADA. Units: I + I = A; tens: L + L + carry = D. Hundreds: D + D + carry = A, and thousands I + I + carry = V, a single digit, so I ≤ 4. Trying I = 3 gives A = 6, then D = 8 from 2D + carry = 16 (carry 0, D = 8), L = 4 from 2L = 8: 3843 + 3843 = 7686, V = 7.",
+      "solutionSteps": [
+        "I ≤ 4 since VADA has 4 digits.",
+        "Units: A = 2I (no carry if I ≤ 4).",
+        "Hundreds: 2D + carry = 10 + A.",
+        "I = 3, A = 6, D = 8, L = 4, V = 7: 3843 + 3843 = 7686."
+      ],
+      "formulaIds": [
+        "cr-columns-f",
+        "cr-addition-f"
+      ],
+      "method": "Bound the leading letter, then link the columns that share a letter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "VADA has only 4 digits. What does that say about I?"
+        },
+        {
+          "level": 2,
+          "text": "Units: I + I = A. Hundreds: D + D (+ carry) must end in the same A."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming V = 1: VADA is not longer than IDLI, so there is no leading 1."
+      ],
+      "tags": [
+        "full-solve",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-007",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many solutions does AB + AB = CA have? Each letter is a different digit, and AB and CA are two-digit numbers (so A and C are not 0).",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "AB + AB = 2 × AB must be the two-digit number CA, so AB ≤ 49 and the units digit of 2B is A, so A is even: A = 2 or 4. A = 2: B = 1 (21 + 21 = 42) or B = 6 (26 + 26 = 52). A = 4: B = 2 (42 + 42 = 84) or B = 7 (47 + 47 = 94). Each has distinct digits, so there are 4 solutions.",
+      "solutionSteps": [
+        "2 × AB < 100, so A ≤ 4.",
+        "Units of 2B is A, so A is even: 2 or 4.",
+        "A = 2: B = 1 or 6 → 42, 52.",
+        "A = 4: B = 2 or 7 → 84, 94.",
+        "4 solutions."
+      ],
+      "formulaIds": [
+        "cr-columns-f"
+      ],
+      "method": "Use the units column to list the cases, then check each one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "2 × AB is still a two-digit number. How big can A be?"
+        },
+        {
+          "level": 2,
+          "text": "The units digit of B + B is A, so A is even. Try A = 2 and A = 4."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the first solution.",
+        "Forgetting B can give a carry: B = 6 and B = 7 work too."
+      ],
+      "tags": [
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-008",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-carry",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "statement_evaluation",
+      "question": "HOLI + HOLI = LION has exactly one solution. In it, the hundreds column passes a carry of 1 to the thousands column.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The solution is 1632 + 1632 = 3264 (H = 1, O = 6, L = 3, I = 2, N = 4). Hundreds column: O + O = 6 + 6 = 12, so it writes 2 (I) and carries 1. The thousands column then reads 1 + 1 + 1 = 3 = L.",
+      "solutionSteps": [
+        "Solution: 1632 + 1632 = 3264.",
+        "Hundreds: 6 + 6 = 12 → write 2, carry 1.",
+        "True."
+      ],
+      "formulaIds": [
+        "cr-carry-f",
+        "cr-columns-f"
+      ],
+      "method": "Find the solution, then read the carry column by column.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "LION has only 4 digits, so H is small. Start from H + H + carry = L."
+        },
+        {
+          "level": 2,
+          "text": "Units: I + I = N. The hundreds column O + O must end in I."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the carry out of the tens column instead of the hundreds column."
+      ],
+      "tags": [
+        "true-false",
+        "carry"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-009",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-multiplication",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "AB × B = ACA, where each letter is a different digit and AB and ACA do not start with 0. What is the two-digit number AB?",
+      "answer": {
+        "value": 19,
+        "tolerance": 0
+      },
+      "explanation": "The product starts and ends with A. B × B ends in A. If A = 1, B × B ends in 1, so B = 9 (B = 1 would equal A): 19 × 9 = 171, and C = 7 fits. A larger A fails: A = 4 needs B = 2 or 8, but 42 × 2 = 84 has 2 digits and 48 × 8 = 384 does not start with 4; A = 6 needs B = 4 or 6 (64 × 4 = 256, no); A = 9 needs B = 3 or 7 (93 × 3 = 279, 97 × 7 = 679, no).",
+      "solutionSteps": [
+        "B × B ends in A.",
+        "Try A = 1: B = 9 → 19 × 9 = 171 = ACA with C = 7.",
+        "Other A values fail the first digit.",
+        "AB = 19."
+      ],
+      "formulaIds": [
+        "cr-mult-f"
+      ],
+      "method": "Units digits first, then check the size of the product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The units digit of B × B is A."
+        },
+        {
+          "level": 2,
+          "text": "ACA has 3 digits but AB × B must start with the same A. Try a small A."
+        }
+      ],
+      "commonMistakes": [
+        "Answering the product 171.",
+        "Trying B = 1 with A = 1: two letters cannot share a digit."
+      ],
+      "tags": [
+        "multiplication",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-010",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "TEA + TEAM = MATH, where each letter is a different digit and no number starts with 0. What is M?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "MATH has the same number of digits as TEAM, so M is not forced to be 1. The thousands column reads T + carry = M, so M = T + 1. Working the columns gives T = 6, E = 5, A = 1, H = 8 and M = 7: 651 + 6517 = 7168.",
+      "solutionSteps": [
+        "Thousands: T + carry = M, so M = T + 1.",
+        "Hundreds: T + E + carry = 10 + A.",
+        "Solution: 651 + 6517 = 7168.",
+        "M = 7."
+      ],
+      "formulaIds": [
+        "cr-columns-f",
+        "cr-addition-f"
+      ],
+      "method": "Read the leftmost column first: it ties M to T.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is MATH longer than TEAM? If not, the leading-1 rule does not apply."
+        },
+        {
+          "level": 2,
+          "text": "Thousands column: T + carry = M. Units: A + M ends in H."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming M = 1 by the leading-1 rule, which needs a longer answer.",
+        "Giving T (6) instead of M."
+      ],
+      "tags": [
+        "full-solve"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-011",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-rules",
+      "levelId": "cryptarithmetic-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For SIX + SIX = HILL, Kabir offers 672 + 672 = 1344. The addition is correct. Which rule of cryptarithms does his answer break?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The same letter, I, stands for two different digits"
+        },
+        {
+          "id": "b",
+          "text": "Two different letters stand for the same digit"
+        },
+        {
+          "id": "c",
+          "text": "A number starts with 0"
+        },
+        {
+          "id": "d",
+          "text": "No rule is broken"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Reading SIX = 672 gives I = 7, but reading HILL = 1344 gives I = 3. One letter must keep one digit. (No two letters share a digit here, and nothing starts with 0.) The real solution is 872 + 872 = 1744.",
+      "solutionSteps": [
+        "From SIX = 672: S = 6, I = 7, X = 2.",
+        "From HILL = 1344: H = 1, I = 3, L = 4.",
+        "I is both 7 and 3: the same letter has two digits."
+      ],
+      "formulaIds": [
+        "cr-rules-f"
+      ],
+      "method": "Match each letter with its digit in every place it appears.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each letter under its digit in both numbers."
+        },
+        {
+          "level": 2,
+          "text": "Look at I: what is it in SIX, and what in HILL?"
+        }
+      ],
+      "commonMistakes": [
+        "Accepting it because 672 + 672 = 1344 is correct arithmetic."
+      ],
+      "tags": [
+        "rules"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-012",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "levelId": "cryptarithmetic-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "TABLA + TABLA = BANYAN, where each letter is a different digit and no number starts with 0. What number is TABLA?",
+      "answer": {
+        "value": 87137,
+        "tolerance": 0
+      },
+      "explanation": "B = 1 (5-digit + 5-digit = 6-digit). Units: A + A ends in N; tens: L + L + carry ends in A; ten-thousands: T + T + carry = 1A. Since 2T + carry ≥ 10 + A, T is large. Trying the cases with the carries gives T = 8, A = 7, L = 3, N = 4, Y = 2: 87137 + 87137 = 174274.",
+      "solutionSteps": [
+        "B = 1.",
+        "Hundreds: B + B + carry = 2 or 3 ends in Y.",
+        "Ten-thousands: 2T + carry = 10 + A.",
+        "Solution: 87137 + 87137 = 174274, so TABLA = 87137."
+      ],
+      "formulaIds": [
+        "cr-sc-leading-one",
+        "cr-columns-f",
+        "cr-addition-f"
+      ],
+      "method": "Leading 1, then the column B + B, then link the columns that share A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "BANYAN is one digit longer. What is B? Then the hundreds column B + B + carry gives Y directly."
+        },
+        {
+          "level": 2,
+          "text": "A sits in the units of TABLA and the tens and ten-thousands places of BANYAN: units A + A gives N, tens L + L + carry gives A."
+        }
+      ],
+      "commonMistakes": [
+        "Giving BANYAN (174274) instead of TABLA."
+      ],
+      "tags": [
+        "full-solve",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 180,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-013",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-addition",
+      "levelId": "cryptarithmetic-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "match_following",
+      "question": "SITAR + STAR = TRAIN has exactly one solution. Match each letter with its digit.",
+      "pairs": [
+        {
+          "left": "S",
+          "right": "3"
+        },
+        {
+          "left": "T",
+          "right": "4"
+        },
+        {
+          "left": "A",
+          "right": "9"
+        },
+        {
+          "left": "R",
+          "right": "1"
+        }
+      ],
+      "explanation": "The solution is 38491 + 3491 = 41982: S = 3, I = 8, T = 4, A = 9, R = 1, N = 2. TRAIN is not longer than SITAR, so T is not forced to be 1; the ten-thousands column gives T = S + 1 (with a carry of 1 from the thousands column).",
+      "solutionSteps": [
+        "Ten-thousands: S + carry = T.",
+        "Units: R + R = N; tens: A + A + carry ends in I.",
+        "Solution: 38491 + 3491 = 41982.",
+        "S = 3, T = 4, A = 9, R = 1."
+      ],
+      "formulaIds": [
+        "cr-columns-f",
+        "cr-addition-f"
+      ],
+      "method": "Work the columns right to left, keeping track of every carry.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "SITAR has a ten-thousands digit and STAR does not, so T = S + carry."
+        },
+        {
+          "level": 2,
+          "text": "Units R + R = N with N even; thousands I + S + carry ends in R."
+        }
+      ],
+      "commonMistakes": [
+        "Setting T = 1 by the leading-1 rule; the answer is not longer than SITAR."
+      ],
+      "tags": [
+        "matching",
+        "full-solve"
+      ],
+      "estimatedSeconds": 180,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-014",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "levelId": "cryptarithmetic-level-4",
+      "difficulty": "complex",
+      "learningStage": "guided",
+      "type": "ordering",
+      "question": "Put the steps in order to solve BAT + BAT = TALA.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "TALA is one digit longer than BAT, so T = 1"
+        },
+        {
+          "id": "s2",
+          "text": "Units column: T + T = 1 + 1 = 2, so A = 2 with no carry"
+        },
+        {
+          "id": "s3",
+          "text": "Tens column: A + A = 2 + 2 = 4, so L = 4 with no carry"
+        },
+        {
+          "id": "s4",
+          "text": "Hundreds column: B + B = 12 (writing A = 2, carrying T = 1), so B = 6"
+        },
+        {
+          "id": "s5",
+          "text": "Check: 621 + 621 = 1242"
+        }
+      ],
+      "explanation": "The leading 1 comes first because it needs no other letter. Then each column from the right uses only letters already found and the carry from the column before it.",
+      "solutionSteps": [
+        "T = 1.",
+        "A = 2.",
+        "L = 4.",
+        "B = 6.",
+        "621 + 621 = 1242."
+      ],
+      "formulaIds": [
+        "cr-sc-leading-one",
+        "cr-columns-f"
+      ],
+      "method": "Leading 1, then right to left.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which letter can be found without knowing any other?"
+        },
+        {
+          "level": 2,
+          "text": "After T, work from the units column leftwards."
+        }
+      ],
+      "commonMistakes": [
+        "Starting at the hundreds column before A is known."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-015",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "levelId": "cryptarithmetic-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "GOAL + GOAL = AGRA has exactly one solution. Select ALL the statements that are true of it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A is even"
+        },
+        {
+          "id": "b",
+          "text": "O = 1"
+        },
+        {
+          "id": "c",
+          "text": "L is less than 5"
+        },
+        {
+          "id": "d",
+          "text": "A = 2 × G"
+        },
+        {
+          "id": "e",
+          "text": "R is odd"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "explanation": "The solution is 2147 + 2147 = 4294: G = 2, O = 1, A = 4, L = 7, R = 9. A is the units digit of L + L, so it is even. AGRA has 4 digits, so the thousands column G + G + carry = A has no carry out; here A = 4 = 2 × 2. L = 7 is not less than 5 (it makes the units carry 1). R = 9 is odd.",
+      "solutionSteps": [
+        "Solution: 2147 + 2147 = 4294.",
+        "A = 4 (even) ✓; O = 1 ✓; L = 7 ✗; A = 2 × G = 4 ✓; R = 9 (odd) ✓."
+      ],
+      "formulaIds": [
+        "cr-columns-f",
+        "cr-carry-f"
+      ],
+      "method": "Solve it, then test each statement.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A is written in the units of AGRA, under L + L. What does that say about A?"
+        },
+        {
+          "level": 2,
+          "text": "Thousands: G + G + carry = A with no carry out. Try G = 2."
+        }
+      ],
+      "commonMistakes": [
+        "Ticking \"L is less than 5\" without checking the carry into the tens column."
+      ],
+      "tags": [
+        "multi-select"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-016",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-multiplication",
+      "levelId": "cryptarithmetic-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "AB × C = BBB, where each letter is a different digit and AB does not start with 0. What is AB?",
+      "options": [
+        {
+          "id": "a",
+          "text": "74"
+        },
+        {
+          "id": "b",
+          "text": "37"
+        },
+        {
+          "id": "c",
+          "text": "47"
+        },
+        {
+          "id": "d",
+          "text": "76"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "BBB = B × 111 = B × 3 × 37, so AB × C is a multiple of 37: AB = 37 or 74 (two-digit multiples). AB = 37 needs B = 7, but 37 × C = 777 gives C = 21, not a digit. AB = 74 needs B = 4: 74 × C = 444 gives C = 6. So AB = 74, C = 6.",
+      "solutionSteps": [
+        "BBB = 111 × B = 3 × 37 × B.",
+        "So 37 divides AB: AB = 37 or 74.",
+        "37 → 777 ÷ 37 = 21 ✗; 74 → 444 ÷ 74 = 6 ✓.",
+        "AB = 74."
+      ],
+      "formulaIds": [
+        "cr-mult-f"
+      ],
+      "method": "Factor the repeated-digit product: BBB = 111 × B.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A number with three equal digits is a multiple of 111 = 3 × 37."
+        },
+        {
+          "level": 2,
+          "text": "Which two-digit multiples of 37 end in the digit their product repeats?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 37 because 37 × 3 = 111, which needs B = 1 and B = 7 at once."
+      ],
+      "tags": [
+        "multiplication"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-017",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-subtraction",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "CURD − DAL = CAR, where each letter is a different digit and no number starts with 0. What number is CURD?",
+      "answer": {
+        "value": 1049,
+        "tolerance": 0
+      },
+      "explanation": "Rewrite it as CAR + DAL = CURD. Two 3-digit numbers make a 4-digit one, so C = 1. Hundreds: 1 + D + carry = 10 + U, with U ≠ 1, so U = 0 and D = 9 (no carry) or D = 8 (carry 1). Working the units R + L = D and tens A + A + carry = R gives 124 + 925 = 1049. So CURD = 1049.",
+      "solutionSteps": [
+        "CURD − DAL = CAR ⇔ CAR + DAL = CURD.",
+        "C = 1, then U = 0.",
+        "Solution: 124 + 925 = 1049.",
+        "CURD = 1049."
+      ],
+      "formulaIds": [
+        "cr-sub-f",
+        "cr-sc-leading-one"
+      ],
+      "method": "Turn the difference into a sum, then use the leading 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A − B = C is the same as B + C = A. Rewrite it."
+        },
+        {
+          "level": 2,
+          "text": "CAR + DAL = CURD: the answer is one digit longer, so C = 1."
+        }
+      ],
+      "commonMistakes": [
+        "Borrowing column by column and losing a borrow.",
+        "Giving CAR (124) instead of CURD."
+      ],
+      "tags": [
+        "subtraction",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-018",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-three",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "TEA + TEA + TEA = EAR, where each letter is a different digit and no number starts with 0. What number is TEA?",
+      "answer": {
+        "value": 142,
+        "tolerance": 0
+      },
+      "explanation": "TEA + TEA + TEA = 3 × TEA, and EAR still has 3 digits, so TEA ≤ 333 and T is 1, 2 or 3. Hundreds: 3T + carry = E. Units: 3A ends in R; tens: 3E + carry ends in A. T = 1, E = 4, A = 2, R = 6 fits: 3 × 142 = 426.",
+      "solutionSteps": [
+        "3 × TEA has 3 digits, so T ≤ 3.",
+        "Hundreds: E = 3T + carry.",
+        "T = 1, E = 4: tens 12 + carry ends in A = 2; units 3 × 2 = 6 = R.",
+        "TEA = 142."
+      ],
+      "formulaIds": [
+        "cr-three-f"
+      ],
+      "method": "Treat a word added three times as the word times 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "TEA + TEA + TEA = 3 × TEA. How large can TEA be if EAR has 3 digits?"
+        },
+        {
+          "level": 2,
+          "text": "Hundreds: 3 × T + carry = E. Try T = 1."
+        }
+      ],
+      "commonMistakes": [
+        "Giving EAR (426) instead of TEA."
+      ],
+      "tags": [
+        "three-addends",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-019",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-subtraction",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "READ − TEA = TREE, where each letter is a different digit and no number starts with 0. What is R?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "As a sum: TEA + TREE = READ. READ has the same number of digits as TREE, so R is not forced to be 1. The thousands column gives R = T + carry. Solving gives T = 5, E = 1, A = 2, D = 3 and R = 6: 512 + 5611 = 6123, so 6123 − 512 = 5611.",
+      "solutionSteps": [
+        "READ − TEA = TREE ⇔ TEA + TREE = READ.",
+        "Thousands: R = T + carry.",
+        "Solution: 512 + 5611 = 6123.",
+        "R = 6."
+      ],
+      "formulaIds": [
+        "cr-sub-f",
+        "cr-columns-f"
+      ],
+      "method": "Rewrite as a sum and read the leftmost column.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rewrite as TEA + TREE = READ."
+        },
+        {
+          "level": 2,
+          "text": "Units: A + E = D; tens: E + E + carry ends in A. The thousands column links R and T."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1 by the leading-1 rule; READ is not longer than TREE.",
+        "Answering 5, the value of T."
+      ],
+      "tags": [
+        "subtraction"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-020",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-three",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "GOA + GOA + GOA = SONG has exactly one solution. In it, what carry does the units column pass to the tens column?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "The solution is 719 + 719 + 719 = 2157 (G = 7, O = 1, A = 9, S = 2, N = 5). Units: 9 + 9 + 9 = 27, so it writes 7 (G) and carries 2. With three numbers a carry of 2 is possible, unlike with two.",
+      "solutionSteps": [
+        "Solution: 3 × 719 = 2157.",
+        "Units: 9 × 3 = 27 → write 7, carry 2.",
+        "Carry = 2."
+      ],
+      "formulaIds": [
+        "cr-three-f"
+      ],
+      "method": "Find the solution, then read the units column.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Units: A + A + A ends in G; tens: O + O + O + carry ends in N."
+        },
+        {
+          "level": 2,
+          "text": "SONG has 4 digits, so 3 × GOA ≥ 1000. Try G = 7."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming a carry can only be 0 or 1."
+      ],
+      "tags": [
+        "three-addends",
+        "carry",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-021",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-adv-three",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "When three numbers are added, a column can pass a carry of 2 to the next column, but never a carry of 3.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The largest a column can reach is 9 + 9 + 9 plus the largest carry in. If carries are at most 2, that is 27 + 2 = 29, which carries 2. So a carry of 3 never happens, starting from the units column (27, carry 2).",
+      "solutionSteps": [
+        "Units: at most 9 + 9 + 9 = 27 → carry ≤ 2.",
+        "Any later column: at most 27 + 2 = 29 → carry ≤ 2.",
+        "True."
+      ],
+      "formulaIds": [
+        "cr-three-f"
+      ],
+      "method": "Find the largest possible column total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the largest total in the units column of three numbers?"
+        },
+        {
+          "level": 2,
+          "text": "Add the largest carry to 9 + 9 + 9 for the next column."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking the carry can grow column after column."
+      ],
+      "tags": [
+        "true-false",
+        "carry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cryptarithmetic-q-022",
+      "topicId": "cryptarithmetic",
+      "conceptId": "cr-columns",
+      "levelId": "cryptarithmetic-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many solutions does AB + BA = CC have? Each letter is a different digit, and AB, BA and CC are two-digit numbers (so A, B and C are not 0).",
+      "answer": {
+        "value": 32,
+        "tolerance": 0
+      },
+      "explanation": "AB + BA = 11 × (A + B) and CC = 11 × C, so A + B = C. Since C is a digit, A + B ≤ 9, with A ≠ B and both at least 1 (C is then different from both automatically). Ordered pairs with A + B = 3, 4, 5, 6, 7, 8, 9: 2, 2, 4, 4, 6, 6, 8. Total 32.",
+      "solutionSteps": [
+        "AB + BA = 11(A + B); CC = 11C.",
+        "So A + B = C ≤ 9, A ≠ B, A, B ≥ 1.",
+        "Count ordered pairs by sum: 2 + 2 + 4 + 4 + 6 + 6 + 8 = 32."
+      ],
+      "formulaIds": [
+        "cr-columns-f"
+      ],
+      "method": "Turn the puzzle into one equation in the digits, then count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "AB = 10A + B and BA = 10B + A. What is their sum?"
+        },
+        {
+          "level": 2,
+          "text": "The equation becomes A + B = C. Count ordered pairs of different digits from 1 to 9 with a sum of at most 9."
+        }
+      ],
+      "commonMistakes": [
+        "Counting unordered pairs (16): AB = 12 and AB = 21 are different solutions.",
+        "Allowing A = B, such as 22 + 22 = 44."
+      ],
+      "tags": [
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}
