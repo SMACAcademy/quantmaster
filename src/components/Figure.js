@@ -26,6 +26,7 @@ import { formatNumber } from '../utils/format.js';
 import { renderVenn } from './venn.js';
 import { renderSolid } from './solid.js';
 import { renderClock, renderNumberLine } from './clockFigure.js';
+import { renderDice, renderPaper } from './reasoningFigures.js';
 
 const WIDTH = 340;
 const HEIGHT = 340;
@@ -323,6 +324,8 @@ export function figureWidget(figure) {
     figure.type === 'solid' ? renderSolid(figure) :
     figure.type === 'clock' ? renderClock(figure) :
     figure.type === 'numberline' ? renderNumberLine(figure) :
+    figure.type === 'dice' ? renderDice(figure) :
+    figure.type === 'paper' ? renderPaper(figure) :
     null;
   if (!body) return null;
   return el('div.chart-wrap', {}, [

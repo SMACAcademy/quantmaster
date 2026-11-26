@@ -1,0 +1,1617 @@
+{
+  "topicId": "cubes-dice",
+  "concepts": [
+    {
+      "id": "cb-opposite",
+      "topicId": "cubes-dice",
+      "name": "Opposite faces from views",
+      "description": "Faces seen together in a view are neighbours, never opposite; line views up on a common face to settle the rest.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cb-standard",
+      "topicId": "cubes-dice",
+      "name": "Standard dice and nets",
+      "description": "On a standard die opposite faces add to 7. On a net, two squares with one square between them in a straight line are opposite.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cb-paint",
+      "topicId": "cubes-dice",
+      "name": "Painted cube, cut up",
+      "description": "A painted cube cut into n × n × n small cubes: 8 have three painted faces, 12(n − 2) two, 6(n − 2)² one and (n − 2)³ none.",
+      "sortOrder": 3
+    },
+    {
+      "id": "cb-cuboid",
+      "topicId": "cubes-dice",
+      "name": "Cuboids and partly painted blocks",
+      "description": "The same counting for an a × b × c cuboid, or a block painted on only some faces, layer by layer.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "cb-views-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "title": "Faces seen together",
+      "prompt": "How do you find the face opposite X from several views of a die?",
+      "formula": "Any face seen in a view with X is next to X, not opposite it\nIf four different faces are seen with X, the sixth face is opposite X",
+      "variables": [],
+      "explanation": "A view shows three faces meeting at a corner; none of them can be opposite another.",
+      "example": "R is seen with P, Q, T and U: the only face left, S, is opposite R.",
+      "commonMistake": "Picking a face that appears next to X in some view.",
+      "applicationPrompt": "In two views, 2 is seen with 1, 3, 4 and 6. Which face is opposite 2?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cb-standard-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "title": "Standard die",
+      "prompt": "Which faces are opposite on a standard die?",
+      "formula": "1 ↔ 6 · 2 ↔ 5 · 3 ↔ 4\nOpposite faces add to 7",
+      "variables": [],
+      "explanation": "So the top and bottom of any standard die add to 7, however it is turned.",
+      "example": "With 3 on top, the bottom shows 7 − 3 = 4.",
+      "commonMistake": "Applying the sum-of-7 rule to a die the question has not called standard.",
+      "applicationPrompt": "A standard die shows 2 in front. What is at the back?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cb-net-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "title": "Opposite faces on a net",
+      "prompt": "How can you tell which squares of a net end up opposite each other?",
+      "formula": "In a straight line of three squares, the two ends are opposite\nSquares that share an edge are never opposite",
+      "variables": [],
+      "explanation": "Folding a line of three wraps the end squares to opposite sides of the middle one.",
+      "example": "Cross net with A above C and F below C: A and F are opposite.",
+      "commonMistake": "Applying \"skip one\" round a corner, where it does not hold.",
+      "applicationPrompt": "A row of four squares B C D E: which pairs are opposite?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cb-paint-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "title": "Painted cube cut into n³",
+      "prompt": "A cube painted on all faces is cut into n × n × n equal small cubes. How many have 3, 2, 1 and 0 painted faces?",
+      "formula": "3 faces: 8 (corners)\n2 faces: 12(n − 2) (edges)\n1 face: 6(n − 2)² (faces)\n0 faces: (n − 2)³ (inside)",
+      "variables": [
+        "n = small cubes along one edge"
+      ],
+      "explanation": "Each edge loses its two corner cubes; each face loses its border; the inside block is (n − 2) on each side.",
+      "example": "n = 4: 8, 24, 24 and 8 (total 64).",
+      "commonMistake": "Using n instead of n − 2.",
+      "applicationPrompt": "A painted cube is cut into 125 equal cubes. How many have exactly one painted face?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cb-cuts-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "title": "Cuts and pieces",
+      "prompt": "How many cuts make n × n × n small cubes, and how many pieces do c cuts in each direction make?",
+      "formula": "n − 1 cuts in each of 3 directions: 3(n − 1) cuts\nc cuts each way: (c + 1)³ pieces",
+      "variables": [],
+      "explanation": "n pieces along a line need n − 1 cuts between them.",
+      "example": "3 cuts each way: 4³ = 64 small cubes, from 9 cuts.",
+      "commonMistake": "Using n cuts for n pieces.",
+      "applicationPrompt": "How many cuts give 343 equal cubes?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cb-cuboid-f",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-cuboid",
+      "title": "Painted cuboid",
+      "prompt": "An a × b × c cuboid painted all over is cut into unit cubes. How many have 3, 2, 1, 0 painted faces?",
+      "formula": "3: 8\n2: 4[(a − 2) + (b − 2) + (c − 2)]\n1: 2[(a − 2)(b − 2) + (b − 2)(c − 2) + (a − 2)(c − 2)]\n0: (a − 2)(b − 2)(c − 2)",
+      "variables": [],
+      "explanation": "The cube formulas with each n − 2 replaced by its own edge length minus 2.",
+      "example": "4 × 3 × 3: two faces 4(2 + 1 + 1) = 16; none 2 × 1 × 1 = 2.",
+      "commonMistake": "Using one edge length for all three directions.",
+      "applicationPrompt": "A 6 × 4 × 2 cuboid: how many cubes have exactly one painted face?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cb-sc-check",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "kind": "shortcut",
+      "title": "Check the total",
+      "prompt": "How can you check painted-cube counts in seconds?",
+      "formula": "8 + 12(n − 2) + 6(n − 2)² + (n − 2)³ = n³\n(it is ((n − 2) + 2)³ multiplied out)",
+      "variables": [],
+      "explanation": "If your four counts do not add up to n³, one of them is wrong.",
+      "example": "n = 5: 8 + 36 + 54 + 27 = 125 = 5³.",
+      "commonMistake": "Checking only three of the four counts.",
+      "applicationPrompt": "Check the counts for n = 6.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cb-sc-same",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "kind": "shortcut",
+      "title": "Two views, same top",
+      "prompt": "Two views of a die have the same face on top. What can you read off?",
+      "formula": "Same face on top, all others different:\nfront ↔ front and right ↔ right are opposite pairs",
+      "variables": [],
+      "explanation": "The four side faces go round the top in a ring; two views showing different neighbouring pairs show opposite sides of the ring.",
+      "example": "Views (A top, B front, C right) and (A top, E front, D right): B ↔ E and C ↔ D.",
+      "commonMistake": "Matching front with right.",
+      "applicationPrompt": "Views (1, 2, 3) and (1, 5, 4) as (top, front, right): what is opposite 3?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "cubes-dice-level-0",
+      "topicId": "cubes-dice",
+      "order": 0,
+      "title": "Cut Cubes and Dice",
+      "description": "Painted cubes, views of a die and nets.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "cb-opposite",
+        "cb-standard",
+        "cb-paint",
+        "cb-cuboid"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "cube-paint"
+          },
+          {
+            "type": "text",
+            "title": "Corners, edges, faces, inside",
+            "body": "Cut a painted cube into n small cubes along each edge. The 8 corner cubes show three painted faces. Along each of the 12 edges, the n − 2 cubes between the corners show two. On each of the 6 faces, the (n − 2)² cubes inside the border show one. The (n − 2)³ cubes buried inside show none."
+          },
+          {
+            "type": "formula",
+            "title": "The four counts",
+            "body": "3 faces: 8   2 faces: 12(n − 2)\n1 face: 6(n − 2)²   0 faces: (n − 2)³",
+            "caption": "They always add up to n³."
+          },
+          {
+            "type": "check",
+            "questionId": "cubes-dice-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Dice: neighbours are never opposite",
+            "body": "A view of a die shows three faces that meet at a corner, so none of them is opposite another. Collect the faces seen beside X in all the views; if four different ones appear, the sixth face is opposite X. When two views share the top face, the faces in matching places (front with front, right with right) are opposite."
+          },
+          {
+            "type": "figure",
+            "figure": {
+              "type": "dice",
+              "views": [
+                {
+                  "top": "A",
+                  "front": "B",
+                  "right": "C"
+                },
+                {
+                  "top": "A",
+                  "front": "E",
+                  "right": "D"
+                }
+              ],
+              "caption": "Two views with A on top",
+              "ariaSummary": "View 1: A on top, B in front, C on the right. View 2: A on top, E in front, D on the right."
+            },
+            "body": "A is on top in both views and the other faces are all different, so the die has been turned about the vertical: B is opposite E and C is opposite D."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Opposite faces of a standard die add to 7 (1–6, 2–5, 3–4). Use that only when the question says the die is standard; an ordinary labelled die can have any pairs."
+          },
+          {
+            "type": "check",
+            "questionId": "cubes-dice-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "cubes-dice-level-1",
+      "topicId": "cubes-dice",
+      "order": 1,
+      "title": "Cube Rules",
+      "description": "The four painted counts, cuts, standard dice, nets and views.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "cubes-dice-level-0"
+      ],
+      "conceptIds": [
+        "cb-opposite",
+        "cb-standard",
+        "cb-paint",
+        "cb-cuboid"
+      ],
+      "formulaIds": [
+        "cb-views-f",
+        "cb-standard-f",
+        "cb-net-f",
+        "cb-paint-f",
+        "cb-cuts-f",
+        "cb-cuboid-f",
+        "cb-sc-check",
+        "cb-sc-same"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "cubes-dice-level-2",
+      "topicId": "cubes-dice",
+      "order": 2,
+      "title": "Counts and Single Rules",
+      "description": "The painted-cube counts, cuts, a standard die and simple views.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "cubes-dice-level-1"
+      ],
+      "conceptIds": [
+        "cb-paint",
+        "cb-standard",
+        "cb-opposite"
+      ],
+      "questionIds": [
+        "cubes-dice-q-001",
+        "cubes-dice-q-002",
+        "cubes-dice-q-003",
+        "cubes-dice-q-004",
+        "cubes-dice-q-005",
+        "cubes-dice-q-006",
+        "cubes-dice-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "cubes-dice-level-3",
+      "topicId": "cubes-dice",
+      "order": 3,
+      "title": "Views, Cuboids and Two Colours",
+      "description": "Three views, adjacent faces, a painted cuboid and stacks of dice.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "cubes-dice-level-2"
+      ],
+      "conceptIds": [
+        "cb-paint",
+        "cb-opposite",
+        "cb-cuboid",
+        "cb-standard"
+      ],
+      "questionIds": [
+        "cubes-dice-q-008",
+        "cubes-dice-q-009",
+        "cubes-dice-q-010",
+        "cubes-dice-q-011",
+        "cubes-dice-q-012",
+        "cubes-dice-q-013",
+        "cubes-dice-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "cubes-dice-level-4",
+      "topicId": "cubes-dice",
+      "order": 4,
+      "title": "Harder Dice and Partial Paint",
+      "description": "Views that need turning, blocks painted on some faces, and working backwards.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "cubes-dice-level-3"
+      ],
+      "conceptIds": [
+        "cb-opposite",
+        "cb-cuboid",
+        "cb-standard",
+        "cb-paint"
+      ],
+      "questionIds": [
+        "cubes-dice-q-015",
+        "cubes-dice-q-016",
+        "cubes-dice-q-017",
+        "cubes-dice-q-018",
+        "cubes-dice-q-019",
+        "cubes-dice-q-020",
+        "cubes-dice-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "cubes-dice-level-5",
+      "topicId": "cubes-dice",
+      "order": 5,
+      "title": "Mixed Cubes and Dice",
+      "description": "All cubes-and-dice patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "cubes-dice-level-4"
+      ],
+      "conceptIds": [
+        "cb-opposite",
+        "cb-standard",
+        "cb-paint",
+        "cb-cuboid"
+      ],
+      "questionQuery": {
+        "topicId": "cubes-dice",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "cubes-dice-q-001",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cube of side 4 cm is painted on all faces and then cut into 1 cm cubes. How many small cubes have exactly three faces painted?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Only the corner cubes touch three painted faces, and a cube has 8 corners, whatever its size.",
+      "solutionSteps": [
+        "Three painted faces: corner cubes only.",
+        "A cube has 8 corners."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "Three faces = corners = 8.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where does a small cube touch three outer faces at once?"
+        },
+        {
+          "level": 2,
+          "text": "How many corners does a cube have?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4 × 3 or 12 by counting edges."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-002",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cube of side 5 cm is painted on all faces and then cut into 1 cm cubes. How many small cubes have exactly two faces painted?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "Two painted faces: cubes along the edges, not at the corners. Each edge has 5 − 2 = 3 such cubes, and there are 12 edges: 36.",
+      "solutionSteps": [
+        "Per edge: n − 2 = 3.",
+        "12 edges × 3 = 36."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "12(n − 2).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sort the small cubes: 8 corners (3 painted faces), the rest of each edge (2), the rest of each face (1), the hidden inside (0)."
+        },
+        {
+          "level": 2,
+          "text": "Each edge has 5 small cubes, two of them corners."
+        }
+      ],
+      "commonMistakes": [
+        "Using 12 × 5 = 60 (counting the corners on every edge)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-003",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cube of side 6 cm is painted on all faces and then cut into 1 cm cubes. How many small cubes have no face painted?",
+      "answer": {
+        "value": 64,
+        "tolerance": 0
+      },
+      "explanation": "Remove the outer layer on every side: a 4 × 4 × 4 block of unpainted cubes is left, 4³ = 64.",
+      "solutionSteps": [
+        "Inside block: (6 − 2) on each edge.",
+        "4³ = 64."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "(n − 2)³.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Peel off the outer layer of small cubes."
+        },
+        {
+          "level": 2,
+          "text": "How long is each edge of the block that is left?"
+        }
+      ],
+      "commonMistakes": [
+        "Using (6 − 1)³ = 125."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-004",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A standard die (opposite faces add to 7) is placed on a table with 3 on its top face. Which number is on the face touching the table?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The face on the table is the bottom, opposite the top: 7 − 3 = 4.",
+      "solutionSteps": [
+        "Bottom is opposite top.",
+        "7 − 3 = 4."
+      ],
+      "formulaIds": [
+        "cb-standard-f"
+      ],
+      "method": "Opposite faces add to 7.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which face is opposite the top?"
+        },
+        {
+          "level": 2,
+          "text": "Opposite faces of a standard die add to 7."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6 (thinking 1 and 6 are the only opposite pair)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-005",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two views of the same die are shown. Which letter is on the face opposite B?",
+      "context": "View 1: top A, front B, right C.\nView 2: top A, front E, right D.",
+      "figure": {
+        "type": "dice",
+        "views": [
+          {
+            "top": "A",
+            "front": "B",
+            "right": "C"
+          },
+          {
+            "top": "A",
+            "front": "E",
+            "right": "D"
+          }
+        ],
+        "caption": "Views of one die: top, front and right faces",
+        "ariaSummary": "View 1: A on top, B in front, C on the right. View 2: A on top, E in front, D on the right."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "D"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        },
+        {
+          "id": "d",
+          "text": "F"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A is on top in both views and the other faces are all different, so the die has only been turned about the vertical. The faces in matching places are opposite: front B with front E, right C with right D.",
+      "solutionSteps": [
+        "Same top (A) in both views.",
+        "Front ↔ front: B ↔ E.",
+        "Right ↔ right: C ↔ D."
+      ],
+      "formulaIds": [
+        "cb-sc-same",
+        "cb-views-f"
+      ],
+      "method": "Same top: match front with front and right with right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which face is in the same place in both views?"
+        },
+        {
+          "level": 2,
+          "text": "Turning about the vertical keeps A on top and moves the side faces round."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing C, which is seen next to B."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-006",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cube is cut by 3 cuts parallel to each pair of opposite faces (9 cuts in all), equally spaced. How many identical small cubes are formed?",
+      "answer": {
+        "value": 64,
+        "tolerance": 0
+      },
+      "explanation": "3 cuts across an edge make 4 pieces along it, so each edge has 4 small cubes: 4 × 4 × 4 = 64.",
+      "solutionSteps": [
+        "3 cuts → 4 pieces along each edge.",
+        "4³ = 64."
+      ],
+      "formulaIds": [
+        "cb-cuts-f"
+      ],
+      "method": "c cuts each way give (c + 1)³ pieces.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many pieces do 3 cuts make along one edge?"
+        },
+        {
+          "level": 2,
+          "text": "Then cube it."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 27 (3³), using cuts instead of pieces."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-007",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "levelId": "cubes-dice-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The net shown is folded to make a cube. Which letter is on the face opposite C?",
+      "figure": {
+        "type": "dice",
+        "net": [
+          [
+            1,
+            0,
+            "A"
+          ],
+          [
+            0,
+            1,
+            "B"
+          ],
+          [
+            1,
+            1,
+            "C"
+          ],
+          [
+            2,
+            1,
+            "D"
+          ],
+          [
+            3,
+            1,
+            "E"
+          ],
+          [
+            1,
+            2,
+            "F"
+          ]
+        ],
+        "caption": "A net of a cube",
+        "ariaSummary": "A net of six squares: B, C, D and E in a row; A above C; F below C."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "D"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        },
+        {
+          "id": "d",
+          "text": "F"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "In the row B C D E, squares with one square between them are opposite: B ↔ D and C ↔ E. A and F, above and below C, are opposite each other.",
+      "solutionSteps": [
+        "Row of four: B ↔ D, C ↔ E.",
+        "A ↔ F."
+      ],
+      "formulaIds": [
+        "cb-net-f"
+      ],
+      "method": "Skip one square in a straight line.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look along the row of four squares."
+        },
+        {
+          "level": 2,
+          "text": "Which square is one square beyond D, counting from C?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing D, which shares an edge with C."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-008",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cube painted red on all faces is cut into 125 identical smaller cubes. How many of the small cubes have exactly one face painted red?",
+      "answer": {
+        "value": 54,
+        "tolerance": 0
+      },
+      "explanation": "125 = 5³, so n = 5. One painted face: the middle of each face, (5 − 2)² = 9 per face, 6 faces: 54.",
+      "solutionSteps": [
+        "n³ = 125, n = 5.",
+        "6 × (5 − 2)² = 6 × 9 = 54."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "Find n first, then 6(n − 2)².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many small cubes along an edge?"
+        },
+        {
+          "level": 2,
+          "text": "One painted face: the inner square of each face."
+        }
+      ],
+      "commonMistakes": [
+        "Using 6 × 5² = 150 (counting whole faces)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-009",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Three views of the same die are shown. Which letter is on the face opposite R?",
+      "context": "View 1: top P, front Q, right R.\nView 2: top P, front T, right S.\nView 3: top U, front T, right R.",
+      "figure": {
+        "type": "dice",
+        "views": [
+          {
+            "top": "P",
+            "front": "Q",
+            "right": "R"
+          },
+          {
+            "top": "P",
+            "front": "T",
+            "right": "S"
+          },
+          {
+            "top": "U",
+            "front": "T",
+            "right": "R"
+          }
+        ],
+        "caption": "Views of one die: top, front and right faces",
+        "ariaSummary": "View 1: P on top, Q in front, R on the right. View 2: P on top, T in front, S on the right. View 3: U on top, T in front, R on the right."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "S"
+        },
+        {
+          "id": "c",
+          "text": "T"
+        },
+        {
+          "id": "d",
+          "text": "U"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "R is seen with P and Q (view 1) and with T and U (view 3). Those four are its neighbours, so the only face left, S, is opposite R.",
+      "solutionSteps": [
+        "Neighbours of R: P, Q (view 1); U, T (view 3).",
+        "Four neighbours found; S is left."
+      ],
+      "formulaIds": [
+        "cb-views-f"
+      ],
+      "method": "Rule out every face seen with R.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List every letter that appears in a view together with R."
+        },
+        {
+          "level": 2,
+          "text": "A die has six faces: four neighbours and one opposite."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing T or U, which are seen next to R."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-010",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Using the same three views, which letters are on faces that touch the face R (share an edge with it)? Select all that apply.",
+      "context": "View 1: top P, front Q, right R.\nView 2: top P, front T, right S.\nView 3: top U, front T, right R.",
+      "figure": {
+        "type": "dice",
+        "views": [
+          {
+            "top": "P",
+            "front": "Q",
+            "right": "R"
+          },
+          {
+            "top": "P",
+            "front": "T",
+            "right": "S"
+          },
+          {
+            "top": "U",
+            "front": "T",
+            "right": "R"
+          }
+        ],
+        "caption": "Views of one die: top, front and right faces",
+        "ariaSummary": "View 1: P on top, Q in front, R on the right. View 2: P on top, T in front, S on the right. View 3: U on top, T in front, R on the right."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "P"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        },
+        {
+          "id": "d",
+          "text": "T"
+        },
+        {
+          "id": "e",
+          "text": "U"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "explanation": "Every face except R itself and the face opposite R touches R. S is opposite R (it is never seen with R), so the neighbours are P, Q, T and U.",
+      "solutionSteps": [
+        "Opposite R: S.",
+        "The other four faces are R’s neighbours: P, Q, T, U."
+      ],
+      "formulaIds": [
+        "cb-views-f"
+      ],
+      "method": "Four of the other five faces touch any face; the fifth is opposite.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which face is opposite R?"
+        },
+        {
+          "level": 2,
+          "text": "All other faces touch R."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out a neighbour that appears with R in only one view."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-011",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-cuboid",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A 4 cm × 3 cm × 3 cm cuboid is painted on all faces and cut into 1 cm cubes. How many cubes have exactly two faces painted?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Two-face cubes lie along the edges, between the corners. The 4 edges of length 4 give 2 each, and the 8 edges of length 3 give 1 each: 4 × 2 + 8 × 1 = 16. (Formula: 4[(4 − 2) + (3 − 2) + (3 − 2)] = 16.)",
+      "solutionSteps": [
+        "Each edge of length L has L − 2 such cubes.",
+        "4 × (4 − 2) + 4 × (3 − 2) + 4 × (3 − 2) = 8 + 4 + 4 = 16."
+      ],
+      "formulaIds": [
+        "cb-cuboid-f"
+      ],
+      "method": "4[(a − 2) + (b − 2) + (c − 2)].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cuboid has 4 edges of each length."
+        },
+        {
+          "level": 2,
+          "text": "An edge of length L has L − 2 cubes with exactly two painted faces."
+        }
+      ],
+      "commonMistakes": [
+        "Using 12(n − 2) with n = 4 (24)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-012",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Three standard dice (opposite faces add to 7) are stacked one on top of another on a table. The top face of the stack shows 5. What is the total of the dots on all the horizontal faces that cannot be seen (where the dice touch each other or the table)?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Each die’s top and bottom add to 7, so the six horizontal faces add to 3 × 7 = 21. Only the top of the stack (5) is visible: 21 − 5 = 16.",
+      "solutionSteps": [
+        "Horizontal faces: 3 × 7 = 21.",
+        "Hidden: 21 − 5 = 16."
+      ],
+      "formulaIds": [
+        "cb-standard-f"
+      ],
+      "method": "Top + bottom = 7 for each die, however it is turned.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need to know how each die is turned."
+        },
+        {
+          "level": 2,
+          "text": "Count 7 for each die, then remove what you can see."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the bottom face resting on the table (9)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-013",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A wooden cube is painted red on two opposite faces and blue on the other four faces. It is then cut into 64 identical small cubes. How many small cubes have both red and blue paint?",
+      "answer": {
+        "value": 24,
+        "tolerance": 0
+      },
+      "explanation": "n = 4. Red faces: top and bottom; blue: the four sides. A cube has both if it is in the top or bottom layer and on a side. Each of those layers has 16 cubes, of which the 4 in the middle touch no side: 12 per layer, 24 in all.",
+      "solutionSteps": [
+        "Red on top and bottom layers; blue on the outer ring of each layer.",
+        "Outer ring of a 4 × 4 layer: 16 − 4 = 12.",
+        "Two red layers: 24."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "Count layer by layer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which layers carry red paint?"
+        },
+        {
+          "level": 2,
+          "text": "In those layers, which cubes also touch a side face?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the 8 corners.",
+        "Counting the vertical edges too (they have no red)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-014",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cube of side 5 cm is painted on all faces and cut into 1 cm cubes. How many small cubes have at least one face painted?",
+      "answer": {
+        "value": 98,
+        "tolerance": 0
+      },
+      "explanation": "Unpainted cubes form the inside block, 3³ = 27. All the rest have some paint: 125 − 27 = 98.",
+      "solutionSteps": [
+        "Total: 125.",
+        "No paint: (5 − 2)³ = 27.",
+        "At least one face: 98."
+      ],
+      "formulaIds": [
+        "cb-paint-f",
+        "cb-sc-check"
+      ],
+      "method": "Total minus the unpainted inside.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which small cubes have no paint at all?"
+        },
+        {
+          "level": 2,
+          "text": "Subtract them from the total."
+        }
+      ],
+      "commonMistakes": [
+        "Adding only the one-face and two-face counts (54 + 36 = 90), leaving out the corners."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-015",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two views of the same die are shown. The die is not a standard one. Which number is on the face opposite 5?",
+      "context": "View 1: top 1, front 3, right 2.\nView 2: top 2, front 4, right 5.",
+      "figure": {
+        "type": "dice",
+        "views": [
+          {
+            "top": "1",
+            "front": "3",
+            "right": "2"
+          },
+          {
+            "top": "2",
+            "front": "4",
+            "right": "5"
+          }
+        ],
+        "caption": "Views of one die: top, front and right faces",
+        "ariaSummary": "View 1: 1 on top, 3 in front, 2 on the right. View 2: 2 on top, 4 in front, 5 on the right."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "2 is seen with 1 and 3 (view 1) and with 4 and 5 (view 2), so 6 is opposite 2 and the faces 1, 3, 4, 5 form a ring round 2. Tip view 1 to the left so that 2 (on the right) comes to the top: 3 stays in front and 1 (the old top) goes to the left. Seen from above, going front → right → back → left, the ring reads 3, ?, ?, 1. View 2 has 2 on top with 4 in front and 5 on the right, so 5 comes straight after 4. The only order that fits is 3, 4, 5, 1. Faces two apart in the ring are opposite: 3 ↔ 5 and 4 ↔ 1.",
+      "solutionSteps": [
+        "Neighbours of 2: 1, 3, 4, 5, so 2 ↔ 6.",
+        "View 1 turned to put 2 on top: front 3, left 1, so the ring is 3, ?, ?, 1.",
+        "View 2: 4 then 5. Ring 3, 4, 5, 1: 3 ↔ 5, 4 ↔ 1."
+      ],
+      "formulaIds": [
+        "cb-views-f",
+        "cb-sc-same"
+      ],
+      "method": "Find one opposite pair by elimination, then fix the order of the ring of faces round it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which faces appear with 2? What does that make opposite 2?"
+        },
+        {
+          "level": 2,
+          "text": "Turn view 1 so that 2 is on top, like view 2, then compare the faces going round."
+        }
+      ],
+      "commonMistakes": [
+        "Using the standard-die rule (5 ↔ 2), which does not apply: 2 and 5 are seen together.",
+        "Choosing 4, which is seen next to 5."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-016",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-cuboid",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A cube of side 5 cm is painted on all its faces except the bottom, and then cut into 1 cm cubes. How many small cubes have no paint at all?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "Peel off a layer only where there is paint: one layer from each side, left to right (5 → 3), front to back (5 → 3), and only the top (5 → 4) because the bottom is unpainted. Unpainted block: 3 × 3 × 4 = 36.",
+      "solutionSteps": [
+        "Left–right: 5 − 2 = 3 layers unpainted.",
+        "Front–back: 3. Top–bottom: 5 − 1 = 4.",
+        "3 × 3 × 4 = 36."
+      ],
+      "formulaIds": [
+        "cb-paint-f",
+        "cb-cuboid-f"
+      ],
+      "method": "Subtract one layer for each painted face only.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which directions lose two layers, and which loses only one?"
+        },
+        {
+          "level": 2,
+          "text": "The bottom layer has no paint underneath it."
+        }
+      ],
+      "commonMistakes": [
+        "Using (5 − 2)³ = 27, as if the bottom were painted."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-017",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-cuboid",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A 6 cm × 4 cm × 2 cm cuboid is painted on all faces and cut into 1 cm cubes. How many cubes have exactly one face painted?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "One painted face: the inner part of each face. The 6 × 4 faces (top and bottom) have 4 × 2 = 8 each. The other faces are only 2 cm high, so every cube on them is on an edge: none. Total 2 × 8 = 16.",
+      "solutionSteps": [
+        "6 × 4 faces: (6 − 2)(4 − 2) = 8 each, two of them: 16.",
+        "6 × 2 and 4 × 2 faces: (2 − 2) = 0 inner rows.",
+        "Total 16."
+      ],
+      "formulaIds": [
+        "cb-cuboid-f"
+      ],
+      "method": "2[(a − 2)(b − 2) + (b − 2)(c − 2) + (a − 2)(c − 2)].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use (length − 2)(breadth − 2) for each face."
+        },
+        {
+          "level": 2,
+          "text": "A face only 2 cm high has no inner cubes."
+        }
+      ],
+      "commonMistakes": [
+        "Counting inner cubes on the 2 cm high faces."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-018",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "On a standard die (opposite faces add to 7), what is the sum of the numbers on the four faces that touch the face showing 1?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0
+      },
+      "explanation": "Every face except 1 and its opposite, 6, touches 1: 2 + 3 + 4 + 5 = 14.",
+      "solutionSteps": [
+        "Opposite 1 is 6.",
+        "The other four faces: 2, 3, 4, 5.",
+        "Sum 14."
+      ],
+      "formulaIds": [
+        "cb-standard-f"
+      ],
+      "method": "All faces but the face and its opposite are neighbours.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which face does NOT touch 1?"
+        },
+        {
+          "level": 2,
+          "text": "Add the remaining four."
+        }
+      ],
+      "commonMistakes": [
+        "Including 6 in the sum (20)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-019",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-opposite",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two views of the same die are shown. When D is on the top face, which letter is on the bottom face?",
+      "context": "View 1: top A, front D, right B.\nView 2: top E, front A, right C.",
+      "figure": {
+        "type": "dice",
+        "views": [
+          {
+            "top": "A",
+            "front": "D",
+            "right": "B"
+          },
+          {
+            "top": "E",
+            "front": "A",
+            "right": "C"
+          }
+        ],
+        "caption": "Views of one die: top, front and right faces",
+        "ariaSummary": "View 1: A on top, D in front, B on the right. View 2: E on top, A in front, C on the right."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "B"
+        },
+        {
+          "id": "c",
+          "text": "C"
+        },
+        {
+          "id": "d",
+          "text": "F"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A is seen with D and B (view 1) and with E and C (view 2), so F is opposite A and D, B, C, E form a ring round A. View 1 has A on top: going front → right → back → left, the ring starts D, B. Tip view 2 backwards so that A (in front) comes to the top: C stays on the right and E (the old top) goes to the back, so C is followed by E. The only ring with D then B and C then E is D, B, C, E. Faces two apart are opposite: D ↔ C and B ↔ E. With D on top, C is at the bottom.",
+      "solutionSteps": [
+        "Neighbours of A: D, B, E, C, so A ↔ F.",
+        "View 1 (A on top): D then B. View 2 turned to put A on top: C then E.",
+        "Ring D, B, C, E: D ↔ C."
+      ],
+      "formulaIds": [
+        "cb-views-f",
+        "cb-sc-same"
+      ],
+      "method": "Turn the views until they share the top face, then fix the ring round it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the face opposite A first."
+        },
+        {
+          "level": 2,
+          "text": "Tip view 2 so that A comes to the top. Where do C and E go?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing B, which is seen next to D.",
+        "Choosing F, which is opposite A, not D."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-020",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-paint",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A cube is painted on all faces and cut into identical small cubes. Exactly 96 of the small cubes have only one painted face. How many small cubes are there in all?",
+      "answer": {
+        "value": 216,
+        "tolerance": 0
+      },
+      "explanation": "One painted face: 6(n − 2)² = 96, so (n − 2)² = 16, n − 2 = 4, n = 6. Total 6³ = 216.",
+      "solutionSteps": [
+        "6(n − 2)² = 96 → (n − 2)² = 16.",
+        "n = 6.",
+        "n³ = 216."
+      ],
+      "formulaIds": [
+        "cb-paint-f"
+      ],
+      "method": "Work the formula backwards to find n.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which formula gives cubes with one painted face?"
+        },
+        {
+          "level": 2,
+          "text": "Solve 6(n − 2)² = 96."
+        }
+      ],
+      "commonMistakes": [
+        "Taking n − 2 as n and answering 64."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "cubes-dice-q-021",
+      "topicId": "cubes-dice",
+      "conceptId": "cb-standard",
+      "levelId": "cubes-dice-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The net shown is folded to make a cube. Which letter is on the face opposite P?",
+      "figure": {
+        "type": "dice",
+        "net": [
+          [
+            0,
+            0,
+            "P"
+          ],
+          [
+            1,
+            0,
+            "Q"
+          ],
+          [
+            1,
+            1,
+            "R"
+          ],
+          [
+            2,
+            1,
+            "S"
+          ],
+          [
+            2,
+            2,
+            "T"
+          ],
+          [
+            3,
+            2,
+            "U"
+          ]
+        ],
+        "caption": "A net of a cube",
+        "ariaSummary": "A staircase net: P and Q in the top row; R and S in the middle row, R under Q; T and U in the bottom row, T under S."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "R"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        },
+        {
+          "id": "d",
+          "text": "U"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Lay R flat as the bottom. Q (above R on the net) folds up to make the back, and S (right of R) the right side. P hangs off Q’s left edge, so it folds down to make the left side. T (below S) folds round to the front, and U (right of T) folds over to make the top. Left and right are opposite: P ↔ S (and Q ↔ T, R ↔ U).",
+      "solutionSteps": [
+        "Base R = bottom; Q = back; S = right.",
+        "P, hanging off Q, = left; T = front; U = top.",
+        "Left ↔ right: P ↔ S."
+      ],
+      "formulaIds": [
+        "cb-net-f"
+      ],
+      "method": "Choose a base square and fold its neighbours up one at a time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Take R as the base and fold Q and S up around it."
+        },
+        {
+          "level": 2,
+          "text": "P hangs off Q. Where does it end up?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Q or R, which share an edge with P.",
+        "Applying \"skip one\" round the corner (P to R is not a straight line)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

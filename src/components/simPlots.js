@@ -28,8 +28,9 @@
  *   subsets      the power set, grouped by size
  *   passage      a paragraph read sentence by sentence
  *
- * and five for logical reasoning (seats, grid, euler, chain, family), drawn by
- * reasoningPlots.js, and two for integer solutions and cryptarithms:
+ * for logical reasoning (seats, grid, euler, chain, family, walk, wheels,
+ * queue, cubes, fold, mirrorclock), drawn by reasoningPlots.js and
+ * reasoningPlotsMore.js, and two for integer solutions and cryptarithms:
  *
  *   lattice      whole-number points on a line ax + by = c, with the step between them
  *   cryptarithm  a letter sum worked column by column, with each letter's digits left

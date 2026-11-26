@@ -66,6 +66,11 @@ import { modulusTemplates } from './templates/modulus.js';
 import { polynomialTemplates } from './templates/polynomials.js';
 import { integerSolutionTemplates } from './templates/integerSolutions.js';
 import { cryptarithmTemplates } from './templates/cryptarithm.js';
+import { directionTemplates } from './templates/reasoningDirection.js';
+import { codingTemplates } from './templates/reasoningCoding.js';
+import { rankingTemplates } from './templates/reasoningRanking.js';
+import { cubesTemplates } from './templates/reasoningCubes.js';
+import { mirrorTemplates } from './templates/reasoningMirror.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -122,7 +127,13 @@ const TEMPLATES = [
   ...modulusTemplates,
   ...polynomialTemplates,
   ...integerSolutionTemplates,
-  ...cryptarithmTemplates
+  ...cryptarithmTemplates,
+  // Logical reasoning, second batch.
+  ...directionTemplates,
+  ...codingTemplates,
+  ...rankingTemplates,
+  ...cubesTemplates,
+  ...mirrorTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

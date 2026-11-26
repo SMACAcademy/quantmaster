@@ -4,7 +4,7 @@
 
 ```
 src/data/
-  topics.json               the catalogue (all 84 topics)
+  topics.json               the catalogue (all 89 topics)
   achievements.json
   content/<topicId>.json    { topicId, concepts[], formulas[], levels[], questions[] }
   concepts/percentages.json   ┐
@@ -111,6 +111,10 @@ Which fields apply depends on `type`:
 Clock figures: `{ type: "clock", hour: 3, minute: 40, hands: "both" }` draws a clock face with the hands at that time (the hour hand moves with the minutes). `hands` is `both` (default), `hour`, `minute` or `none`; use `none` when the hands would give the answer away.
 
 Number-line figures: `{ type: "numberline", min: -5, max: 5, step?: 1, ranges: [{ from: -2, to: null, fromOpen: true }], points: [{ value: 3, label: "3", open?: false }] }`. A range is drawn as a band; `from: null` runs to −∞ and `to: null` to +∞; open ends are hollow dots, closed ends filled.
+
+Dice figures: `{ type: "dice", views: [{ top: "1", front: "2", right: "3" }, ...] }` draws each view of one die as a cube showing its top, front and right faces (with the same slant as solid figures); `{ type: "dice", net: [[column, row, label], ...] }` draws a flat net of six squares (row 0 at the top), which must fold into a cube. Also give the views in the question's `context` as text, for screen readers and for checking.
+
+Paper figures: `{ type: "paper", size: 4, folds: ["left", "top"], punches: ["D4"], unfolded?: true }` draws a square sheet ruled into size × size squares (columns A, B, ... from the left, rows 1, 2, ... from the top), one panel per fold with the moving half shaded and the fold line dashed, then the punched paper; `unfolded` adds the sheet opened out (for lessons, not for questions that ask where the holes are). Folds: `left`, `right`, `top`, `bottom` (half over the other half) and `diag`, `anti` (along a diagonal, last only). Every punch must lie on the folded paper and not on a diagonal fold line; `src/utils/reasoning/mirror.js` has the rules.
 
 Solid figures (3D): `{ type: "solid", parts: [{ shape: "cylinder", r: 7, h: 10, labels: { r: "7 cm", h: "10 cm" } }, { shape: "cone", r: 7, h: 24, labels: { l: "?" } }] }`. Parts stack from the bottom up on one axis. Shapes: `cube { a }`, `cuboid { l, b, h }` and `sphere { r }` on their own; `cylinder { r, h }`, `cone { r, h, down? }`, `hemisphere { r, down? }` and `frustum { R, r, h }` (R at the bottom, so R < r draws a bucket) in any sensible stack (`down` only on the bottom part: an ice-cream cone, a bowl). Flat-faced solids stand on their own on a `base` of `triangle` (equilateral, side a), `square` or `hexagon` (regular): `prism { base, a, h }` (also `base: "right-triangle"` with legs `a` and `b`), `pyramid { base, a, h }` (right and regular, apex above the centre) and `pyramid-frustum { base, a, b, h }` (top side b < a); their hidden edges are worked out and dashed. Sizes are the question's own numbers, so the drawing is to scale. Label keys per shape are listed in `src/utils/solidGeometry.js` (`d` is a space diagonal, `l` a slant height, of a cone or of a pyramid's face, `e` a pyramid's lateral edge); label only what the question gives, and use `"?"` only for the single length asked for.
 

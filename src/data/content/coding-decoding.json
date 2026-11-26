@@ -1,0 +1,1604 @@
+{
+  "topicId": "coding-decoding",
+  "concepts": [
+    {
+      "id": "cd-shift",
+      "topicId": "coding-decoding",
+      "name": "Letter shifts",
+      "description": "Every letter moves the same number of places (or a repeating pattern of shifts), wrapping round from Z to A.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cd-opposite",
+      "topicId": "coding-decoding",
+      "name": "Opposite letters and reversal",
+      "description": "Opposite letters add to 27 (A ↔ Z, B ↔ Y, ...); some codes also write the word backwards.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cd-number",
+      "topicId": "coding-decoding",
+      "name": "Number codes",
+      "description": "Letters become their positions, and a word becomes a list or a sum of positions (sometimes doubled, or of opposite letters).",
+      "sortOrder": 3
+    },
+    {
+      "id": "cd-sentence",
+      "topicId": "coding-decoding",
+      "name": "Codes from sentences",
+      "description": "Compare coded sentences: a word shared by two sentences has the code those sentences share.",
+      "sortOrder": 4
+    },
+    {
+      "id": "cd-mixed",
+      "topicId": "coding-decoding",
+      "name": "Mixed rules and decoding",
+      "description": "Reversal or pair-swapping combined with a shift; decoding runs the rule backwards.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "cd-positions-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "title": "Letter positions",
+      "prompt": "What are the alphabet positions of the letters?",
+      "formula": "A 1 · B 2 · ... · M 13 · N 14 · ... · Z 26\nEJOTY: E 5, J 10, O 15, T 20, Y 25",
+      "variables": [],
+      "explanation": "Every coding rule works on positions, so knowing them by heart is half the work.",
+      "example": "R: T is 20, so R is 18.",
+      "commonMistake": "Counting from A = 0.",
+      "applicationPrompt": "What is the position of W?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-shift-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "title": "Shift with wrap-around",
+      "prompt": "How do you shift a letter k places forward?",
+      "formula": "New position = old position + k\nAbove 26, subtract 26 (Z + 1 = A); below 1, add 26",
+      "variables": [],
+      "explanation": "The alphabet is a circle: after Z comes A again.",
+      "example": "X + 4: 24 + 4 = 28 → 28 − 26 = 2 → B.",
+      "commonMistake": "Stopping at Z instead of wrapping round to A.",
+      "applicationPrompt": "Shift Y by 3 places forward.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-opposite-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "title": "Opposite letters",
+      "prompt": "What is the opposite of a letter?",
+      "formula": "Opposite position = 27 − position\nA ↔ Z, B ↔ Y, C ↔ X, ..., M ↔ N",
+      "variables": [],
+      "explanation": "Counting from the other end of the alphabet: the 1st becomes the 26th, the 2nd the 25th.",
+      "example": "G is 7, so its opposite is 27 − 7 = 20, T.",
+      "commonMistake": "Using 26 − position (that gives the letter before the opposite).",
+      "applicationPrompt": "What is the opposite of K?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-number-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "title": "Number codes",
+      "prompt": "A word is coded as a number. What should you try first?",
+      "formula": "Sum of positions · twice the sum · sum × number of letters\nSum of opposite positions (27 − p) · positions written in a row",
+      "variables": [],
+      "explanation": "Work out the plain sum first; the code is usually that sum or a simple change of it.",
+      "example": "PEN: 16 + 5 + 14 = 35; coded as 105 = 35 × 3 (three letters).",
+      "commonMistake": "Using positions of the opposite letters when the code uses the letters themselves.",
+      "applicationPrompt": "If CAT is coded as 24, how is DOG coded?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-sentence-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-sentence",
+      "title": "Common word, common code",
+      "prompt": "How do you find the code of one word from coded sentences?",
+      "formula": "Word in two sentences → code in both of those sentences\nCode in a sentence without the word → not its code",
+      "variables": [],
+      "explanation": "Codes are jumbled within a sentence, so only comparisons between sentences settle anything.",
+      "example": "‘pick and drop’ = ‘ta na pa’ and ‘drop the ball’ = ‘ka ta zo’: drop = ta.",
+      "commonMistake": "Assuming the codes are in the same order as the words.",
+      "applicationPrompt": "Two sentences share only the word ‘is’ and only the code ‘ko’. What is the code for ‘is’?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-mixed-f",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-mixed",
+      "title": "Test the rule on every letter",
+      "prompt": "How do you make sure you have found the right rule?",
+      "formula": "1. Look for a change of order (reversed, pairs swapped)\n2. Undo it, then find the shift\n3. Check every letter, not just the first",
+      "variables": [],
+      "explanation": "Many rules fit the first letter; only the right one fits all of them.",
+      "example": "BRAIN → OJBSC: reversed NIARB, then each +1.",
+      "commonMistake": "Checking only the first letter and missing a reversal.",
+      "applicationPrompt": "If ROAD is written as EBPS, what is the rule?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cd-sc-ejoty",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "kind": "shortcut",
+      "title": "EJOTY",
+      "prompt": "How do you find a letter’s position in two seconds?",
+      "formula": "E 5 · J 10 · O 15 · T 20 · Y 25\nCount on or back from the nearest one",
+      "variables": [],
+      "explanation": "Five anchors, five apart, so no letter is more than two steps from one.",
+      "example": "R: T is 20, back 2 → 18. L: J is 10, on 2 → 12.",
+      "commonMistake": "Counting on from A every time and slipping by one.",
+      "applicationPrompt": "What is the position of V?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cd-sc-pairs",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "kind": "shortcut",
+      "title": "Opposite pairs",
+      "prompt": "How do you remember the opposite letters?",
+      "formula": "AZ BY CX DW EV FU GT HS IR JQ KP LO MN\nEach pair adds to 27",
+      "variables": [],
+      "explanation": "Memory hooks: \"GT\" (a road), \"HS\" (higher secondary), \"LO\", \"MN\" in the middle.",
+      "example": "GOLD → G↔T, O↔L, L↔O, D↔W: TLOW.",
+      "commonMistake": "Pairing M with M (no letter is its own opposite).",
+      "applicationPrompt": "Write the opposite of RAIN.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "coding-decoding-level-0",
+      "topicId": "coding-decoding",
+      "order": 0,
+      "title": "Letters as Numbers",
+      "description": "Shifts, opposites, number codes and sentences.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "cd-shift",
+        "cd-opposite",
+        "cd-number",
+        "cd-sentence",
+        "cd-mixed"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "coding-wheels"
+          },
+          {
+            "type": "text",
+            "title": "Everything is a position",
+            "body": "Write A = 1 up to Z = 26 and almost every code becomes arithmetic. A shift code adds the same number to every position, wrapping round after Z. EJOTY (E 5, J 10, O 15, T 20, Y 25) gets you to any letter in a step or two."
+          },
+          {
+            "type": "formula",
+            "title": "Shifts and opposites",
+            "body": "Shift k: new = old + k (wrap round 26)\nOpposite: new = 27 − old   (A ↔ Z, M ↔ N)",
+            "caption": "Shifting by 13 and taking opposites are both their own undo: code the code and you get the word back."
+          },
+          {
+            "type": "check",
+            "questionId": "coding-decoding-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Find the rule, then check every letter",
+            "body": "Compare the word and its code letter by letter. If the code’s letters look like the word’s letters moved, find the shift from one pair and check it on all of them. If nothing fits, look for a change of order: the word written backwards, or letters swapped in pairs. Decoding runs the rule backwards: undo the shift, then the reordering."
+          },
+          {
+            "type": "example",
+            "title": "Codes from sentences",
+            "body": "‘pick and drop’ = ‘ta na pa’, ‘drop the ball’ = ‘ka ta zo’. The only word in both is drop, and the only code in both is ta: drop = ta. Codes inside a sentence are jumbled, so a single sentence never settles a word on its own."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "The opposite of a letter is 27 − its position, not 26 − position. And check the whole word: a rule that fits the first letter may not fit the rest."
+          },
+          {
+            "type": "check",
+            "questionId": "coding-decoding-q-012"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "coding-decoding-level-1",
+      "topicId": "coding-decoding",
+      "order": 1,
+      "title": "Coding Rules",
+      "description": "Positions, shifts, opposites, number codes and sentence codes.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "coding-decoding-level-0"
+      ],
+      "conceptIds": [
+        "cd-shift",
+        "cd-opposite",
+        "cd-number",
+        "cd-sentence",
+        "cd-mixed"
+      ],
+      "formulaIds": [
+        "cd-positions-f",
+        "cd-shift-f",
+        "cd-opposite-f",
+        "cd-number-f",
+        "cd-sentence-f",
+        "cd-mixed-f",
+        "cd-sc-ejoty",
+        "cd-sc-pairs"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "coding-decoding-level-2",
+      "topicId": "coding-decoding",
+      "order": 2,
+      "title": "Simple Codes",
+      "description": "One shift, opposite letters, reversal and position codes.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "coding-decoding-level-1"
+      ],
+      "conceptIds": [
+        "cd-shift",
+        "cd-opposite",
+        "cd-number"
+      ],
+      "questionIds": [
+        "coding-decoding-q-001",
+        "coding-decoding-q-002",
+        "coding-decoding-q-003",
+        "coding-decoding-q-004",
+        "coding-decoding-q-005",
+        "coding-decoding-q-006",
+        "coding-decoding-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "coding-decoding-level-3",
+      "topicId": "coding-decoding",
+      "order": 3,
+      "title": "Patterns and Sentences",
+      "description": "Alternating shifts, reversal with a shift, number rules and sentence codes.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "coding-decoding-level-2"
+      ],
+      "conceptIds": [
+        "cd-shift",
+        "cd-mixed",
+        "cd-opposite",
+        "cd-number",
+        "cd-sentence"
+      ],
+      "questionIds": [
+        "coding-decoding-q-008",
+        "coding-decoding-q-009",
+        "coding-decoding-q-010",
+        "coding-decoding-q-011",
+        "coding-decoding-q-012",
+        "coding-decoding-q-013",
+        "coding-decoding-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "coding-decoding-level-4",
+      "topicId": "coding-decoding",
+      "order": 4,
+      "title": "Mixed Rules and Decoding",
+      "description": "Pair swaps, growing shifts, decoding and harder sentence sets.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "coding-decoding-level-3"
+      ],
+      "conceptIds": [
+        "cd-mixed",
+        "cd-shift",
+        "cd-number",
+        "cd-sentence"
+      ],
+      "questionIds": [
+        "coding-decoding-q-015",
+        "coding-decoding-q-016",
+        "coding-decoding-q-017",
+        "coding-decoding-q-018",
+        "coding-decoding-q-019",
+        "coding-decoding-q-020",
+        "coding-decoding-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "coding-decoding-level-5",
+      "topicId": "coding-decoding",
+      "order": 5,
+      "title": "Mixed Coding Practice",
+      "description": "All coding-decoding patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "coding-decoding-level-4"
+      ],
+      "conceptIds": [
+        "cd-shift",
+        "cd-opposite",
+        "cd-number",
+        "cd-sentence",
+        "cd-mixed"
+      ],
+      "questionQuery": {
+        "topicId": "coding-decoding",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "coding-decoding-q-001",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a certain code, COLD is written as DPME. How is WARM written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VZQL"
+        },
+        {
+          "id": "b",
+          "text": "XBSN"
+        },
+        {
+          "id": "c",
+          "text": "YCTO"
+        },
+        {
+          "id": "d",
+          "text": "XBSO"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "C → D, O → P, L → M, D → E: every letter moves one place forward. W → X, A → B, R → S, M → N: XBSN.",
+      "solutionSteps": [
+        "Each letter of COLD moves +1.",
+        "WARM +1 = XBSN."
+      ],
+      "formulaIds": [
+        "cd-shift-f",
+        "cd-positions-f"
+      ],
+      "method": "Find the shift from one letter and check it on all.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare C with D: how many places apart?"
+        },
+        {
+          "level": 2,
+          "text": "Move each letter of WARM by the same amount."
+        }
+      ],
+      "commonMistakes": [
+        "Shifting backwards (VZQL)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-002",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a certain code, TRAIN is written as QOXFK. How is PLANE written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SODQH"
+        },
+        {
+          "id": "b",
+          "text": "MIXKB"
+        },
+        {
+          "id": "c",
+          "text": "MIYKB"
+        },
+        {
+          "id": "d",
+          "text": "NJYLC"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "T → Q, R → O, A → X, I → F, N → K: each letter moves 3 places back (A wraps round to X). P → M, L → I, A → X, N → K, E → B: MIXKB.",
+      "solutionSteps": [
+        "T (20) → Q (17): −3. Same for every letter.",
+        "A − 3 wraps round: Z, Y, X.",
+        "PLANE −3 = MIXKB."
+      ],
+      "formulaIds": [
+        "cd-shift-f"
+      ],
+      "method": "A backward shift wraps from A to Z.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many places back is Q from T?"
+        },
+        {
+          "level": 2,
+          "text": "Going back from A: Z, Y, X ..."
+        }
+      ],
+      "commonMistakes": [
+        "Shifting forward instead (SODQH).",
+        "Wrapping round one place out: A − 3 is X, not Y (MIYKB)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-003",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a certain code, GOLD is written as TLOW. How is SILK written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HROP"
+        },
+        {
+          "id": "b",
+          "text": "PORH"
+        },
+        {
+          "id": "c",
+          "text": "GSKL"
+        },
+        {
+          "id": "d",
+          "text": "HRNO"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "G ↔ T, O ↔ L, L ↔ O, D ↔ W: each letter is replaced by its opposite (positions add to 27). S → H, I → R, L → O, K → P: HROP.",
+      "solutionSteps": [
+        "G (7) + T (20) = 27: opposite letters.",
+        "S → H, I → R, L → O, K → P."
+      ],
+      "formulaIds": [
+        "cd-opposite-f",
+        "cd-sc-pairs"
+      ],
+      "method": "Check whether the position sums are all 27.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the positions of G and T."
+        },
+        {
+          "level": 2,
+          "text": "Use the opposite pairs: HS, IR, LO, KP."
+        }
+      ],
+      "commonMistakes": [
+        "Also reversing the word (PORH) when the order is unchanged."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-004",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If CAT is written as 3-1-20, how is DOG written?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4-15-7"
+        },
+        {
+          "id": "b",
+          "text": "4-14-7"
+        },
+        {
+          "id": "c",
+          "text": "5-15-7"
+        },
+        {
+          "id": "d",
+          "text": "4-15-8"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Each letter is replaced by its position: C 3, A 1, T 20. So D 4, O 15, G 7: 4-15-7.",
+      "solutionSteps": [
+        "The code lists the positions.",
+        "D = 4, O = 15, G = 7."
+      ],
+      "formulaIds": [
+        "cd-positions-f",
+        "cd-sc-ejoty"
+      ],
+      "method": "Letters become their alphabet positions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the alphabet positions (A = 1, ... Z = 26) under both words. EJOTY helps: E 5, J 10, O 15, T 20, Y 25."
+        },
+        {
+          "level": 2,
+          "text": "O is the 15th letter."
+        }
+      ],
+      "commonMistakes": [
+        "Counting O as 14."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-005",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a certain code, MOTHER is written as REHTOM. How is FATHER written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "REHTAF"
+        },
+        {
+          "id": "b",
+          "text": "FATHER"
+        },
+        {
+          "id": "c",
+          "text": "REHTFA"
+        },
+        {
+          "id": "d",
+          "text": "GBUIFS"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "REHTOM is MOTHER written backwards. FATHER backwards is REHTAF.",
+      "solutionSteps": [
+        "The code reverses the letters.",
+        "FATHER → REHTAF."
+      ],
+      "formulaIds": [
+        "cd-mixed-f"
+      ],
+      "method": "Read the code from right to left.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Read REHTOM backwards."
+        },
+        {
+          "level": 2,
+          "text": "Write FATHER from its last letter to its first."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping only some letters (REHTFA)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-006",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In the opposite-letter code, A ↔ Z, B ↔ Y, C ↔ X and so on. Which letter is coded as itself?",
+      "options": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "N"
+        },
+        {
+          "id": "c",
+          "text": "No letter"
+        },
+        {
+          "id": "d",
+          "text": "Z"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A letter would be its own opposite if its position p had p + p = 27, that is p = 13.5. No letter has that position: M (13) pairs with N (14).",
+      "solutionSteps": [
+        "Opposite position = 27 − p.",
+        "p = 27 − p needs p = 13.5: impossible.",
+        "The middle pair is M ↔ N."
+      ],
+      "formulaIds": [
+        "cd-opposite-f",
+        "cd-sc-pairs"
+      ],
+      "method": "Solve p = 27 − p.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A letter coded as itself would satisfy p = 27 − p."
+        },
+        {
+          "level": 2,
+          "text": "With 26 letters, the middle falls between M and N."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing M or N because they are in the middle."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-007",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "levelId": "coding-decoding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a certain code, BAD is written as 7. What number is CAB written as in that code?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "B 2 + A 1 + D 4 = 7: the code is the sum of the positions. CAB: 3 + 1 + 2 = 6.",
+      "solutionSteps": [
+        "BAD: 2 + 1 + 4 = 7, the sum of positions.",
+        "CAB: 3 + 1 + 2 = 6."
+      ],
+      "formulaIds": [
+        "cd-number-f",
+        "cd-positions-f"
+      ],
+      "method": "Try the plain sum of positions first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the positions of B, A and D."
+        },
+        {
+          "level": 2,
+          "text": "Do the same for C, A, B."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the positions in a row (312) instead of adding them."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-008",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In a certain code, GARDEN is written as HZSCFM. How is FLOWER written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "GKPVFQ"
+        },
+        {
+          "id": "b",
+          "text": "GMPXFS"
+        },
+        {
+          "id": "c",
+          "text": "EKNVDQ"
+        },
+        {
+          "id": "d",
+          "text": "GKPVFS"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "G → H (+1), A → Z (−1), R → S (+1), D → C (−1), E → F (+1), N → M (−1): the shifts alternate +1, −1. FLOWER: F +1 = G, L −1 = K, O +1 = P, W −1 = V, E +1 = F, R −1 = Q: GKPVFQ.",
+      "solutionSteps": [
+        "Shifts: +1, −1, +1, −1, +1, −1.",
+        "FLOWER → G K P V F Q."
+      ],
+      "formulaIds": [
+        "cd-shift-f"
+      ],
+      "method": "Write the shift under every letter; look for a repeating pattern.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A → Z is one place back, but G → H is one place forward."
+        },
+        {
+          "level": 2,
+          "text": "The shifts alternate. Start with +1 on the first letter."
+        }
+      ],
+      "commonMistakes": [
+        "Using +1 for every letter (GMPXFS).",
+        "Getting the last letter wrong by not keeping the alternation going (GKPVFS)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-009",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-mixed",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In a certain code, BRAIN is written as OJBSC. How is TRAIN written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "USBJO"
+        },
+        {
+          "id": "b",
+          "text": "OJBSU"
+        },
+        {
+          "id": "c",
+          "text": "NIART"
+        },
+        {
+          "id": "d",
+          "text": "OJBSD"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "BRAIN backwards is NIARB; moving each letter one place forward gives OJBSC. TRAIN backwards is NIART; +1 gives OJBSU.",
+      "solutionSteps": [
+        "Reverse: BRAIN → NIARB.",
+        "Shift +1: NIARB → OJBSC.",
+        "TRAIN → NIART → OJBSU."
+      ],
+      "formulaIds": [
+        "cd-mixed-f",
+        "cd-shift-f"
+      ],
+      "method": "Look for the word’s letters (or their neighbours) in reverse order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The code ends in C, one after B, the first letter of BRAIN."
+        },
+        {
+          "level": 2,
+          "text": "Reverse the word first, then shift."
+        }
+      ],
+      "commonMistakes": [
+        "Shifting without reversing (USBJO).",
+        "Reversing without shifting (NIART)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-010",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-opposite",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In a certain code, FRIEND is written as WMVRIU. How is ENEMY written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VMVNB"
+        },
+        {
+          "id": "b",
+          "text": "BNVMV"
+        },
+        {
+          "id": "c",
+          "text": "YMENE"
+        },
+        {
+          "id": "d",
+          "text": "BNVNV"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Opposites of FRIEND: U I R V M W; written backwards: WMVRIU. ENEMY: opposites V M V N B, backwards BNVMV.",
+      "solutionSteps": [
+        "F ↔ U, R ↔ I, I ↔ R, E ↔ V, N ↔ M, D ↔ W: UIRVMW.",
+        "The code is that, reversed: WMVRIU.",
+        "ENEMY → VMVNB → BNVMV."
+      ],
+      "formulaIds": [
+        "cd-opposite-f",
+        "cd-mixed-f"
+      ],
+      "method": "Opposite letters, then reverse the order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The code’s last letter U is the opposite of F, the first letter."
+        },
+        {
+          "level": 2,
+          "text": "Take opposites, then write them backwards."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to reverse (VMVNB)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-011",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a certain code, PEN is written as 105. What number is INK written as in that code?",
+      "answer": {
+        "value": 102,
+        "tolerance": 0
+      },
+      "explanation": "P 16 + E 5 + N 14 = 35, and 105 = 35 × 3, the sum times the number of letters. INK: 9 + 14 + 11 = 34; 34 × 3 = 102.",
+      "solutionSteps": [
+        "PEN: sum 35; 105 ÷ 35 = 3 = number of letters.",
+        "INK: sum 34; × 3 = 102."
+      ],
+      "formulaIds": [
+        "cd-number-f"
+      ],
+      "method": "Compare the code with the plain sum of positions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the positions in PEN. How does the sum compare with 105?"
+        },
+        {
+          "level": 2,
+          "text": "105 is 3 times the sum, and PEN has 3 letters."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the plain sum, 34.",
+        "Doubling the sum (68)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-012",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-sentence",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the code for ‘ball’?",
+      "context": "In a certain code language:\n1. ‘pick and drop’ is written as ‘ta na pa’.\n2. ‘drop the ball’ is written as ‘ka ta zo’.\n3. ‘pick the flower’ is written as ‘zo ri na’.",
+      "options": [
+        {
+          "id": "a",
+          "text": "‘zo’"
+        },
+        {
+          "id": "b",
+          "text": "‘ka’"
+        },
+        {
+          "id": "c",
+          "text": "‘ta’"
+        },
+        {
+          "id": "d",
+          "text": "‘ri’"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "‘drop’ is in sentences 1 and 2; their common code is ta, so drop = ta. ‘the’ is in sentences 2 and 3; their common code is zo, so the = zo. Sentence 2 is ‘drop the ball’ = ‘ka ta zo’, so ball = ka.",
+      "solutionSteps": [
+        "drop (1, 2) = ta.",
+        "the (2, 3) = zo.",
+        "ball = the code left in sentence 2: ka."
+      ],
+      "formulaIds": [
+        "cd-sentence-f"
+      ],
+      "method": "Settle the shared words first; the code left over is the answer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which words of ‘drop the ball’ also appear in other sentences?"
+        },
+        {
+          "level": 2,
+          "text": "Compare sentence 2 with sentence 1, then with sentence 3."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing zo, which is shared with sentence 3 and so belongs to ‘the’."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-013",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-sentence",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the code for ‘monsoon’?",
+      "context": "In a certain code language:\n1. ‘monsoon rain is heavy’ is written as ‘zu pi ko ra’.\n2. ‘heavy traffic is slow’ is written as ‘ra mi ko fe’.\n3. ‘slow rain falls’ is written as ‘fe tu pi’.",
+      "options": [
+        {
+          "id": "a",
+          "text": "‘ko’"
+        },
+        {
+          "id": "b",
+          "text": "‘zu’"
+        },
+        {
+          "id": "c",
+          "text": "‘pi’"
+        },
+        {
+          "id": "d",
+          "text": "‘ra’"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "‘rain’ is in sentences 1 and 3, sharing only pi: rain = pi. ‘is’ and ‘heavy’ are both in sentences 1 and 2, which share ko and ra, so those two codes go to is and heavy. In sentence 1 (‘monsoon rain is heavy’ = ‘zu pi ko ra’), the code left is zu: monsoon = zu.",
+      "solutionSteps": [
+        "rain = pi (sentences 1 and 3).",
+        "is and heavy take ko and ra (sentences 1 and 2).",
+        "monsoon = zu."
+      ],
+      "formulaIds": [
+        "cd-sentence-f"
+      ],
+      "method": "Eliminate the codes of the other words in the sentence.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which codes of sentence 1 also appear in sentence 2? In sentence 3?"
+        },
+        {
+          "level": 2,
+          "text": "Three of the four codes in sentence 1 belong to shared words."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing ko or ra without noticing they belong to the words shared with sentence 2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-014",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-sentence",
+      "levelId": "coding-decoding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "For which of these words can the code NOT be found for certain? Select all that apply.",
+      "context": "In a certain code language:\n1. ‘monsoon rain is heavy’ is written as ‘zu pi ko ra’.\n2. ‘heavy traffic is slow’ is written as ‘ra mi ko fe’.\n3. ‘slow rain falls’ is written as ‘fe tu pi’.",
+      "options": [
+        {
+          "id": "a",
+          "text": "‘monsoon’"
+        },
+        {
+          "id": "b",
+          "text": "‘is’"
+        },
+        {
+          "id": "c",
+          "text": "‘heavy’"
+        },
+        {
+          "id": "d",
+          "text": "‘slow’"
+        },
+        {
+          "id": "e",
+          "text": "‘falls’"
+        }
+      ],
+      "correctAnswer": [
+        "b",
+        "c"
+      ],
+      "explanation": "‘is’ and ‘heavy’ appear in exactly the same sentences (1 and 2), which share two codes, ko and ra. Nothing separates them, so either could be ko. monsoon = zu, slow = fe (sentences 2 and 3), falls = tu.",
+      "solutionSteps": [
+        "slow (2, 3) = fe; rain (1, 3) = pi; then falls = tu, traffic = mi, monsoon = zu.",
+        "is and heavy share sentences 1 and 2 and the codes ko, ra.",
+        "No sentence has one without the other: undecided."
+      ],
+      "formulaIds": [
+        "cd-sentence-f"
+      ],
+      "method": "Two words that always appear together can never be told apart.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the code for each word in turn."
+        },
+        {
+          "level": 2,
+          "text": "Do ‘is’ and ‘heavy’ ever appear apart?"
+        }
+      ],
+      "commonMistakes": [
+        "Picking one of ko and ra for ‘is’ just because of word order."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-015",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-mixed",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a certain code, PAPER is written as BQFQS. In the same code, which word is written as MQUBF?",
+      "options": [
+        {
+          "id": "a",
+          "text": "PLATE"
+        },
+        {
+          "id": "b",
+          "text": "LPTAE"
+        },
+        {
+          "id": "c",
+          "text": "NRVCG"
+        },
+        {
+          "id": "d",
+          "text": "PLEAT"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "PAPER with its letters swapped in pairs is APEPR (PA → AP, PE → EP, R stays); moving each letter +1 gives BQFQS. To decode MQUBF, move each letter back one, LPTAE, then swap the pairs back: PLATE.",
+      "solutionSteps": [
+        "Rule: swap pairs (1st ↔ 2nd, 3rd ↔ 4th), then +1.",
+        "Decode: MQUBF −1 = LPTAE.",
+        "Swap the pairs back: PL, AT, E → PLATE."
+      ],
+      "formulaIds": [
+        "cd-mixed-f"
+      ],
+      "method": "Find the rule; decode by running it backwards.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "B and Q are one after A and P: the first two letters of PAPER, swapped."
+        },
+        {
+          "level": 2,
+          "text": "Undo the +1, then undo the swap."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping after undoing the shift (LPTAE).",
+        "Shifting forward instead of back (NRVCG)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-016",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-shift",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a certain code, BEST is written as CGVX. How is WORK written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "XQUO"
+        },
+        {
+          "id": "b",
+          "text": "XPSL"
+        },
+        {
+          "id": "c",
+          "text": "XQUN"
+        },
+        {
+          "id": "d",
+          "text": "YQUO"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "B → C (+1), E → G (+2), S → V (+3), T → X (+4): the shift grows by one each letter. W +1 = X, O +2 = Q, R +3 = U, K +4 = O: XQUO.",
+      "solutionSteps": [
+        "Shifts: +1, +2, +3, +4.",
+        "WORK → X, Q, U, O."
+      ],
+      "formulaIds": [
+        "cd-shift-f",
+        "cd-mixed-f"
+      ],
+      "method": "Write the shift under each letter: here it grows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the shift for each letter separately: it is not the same."
+        },
+        {
+          "level": 2,
+          "text": "The shifts go 1, 2, 3, 4."
+        }
+      ],
+      "commonMistakes": [
+        "Using +1 throughout (XPSL).",
+        "Using +3 for the last letter (XQUN)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-017",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a certain code, ACE is written as 72. What number is BIG written as in that code?",
+      "answer": {
+        "value": 63,
+        "tolerance": 0
+      },
+      "explanation": "The plain sum of ACE is 1 + 3 + 5 = 9, not 72. With opposite letters (27 − p): A → 26, C → 24, E → 22, sum 72. So BIG: B → 25, I → 18, G → 20; 25 + 18 + 20 = 63.",
+      "solutionSteps": [
+        "ACE: 26 + 24 + 22 = 72, the opposite positions.",
+        "BIG: 25 + 18 + 20 = 63."
+      ],
+      "formulaIds": [
+        "cd-number-f",
+        "cd-opposite-f"
+      ],
+      "method": "If the plain sum is far off, try the opposite positions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The plain sum of ACE is only 9. Which rule makes 72?"
+        },
+        {
+          "level": 2,
+          "text": "Use 27 − p for each letter."
+        }
+      ],
+      "commonMistakes": [
+        "Using 26 − p for the opposite letter (60).",
+        "Giving the plain sum of BIG (25)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-018",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-mixed",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a certain code, SPRING is written as ELGPNQ. How is AUTUMN written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "LKSRSY"
+        },
+        {
+          "id": "b",
+          "text": "YSRSKL"
+        },
+        {
+          "id": "c",
+          "text": "PONVWC"
+        },
+        {
+          "id": "d",
+          "text": "LKSRSZ"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "SPRING backwards is GNIRPS; moving each letter two places back gives ELGPNQ. AUTUMN backwards is NMUTUA; two places back: L K S R S Y.",
+      "solutionSteps": [
+        "Reverse, then −2.",
+        "AUTUMN → NMUTUA.",
+        "NMUTUA − 2 = LKSRSY (A − 2 wraps to Y)."
+      ],
+      "formulaIds": [
+        "cd-mixed-f",
+        "cd-shift-f"
+      ],
+      "method": "Undo the order first, then the shift appears.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "ELGPNQ ends in Q, two after S, the first letter of SPRING."
+        },
+        {
+          "level": 2,
+          "text": "Reverse AUTUMN, then move each letter back two, wrapping A to Y."
+        }
+      ],
+      "commonMistakes": [
+        "Shifting without reversing (YSRSKL).",
+        "Taking A − 2 as Z (LKSRSZ)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-019",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-sentence",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What does ‘ve’ stand for?",
+      "context": "In a certain code language:\n1. ‘cats eat fish’ is written as ‘mo ri ta’.\n2. ‘dogs eat bones’ is written as ‘ta ve su’.\n3. ‘cats chase dogs’ is written as ‘su lo ri’.",
+      "options": [
+        {
+          "id": "a",
+          "text": "‘dogs’"
+        },
+        {
+          "id": "b",
+          "text": "‘bones’"
+        },
+        {
+          "id": "c",
+          "text": "‘eat’"
+        },
+        {
+          "id": "d",
+          "text": "‘fish’"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "‘eat’ is in sentences 1 and 2, sharing ta: eat = ta. ‘dogs’ is in sentences 2 and 3, sharing su: dogs = su. Sentence 2, ‘dogs eat bones’ = ‘ta ve su’, leaves ve for bones.",
+      "solutionSteps": [
+        "eat = ta (1 and 2).",
+        "dogs = su (2 and 3).",
+        "ve = bones."
+      ],
+      "formulaIds": [
+        "cd-sentence-f"
+      ],
+      "method": "Settle the shared words; the leftover code is the unshared word.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "ve appears only in sentence 2. Which words are only in sentence 2?"
+        },
+        {
+          "level": 2,
+          "text": "Find the codes of the shared words eat and dogs first."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing dogs: its code is shared with sentence 3 (su)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-020",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-mixed",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a certain code, each letter is first replaced by its opposite letter (A ↔ Z, B ↔ Y, ...) and then moved one place forward in the alphabet. How is KING written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "QSNU"
+        },
+        {
+          "id": "b",
+          "text": "PRMT"
+        },
+        {
+          "id": "c",
+          "text": "ORMS"
+        },
+        {
+          "id": "d",
+          "text": "QSOU"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Opposites: K → P, I → R, N → M, G → T. One place forward: Q, S, N, U: QSNU.",
+      "solutionSteps": [
+        "KING → PRMT (opposites).",
+        "PRMT + 1 = QSNU."
+      ],
+      "formulaIds": [
+        "cd-opposite-f",
+        "cd-shift-f"
+      ],
+      "method": "Apply the two steps in the order given.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First take the opposite of each letter."
+        },
+        {
+          "level": 2,
+          "text": "Then move each one place forward."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping after the first step (PRMT).",
+        "Moving back instead of forward (ORMS)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coding-decoding-q-021",
+      "topicId": "coding-decoding",
+      "conceptId": "cd-number",
+      "levelId": "coding-decoding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a code, the letters are numbered backwards: A = 26, B = 25, C = 24, ..., Z = 1. A word’s code is the sum of its letters’ numbers. What is the code for BAT?",
+      "answer": {
+        "value": 58,
+        "tolerance": 0
+      },
+      "explanation": "Each letter’s number is 27 − its position. B → 25, A → 26, T → 27 − 20 = 7. Sum 25 + 26 + 7 = 58.",
+      "solutionSteps": [
+        "Number = 27 − position.",
+        "B 25, A 26, T 7.",
+        "25 + 26 + 7 = 58."
+      ],
+      "formulaIds": [
+        "cd-opposite-f",
+        "cd-number-f"
+      ],
+      "method": "Backward numbering is 27 − position.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "T is the 20th letter. What is its number counting from Z?"
+        },
+        {
+          "level": 2,
+          "text": "Its number is 27 − 20."
+        }
+      ],
+      "commonMistakes": [
+        "Taking T as 6 (26 − 20)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1620 @@
+{
+  "topicId": "direction-sense",
+  "concepts": [
+    {
+      "id": "ds-turns",
+      "topicId": "direction-sense",
+      "name": "Turns and the final direction",
+      "description": "Right is a quarter turn clockwise and left a quarter turn anticlockwise, whichever way you face; add the turns as angles.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ds-distance",
+      "topicId": "direction-sense",
+      "name": "Shortest distance from the start",
+      "description": "Add up the east–west and the north–south movement separately, then use Pythagoras.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ds-position",
+      "topicId": "direction-sense",
+      "name": "Where one point lies from another",
+      "description": "The signs of the net east and north movement name the direction: north-east, south-west and so on.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ds-shadow",
+      "topicId": "direction-sense",
+      "name": "Shadows and the sun",
+      "description": "The sun rises in the east, so morning shadows point west and evening shadows point east.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ds-compass-f",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "title": "Compass and turns",
+      "prompt": "Facing south, which way do you face after turning right?",
+      "formula": "Clockwise: N → NE → E → SE → S → SW → W → NW → N (45° each)\nRight = 90° clockwise, left = 90° anticlockwise, about turn = 180°",
+      "variables": [],
+      "explanation": "Left and right belong to the walker, not to the page: turn the compass, not the paper.",
+      "example": "Facing south and turning right: S + 90° clockwise = west.",
+      "commonMistake": "Turning by the page: a right turn while facing south is west, not east.",
+      "applicationPrompt": "Facing west, Ravi turns left. Which way does he face?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ds-net-f",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "title": "Net movement",
+      "prompt": "How do you find where a walker ends up after several legs?",
+      "formula": "Net east = east legs − west legs\nNet north = north legs − south legs",
+      "variables": [],
+      "explanation": "Only the totals along each line matter; the order of the legs does not change the end point.",
+      "example": "5 km N, 3 km E, 9 km S, 1 km W: net 2 km east, 4 km south.",
+      "commonMistake": "Adding every leg, which gives the distance walked, not the position.",
+      "applicationPrompt": "A walker goes 6 km E, 2 km N, 10 km W. Where is she from the start?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ds-distance-f",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "title": "Shortest distance",
+      "prompt": "A walker ends x km east and y km north of the start. How far away is she?",
+      "formula": "Distance = √(x² + y²)",
+      "variables": [
+        "x = net east–west distance",
+        "y = net north–south distance"
+      ],
+      "explanation": "The two net movements are the sides of a right-angled triangle; the way back is its hypotenuse.",
+      "example": "6 km east and 8 km north: √(36 + 64) = 10 km.",
+      "commonMistake": "Adding x and y instead of using Pythagoras.",
+      "applicationPrompt": "A cyclist ends 5 km west and 12 km south of the start. How far is she from it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ds-direction-f",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "title": "Direction from the start",
+      "prompt": "How do you name the direction of the end point from the start?",
+      "formula": "North or south from the sign of the net north movement\nEast or west from the sign of the net east movement\nBoth non-zero: north-east, north-west, south-east or south-west",
+      "variables": [],
+      "explanation": "Exams name the quadrant (north-east and so on) unless the point lies exactly on a line.",
+      "example": "Net 3 km east and 4 km south: south-east of the start. The start is north-west of the walker.",
+      "commonMistake": "Answering where the start is from the walker when asked the reverse.",
+      "applicationPrompt": "Q is 5 km west and 2 km north of P. In which direction is P from Q?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ds-shadow-f",
+      "topicId": "direction-sense",
+      "conceptId": "ds-shadow",
+      "title": "Shadows",
+      "prompt": "Which way does a shadow point in the morning, and in the evening?",
+      "formula": "Morning: sun in the east → shadow points west\nEvening: sun in the west → shadow points east",
+      "variables": [],
+      "explanation": "A shadow always points away from the sun. (Around noon in India the sun is high, so questions use morning or evening.)",
+      "example": "In the morning your shadow falls to your left: west is on your left, so you face north.",
+      "commonMistake": "Pointing the shadow towards the sun.",
+      "applicationPrompt": "In the evening, Meena’s shadow falls behind her. Which way does she face?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ds-sc-turns",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "kind": "shortcut",
+      "title": "Count the turns",
+      "prompt": "How can you find the final facing after many turns without tracking each one?",
+      "formula": "Count right turns +1 and left turns −1 (about turn = 2)\nNet ÷ 4: the remainder 0, 1, 2, 3 = same, right, about, left",
+      "variables": [],
+      "explanation": "Four right turns bring you back, so only the net count matters.",
+      "example": "Facing east: R, R, L, R, L, L, L → +1 +1 −1 +1 −1 −1 −1 = −1, one left turn: north.",
+      "commonMistake": "Counting a left turn as +1.",
+      "applicationPrompt": "Facing north: L, L, R, L. Which way now?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ds-sc-triples",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "kind": "shortcut",
+      "title": "Right-angle triples",
+      "prompt": "Which right-angled triangles have whole-number sides?",
+      "formula": "3, 4, 5 · 6, 8, 10 · 5, 12, 13 · 8, 15, 17 · 9, 12, 15 · 12, 16, 20 · 7, 24, 25",
+      "variables": [],
+      "explanation": "Exam routes are built on these, so a net movement of 9 and 12 means the answer is 15.",
+      "example": "12 km east, 5 km north: 5, 12, 13, so 13 km.",
+      "commonMistake": "Answering 17 for 5 and 12 (that is 8, 15, 17).",
+      "applicationPrompt": "Net 15 km south and 8 km west: how far?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "direction-sense-level-0",
+      "topicId": "direction-sense",
+      "order": 0,
+      "title": "Which Way Now?",
+      "description": "Turns, the way back, and shadows.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ds-turns",
+        "ds-distance",
+        "ds-position",
+        "ds-shadow"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "direction-walk"
+          },
+          {
+            "type": "text",
+            "title": "Turn like the walker, not the page",
+            "body": "Right is always a quarter turn clockwise and left a quarter turn anticlockwise, from wherever the walker is facing. Facing south, a right turn points west. Keep a compass in the corner of your sketch and turn the arrow, not the paper."
+          },
+          {
+            "type": "formula",
+            "title": "Eight directions, 45° apart",
+            "body": "N → NE → E → SE → S → SW → W → NW → N  (clockwise)\nRight = +90°   Left = −90°   About turn = 180°",
+            "caption": "Add the turns as angles; the net angle from the start direction gives the final facing."
+          },
+          {
+            "type": "check",
+            "questionId": "direction-sense-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The way back is a hypotenuse",
+            "body": "To find how far the walker is from the start, add the movement along each line separately: east minus west, north minus south. The two totals are the sides of a right-angled triangle, and the straight way back is its long side: √(x² + y²). The signs of the totals name the direction: 3 km east and 4 km south is 5 km south-east."
+          },
+          {
+            "type": "example",
+            "title": "A worked route",
+            "body": "Ravi walks 6 km north, turns right and walks 8 km. Net: 8 km east, 6 km north. Distance √(64 + 36) = 10 km, to the north-east of the start. The start is south-west of Ravi."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Shadows: the sun rises in the east, so a morning shadow points west and an evening shadow points east. Put the shadow on the side the question says, then read off the way the person faces."
+          },
+          {
+            "type": "check",
+            "questionId": "direction-sense-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "direction-sense-level-1",
+      "topicId": "direction-sense",
+      "order": 1,
+      "title": "Compass Rules",
+      "description": "Turns, net movement, Pythagoras, directions and shadows.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "direction-sense-level-0"
+      ],
+      "conceptIds": [
+        "ds-turns",
+        "ds-distance",
+        "ds-position",
+        "ds-shadow"
+      ],
+      "formulaIds": [
+        "ds-compass-f",
+        "ds-net-f",
+        "ds-distance-f",
+        "ds-direction-f",
+        "ds-shadow-f",
+        "ds-sc-turns",
+        "ds-sc-triples"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "direction-sense-level-2",
+      "topicId": "direction-sense",
+      "order": 2,
+      "title": "Single Turns and Short Walks",
+      "description": "One or two turns, two-leg walks and simple shadows.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "direction-sense-level-1"
+      ],
+      "conceptIds": [
+        "ds-turns",
+        "ds-distance",
+        "ds-shadow",
+        "ds-position"
+      ],
+      "questionIds": [
+        "direction-sense-q-001",
+        "direction-sense-q-002",
+        "direction-sense-q-003",
+        "direction-sense-q-004",
+        "direction-sense-q-005",
+        "direction-sense-q-006",
+        "direction-sense-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "direction-sense-level-3",
+      "topicId": "direction-sense",
+      "order": 3,
+      "title": "Longer Routes",
+      "description": "Several legs, about turns, positions of places and two people facing each other.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "direction-sense-level-2"
+      ],
+      "conceptIds": [
+        "ds-distance",
+        "ds-position",
+        "ds-turns",
+        "ds-shadow"
+      ],
+      "questionIds": [
+        "direction-sense-q-008",
+        "direction-sense-q-009",
+        "direction-sense-q-010",
+        "direction-sense-q-011",
+        "direction-sense-q-012",
+        "direction-sense-q-013",
+        "direction-sense-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "direction-sense-level-4",
+      "topicId": "direction-sense",
+      "order": 4,
+      "title": "Routes, Places and Big Turns",
+      "description": "Five-leg routes, distance with direction, two walkers and turns past a full circle.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "direction-sense-level-3"
+      ],
+      "conceptIds": [
+        "ds-distance",
+        "ds-position",
+        "ds-shadow",
+        "ds-turns"
+      ],
+      "questionIds": [
+        "direction-sense-q-015",
+        "direction-sense-q-016",
+        "direction-sense-q-017",
+        "direction-sense-q-018",
+        "direction-sense-q-019",
+        "direction-sense-q-020",
+        "direction-sense-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "direction-sense-level-5",
+      "topicId": "direction-sense",
+      "order": 5,
+      "title": "Mixed Direction Practice",
+      "description": "All direction-sense patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "direction-sense-level-4"
+      ],
+      "conceptIds": [
+        "ds-turns",
+        "ds-distance",
+        "ds-position",
+        "ds-shadow"
+      ],
+      "questionQuery": {
+        "topicId": "direction-sense",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "direction-sense-q-001",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Arjun stands facing north. He turns right, then turns right again, then turns left. Which direction is he facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "West"
+        },
+        {
+          "id": "b",
+          "text": "East"
+        },
+        {
+          "id": "c",
+          "text": "South"
+        },
+        {
+          "id": "d",
+          "text": "North"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Right from north is east; right again is south; left from south is east. Net: one right turn, so east.",
+      "solutionSteps": [
+        "North → right → east.",
+        "East → right → south.",
+        "South → left → east."
+      ],
+      "formulaIds": [
+        "ds-compass-f",
+        "ds-sc-turns"
+      ],
+      "method": "Turn the compass arrow one quarter at a time, or count R = +1, L = −1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A right turn is a quarter turn clockwise from wherever he faces."
+        },
+        {
+          "level": 2,
+          "text": "Two rights and one left leave one right turn in all."
+        }
+      ],
+      "commonMistakes": [
+        "Turning left as if he were still facing north (answering west)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-002",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Meena is facing west. She turns 135° clockwise. Which direction is she facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North-east"
+        },
+        {
+          "id": "b",
+          "text": "South-west"
+        },
+        {
+          "id": "c",
+          "text": "North-west"
+        },
+        {
+          "id": "d",
+          "text": "South-east"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from west: 45° to north-west, 90° to north, 135° to north-east.",
+      "solutionSteps": [
+        "Each 45° is one compass point.",
+        "135° = 3 points clockwise from west: NW, N, NE."
+      ],
+      "formulaIds": [
+        "ds-compass-f"
+      ],
+      "method": "Count compass points: 45° each.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many 45° steps make 135°?"
+        },
+        {
+          "level": 2,
+          "text": "Step clockwise from west: north-west, north, ..."
+        }
+      ],
+      "commonMistakes": [
+        "Turning anticlockwise (south-east).",
+        "Counting 135° as two points (north)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-003",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Ravi walks 6 km north, then turns right and walks 8 km. How far is he from his starting point?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14 km"
+        },
+        {
+          "id": "b",
+          "text": "2 km"
+        },
+        {
+          "id": "c",
+          "text": "10 km"
+        },
+        {
+          "id": "d",
+          "text": "12 km"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Facing north, a right turn points east. So Ravi is 6 km north and 8 km east of the start: √(6² + 8²) = √100 = 10 km.",
+      "solutionSteps": [
+        "Legs: 6 km north, 8 km east.",
+        "Distance = √(36 + 64) = 10 km."
+      ],
+      "formulaIds": [
+        "ds-distance-f",
+        "ds-sc-triples"
+      ],
+      "method": "The two legs are at right angles: use Pythagoras.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which direction does he walk after turning right from north?"
+        },
+        {
+          "level": 2,
+          "text": "The two legs form a right angle. 6, 8, ...?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the legs (14 km): that is the distance walked."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-004",
+      "topicId": "direction-sense",
+      "conceptId": "ds-shadow",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Early one morning, Kavya stands in a field and sees her shadow straight in front of her. Which direction is she facing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "East"
+        },
+        {
+          "id": "b",
+          "text": "North"
+        },
+        {
+          "id": "c",
+          "text": "West"
+        },
+        {
+          "id": "d",
+          "text": "South"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "In the morning the sun is in the east, so shadows point west. The shadow is in front of her, so she faces west.",
+      "solutionSteps": [
+        "Morning sun: east.",
+        "Shadow: west.",
+        "Shadow in front of her: she faces west."
+      ],
+      "formulaIds": [
+        "ds-shadow-f"
+      ],
+      "method": "Shadows point away from the sun.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is the sun early in the morning?"
+        },
+        {
+          "level": 2,
+          "text": "A shadow points away from the sun."
+        }
+      ],
+      "commonMistakes": [
+        "Facing the sun (east) instead of the shadow."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-005",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Suresh walks 5 km south, then turns left and walks 3 km. In which direction is he now from his starting point?",
+      "options": [
+        {
+          "id": "a",
+          "text": "South-west"
+        },
+        {
+          "id": "b",
+          "text": "North-east"
+        },
+        {
+          "id": "c",
+          "text": "South-east"
+        },
+        {
+          "id": "d",
+          "text": "North-west"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Facing south, a left turn points east. So Suresh is 5 km south and 3 km east of the start: south-east.",
+      "solutionSteps": [
+        "Facing south, left = east.",
+        "Net: 5 km south, 3 km east.",
+        "Direction: south-east."
+      ],
+      "formulaIds": [
+        "ds-compass-f",
+        "ds-direction-f"
+      ],
+      "method": "Find the net north–south and east–west movement, then name the quadrant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Facing south, which way is your left hand?"
+        },
+        {
+          "level": 2,
+          "text": "He is south of the start and ... of it."
+        }
+      ],
+      "commonMistakes": [
+        "Taking left as west, as it would be when facing north."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-006",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Lata is facing south-east. She turns 90° clockwise. Which direction is she facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North-east"
+        },
+        {
+          "id": "b",
+          "text": "South-west"
+        },
+        {
+          "id": "c",
+          "text": "North-west"
+        },
+        {
+          "id": "d",
+          "text": "South"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Clockwise from south-east: 45° to south, 90° to south-west.",
+      "solutionSteps": [
+        "90° = two compass points.",
+        "South-east → south → south-west."
+      ],
+      "formulaIds": [
+        "ds-compass-f"
+      ],
+      "method": "Count compass points clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "90° is two steps of 45°."
+        },
+        {
+          "level": 2,
+          "text": "From south-east, the next point clockwise is south."
+        }
+      ],
+      "commonMistakes": [
+        "Turning anticlockwise (north-east)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-007",
+      "topicId": "direction-sense",
+      "conceptId": "ds-shadow",
+      "levelId": "direction-sense-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "One evening, Imran stands in an open ground and notices that his shadow falls exactly to his right. Which direction is he facing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North"
+        },
+        {
+          "id": "b",
+          "text": "South"
+        },
+        {
+          "id": "c",
+          "text": "East"
+        },
+        {
+          "id": "d",
+          "text": "West"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "In the evening the sun is in the west, so shadows point east. With east on his right, Imran faces north.",
+      "solutionSteps": [
+        "Evening sun: west; shadow: east.",
+        "East on his right means he faces north."
+      ],
+      "formulaIds": [
+        "ds-shadow-f"
+      ],
+      "method": "Place the shadow, then turn yourself to match.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where does an evening shadow point?"
+        },
+        {
+          "level": 2,
+          "text": "Facing which way is east on your right?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the morning rule (shadow to the west), which gives south."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-008",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Priya walks 9 km east, then turns left and walks 5 km, then turns left and walks 3 km, then turns right and walks 3 km. How many kilometres is she from her starting point?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "km"
+      },
+      "explanation": "East 9; left from east is north, 5; left from north is west, 3; right from west is north, 3. Net: 9 − 3 = 6 km east and 5 + 3 = 8 km north. Distance √(36 + 64) = 10 km.",
+      "solutionSteps": [
+        "Directions: E 9, N 5, W 3, N 3.",
+        "Net east 6, net north 8.",
+        "√(6² + 8²) = 10 km."
+      ],
+      "formulaIds": [
+        "ds-net-f",
+        "ds-distance-f"
+      ],
+      "method": "Net east and net north, then Pythagoras.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sketch it: a dot for the start, north up the page, each leg drawn in turn."
+        },
+        {
+          "level": 2,
+          "text": "Add the north legs; subtract the west leg from the east leg."
+        }
+      ],
+      "commonMistakes": [
+        "Adding all four legs (20 km).",
+        "Turning right from west to south."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-009",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Gopal walks 4 km west, then turns right and walks 6 km, then turns right and walks 9 km, then turns right and walks 2 km. In which direction is he now from his starting point?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North-west"
+        },
+        {
+          "id": "b",
+          "text": "North-east"
+        },
+        {
+          "id": "c",
+          "text": "South-east"
+        },
+        {
+          "id": "d",
+          "text": "East"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "West 4; right from west is north, 6; right from north is east, 9; right from east is south, 2. Net: 9 − 4 = 5 km east, 6 − 2 = 4 km north. He is north-east of the start.",
+      "solutionSteps": [
+        "Directions: W 4, N 6, E 9, S 2.",
+        "Net: 5 km east, 4 km north.",
+        "North-east."
+      ],
+      "formulaIds": [
+        "ds-net-f",
+        "ds-direction-f"
+      ],
+      "method": "Signs of the net movement name the direction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sketch it: a dot for the start, north up the page, each leg drawn in turn."
+        },
+        {
+          "level": 2,
+          "text": "Is he east or west of the start at the end? North or south?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering with the last direction walked (south)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-010",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Deepa walks 12 km north, then turns back and walks 7 km, then turns left and walks 12 km. How far is she from where she started?",
+      "options": [
+        {
+          "id": "a",
+          "text": "31 km"
+        },
+        {
+          "id": "b",
+          "text": "13 km"
+        },
+        {
+          "id": "c",
+          "text": "17 km"
+        },
+        {
+          "id": "d",
+          "text": "19 km"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Turning back from north, she walks 7 km south, so she is 5 km north of the start. Facing south, left is east: 12 km east. Distance √(5² + 12²) = 13 km.",
+      "solutionSteps": [
+        "12 N then 7 S: net 5 km north.",
+        "Facing south, left = east: 12 km east.",
+        "√(25 + 144) = 13 km."
+      ],
+      "formulaIds": [
+        "ds-net-f",
+        "ds-distance-f",
+        "ds-sc-triples"
+      ],
+      "method": "After an about turn, left and right swap compared with the original facing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After turning back she faces south. Which way is her left now?"
+        },
+        {
+          "level": 2,
+          "text": "Net north is 12 − 7. Then use 5, 12, ..."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting that after the about turn she faces south, so her left is east.",
+        "Using 12 and 12 as the sides of the triangle."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-011",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Anita is facing north. She turns 90° clockwise, then turns 225° anticlockwise, then turns 45° clockwise. Which direction is she facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "East"
+        },
+        {
+          "id": "b",
+          "text": "West"
+        },
+        {
+          "id": "c",
+          "text": "South-west"
+        },
+        {
+          "id": "d",
+          "text": "North-west"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Net turn: +90 − 225 + 45 = −90°, that is 90° anticlockwise. From north, 90° anticlockwise is west.",
+      "solutionSteps": [
+        "Clockwise +, anticlockwise −.",
+        "90 − 225 + 45 = −90.",
+        "North turned 90° anticlockwise: west."
+      ],
+      "formulaIds": [
+        "ds-compass-f",
+        "ds-sc-turns"
+      ],
+      "method": "Add the angles with signs, turn once.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Give clockwise turns a + sign and anticlockwise turns a − sign."
+        },
+        {
+          "level": 2,
+          "text": "The net turn is 90° one way."
+        }
+      ],
+      "commonMistakes": [
+        "Adding all the angles as if they were the same way (360°, back to north)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-012",
+      "topicId": "direction-sense",
+      "conceptId": "ds-shadow",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "One morning, Vikram and Sunita stand talking, facing each other. Vikram notices that his shadow falls exactly to his right. Which direction is Sunita facing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "South"
+        },
+        {
+          "id": "b",
+          "text": "North"
+        },
+        {
+          "id": "c",
+          "text": "East"
+        },
+        {
+          "id": "d",
+          "text": "West"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Morning shadows point west. West is on Vikram’s right, so he faces south. Sunita faces him, so she faces north.",
+      "solutionSteps": [
+        "Morning: shadow points west.",
+        "West on his right: Vikram faces south.",
+        "Facing each other: Sunita faces north."
+      ],
+      "formulaIds": [
+        "ds-shadow-f"
+      ],
+      "method": "Settle the first person’s facing from the shadow, then turn round for the other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which way does Vikram face if west is on his right?"
+        },
+        {
+          "level": 2,
+          "text": "Two people facing each other face opposite directions."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Vikram’s direction (south) instead of Sunita’s."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-013",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Village P is 6 km north of Q, and village R is 8 km east of Q. How far, and in which direction, is R from P?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 km south-east"
+        },
+        {
+          "id": "b",
+          "text": "10 km north-west"
+        },
+        {
+          "id": "c",
+          "text": "14 km south-east"
+        },
+        {
+          "id": "d",
+          "text": "10 km north-east"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Put Q at the origin: P is at (0, 6), R at (8, 0). From P to R: 8 km east and 6 km south, so √(64 + 36) = 10 km, to the south-east.",
+      "solutionSteps": [
+        "Q (0, 0), P (0, 6), R (8, 0).",
+        "From P: 8 east, 6 south.",
+        "10 km south-east."
+      ],
+      "formulaIds": [
+        "ds-distance-f",
+        "ds-direction-f"
+      ],
+      "method": "Place the points on axes, then go from the first-named point to the other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw Q, then P straight above it and R to its right."
+        },
+        {
+          "level": 2,
+          "text": "Is R north or south of P? East or west?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving the direction of P from R (north-west).",
+        "Adding 6 and 8."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-014",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Mohan is facing north. Which of these sequences of turns leave him facing west? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Left"
+        },
+        {
+          "id": "b",
+          "text": "Right, right and right again"
+        },
+        {
+          "id": "c",
+          "text": "An about turn, then left"
+        },
+        {
+          "id": "d",
+          "text": "135° clockwise, then 45° clockwise"
+        },
+        {
+          "id": "e",
+          "text": "45° anticlockwise, twice"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explanation": "West is 90° anticlockwise (or 270° clockwise) from north. Left: −90° ✓. Three rights: +270° ✓. About turn then left: 180° − 90° = +90°, east ✗. 135° + 45° = 180°, south ✗. Two 45° anticlockwise turns: −90° ✓.",
+      "solutionSteps": [
+        "West from north = −90° or +270°.",
+        "Net turn of each option: −90, +270, +90, +180, −90.",
+        "The first, second and fifth work."
+      ],
+      "formulaIds": [
+        "ds-compass-f",
+        "ds-sc-turns"
+      ],
+      "method": "Reduce each sequence to one net angle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each sequence as a net angle, clockwise positive."
+        },
+        {
+          "level": 2,
+          "text": "Three right turns equal one left turn."
+        }
+      ],
+      "commonMistakes": [
+        "Treating \"about turn, then left\" as west (after an about turn he faces south; left from south is east)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-015",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Uma walks 3 km north, then turns right and walks 2 km, then turns right and walks 7 km, then turns left and walks 4 km, then turns right and walks 4 km. How far is she from her starting point?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 km"
+        },
+        {
+          "id": "b",
+          "text": "14 km"
+        },
+        {
+          "id": "c",
+          "text": "20 km"
+        },
+        {
+          "id": "d",
+          "text": "8 km"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Directions: N 3, E 2, S 7, E 4, S 4. Net east 2 + 4 = 6; net south 7 + 4 − 3 = 8. Distance √(36 + 64) = 10 km.",
+      "solutionSteps": [
+        "Facings: north, east, south, east, south.",
+        "Net: 6 km east, 8 km south.",
+        "√(6² + 8²) = 10 km."
+      ],
+      "formulaIds": [
+        "ds-net-f",
+        "ds-distance-f"
+      ],
+      "method": "Write each leg as a compass direction first; only then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sketch it: a dot for the start, north up the page, each leg drawn in turn."
+        },
+        {
+          "level": 2,
+          "text": "After \"right, right\" she faces south; a left from south is east."
+        }
+      ],
+      "commonMistakes": [
+        "Adding |6| + |8| = 14.",
+        "Taking the left turn from south as west."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-016",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Kiran cycles 9 km south, then turns left and cycles 8 km, then turns right and cycles 6 km. How far, and in which direction, is Kiran from the starting point?",
+      "options": [
+        {
+          "id": "a",
+          "text": "17 km south-east"
+        },
+        {
+          "id": "b",
+          "text": "17 km north-west"
+        },
+        {
+          "id": "c",
+          "text": "23 km south-east"
+        },
+        {
+          "id": "d",
+          "text": "15 km south-west"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "South 9; left from south is east, 8; right from east is south, 6. Net: 8 km east, 15 km south. √(64 + 225) = 17 km, south-east.",
+      "solutionSteps": [
+        "Directions: S 9, E 8, S 6.",
+        "Net: 8 east, 15 south.",
+        "8, 15, 17: 17 km south-east."
+      ],
+      "formulaIds": [
+        "ds-distance-f",
+        "ds-direction-f",
+        "ds-sc-triples"
+      ],
+      "method": "Net movement, then Pythagoras and the quadrant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Facing south, which way is left?"
+        },
+        {
+          "level": 2,
+          "text": "Net south is 9 + 6. Then 8, 15, ..."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the legs (23 km).",
+        "Taking left from south as west (south-west)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-017",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Asha and Bhanu start from the same point. Asha walks 7 km east. Bhanu walks 4 km north, then turns right and walks 4 km. How far, and in which direction, is Asha from Bhanu now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 km south-east"
+        },
+        {
+          "id": "b",
+          "text": "5 km north-west"
+        },
+        {
+          "id": "c",
+          "text": "7 km south-east"
+        },
+        {
+          "id": "d",
+          "text": "5 km north-east"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Asha is at (7, 0). Bhanu: 4 north, then right (east) 4, so at (4, 4). From Bhanu to Asha: 3 km east, 4 km south: 5 km, south-east.",
+      "solutionSteps": [
+        "Asha (7, 0); Bhanu (4, 4).",
+        "From Bhanu: +3 east, −4 north.",
+        "5 km south-east."
+      ],
+      "formulaIds": [
+        "ds-distance-f",
+        "ds-direction-f"
+      ],
+      "method": "Give both people coordinates from the common start, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where does each of them end up, as (east, north)?"
+        },
+        {
+          "level": 2,
+          "text": "Asha minus Bhanu: how far east, how far south?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering Bhanu’s direction from Asha (north-west)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-018",
+      "topicId": "direction-sense",
+      "conceptId": "ds-shadow",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Just after sunrise, Pooja walks 2 km towards her shadow, then turns left and walks 1 km. Which direction is she facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North"
+        },
+        {
+          "id": "b",
+          "text": "South"
+        },
+        {
+          "id": "c",
+          "text": "East"
+        },
+        {
+          "id": "d",
+          "text": "West"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Just after sunrise the sun is in the east, so her shadow points west and she walks west. Facing west, a left turn points south.",
+      "solutionSteps": [
+        "Morning shadow: west, so she first faces west.",
+        "Left from west = south."
+      ],
+      "formulaIds": [
+        "ds-shadow-f",
+        "ds-compass-f"
+      ],
+      "method": "Shadow first, then the turns.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which way does her shadow point just after sunrise?"
+        },
+        {
+          "level": 2,
+          "text": "Facing west, where is your left hand?"
+        }
+      ],
+      "commonMistakes": [
+        "Walking towards the sun (east), which gives north."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-019",
+      "topicId": "direction-sense",
+      "conceptId": "ds-turns",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Prakash is facing east. He turns 1035° clockwise on the spot. Which direction is he facing now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North-east"
+        },
+        {
+          "id": "b",
+          "text": "South-east"
+        },
+        {
+          "id": "c",
+          "text": "North-west"
+        },
+        {
+          "id": "d",
+          "text": "West"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Full turns change nothing: 1035 = 2 × 360 + 315. A 315° clockwise turn is the same as 45° anticlockwise. From east, 45° anticlockwise is north-east.",
+      "solutionSteps": [
+        "1035 − 720 = 315.",
+        "315° clockwise = 45° anticlockwise.",
+        "East → north-east."
+      ],
+      "formulaIds": [
+        "ds-compass-f"
+      ],
+      "method": "Remove whole turns of 360°, then turn the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Subtract 360° as many times as you can."
+        },
+        {
+          "level": 2,
+          "text": "315° clockwise is how much anticlockwise?"
+        }
+      ],
+      "commonMistakes": [
+        "Turning 45° clockwise instead of anticlockwise (south-east)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-020",
+      "topicId": "direction-sense",
+      "conceptId": "ds-distance",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A school bus goes 12 km north from the depot, then turns right and goes 10 km, then turns right and goes 4 km, then turns left and goes 5 km. How many kilometres is it from the depot (in a straight line)?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0,
+        "unit": "km"
+      },
+      "explanation": "North 12; right from north is east, 10; right from east is south, 4; left from south is east, 5. Net: 15 km east, 8 km north. √(225 + 64) = 17 km.",
+      "solutionSteps": [
+        "Directions: N 12, E 10, S 4, E 5.",
+        "Net: 15 east, 8 north.",
+        "8, 15, 17: 17 km."
+      ],
+      "formulaIds": [
+        "ds-net-f",
+        "ds-distance-f",
+        "ds-sc-triples"
+      ],
+      "method": "Net east and net north, then Pythagoras.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sketch it: a dot for the start, north up the page, each leg drawn in turn."
+        },
+        {
+          "level": 2,
+          "text": "Net north is 12 − 4; net east is 10 + 5."
+        }
+      ],
+      "commonMistakes": [
+        "Adding all the legs (31 km).",
+        "Taking left from south as west."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direction-sense-q-021",
+      "topicId": "direction-sense",
+      "conceptId": "ds-position",
+      "levelId": "direction-sense-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Point A is 4 m west of B, and point C is 4 m north of B. In which direction is A from C?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North-east"
+        },
+        {
+          "id": "b",
+          "text": "South-west"
+        },
+        {
+          "id": "c",
+          "text": "North-west"
+        },
+        {
+          "id": "d",
+          "text": "South-east"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Put B at the origin: A (−4, 0), C (0, 4). From C to A: 4 m west and 4 m south, so A is south-west of C.",
+      "solutionSteps": [
+        "B (0, 0), A (−4, 0), C (0, 4).",
+        "A − C = (−4, −4).",
+        "West and south: south-west."
+      ],
+      "formulaIds": [
+        "ds-direction-f"
+      ],
+      "method": "Coordinates from a common point, then \"target minus reference\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Place B at the centre of your sketch."
+        },
+        {
+          "level": 2,
+          "text": "Start at C and walk to A: which way do you go?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving C’s direction from A (north-east)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

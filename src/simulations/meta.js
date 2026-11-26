@@ -642,6 +642,43 @@ export const SIMULATION_META = [
     taskIds: ['solve-six', 'units', 'three']
   },
   // --- end of catTopics.js ---
+  // More logical reasoning (reasoningMore.js), in the order of reasoningMoreSims.
+  {
+    id: 'direction-walk',
+    topicId: 'direction-sense',
+    title: 'Follow the walker, turn by turn',
+    summary: 'Step through a route of turns and walks. The dashed line from the start is the shortest way back: its length comes from Pythagoras, its direction from the signs of the east and north totals.',
+    taskIds: ['five-km', 'face-west', 'end-r2']
+  },
+  {
+    id: 'coding-wheels',
+    topicId: 'coding-decoding',
+    title: 'Two alphabet wheels',
+    summary: 'Turn the inner wheel to shift every letter by the same amount, or switch to opposite letters (A ↔ Z). Read a letter on the outer wheel and its code just inside it; the word below is coded live.',
+    taskIds: ['india', 'back-one', 'zebra', 'thirteen']
+  },
+  {
+    id: 'ranking-row',
+    topicId: 'order-ranking',
+    title: 'Counting from both ends',
+    summary: 'A row of people with A and B marked. Count A’s place from each end and see why the total is left + right − 1; swap A and B and watch both positions change.',
+    taskIds: ['four-six', 'middle', 'three-between', 'swap']
+  },
+  {
+    id: 'cube-paint',
+    topicId: 'cubes-dice',
+    title: 'Cut a painted cube',
+    summary: 'A cube painted on every face is cut into n × n × n small cubes. Colour them by painted faces: the 8 corners have three, the edges two, the faces one, and the hidden inside none. Switch to the net of a die to see which faces end up opposite.',
+    taskIds: ['two-faces', 'inside', 'equal', 'net']
+  },
+  {
+    id: 'paper-fold',
+    topicId: 'mirror-paper-folding',
+    title: 'Fold, punch, unfold',
+    summary: 'Fold a sheet once, twice or along a diagonal, punch one hole through every layer, and open it out: each fold doubles the holes, reflected across the fold line. In clock mode, a mirror shows 11:60 minus the time.',
+    taskIds: ['two-open', 'diagonal', 'mirror-930', 'same']
+  },
+  // --- end of reasoningMore.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

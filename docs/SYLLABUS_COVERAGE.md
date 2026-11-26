@@ -6,7 +6,7 @@ How a simulation is tied to a topic:
 
 - Each simulation in `src/simulations/index.js` (mirrored in `meta.js`) has an `id` and an owning `topicId`. The topic page and the Explore gallery list it through `simulationsForTopic(topicId)`.
 - A lesson shows it inline through a block `{ "type": "simulation", "simulationId": "..." }` in `src/data/content/<topicId>.json`. A lesson may embed a simulation owned by another topic ("borrowed").
-- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, which also gave races, work-and-wages and quadratic-comparison their own, 75 after batch 7a, 80 after batch 4, 84 after batch 6). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
+- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, which also gave races, work-and-wages and quadratic-comparison their own, 75 after batch 7a, 80 after batch 4, 84 after batch 6, 89 after batch 7b). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
 
 Terms used below:
 
@@ -332,6 +332,8 @@ The borrowed one is reasonable for most. A dedicated one would help in these:
 
 These are grouped with quant in many exams. Bank prelims and mains have a full Reasoning section (puzzles and seating arrangements are the main named topics). SSC, RRB and placement tests have a reasoning section. CAT and XAT have DILR. GATE GA lists spatial aptitude. Calendars and clocks are already in the app as quant topics.
 
+Status: ten of these are now built, each with a simulation, at least 20 hand-written questions re-solved in tests, and generators for every concept, bringing the app (with batches 4 and 6) to 89 topics and 89 simulations. Batch 7a: seating arrangement, puzzles, syllogism, inequalities (reasoning) and blood relations. Batch 7b: direction sense (`direction-walk`), coding-decoding (`coding-wheels`), order and ranking (`ranking-row`), cubes and dice (`cube-paint`, with a die’s net) and mirror images and paper folding (`paper-fold`, with a mirror-clock mode). The cube simulation draws the cut cube with the solid renderer’s slant rather than rotating it by drag. Still open: logical DI sets, series and analogy, mathematical operations, input-output and reasoning data sufficiency.
+
 | Topic | Exams | Typical questions | Priority | Animation idea |
 |---|---|---|---|---|
 | Seating arrangement (linear, circular, facing in/out) | Bank (frequently), Placement, SSC (occasionally) | who sits opposite; neighbours of X; count between two people; facing direction | High | People slide into seats one clue at a time. A clue that breaks the layout flashes red. Notice: fix the most constrained person first. |
@@ -388,8 +390,8 @@ Each batch is 4 to 6 items. Highest value first: topics tested in the most exams
 - Done: the four topics, each with its own simulation (84 topics and 84 simulations once merged with batch 4). The three dedicated sims came with batch 5.
 
 **Batch 7 onward — Reasoning (only if the scope widens)**
-- 7a: seating arrangement, puzzles, syllogism, inequalities (reasoning), blood relations.
-- 7b: direction sense, coding-decoding, order and ranking, cubes and dice, mirror and paper folding.
+- 7a (done): seating arrangement, puzzles, syllogism, inequalities (reasoning), blood relations.
+- 7b (done): direction sense, coding-decoding, order and ranking, cubes and dice, mirror and paper folding.
 - 7c: logical DI sets for CAT, series and analogy, mathematical operations, input-output.
 - Low: taxes and commission (2.14).
 

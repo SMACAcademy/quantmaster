@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(84);
+  await expect(page.locator('.sim-card')).toHaveCount(89);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -272,6 +272,34 @@ test('reasoning simulations: seats fill in, the grid fills itself, the tree grow
   await page.locator('.sim-task', { hasText: 'how A is related to F' }).getByRole('button', { name: 'Show me' }).click();
   await expect(page.locator('.sim-readout', { hasText: 'How A is related to F' }).locator('dd')).toHaveText('A is F’s grandfather.');
   await expect(page.locator('.rp-node')).toHaveCount(6);
+  expect(errors).toEqual([]);
+});
+
+test('more reasoning simulations: the walker, the wheels, the row, the cut cube, the folded sheet', async ({ page }) => {
+  const errors = watchForErrors(page);
+
+  await page.goto('/#/explore/direction-walk');
+  await page.getByRole('slider', { name: 'Legs walked' }).focus();
+  await page.keyboard.press('End');
+  await expect(page.locator('.sim-readout', { hasText: 'Direction from the start' }).locator('dd')).toHaveText('North-east');
+  await expect(page.locator('.walk-back')).toHaveCount(1);
+
+  await page.goto('/#/explore/coding-wheels');
+  await page.locator('.sim-task', { hasText: 'KPFKC' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'INDIA is coded as' }).locator('dd')).toHaveText('KPFKC');
+
+  await page.goto('/#/explore/ranking-row');
+  await page.locator('.sim-task', { hasText: '4th from the left and 6th from the right' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Left + right − 1' }).locator('dd')).toHaveText('4 + 6 − 1 = 9');
+
+  await page.goto('/#/explore/cube-paint');
+  await page.locator('.sim-task', { hasText: 'n = 5' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: '2 faces' }).locator('dd')).toHaveText('36');
+  await expect(page.locator('.cube-cell.cube-k2:not(.is-dim)').first()).toBeVisible();
+
+  await page.goto('/#/explore/paper-fold');
+  await page.locator('.sim-task', { hasText: 'Two folds' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.paper-hole')).toHaveCount(4);
   expect(errors).toEqual([]);
 });
 

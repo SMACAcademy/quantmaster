@@ -436,3 +436,13 @@ export function solidHeight(figure) {
     return total + p.h;
   }, 0);
 }
+
+/**
+ * Where a point of a box appears in the drawing, with the same slant as the
+ * cube and cuboid above: x along the front, y up, z going back (model units).
+ * The cube-cutting simulation and the dice figures use it, so every box in the
+ * app is drawn the same way.
+ */
+export function obliquePoint(x, y, z) {
+  return [x + z * DEPTH_SCALE * Math.cos(DEPTH_ANGLE), y + z * DEPTH_SCALE * Math.sin(DEPTH_ANGLE)];
+}

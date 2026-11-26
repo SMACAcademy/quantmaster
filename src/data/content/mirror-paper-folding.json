@@ -1,0 +1,1681 @@
+{
+  "topicId": "mirror-paper-folding",
+  "concepts": [
+    {
+      "id": "mp-mirror",
+      "topicId": "mirror-paper-folding",
+      "name": "Mirror images of letters and words",
+      "description": "A mirror beside a word swaps left and right: the letters come in reverse order, each flipped. Letters with a vertical line of symmetry look unchanged.",
+      "sortOrder": 1
+    },
+    {
+      "id": "mp-water",
+      "topicId": "mirror-paper-folding",
+      "name": "Water images",
+      "description": "Water below a word flips it top to bottom and keeps the order; letters with a horizontal line of symmetry look unchanged.",
+      "sortOrder": 2
+    },
+    {
+      "id": "mp-clock",
+      "topicId": "mirror-paper-folding",
+      "name": "Mirror image of a clock",
+      "description": "A clock and its mirror image always add up to 12:00, so the image reads 11:60 − the time.",
+      "sortOrder": 3
+    },
+    {
+      "id": "mp-fold",
+      "topicId": "mirror-paper-folding",
+      "name": "Paper folding and punching",
+      "description": "Every fold doubles the layers, so each punch makes 2^(folds) holes; unfolding reflects the holes across each fold line, last fold first.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "mp-mirror-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "title": "Mirror image (lateral inversion)",
+      "prompt": "What does a mirror placed beside a word do to it?",
+      "formula": "Left and right swap; top and bottom stay\nRead left to right, the letters come in reverse order, each flipped",
+      "variables": [],
+      "explanation": "The mirror is a vertical line: everything is reflected across it.",
+      "example": "STAR in a mirror on its right reads (left to right) R, A, T, S, each letter flipped.",
+      "commonMistake": "Flipping the letters upside down (that is a water image).",
+      "applicationPrompt": "In what order do the letters of RAJU appear in a mirror placed to its right?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mp-water-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-water",
+      "title": "Water image",
+      "prompt": "What does still water below a word do to it?",
+      "formula": "Top and bottom swap; left and right stay\nThe letters keep their order, each flipped upside down",
+      "variables": [],
+      "explanation": "Water is a horizontal mirror below the object.",
+      "example": "In water, BOX still reads B, O, X from left to right, each letter upside down.",
+      "commonMistake": "Reversing the order of the letters, as a side mirror would.",
+      "applicationPrompt": "Does the order of the letters change in the water image of DOCK?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mp-letters-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "title": "Letters that do not change",
+      "prompt": "Which capital letters look the same in a mirror, and which in water?",
+      "formula": "Mirror (vertical symmetry): A H I M O T U V W X Y\nWater (horizontal symmetry): B C D E H I K O X\nBoth: H I O X",
+      "variables": [],
+      "explanation": "A letter looks the same in a mirror if its left half matches its right half; in water if its top half matches its bottom half (plain capitals).",
+      "example": "TOOT looks the same in a side mirror: it reads the same backwards and every letter is in the first list.",
+      "commonMistake": "Putting B, C, D, E or K in the mirror list.",
+      "applicationPrompt": "Which letters of HOME look the same in water?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mp-clock-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "title": "Mirror time",
+      "prompt": "A clock shows h:m. What time does its mirror image show?",
+      "formula": "Mirror time = 11:60 − h:m\n(the same rule turns a mirror time back into the real time)",
+      "variables": [],
+      "explanation": "Reflecting the face swaps the hands to the other side of the 12–6 line, so the two times add up to 12:00.",
+      "example": "4:20 → 11:60 − 4:20 = 7:40.",
+      "commonMistake": "Subtracting from 12:60, which gives an hour too many.",
+      "applicationPrompt": "What is the mirror image of 9:15?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mp-fold-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "title": "Holes from folding",
+      "prompt": "A sheet is folded f times and punched once through all layers. How many holes are there when it is opened?",
+      "formula": "Layers = 2^f\nHoles = punches × 2^f (if no punch lies on a fold)",
+      "variables": [],
+      "explanation": "Each fold lays one half on the other, doubling the layers under the punch.",
+      "example": "Folded twice, punched once: 4 holes.",
+      "commonMistake": "Adding 2 for each fold instead of doubling.",
+      "applicationPrompt": "Folded three times and punched twice: how many holes?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mp-unfold-f",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "title": "Where the holes are",
+      "prompt": "How do you find where the holes lie after unfolding?",
+      "formula": "Undo the last fold first\nEach unfolding reflects every hole across that fold line (the originals stay)",
+      "variables": [],
+      "explanation": "Unfolding is folding run backwards, so the holes spread out as mirror images.",
+      "example": "Fold left onto right, then top onto bottom, punch D4: unfold top–bottom (D1, D4), then left–right (A1, A4, D1, D4).",
+      "commonMistake": "Unfolding in the order of folding.",
+      "applicationPrompt": "Fold the top half down and punch B3. Where are the holes?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mp-sc-clock",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "kind": "shortcut",
+      "title": "Mirror clock in one step",
+      "prompt": "What is the quickest way to the mirror time?",
+      "formula": "Hours: 11 − h; minutes: 60 − m\n(if m = 0, use 12:00 − h:00)",
+      "variables": [],
+      "explanation": "11:60 is 12:00 written so that the subtraction needs no borrowing.",
+      "example": "1:25 → (11 − 1):(60 − 25) = 10:35.",
+      "commonMistake": "Using 12 − h with 60 − m (an hour too many).",
+      "applicationPrompt": "Mirror image of 3:48?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mp-sc-holes",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "kind": "shortcut",
+      "title": "Doubling holes",
+      "prompt": "How many holes do 1, 2 and 3 folds give for one punch?",
+      "formula": "1 fold: 2 · 2 folds: 4 · 3 folds: 8",
+      "variables": [],
+      "explanation": "Powers of two, as long as the punch is not on a fold line.",
+      "example": "Folded in half twice and once more along a diagonal, one punch: 8 holes.",
+      "commonMistake": "Counting a diagonal fold as not doubling.",
+      "applicationPrompt": "Two folds, two punches: how many holes?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mirror-paper-folding-level-0",
+      "topicId": "mirror-paper-folding",
+      "order": 0,
+      "title": "Reflections and Folds",
+      "description": "Mirror and water images, mirror clocks, and punched paper.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "mp-mirror",
+        "mp-water",
+        "mp-clock",
+        "mp-fold"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "simulation",
+            "simulationId": "paper-fold"
+          },
+          {
+            "type": "text",
+            "title": "A mirror swaps left and right",
+            "body": "Hold a word up to a mirror beside it and the image reads backwards, each letter flipped left to right. A letter looks the same only if its left half matches its right half: A H I M O T U V W X Y. Still water below a word flips it top to bottom instead and keeps the order: B C D E H I K O X look the same there."
+          },
+          {
+            "type": "formula",
+            "title": "Clocks in a mirror",
+            "body": "Mirror time = 11:60 − actual time",
+            "caption": "Both hands are reflected across the 12–6 line, so the two times add up to 12:00. The rule works both ways."
+          },
+          {
+            "type": "check",
+            "questionId": "mirror-paper-folding-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Fold, punch, unfold",
+            "body": "Every fold doubles the layers, so one punch through a sheet folded f times makes 2^f holes. To find where they are, unfold in reverse: undo the last fold first, adding the mirror image of each hole across that fold line, then the fold before it, and so on."
+          },
+          {
+            "type": "figure",
+            "figure": {
+              "type": "paper",
+              "size": 4,
+              "folds": [
+                "left",
+                "top"
+              ],
+              "punches": [
+                "D4"
+              ],
+              "caption": "Folded twice, punched at D4, opened out",
+              "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the left half is folded over onto the right half. Fold 2: the top half is folded down onto the bottom half. Then a hole is punched at D4.",
+              "unfolded": true
+            },
+            "body": "After the left half goes over onto the right and the top half down onto the bottom, the paper is a quarter of the sheet, 4 layers thick. A punch at D4 goes through all four: opened out, the holes are at the four corners, A1, A4, D1 and D4."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Water images of clocks follow a different rule (18:30 − t gives the minute hand) and the hour hand does not land on a real time, so exam questions about clocks almost always mean a mirror."
+          },
+          {
+            "type": "check",
+            "questionId": "mirror-paper-folding-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "mirror-paper-folding-level-1",
+      "topicId": "mirror-paper-folding",
+      "order": 1,
+      "title": "Reflection Rules",
+      "description": "Mirror and water images, symmetric letters, mirror time and folding.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mirror-paper-folding-level-0"
+      ],
+      "conceptIds": [
+        "mp-mirror",
+        "mp-water",
+        "mp-clock",
+        "mp-fold"
+      ],
+      "formulaIds": [
+        "mp-mirror-f",
+        "mp-water-f",
+        "mp-letters-f",
+        "mp-clock-f",
+        "mp-fold-f",
+        "mp-unfold-f",
+        "mp-sc-clock",
+        "mp-sc-holes"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mirror-paper-folding-level-2",
+      "topicId": "mirror-paper-folding",
+      "order": 2,
+      "title": "Single Reflections",
+      "description": "Mirror clocks, symmetric letters, word order and one or two folds.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "mirror-paper-folding-level-1"
+      ],
+      "conceptIds": [
+        "mp-clock",
+        "mp-mirror",
+        "mp-water",
+        "mp-fold"
+      ],
+      "questionIds": [
+        "mirror-paper-folding-q-001",
+        "mirror-paper-folding-q-002",
+        "mirror-paper-folding-q-003",
+        "mirror-paper-folding-q-004",
+        "mirror-paper-folding-q-005",
+        "mirror-paper-folding-q-006",
+        "mirror-paper-folding-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mirror-paper-folding-level-3",
+      "topicId": "mirror-paper-folding",
+      "order": 3,
+      "title": "Words, Times and Patterns",
+      "description": "Words that look the same, real time from a mirror, and where the holes are.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mirror-paper-folding-level-2"
+      ],
+      "conceptIds": [
+        "mp-clock",
+        "mp-mirror",
+        "mp-water",
+        "mp-fold"
+      ],
+      "questionIds": [
+        "mirror-paper-folding-q-008",
+        "mirror-paper-folding-q-009",
+        "mirror-paper-folding-q-010",
+        "mirror-paper-folding-q-011",
+        "mirror-paper-folding-q-012",
+        "mirror-paper-folding-q-013",
+        "mirror-paper-folding-q-014"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "mirror-paper-folding-level-4",
+      "topicId": "mirror-paper-folding",
+      "order": 4,
+      "title": "Combined Reflections",
+      "description": "Hole patterns after three folds, time sums and letters symmetric both ways.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mirror-paper-folding-level-3"
+      ],
+      "conceptIds": [
+        "mp-fold",
+        "mp-clock",
+        "mp-water"
+      ],
+      "questionIds": [
+        "mirror-paper-folding-q-015",
+        "mirror-paper-folding-q-016",
+        "mirror-paper-folding-q-017",
+        "mirror-paper-folding-q-018",
+        "mirror-paper-folding-q-019",
+        "mirror-paper-folding-q-020",
+        "mirror-paper-folding-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mirror-paper-folding-level-5",
+      "topicId": "mirror-paper-folding",
+      "order": 5,
+      "title": "Mixed Mirror and Folding",
+      "description": "All mirror, water and paper-folding patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mirror-paper-folding-level-4"
+      ],
+      "conceptIds": [
+        "mp-mirror",
+        "mp-water",
+        "mp-clock",
+        "mp-fold"
+      ],
+      "questionQuery": {
+        "topicId": "mirror-paper-folding",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "mirror-paper-folding-q-001",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A wall clock shows 4:20. What time does its image in a plane mirror appear to show?",
+      "figure": {
+        "type": "clock",
+        "hour": 4,
+        "minute": 20,
+        "caption": "The clock shows 4:20",
+        "ariaSummary": "A clock face with the hands at 4:20."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "8:40"
+        },
+        {
+          "id": "b",
+          "text": "7:40"
+        },
+        {
+          "id": "c",
+          "text": "8:20"
+        },
+        {
+          "id": "d",
+          "text": "4:40"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Mirror time = 11:60 − 4:20 = 7:40. Check: 4:20 + 7:40 = 12:00.",
+      "solutionSteps": [
+        "Write 12:00 as 11:60.",
+        "11:60 − 4:20 = 7:40."
+      ],
+      "formulaIds": [
+        "mp-clock-f",
+        "mp-sc-clock"
+      ],
+      "method": "Subtract from 11:60.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The time and its mirror image add up to 12:00."
+        },
+        {
+          "level": 2,
+          "text": "Work out 11:60 − 4:20."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting from 12:60 (8:40)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-002",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these capital letters looks exactly the same when seen in a mirror placed beside it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "T"
+        },
+        {
+          "id": "b",
+          "text": "E"
+        },
+        {
+          "id": "c",
+          "text": "K"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A side mirror swaps left and right, so a letter looks the same only if it has a vertical line of symmetry. T does; E, K and B have a horizontal line of symmetry instead, so they look the same in water but not in a side mirror.",
+      "solutionSteps": [
+        "Side mirror: left ↔ right.",
+        "T has a vertical line of symmetry.",
+        "E, K, B are symmetric top to bottom only."
+      ],
+      "formulaIds": [
+        "mp-letters-f",
+        "mp-mirror-f"
+      ],
+      "method": "Look for a vertical line of symmetry.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Imagine a vertical line through the middle of each letter."
+        },
+        {
+          "level": 2,
+          "text": "Which letter’s left half matches its right half?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing E, B or K, which are symmetric top to bottom."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-003",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-water",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these capital letters looks exactly the same in its water image?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "D"
+        },
+        {
+          "id": "c",
+          "text": "M"
+        },
+        {
+          "id": "d",
+          "text": "T"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Water flips a letter top to bottom, so it looks the same only if it has a horizontal line of symmetry. D does; A, M and T are symmetric left to right instead.",
+      "solutionSteps": [
+        "Water: top ↔ bottom.",
+        "D has a horizontal line of symmetry."
+      ],
+      "formulaIds": [
+        "mp-letters-f",
+        "mp-water-f"
+      ],
+      "method": "Look for a horizontal line of symmetry.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Imagine a horizontal line through the middle of each letter."
+        },
+        {
+          "level": 2,
+          "text": "Which letter’s top half matches its bottom half?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing A, M or T, which are mirror-symmetric, not water-symmetric."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-004",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The left half is folded over onto the right half, and a hole is punched through square C2 of the folded paper. How many holes are there when the sheet is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "left"
+        ],
+        "punches": [
+          "C2"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the left half is folded over onto the right half. Then a hole is punched at C2."
+      },
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "One fold makes 2 layers, so one punch makes 2 holes: C2 and its mirror image across the fold, B2.",
+      "solutionSteps": [
+        "Layers after one fold: 2.",
+        "Holes: 1 × 2 = 2 (C2 and B2)."
+      ],
+      "formulaIds": [
+        "mp-fold-f",
+        "mp-sc-holes"
+      ],
+      "method": "Holes = punches × 2^folds.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many layers does one fold make?"
+        },
+        {
+          "level": 2,
+          "text": "The punch goes through every layer."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1, forgetting the hidden layer."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-005",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The word STAR is written on a card, and a mirror is placed upright to its right. Reading the image in the mirror from left to right, in what order do the letters appear (each one flipped)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "S, T, A, R"
+        },
+        {
+          "id": "b",
+          "text": "R, A, T, S"
+        },
+        {
+          "id": "c",
+          "text": "R, T, A, S"
+        },
+        {
+          "id": "d",
+          "text": "S, A, T, R"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The letter nearest the mirror (R) appears nearest in the image too, so the image starts with R on the left: R, A, T, S, each letter flipped left to right.",
+      "solutionSteps": [
+        "A side mirror reverses the order.",
+        "STAR → R, A, T, S."
+      ],
+      "formulaIds": [
+        "mp-mirror-f"
+      ],
+      "method": "A side mirror reverses the order of the letters.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which letter is closest to the mirror?"
+        },
+        {
+          "level": 2,
+          "text": "In the image, that letter is also closest to the mirror."
+        }
+      ],
+      "commonMistakes": [
+        "Keeping the order (that happens in water, not in a side mirror)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-006",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A clock shows 9:15. What time does it appear to show in a mirror?",
+      "figure": {
+        "type": "clock",
+        "hour": 9,
+        "minute": 15,
+        "caption": "The clock shows 9:15",
+        "ariaSummary": "A clock face with the hands at 9:15."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "3:45"
+        },
+        {
+          "id": "b",
+          "text": "2:45"
+        },
+        {
+          "id": "c",
+          "text": "3:15"
+        },
+        {
+          "id": "d",
+          "text": "2:15"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "11:60 − 9:15 = 2:45. Check: 9:15 + 2:45 = 12:00.",
+      "solutionSteps": [
+        "11:60 − 9:15.",
+        "Hours 11 − 9 = 2; minutes 60 − 15 = 45."
+      ],
+      "formulaIds": [
+        "mp-clock-f",
+        "mp-sc-clock"
+      ],
+      "method": "11:60 − t.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The two times add up to 12:00."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 9:15 from 11:60."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting from 12:60 (3:45)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-007",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The top half is folded down onto the bottom half, then the left half is folded over onto the right half. A hole is punched through square C3 of the folded paper. How many holes are there when it is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "top",
+          "left"
+        ],
+        "punches": [
+          "C3"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the top half is folded down onto the bottom half. Fold 2: the left half is folded over onto the right half. Then a hole is punched at C3."
+      },
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Two folds make 4 layers, so one punch makes 4 holes (B2, B3, C2, C3).",
+      "solutionSteps": [
+        "Layers: 2 × 2 = 4.",
+        "Holes: 4."
+      ],
+      "formulaIds": [
+        "mp-fold-f",
+        "mp-sc-holes"
+      ],
+      "method": "Holes = 2^folds per punch.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each fold doubles the layers."
+        },
+        {
+          "level": 2,
+          "text": "One punch through 4 layers."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 3 (adding instead of doubling)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-008",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Seen in a mirror, a clock appears to show 1:25. What is the actual time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10:35"
+        },
+        {
+          "id": "b",
+          "text": "11:35"
+        },
+        {
+          "id": "c",
+          "text": "10:25"
+        },
+        {
+          "id": "d",
+          "text": "1:35"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The rule works both ways: actual time = 11:60 − 1:25 = 10:35. Check: 1:25 + 10:35 = 12:00.",
+      "solutionSteps": [
+        "Mirror of the mirror image is the real time.",
+        "11:60 − 1:25 = 10:35."
+      ],
+      "formulaIds": [
+        "mp-clock-f",
+        "mp-sc-clock"
+      ],
+      "method": "The same 11:60 − t rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Real time + mirror time = 12:00."
+        },
+        {
+          "level": 2,
+          "text": "11:60 − 1:25."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting from 12:60 (11:35)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-009",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Which of these words look exactly the same when seen in a mirror placed beside them? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "MOM"
+        },
+        {
+          "id": "b",
+          "text": "WOW"
+        },
+        {
+          "id": "c",
+          "text": "TOOT"
+        },
+        {
+          "id": "d",
+          "text": "NOON"
+        },
+        {
+          "id": "e",
+          "text": "BOB"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "A side mirror reverses the order and flips each letter left to right. A word looks unchanged only if it reads the same backwards AND every letter has a vertical line of symmetry. MOM, WOW and TOOT pass. NOON reads the same backwards but N is not symmetric; BOB fails because B is not symmetric left to right.",
+      "solutionSteps": [
+        "All five read the same backwards.",
+        "Letters must be in A H I M O T U V W X Y.",
+        "N and B are not: NOON and BOB fail."
+      ],
+      "formulaIds": [
+        "mp-letters-f",
+        "mp-mirror-f"
+      ],
+      "method": "Palindrome + only symmetric letters.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two conditions: the order, and the shape of each letter."
+        },
+        {
+          "level": 2,
+          "text": "Is N symmetric left to right? Is B?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing NOON or BOB because they read the same backwards."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-010",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-water",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of these words looks exactly the same in its water image?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MOTHER"
+        },
+        {
+          "id": "b",
+          "text": "CHOICE"
+        },
+        {
+          "id": "c",
+          "text": "WATER"
+        },
+        {
+          "id": "d",
+          "text": "TOMATO"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Water keeps the order and flips each letter top to bottom, so every letter must have a horizontal line of symmetry. C, H, O, I, C, E all do. MOTHER has M, T and R; WATER has W, A, T and R; TOMATO has T, M and A.",
+      "solutionSteps": [
+        "Water-symmetric letters: B C D E H I K O X.",
+        "CHOICE uses only C, H, O, I, E."
+      ],
+      "formulaIds": [
+        "mp-letters-f",
+        "mp-water-f"
+      ],
+      "method": "Every letter must be water-symmetric; the order does not matter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each letter for a horizontal line of symmetry."
+        },
+        {
+          "level": 2,
+          "text": "One word uses only letters from B C D E H I K O X."
+        }
+      ],
+      "commonMistakes": [
+        "Using the mirror list, which would favour TOMATO."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-011",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The top half is folded down onto the bottom half, and a hole is punched through square B3 of the folded paper. Which squares have holes when it is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "top"
+        ],
+        "punches": [
+          "B3"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the top half is folded down onto the bottom half. Then a hole is punched at B3."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "B3, C3"
+        },
+        {
+          "id": "b",
+          "text": "B2, B3"
+        },
+        {
+          "id": "c",
+          "text": "B1, B3"
+        },
+        {
+          "id": "d",
+          "text": "B3, B4"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The fold line lies between rows 2 and 3. Row 3 is reflected onto row 2, so the holes are at B3 and B2.",
+      "solutionSteps": [
+        "Fold line: between rows 2 and 3.",
+        "Mirror of B3 across it: B2."
+      ],
+      "formulaIds": [
+        "mp-unfold-f",
+        "mp-fold-f"
+      ],
+      "method": "Reflect the hole across the fold line.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is the fold line?"
+        },
+        {
+          "level": 2,
+          "text": "Row 3 is one row below the line; its mirror is one row above."
+        }
+      ],
+      "commonMistakes": [
+        "Reflecting left to right (B3, C3).",
+        "Reflecting across the top edge (B1)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-012",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The left half is folded over onto the right half, then the top half down onto the bottom half, and then the paper is folded along the diagonal from its top-left corner to its bottom-right corner. A hole is punched through square C4. How many holes are there when the sheet is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "left",
+          "top",
+          "diag"
+        ],
+        "punches": [
+          "C4"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the left half is folded over onto the right half. Fold 2: the top half is folded down onto the bottom half. Fold 3: it is folded along the diagonal from its top-left corner to its bottom-right corner, the top-right half onto the bottom-left half. Then a hole is punched at C4."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Three folds, the last one along a diagonal, make 2 × 2 × 2 = 8 layers where C4 is punched, so there are 8 holes.",
+      "solutionSteps": [
+        "Layers: 2^3 = 8.",
+        "C4 is not on the diagonal fold, so the punch goes through all 8."
+      ],
+      "formulaIds": [
+        "mp-fold-f",
+        "mp-sc-holes"
+      ],
+      "method": "A diagonal fold doubles the layers too.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does a diagonal fold also double the layers?"
+        },
+        {
+          "level": 2,
+          "text": "Check that the punch is not on a fold line."
+        }
+      ],
+      "commonMistakes": [
+        "Counting the diagonal fold as not doubling (4)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-013",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "At which of these times does the mirror image of a clock show exactly the same time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3:30"
+        },
+        {
+          "id": "b",
+          "text": "6:00"
+        },
+        {
+          "id": "c",
+          "text": "9:30"
+        },
+        {
+          "id": "d",
+          "text": "4:30"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The mirror time equals the real time only if t + t = 12:00, that is t = 6:00 (or 12:00). At 6:00 both hands lie on the vertical 12–6 line, which the mirror does not move. 3:30 becomes 8:30, 9:30 becomes 2:30 and 4:30 becomes 7:30.",
+      "solutionSteps": [
+        "Need 11:60 − t = t, so t = 6:00.",
+        "Check the others: 3:30 → 8:30, 9:30 → 2:30, 4:30 → 7:30."
+      ],
+      "formulaIds": [
+        "mp-clock-f"
+      ],
+      "method": "Solve 12:00 − t = t.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A time and its mirror image add to 12:00."
+        },
+        {
+          "level": 2,
+          "text": "Which time is half of 12:00?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 4:30 or 9:30 because the minute hand points straight down at 6, on the mirror line (the hour hand is not)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-014",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-mirror",
+      "levelId": "mirror-paper-folding-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the mirror image of the word PARLIAMENT (a mirror placed beside it), how many of its letters look exactly the same as in the word, apart from their position?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Letters with a vertical line of symmetry look the same in a side mirror. In PARLIAMENT these are A, I, A, M and T: 5. P, R, L, E and N look different.",
+      "solutionSteps": [
+        "Mirror-symmetric: A H I M O T U V W X Y.",
+        "In PARLIAMENT: A, I, A, M, T."
+      ],
+      "formulaIds": [
+        "mp-letters-f"
+      ],
+      "method": "Count the letters with a vertical line of symmetry, repeats included.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Go letter by letter: does it have a vertical line of symmetry?"
+        },
+        {
+          "level": 2,
+          "text": "Count both A’s."
+        }
+      ],
+      "commonMistakes": [
+        "Counting E (it is symmetric top to bottom, not left to right).",
+        "Counting A only once."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-015",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The left half is folded over onto the right half, then the top half down onto the bottom half. A hole is punched through square D4 of the folded paper. Which squares have holes when it is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "left",
+          "top"
+        ],
+        "punches": [
+          "D4"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the left half is folded over onto the right half. Fold 2: the top half is folded down onto the bottom half. Then a hole is punched at D4."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "A1, A4, D1, D4"
+        },
+        {
+          "id": "b",
+          "text": "C3, C4, D3, D4"
+        },
+        {
+          "id": "c",
+          "text": "B2, B3, C2, C3"
+        },
+        {
+          "id": "d",
+          "text": "A4, B4, C4, D4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Undo the last fold (top–bottom): D4 is reflected to D1. Undo the first fold (left–right): D1 and D4 are reflected to A1 and A4. The holes are the four corners.",
+      "solutionSteps": [
+        "Unfold top–bottom: D4 → D1.",
+        "Unfold left–right: D → A: A1, A4.",
+        "Holes: A1, A4, D1, D4."
+      ],
+      "formulaIds": [
+        "mp-unfold-f"
+      ],
+      "method": "Last fold first; reflect every hole each time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Undo the folds in reverse order: each unfolding adds the mirror image of every hole so far, across that fold line."
+        },
+        {
+          "level": 2,
+          "text": "D4 is the corner of the folded paper. Where are its mirror images?"
+        }
+      ],
+      "commonMistakes": [
+        "Keeping the holes on the folded quarter (C3, C4, D3, D4).",
+        "Reflecting across only one fold line."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-016",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The right half is folded over onto the left half, then the bottom half up onto the top half, and then the paper is folded along the diagonal from its top-right corner to its bottom-left corner. A hole is punched through square B2. Which squares have holes when it is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "right",
+          "bottom",
+          "anti"
+        ],
+        "punches": [
+          "B2"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the right half is folded over onto the left half. Fold 2: the bottom half is folded up onto the top half. Fold 3: it is folded along the diagonal from its top-right corner to its bottom-left corner, the top-left half onto the bottom-right half. Then a hole is punched at B2."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "A1, A4, B2, B3, C2, C3, D1, D4"
+        },
+        {
+          "id": "b",
+          "text": "A2, A3, B1, B4, C1, C4, D2, D3"
+        },
+        {
+          "id": "c",
+          "text": "B2, B3, C2, C3"
+        },
+        {
+          "id": "d",
+          "text": "A1, A2, B1, B2, C3, C4, D3, D4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "After two folds the paper is the top-left quarter (A1, B1, A2, B2). The diagonal fold lays A1 onto B2, so a punch at B2 goes through A1’s layers too. Unfold the diagonal: B2 and A1. Unfold bottom–top: rows 1, 2 reflect to 4, 3: A1, A4, B2, B3. Unfold right–left: columns A, B reflect to D, C: add D1, D4, C2, C3.",
+      "solutionSteps": [
+        "Diagonal: B2 and its mirror A1.",
+        "Bottom fold: add A4, B3.",
+        "Right fold: add D1, D4, C2, C3."
+      ],
+      "formulaIds": [
+        "mp-unfold-f",
+        "mp-fold-f"
+      ],
+      "method": "Unfold last fold first; reflect every hole each time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Undo the folds in reverse order: each unfolding adds the mirror image of every hole so far, across that fold line."
+        },
+        {
+          "level": 2,
+          "text": "The diagonal fold brings A1 on top of B2."
+        }
+      ],
+      "commonMistakes": [
+        "Reflecting B2 across the wrong diagonal (giving A2 and B1).",
+        "Stopping after one or two unfoldings."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-017",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Seen in a mirror, a clock appears to show 3:48. What will the actual time be 25 minutes later?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8:37"
+        },
+        {
+          "id": "b",
+          "text": "8:12"
+        },
+        {
+          "id": "c",
+          "text": "4:13"
+        },
+        {
+          "id": "d",
+          "text": "9:37"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Actual time now: 11:60 − 3:48 = 8:12. Twenty-five minutes later: 8:37.",
+      "solutionSteps": [
+        "Real time: 11:60 − 3:48 = 8:12.",
+        "8:12 + 0:25 = 8:37."
+      ],
+      "formulaIds": [
+        "mp-clock-f",
+        "mp-sc-clock"
+      ],
+      "method": "Convert to the real time first, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the real time from the mirror image."
+        },
+        {
+          "level": 2,
+          "text": "Then add 25 minutes."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 25 minutes to the mirror time (4:13).",
+        "Stopping at the real time (8:12)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-018",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-water",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Which of these capital letters look exactly the same both in a mirror placed beside them and in water below them? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "H"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        },
+        {
+          "id": "d",
+          "text": "B"
+        },
+        {
+          "id": "e",
+          "text": "X"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "explanation": "A letter must have both a vertical and a horizontal line of symmetry. H, O and X do. A has only a vertical one (fine in a mirror, not in water); B has only a horizontal one (fine in water, not in a mirror).",
+      "solutionSteps": [
+        "Mirror list: A H I M O T U V W X Y.",
+        "Water list: B C D E H I K O X.",
+        "In both: H, I, O, X; of the options, H, O, X."
+      ],
+      "formulaIds": [
+        "mp-letters-f"
+      ],
+      "method": "The letters on both lists: H I O X.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each letter for a vertical line of symmetry, then for a horizontal one."
+        },
+        {
+          "level": 2,
+          "text": "A and B pass only one test each."
+        }
+      ],
+      "commonMistakes": [
+        "Including A (it changes in water) or B (it changes in a side mirror)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-019",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-fold",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A square sheet of paper is ruled into a 4 × 4 grid of squares, columns A to D from the left and rows 1 to 4 from the top. The bottom half is folded up onto the top half, then the right half over onto the left half, and then the top half of what remains down onto its bottom half. A hole is punched through square A2. How many holes are there when the sheet is opened out?",
+      "figure": {
+        "type": "paper",
+        "size": 4,
+        "folds": [
+          "bottom",
+          "right",
+          "top"
+        ],
+        "punches": [
+          "A2"
+        ],
+        "caption": "Folded as shown (the shaded part moves over the dashed line), then punched",
+        "ariaSummary": "A 4 by 4 square sheet, columns A to D from the left and rows 1 to 4 from the top. Fold 1: the bottom half is folded up onto the top half. Fold 2: the right half is folded over onto the left half. Fold 3: the top half is folded down onto the bottom half. Then a hole is punched at A2."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Three half folds make 8 layers under the punch, so there are 8 holes (all of column A and all of column D).",
+      "solutionSteps": [
+        "Layers: 2^3 = 8.",
+        "Holes: 8."
+      ],
+      "formulaIds": [
+        "mp-fold-f",
+        "mp-sc-holes"
+      ],
+      "method": "Holes = 2^folds for one punch.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many layers do three folds make?"
+        },
+        {
+          "level": 2,
+          "text": "The punch goes through every layer."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6 (adding 2 per fold)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-020",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-clock",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Raju glances at a clock in a mirror and it appears to show 4:50. His train leaves at 8:00. How many minutes does he have?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "min"
+      },
+      "explanation": "Real time: 11:60 − 4:50 = 7:10. From 7:10 to 8:00 is 50 minutes.",
+      "solutionSteps": [
+        "Real time: 7:10.",
+        "8:00 − 7:10 = 50 minutes."
+      ],
+      "formulaIds": [
+        "mp-clock-f"
+      ],
+      "method": "Real time first, then the gap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The clock in the mirror is not the real time."
+        },
+        {
+          "level": 2,
+          "text": "Find the real time, then count up to 8:00."
+        }
+      ],
+      "commonMistakes": [
+        "Working from 4:50 (3 hours 10 minutes)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mirror-paper-folding-q-021",
+      "topicId": "mirror-paper-folding",
+      "conceptId": "mp-water",
+      "levelId": "mirror-paper-folding-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Which of these words look exactly the same in their water image? Select all that apply.",
+      "options": [
+        {
+          "id": "a",
+          "text": "BED"
+        },
+        {
+          "id": "b",
+          "text": "CAKE"
+        },
+        {
+          "id": "c",
+          "text": "BOOK"
+        },
+        {
+          "id": "d",
+          "text": "MOOD"
+        },
+        {
+          "id": "e",
+          "text": "CODE"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "explanation": "Water keeps the order, so only the letters matter: each must be one of B C D E H I K O X. BED, BOOK and CODE pass. CAKE has A; MOOD has M.",
+      "solutionSteps": [
+        "Water-symmetric letters: B C D E H I K O X.",
+        "CAKE (A) and MOOD (M) fail."
+      ],
+      "formulaIds": [
+        "mp-letters-f",
+        "mp-water-f"
+      ],
+      "method": "Every letter must be symmetric top to bottom.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Water does not change the order of the letters."
+        },
+        {
+          "level": 2,
+          "text": "Look for any letter outside B C D E H I K O X."
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting BED or CODE because they do not read the same backwards (that matters only in a side mirror)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

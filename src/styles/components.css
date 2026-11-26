@@ -3917,6 +3917,289 @@ mark.sim-passage__sentence {
   }
 }
 
+/* ---------------- More reasoning simulations (reasoningPlotsMore.js) ---------------- */
+.rp-clues--plain {
+  list-style: none;
+  padding-left: 0;
+}
+.walk-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.walk-grid--axis {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+.walk-compass__needle {
+  fill: var(--danger);
+}
+.walk-compass__label {
+  fill: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.walk-path {
+  fill: none;
+  stroke: var(--cat-reasoning);
+  stroke-width: 3.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.walk-leg {
+  fill: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: var(--bg-elevated);
+  stroke-width: 3px;
+}
+.walk-back {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 7 6;
+}
+.walk-start {
+  fill: var(--bg-elevated);
+  stroke: var(--fg);
+  stroke-width: 2.5;
+}
+.walk-label {
+  fill: var(--fg);
+  font-size: 12px;
+  font-weight: 700;
+}
+.walk-walker__body {
+  fill: var(--accent);
+}
+.walk-walker__arrow {
+  fill: var(--accent);
+}
+.wheel-ring {
+  fill: none;
+  stroke-width: 30;
+}
+.wheel-ring--outer {
+  stroke: var(--bg-sunken);
+}
+.wheel-ring--inner {
+  stroke: color-mix(in srgb, var(--cat-reasoning) 14%, var(--bg-elevated));
+}
+.wheel-hub {
+  fill: var(--bg-elevated);
+  stroke: var(--border-strong);
+}
+.wheel-letter {
+  fill: var(--fg-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.wheel-letter--inner {
+  fill: var(--cat-reasoning);
+}
+.wheel-letter.is-word {
+  fill: var(--fg);
+  font-weight: 800;
+  text-decoration: underline;
+}
+.wheel-letter--inner.is-code {
+  fill: var(--accent);
+  font-weight: 800;
+}
+.wheel-pair {
+  font-size: 20px;
+  font-weight: 800;
+}
+.wheel-pair--from {
+  fill: var(--fg);
+}
+.wheel-pair--to {
+  fill: var(--accent);
+}
+.wheel-arrow {
+  fill: var(--fg-subtle);
+  font-size: 18px;
+}
+.queue-between {
+  fill: color-mix(in srgb, var(--cat-reasoning) 12%, transparent);
+  stroke: var(--cat-reasoning);
+  stroke-dasharray: 4 4;
+}
+.queue-count {
+  fill: var(--fg-subtle);
+  font-size: 13px;
+}
+.queue-count.is-a {
+  fill: var(--accent);
+  font-size: 15px;
+  font-weight: 800;
+}
+.queue-person {
+  fill: var(--bg-elevated);
+  stroke: var(--border-strong);
+  stroke-width: 2;
+}
+.queue-person.is-a {
+  fill: color-mix(in srgb, var(--accent) 28%, var(--bg-elevated));
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.queue-person.is-b {
+  fill: color-mix(in srgb, var(--cat-reasoning) 26%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+  stroke-width: 3;
+}
+.queue-person.is-fresh {
+  animation: rp-flash 0.5s ease-in-out 2;
+}
+.queue-name {
+  fill: var(--fg);
+  font-size: 13px;
+  font-weight: 800;
+}
+.cube-cell {
+  stroke: var(--bg-elevated);
+  stroke-width: 1;
+  transition: opacity 200ms ease;
+}
+.cube-k3 {
+  fill: var(--cat-advanced);
+  background: var(--cat-advanced);
+}
+.cube-k2 {
+  fill: var(--cat-combinatorics);
+  background: var(--cat-combinatorics);
+}
+.cube-k1 {
+  fill: var(--cat-data);
+  background: var(--cat-data);
+}
+.cube-k0 {
+  fill: var(--cat-arithmetic);
+  background: var(--cat-arithmetic);
+}
+.cube-cell--top {
+  filter: brightness(1.12);
+}
+.cube-cell--right {
+  filter: brightness(0.82);
+}
+.cube-cell.is-dim {
+  opacity: 0.16;
+}
+.cube-swatch {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 3px;
+  vertical-align: -0.1em;
+}
+.net-cell {
+  fill: var(--bg-elevated);
+  stroke: var(--fg-muted);
+  stroke-width: 2;
+}
+.net-cell.is-pick {
+  fill: color-mix(in srgb, var(--accent) 28%, var(--bg-elevated));
+  stroke: var(--accent);
+}
+.net-cell.is-opposite {
+  fill: color-mix(in srgb, var(--cat-reasoning) 30%, var(--bg-elevated));
+  stroke: var(--cat-reasoning);
+}
+.net-label {
+  fill: var(--fg);
+  font-size: 22px;
+  font-weight: 800;
+}
+.mirror-line {
+  stroke: var(--cat-reasoning);
+  stroke-width: 3;
+  stroke-dasharray: 2 5;
+}
+
+/* Dice and paper figures (reasoningFigures.js), in questions and lessons */
+.dice-svg {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.dice-svg--net {
+  max-width: 280px;
+}
+.dice-face {
+  stroke: var(--fg);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.dice-face--front,
+.dice-face--net {
+  fill: var(--bg-elevated);
+}
+.dice-face--top {
+  fill: color-mix(in srgb, var(--accent) 10%, var(--bg-elevated));
+}
+.dice-face--right {
+  fill: color-mix(in srgb, var(--fg) 8%, var(--bg-elevated));
+}
+.dice-label {
+  fill: var(--fg);
+  font-size: 22px;
+  font-weight: 800;
+}
+.dice-label--top,
+.dice-label--right {
+  font-size: 18px;
+}
+.dice-title {
+  fill: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.paper-svg {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.paper-ghost {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-dasharray: 3 3;
+}
+.paper-sheet {
+  fill: var(--bg-elevated);
+  stroke: var(--fg);
+  stroke-width: 2;
+}
+.paper-rule {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+.paper-moving {
+  fill: color-mix(in srgb, var(--cat-reasoning) 22%, transparent);
+  stroke: none;
+}
+.paper-fold-line {
+  stroke: var(--cat-reasoning);
+  stroke-width: 2.5;
+  stroke-dasharray: 6 4;
+}
+.paper-hole {
+  fill: var(--fg);
+}
+.paper-punch {
+  fill: var(--danger);
+  stroke: var(--bg-elevated);
+  stroke-width: 1.5;
+}
+.paper-title {
+  fill: var(--fg-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.paper-axis {
+  fill: var(--fg-subtle);
+  font-size: 10px;
+  font-weight: 600;
+}
+
 /* ---------------- Must-know tables and speed drills ---------------- */
 .tables__head {
   display: flex;
