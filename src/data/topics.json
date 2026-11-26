@@ -353,6 +353,24 @@
       "tags": []
     },
     {
+      "id": "taxes-commission",
+      "name": "Taxes, GST and Commission",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "GST added to or taken out of a price, CGST and SGST against IGST, input tax credit through a supply chain, discount and tax together, income tax on slabs, commission and brokerage, property tax and customs duty.",
+      "whyItMatters": "SSC, railway, bank clerk and state exams set GST, sales tax and commission questions as quick percentage marks. The traps are always the same: tax on the wrong base, the input credit forgotten, or one rate charged on a whole income.",
+      "glyph": "GST",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "percentages",
+        "profit-loss-discount"
+      ],
+      "sortOrder": 22,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
       "id": "simple-interest",
       "name": "Simple Interest",
       "category": "arithmetic",
@@ -364,7 +382,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 22,
+      "sortOrder": 23,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -381,7 +399,7 @@
       "prerequisites": [
         "simple-interest"
       ],
-      "sortOrder": 23,
+      "sortOrder": 24,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -398,7 +416,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 24,
+      "sortOrder": 25,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -415,7 +433,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 25,
+      "sortOrder": 26,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -432,7 +450,7 @@
       "prerequisites": [
         "time-and-work"
       ],
-      "sortOrder": 26,
+      "sortOrder": 27,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -449,7 +467,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 27,
+      "sortOrder": 28,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -466,7 +484,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 28,
+      "sortOrder": 29,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -483,7 +501,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 29,
+      "sortOrder": 30,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -500,7 +518,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 30,
+      "sortOrder": 31,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -517,7 +535,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 31,
+      "sortOrder": 32,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -534,7 +552,7 @@
       "prerequisites": [
         "time-and-work"
       ],
-      "sortOrder": 32,
+      "sortOrder": 33,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -549,7 +567,7 @@
       "glyph": "📅",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 33,
+      "sortOrder": 34,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -564,7 +582,7 @@
       "glyph": "🕐",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 34,
+      "sortOrder": 35,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -579,7 +597,7 @@
       "glyph": "⇄",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 35,
+      "sortOrder": 36,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -594,7 +612,7 @@
       "glyph": "ax",
       "colorToken": "algebra",
       "prerequisites": [],
-      "sortOrder": 36,
+      "sortOrder": 37,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -611,7 +629,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 37,
+      "sortOrder": 38,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -628,7 +646,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 38,
+      "sortOrder": 39,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -646,7 +664,7 @@
         "linear-equations",
         "hcf-lcm"
       ],
-      "sortOrder": 39,
+      "sortOrder": 40,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -663,7 +681,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 40,
+      "sortOrder": 41,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -680,7 +698,7 @@
       "prerequisites": [
         "quadratic-equations"
       ],
-      "sortOrder": 41,
+      "sortOrder": 42,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -698,7 +716,7 @@
         "algebraic-expressions",
         "quadratic-equations"
       ],
-      "sortOrder": 42,
+      "sortOrder": 43,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -715,7 +733,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 43,
+      "sortOrder": 44,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -732,7 +750,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 44,
+      "sortOrder": 45,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -749,7 +767,7 @@
       "prerequisites": [
         "inequalities"
       ],
-      "sortOrder": 45,
+      "sortOrder": 46,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -764,7 +782,7 @@
       "glyph": "…",
       "colorToken": "algebra",
       "prerequisites": [],
-      "sortOrder": 46,
+      "sortOrder": 47,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -781,7 +799,7 @@
       "prerequisites": [
         "sequences"
       ],
-      "sortOrder": 47,
+      "sortOrder": 48,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -798,7 +816,7 @@
       "prerequisites": [
         "arithmetic-progression"
       ],
-      "sortOrder": 48,
+      "sortOrder": 49,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -815,7 +833,7 @@
       "prerequisites": [
         "surds-indices"
       ],
-      "sortOrder": 49,
+      "sortOrder": 50,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -832,7 +850,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 50,
+      "sortOrder": 51,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -847,7 +865,7 @@
       "glyph": "∠",
       "colorToken": "geometry",
       "prerequisites": [],
-      "sortOrder": 51,
+      "sortOrder": 52,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -864,7 +882,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 52,
+      "sortOrder": 53,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -881,7 +899,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 53,
+      "sortOrder": 54,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -898,7 +916,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 54,
+      "sortOrder": 55,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -915,7 +933,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 55,
+      "sortOrder": 56,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -932,7 +950,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 56,
+      "sortOrder": 57,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -949,7 +967,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 57,
+      "sortOrder": 58,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -966,7 +984,7 @@
       "prerequisites": [
         "perimeter-area"
       ],
-      "sortOrder": 58,
+      "sortOrder": 59,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -983,7 +1001,7 @@
       "prerequisites": [
         "mensuration-2d"
       ],
-      "sortOrder": 59,
+      "sortOrder": 60,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1000,7 +1018,7 @@
       "prerequisites": [
         "mensuration-3d"
       ],
-      "sortOrder": 60,
+      "sortOrder": 61,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1017,7 +1035,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 61,
+      "sortOrder": 62,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1034,7 +1052,7 @@
       "prerequisites": [
         "trigonometry"
       ],
-      "sortOrder": 62,
+      "sortOrder": 63,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1049,7 +1067,7 @@
       "glyph": "∙",
       "colorToken": "combinatorics",
       "prerequisites": [],
-      "sortOrder": 63,
+      "sortOrder": 64,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1066,7 +1084,7 @@
       "prerequisites": [
         "counting-principle"
       ],
-      "sortOrder": 64,
+      "sortOrder": 65,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1083,7 +1101,7 @@
       "prerequisites": [
         "permutations"
       ],
-      "sortOrder": 65,
+      "sortOrder": 66,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1100,7 +1118,7 @@
       "prerequisites": [
         "combinations"
       ],
-      "sortOrder": 66,
+      "sortOrder": 67,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1115,7 +1133,7 @@
       "glyph": "∪",
       "colorToken": "combinatorics",
       "prerequisites": [],
-      "sortOrder": 67,
+      "sortOrder": 68,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1132,7 +1150,7 @@
       "prerequisites": [
         "set-theory"
       ],
-      "sortOrder": 68,
+      "sortOrder": 69,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1149,7 +1167,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 69,
+      "sortOrder": 70,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1166,7 +1184,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 70,
+      "sortOrder": 71,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1183,7 +1201,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 71,
+      "sortOrder": 72,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1200,7 +1218,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 72,
+      "sortOrder": 73,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1217,7 +1235,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 73,
+      "sortOrder": 74,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1235,7 +1253,7 @@
         "di-bar-graphs",
         "di-line-graphs"
       ],
-      "sortOrder": 74,
+      "sortOrder": 75,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1250,7 +1268,7 @@
       "glyph": "?",
       "colorToken": "data",
       "prerequisites": [],
-      "sortOrder": 75,
+      "sortOrder": 76,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1267,7 +1285,7 @@
       "prerequisites": [
         "averages"
       ],
-      "sortOrder": 76,
+      "sortOrder": 77,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1284,7 +1302,7 @@
       "prerequisites": [
         "mean-median-mode"
       ],
-      "sortOrder": 77,
+      "sortOrder": 78,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1301,7 +1319,7 @@
       "prerequisites": [
         "weighted-average"
       ],
-      "sortOrder": 78,
+      "sortOrder": 79,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1318,7 +1336,7 @@
       "prerequisites": [
         "mean-median-mode"
       ],
-      "sortOrder": 79,
+      "sortOrder": 80,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1333,7 +1351,7 @@
       "glyph": "🪑",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 80,
+      "sortOrder": 81,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1350,7 +1368,7 @@
       "glyph": "🧩",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 81,
+      "sortOrder": 82,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1369,7 +1387,7 @@
       "prerequisites": [
         "venn-diagrams"
       ],
-      "sortOrder": 82,
+      "sortOrder": 83,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1386,7 +1404,7 @@
       "glyph": "≷",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 83,
+      "sortOrder": 84,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1403,7 +1421,7 @@
       "glyph": "👪",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 84,
+      "sortOrder": 85,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1420,7 +1438,7 @@
       "glyph": "🧭",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 85,
+      "sortOrder": 86,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1437,7 +1455,7 @@
       "glyph": "🔐",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 86,
+      "sortOrder": 87,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1454,7 +1472,7 @@
       "glyph": "🏅",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 87,
+      "sortOrder": 88,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1471,7 +1489,7 @@
       "glyph": "🎲",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 88,
+      "sortOrder": 89,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1488,7 +1506,7 @@
       "glyph": "🪞",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 89,
+      "sortOrder": 90,
       "contentStatus": "seeded",
       "active": true,
       "tags": [

@@ -71,6 +71,7 @@ import { codingTemplates } from './templates/reasoningCoding.js';
 import { rankingTemplates } from './templates/reasoningRanking.js';
 import { cubesTemplates } from './templates/reasoningCubes.js';
 import { mirrorTemplates } from './templates/reasoningMirror.js';
+import { taxTemplates } from './templates/taxes.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -133,7 +134,9 @@ const TEMPLATES = [
   ...codingTemplates,
   ...rankingTemplates,
   ...cubesTemplates,
-  ...mirrorTemplates
+  ...mirrorTemplates,
+  // Taxes, GST and commission.
+  ...taxTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

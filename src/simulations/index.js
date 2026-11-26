@@ -33,6 +33,7 @@ import { twoCircleSims } from './twoCircles.js';
 import { groupedDataSims } from './groupedData.js';
 import { catTopicSims } from './catTopics.js';
 import { reasoningMoreSims } from './reasoningMore.js';
+import { taxSims } from './taxes.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -91,7 +92,9 @@ export const SIMULATIONS = [
   // Modulus, polynomials, integer solutions and cryptarithms (catTopics.js). Their meta.js entries keep this order.
   ...catTopicSims,
   // More logical reasoning (reasoningMore.js). Their meta.js entries keep this order.
-  ...reasoningMoreSims
+  ...reasoningMoreSims,
+  // Taxes, GST and commission (taxes.js). Their meta.js entries keep this order.
+  ...taxSims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));
