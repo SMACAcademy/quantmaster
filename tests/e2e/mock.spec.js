@@ -58,3 +58,18 @@ test('a campus mock runs on the clock, keeps the palette honest, and is analysed
   await expect(card).toContainText('1 attempt');
   expect(errors).toEqual([]);
 });
+
+test('reasoning papers have their own section, and a bank reasoning mock builds a full paper', async ({ page }) => {
+  const errors = watchForErrors(page);
+  await page.goto('/#/mock');
+  const reasoning = page.locator('section', { has: page.getByRole('heading', { name: 'Logical reasoning' }) });
+  await expect(reasoning.locator('.mock-card')).toHaveCount(3);
+  const card = reasoning.locator('.mock-card', { hasText: 'IBPS / SBI Prelims: Reasoning' });
+  await card.getByRole('button', { name: 'Start' }).click();
+  await page.getByRole('button', { name: 'Start the test' }).click();
+  await expect(page).toHaveURL(/#\/mock\/run$/);
+  await expect(page.locator('.mock__clock')).toHaveText(/^(20:00|19:5\d)$/);
+  await expect(page.locator('.mock__palette-grid .mock-dot')).toHaveCount(35);
+  await expect(page.locator('.question-card__stem')).toBeVisible();
+  expect(errors).toEqual([]);
+});

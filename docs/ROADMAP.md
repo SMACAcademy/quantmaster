@@ -13,7 +13,7 @@ server-free PWA: no accounts, nothing leaves the learner's browser.
 - **Every concept has question generators** (about 726 templates, roughly 175,000 distinct questions in a validation run). Each template checks its own answer a second, independent way and is rejected if it disagrees (`src/generators/`, `docs/ADDING_CONTENT.md`).
 - **Over 1,500 hand-written questions**, every topic with at least 13. All of the older ones were re-solved independently in an audit; 20 were fixed (two wrong answers, the rest ambiguities, duplicate-form options and figures that contradicted their text). `tests/content.test.js` now rejects a choice question that offers the same ratio or number twice.
 - **Revision:** formula and shortcut cards for every topic, printable quick sheets (formulas, shortcuts, common traps and exam strategy), and must-know tables (squares, cubes, fraction–percentage equivalents, primes, powers, triplets, trigonometric values) with 60-second speed drills.
-- **Mock tests** in four exam patterns (IBPS/SBI prelims, SSC CGL tier 1, CAT quant, campus placement), each with the exam's clock and marking, a question palette with mark-for-review, and an analysis of score, time per question, sections, topics and what to skip next time.
+- **Mock tests** in seven exam patterns: quantitative aptitude (IBPS/SBI prelims, SSC CGL tier 1, CAT quant, campus placement) and logical reasoning (IBPS/SBI prelims, SSC CGL tier 1, campus), each with the exam's clock and marking, a question palette with mark-for-review, and an analysis of score, time per question, sections, topics and what to skip next time.
 
 ### Pictures and simulations
 

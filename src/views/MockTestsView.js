@@ -86,7 +86,15 @@ export function MockTestsView() {
         })
       ])
     ]),
-    el('div.grid.grid--cards', {}, MOCK_PATTERNS.map(patternCard)),
+    ...[
+      { subject: 'quant', title: 'Quantitative aptitude', hint: 'Bank, SSC, CAT and placement papers' },
+      { subject: 'reasoning', title: 'Logical reasoning', hint: 'Bank, SSC and placement papers' }
+    ].map(({ subject, title, hint }) =>
+      el('section.section', {}, [
+        sectionHead(title, { hint }),
+        el('div.grid.grid--cards', {}, MOCK_PATTERNS.filter((p) => p.subject === subject).map(patternCard))
+      ])
+    ),
     history.length
       ? el('section.section', {}, [
           sectionHead('Recent attempts'),
