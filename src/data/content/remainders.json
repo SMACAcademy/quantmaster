@@ -1,0 +1,2138 @@
+{
+  "topicId": "remainders",
+  "concepts": [
+    {
+      "id": "rm-basics",
+      "topicId": "remainders",
+      "name": "Remainders of sums and products",
+      "description": "Replace every number by its remainder before adding, subtracting or multiplying, then reduce the result once more.",
+      "sortOrder": 1
+    },
+    {
+      "id": "rm-negative",
+      "topicId": "remainders",
+      "name": "Negative remainders",
+      "description": "A number just below a multiple of the divisor can be treated as a small negative remainder: 98 is −2 on division by 100. Add the divisor at the end if the answer is negative.",
+      "sortOrder": 2
+    },
+    {
+      "id": "rm-powers",
+      "topicId": "remainders",
+      "name": "Remainders of powers",
+      "description": "The remainders of a, a², a³, … repeat. Find a power that leaves 1 (or −1), then split the large exponent around it.",
+      "sortOrder": 3
+    },
+    {
+      "id": "rm-unit-digit",
+      "topicId": "remainders",
+      "name": "Unit digits and cyclicity",
+      "description": "The unit digit is the remainder on division by 10. Every base repeats its unit digit in a cycle of 1, 2 or 4, so the exponent only matters through its remainder on division by 4.",
+      "sortOrder": 4
+    },
+    {
+      "id": "rm-last-two",
+      "topicId": "remainders",
+      "name": "Last two digits",
+      "description": "The last two digits are the remainder on division by 100. Bases ending in 1 follow a tens-digit rule; other bases are first turned into one ending in 1 (by squaring, or with 2¹⁰ ending in 24).",
+      "sortOrder": 5
+    },
+    {
+      "id": "rm-fermat",
+      "topicId": "remainders",
+      "name": "Fermat's little theorem",
+      "description": "For a prime p that does not divide a, a^(p − 1) leaves remainder 1 on division by p, so exponents can be reduced by multiples of p − 1.",
+      "sortOrder": 6
+    },
+    {
+      "id": "rm-euler",
+      "topicId": "remainders",
+      "name": "Euler's theorem",
+      "description": "For a and n with no common factor, a^φ(n) leaves remainder 1 on division by n, where φ(n) counts the numbers from 1 to n that share no factor with n.",
+      "sortOrder": 7
+    },
+    {
+      "id": "rm-wilson",
+      "topicId": "remainders",
+      "name": "Wilson's theorem",
+      "description": "(p − 1)! leaves remainder p − 1, that is −1, on division by a prime p. Peeling off the last factors gives (p − 2)! and (p − 3)! too.",
+      "sortOrder": 8
+    },
+    {
+      "id": "rm-crt",
+      "topicId": "remainders",
+      "name": "Finding the number from its remainders",
+      "description": "When a number leaves known remainders on division by two divisors, list the numbers that fit the larger divisor and test them against the other. Solutions repeat every LCM of the divisors.",
+      "sortOrder": 9
+    }
+  ],
+  "formulas": [
+    {
+      "id": "rm-identity-f",
+      "topicId": "remainders",
+      "conceptId": "rm-basics",
+      "title": "Remainders of sums and products",
+      "prompt": "You need the remainder of a long product or sum. What can you replace each number by?",
+      "formula": "Rem(a + b) = Rem(Rem a + Rem b)\nRem(a × b) = Rem(Rem a × Rem b)",
+      "variables": [],
+      "explanation": "Every multiple of the divisor disappears on division, so only the remainders survive. Reduce again whenever the working number grows past the divisor.",
+      "example": "23 × 34 ÷ 5: remainders 3 and 4\n3 × 4 = 12, which leaves 2",
+      "commonMistake": "Stopping at the product of the remainders (12) without reducing it below the divisor.",
+      "applicationPrompt": "Find the remainder when 46 × 73 is divided by 9.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rm-negative-f",
+      "topicId": "remainders",
+      "conceptId": "rm-negative",
+      "title": "Negative remainders",
+      "prompt": "A number is just below a multiple of the divisor. What remainder is easiest to use?",
+      "formula": "If a = kd − s, use −s as its remainder\nIf the final answer is negative, add d",
+      "variables": [],
+      "explanation": "−s and d − s differ by exactly d, so they behave the same on division by d. Small negative numbers are far easier to multiply and raise to powers.",
+      "example": "47 × 48 ÷ 49: use −2 and −1\n(−2)(−1) = 2, so the remainder is 2",
+      "commonMistake": "Leaving a negative answer such as −5 instead of adding the divisor (−5 on division by 9 is 4).",
+      "applicationPrompt": "Find the remainder when 58 × 59 is divided by 60.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rm-power-f",
+      "topicId": "remainders",
+      "conceptId": "rm-powers",
+      "title": "Powers through a remainder of 1",
+      "prompt": "How do you find the remainder of a huge power such as 2¹⁰⁰ ÷ 7?",
+      "formula": "If aᵏ leaves 1, then a^(qk + r) leaves the same remainder as aʳ\nIf aᵏ leaves −1, the sign alternates with q",
+      "variables": [],
+      "explanation": "a^(qk + r) = (aᵏ)^q × aʳ, and (aᵏ)^q leaves 1^q = 1. So only the remainder of the exponent on division by k matters.",
+      "example": "2¹⁰⁰ ÷ 7: 2³ = 8 leaves 1\n100 = 3 × 33 + 1, so the remainder is 2¹ = 2",
+      "commonMistake": "Dividing the exponent by the divisor (7) instead of by the cycle length (3).",
+      "applicationPrompt": "Find the remainder when 4⁵¹ is divided by 7.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rm-unit-cycle-f",
+      "topicId": "remainders",
+      "conceptId": "rm-unit-digit",
+      "title": "Unit digit of any power",
+      "prompt": "How do you find the unit digit of aⁿ for any base, including a product or difference of powers?",
+      "formula": "u(aⁿ) = u(aʳ), where r = n mod 4 (use r = 4 when n is a multiple of 4)\nu(product) = u(product of the unit digits)",
+      "variables": [],
+      "explanation": "Every unit digit repeats in a cycle of length 1, 2 or 4, and all three divide 4, so reducing the exponent mod 4 works for every base. Only unit digits take part in later multiplication.",
+      "example": "u(27⁹⁸): 98 mod 4 = 2, and 7² = 49, so 9\nu(27⁹⁸ × 13⁵): 9 × 3 = 27, so 7",
+      "commonMistake": "Using r = 0 and answering 1 when the exponent is a multiple of 4: 7⁴ ends in 1 but 8⁴ ends in 6.",
+      "applicationPrompt": "What is the unit digit of 23⁶² × 18³³?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rm-last-two-f",
+      "topicId": "remainders",
+      "conceptId": "rm-last-two",
+      "title": "Last two digits for a base ending in 1",
+      "prompt": "What are the last two digits of a power of a number ending in 1?",
+      "formula": "(…a1)ⁿ ends in [unit digit of a × n] 1",
+      "variables": [],
+      "explanation": "(10a + 1)ⁿ = 1 + n × 10a + (multiples of 100), so the units digit stays 1 and the tens digit is the unit digit of a × n.",
+      "example": "31⁴⁷: 3 × 47 = 141, unit digit 1\nLast two digits: 11",
+      "commonMistake": "Multiplying the tens digit by the tens digit of the exponent instead of the whole exponent (or its unit digit).",
+      "applicationPrompt": "What are the last two digits of 61⁸³?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-sc-twenty-four",
+      "topicId": "remainders",
+      "conceptId": "rm-last-two",
+      "kind": "shortcut",
+      "title": "Last two digits of powers of 2",
+      "prompt": "What is the quick way to the last two digits of a large power of 2?",
+      "formula": "2¹⁰ = 1024 ends in 24\n24 to an odd power ends in 24, to an even power in 76",
+      "variables": [],
+      "explanation": "24² = 576 ends in 76, and 76 × 76 = 5776 ends in 76 again, while 76 × 24 ends in 24. So (2¹⁰)ᵏ ends in 24 for odd k and 76 for even k.",
+      "example": "2²⁰ = (2¹⁰)² ends in 76 (1048576)\n2³⁰ = (2¹⁰)³ ends in 24",
+      "commonMistake": "Applying it to an exponent that is not a multiple of 10 without handling the leftover power of 2 (2³⁵ = 2³⁰ × 2⁵: 24 × 32 = 768, so 68).",
+      "applicationPrompt": "What are the last two digits of 2⁷⁰?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-fermat-f",
+      "topicId": "remainders",
+      "conceptId": "rm-fermat",
+      "title": "Fermat's little theorem",
+      "prompt": "The divisor is a prime p that does not divide the base. Which power of the base is sure to leave 1?",
+      "formula": "a^(p − 1) leaves remainder 1 on division by p\n(p prime, p does not divide a)",
+      "variables": [
+        {
+          "symbol": "p",
+          "meaning": "a prime divisor"
+        },
+        {
+          "symbol": "a",
+          "meaning": "the base, not a multiple of p"
+        }
+      ],
+      "explanation": "The remainders of the powers of a cycle through a set whose length always divides p − 1, so the power p − 1 always lands on 1. Reduce the exponent modulo p − 1.",
+      "example": "3¹⁰⁰ ÷ 7: 3⁶ leaves 1\n100 = 6 × 16 + 4, and 3⁴ = 81 leaves 4",
+      "commonMistake": "Using it when p divides a (7¹⁰ on division by 7 leaves 0, not 1), or for a divisor that is not prime.",
+      "applicationPrompt": "Find the remainder when 5²⁰²⁶ is divided by 13.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-euler-f",
+      "topicId": "remainders",
+      "conceptId": "rm-euler",
+      "title": "Euler's theorem",
+      "prompt": "The divisor is not prime but shares no factor with the base. Which power is sure to leave 1?",
+      "formula": "a^φ(n) leaves remainder 1 on division by n when HCF(a, n) = 1\nφ(n) = n(1 − 1/p₁)(1 − 1/p₂)… over the distinct primes of n",
+      "variables": [
+        {
+          "symbol": "φ(n)",
+          "meaning": "how many of 1, 2, …, n share no factor with n"
+        }
+      ],
+      "explanation": "It generalises Fermat's theorem: for a prime p, φ(p) = p − 1. φ(10) = 4 is why unit digits cycle in fours.",
+      "example": "7²²² ÷ 10: φ(10) = 4\n222 = 4 × 55 + 2, and 7² = 49 leaves 9",
+      "commonMistake": "Forgetting the condition: 2 and 10 share a factor, so 2⁴ does not leave 1 on division by 10 (16 leaves 6).",
+      "applicationPrompt": "Find the remainder when 11¹⁰⁰ is divided by 24.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-wilson-f",
+      "topicId": "remainders",
+      "conceptId": "rm-wilson",
+      "title": "Wilson's theorem",
+      "prompt": "What remainder does (p − 1)! leave on division by a prime p?",
+      "formula": "(p − 1)! leaves p − 1 (that is, −1)\n(p − 2)! leaves 1",
+      "variables": [],
+      "explanation": "In (p − 1)! every factor pairs with its own reciprocal remainder except 1 and p − 1, so the product is −1. Since p − 1 is itself −1, removing it leaves (p − 2)! with remainder 1.",
+      "example": "16! ÷ 17 leaves 16\n21! ÷ 23 leaves 1",
+      "commonMistake": "Answering 0 because \"a factorial is divisible by everything\": (p − 1)! contains every number below p, but not p itself.",
+      "applicationPrompt": "Find the remainder when 28! is divided by 29.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-crt-f",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "title": "A number from two remainders",
+      "prompt": "A number leaves r₁ on division by a and r₂ on division by b. How do you find it?",
+      "formula": "List b·k + r₂ (the larger divisor) and keep the first that leaves r₁ on division by a\nAll solutions: N + LCM(a, b) × t",
+      "variables": [],
+      "explanation": "Listing for the larger divisor means fewer candidates to test. Two solutions always differ by a common multiple of a and b, so they repeat every LCM.",
+      "example": "2 on ÷ 5 and 3 on ÷ 7: 3, 10, 17 → 17 ÷ 5 leaves 2\nN = 17, 52, 87, …",
+      "commonMistake": "Adding the product a × b instead of the LCM when the divisors share a factor.",
+      "applicationPrompt": "Find the smallest number that leaves 1 on division by 4 and 2 on division by 9.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "rm-sc-count-range",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "kind": "shortcut",
+      "title": "Counting solutions in a range",
+      "prompt": "How do you count the numbers in a range that meet two remainder conditions?",
+      "formula": "Count = ⌊(upper − first) ÷ LCM⌋ + 1\n(first = the smallest solution inside the range)",
+      "variables": [],
+      "explanation": "Inside the range the solutions form an arithmetic progression with common difference LCM, so counting them is counting terms of an AP.",
+      "example": "Two-digit numbers leaving 1 on ÷ 3 and 2 on ÷ 5: first 22, LCM 15\n⌊(99 − 22) ÷ 15⌋ + 1 = 5 + 1 = 6",
+      "commonMistake": "Starting from a solution below the range (7) and counting it.",
+      "applicationPrompt": "How many three-digit numbers leave 2 on division by 3 and 3 on division by 4?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "remainders-level-0",
+      "topicId": "remainders",
+      "order": 0,
+      "title": "Remainders Behave Like Numbers",
+      "description": "Replace numbers by their remainders, use negative remainders, and watch the remainders of powers go round in a circle.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "rm-basics",
+        "rm-negative",
+        "rm-powers"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Swap each number for its remainder",
+            "body": "To find what 23 × 34 leaves on division by 5 you never need the product. 23 leaves 3 and 34 leaves 4; multiply those to get 12, and 12 leaves 2. So 23 × 34 leaves 2.\n\nIt works because 23 = 5 × 4 + 3 and 34 = 5 × 6 + 4: every part with a 5 in it vanishes on division by 5. Sums and differences behave the same way."
+          },
+          {
+            "type": "formula",
+            "title": "The remainder rule",
+            "body": "Rem(a × b) = Rem(Rem a × Rem b)",
+            "caption": "The same works for a + b and a − b. Reduce again whenever the working number passes the divisor."
+          },
+          {
+            "type": "check",
+            "questionId": "remainders-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Negative remainders save work",
+            "body": "29 is 1 less than 30, so on division by 30 it behaves like −1, and 31 behaves like +1. Then 29 × 31 behaves like −1, and adding 30 turns that into the true remainder 29 (29 × 31 = 899 = 30 × 29 + 29).\n\nNumbers like 98, 99 or 26 (= 27 − 1) are much easier to handle as −2, −1 or −1."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "remainder-wheel"
+          },
+          {
+            "type": "text",
+            "title": "Powers go round in a circle",
+            "body": "Divide 3, 3², 3³, … by 7 and the remainders are 3, 2, 6, 4, 5, 1, then 3 again. Once a power leaves 1, everything repeats. 100 = 6 × 16 + 4, so 3¹⁰⁰ leaves what 3⁴ = 81 leaves: 4."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Hunt for a power that leaves 1 or −1. Spotting 2³ = 8 = 7 + 1 turns 2¹⁰⁰ ÷ 7 into (2³)³³ × 2, remainder 2, without any long division."
+          },
+          {
+            "type": "check",
+            "questionId": "remainders-q-006"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "remainders-level-1",
+      "topicId": "remainders",
+      "order": 1,
+      "title": "Remainder Rules",
+      "description": "The remainder rule, negative remainders, powers, unit digits and last two digits.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "remainders-level-0"
+      ],
+      "conceptIds": [
+        "rm-basics",
+        "rm-negative",
+        "rm-powers",
+        "rm-unit-digit",
+        "rm-last-two"
+      ],
+      "formulaIds": [
+        "rm-identity-f",
+        "rm-negative-f",
+        "rm-power-f",
+        "rm-unit-cycle-f",
+        "rm-last-two-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "remainders-level-2",
+      "topicId": "remainders",
+      "order": 2,
+      "title": "Direct Remainders",
+      "description": "Remainders of products and sums, negative remainders and unit digits in one step.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "remainders-level-1"
+      ],
+      "conceptIds": [
+        "rm-basics",
+        "rm-negative",
+        "rm-unit-digit",
+        "rm-powers"
+      ],
+      "questionIds": [
+        "remainders-q-001",
+        "remainders-q-002",
+        "remainders-q-003",
+        "remainders-q-004",
+        "remainders-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "remainders-level-3",
+      "topicId": "remainders",
+      "order": 3,
+      "title": "Powers, Cycles and Unit Digits",
+      "description": "Find the cycle, reduce the exponent and handle negative bases.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "remainders-level-2"
+      ],
+      "conceptIds": [
+        "rm-powers",
+        "rm-negative",
+        "rm-unit-digit",
+        "rm-basics"
+      ],
+      "questionIds": [
+        "remainders-q-006",
+        "remainders-q-007",
+        "remainders-q-008",
+        "remainders-q-009",
+        "remainders-q-010",
+        "remainders-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "remainders-level-4",
+      "topicId": "remainders",
+      "order": 4,
+      "title": "Last Two Digits",
+      "description": "Tens digits of powers, powers of 2 and sums of powers.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "remainders-level-3"
+      ],
+      "conceptIds": [
+        "rm-last-two",
+        "rm-negative"
+      ],
+      "questionIds": [
+        "remainders-q-012",
+        "remainders-q-013",
+        "remainders-q-014",
+        "remainders-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "remainders-level-5",
+      "topicId": "remainders",
+      "order": 5,
+      "title": "Mixed Remainders Practice",
+      "description": "All the core patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "remainders-level-4"
+      ],
+      "conceptIds": [
+        "rm-basics",
+        "rm-powers",
+        "rm-unit-digit",
+        "rm-last-two"
+      ],
+      "questionQuery": {
+        "topicId": "remainders",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "rm-basics",
+          "rm-negative",
+          "rm-powers",
+          "rm-unit-digit",
+          "rm-last-two"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "remainders-level-6",
+      "topicId": "remainders",
+      "order": 6,
+      "title": "Advanced: Fermat, Euler and Wilson",
+      "description": "Three theorems that tell you at once which power, or which factorial, leaves 1 or −1.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "remainders-level-5"
+      ],
+      "conceptIds": [
+        "rm-fermat",
+        "rm-euler",
+        "rm-wilson"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Fermat: the cycle always fits p − 1",
+            "body": "For a prime p that does not divide a, the remainders of a, a², a³, … always come back to 1 by the power p − 1. So the exponent can be cut down by any multiple of p − 1.\n\n2⁶⁰ ÷ 11: 2¹⁰ leaves 1 and 60 is a multiple of 10, so the remainder is 1."
+          },
+          {
+            "type": "formula",
+            "title": "Fermat's little theorem",
+            "body": "a^(p − 1) leaves 1 on division by p",
+            "caption": "p prime and p does not divide a. The cycle can be shorter (3⁵ already leaves 1 on division by 11), but its length always divides p − 1."
+          },
+          {
+            "type": "check",
+            "questionId": "remainders-q-016"
+          },
+          {
+            "type": "text",
+            "title": "Euler: the same idea for any divisor",
+            "body": "If the divisor n is not prime, use φ(n), the count of numbers from 1 to n that share no factor with n. Multiply n by (1 − 1/p) for each distinct prime p of n: φ(20) = 20 × 1/2 × 4/5 = 8.\n\nφ(10) = 4 (the numbers 1, 3, 7, 9), which is exactly why unit digits repeat in fours."
+          },
+          {
+            "type": "formula",
+            "title": "Euler's theorem",
+            "body": "a^φ(n) leaves 1 on division by n",
+            "caption": "Only when a and n share no factor."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Check for a common factor first. 2 and 10 share the factor 2, so Euler says nothing about powers of 2 on division by 10, and indeed they end in 2, 4, 8, 6 and never in 1."
+          },
+          {
+            "type": "text",
+            "title": "Wilson: factorials and primes",
+            "body": "(p − 1)! leaves p − 1, that is −1, on division by a prime p. For example 6! = 720 = 7 × 103 − 1.\n\nPeel off factors to go further: since p − 1 is itself −1, (p − 2)! leaves 1."
+          },
+          {
+            "type": "check",
+            "questionId": "remainders-q-020"
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "remainders-level-7",
+      "topicId": "remainders",
+      "order": 7,
+      "title": "Challenge: The Three Theorems",
+      "description": "Huge powers on prime and composite divisors, totients and factorials near a prime.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "remainders-level-6"
+      ],
+      "conceptIds": [
+        "rm-fermat",
+        "rm-euler",
+        "rm-wilson"
+      ],
+      "questionIds": [
+        "remainders-q-016",
+        "remainders-q-017",
+        "remainders-q-018",
+        "remainders-q-019",
+        "remainders-q-020",
+        "remainders-q-021",
+        "remainders-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    },
+    {
+      "id": "remainders-level-8",
+      "topicId": "remainders",
+      "order": 8,
+      "title": "Advanced: Finding the Number",
+      "description": "Recover a number from its remainders on two divisors, and count how many such numbers lie in a range.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "remainders-level-7"
+      ],
+      "conceptIds": [
+        "rm-crt"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Two conditions, one number",
+            "body": "A number leaves 2 when divided by 5 and 3 when divided by 7. List the numbers that suit the larger divisor: 3, 10, 17, 24, … and test each on the other: 17 ÷ 5 leaves 2. So 17 works, and so does every number 35 more: 52, 87, …"
+          },
+          {
+            "type": "formula",
+            "title": "All the solutions",
+            "body": "N = first solution + LCM × t",
+            "caption": "Two solutions always differ by a common multiple of the divisors. If the divisors share a factor, the remainders must agree on it or there is no solution at all."
+          },
+          {
+            "type": "check",
+            "questionId": "remainders-q-023"
+          },
+          {
+            "type": "example",
+            "title": "Counting solutions in a range",
+            "body": "How many two-digit numbers leave 1 on division by 3 and 2 on division by 5?\n\nThe smallest solution is 7; then 22, 37, 52, 67, 82, 97 step by 15. From 22 to 97 there are (97 − 22) ÷ 15 + 1 = 6 numbers."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Same remainder every time, or the same shortfall every time? Then the HCF and LCM shortcuts (LCM + r, LCM − k) are quicker. List-and-test is for remainders that follow no pattern."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "remainders-level-9",
+      "topicId": "remainders",
+      "order": 9,
+      "title": "Challenge: Finding the Number",
+      "description": "Smallest numbers, counts in a range and a word problem from two remainders.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "remainders-level-8"
+      ],
+      "conceptIds": [
+        "rm-crt"
+      ],
+      "questionIds": [
+        "remainders-q-023",
+        "remainders-q-024",
+        "remainders-q-025",
+        "remainders-q-026"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "remainders-q-001",
+      "topicId": "remainders",
+      "conceptId": "rm-basics",
+      "levelId": "remainders-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 47 × 53 × 61 is divided by 6?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Replace each number by its remainder on division by 6: 47 → 5, 53 → 5, 61 → 1. Multiply: 5 × 5 × 1 = 25, and 25 leaves 1 on division by 6.",
+      "solutionSteps": [
+        "47 = 6 × 7 + 5, 53 = 6 × 8 + 5, 61 = 6 × 10 + 1.",
+        "Multiply the remainders: 5 × 5 × 1 = 25.",
+        "25 = 6 × 4 + 1, so the remainder is 1."
+      ],
+      "formulaIds": [
+        "rm-identity-f"
+      ],
+      "method": "Multiply the remainders, then reduce.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You never need the full product; what does each number leave on division by 6?"
+        },
+        {
+          "level": 2,
+          "text": "The remainders are 5, 5 and 1. Multiply them and divide by 6 again."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 25, the product of the remainders, without reducing it.",
+        "Adding the remainders (5 + 5 + 1 = 11 → 5) instead of multiplying."
+      ],
+      "tags": [
+        "remainders",
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-002",
+      "topicId": "remainders",
+      "conceptId": "rm-basics",
+      "levelId": "remainders-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the remainder when 2,341 + 5,678 + 9,107 is divided by 8?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "For 8, only the last three digits matter. 341 leaves 5, 678 leaves 6 and 107 leaves 3. Their sum 14 leaves 6 on division by 8.",
+      "solutionSteps": [
+        "2,341 → 341 = 8 × 42 + 5, remainder 5.",
+        "5,678 → 678 = 8 × 84 + 6, remainder 6.",
+        "9,107 → 107 = 8 × 13 + 3, remainder 3.",
+        "5 + 6 + 3 = 14, which leaves 6."
+      ],
+      "formulaIds": [
+        "rm-identity-f"
+      ],
+      "method": "Add the remainders, then reduce.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A sum leaves the same remainder as the sum of the remainders."
+        },
+        {
+          "level": 2,
+          "text": "Divisibility by 8 depends on the last three digits, so 2,341 leaves what 341 leaves."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 14, the sum of the remainders, without reducing."
+      ],
+      "tags": [
+        "remainders",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-003",
+      "topicId": "remainders",
+      "conceptId": "rm-negative",
+      "levelId": "remainders-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 99 × 98 is divided by 100?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "98"
+        },
+        {
+          "id": "c",
+          "text": "97"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "99 is 1 less than 100 and 98 is 2 less, so their remainders can be taken as −1 and −2. (−1) × (−2) = 2, which is already between 0 and 99. Check: 99 × 98 = 9,702.",
+      "solutionSteps": [
+        "99 ≡ −1 and 98 ≡ −2 on division by 100.",
+        "(−1) × (−2) = +2.",
+        "The remainder is 2 (9,702 = 100 × 97 + 2)."
+      ],
+      "formulaIds": [
+        "rm-negative-f"
+      ],
+      "method": "Use the small negative remainders.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far is each number below 100?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply −1 by −2; two negatives give a positive."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 98: treating the product as −2 instead of (−1)(−2) = +2."
+      ],
+      "tags": [
+        "remainders",
+        "negative"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-004",
+      "topicId": "remainders",
+      "conceptId": "rm-unit-digit",
+      "levelId": "remainders-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the unit digit of 1,357 × 2,468 × 919?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Only the unit digits take part: 7 × 8 = 56, unit digit 6; then 6 × 9 = 54, unit digit 4.",
+      "solutionSteps": [
+        "Unit digits: 7, 8 and 9.",
+        "7 × 8 = 56 → 6.",
+        "6 × 9 = 54 → 4."
+      ],
+      "formulaIds": [
+        "rm-unit-cycle-f"
+      ],
+      "method": "Multiply the unit digits and keep only the last digit each time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The unit digit is the remainder on division by 10; which digits matter?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply 7 × 8 first and keep only its last digit."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the unit digits (7 + 8 + 9 = 24 → 4 here by coincidence, but wrong in general)."
+      ],
+      "tags": [
+        "unit-digit",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-005",
+      "topicId": "remainders",
+      "conceptId": "rm-powers",
+      "levelId": "remainders-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "Every power of 10 (10, 100, 1,000, …) leaves remainder 1 when divided by 9.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "10 = 9 + 1 leaves 1, so 10ⁿ leaves 1ⁿ = 1 for every n. This is exactly why a number and its digit sum leave the same remainder on division by 9.",
+      "solutionSteps": [
+        "10 leaves 1 on division by 9.",
+        "So 10ⁿ leaves 1 × 1 × … × 1 = 1.",
+        "The statement is true."
+      ],
+      "formulaIds": [
+        "rm-power-f"
+      ],
+      "method": "Reduce the base first, then raise the remainder to the power.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What remainder does 10 itself leave on division by 9?"
+        },
+        {
+          "level": 2,
+          "text": "A remainder of 1 raised to any power is still 1."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking the remainder grows with the number of zeros."
+      ],
+      "tags": [
+        "true-false",
+        "powers"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-006",
+      "topicId": "remainders",
+      "conceptId": "rm-powers",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 5¹⁰⁰ is divided by 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The remainders of 5, 5², 5³, … on division by 7 are 5, 4, 6, 2, 3, 1 and then repeat: a cycle of 6. 100 = 6 × 16 + 4, so 5¹⁰⁰ leaves what 5⁴ leaves: 625 = 7 × 89 + 2, remainder 2.",
+      "solutionSteps": [
+        "Remainders of 5¹ … 5⁶: 5, 4, 6, 2, 3, 1.",
+        "5⁶ leaves 1, so reduce 100 by multiples of 6: 100 = 96 + 4.",
+        "5⁴ = 625 leaves 2."
+      ],
+      "formulaIds": [
+        "rm-power-f"
+      ],
+      "method": "Find the power that leaves 1, then use the leftover exponent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the remainders of 5¹, 5², 5³ … on division by 7 until you reach 1."
+        },
+        {
+          "level": 2,
+          "text": "The cycle has length 6. What is 100 mod 6?"
+        },
+        {
+          "level": 3,
+          "text": "100 leaves 4 on division by 6, so look at 5⁴."
+        }
+      ],
+      "commonMistakes": [
+        "Reducing the exponent mod 7 (the divisor) instead of mod 6 (the cycle length), which points to 5² and gives 4."
+      ],
+      "tags": [
+        "remainders",
+        "cyclicity"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-007",
+      "topicId": "remainders",
+      "conceptId": "rm-negative",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the remainder when 26⁵⁵ is divided by 9?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "26 = 27 − 1, so 26 leaves −1 on division by 9. (−1)⁵⁵ = −1 because 55 is odd, and −1 + 9 = 8.",
+      "solutionSteps": [
+        "26 ≡ −1 (mod 9).",
+        "(−1)⁵⁵ = −1.",
+        "Add 9: the remainder is 8."
+      ],
+      "formulaIds": [
+        "rm-negative-f"
+      ],
+      "method": "A base one less than a multiple of the divisor gives ±1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is 26 just above or just below a multiple of 9?"
+        },
+        {
+          "level": 2,
+          "text": "26 is −1 on division by 9. Is 55 odd or even?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1 by forgetting that an odd power of −1 is −1.",
+        "Leaving the answer as −1."
+      ],
+      "tags": [
+        "remainders",
+        "negative",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-008",
+      "topicId": "remainders",
+      "conceptId": "rm-unit-digit",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the unit digit of 7⁹⁵ − 3⁵⁸?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "7⁹⁵: 95 mod 4 = 3, and 7³ = 343 ends in 3. 3⁵⁸: 58 mod 4 = 2, and 3² = 9 ends in 9. The first number is far larger, so subtracting a number ending in 9 from one ending in 3 borrows: 13 − 9 = 4.",
+      "solutionSteps": [
+        "u(7⁹⁵) = u(7³) = 3.",
+        "u(3⁵⁸) = u(3²) = 9.",
+        "…3 − …9 borrows: 13 − 9 = 4."
+      ],
+      "formulaIds": [
+        "rm-unit-cycle-f"
+      ],
+      "method": "Find each unit digit by its cycle, then subtract with a borrow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find each unit digit separately using exponent mod 4."
+        },
+        {
+          "level": 2,
+          "text": "The unit digits are 3 and 9. Which number is bigger?"
+        },
+        {
+          "level": 3,
+          "text": "A number ending in 3 minus a number ending in 9 must borrow ten."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 3 − 9 = −6 and answering 6."
+      ],
+      "tags": [
+        "unit-digit",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-009",
+      "topicId": "remainders",
+      "conceptId": "rm-unit-digit",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the unit digit of 13²⁰²⁶ × 17²⁰²⁷?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "13²⁰²⁶ ends like 3²⁰²⁶: 2026 mod 4 = 2, so 9. 17²⁰²⁷ ends like 7²⁰²⁷: 2027 mod 4 = 3, so 3. Then 9 × 3 = 27 ends in 7.",
+      "solutionSteps": [
+        "2026 = 4 × 506 + 2 → u(3²) = 9.",
+        "2027 = 4 × 506 + 3 → u(7³) = 3.",
+        "9 × 3 = 27 → 7."
+      ],
+      "formulaIds": [
+        "rm-unit-cycle-f"
+      ],
+      "method": "Cycle of 4 for each factor, then multiply the unit digits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only the unit digits 3 and 7 of the bases matter."
+        },
+        {
+          "level": 2,
+          "text": "Reduce each exponent mod 4: 2026 → 2, 2027 → 3."
+        }
+      ],
+      "commonMistakes": [
+        "Pairing 13 × 17 = 221 first and raising it to one exponent: the exponents are different."
+      ],
+      "tags": [
+        "unit-digit",
+        "cyclicity"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-010",
+      "topicId": "remainders",
+      "conceptId": "rm-basics",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "A number leaves remainder 4 when divided by 13. What is the quickest correct way to find the remainder when its square is divided by 13?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Square the remainder: 4² = 16, which leaves 3"
+        },
+        {
+          "id": "b",
+          "text": "The square leaves the same remainder, 4"
+        },
+        {
+          "id": "c",
+          "text": "Double the remainder: 2 × 4 = 8"
+        },
+        {
+          "id": "d",
+          "text": "It cannot be found without the number itself"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Write the number as 13k + 4. Its square is 169k² + 104k + 16, and every term but 16 is a multiple of 13. So the square leaves what 16 leaves: 3.",
+      "solutionSteps": [
+        "Number = 13k + 4.",
+        "Square = 13(13k² + 8k) + 16.",
+        "16 leaves 3 on division by 13."
+      ],
+      "formulaIds": [
+        "rm-identity-f"
+      ],
+      "method": "Square the remainder and reduce.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the number as 13k + 4 and square it."
+        },
+        {
+          "level": 2,
+          "text": "Every term with k is a multiple of 13."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 16, which is larger than the divisor."
+      ],
+      "tags": [
+        "method",
+        "remainders"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-011",
+      "topicId": "remainders",
+      "conceptId": "rm-powers",
+      "levelId": "remainders-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the remainder when 2²⁰³ is divided by 15?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "2⁴ = 16 leaves 1 on division by 15. 203 = 4 × 50 + 3, so 2²⁰³ = (2⁴)⁵⁰ × 2³ leaves 1 × 8 = 8.",
+      "solutionSteps": [
+        "2⁴ = 16 = 15 + 1.",
+        "203 = 4 × 50 + 3.",
+        "Remainder = 1⁵⁰ × 2³ = 8."
+      ],
+      "formulaIds": [
+        "rm-power-f"
+      ],
+      "method": "Find the power that leaves 1, then use the leftover exponent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which small power of 2 is one more than a multiple of 15?"
+        },
+        {
+          "level": 2,
+          "text": "2⁴ = 16. What is 203 mod 4?"
+        }
+      ],
+      "commonMistakes": [
+        "Reducing 203 mod 15 and computing 2⁸."
+      ],
+      "tags": [
+        "powers",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-012",
+      "topicId": "remainders",
+      "conceptId": "rm-last-two",
+      "levelId": "remainders-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What are the last two digits of 71⁵⁸? Enter them as a two-digit number.",
+      "answer": {
+        "value": 61,
+        "tolerance": 0
+      },
+      "explanation": "The base ends in 1, so the power ends in 1 and its tens digit is the unit digit of 7 × 58 = 406, which is 6. The last two digits are 61.",
+      "solutionSteps": [
+        "(70 + 1)⁵⁸ = 1 + 58 × 70 + multiples of 100.",
+        "58 × 70 = 4,060 ends in 60.",
+        "1 + 60 = 61."
+      ],
+      "formulaIds": [
+        "rm-last-two-f"
+      ],
+      "method": "Tens digit = unit digit of (tens digit of base × exponent).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The last two digits are the remainder on division by 100."
+        },
+        {
+          "level": 2,
+          "text": "For a base ending in 1, multiply its tens digit by the exponent: 7 × 58."
+        }
+      ],
+      "commonMistakes": [
+        "Using 7 × 5 = 35 (the tens digit of the exponent) and answering 51."
+      ],
+      "tags": [
+        "last-two-digits",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-013",
+      "topicId": "remainders",
+      "conceptId": "rm-last-two",
+      "levelId": "remainders-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What are the last two digits of 2⁹⁰?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24"
+        },
+        {
+          "id": "b",
+          "text": "76"
+        },
+        {
+          "id": "c",
+          "text": "12"
+        },
+        {
+          "id": "d",
+          "text": "48"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2¹⁰ = 1024 ends in 24, so 2⁹⁰ = (2¹⁰)⁹ ends like 24⁹. 24² ends in 76, and 76 times anything ending in 76 still ends in 76, so 24⁸ ends in 76 and 24⁹ ends like 76 × 24 = 1,824: 24.",
+      "solutionSteps": [
+        "2⁹⁰ = (2¹⁰)⁹, and 2¹⁰ ends in 24.",
+        "24 to an even power ends in 76; to an odd power, in 24.",
+        "9 is odd, so the last two digits are 24."
+      ],
+      "formulaIds": [
+        "rm-sc-twenty-four"
+      ],
+      "method": "Group the power into blocks of 2¹⁰.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "2¹⁰ = 1024. Write 2⁹⁰ as a power of 2¹⁰."
+        },
+        {
+          "level": 2,
+          "text": "You need the last two digits of 24⁹. Try 24² first."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 76 by treating 9 as even."
+      ],
+      "tags": [
+        "last-two-digits",
+        "powers"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-014",
+      "topicId": "remainders",
+      "conceptId": "rm-negative",
+      "levelId": "remainders-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 7¹⁰¹ + 9¹⁰¹ is divided by 8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "On division by 8, 7 is −1 and 9 is +1. So the sum leaves (−1)¹⁰¹ + 1¹⁰¹ = −1 + 1 = 0: the sum is a multiple of 8.",
+      "solutionSteps": [
+        "7 ≡ −1 and 9 ≡ 1 (mod 8).",
+        "(−1)¹⁰¹ = −1 (odd power), 1¹⁰¹ = 1.",
+        "Sum: −1 + 1 = 0."
+      ],
+      "formulaIds": [
+        "rm-negative-f",
+        "rm-identity-f"
+      ],
+      "method": "Turn each base into ±1, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far are 7 and 9 from 8?"
+        },
+        {
+          "level": 2,
+          "text": "Use −1 for 7 and +1 for 9, then mind that 101 is odd."
+        }
+      ],
+      "commonMistakes": [
+        "Treating (−1)¹⁰¹ as +1 and answering 2."
+      ],
+      "tags": [
+        "remainders",
+        "negative"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-015",
+      "topicId": "remainders",
+      "conceptId": "rm-last-two",
+      "levelId": "remainders-level-4",
+      "difficulty": "complex",
+      "learningStage": "guided",
+      "type": "identify_error",
+      "question": "In which step does this solution first go wrong?",
+      "context": "Find the last two digits of 39⁸⁴.\n\nStep 1: 39² = 1,521, which ends in 21.\nStep 2: So 39⁸⁴ = (39²)⁴² ends like 21⁴².\nStep 3: For a base ending in 1, the tens digit is 2 × 4 = 8, so the last two digits are 81.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Step 1: 39² has been squared wrongly"
+        },
+        {
+          "id": "b",
+          "text": "Step 2: 84 is not 2 × 42"
+        },
+        {
+          "id": "c",
+          "text": "Step 3: the tens digit uses the exponent’s tens digit (4) instead of the exponent 42"
+        },
+        {
+          "id": "d",
+          "text": "There is no error; 81 is right"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Steps 1 and 2 are correct. In Step 3 the tens digit must be the unit digit of 2 × 42 = 84, which is 4, so the last two digits are 41, not 81.",
+      "solutionSteps": [
+        "39² = 1,521 ends in 21 ✓.",
+        "39⁸⁴ = (39²)⁴² ✓.",
+        "Tens digit = unit digit of 2 × 42 = 84 → 4, so 41."
+      ],
+      "formulaIds": [
+        "rm-last-two-f"
+      ],
+      "method": "Square to reach a base ending in 1, then apply the tens-digit rule with the full exponent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each step on its own; the first two are quick to verify."
+        },
+        {
+          "level": 2,
+          "text": "In the rule for (…a1)ⁿ, the tens digit is the unit digit of a × n, with n the whole exponent."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by a digit of the exponent rather than by the exponent."
+      ],
+      "tags": [
+        "error-spotting",
+        "last-two-digits"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-016",
+      "topicId": "remainders",
+      "conceptId": "rm-fermat",
+      "levelId": "remainders-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the remainder when 3²⁰²⁶ is divided by 11?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "11 is prime and does not divide 3, so 3¹⁰ leaves 1 (Fermat). 2026 = 10 × 202 + 6, so 3²⁰²⁶ leaves what 3⁶ = 729 leaves: 729 = 11 × 66 + 3, remainder 3.",
+      "solutionSteps": [
+        "Fermat: 3¹⁰ leaves 1 on division by 11.",
+        "2026 mod 10 = 6.",
+        "3⁶ = 729 = 726 + 3, so the remainder is 3."
+      ],
+      "formulaIds": [
+        "rm-fermat-f"
+      ],
+      "method": "Reduce the exponent mod p − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "11 is prime. Which power of 3 is sure to leave 1?"
+        },
+        {
+          "level": 2,
+          "text": "Reduce 2026 mod 10."
+        }
+      ],
+      "commonMistakes": [
+        "Reducing the exponent mod 11 instead of mod 10."
+      ],
+      "tags": [
+        "fermat",
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-017",
+      "topicId": "remainders",
+      "conceptId": "rm-fermat",
+      "levelId": "remainders-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the remainder when 4¹⁰⁰⁰ is divided by 13?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "13 is prime, so 4¹² leaves 1. 1000 = 12 × 83 + 4, so 4¹⁰⁰⁰ leaves what 4⁴ = 256 leaves. 256 = 13 × 19 + 9, so the remainder is 9.",
+      "solutionSteps": [
+        "Fermat: 4¹² leaves 1 on division by 13.",
+        "1000 = 996 + 4.",
+        "4⁴ = 256 = 247 + 9 → 9."
+      ],
+      "formulaIds": [
+        "rm-fermat-f"
+      ],
+      "method": "Reduce the exponent mod 12.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fermat gives 4¹² ≡ 1 on division by 13."
+        },
+        {
+          "level": 2,
+          "text": "What does 1000 leave on division by 12?"
+        },
+        {
+          "level": 3,
+          "text": "Work out 4⁴ = 256 and divide by 13."
+        }
+      ],
+      "commonMistakes": [
+        "Using 1000 mod 13 = 12 and answering 1."
+      ],
+      "tags": [
+        "fermat",
+        "advanced",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-018",
+      "topicId": "remainders",
+      "conceptId": "rm-euler",
+      "levelId": "remainders-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many whole numbers from 1 to 36 have no common factor with 36 other than 1?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "36 = 2² × 3², so φ(36) = 36 × (1 − 1/2) × (1 − 1/3) = 36 × 1/2 × 2/3 = 12. They are 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31 and 35.",
+      "solutionSteps": [
+        "Distinct primes of 36: 2 and 3.",
+        "φ(36) = 36 × 1/2 × 2/3.",
+        "= 12."
+      ],
+      "formulaIds": [
+        "rm-euler-f"
+      ],
+      "method": "Multiply n by (1 − 1/p) for each distinct prime p.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This count is Euler’s φ(36)."
+        },
+        {
+          "level": 2,
+          "text": "Only the distinct primes 2 and 3 matter, not their powers."
+        }
+      ],
+      "commonMistakes": [
+        "Using every prime factor with its power: 36 × 1/2 × 1/2 × 2/3 × 2/3."
+      ],
+      "tags": [
+        "euler",
+        "totient",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-019",
+      "topicId": "remainders",
+      "conceptId": "rm-euler",
+      "levelId": "remainders-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the remainder when 7²⁰²⁶ is divided by 15?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "7 and 15 share no factor, and φ(15) = 15 × 2/3 × 4/5 = 8, so 7⁸ leaves 1. 2026 = 8 × 253 + 2, so the remainder is that of 7² = 49, which is 4.",
+      "solutionSteps": [
+        "φ(15) = 8, so 7⁸ leaves 1.",
+        "2026 mod 8 = 2.",
+        "7² = 49 = 45 + 4 → 4."
+      ],
+      "formulaIds": [
+        "rm-euler-f"
+      ],
+      "method": "Reduce the exponent mod φ(n).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "15 is not prime; use Euler’s theorem with φ(15)."
+        },
+        {
+          "level": 2,
+          "text": "φ(15) = 8. What is 2026 mod 8?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 14 (as if 15 were prime) and reducing 2026 mod 14."
+      ],
+      "tags": [
+        "euler",
+        "advanced"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-020",
+      "topicId": "remainders",
+      "conceptId": "rm-wilson",
+      "levelId": "remainders-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the remainder when 22! is divided by 23?",
+      "options": [
+        {
+          "id": "a",
+          "text": "22"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "11"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "23 is prime, so by Wilson’s theorem (23 − 1)! = 22! leaves −1, that is 22. It is not 0: 22! contains every number up to 22 but not the prime 23.",
+      "solutionSteps": [
+        "23 is prime.",
+        "Wilson: (p − 1)! ≡ −1 (mod p).",
+        "−1 + 23 = 22."
+      ],
+      "formulaIds": [
+        "rm-wilson-f"
+      ],
+      "method": "Wilson’s theorem for (p − 1)!.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is 23 prime? Does 22! contain the factor 23?"
+        },
+        {
+          "level": 2,
+          "text": "For a prime p, (p − 1)! leaves −1."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 0 because factorials are divisible by \"most\" numbers."
+      ],
+      "tags": [
+        "wilson",
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-021",
+      "topicId": "remainders",
+      "conceptId": "rm-wilson",
+      "levelId": "remainders-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "assertion_reason",
+      "question": "Read the assertion and the reason, then choose the correct option.",
+      "assertion": "21! leaves remainder 1 when divided by 23.",
+      "reason": "For a prime p, (p − 1)! leaves remainder p − 1 on division by p.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both A and R are true, and R correctly explains A"
+        },
+        {
+          "id": "b",
+          "text": "Both A and R are true, but R does not explain A"
+        },
+        {
+          "id": "c",
+          "text": "A is true, R is false"
+        },
+        {
+          "id": "d",
+          "text": "A is false, R is true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "R is Wilson’s theorem and is true. It explains A: 22! = 22 × 21! leaves −1, and 22 is itself −1 on division by 23, so (−1) × 21! ≡ −1, giving 21! ≡ 1.",
+      "solutionSteps": [
+        "R: 22! leaves −1 on division by 23 (Wilson).",
+        "22! = 22 × 21!, and 22 ≡ −1.",
+        "So −21! ≡ −1, i.e. 21! ≡ 1. Both true, and R gives A."
+      ],
+      "formulaIds": [
+        "rm-wilson-f"
+      ],
+      "method": "Start from (p − 1)! and peel off the last factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 22! as 22 × 21!."
+        },
+        {
+          "level": 2,
+          "text": "22 is −1 on division by 23."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking R is about 22! only and so cannot explain a statement about 21!."
+      ],
+      "tags": [
+        "assertion-reason",
+        "wilson"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-022",
+      "topicId": "remainders",
+      "conceptId": "rm-fermat",
+      "levelId": "remainders-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Select ALL the statements that Fermat's little theorem guarantees.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2¹⁶ leaves 1 on division by 17"
+        },
+        {
+          "id": "b",
+          "text": "4¹⁰ leaves 1 on division by 11"
+        },
+        {
+          "id": "c",
+          "text": "3⁸ leaves 1 on division by 9"
+        },
+        {
+          "id": "d",
+          "text": "5⁶ leaves 1 on division by 7"
+        },
+        {
+          "id": "e",
+          "text": "7⁶ leaves 1 on division by 7"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explanation": "Fermat needs a prime divisor p and a base that p does not divide; then a^(p − 1) leaves 1. 17, 11 and 7 are prime and do not divide 2, 4 and 5. 9 is not prime (3⁸ is in fact a multiple of 9), and 7 divides 7, so 7⁶ leaves 0.",
+      "solutionSteps": [
+        "Check each: is the divisor prime, and is the exponent divisor − 1?",
+        "(a), (b), (d) pass both tests.",
+        "(c) fails: 9 is not prime. (e) fails: 7 divides 7."
+      ],
+      "formulaIds": [
+        "rm-fermat-f"
+      ],
+      "method": "Test the two conditions of the theorem.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fermat’s theorem has two conditions. What are they?"
+        },
+        {
+          "level": 2,
+          "text": "The divisor must be prime and must not divide the base."
+        }
+      ],
+      "commonMistakes": [
+        "Applying the theorem to 9, which is not prime.",
+        "Forgetting that a base divisible by p leaves 0."
+      ],
+      "tags": [
+        "multi-select",
+        "fermat"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-023",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "levelId": "remainders-level-9",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find the smallest whole number that leaves remainder 3 when divided by 5 and remainder 4 when divided by 9.",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "Numbers that leave 4 on division by 9 are 4, 13, 22, … The first one that leaves 3 on division by 5 is 13 (13 = 5 × 2 + 3).",
+      "solutionSteps": [
+        "List for the larger divisor: 4, 13, 22, 31, …",
+        "Test on 5: 4 leaves 4 ✗, 13 leaves 3 ✓.",
+        "Answer: 13."
+      ],
+      "formulaIds": [
+        "rm-crt-f"
+      ],
+      "method": "List for the larger divisor, test against the smaller.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with the numbers that fit the divisor 9: 4, 13, 22, …"
+        },
+        {
+          "level": 2,
+          "text": "Which of these leaves 3 when divided by 5?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the remainders or the divisors (3 + 4 = 7, 5 + 9 = 14)."
+      ],
+      "tags": [
+        "crt",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-024",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "levelId": "remainders-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many three-digit numbers leave remainder 1 when divided by 4 and remainder 4 when divided by 7?",
+      "answer": {
+        "value": 32,
+        "tolerance": 0
+      },
+      "explanation": "Numbers leaving 4 on division by 7: 4, 11, 18, 25. 25 leaves 1 on division by 4, so the solutions are 25 + 28t. The first three-digit one is 109 (t = 3) and the last is 977 (t = 34), so t runs from 3 to 34: 32 numbers.",
+      "solutionSteps": [
+        "Smallest solution: 25 (25 ÷ 7 leaves 4, 25 ÷ 4 leaves 1).",
+        "Solutions repeat every LCM(4, 7) = 28: 25 + 28t.",
+        "100 ≤ 25 + 28t ≤ 999 gives 3 ≤ t ≤ 34.",
+        "Count = 34 − 3 + 1 = 32."
+      ],
+      "formulaIds": [
+        "rm-crt-f",
+        "rm-sc-count-range"
+      ],
+      "method": "First solution, then an arithmetic progression with difference LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the smallest number that meets both conditions first."
+        },
+        {
+          "level": 2,
+          "text": "The solutions are 25, 53, 81, … in steps of 28."
+        },
+        {
+          "level": 3,
+          "text": "Find the first and last of them that have three digits."
+        }
+      ],
+      "commonMistakes": [
+        "Counting from t = 0 and including two-digit numbers.",
+        "Stepping by 4 × 7 correctly but miscounting the end: the last term is 977, not 1,005."
+      ],
+      "tags": [
+        "crt",
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-025",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "levelId": "remainders-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A box of laddoos can be shared equally among 6 children with 5 left over, and among 11 children with 3 left over. The box holds fewer than 100 laddoos. How many are in the box?",
+      "options": [
+        {
+          "id": "a",
+          "text": "47"
+        },
+        {
+          "id": "b",
+          "text": "53"
+        },
+        {
+          "id": "c",
+          "text": "113"
+        },
+        {
+          "id": "d",
+          "text": "41"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Numbers that leave 3 on division by 11: 3, 14, 25, 36, 47, … Testing on 6: 47 = 6 × 7 + 5 leaves 5. The next solution is 47 + 66 = 113, which is too many, so the box holds 47.",
+      "solutionSteps": [
+        "List for 11: 3, 14, 25, 36, 47.",
+        "Remainders on 6: 3, 2, 1, 0, 5 → 47 works.",
+        "Next solution 47 + LCM(6, 11) = 113 > 100."
+      ],
+      "formulaIds": [
+        "rm-crt-f"
+      ],
+      "method": "List for the larger divisor, test against the smaller, then use the limit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write down the numbers that leave 3 on division by 11."
+        },
+        {
+          "level": 2,
+          "text": "Test each one on division by 6 until the remainder is 5."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 113, the next solution, which breaks the \"fewer than 100\" condition.",
+        "Choosing 53, which fits 6 but leaves 9 on division by 11."
+      ],
+      "tags": [
+        "crt",
+        "word-problem"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "remainders-q-026",
+      "topicId": "remainders",
+      "conceptId": "rm-crt",
+      "levelId": "remainders-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "ordering",
+      "question": "Put the steps in order to find every number that leaves 3 on division by 8 and 5 on division by 9.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "List the numbers that leave 5 on division by 9: 5, 14, 23, 32, 41, 50, 59, …"
+        },
+        {
+          "id": "s2",
+          "text": "Divide each by 8 and keep the first that leaves 3"
+        },
+        {
+          "id": "s3",
+          "text": "Note that 59 is the first that works (59 = 8 × 7 + 3)"
+        },
+        {
+          "id": "s4",
+          "text": "Add LCM(8, 9) = 72 repeatedly for the rest: 131, 203, …"
+        }
+      ],
+      "explanation": "List for the larger divisor, test against the smaller, and then step by the LCM. Every solution differs from 59 by a multiple of both 8 and 9.",
+      "solutionSteps": [
+        "Candidates for 9: 5, 14, 23, 32, 41, 50, 59.",
+        "Remainders on 8: 5, 6, 7, 0, 1, 2, 3 → 59.",
+        "All solutions: 59 + 72t."
+      ],
+      "formulaIds": [
+        "rm-crt-f"
+      ],
+      "method": "List → test → first solution → step by LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot step by the LCM until you have one solution."
+        },
+        {
+          "level": 2,
+          "text": "Begin by listing numbers for the larger divisor."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping by 8 × 9 before checking any candidate."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

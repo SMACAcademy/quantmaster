@@ -884,6 +884,50 @@ function stackPlot(plot) {
   return el('div.sim-stack', {}, plot.plots.map(drawPlot));
 }
 
+/**
+ * A wheel of n positions (0 at the top, clockwise) and a walk between them, for
+ * remainders mod n: `{ kind: 'wheel', n, positions: [{ value, state }], path: [{ from, to, inCycle }], summary }`.
+ * state is 'current', 'cycle', 'tail' or 'idle'; steps before the loop are dashed.
+ */
+function wheelPlot(plot) {
+  const size = 340;
+  const c = size / 2;
+  const r = 122;
+  const at = (value, radius = r) => pointOnCircle(c, c, radius, (360 * value) / plot.n);
+  const stateTone = { current: 'data', cycle: 'arithmetic', tail: 'combinatorics' };
+  const children = [
+    svgEl('circle', { cx: c, cy: c, r, class: 'sim-circle' }),
+    ...plot.path.map((step) => {
+      const a = at(step.from);
+      const b = at(step.to);
+      return svgEl('line', {
+        x1: a.x,
+        y1: a.y,
+        x2: b.x,
+        y2: b.y,
+        class: 'sim-chord',
+        style: { stroke: tone(step.inCycle ? 'arithmetic' : 'combinatorics'), strokeDasharray: step.inCycle ? 'none' : '6 5', strokeOpacity: '0.75' }
+      });
+    }),
+    ...plot.positions.map((position) => {
+      const p = at(position.value);
+      const label = at(position.value, r + 22);
+      const lit = position.state !== 'idle';
+      return svgEl('g', {}, [
+        svgEl('circle', {
+          cx: p.x,
+          cy: p.y,
+          r: position.state === 'current' ? 10 : lit ? 7 : 4.5,
+          class: lit ? null : 'sim-vertex',
+          style: lit ? { fill: tone(stateTone[position.state]) } : { opacity: '0.45' }
+        }),
+        svgEl('text', { x: label.x, y: label.y, 'text-anchor': 'middle', 'dominant-baseline': 'central', class: lit ? 'sim-vertex-label' : 'sim-angle-label', text: String(position.value) })
+      ]);
+    })
+  ];
+  return el('div.sim-figure.sim-figure--square', {}, [svgRoot(plot.summary, children, { width: size, height: size })]);
+}
+
 export function drawPlot(plot) {
   if (plot.kind === 'geometry') return geometryPlot(plot);
   if (plot.kind === 'stack') return stackPlot(plot);
@@ -904,5 +948,6 @@ export function drawPlot(plot) {
   if (plot.kind === 'solids') return solidsPlot(plot);
   if (plot.kind === 'rects') return rectsPlot(plot);
   if (plot.kind === 'venn') return vennPlot(plot);
+  if (plot.kind === 'wheel') return wheelPlot(plot);
   return el('p.text-muted', { text: plot.summary || '' });
 }

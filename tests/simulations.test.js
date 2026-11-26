@@ -123,7 +123,7 @@ describe.each(SIMULATIONS.map((simulation) => [simulation.id, simulation]))('%s'
     for (const values of corners(simulation)) {
       const { result } = run(simulation, values);
       const where = `${id} ${JSON.stringify(values)}`;
-      const kinds = ['xy', 'bars', 'clock', 'seesaw', 'tank', 'track', 'numberline', 'triangle', 'circle', 'polygon', 'dots', 'solids', 'rects', 'venn', 'chart', 'table', 'candidates', 'geometry'];
+      const kinds = ['xy', 'bars', 'clock', 'seesaw', 'tank', 'track', 'numberline', 'triangle', 'circle', 'polygon', 'dots', 'solids', 'rects', 'venn', 'chart', 'table', 'candidates', 'geometry', 'wheel'];
       // A stack is several of the other kinds, one above the other.
       for (const plot of result.plot.kind === 'stack' ? result.plot.plots : [result.plot]) {
         expect(kinds, where).toContain(plot.kind);

@@ -49,6 +49,10 @@ import { advNumberBasesTemplates } from './templates/advNumberBases.js';
 import { advDiscountTemplates } from './templates/advDiscount.js';
 import { advStocksTemplates } from './templates/advStocks.js';
 import { advCircleSectorsTemplates } from './templates/advCircleSectors.js';
+import { remainderTemplates } from './templates/remainders.js';
+import { factorialTemplates } from './templates/factorials.js';
+import { squaresRootsTemplates } from './templates/squaresRoots.js';
+import { speedMathsTemplates } from './templates/speedMaths.js';
 
 const TEMPLATES = [
   ...percentageTemplates,
@@ -85,7 +89,11 @@ const TEMPLATES = [
   ...advNumberBasesTemplates,
   ...advDiscountTemplates,
   ...advStocksTemplates,
-  ...advCircleSectorsTemplates
+  ...advCircleSectorsTemplates,
+  ...remainderTemplates,
+  ...factorialTemplates,
+  ...squaresRootsTemplates,
+  ...speedMathsTemplates
 ];
 
 const byId = new Map(TEMPLATES.map((template) => [template.id, template]));

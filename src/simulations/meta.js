@@ -429,6 +429,38 @@ export const SIMULATION_META = [
     taskIds: ['double', 'three-four-five', 'cylinder']
   },
   // --- end of geometry.js ---
+  // --- numberMethods.js: remainders, factorials, roots, speed maths ---
+  {
+    id: 'remainder-wheel',
+    topicId: 'remainders',
+    alsoTopicIds: ['number-system'],
+    title: 'The remainder wheel',
+    summary: 'Walk round a clock of n positions as the power rises, and watch the remainders fall into a loop.',
+    taskIds: ['unit-cycle', 'always-one', 'full-circle', 'tail']
+  },
+  {
+    id: 'factorial-fives',
+    topicId: 'factorials',
+    title: 'Counting primes inside n!',
+    summary: 'Shade the multiples of a prime in 1 to n, layer by layer, and see where the zeros of n! come from.',
+    taskIds: ['six-zeros', 'three-to-ten', 'seven-squared']
+  },
+  {
+    id: 'root-bracket',
+    topicId: 'squares-cubes-roots',
+    title: 'A square root from its two ends',
+    summary: 'Narrow a root down in three steps: the last digit, the bracket of tens, then the midpoint.',
+    taskIds: ['ends-in-six', 'one-candidate', 'cube-swap']
+  },
+  {
+    id: 'base-method',
+    topicId: 'speed-maths',
+    alsoTopicIds: ['squares-cubes-roots', 'simplification'],
+    title: 'The base method as an area',
+    summary: 'Multiply two numbers near 100 by cutting strips off a 100 × 100 square, and see why the corner is added back.',
+    taskIds: ['carry', 'mixed', 'square-above']
+  }
+  // --- end of numberMethods.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));
