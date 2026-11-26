@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(52);
+  await expect(page.locator('.sim-card')).toHaveCount(57);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -126,5 +126,50 @@ test('the data pictures respond: DI charts, a table, a shrinking answer set', as
   await page.getByRole('group', { name: 'Statement (2)' }).getByRole('button', { name: 'On' }).click();
   await expect(left).toHaveText('4');
   await expect(page.locator('.sim-badge')).toHaveText('DS answer: C');
+  expect(errors).toEqual([]);
+});
+
+test('the geometry pictures respond: angle pairs, a snapping quadrilateral, area, shaded regions, recasting', async ({ page }) => {
+  const errors = watchForErrors(page);
+
+  await page.goto('/#/topics/lines-angles/levels/lines-angles-level-0');
+  await expect(page.locator('.lesson__block--simulation').getByRole('heading', { name: 'Parallel lines and a transversal' })).toBeVisible();
+
+  // Parallel lines give two angle sizes; tilting the lower line makes four, and shows its slider.
+  await page.goto('/#/explore/lines-angles');
+  const sizes = page.locator('.sim-readout', { hasText: 'Different angle sizes' }).locator('dd');
+  await expect(sizes).toHaveText('2: 60°, 120°');
+  await expect(page.locator('.sim-geo-angle')).toHaveCount(4);
+  await page.getByRole('button', { name: 'Tilt the lower line' }).click();
+  await expect(page.getByRole('slider', { name: 'Tilt of the lower line' })).toBeVisible();
+  await expect(sizes).toHaveText('4: 50°, 60°, 120°, 130°');
+
+  await page.goto('/#/explore/quadrilaterals');
+  const name = page.locator('.sim-readout', { hasText: 'Name' }).locator('dd');
+  await expect(name).toHaveText('Parallelogram');
+  await page.getByRole('group', { name: 'All four sides equal' }).getByRole('button', { name: 'Yes' }).click();
+  await expect(name).toHaveText('Rhombus');
+  await page.getByRole('group', { name: 'A right angle at A' }).getByRole('button', { name: 'Yes' }).click();
+  await expect(name).toHaveText('Square');
+  await expect(page.locator('.sim-right-mark')).toHaveCount(4);
+
+  // A 24 m fence: 3 m long holds 27 m²; the 6 m square holds 36 m². The rectangle and its graph are stacked.
+  await page.goto('/#/explore/perimeter-area');
+  const area = page.locator('.sim-readout', { hasText: 'Area = l × w' }).locator('dd');
+  await expect(area).toHaveText('27 m²');
+  await page.getByRole('slider', { name: 'Length' }).focus();
+  for (let i = 0; i < 6; i++) await page.keyboard.press('ArrowRight');
+  await expect(area).toHaveText('36 m²');
+  await expect(page.locator('.sim-stack svg.sim-plot')).toHaveCount(2);
+
+  await page.goto('/#/explore/mensuration-2d');
+  await page.locator('.sim-task', { hasText: '42 cm²' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Shaded = square − circle' }).locator('dd')).toHaveText('196 − 154 = 42 cm²');
+  await expect(page.locator('.sim-geo-region')).toHaveCount(1);
+
+  await page.goto('/#/explore/volume-surface-area');
+  await page.locator('.sim-task', { hasText: 'twice its surface area' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Surface area grows' }).locator('dd')).toHaveText('× 2');
+  await expect(page.locator('.sim-readout', { hasText: 'Each small sphere' }).locator('dd')).toHaveText('r = 3 cm');
   expect(errors).toEqual([]);
 });

@@ -181,6 +181,10 @@
             "body": "Quadrilaterals are classified by their sides and angles: parallelograms, rectangles, rhombuses, squares and trapeziums each have their own signature properties."
           },
           {
+            "type": "simulation",
+            "simulationId": "quadrilaterals"
+          },
+          {
             "type": "check",
             "questionId": "quadrilaterals-q-007"
           }

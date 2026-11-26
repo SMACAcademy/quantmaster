@@ -22,6 +22,7 @@ import { patternSims } from './patterns.js';
 import { numberSenseSims } from './numberSense.js';
 import { basicsSims } from './basics.js';
 import { dataSims } from './dataInterpretation.js';
+import { geometrySims } from './geometry.js';
 
 export const SIMULATIONS = [
   // Arithmetic
@@ -62,7 +63,9 @@ export const SIMULATIONS = [
   ...numberSenseSims,
   ...basicsSims,
   // Data interpretation and data sufficiency (dataInterpretation.js). Their meta.js entries keep this order.
-  ...dataSims
+  ...dataSims,
+  // Lines and angles, quadrilaterals, perimeter and area, 2D mensuration, recasting (geometry.js). Their meta.js entries keep this order.
+  ...geometrySims
 ];
 
 const byId = new Map(SIMULATIONS.map((simulation) => [simulation.id, simulation]));
