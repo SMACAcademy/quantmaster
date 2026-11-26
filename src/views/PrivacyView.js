@@ -48,7 +48,7 @@ export function PrivacyView() {
 
     block('Moving or deleting your data', [
       list([
-        'To keep a backup or move to another device: Settings → Export progress, then Import on the other device.',
+        'To keep a backup or move to another device: Settings → Export progress, then Import on the other device. The file is merged with that device’s progress, so nothing on either is lost.',
         'To delete it: Settings → Reset all progress, or clear this site’s data in your browser settings.'
       ])
     ]),

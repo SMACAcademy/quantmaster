@@ -43,7 +43,7 @@
 Everything lives in your browser's `localStorage` under `quantmaster:v1:*`; nothing is ever sent anywhere.
 
 - **Export:** Settings → Your data → Export downloads a JSON backup.
-- **Import:** Settings → Your data → Import (on another device, or after clearing). It replaces the current progress, after asking.
+- **Import:** Settings → Your data → Import (on another device, or after clearing). It shows both copies side by side and merges them by default, so nothing earned on either device is lost; replacing is the other choice.
 - **Reset:** Settings → Your data → Reset.
 
 ## Run it yourself
@@ -117,7 +117,7 @@ More: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · [docs/DATA_MODEL.md](docs/
 
 ## Known limitations
 
-- Progress is per browser. To move it, export and import a file; there is no automatic sync.
+- Progress is per browser. To move it, export a file and import it on the other device, where it is merged in; there is no automatic sync.
 - Reminders appear while the app is open, and on Android when it is installed; they cannot reach a closed app on an iPhone.
 - The share button relies on the Web Share API or clipboard access, which some embedded browsers block.
 - Mastery and review scheduling are transparent rule-based models, not calibrated psychometrics. The app says so.

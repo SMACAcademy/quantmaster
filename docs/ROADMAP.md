@@ -22,7 +22,7 @@ server-free PWA: no accounts, nothing leaves the learner's browser.
 
 - Bounded concept mastery with decay, spaced-repetition review of formula cards, a mistakes list that clears only when the mistake is corrected, and rule-based recommendations that always state their reason.
 - XP and ranks, daily streaks with earned freezes and streak repair, milestone celebrations, achievements, a per-topic mastery map, a daily challenge (the same questions for everyone on a date, shareable as a spoiler-free emoji grid), and an optional on-device daily reminder.
-- Installable and fully offline after one visit; progress can be exported to a file and imported on another device.
+- Installable and fully offline after one visit; progress can be exported to a file and imported on another device, where it merges with what is already there (XP, streaks, mistakes, achievements and answers from both are kept).
 
 ### History in brief
 
@@ -32,7 +32,6 @@ An earlier, private edition also had optional accounts with cloud sync, friend l
 
 Contributions are welcome; see `CONTRIBUTING.md`.
 
-- **Moving progress between devices without a server:** make import merge with the device's existing progress instead of replacing it, so nothing earned on either device is lost.
 - **A subject-expert review** of the hand-written content.
 - **More questions** in the topics with the fewest, and more exam-style sets (previous-year *patterns*, written fresh).
 - **Translations:** the content files are plain JSON and can be exported to spreadsheets (`npm run content:export`), which suits translators.
