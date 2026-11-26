@@ -33,6 +33,7 @@ import { twoCircleSims } from './twoCircles.js';
 import { groupedDataSims } from './groupedData.js';
 import { catTopicSims } from './catTopics.js';
 import { reasoningMoreSims } from './reasoningMore.js';
+import { taxSims } from './taxes.js';
 import { tournamentSims } from './reasoningTournament.js';
 import { seriesSims } from './reasoningSeries.js';
 import { operationsSims } from './reasoningOperations.js';
@@ -97,6 +98,8 @@ export const SIMULATIONS = [
   ...catTopicSims,
   // More logical reasoning (reasoningMore.js). Their meta.js entries keep this order.
   ...reasoningMoreSims,
+  // Taxes, GST and commission (taxes.js). Their meta.js entries keep this order.
+  ...taxSims,
   // The last reasoning topics, one file each (reasoningTournament.js, reasoningSeries.js, reasoningOperations.js,
   // reasoningMachine.js, reasoningSufficiency.js). Their meta.js entries keep this order.
   ...tournamentSims,

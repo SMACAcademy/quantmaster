@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(94);
+  await expect(page.locator('.sim-card')).toHaveCount(95);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -370,5 +370,31 @@ test('the last reasoning simulations: the points table, the alphabet strip, the 
   await page.locator('.sim-task', { hasText: 'answer D' }).getByRole('button', { name: 'Show me' }).click();
   await expect(page.locator('.sim-readout', { hasText: 'Rows left' }).locator('dd')).toHaveText('2 of 24');
   await expect(page.locator('.arrangements-row.is-out')).toHaveCount(22);
+  expect(errors).toEqual([]);
+});
+
+test('GST through a supply chain: each trader pays on its value added, and the chain pays GST on the final price', async ({ page }) => {
+  const errors = watchForErrors(page);
+  const value = (label) => page.locator('.sim-readout', { hasText: label }).locator('dd');
+
+  // It is in the topic's first lesson.
+  await page.goto('/#/topics/taxes-commission/levels/taxes-commission-level-0');
+  await expect(page.locator('.lesson__block--simulation').first().getByRole('heading', { name: 'GST through a supply chain' })).toBeVisible();
+
+  // 12% on ₹3,000, ₹7,000 and ₹12,000: ₹360 + ₹480 + ₹600 = ₹1,440, split into CGST and SGST.
+  await page.goto('/#/explore/gst-supply-chain');
+  await expect(value('GST paid by each trader')).toHaveText('₹360 + ₹480 + ₹600');
+  await expect(value('Total tax collected')).toHaveText('₹1,440 = 12% of ₹12,000');
+  await expect(value('On the buyer’s bill')).toHaveText('CGST ₹720 + SGST ₹720');
+  await expect(page.locator('.sim-gst-credit')).toHaveCount(2);
+
+  // Between states the same tax is IGST.
+  await page.getByRole('button', { name: 'Between states (IGST)' }).click();
+  await expect(value('On the buyer’s bill')).toHaveText('IGST ₹1,440');
+
+  // A wholesaler that adds no value pays nothing; the total does not move.
+  await page.locator('.sim-task', { hasText: 'no GST at all' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('IGST paid by each trader')).toHaveText('₹600 + ₹0 + ₹840');
+  await expect(value('Total tax collected')).toHaveText('₹1,440 = 12% of ₹12,000');
   expect(errors).toEqual([]);
 });

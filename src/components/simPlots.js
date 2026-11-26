@@ -35,6 +35,9 @@
  *   lattice      whole-number points on a line ax + by = c, with the step between them
  *   cryptarithm  a letter sum worked column by column, with each letter's digits left
  *
+ * and one for taxes: `gstchain`, GST through a supply chain, with each seller's
+ * input credit and net tax, and the total beside GST on the final price.
+ *
  * Colours come from the --cat-* tokens, so every picture follows the theme.
  * Every plot carries a text summary for screen readers.
  */
@@ -1398,7 +1401,111 @@ function cryptarithmPlot(plot) {
   return el('div.sim-figure.sim-crypt', {}, [sum, el('div.sim-crypt__scroll', {}, [cands]), el('p.sr-only', { text: plot.summary })]);
 }
 
+/**
+ * GST through a supply chain (taxes and commission): the chain of sellers on
+ * top, then one bar per seller with its output tax split into the input credit
+ * (faded, in the colour of the seller it was paid to) and the net tax it pays
+ * (solid); then the three net payments stacked, beside GST on the final price,
+ * split into CGST and SGST or shown whole as IGST.
+ * `{ kind: 'gstchain', interState, rate, stages: [{ name, tone, price, output, credit, net, creditTone }], total, finalTax, summary }`.
+ */
+function gstChainPlot(plot) {
+  const height = 420;
+  const money = (v) => `₹${show(v)}`;
+  const nodes = [...plot.stages.map((s) => ({ name: s.name, tone: s.tone })), { name: 'Buyer', tone: 'data' }];
+  const boxW = 104;
+  const gap = (W - 24 - boxW * nodes.length) / (nodes.length - 1);
+  const boxX = (i) => 12 + i * (boxW + gap);
+  const chain = [];
+  nodes.forEach((node, i) => {
+    const x = boxX(i);
+    chain.push(svgEl('rect', { x, y: 8, width: boxW, height: 34, rx: 8, class: 'sim-gst-node', style: { stroke: tone(node.tone) } }));
+    chain.push(svgEl('text', { x: x + boxW / 2, y: 25, 'text-anchor': 'middle', 'dominant-baseline': 'middle', class: 'sim-gst-node-label', text: node.name }));
+    if (i < nodes.length - 1) {
+      const stage = plot.stages[i];
+      const x1 = x + boxW + 3;
+      const x2 = boxX(i + 1) - 3;
+      chain.push(svgEl('path', { d: `M ${x1} 25 H ${x2} M ${x2 - 6} 20 L ${x2} 25 L ${x2 - 6} 30`, class: 'sim-gst-arrow' }));
+      chain.push(svgEl('text', { x: x + boxW / 2, y: 62, 'text-anchor': 'middle', class: 'sim-gst-price', text: `sells at ${money(stage.price)}` }));
+      chain.push(svgEl('text', { x: x + boxW / 2, y: 80, 'text-anchor': 'middle', class: 'sim-gst-price', text: `+ ${money(stage.output)} ${plot.interState ? 'IGST' : 'GST'}` }));
+    } else {
+      const last = plot.stages[plot.stages.length - 1];
+      chain.push(svgEl('text', { x: x + boxW / 2, y: 62, 'text-anchor': 'middle', class: 'sim-gst-price', text: 'pays' }));
+      chain.push(svgEl('text', { x: x + boxW / 2, y: 80, 'text-anchor': 'middle', class: 'sim-gst-price', text: money(last.price + plot.finalTax) }));
+    }
+  });
+
+  const left = 66;
+  const right = W - 16;
+  const top = 116;
+  const bottom = height - 46;
+  const tallest = Math.max(...plot.stages.map((s) => s.output), plot.finalTax);
+  const yr = niceRange(0, tallest * 1.08);
+  const sy = (v) => bottom - ((v - yr.min) / (yr.max - yr.min)) * (bottom - top);
+  const slot = (right - left) / 5;
+  const width = Math.min(64, slot * 0.6);
+  const colX = (i) => left + slot * i + (slot - width) / 2;
+  const inner = (x, from, to, text) =>
+    sy(from) - sy(to) >= 20 ? svgEl('text', { x: x + width / 2, y: (sy(from) + sy(to)) / 2, 'text-anchor': 'middle', 'dominant-baseline': 'middle', class: 'sim-gst-inner', text }) : null;
+  const block = (x, from, to, toneName, cls) =>
+    svgEl('rect', { x, y: sy(to), width, height: Math.max(0, sy(from) - sy(to)), class: cls, style: { fill: tone(toneName), stroke: tone(toneName) } });
+  const valueOnTop = (x, value, text) => svgEl('text', { x: x + width / 2, y: sy(value) - 8, 'text-anchor': 'middle', class: 'sim-bar-value', text });
+
+  const bars = [];
+  plot.stages.forEach((stage, i) => {
+    const x = colX(i);
+    if (stage.credit > 0) {
+      bars.push(block(x, 0, stage.credit, stage.creditTone, 'sim-gst-credit'));
+      bars.push(inner(x, 0, stage.credit, 'credit'));
+    }
+    bars.push(block(x, stage.credit, stage.output, stage.tone, 'sim-gst-net'));
+    bars.push(valueOnTop(x, stage.output, `pays ${money(stage.net)}`));
+  });
+
+  // The three payments stacked, then GST on the final price beside them.
+  const xTotal = colX(3);
+  let base = 0;
+  plot.stages.forEach((stage) => {
+    if (stage.net > 0) bars.push(block(xTotal, base, base + stage.net, stage.tone, 'sim-gst-net'));
+    base += stage.net;
+  });
+  bars.push(valueOnTop(xTotal, plot.total, money(plot.total)));
+  const xFinal = colX(4);
+  if (plot.interState) {
+    bars.push(block(xFinal, 0, plot.finalTax, 'data', 'sim-gst-final'));
+    bars.push(inner(xFinal, 0, plot.finalTax, 'IGST'));
+  } else {
+    const half = plot.finalTax / 2;
+    bars.push(block(xFinal, 0, half, 'data', 'sim-gst-final'));
+    bars.push(block(xFinal, half, plot.finalTax, 'data', 'sim-gst-final sim-gst-final--upper'));
+    bars.push(inner(xFinal, 0, half, 'SGST'));
+    bars.push(inner(xFinal, half, plot.finalTax, 'CGST'));
+  }
+  bars.push(valueOnTop(xFinal, plot.finalTax, money(plot.finalTax)));
+  bars.push(svgEl('line', { x1: xTotal - 8, x2: xFinal + width + 8, y1: sy(plot.total), y2: sy(plot.total), class: 'sim-guide' }));
+
+  const labels = ['Manufacturer', 'Wholesaler', 'Retailer', 'Paid in all', `${plot.rate}% of final`].map((text, i) =>
+    svgEl('text', { x: colX(i) + width / 2, y: bottom + 22, 'text-anchor': 'middle', class: 'chart-axis-label', text })
+  );
+  const axis = [
+    ...yr.ticks.map((tick) =>
+      svgEl('g', {}, [
+        svgEl('line', { x1: left, x2: right, y1: sy(tick), y2: sy(tick), class: 'chart-gridline' }),
+        svgEl('text', { x: left - 8, y: sy(tick), class: 'chart-axis-label', 'text-anchor': 'end', 'dominant-baseline': 'middle', text: show(tick) })
+      ])
+    ),
+    svgEl('line', { x1: left, x2: right, y1: bottom, y2: bottom, class: 'sim-axis' }),
+    svgEl('text', { x: 14, y: (top + bottom) / 2, 'text-anchor': 'middle', class: 'sim-axis-title', transform: `rotate(-90 14 ${(top + bottom) / 2})`, text: 'Tax (₹)' })
+  ];
+  const legend = el('ul.chart-legend', {}, [
+    el('li.chart-legend__item', {}, [el('span.chart-legend__swatch.sim-gst-swatch', {}), el('span', { text: 'Solid: tax the trader pays the government' })]),
+    el('li.chart-legend__item', {}, [el('span.chart-legend__swatch.sim-gst-swatch.sim-gst-swatch--credit', {}), el('span', { text: 'Faded: input tax credit, GST already paid when buying' })])
+  ]);
+  return el('div.sim-figure.sim-gst', {}, [svgRoot(plot.summary, [...axis, ...chain, ...bars, ...labels], { width: W, height }), legend]);
+}
+
 export function drawPlot(plot) {
+  if (plot.kind === 'gstchain') return gstChainPlot(plot);
   if (plot.kind === 'lattice') return latticePlot(plot);
   if (plot.kind === 'cryptarithm') return cryptarithmPlot(plot);
   if (plot.kind === 'geometry') return geometryPlot(plot);

@@ -71,6 +71,7 @@ import { codingTemplates } from './templates/reasoningCoding.js';
 import { rankingTemplates } from './templates/reasoningRanking.js';
 import { cubesTemplates } from './templates/reasoningCubes.js';
 import { mirrorTemplates } from './templates/reasoningMirror.js';
+import { taxTemplates } from './templates/taxes.js';
 import { tournamentTemplates } from './templates/reasoningTournament.js';
 import { seriesTemplates } from './templates/reasoningSeries.js';
 import { operationsTemplates } from './templates/reasoningOperations.js';
@@ -139,6 +140,8 @@ const TEMPLATES = [
   ...rankingTemplates,
   ...cubesTemplates,
   ...mirrorTemplates,
+  // Taxes, GST and commission.
+  ...taxTemplates,
   ...tournamentTemplates,
   ...seriesTemplates,
   ...operationsTemplates,
