@@ -38,14 +38,19 @@ function creatorCard() {
   return el('section.card.about-creator', { 'aria-label': 'Who built QuantMaster' }, [
     el('span.about-creator__avatar', { 'aria-hidden': 'true', text: CREATOR.name.trim().charAt(0).toUpperCase() }),
     el('div.about-creator__text', {}, [
-      el('div.text-xs.text-subtle', { text: 'Built by' }),
+      el('div.text-xs.text-subtle', { text: 'Created by' }),
       el('h2.about-creator__name', { text: CREATOR.name }),
       CREATOR.headline ? el('div.about-creator__headline', { text: CREATOR.headline }) : null,
       CREATOR.summary ? el('p.text-sm', { text: CREATOR.summary }) : null,
       CREATOR.focus.length
         ? el('ul.about-creator__focus', { 'aria-label': 'Areas of work' }, CREATOR.focus.map((f) => el('li', { text: f })))
         : null,
-      CREATOR.credentials ? el('p.text-xs.text-subtle', { text: CREATOR.credentials }) : null
+      CREATOR.credentials ? el('p.text-xs.text-subtle', { text: CREATOR.credentials }) : null,
+      el('p.text-xs.text-subtle', {}, [
+        'Grown with ',
+        el('a', { href: COMMUNITY.contributors, ...external, text: 'everyone who has contributed' }),
+        ': every accepted change is credited on GitHub.'
+      ])
     ]),
     CREATOR.linkedin
       ? el('a.btn.btn--soft.btn--sm.about-creator__connect', { href: CREATOR.linkedin, ...external }, [linkedInMark(), el('span', { text: 'Connect on LinkedIn' })])

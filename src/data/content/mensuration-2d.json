@@ -216,6 +216,10 @@
             "body": "For a shaded or remaining region, subtract instead of add: shaded area = outer figure's area − removed figure's area."
           },
           {
+            "type": "simulation",
+            "simulationId": "mensuration-2d"
+          },
+          {
             "type": "check",
             "questionId": "mensuration-2d-q-003"
           }

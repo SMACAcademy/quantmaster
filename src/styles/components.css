@@ -3236,6 +3236,58 @@ kbd {
   font-weight: 700;
 }
 
+/* Geometry figures (lines and angles, quadrilaterals, mensuration): theme tokens only. */
+.sim-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.sim-geo-line {
+  stroke: var(--fg-muted);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.sim-geo-line--thin {
+  stroke-width: 1.5;
+}
+.sim-geo-line--dashed {
+  stroke-dasharray: 6 5;
+}
+.sim-geo-shape {
+  stroke: var(--fg-muted);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.sim-geo-region {
+  fill-rule: evenodd;
+  fill-opacity: 0.45;
+}
+.sim-geo-angle {
+  fill-opacity: 0.4;
+  stroke-width: 1.5;
+}
+.sim-geo-mark {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sim-geo-label {
+  fill: var(--fg-muted);
+  font-size: 13px;
+  font-weight: 650;
+  paint-order: stroke;
+  stroke: var(--bg-elevated);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.sim-geo-label--strong {
+  fill: var(--fg);
+  font-size: 15px;
+  font-weight: 700;
+}
+
 /* ---------------- Logical-reasoning simulations (reasoningPlots.js) ---------------- */
 .rp-figure {
   display: flex;

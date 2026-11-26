@@ -49,6 +49,10 @@ import { advNumberBasesTemplates } from './templates/advNumberBases.js';
 import { advDiscountTemplates } from './templates/advDiscount.js';
 import { advStocksTemplates } from './templates/advStocks.js';
 import { advCircleSectorsTemplates } from './templates/advCircleSectors.js';
+import { remainderTemplates } from './templates/remainders.js';
+import { factorialTemplates } from './templates/factorials.js';
+import { squaresRootsTemplates } from './templates/squaresRoots.js';
+import { speedMathsTemplates } from './templates/speedMaths.js';
 import { seatingTemplates } from './templates/reasoningSeating.js';
 import { puzzleTemplates } from './templates/reasoningPuzzles.js';
 import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
@@ -90,6 +94,10 @@ const TEMPLATES = [
   ...advDiscountTemplates,
   ...advStocksTemplates,
   ...advCircleSectorsTemplates,
+  ...remainderTemplates,
+  ...factorialTemplates,
+  ...squaresRootsTemplates,
+  ...speedMathsTemplates,
   // Logical reasoning: every answer is checked by brute force over all arrangements.
   ...seatingTemplates,
   ...puzzleTemplates,

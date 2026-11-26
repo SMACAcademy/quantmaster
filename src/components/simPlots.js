@@ -13,6 +13,11 @@
  *   table       a table of coloured cells: { columns, rows, caption }
  *   candidates  the possible answers, row by row, as a set shrinks: { min, max, rows, badge }
  *
+ * and two for lines, shapes and mensuration:
+ *
+ *   geometry    a flat figure in model units, drawn to scale: { view, items }
+ *   stack       several plots, one above the other: { plots }
+ *
  * and five for logical reasoning (seats, grid, euler, chain, tree), drawn by
  * reasoningPlots.js.
  *
@@ -24,6 +29,8 @@ import { el, svgEl } from '../utils/dom.js';
 import { niceRange, show } from '../simulations/core.js';
 import { pieSectorPath, pointOnCircle } from '../utils/chartScale.js';
 import { solidDrawing } from '../utils/solidGeometry.js';
+import { makeTransform } from '../utils/planeGeometry.js';
+import { chevronPoints, circlePath, rightAngleMarkerPoints, tickMarkSegments } from '../utils/diagramGeometry.js';
 import { renderVenn } from './venn.js';
 import { chartWidget } from './Chart.js';
 import { drawReasoningPlot } from './reasoningPlots.js';
@@ -767,7 +774,167 @@ function candidatesPlot(plot) {
   return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { height: height + 18 })]);
 }
 
+/**
+ * A flat geometry figure in model units (x to the right, y up), fitted into the
+ * picture at one scale for both axes, so angles and lengths look true:
+ *
+ *   { kind: 'geometry', view: { xMin, xMax, yMin, yMax }, height?, items, legend?, summary }
+ *
+ * Items, drawn in order:
+ *   segment  { from, to, tone?, dashed?, thin? }
+ *   polygon  { points, tone?, fill? (opacity, default 0.16), dashed? }
+ *   circle   { center, r, tone?, fill?, dashed? }
+ *   region   { outer, holes, tone? }  shaded: the outer shape minus the holes; a shape is
+ *            { rect: [x, y, w, h] } (x, y its lower-left corner) or { circle: [cx, cy, r] }
+ *   angle    { at, from, to, tone, radius? (px) }  a sector turning anticlockwise from the
+ *            direction `from` to `to`, in degrees from the positive x-axis
+ *   right    { at, a, b }  a right-angle mark at `at` between the rays towards a and b
+ *   ticks    { from, to, count }  equal-length marks;  arrows { from, to, count }  parallel marks
+ *   point    { at }
+ *   label    { at, text, dx?, dy? (px), anchor?, tone?, strong? }
+ */
+function geometryPlot(plot) {
+  const width = W;
+  const height = plot.height || H;
+  const pad = 18;
+  const { view } = plot;
+  const t = makeTransform([view.xMin, view.xMax], [view.yMin, view.yMax], { left: pad, top: pad, width: width - 2 * pad, height: height - 2 * pad });
+  const at = ([x, y]) => [t.toX(x), t.toY(y)];
+  const fixed = (v) => v.toFixed(1);
+  const pts = (list) => list.map((p) => at(p).map(fixed).join(',')).join(' ');
+  const xy = (p) => ({ x: p[0], y: p[1] });
+  const shapePath = (shape) => {
+    if (shape.rect) {
+      const [x, y, w, h] = shape.rect;
+      const [x0, y0] = at([x, y + h]);
+      return `M ${fixed(x0)} ${fixed(y0)} h ${fixed(w * t.scale)} v ${fixed(h * t.scale)} h ${fixed(-w * t.scale)} Z`;
+    }
+    const [cx, cy, r] = shape.circle;
+    const [sx, sy] = at([cx, cy]);
+    return circlePath(sx, sy, r * t.scale);
+  };
+  const outline = (item) => ({
+    ...(item.tone ? { stroke: tone(item.tone), fill: tone(item.tone) } : { fill: 'none' }),
+    fillOpacity: item.fill ?? 0.16
+  });
+  const dashed = (item) => (item.dashed ? ' sim-geo-line--dashed' : '');
+
+  const children = plot.items.map((item) => {
+    if (item.type === 'segment') {
+      const [x1, y1] = at(item.from);
+      const [x2, y2] = at(item.to);
+      return svgEl('line', {
+        x1: fixed(x1),
+        y1: fixed(y1),
+        x2: fixed(x2),
+        y2: fixed(y2),
+        class: `sim-geo-line${dashed(item)}${item.thin ? ' sim-geo-line--thin' : ''}`,
+        style: item.tone ? { stroke: tone(item.tone) } : {}
+      });
+    }
+    if (item.type === 'polygon') return svgEl('polygon', { points: pts(item.points), class: `sim-geo-shape${dashed(item)}`, style: outline(item) });
+    if (item.type === 'circle') {
+      const [cx, cy] = at(item.center);
+      return svgEl('circle', { cx: fixed(cx), cy: fixed(cy), r: fixed(item.r * t.scale), class: `sim-geo-shape${dashed(item)}`, style: outline(item) });
+    }
+    if (item.type === 'region') {
+      return svgEl('path', { d: [item.outer, ...(item.holes || [])].map(shapePath).join(' '), class: 'sim-geo-region', style: { fill: tone(item.tone || 'geometry') } });
+    }
+    if (item.type === 'angle') {
+      const [cx, cy] = at(item.at);
+      const r = item.radius || 24;
+      const end = (deg) => [cx + r * Math.cos((deg * Math.PI) / 180), cy - r * Math.sin((deg * Math.PI) / 180)];
+      const [ax, ay] = end(item.from);
+      const [bx, by] = end(item.to);
+      // Anticlockwise on screen is SVG's sweep flag 0.
+      return svgEl('path', {
+        d: `M ${fixed(cx)} ${fixed(cy)} L ${fixed(ax)} ${fixed(ay)} A ${r} ${r} 0 ${item.to - item.from > 180 ? 1 : 0} 0 ${fixed(bx)} ${fixed(by)} Z`,
+        class: 'sim-geo-angle',
+        style: { fill: tone(item.tone), stroke: tone(item.tone) }
+      });
+    }
+    if (item.type === 'right') {
+      const marks = rightAngleMarkerPoints(xy(at(item.at)), xy(at(item.a)), xy(at(item.b)), 12);
+      return svgEl('polyline', { points: marks.map((p) => `${fixed(p.x)},${fixed(p.y)}`).join(' '), class: 'sim-right-mark' });
+    }
+    if (item.type === 'ticks' || item.type === 'arrows') {
+      const [a, b] = [xy(at(item.from)), xy(at(item.to))];
+      const marks =
+        item.type === 'ticks'
+          ? tickMarkSegments(a, b, item.count).map((m) => svgEl('line', { x1: fixed(m.x1), y1: fixed(m.y1), x2: fixed(m.x2), y2: fixed(m.y2) }))
+          : chevronPoints(a, b, item.count).map((c) => svgEl('polyline', { points: `${fixed(c.x1)},${fixed(c.y1)} ${fixed(c.x2)},${fixed(c.y2)} ${fixed(c.x3)},${fixed(c.y3)}` }));
+      return svgEl('g', { class: 'sim-geo-mark' }, marks);
+    }
+    if (item.type === 'point') {
+      const [cx, cy] = at(item.at);
+      return svgEl('circle', { cx: fixed(cx), cy: fixed(cy), r: 4.5, class: 'sim-vertex' });
+    }
+    const [x, y] = at(item.at);
+    return svgEl('text', {
+      x: fixed(x + (item.dx || 0)),
+      y: fixed(y + (item.dy || 0)),
+      'text-anchor': item.anchor || 'middle',
+      'dominant-baseline': 'middle',
+      class: `sim-geo-label${item.strong ? ' sim-geo-label--strong' : ''}`,
+      style: item.tone ? { fill: tone(item.tone) } : {},
+      text: item.text
+    });
+  });
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { width, height }), plot.legend ? legendOf(plot.legend) : null]);
+}
+
+/** Several plots, one above the other (a shape and its graph): `{ kind: 'stack', plots, summary }`. */
+function stackPlot(plot) {
+  return el('div.sim-stack', {}, plot.plots.map(drawPlot));
+}
+
+/**
+ * A wheel of n positions (0 at the top, clockwise) and a walk between them, for
+ * remainders mod n: `{ kind: 'wheel', n, positions: [{ value, state }], path: [{ from, to, inCycle }], summary }`.
+ * state is 'current', 'cycle', 'tail' or 'idle'; steps before the loop are dashed.
+ */
+function wheelPlot(plot) {
+  const size = 340;
+  const c = size / 2;
+  const r = 122;
+  const at = (value, radius = r) => pointOnCircle(c, c, radius, (360 * value) / plot.n);
+  const stateTone = { current: 'data', cycle: 'arithmetic', tail: 'combinatorics' };
+  const children = [
+    svgEl('circle', { cx: c, cy: c, r, class: 'sim-circle' }),
+    ...plot.path.map((step) => {
+      const a = at(step.from);
+      const b = at(step.to);
+      return svgEl('line', {
+        x1: a.x,
+        y1: a.y,
+        x2: b.x,
+        y2: b.y,
+        class: 'sim-chord',
+        style: { stroke: tone(step.inCycle ? 'arithmetic' : 'combinatorics'), strokeDasharray: step.inCycle ? 'none' : '6 5', strokeOpacity: '0.75' }
+      });
+    }),
+    ...plot.positions.map((position) => {
+      const p = at(position.value);
+      const label = at(position.value, r + 22);
+      const lit = position.state !== 'idle';
+      return svgEl('g', {}, [
+        svgEl('circle', {
+          cx: p.x,
+          cy: p.y,
+          r: position.state === 'current' ? 10 : lit ? 7 : 4.5,
+          class: lit ? null : 'sim-vertex',
+          style: lit ? { fill: tone(stateTone[position.state]) } : { opacity: '0.45' }
+        }),
+        svgEl('text', { x: label.x, y: label.y, 'text-anchor': 'middle', 'dominant-baseline': 'central', class: lit ? 'sim-vertex-label' : 'sim-angle-label', text: String(position.value) })
+      ]);
+    })
+  ];
+  return el('div.sim-figure.sim-figure--square', {}, [svgRoot(plot.summary, children, { width: size, height: size })]);
+}
+
 export function drawPlot(plot) {
+  if (plot.kind === 'geometry') return geometryPlot(plot);
+  if (plot.kind === 'stack') return stackPlot(plot);
   if (plot.kind === 'chart') return chartPlot(plot);
   if (plot.kind === 'table') return tablePlot(plot);
   if (plot.kind === 'candidates') return candidatesPlot(plot);
@@ -785,6 +952,7 @@ export function drawPlot(plot) {
   if (plot.kind === 'solids') return solidsPlot(plot);
   if (plot.kind === 'rects') return rectsPlot(plot);
   if (plot.kind === 'venn') return vennPlot(plot);
+  if (plot.kind === 'wheel') return wheelPlot(plot);
   const reasoning = drawReasoningPlot(plot);
   if (reasoning) return reasoning;
   return el('p.text-muted', { text: plot.summary || '' });

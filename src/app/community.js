@@ -17,9 +17,9 @@ export const CREATOR = {
   /** What you work on, shown as small tags. */
   focus: ['AI agents & RAG / GraphRAG', 'Kubernetes & DevSecOps', 'Training & mentoring'],
   /** A short credentials line. */
-  credentials: '25 years in technology · Ex-CTO, Pente AI · Founder, SMAC Academy',
+  credentials: '25 years in technology · Founder, SMAC Academy',
   /** Full LinkedIn profile URL, e.g. "https://www.linkedin.com/in/your-name/". Empty hides the button. */
-  linkedin: ''
+  linkedin: 'https://www.linkedin.com/in/muthu4all/'
 };
 
 export const REPO_URL = 'https://github.com/SMACAcademy/quantmaster';
@@ -32,6 +32,7 @@ export const COMMUNITY = {
   puzzles: `${REPO_URL}/discussions/categories/q-a`,
   ideas: `${REPO_URL}/discussions/new?category=ideas`,
   contributing: `${REPO_URL}/blob/main/CONTRIBUTING.md`,
+  contributors: `${REPO_URL}/graphs/contributors`,
   goodFirstIssues: `${REPO_URL}/issues?q=is%3Aopen+label%3A%22good+first+issue%22`
 };
 

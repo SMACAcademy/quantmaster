@@ -1,0 +1,1792 @@
+{
+  "topicId": "squares-cubes-roots",
+  "concepts": [
+    {
+      "id": "scr-base",
+      "topicId": "squares-cubes-roots",
+      "name": "Squares near a base",
+      "description": "For a number close to 100 (or 50, or 1000), the square is (number + surplus) followed by the surplus squared, written with as many digits as the base has zeros.",
+      "sortOrder": 1
+    },
+    {
+      "id": "scr-identity",
+      "topicId": "squares-cubes-roots",
+      "name": "Squares by splitting",
+      "description": "Split a number into a round part and a small part and use (a ± b)² = a² ± 2ab + b². From a known square, the next one is n² + n + (n + 1).",
+      "sortOrder": 2
+    },
+    {
+      "id": "scr-cube",
+      "topicId": "squares-cubes-roots",
+      "name": "Cubes of two-digit numbers",
+      "description": "For 10a + b, write a³, a²b, ab², b³ in a row (each term is the last times b ÷ a), double the middle two and add the columns with carries.",
+      "sortOrder": 3
+    },
+    {
+      "id": "scr-sqrt",
+      "topicId": "squares-cubes-roots",
+      "name": "Square roots of perfect squares",
+      "description": "The unit digit of a perfect square narrows its root to one or two last digits; the part left after dropping two digits gives the tens part; (10k + 5)² decides between two candidates.",
+      "sortOrder": 4
+    },
+    {
+      "id": "scr-cbrt",
+      "topicId": "squares-cubes-roots",
+      "name": "Cube roots of perfect cubes",
+      "description": "Every unit digit of a cube comes from exactly one digit (2 ↔ 8 and 3 ↔ 7 swap, the rest stay). The part left after dropping three digits fixes the tens digit.",
+      "sortOrder": 5
+    },
+    {
+      "id": "scr-decimal",
+      "topicId": "squares-cubes-roots",
+      "name": "Roots of decimals and fractions",
+      "description": "A square root halves the number of decimal places (count them in pairs); a cube root divides it by three. For fractions, take the root of the top and the bottom.",
+      "sortOrder": 6
+    },
+    {
+      "id": "scr-approx",
+      "topicId": "squares-cubes-roots",
+      "name": "Roots of non-perfect squares",
+      "description": "Take the nearest perfect square a² and use √N ≈ a + (N − a²) ÷ 2a. The estimate is slightly high, and very good when N is close to a².",
+      "sortOrder": 7
+    },
+    {
+      "id": "scr-properties",
+      "topicId": "squares-cubes-roots",
+      "name": "Perfect-square tests",
+      "description": "A perfect square never ends in 2, 3, 7 or 8, ends in an even number of zeros, has a digital root of 1, 4, 7 or 9, and if it ends in 5 it ends in 25.",
+      "sortOrder": 8
+    }
+  ],
+  "formulas": [
+    {
+      "id": "scr-base-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-base",
+      "title": "Squares near 100 and 50",
+      "prompt": "How do you square a number close to 100 or to 50 in your head?",
+      "formula": "Near 100: n² = (n + d) | d², d = n − 100, d² as two digits\nNear 50: n² = (25 + d) | d², d = n − 50",
+      "variables": [
+        {
+          "symbol": "d",
+          "meaning": "the surplus over the base (negative for a deficit)"
+        }
+      ],
+      "explanation": "(100 + d)² = 100(100 + 2d) + d² = 100(n + d) + d². Near 50, (50 + d)² = 100(25 + d) + d², because 50² = 2,500 and 2 × 50 × d = 100d.",
+      "example": "97² = (97 − 3) | 09 = 9,409\n104² = 108 | 16 = 10,816\n47² = 22 | 09 = 2,209",
+      "commonMistake": "Writing d² with too few digits: 97² is 94 | 09 = 9,409, not 949.",
+      "applicationPrompt": "Find 93² and 56².",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-sc-near-1000",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-base",
+      "kind": "shortcut",
+      "title": "Squares near 1000",
+      "prompt": "How do you square a number close to 1,000?",
+      "formula": "n² = (n + d) | d², with d² written as three digits",
+      "variables": [],
+      "explanation": "The base has three zeros, so the right part holds three digits. Pad with zeros, and carry if d² reaches 1,000.",
+      "example": "996² = 992 | 016 = 9,92,016\n1,012² = 1,024 | 144 = 10,24,144",
+      "commonMistake": "Writing 16 instead of 016 and getting 99,216.",
+      "applicationPrompt": "Find 1,007².",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "scr-split-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-identity",
+      "title": "Square by splitting",
+      "prompt": "How do you square a number that is near a round number but not near a base?",
+      "formula": "(a ± b)² = a² ± 2ab + b²\nChoose a round, b small",
+      "variables": [],
+      "explanation": "Squaring a round number is easy, the middle term is one multiplication, and b² is tiny. Pick whichever split makes the numbers friendliest.",
+      "example": "68² = (70 − 2)² = 4,900 − 280 + 4 = 4,624",
+      "commonMistake": "Dropping the middle term: (70 − 2)² is not 4,900 − 4.",
+      "applicationPrompt": "Find 39² by splitting.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-sc-next-square",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-identity",
+      "kind": "shortcut",
+      "title": "The next square from a known one",
+      "prompt": "You know n². How do you get (n + 1)² instantly?",
+      "formula": "(n + 1)² = n² + n + (n + 1)\n(n − 1)² = n² − n − (n − 1)",
+      "variables": [],
+      "explanation": "Consecutive squares differ by the sum of the two numbers: (n + 1)² − n² = 2n + 1 = n + (n + 1).",
+      "example": "61² = 60² + 60 + 61 = 3,600 + 121 = 3,721",
+      "commonMistake": "Adding 2n only and forgetting the extra 1.",
+      "applicationPrompt": "Given 45² = 2,025, find 46².",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-cube-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cube",
+      "title": "Cube of a two-digit number",
+      "prompt": "How do you cube a two-digit number such as 12 or 23 without long multiplication?",
+      "formula": "(10a + b)³: row a³ | a²b | ab² | b³\nAdd 2a²b and 2ab² under the middle two, then add the columns from the right with carries",
+      "variables": [],
+      "explanation": "It is (a + b)³ = a³ + 3a²b + 3ab² + b³ laid out by place value. Each term in the row is the previous one times b ÷ a, so the row is quick to write.",
+      "example": "12³: 1 | 2 | 4 | 8\nColumns 1 | 6 | 12 | 8 → 1,728",
+      "commonMistake": "Forgetting to triple the middle terms (adding the doubled row only once).",
+      "applicationPrompt": "Find 13³ with the row method.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "scr-sqrt-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "title": "Square root of a perfect square",
+      "prompt": "How do you find the square root of a four- or five-digit perfect square quickly?",
+      "formula": "1. Unit digit → one or two possible last digits of the root\n2. Drop the last two digits → largest k with k² ≤ what is left\n3. Two candidates? Compare with (10k + 5)²",
+      "variables": [],
+      "explanation": "The root of a number between (10k)² and (10k + 10)² lies between 10k and 10k + 10. The midpoint square (10k + 5)² splits the candidates 10k + small and 10k + large.",
+      "example": "√5,329: ends in 9 → 3 or 7; 53 → k = 7\n75² = 5,625 > 5,329 → 73",
+      "commonMistake": "Picking a candidate without the midpoint check (77 instead of 73).",
+      "applicationPrompt": "Find √6,889.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-sc-unit-pairs",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "kind": "shortcut",
+      "title": "Last digits of square roots",
+      "prompt": "A perfect square ends in 1, 4, 5, 6, 9 or 0. Which digits can its root end in?",
+      "formula": "1 → 1 or 9    4 → 2 or 8    9 → 3 or 7\n6 → 4 or 6    5 → 5    0 → 0",
+      "variables": [],
+      "explanation": "d and 10 − d have squares with the same unit digit, so most square endings come from two root endings. 5 and 0 come from one each.",
+      "example": "√7,396 ends in 6 → 4 or 6; 73 → k = 8\n85² = 7,225 < 7,396 → 86",
+      "commonMistake": "Thinking a square ending in 6 must have a root ending in 6 (64² = 4,096).",
+      "applicationPrompt": "Which digits can the root of 2,304 end in?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-cbrt-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cbrt",
+      "title": "Cube root of a perfect cube",
+      "prompt": "How do you find the cube root of a perfect cube of up to six digits?",
+      "formula": "1. Unit digit of the cube → unit digit of the root (2 ↔ 8, 3 ↔ 7, others unchanged)\n2. Drop the last three digits → largest k with k³ ≤ what is left",
+      "variables": [],
+      "explanation": "Cubes of 0 to 9 all end in different digits, so the unit digit is never ambiguous. The leading part sits between k³ and (k + 1)³, which fixes the tens digit.",
+      "example": "∛2,74,625: ends in 5 → 5\n274 lies between 6³ = 216 and 7³ = 343 → 65",
+      "commonMistake": "Taking the root of the cube’s unit digit as itself for 2, 3, 7, 8 (a cube ending in 8 has a root ending in 2).",
+      "applicationPrompt": "Find ∛4,05,224.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "scr-decimal-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-decimal",
+      "title": "Roots of decimals and fractions",
+      "prompt": "How do you take the square root (or cube root) of a decimal or a fraction?",
+      "formula": "√: pair the decimal places (the root has half as many)\n∛: group them in threes (a third as many)\n√(a/b) = √a ÷ √b",
+      "variables": [],
+      "explanation": "0.0169 = 169 ÷ 10⁴, so its root is 13 ÷ 10² = 0.13. The number of decimal places must be even for a square root (a multiple of 3 for a cube root); add a zero if needed.",
+      "example": "√0.0169 = 0.13\n∛0.008 = 0.2\n√(6¼) = √(25/4) = 5/2",
+      "commonMistake": "Keeping the same number of decimal places: √0.0169 is not 0.0013.",
+      "applicationPrompt": "Find √0.000441.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "scr-approx-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-approx",
+      "title": "Square root of a non-perfect square",
+      "prompt": "How do you estimate √N when N is not a perfect square?",
+      "formula": "√N ≈ a + (N − a²) ÷ 2a, where a² is the perfect square nearest N",
+      "variables": [],
+      "explanation": "If √N = a + x with x small, then N = a² + 2ax + x² ≈ a² + 2ax, so x ≈ (N − a²) ÷ 2a. It also works with a² above N (the correction is then negative).",
+      "example": "√70 ≈ 8 + 6 ÷ 16 = 8.375 (true value 8.367)",
+      "commonMistake": "Dividing by a instead of 2a, which doubles the correction.",
+      "applicationPrompt": "Estimate √150.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "scr-properties-f",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-properties",
+      "title": "Tests a perfect square must pass",
+      "prompt": "How can you tell at a glance that a number is NOT a perfect square?",
+      "formula": "A perfect square:\n• never ends in 2, 3, 7 or 8\n• ends in an even number of zeros\n• has digital root 1, 4, 7 or 9\n• ending in 5 → ends in 25",
+      "variables": [],
+      "explanation": "Each test is a property of every square, so failing any one proves the number is not a square. Passing all of them does not prove that it is.",
+      "example": "4,762 ends in 2 → not a square\n6,241 passes every test, and it is 79²",
+      "commonMistake": "Treating \"passes the tests\" as \"is a square\": 1,111 ends in 1 and has digital root 4, but it is not a square.",
+      "applicationPrompt": "Is 36,000 a perfect square?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "squares-cubes-roots-level-0",
+      "topicId": "squares-cubes-roots",
+      "order": 0,
+      "title": "Squares From a Base, Roots From the Ends",
+      "description": "Square numbers near 100 in one line, split awkward numbers, and read a square root off the two ends of a number.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "scr-base",
+        "scr-identity",
+        "scr-sqrt"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Square from the nearest base",
+            "body": "92 is 8 below 100. Take 8 off 92 to get 84, then write 8² = 64 after it: 92² = 8,464.\n\nAbove the base the same rule adds: 107 → 107 + 7 = 114, then 49 → 11,449. The right part always has as many digits as the base has zeros."
+          },
+          {
+            "type": "formula",
+            "title": "Base 100",
+            "body": "n² = (n + d) | d²",
+            "caption": "d is the surplus over 100 (negative for a deficit). Near 50 use 25 + d for the left part."
+          },
+          {
+            "type": "check",
+            "questionId": "squares-cubes-roots-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Split when no base is near",
+            "body": "For 41², use 40² + 2 × 40 × 1 + 1 = 1,600 + 80 + 1 = 1,681. For 47², either split (50 − 3)² or use base 50: 22 | 09 = 2,209."
+          },
+          {
+            "type": "text",
+            "title": "Read a square root off the ends",
+            "body": "A perfect square’s last digit narrows its root to at most two last digits. The digits before the last two narrow it to a ten. Between the two candidates, the square of the number ending in 5 decides."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "root-bracket"
+          },
+          {
+            "type": "check",
+            "questionId": "squares-cubes-roots-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "This topic builds on the must-know squares and cubes tables. Knowing squares to 30 and cubes to 15 by heart makes every bracket step instant."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "squares-cubes-roots-level-1",
+      "topicId": "squares-cubes-roots",
+      "order": 1,
+      "title": "Squares, Cubes and Roots Formulas",
+      "description": "Base squares, splitting, the cube row and the root methods.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-0"
+      ],
+      "conceptIds": [
+        "scr-base",
+        "scr-identity",
+        "scr-cube",
+        "scr-sqrt",
+        "scr-cbrt"
+      ],
+      "formulaIds": [
+        "scr-base-f",
+        "scr-split-f",
+        "scr-cube-f",
+        "scr-sqrt-f",
+        "scr-cbrt-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "squares-cubes-roots-level-2",
+      "topicId": "squares-cubes-roots",
+      "order": 2,
+      "title": "Direct Squares and Roots",
+      "description": "One-step squares, roots and square tests.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-1"
+      ],
+      "conceptIds": [
+        "scr-base",
+        "scr-sqrt",
+        "scr-cbrt",
+        "scr-properties",
+        "scr-identity"
+      ],
+      "questionIds": [
+        "squares-cubes-roots-q-001",
+        "squares-cubes-roots-q-002",
+        "squares-cubes-roots-q-003",
+        "squares-cubes-roots-q-004",
+        "squares-cubes-roots-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "squares-cubes-roots-level-3",
+      "topicId": "squares-cubes-roots",
+      "order": 3,
+      "title": "Bigger Numbers, Same Methods",
+      "description": "Five-digit roots, cubes by the row method and base 1,000.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-2"
+      ],
+      "conceptIds": [
+        "scr-identity",
+        "scr-cube",
+        "scr-sqrt",
+        "scr-base",
+        "scr-cbrt",
+        "scr-properties"
+      ],
+      "questionIds": [
+        "squares-cubes-roots-q-006",
+        "squares-cubes-roots-q-007",
+        "squares-cubes-roots-q-008",
+        "squares-cubes-roots-q-009",
+        "squares-cubes-roots-q-010",
+        "squares-cubes-roots-q-011",
+        "squares-cubes-roots-q-016"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "squares-cubes-roots-level-4",
+      "topicId": "squares-cubes-roots",
+      "order": 4,
+      "title": "Roots in Problems",
+      "description": "Large bases, six-digit squares and roots inside area and volume problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-3"
+      ],
+      "conceptIds": [
+        "scr-base",
+        "scr-sqrt",
+        "scr-cbrt"
+      ],
+      "questionIds": [
+        "squares-cubes-roots-q-012",
+        "squares-cubes-roots-q-013",
+        "squares-cubes-roots-q-014",
+        "squares-cubes-roots-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "squares-cubes-roots-level-5",
+      "topicId": "squares-cubes-roots",
+      "order": 5,
+      "title": "Mixed Squares, Cubes and Roots Practice",
+      "description": "All the core methods, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-4"
+      ],
+      "conceptIds": [
+        "scr-sqrt",
+        "scr-cube"
+      ],
+      "questionQuery": {
+        "topicId": "squares-cubes-roots",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "scr-base",
+          "scr-identity",
+          "scr-cube",
+          "scr-sqrt",
+          "scr-cbrt"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "squares-cubes-roots-level-6",
+      "topicId": "squares-cubes-roots",
+      "order": 6,
+      "title": "Advanced: Decimals, Estimates and Square Tests",
+      "description": "Roots of decimals and fractions, estimating roots that are not whole, and proving a number is not a square.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-5"
+      ],
+      "conceptIds": [
+        "scr-decimal",
+        "scr-approx",
+        "scr-properties"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Decimal places come in pairs",
+            "body": "0.0169 is 169 ÷ 10,000. Its square root is 13 ÷ 100 = 0.13: four decimal places became two. For a cube root they come in threes: ∛0.008 = 0.2.\n\nFor fractions, root the top and the bottom: √(6¼) = √(25/4) = 5/2."
+          },
+          {
+            "type": "check",
+            "questionId": "squares-cubes-roots-q-017"
+          },
+          {
+            "type": "formula",
+            "title": "Estimating a root",
+            "body": "√N ≈ a + (N − a²) ÷ 2a",
+            "caption": "a² is the nearest perfect square, above or below N. √70 ≈ 8 + 6 ÷ 16 = 8.375; the true value is 8.367."
+          },
+          {
+            "type": "check",
+            "questionId": "squares-cubes-roots-q-018"
+          },
+          {
+            "type": "text",
+            "title": "Proving a number is not a square",
+            "body": "Squares end in 0, 1, 4, 5, 6 or 9; their zeros at the end come in pairs; their digital root is 1, 4, 7 or 9; and if they end in 5 they end in 25. Failing any one test settles it."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "The tests can only rule a number out. 1,111 passes the last-digit and digital-root tests but is not a square (33² = 1,089, 34² = 1,156)."
+          }
+        ]
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "squares-cubes-roots-level-7",
+      "topicId": "squares-cubes-roots",
+      "order": 7,
+      "title": "Challenge: Roots Under Pressure",
+      "description": "Decimal and fraction roots, estimates and square tests.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "squares-cubes-roots-level-6"
+      ],
+      "conceptIds": [
+        "scr-decimal",
+        "scr-approx",
+        "scr-properties"
+      ],
+      "questionIds": [
+        "squares-cubes-roots-q-017",
+        "squares-cubes-roots-q-018",
+        "squares-cubes-roots-q-019",
+        "squares-cubes-roots-q-020",
+        "squares-cubes-roots-q-021",
+        "squares-cubes-roots-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 90,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "squares-cubes-roots-q-001",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-base",
+      "levelId": "squares-cubes-roots-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Using the base 100, find 96².",
+      "answer": {
+        "value": 9216,
+        "tolerance": 0
+      },
+      "explanation": "96 is 4 below 100. Left part: 96 − 4 = 92. Right part: 4² = 16. So 96² = 9,216.",
+      "solutionSteps": [
+        "Deficit d = 4.",
+        "Left: 96 − 4 = 92.",
+        "Right: 4² = 16, so 9,216."
+      ],
+      "formulaIds": [
+        "scr-base-f"
+      ],
+      "method": "Number minus deficit | deficit squared.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far below 100 is 96?"
+        },
+        {
+          "level": 2,
+          "text": "Take the deficit off 96, then write 4² as two digits."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the deficit instead of subtracting it (100 | 16)."
+      ],
+      "tags": [
+        "base-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-002",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "levelId": "squares-cubes-roots-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is √5,476?",
+      "options": [
+        {
+          "id": "a",
+          "text": "74"
+        },
+        {
+          "id": "b",
+          "text": "76"
+        },
+        {
+          "id": "c",
+          "text": "84"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "5,476 ends in 6, so the root ends in 4 or 6. Dropping the last two digits leaves 54, and 7² = 49 ≤ 54 < 64, so the root is 74 or 76. 75² = 5,625 is more than 5,476, so the root is the smaller one: 74.",
+      "solutionSteps": [
+        "Ends in 6 → last digit 4 or 6.",
+        "54 → tens digit 7.",
+        "75² = 5,625 > 5,476 → 74."
+      ],
+      "formulaIds": [
+        "scr-sqrt-f",
+        "scr-sc-unit-pairs"
+      ],
+      "method": "Unit digit, bracket, midpoint.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which digits squared end in 6?"
+        },
+        {
+          "level": 2,
+          "text": "Compare 5,476 with 75² = 5,625."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 76 by assuming a square ending in 6 has a root ending in 6."
+      ],
+      "tags": [
+        "square-root"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-003",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cbrt",
+      "levelId": "squares-cubes-roots-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the cube root of 1,03,823?",
+      "answer": {
+        "value": 47,
+        "tolerance": 0
+      },
+      "explanation": "The cube ends in 3, so the root ends in 7 (7³ = 343). Dropping the last three digits leaves 103, and 4³ = 64 ≤ 103 < 125 = 5³, so the tens digit is 4. The root is 47.",
+      "solutionSteps": [
+        "Ends in 3 → root ends in 7.",
+        "103 lies between 4³ and 5³ → tens digit 4.",
+        "Root = 47."
+      ],
+      "formulaIds": [
+        "scr-cbrt-f"
+      ],
+      "method": "Unit digit, then the leading part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which digit cubed ends in 3?"
+        },
+        {
+          "level": 2,
+          "text": "Drop the last three digits: between which two cubes does 103 lie?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking a cube ending in 3 has a root ending in 3."
+      ],
+      "tags": [
+        "cube-root",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-004",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-properties",
+      "levelId": "squares-cubes-roots-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these cannot be a perfect square?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4,489"
+        },
+        {
+          "id": "b",
+          "text": "7,056"
+        },
+        {
+          "id": "c",
+          "text": "3,248"
+        },
+        {
+          "id": "d",
+          "text": "1,849"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "No perfect square ends in 8 (squares end in 0, 1, 4, 5, 6 or 9), so 3,248 cannot be one. The others are squares: 67², 84² and 43².",
+      "solutionSteps": [
+        "Squares never end in 2, 3, 7 or 8.",
+        "3,248 ends in 8.",
+        "So 3,248 is not a square."
+      ],
+      "formulaIds": [
+        "scr-properties-f"
+      ],
+      "method": "Check the last digit first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which last digits can a perfect square have?"
+        },
+        {
+          "level": 2,
+          "text": "Look for an option ending in 2, 3, 7 or 8."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to find every root instead of testing the last digit."
+      ],
+      "tags": [
+        "perfect-square"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-005",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-identity",
+      "levelId": "squares-cubes-roots-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which split gives 98² correctly and fastest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(100 − 2)² = 10,000 − 400 + 4"
+        },
+        {
+          "id": "b",
+          "text": "(90 + 8)² = 8,100 + 64"
+        },
+        {
+          "id": "c",
+          "text": "(100 − 2)² = 10,000 − 4"
+        },
+        {
+          "id": "d",
+          "text": "(100 − 2)² = 10,000 − 200 + 4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(a − b)² = a² − 2ab + b² with a = 100, b = 2 gives 10,000 − 400 + 4 = 9,604. The other options drop the middle term or halve it.",
+      "solutionSteps": [
+        "a = 100, b = 2.",
+        "2ab = 400, b² = 4.",
+        "10,000 − 400 + 4 = 9,604."
+      ],
+      "formulaIds": [
+        "scr-split-f"
+      ],
+      "method": "Round number minus a small one, with the 2ab term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which round number is 98 close to?"
+        },
+        {
+          "level": 2,
+          "text": "The middle term is 2 × 100 × 2."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the middle term 2ab.",
+        "Using ab instead of 2ab."
+      ],
+      "tags": [
+        "identity",
+        "recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-006",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-identity",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 103² + 97².",
+      "answer": {
+        "value": 20018,
+        "tolerance": 0
+      },
+      "explanation": "(100 + 3)² + (100 − 3)² = 2(100² + 3²) because the ±600 terms cancel. So the sum is 2 × 10,009 = 20,018.",
+      "solutionSteps": [
+        "(a + b)² + (a − b)² = 2(a² + b²).",
+        "a = 100, b = 3: 2 × (10,000 + 9).",
+        "= 20,018."
+      ],
+      "formulaIds": [
+        "scr-split-f",
+        "scr-base-f"
+      ],
+      "method": "Pair the two squares so the middle terms cancel.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers are 3 away from 100."
+        },
+        {
+          "level": 2,
+          "text": "In (100 + 3)² + (100 − 3)² the middle terms cancel."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 10,609 and 9,409 with an arithmetic slip; the identity avoids it."
+      ],
+      "tags": [
+        "identity",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-007",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cube",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 23³.",
+      "answer": {
+        "value": 12167,
+        "tolerance": 0
+      },
+      "explanation": "Row for a = 2, b = 3: 8 | 12 | 18 | 27. Doubled middle terms 24 and 36 go underneath, giving columns 8 | 36 | 54 | 27. From the right: 27 → 7 carry 2; 54 + 2 = 56 → 6 carry 5; 36 + 5 = 41 → 1 carry 4; 8 + 4 = 12. So 23³ = 12,167.",
+      "solutionSteps": [
+        "Row: 8, 12, 18, 27 (each × 3/2).",
+        "Columns after adding 24 and 36: 8, 36, 54, 27.",
+        "Carry from the right: 12,167."
+      ],
+      "formulaIds": [
+        "scr-cube-f"
+      ],
+      "method": "Row method for (10a + b)³.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start the row with a³ = 8 and multiply by 3/2 each step."
+        },
+        {
+          "level": 2,
+          "text": "Triple the middle terms (row plus the doubled line), then carry."
+        }
+      ],
+      "commonMistakes": [
+        "Adding only the single row (8 | 12 | 18 | 27 → 9,207)."
+      ],
+      "tags": [
+        "cube",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-008",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find √15,129.",
+      "answer": {
+        "value": 123,
+        "tolerance": 0
+      },
+      "explanation": "It ends in 9, so the root ends in 3 or 7. Dropping two digits leaves 151, and 12² = 144 ≤ 151 < 169 = 13², so the root is 123 or 127. 125² = 15,625 > 15,129, so it is 123.",
+      "solutionSteps": [
+        "Ends in 9 → 3 or 7.",
+        "151 → k = 12, so 123 or 127.",
+        "125² = 15,625 > 15,129 → 123."
+      ],
+      "formulaIds": [
+        "scr-sqrt-f"
+      ],
+      "method": "Unit digit, bracket, midpoint.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Drop the last two digits; the largest square up to 151 is 12²."
+        },
+        {
+          "level": 2,
+          "text": "Compare 15,129 with 125²."
+        }
+      ],
+      "commonMistakes": [
+        "Using only the first digit (1) for the bracket and getting a two-digit root."
+      ],
+      "tags": [
+        "square-root",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-009",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-base",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 1,006²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10,12,036"
+        },
+        {
+          "id": "b",
+          "text": "1,01,236"
+        },
+        {
+          "id": "c",
+          "text": "10,06,036"
+        },
+        {
+          "id": "d",
+          "text": "10,12,360"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "1,006 is 6 above 1,000. Left part 1,006 + 6 = 1,012; right part 6² = 36, written as three digits: 036. So 1,006² = 10,12,036.",
+      "solutionSteps": [
+        "Surplus d = 6.",
+        "Left: 1,006 + 6 = 1,012.",
+        "Right: 036 (three digits for base 1,000) → 10,12,036."
+      ],
+      "formulaIds": [
+        "scr-sc-near-1000"
+      ],
+      "method": "Base 1,000: right part has three digits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Base 1,000 means the right part needs three digits."
+        },
+        {
+          "level": 2,
+          "text": "Left part: 1,006 + 6."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 36 as two digits (1,01,236).",
+        "Forgetting to add the surplus to the left part (10,06,036)."
+      ],
+      "tags": [
+        "base-method"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-010",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cbrt",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is ∛6,58,503?",
+      "options": [
+        {
+          "id": "a",
+          "text": "87"
+        },
+        {
+          "id": "b",
+          "text": "83"
+        },
+        {
+          "id": "c",
+          "text": "77"
+        },
+        {
+          "id": "d",
+          "text": "97"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The cube ends in 3, so the root ends in 7. The part before the last three digits is 658, and 8³ = 512 ≤ 658 < 729 = 9³, so the tens digit is 8. The root is 87.",
+      "solutionSteps": [
+        "Ends in 3 → root ends in 7.",
+        "658 lies between 8³ and 9³.",
+        "Root = 87."
+      ],
+      "formulaIds": [
+        "scr-cbrt-f"
+      ],
+      "method": "Unit digit, then the leading part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which digit cubed ends in 3?"
+        },
+        {
+          "level": 2,
+          "text": "Find the cubes on either side of 658."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 83 by keeping the unit digit 3."
+      ],
+      "tags": [
+        "cube-root"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-011",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cube",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "You want 34³ by the row method. Which row do you start from?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27, 36, 48, 64 (a³, a²b, ab², b³)"
+        },
+        {
+          "id": "b",
+          "text": "9, 12, 16 (a², ab, b²)"
+        },
+        {
+          "id": "c",
+          "text": "27, 64 (a³ and b³ only)"
+        },
+        {
+          "id": "d",
+          "text": "34, 34, 34 (the number three times)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For 10a + b with a = 3, b = 4 the row is a³ = 27, a²b = 36, ab² = 48, b³ = 64; each term is the last times 4/3. Then the middle two are doubled and added below. (9, 12, 16 is the row for squares.)",
+      "solutionSteps": [
+        "a = 3, b = 4.",
+        "Row: 27, 36, 48, 64.",
+        "Each term = previous × 4 ÷ 3."
+      ],
+      "formulaIds": [
+        "scr-cube-f"
+      ],
+      "method": "Recognise the four-term row for cubes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cube needs four terms, not three."
+        },
+        {
+          "level": 2,
+          "text": "Start with 3³ and multiply by 4/3 each step."
+        }
+      ],
+      "commonMistakes": [
+        "Using the three-term square row."
+      ],
+      "tags": [
+        "method",
+        "cube"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-012",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-base",
+      "levelId": "squares-cubes-roots-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find 9,995².",
+      "answer": {
+        "value": 99900025,
+        "tolerance": 0
+      },
+      "explanation": "Use the base 10,000: 9,995 is 5 below. Left part 9,995 − 5 = 9,990; right part 5² = 25 written as four digits, 0025. So 9,995² = 9,99,00,025.",
+      "solutionSteps": [
+        "Base 10,000, deficit 5.",
+        "Left: 9,990.",
+        "Right: 0025 → 9,99,00,025."
+      ],
+      "formulaIds": [
+        "scr-base-f",
+        "scr-sc-near-1000"
+      ],
+      "method": "Base method with a four-digit right part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which base is 9,995 close to?"
+        },
+        {
+          "level": 2,
+          "text": "With base 10,000 the right part has four digits."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 25 with only two digits (9,99,025)."
+      ],
+      "tags": [
+        "base-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-013",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "levelId": "squares-cubes-roots-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find √97,344.",
+      "answer": {
+        "value": 312,
+        "tolerance": 0
+      },
+      "explanation": "It ends in 4, so the root ends in 2 or 8. Dropping two digits leaves 973, and 31² = 961 ≤ 973 < 1,024 = 32², so the root is 312 or 318. 315² = 99,225 > 97,344, so the root is 312.",
+      "solutionSteps": [
+        "Ends in 4 → 2 or 8.",
+        "973 → k = 31, so 312 or 318.",
+        "315² = 99,225 > 97,344 → 312."
+      ],
+      "formulaIds": [
+        "scr-sqrt-f"
+      ],
+      "method": "Same three steps; the bracket now needs a two-digit k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After dropping two digits, 973 is left. Which square is just below it?"
+        },
+        {
+          "level": 2,
+          "text": "31² = 961. Now compare with 315²."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 318 without the midpoint check."
+      ],
+      "tags": [
+        "square-root",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-014",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-sqrt",
+      "levelId": "squares-cubes-roots-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A square garden has an area of 1,849 m². Each side is extended by 7 m. By how many square metres does the area increase?",
+      "answer": {
+        "tolerance": 0,
+        "value": 651,
+        "unit": "m²"
+      },
+      "explanation": "√1,849 = 43 (ends in 9 → 3 or 7; 18 → k = 4; 45² = 2,025 > 1,849). The new side is 50 m, so the new area is 2,500 m² and the increase is 2,500 − 1,849 = 651 m².",
+      "solutionSteps": [
+        "√1,849 = 43 m.",
+        "New side: 43 + 7 = 50 m, area 2,500 m².",
+        "Increase: 2,500 − 1,849 = 651 m²."
+      ],
+      "formulaIds": [
+        "scr-sqrt-f",
+        "scr-split-f"
+      ],
+      "method": "Root first, then square the new side.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the side from the area first."
+        },
+        {
+          "level": 2,
+          "text": "√1,849 = 43, so the new side is 50 m."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 7² = 49 to the area, as if the increase were only the corner square."
+      ],
+      "tags": [
+        "square-root",
+        "word-problem",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-015",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-cbrt",
+      "levelId": "squares-cubes-roots-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A cubical tank holds 4,21,875 cm³ of water when full. What is the length of its edge?",
+      "options": [
+        {
+          "id": "a",
+          "text": "75 cm"
+        },
+        {
+          "id": "b",
+          "text": "65 cm"
+        },
+        {
+          "id": "c",
+          "text": "85 cm"
+        },
+        {
+          "id": "d",
+          "text": "57 cm"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The volume ends in 5, so the edge ends in 5. Dropping three digits leaves 421, and 7³ = 343 ≤ 421 < 512 = 8³, so the tens digit is 7. Edge = 75 cm.",
+      "solutionSteps": [
+        "Ends in 5 → 5.",
+        "421 lies between 7³ and 8³ → 7.",
+        "Edge = 75 cm."
+      ],
+      "formulaIds": [
+        "scr-cbrt-f"
+      ],
+      "method": "Cube root by unit digit and leading part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The edge is the cube root of the volume."
+        },
+        {
+          "level": 2,
+          "text": "Between which two cubes does 421 lie?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 65 cm by misplacing 421 between 6³ and 7³."
+      ],
+      "tags": [
+        "cube-root",
+        "word-problem"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-016",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-properties",
+      "levelId": "squares-cubes-roots-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "assertion_reason",
+      "question": "Read the assertion and the reason, then choose the correct option.",
+      "assertion": "8,47,602 is not a perfect square.",
+      "reason": "No perfect square ends in the digit 2.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both A and R are true, and R correctly explains A"
+        },
+        {
+          "id": "b",
+          "text": "Both A and R are true, but R does not explain A"
+        },
+        {
+          "id": "c",
+          "text": "A is true, R is false"
+        },
+        {
+          "id": "d",
+          "text": "A is false, R is true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The squares of 0 to 9 end in 0, 1, 4, 9, 6, 5, 6, 9, 4, 1: never 2. So R is true, and since 8,47,602 ends in 2, R is exactly why A is true.",
+      "solutionSteps": [
+        "Unit digits of squares: 0, 1, 4, 5, 6, 9.",
+        "8,47,602 ends in 2.",
+        "Both true, and R explains A."
+      ],
+      "formulaIds": [
+        "scr-properties-f"
+      ],
+      "method": "Unit-digit test.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the unit digits of 0² to 9²."
+        },
+        {
+          "level": 2,
+          "text": "Does the reason, on its own, settle the assertion?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"R does not explain A\" when R is the whole argument."
+      ],
+      "tags": [
+        "assertion-reason",
+        "perfect-square"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-017",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-decimal",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is √0.000729?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.027"
+        },
+        {
+          "id": "b",
+          "text": "0.27"
+        },
+        {
+          "id": "c",
+          "text": "0.0027"
+        },
+        {
+          "id": "d",
+          "text": "0.00027"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "0.000729 has six decimal places and 729 = 27². The root has half as many places, three: 0.027. Check: 0.027 × 0.027 = 0.000729.",
+      "solutionSteps": [
+        "729 = 27².",
+        "Six decimal places → three.",
+        "√0.000729 = 0.027."
+      ],
+      "formulaIds": [
+        "scr-decimal-f"
+      ],
+      "method": "Root of the digits, half the decimal places.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Ignore the decimal point first: what is √729?"
+        },
+        {
+          "level": 2,
+          "text": "Pair the six decimal places."
+        }
+      ],
+      "commonMistakes": [
+        "Keeping six decimal places (0.000027) or using four (0.0027)."
+      ],
+      "tags": [
+        "decimal-root"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-018",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-approx",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of these is closest to √130?",
+      "options": [
+        {
+          "id": "a",
+          "text": "11.4"
+        },
+        {
+          "id": "b",
+          "text": "11.1"
+        },
+        {
+          "id": "c",
+          "text": "11.9"
+        },
+        {
+          "id": "d",
+          "text": "12.4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "130 is 9 more than 121 = 11². √130 ≈ 11 + 9 ÷ 22 ≈ 11.41. Check: 11.4² = 129.96.",
+      "solutionSteps": [
+        "Nearest square: 121 = 11².",
+        "Correction: 9 ÷ (2 × 11) ≈ 0.41.",
+        "√130 ≈ 11.4."
+      ],
+      "formulaIds": [
+        "scr-approx-f"
+      ],
+      "method": "a + (N − a²) ÷ 2a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which perfect square is nearest to 130?"
+        },
+        {
+          "level": 2,
+          "text": "Divide the gap 9 by 2 × 11."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 11 instead of 22 and getting about 11.8."
+      ],
+      "tags": [
+        "estimation"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-019",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-decimal",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find √0.0441 + ∛0.008.",
+      "answer": {
+        "value": 0.41,
+        "tolerance": 0
+      },
+      "explanation": "√0.0441 = 0.21 (441 = 21², four places → two). ∛0.008 = 0.2 (8 = 2³, three places → one). The sum is 0.41.",
+      "solutionSteps": [
+        "√0.0441 = 0.21.",
+        "∛0.008 = 0.2.",
+        "0.21 + 0.2 = 0.41."
+      ],
+      "formulaIds": [
+        "scr-decimal-f"
+      ],
+      "method": "Square roots halve the decimal places; cube roots divide them by three.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Handle each root separately."
+        },
+        {
+          "level": 2,
+          "text": "For the cube root, group the three decimal places of 0.008 together."
+        }
+      ],
+      "commonMistakes": [
+        "Taking ∛0.008 as 0.02."
+      ],
+      "tags": [
+        "decimal-root",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-020",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-properties",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "multiple_choice",
+      "question": "Select ALL the numbers that cannot be perfect squares.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2,02,500"
+        },
+        {
+          "id": "b",
+          "text": "36,000"
+        },
+        {
+          "id": "c",
+          "text": "4,375"
+        },
+        {
+          "id": "d",
+          "text": "7,744"
+        },
+        {
+          "id": "e",
+          "text": "1,526"
+        }
+      ],
+      "correctAnswer": [
+        "b",
+        "c",
+        "e"
+      ],
+      "explanation": "36,000 ends in three zeros (an odd number). 4,375 ends in 5 but not in 25. 1,526 has digit sum 14 → 5, and a square’s digital root is 1, 4, 7 or 9. The others are squares: 2,02,500 = 450² and 7,744 = 88².",
+      "solutionSteps": [
+        "36,000: odd number of zeros ✗.",
+        "4,375: ends in 75, not 25 ✗.",
+        "1,526: digital root 5 ✗.",
+        "2,02,500 = 450², 7,744 = 88²."
+      ],
+      "formulaIds": [
+        "scr-properties-f"
+      ],
+      "method": "Run each test until one fails.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the zeros at the end of each number."
+        },
+        {
+          "level": 2,
+          "text": "A square that ends in 5 must end in 25; also try the digital root."
+        }
+      ],
+      "commonMistakes": [
+        "Passing 1,526 because it ends in 6, without checking the digital root."
+      ],
+      "tags": [
+        "multi-select",
+        "perfect-square"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-021",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-approx",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is √2,000, correct to one decimal place?",
+      "options": [
+        {
+          "id": "a",
+          "text": "44.7"
+        },
+        {
+          "id": "b",
+          "text": "44.4"
+        },
+        {
+          "id": "c",
+          "text": "45.3"
+        },
+        {
+          "id": "d",
+          "text": "42.7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The nearest square is 45² = 2,025, which is 25 too big. √2,000 ≈ 45 − 25 ÷ 90 ≈ 45 − 0.28 = 44.72, so 44.7. Check: 44.7² = 1,998.09 and 44.8² = 2,007.04.",
+      "solutionSteps": [
+        "45² = 2,025 (25 above).",
+        "Correction: −25 ÷ 90 ≈ −0.28.",
+        "≈ 44.72 → 44.7."
+      ],
+      "formulaIds": [
+        "scr-approx-f"
+      ],
+      "method": "Use the nearest square, even if it is above N.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which perfect square is closest to 2,000?"
+        },
+        {
+          "level": 2,
+          "text": "45² = 2,025. Subtract 25 ÷ (2 × 45)."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the correction when the square is above N (45.3)."
+      ],
+      "tags": [
+        "estimation"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "squares-cubes-roots-q-022",
+      "topicId": "squares-cubes-roots",
+      "conceptId": "scr-decimal",
+      "levelId": "squares-cubes-roots-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is √(3 22/49)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 6/7"
+        },
+        {
+          "id": "b",
+          "text": "13/49"
+        },
+        {
+          "id": "c",
+          "text": "1 3/7"
+        },
+        {
+          "id": "d",
+          "text": "3 4/7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "3 22/49 = (147 + 22)/49 = 169/49. √(169/49) = 13/7 = 1 6/7.",
+      "solutionSteps": [
+        "Convert: 3 × 49 + 22 = 169, so 169/49.",
+        "√169 = 13, √49 = 7.",
+        "13/7 = 1 6/7."
+      ],
+      "formulaIds": [
+        "scr-decimal-f"
+      ],
+      "method": "Improper fraction first, then root of top and bottom.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Turn the mixed number into an improper fraction first."
+        },
+        {
+          "level": 2,
+          "text": "Is the new numerator a perfect square?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking roots of 3 and 22/49 separately.",
+        "Rooting only the numerator (13/49)."
+      ],
+      "tags": [
+        "fraction-root"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

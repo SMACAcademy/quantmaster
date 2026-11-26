@@ -68,6 +68,41 @@
       "tags": []
     },
     {
+      "id": "remainders",
+      "name": "Remainders and Cyclicity",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Remainders of sums, products and huge powers, unit digits and last two digits, the theorems of Fermat, Euler and Wilson, and numbers found from their remainders.",
+      "whyItMatters": "A CAT, XAT and placement favourite, and a regular in SSC: \"the remainder when 7¹⁰⁰ is divided by 5\" or \"the unit digit of 13²⁰²⁶\" takes seconds once you know the cycle, and minutes if you do not.",
+      "glyph": "mod",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "divisibility",
+        "hcf-lcm"
+      ],
+      "sortOrder": 5,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "factorials",
+      "name": "Factorials",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Trailing zeros, the highest power of a prime or composite in n!, the size of n!, which numbers divide it, and sums of factorials.",
+      "whyItMatters": "Trailing zeros and prime powers in n! appear in CAT, SNAP and placement tests almost every year, and the counting is quick once you see the layers.",
+      "glyph": "n!",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "factors-multiples"
+      ],
+      "sortOrder": 6,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
       "id": "simplification",
       "name": "Simplification",
       "category": "arithmetic",
@@ -77,7 +112,41 @@
       "glyph": "≡",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 5,
+      "sortOrder": 7,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "speed-maths",
+      "name": "Speed Maths",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Multiplying by 5, 25, 125, 111 and 99, the base method, cross multiplication, percentage–fraction swaps, digit-sum checks and quick division.",
+      "whyItMatters": "Bank and SSC prelims give about 20 seconds a calculation. These methods turn long multiplication into one line, and the nines check catches slips before they cost marks.",
+      "glyph": "⚡",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "simplification"
+      ],
+      "sortOrder": 8,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "squares-cubes-roots",
+      "name": "Squares, Cubes and Roots",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Squares near a base, splitting, cubes of two-digit numbers, square and cube roots of perfect powers, roots of decimals, estimates and perfect-square tests.",
+      "whyItMatters": "Square roots of four- and five-digit numbers and cubes of two-digit numbers turn up throughout simplification and approximation sets in bank, SSC and railway exams.",
+      "glyph": "x²",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "simplification"
+      ],
+      "sortOrder": 9,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -94,7 +163,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 6,
+      "sortOrder": 10,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -111,7 +180,7 @@
       "prerequisites": [
         "number-system"
       ],
-      "sortOrder": 7,
+      "sortOrder": 11,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -128,7 +197,7 @@
       "prerequisites": [
         "fractions"
       ],
-      "sortOrder": 8,
+      "sortOrder": 12,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -145,7 +214,7 @@
       "prerequisites": [
         "number-system"
       ],
-      "sortOrder": 9,
+      "sortOrder": 13,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -160,7 +229,7 @@
       "glyph": "%",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 10,
+      "sortOrder": 14,
       "contentStatus": "reference",
       "active": true,
       "tags": []
@@ -177,7 +246,7 @@
       "prerequisites": [
         "fractions"
       ],
-      "sortOrder": 11,
+      "sortOrder": 15,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -194,7 +263,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 12,
+      "sortOrder": 16,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -209,7 +278,7 @@
       "glyph": "x̄",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 13,
+      "sortOrder": 17,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -226,7 +295,7 @@
       "prerequisites": [
         "averages"
       ],
-      "sortOrder": 14,
+      "sortOrder": 18,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -244,7 +313,7 @@
         "ratio-proportion",
         "weighted-average"
       ],
-      "sortOrder": 15,
+      "sortOrder": 19,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -261,7 +330,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 16,
+      "sortOrder": 20,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -278,7 +347,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 17,
+      "sortOrder": 21,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -295,7 +364,7 @@
       "prerequisites": [
         "simple-interest"
       ],
-      "sortOrder": 18,
+      "sortOrder": 22,
       "contentStatus": "core",
       "active": true,
       "tags": []
@@ -312,7 +381,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 19,
+      "sortOrder": 23,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -329,7 +398,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 20,
+      "sortOrder": 24,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -346,7 +415,7 @@
       "prerequisites": [
         "time-and-work"
       ],
-      "sortOrder": 21,
+      "sortOrder": 25,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -363,7 +432,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 22,
+      "sortOrder": 26,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -380,7 +449,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 23,
+      "sortOrder": 27,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -397,7 +466,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 24,
+      "sortOrder": 28,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -414,7 +483,7 @@
       "prerequisites": [
         "time-speed-distance"
       ],
-      "sortOrder": 25,
+      "sortOrder": 29,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -431,7 +500,7 @@
       "prerequisites": [
         "ratio-proportion"
       ],
-      "sortOrder": 26,
+      "sortOrder": 30,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -448,7 +517,7 @@
       "prerequisites": [
         "time-and-work"
       ],
-      "sortOrder": 27,
+      "sortOrder": 31,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -463,7 +532,7 @@
       "glyph": "📅",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 28,
+      "sortOrder": 32,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -478,7 +547,7 @@
       "glyph": "🕐",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 29,
+      "sortOrder": 33,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -493,7 +562,7 @@
       "glyph": "⇄",
       "colorToken": "arithmetic",
       "prerequisites": [],
-      "sortOrder": 30,
+      "sortOrder": 34,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -508,7 +577,7 @@
       "glyph": "ax",
       "colorToken": "algebra",
       "prerequisites": [],
-      "sortOrder": 31,
+      "sortOrder": 35,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -525,7 +594,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 32,
+      "sortOrder": 36,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -542,7 +611,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 33,
+      "sortOrder": 37,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -559,7 +628,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 34,
+      "sortOrder": 38,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -576,7 +645,7 @@
       "prerequisites": [
         "quadratic-equations"
       ],
-      "sortOrder": 35,
+      "sortOrder": 39,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -593,7 +662,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 36,
+      "sortOrder": 40,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -610,7 +679,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 37,
+      "sortOrder": 41,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -625,7 +694,7 @@
       "glyph": "…",
       "colorToken": "algebra",
       "prerequisites": [],
-      "sortOrder": 38,
+      "sortOrder": 42,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -642,7 +711,7 @@
       "prerequisites": [
         "sequences"
       ],
-      "sortOrder": 39,
+      "sortOrder": 43,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -659,7 +728,7 @@
       "prerequisites": [
         "arithmetic-progression"
       ],
-      "sortOrder": 40,
+      "sortOrder": 44,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -676,7 +745,7 @@
       "prerequisites": [
         "surds-indices"
       ],
-      "sortOrder": 41,
+      "sortOrder": 45,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -693,7 +762,7 @@
       "prerequisites": [
         "algebraic-expressions"
       ],
-      "sortOrder": 42,
+      "sortOrder": 46,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -708,7 +777,7 @@
       "glyph": "∠",
       "colorToken": "geometry",
       "prerequisites": [],
-      "sortOrder": 43,
+      "sortOrder": 47,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -725,7 +794,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 44,
+      "sortOrder": 48,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -742,7 +811,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 45,
+      "sortOrder": 49,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -759,7 +828,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 46,
+      "sortOrder": 50,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -776,7 +845,7 @@
       "prerequisites": [
         "lines-angles"
       ],
-      "sortOrder": 47,
+      "sortOrder": 51,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -793,7 +862,7 @@
       "prerequisites": [
         "linear-equations"
       ],
-      "sortOrder": 48,
+      "sortOrder": 52,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -810,7 +879,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 49,
+      "sortOrder": 53,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -827,7 +896,7 @@
       "prerequisites": [
         "perimeter-area"
       ],
-      "sortOrder": 50,
+      "sortOrder": 54,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -844,7 +913,7 @@
       "prerequisites": [
         "mensuration-2d"
       ],
-      "sortOrder": 51,
+      "sortOrder": 55,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -861,7 +930,7 @@
       "prerequisites": [
         "mensuration-3d"
       ],
-      "sortOrder": 52,
+      "sortOrder": 56,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -878,7 +947,7 @@
       "prerequisites": [
         "triangles"
       ],
-      "sortOrder": 53,
+      "sortOrder": 57,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -895,7 +964,7 @@
       "prerequisites": [
         "trigonometry"
       ],
-      "sortOrder": 54,
+      "sortOrder": 58,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -910,7 +979,7 @@
       "glyph": "∙",
       "colorToken": "combinatorics",
       "prerequisites": [],
-      "sortOrder": 55,
+      "sortOrder": 59,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -927,7 +996,7 @@
       "prerequisites": [
         "counting-principle"
       ],
-      "sortOrder": 56,
+      "sortOrder": 60,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -944,7 +1013,7 @@
       "prerequisites": [
         "permutations"
       ],
-      "sortOrder": 57,
+      "sortOrder": 61,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -961,7 +1030,7 @@
       "prerequisites": [
         "combinations"
       ],
-      "sortOrder": 58,
+      "sortOrder": 62,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -976,7 +1045,7 @@
       "glyph": "∪",
       "colorToken": "combinatorics",
       "prerequisites": [],
-      "sortOrder": 59,
+      "sortOrder": 63,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -993,7 +1062,7 @@
       "prerequisites": [
         "set-theory"
       ],
-      "sortOrder": 60,
+      "sortOrder": 64,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1010,7 +1079,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 61,
+      "sortOrder": 65,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1027,7 +1096,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 62,
+      "sortOrder": 66,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1044,7 +1113,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 63,
+      "sortOrder": 67,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1061,7 +1130,7 @@
       "prerequisites": [
         "percentages"
       ],
-      "sortOrder": 64,
+      "sortOrder": 68,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1078,7 +1147,7 @@
       "prerequisites": [
         "di-tables"
       ],
-      "sortOrder": 65,
+      "sortOrder": 69,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1096,7 +1165,7 @@
         "di-bar-graphs",
         "di-line-graphs"
       ],
-      "sortOrder": 66,
+      "sortOrder": 70,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1111,7 +1180,7 @@
       "glyph": "?",
       "colorToken": "data",
       "prerequisites": [],
-      "sortOrder": 67,
+      "sortOrder": 71,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1128,7 +1197,7 @@
       "prerequisites": [
         "averages"
       ],
-      "sortOrder": 68,
+      "sortOrder": 72,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1145,7 +1214,7 @@
       "prerequisites": [
         "weighted-average"
       ],
-      "sortOrder": 69,
+      "sortOrder": 73,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1162,7 +1231,7 @@
       "prerequisites": [
         "mean-median-mode"
       ],
-      "sortOrder": 70,
+      "sortOrder": 74,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1177,7 +1246,7 @@
       "glyph": "🪑",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 71,
+      "sortOrder": 75,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1194,7 +1263,7 @@
       "glyph": "🧩",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 72,
+      "sortOrder": 76,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1213,7 +1282,7 @@
       "prerequisites": [
         "venn-diagrams"
       ],
-      "sortOrder": 73,
+      "sortOrder": 77,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1230,7 +1299,7 @@
       "glyph": "≷",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 74,
+      "sortOrder": 78,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1247,7 +1316,7 @@
       "glyph": "👪",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 75,
+      "sortOrder": 79,
       "contentStatus": "seeded",
       "active": true,
       "tags": [

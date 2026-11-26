@@ -193,6 +193,10 @@
             "questionId": "volume-surface-area-q-002"
           },
           {
+            "type": "simulation",
+            "simulationId": "volume-surface-area"
+          },
+          {
             "type": "callout",
             "tone": "tip",
             "body": "When two solids are joined, only their outward-facing surfaces are exposed — the surface where they touch is hidden and never counted."
