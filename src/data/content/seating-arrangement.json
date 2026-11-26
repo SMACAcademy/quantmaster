@@ -1,0 +1,1705 @@
+{
+  "topicId": "seating-arrangement",
+  "concepts": [
+    {
+      "id": "sa-linear",
+      "topicId": "seating-arrangement",
+      "name": "Rows: left, right and counting",
+      "description": "In a row, clues are read from the seated people’s point of view. Facing north, left is the left end; people between = seat difference − 1.",
+      "sortOrder": 1
+    },
+    {
+      "id": "sa-two-rows",
+      "topicId": "seating-arrangement",
+      "name": "Two rows facing each other",
+      "description": "Each person faces someone in the other row, and the two rows’ left and right are mirror images.",
+      "sortOrder": 2
+    },
+    {
+      "id": "sa-circle",
+      "topicId": "seating-arrangement",
+      "name": "Around a table, facing the centre",
+      "description": "There is no first seat: fix one person. Facing the centre, left is clockwise; opposite is half-way round.",
+      "sortOrder": 3
+    },
+    {
+      "id": "sa-mixed",
+      "topicId": "seating-arrangement",
+      "name": "Mixed facing: some face away",
+      "description": "Facing outwards reverses left and right. A left/right clue about a seated person often decides which way they face.",
+      "sortOrder": 4
+    },
+    {
+      "id": "sa-cases",
+      "topicId": "seating-arrangement",
+      "name": "Definite clues first, then cases",
+      "description": "Place what is certain, branch on what is not, and let negative clues remove cases. \"Must be true\" means true in every case.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "sa-row-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "title": "Left and right in a row",
+      "prompt": "People sit in a row facing north. Which way is each person’s left?",
+      "formula": "Facing north: left = the left end of the row (west)\nFacing south: left = the right end (east)",
+      "variables": [],
+      "explanation": "Clues are told from the seated person’s point of view. Facing north, their left matches your left as you look at the page.",
+      "example": "A B C D, facing north: B is immediately to the left of C, and D is at the right end.",
+      "commonMistake": "Using your own left when the people face you (south).",
+      "applicationPrompt": "In a row facing north, P is in seat 2 and Q in seat 3. Who is on Q’s immediate left?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sa-between-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "title": "People between two people",
+      "prompt": "Two people sit in seats a and b of a row. How many sit between them?",
+      "formula": "People between = |a − b| − 1",
+      "variables": [
+        {
+          "symbol": "a, b",
+          "meaning": "seat numbers counted from one end"
+        }
+      ],
+      "explanation": "The difference counts the steps from one seat to the other; the seats strictly between are one fewer.",
+      "example": "Seats 3 and 7: 7 − 3 − 1 = 3 people between.",
+      "commonMistake": "Reporting the difference (4) instead of subtracting 1.",
+      "applicationPrompt": "X is 2nd from the left and Y 6th from the left. How many sit between them?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sa-rows-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-two-rows",
+      "title": "Two rows facing each other",
+      "prompt": "Row 1 faces south and Row 2 faces north. Whose left is which way?",
+      "formula": "Row facing south: left = east\nRow facing north: left = west\nPeople face to face: one’s left is opposite the other’s right",
+      "variables": [],
+      "explanation": "The two rows look at each other, so their hands are mirrored: what is left for one row is right for the other.",
+      "example": "Row 1 (facing south), west to east: P Q R. Q’s immediate left is R and his right is P.",
+      "commonMistake": "Using the same left and right for both rows.",
+      "applicationPrompt": "In a row facing south, who is immediately to the left of the person in the middle of P Q R (west to east)?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sa-circle-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "title": "Around a table, facing the centre",
+      "prompt": "People sit round a table facing the centre. Which way is left, and where is \"opposite\"?",
+      "formula": "Left = clockwise, right = anticlockwise\nOpposite = n/2 seats away (n even)\nk-th to the left = (n − k)-th to the right",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "number of seats"
+        }
+      ],
+      "explanation": "Stand at the bottom of the table facing up (the centre): your left hand points to the seats that come next clockwise.",
+      "example": "8 people: 3rd to the left is the same seat as 5th to the right; opposite is 4 seats away.",
+      "commonMistake": "Taking left as anticlockwise.",
+      "applicationPrompt": "Eight people face the centre. Which seat is 6th to the right of A, counted the other way?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sa-outward-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-mixed",
+      "title": "Facing away from the centre",
+      "prompt": "Someone sits at a round table facing outwards. Which way is their left?",
+      "formula": "Facing outwards: left = anticlockwise, right = clockwise",
+      "variables": [],
+      "explanation": "Turning round swaps your hands, so everything is the reverse of facing the centre.",
+      "example": "If A faces outwards and B sits in the next seat clockwise, B is on A’s right.",
+      "commonMistake": "Applying the facing-the-centre rule to everybody.",
+      "applicationPrompt": "A faces away from the centre. Is the next seat clockwise on A’s left or right?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sa-cases-f",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-cases",
+      "title": "Order of attack",
+      "prompt": "In what order should you use seating clues?",
+      "formula": "1. A clue that fixes a seat (an end, a position)\n2. \"Immediately left/right\", \"opposite\", \"between\"\n3. Branch: one case for each possible seat\n4. Negative clues (\"not next to\") to cut cases",
+      "variables": [],
+      "explanation": "Definite clues leave one picture; relative ones hang on it; negative clues only rule out, so they work best at the end.",
+      "example": "\"R is third from the left; U is not at an end; only one person sits between R and U\" gives U = seat 5 at once.",
+      "commonMistake": "Starting with a \"not next to\" clue, which places nobody.",
+      "applicationPrompt": "Which clue would you place first: \"P is not next to Q\" or \"Q sits at the left end\"?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sa-sc-mirror",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "kind": "shortcut",
+      "title": "Swap the roles, swap the side",
+      "prompt": "Everyone faces the centre and A is k-th to the left of B. Where is B from A?",
+      "formula": "A is k-th to the left of B ⇔ B is k-th to the right of A\n(both facing the same way)",
+      "variables": [],
+      "explanation": "Going from B to A is clockwise; going back from A to B is the same number of seats anticlockwise, which is A’s right.",
+      "example": "A is 2nd to the left of B, so B is 2nd to the right of A.",
+      "commonMistake": "Using it when one of the two faces outwards: then the rule breaks.",
+      "applicationPrompt": "All face the centre and P is 3rd to the right of Q. Where is Q from P?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sa-sc-count",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "kind": "shortcut",
+      "title": "People between, both ways round",
+      "prompt": "In a circle of n, B is k-th to one side of A. How many sit between them each way?",
+      "formula": "This way: k − 1\nThe other way: n − k − 1",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "number of people"
+        },
+        {
+          "symbol": "k",
+          "meaning": "seats from A to B on that side"
+        }
+      ],
+      "explanation": "The two arcs between A and B hold all n − 2 other people.",
+      "example": "n = 8, k = 3: 2 between one way, 8 − 3 − 1 = 4 the other way.",
+      "commonMistake": "Forgetting there are two ways round a circle; the question says which.",
+      "applicationPrompt": "Ten people sit in a circle and B is 4th to the left of A. How many sit between them counting from A’s right?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "seating-arrangement-level-0",
+      "topicId": "seating-arrangement",
+      "order": 0,
+      "title": "Seats, Sides and Circles",
+      "description": "Whose left is which, counting between, and fixing a round table.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "sa-linear",
+        "sa-circle"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Left and right belong to the person sitting",
+            "body": "Every seating clue is told from the seated person’s point of view. In a row facing north, everyone’s left is the left end of the row, so you can read the row like a sentence. If they faced south, their left would be your right as you look at the page. So write the facing direction first, then place people."
+          },
+          {
+            "type": "formula",
+            "title": "People between two seats",
+            "body": "People between = |difference in seat numbers| − 1",
+            "caption": "Number the seats 1, 2, 3, … from the left end."
+          },
+          {
+            "type": "check",
+            "questionId": "seating-arrangement-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Around a table",
+            "body": "A round table has no first seat, so fix any one person and place everyone else relative to them. Facing the centre, a person’s left is clockwise and their right anticlockwise; for someone facing outwards the two swap. With an even number of seats, \"opposite\" is half-way round."
+          },
+          {
+            "type": "example",
+            "title": "Six friends round a table",
+            "body": "Hari is second to Gita’s left and Jay sits opposite Gita. Fix Gita at the top. Left is clockwise, so Hari is two seats clockwise from her, and Jay three seats round. \"Lata is immediately to Hari’s right\" puts Lata one seat anticlockwise from Hari, between Gita and Hari. Only two seats are left, and \"Indu is next to Gita\" decides them."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "seating-clues"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Order matters. Place a clue that fixes a seat first, then \"immediately left/right\", \"opposite\" and \"between\" clues. Keep \"not next to\" clues for last: they place nobody, but they decide between cases."
+          },
+          {
+            "type": "check",
+            "questionId": "seating-arrangement-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "seating-arrangement-level-1",
+      "topicId": "seating-arrangement",
+      "order": 1,
+      "title": "Seating Rules",
+      "description": "Left and right in rows and circles, facing outwards, and the order of attack.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "seating-arrangement-level-0"
+      ],
+      "conceptIds": [
+        "sa-linear",
+        "sa-two-rows",
+        "sa-circle",
+        "sa-mixed",
+        "sa-cases"
+      ],
+      "formulaIds": [
+        "sa-row-f",
+        "sa-between-f",
+        "sa-rows-f",
+        "sa-circle-f",
+        "sa-outward-f",
+        "sa-cases-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "seating-arrangement-level-2",
+      "topicId": "seating-arrangement",
+      "order": 2,
+      "title": "One Row and One Table",
+      "description": "Short rows and a table of six: place the definite clues, then read off.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "seating-arrangement-level-1"
+      ],
+      "conceptIds": [
+        "sa-linear",
+        "sa-circle"
+      ],
+      "questionIds": [
+        "seating-arrangement-q-001",
+        "seating-arrangement-q-002",
+        "seating-arrangement-q-003",
+        "seating-arrangement-q-004",
+        "seating-arrangement-q-005",
+        "seating-arrangement-q-006",
+        "seating-arrangement-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "seating-arrangement-level-3",
+      "topicId": "seating-arrangement",
+      "order": 3,
+      "title": "Rows and Facing Rows",
+      "description": "Longer rows, multi-select checks, and two rows facing each other.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "seating-arrangement-level-2"
+      ],
+      "conceptIds": [
+        "sa-linear",
+        "sa-two-rows"
+      ],
+      "questionIds": [
+        "seating-arrangement-q-007",
+        "seating-arrangement-q-008",
+        "seating-arrangement-q-009",
+        "seating-arrangement-q-010",
+        "seating-arrangement-q-011",
+        "seating-arrangement-q-012",
+        "seating-arrangement-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "seating-arrangement-level-4",
+      "topicId": "seating-arrangement",
+      "order": 4,
+      "title": "Bigger Tables and Mixed Facing",
+      "description": "Eight round a table, mixed facing directions, and counting cases.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "seating-arrangement-level-3"
+      ],
+      "conceptIds": [
+        "sa-circle",
+        "sa-mixed",
+        "sa-cases"
+      ],
+      "questionIds": [
+        "seating-arrangement-q-014",
+        "seating-arrangement-q-015",
+        "seating-arrangement-q-016",
+        "seating-arrangement-q-017",
+        "seating-arrangement-q-018",
+        "seating-arrangement-q-019",
+        "seating-arrangement-q-020",
+        "seating-arrangement-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "seating-arrangement-level-5",
+      "topicId": "seating-arrangement",
+      "order": 5,
+      "title": "Mixed Seating Practice",
+      "description": "All seating patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "seating-arrangement-level-4"
+      ],
+      "conceptIds": [
+        "sa-mixed",
+        "sa-cases"
+      ],
+      "questionQuery": {
+        "topicId": "seating-arrangement",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "seating-arrangement-q-001",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who sits at the extreme right end of the row?",
+      "context": "Five friends, Asha, Bharat, Chitra, Dev and Esha, sit in a row facing north.\n1. Chitra sits third from the left end of the row.\n2. Dev sits immediately to the right of Chitra.\n3. Asha sits at the extreme left end of the row.\n4. Esha is not an immediate neighbour of Dev.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bharat"
+        },
+        {
+          "id": "b",
+          "text": "Dev"
+        },
+        {
+          "id": "c",
+          "text": "Esha"
+        },
+        {
+          "id": "d",
+          "text": "Chitra"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Chitra is third from the left, the middle seat. Dev is immediately to her right (seat 4) and Asha is at the left end (seat 1). Esha and Bharat share seats 2 and 5; seat 5 is next to Dev, so Esha takes seat 2 and Bharat seat 5. From the left end: Asha, Esha, Chitra, Dev, Bharat. Bharat is at the right end.",
+      "solutionSteps": [
+        "Seat 3 is Chitra, seat 4 is Dev, seat 1 is Asha.",
+        "Seats 2 and 5 are left for Esha and Bharat. Seat 5 is next to Dev, and Esha is not, so Esha takes seat 2.",
+        "From the left end: Asha, Esha, Chitra, Dev, Bharat."
+      ],
+      "formulaIds": [
+        "sa-row-f"
+      ],
+      "method": "Place the clues that fix a seat, then use the \"not next to\" clue to settle the last two seats.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Chitra, Dev and Asha are fixed by clues 1–3. Which of the two empty seats is next to Dev?"
+        }
+      ],
+      "commonMistakes": [
+        "Putting Dev to Chitra’s left by reading \"right\" from the opposite side of the row.",
+        "Leaving seats 2 and 5 undecided because the last clue was skipped."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-002",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who sits immediately to the left of Chitra?",
+      "context": "Five friends, Asha, Bharat, Chitra, Dev and Esha, sit in a row facing north.\n1. Chitra sits third from the left end of the row.\n2. Dev sits immediately to the right of Chitra.\n3. Asha sits at the extreme left end of the row.\n4. Esha is not an immediate neighbour of Dev.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Esha"
+        },
+        {
+          "id": "b",
+          "text": "Dev"
+        },
+        {
+          "id": "c",
+          "text": "Asha"
+        },
+        {
+          "id": "d",
+          "text": "Bharat"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From the left end: Asha, Esha, Chitra, Dev, Bharat. Facing north, Chitra’s left is towards the left end, so the person immediately to her left is in seat 2: Esha.",
+      "solutionSteps": [
+        "Seat 3 is Chitra, seat 4 is Dev, seat 1 is Asha.",
+        "Seats 2 and 5 are left for Esha and Bharat. Seat 5 is next to Dev, and Esha is not, so Esha takes seat 2.",
+        "From the left end: Asha, Esha, Chitra, Dev, Bharat."
+      ],
+      "formulaIds": [
+        "sa-row-f"
+      ],
+      "method": "Facing north, \"left of X\" is the seat with the smaller number.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Once the row is fixed, look at the seat just before Chitra’s."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Dev, who is on Chitra’s right."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-003",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many people sit between Asha and Dev?",
+      "context": "Five friends, Asha, Bharat, Chitra, Dev and Esha, sit in a row facing north.\n1. Chitra sits third from the left end of the row.\n2. Dev sits immediately to the right of Chitra.\n3. Asha sits at the extreme left end of the row.\n4. Esha is not an immediate neighbour of Dev.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "From the left end: Asha, Esha, Chitra, Dev, Bharat. Asha is in seat 1 and Dev in seat 4, so 4 − 1 − 1 = 2 people (Esha and Chitra) sit between them.",
+      "solutionSteps": [
+        "Seat 3 is Chitra, seat 4 is Dev, seat 1 is Asha.",
+        "Seats 2 and 5 are left for Esha and Bharat. Seat 5 is next to Dev, and Esha is not, so Esha takes seat 2.",
+        "From the left end: Asha, Esha, Chitra, Dev, Bharat."
+      ],
+      "formulaIds": [
+        "sa-between-f"
+      ],
+      "method": "People between = difference in seat numbers − 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Asha is in seat 1. Which seat is Dev in?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 3 (the difference in seat numbers) instead of subtracting 1."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-004",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who sits opposite Hari?",
+      "context": "Six friends, Gita, Hari, Indu, Jay, Kiran and Lata, sit around a circular table facing the centre.\n1. Hari sits second to the left of Gita.\n2. Jay sits opposite Gita.\n3. Indu is an immediate neighbour of Gita.\n4. Lata sits immediately to the right of Hari.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Indu"
+        },
+        {
+          "id": "b",
+          "text": "Jay"
+        },
+        {
+          "id": "c",
+          "text": "Lata"
+        },
+        {
+          "id": "d",
+          "text": "Kiran"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Fix Gita. Hari is second to her left: two seats clockwise. Jay is opposite Gita, three seats round. Lata is immediately to Hari’s right, one seat anticlockwise from Hari, so she sits between Gita and Hari. Indu must be next to Gita, and the only free seat beside Gita is on her other side; Kiran takes the last seat. Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu. With six seats, the person opposite is three seats round: Indu sits opposite Hari.",
+      "solutionSteps": [
+        "Fix Gita; put Hari two seats clockwise and Jay opposite Gita.",
+        "Lata is one seat anticlockwise from Hari, between Gita and Hari.",
+        "Indu takes the free seat next to Gita; Kiran the last one.",
+        "Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu."
+      ],
+      "formulaIds": [
+        "sa-circle-f"
+      ],
+      "method": "Fix one person; facing the centre, left is clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Gita and Jay are opposite each other. Where does that leave Hari, and who is three seats from him?"
+        }
+      ],
+      "commonMistakes": [
+        "Placing Hari anticlockwise from Gita by taking left as anticlockwise.",
+        "Answering Jay, who is opposite Gita, not Hari."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-005",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who sits immediately to the left of Jay?",
+      "context": "Six friends, Gita, Hari, Indu, Jay, Kiran and Lata, sit around a circular table facing the centre.\n1. Hari sits second to the left of Gita.\n2. Jay sits opposite Gita.\n3. Indu is an immediate neighbour of Gita.\n4. Lata sits immediately to the right of Hari.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kiran"
+        },
+        {
+          "id": "b",
+          "text": "Hari"
+        },
+        {
+          "id": "c",
+          "text": "Indu"
+        },
+        {
+          "id": "d",
+          "text": "Lata"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu. Jay faces the centre, so his left is the next seat clockwise: Kiran.",
+      "solutionSteps": [
+        "Fix Gita; put Hari two seats clockwise and Jay opposite Gita.",
+        "Lata is one seat anticlockwise from Hari, between Gita and Hari.",
+        "Indu takes the free seat next to Gita; Kiran the last one.",
+        "Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu."
+      ],
+      "formulaIds": [
+        "sa-circle-f"
+      ],
+      "method": "Facing the centre, immediate left = next seat clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Write the six names clockwise starting from Gita, then step one seat clockwise from Jay."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Hari, who is on Jay’s right."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-006",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Who sits second to the right of Kiran?",
+      "context": "Six friends, Gita, Hari, Indu, Jay, Kiran and Lata, sit around a circular table facing the centre.\n1. Hari sits second to the left of Gita.\n2. Jay sits opposite Gita.\n3. Indu is an immediate neighbour of Gita.\n4. Lata sits immediately to the right of Hari.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hari"
+        },
+        {
+          "id": "b",
+          "text": "Indu"
+        },
+        {
+          "id": "c",
+          "text": "Gita"
+        },
+        {
+          "id": "d",
+          "text": "Lata"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu. Kiran’s right is anticlockwise: one seat is Jay, the second is Hari.",
+      "solutionSteps": [
+        "Fix Gita; put Hari two seats clockwise and Jay opposite Gita.",
+        "Lata is one seat anticlockwise from Hari, between Gita and Hari.",
+        "Indu takes the free seat next to Gita; Kiran the last one.",
+        "Clockwise from Gita: Gita, Lata, Hari, Jay, Kiran, Indu."
+      ],
+      "formulaIds": [
+        "sa-circle-f"
+      ],
+      "method": "Facing the centre, right = anticlockwise; count seats, not people passed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Step two seats anticlockwise from Kiran."
+        }
+      ],
+      "commonMistakes": [
+        "Counting clockwise and answering Gita.",
+        "Counting Kiran’s own seat as the first."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-007",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who sits at the extreme right end?",
+      "context": "Six colleagues, Pallavi, Qasim, Rohit, Shalini, Tejas and Usman, sit in a row facing north.\n1. Rohit sits third from the left end of the row.\n2. Only one person sits between Rohit and Usman.\n3. Usman does not sit at an end of the row.\n4. Pallavi sits immediately to the left of Usman.\n5. Tejas sits second to the left of Rohit.\n6. Qasim is not an immediate neighbour of Rohit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Qasim"
+        },
+        {
+          "id": "b",
+          "text": "Usman"
+        },
+        {
+          "id": "c",
+          "text": "Tejas"
+        },
+        {
+          "id": "d",
+          "text": "Shalini"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Rohit is in seat 3. Usman is two seats from Rohit (one person between), so seat 1 or 5; seat 1 is an end, so Usman is in seat 5 and Pallavi, immediately to his left, in seat 4. Tejas is second to the left of Rohit: seat 1. Qasim cannot be next to Rohit, so not seat 2: he takes seat 6, and Shalini seat 2. From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim.",
+      "solutionSteps": [
+        "Rohit: seat 3. Usman: seat 1 or 5, and not an end, so seat 5.",
+        "Pallavi is immediately left of Usman: seat 4. Tejas is second left of Rohit: seat 1.",
+        "Seats 2 and 6 remain; Qasim cannot sit next to Rohit, so Qasim is in seat 6 and Shalini in seat 2.",
+        "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim."
+      ],
+      "formulaIds": [
+        "sa-row-f",
+        "sa-between-f"
+      ],
+      "method": "Fix Rohit, then the clues that hang on him; the negative clue settles the last two seats.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Rohit is in seat 3. With one person between Rohit and Usman, Usman is in seat 1 or 5. Which one is not an end?"
+        },
+        {
+          "level": 3,
+          "text": "Once Pallavi and Tejas are placed, only seats 2 and 6 are free."
+        }
+      ],
+      "commonMistakes": [
+        "Putting Usman in seat 1, which is an end.",
+        "Reading \"one person between\" as \"next to\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-008",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who sits exactly between Tejas and Rohit?",
+      "context": "Six colleagues, Pallavi, Qasim, Rohit, Shalini, Tejas and Usman, sit in a row facing north.\n1. Rohit sits third from the left end of the row.\n2. Only one person sits between Rohit and Usman.\n3. Usman does not sit at an end of the row.\n4. Pallavi sits immediately to the left of Usman.\n5. Tejas sits second to the left of Rohit.\n6. Qasim is not an immediate neighbour of Rohit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shalini"
+        },
+        {
+          "id": "b",
+          "text": "Pallavi"
+        },
+        {
+          "id": "c",
+          "text": "Qasim"
+        },
+        {
+          "id": "d",
+          "text": "Usman"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim. Tejas is in seat 1 and Rohit in seat 3, so the person between them is in seat 2: Shalini.",
+      "solutionSteps": [
+        "Rohit: seat 3. Usman: seat 1 or 5, and not an end, so seat 5.",
+        "Pallavi is immediately left of Usman: seat 4. Tejas is second left of Rohit: seat 1.",
+        "Seats 2 and 6 remain; Qasim cannot sit next to Rohit, so Qasim is in seat 6 and Shalini in seat 2.",
+        "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim."
+      ],
+      "formulaIds": [
+        "sa-row-f"
+      ],
+      "method": "Solve the row, then read the seat between.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Tejas is second to Rohit’s left, so exactly one seat lies between them."
+        }
+      ],
+      "commonMistakes": [
+        "Placing Tejas second to Rohit’s right."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-009",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many people sit to the right of Pallavi?",
+      "context": "Six colleagues, Pallavi, Qasim, Rohit, Shalini, Tejas and Usman, sit in a row facing north.\n1. Rohit sits third from the left end of the row.\n2. Only one person sits between Rohit and Usman.\n3. Usman does not sit at an end of the row.\n4. Pallavi sits immediately to the left of Usman.\n5. Tejas sits second to the left of Rohit.\n6. Qasim is not an immediate neighbour of Rohit.",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim. Pallavi is in seat 4 of 6, so Usman and Qasim (2 people) sit to her right.",
+      "solutionSteps": [
+        "Rohit: seat 3. Usman: seat 1 or 5, and not an end, so seat 5.",
+        "Pallavi is immediately left of Usman: seat 4. Tejas is second left of Rohit: seat 1.",
+        "Seats 2 and 6 remain; Qasim cannot sit next to Rohit, so Qasim is in seat 6 and Shalini in seat 2.",
+        "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim."
+      ],
+      "formulaIds": [
+        "sa-between-f"
+      ],
+      "method": "People to the right of seat k in a row of n = n − k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Pallavi is immediately to the left of Usman. Where is Usman?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting Pallavi herself.",
+        "Counting to her left instead."
+      ],
+      "tags": [],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-010",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-linear",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Which of these pairs sit next to each other? Select all that apply.",
+      "context": "Six colleagues, Pallavi, Qasim, Rohit, Shalini, Tejas and Usman, sit in a row facing north.\n1. Rohit sits third from the left end of the row.\n2. Only one person sits between Rohit and Usman.\n3. Usman does not sit at an end of the row.\n4. Pallavi sits immediately to the left of Usman.\n5. Tejas sits second to the left of Rohit.\n6. Qasim is not an immediate neighbour of Rohit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shalini and Rohit"
+        },
+        {
+          "id": "b",
+          "text": "Pallavi and Usman"
+        },
+        {
+          "id": "c",
+          "text": "Tejas and Qasim"
+        },
+        {
+          "id": "d",
+          "text": "Rohit and Usman"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b"
+      ],
+      "explanation": "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim. Shalini (2) and Rohit (3) are neighbours, and so are Pallavi (4) and Usman (5). Tejas (1) and Qasim (6) are at opposite ends, and Rohit (3) and Usman (5) have Pallavi between them.",
+      "solutionSteps": [
+        "Rohit: seat 3. Usman: seat 1 or 5, and not an end, so seat 5.",
+        "Pallavi is immediately left of Usman: seat 4. Tejas is second left of Rohit: seat 1.",
+        "Seats 2 and 6 remain; Qasim cannot sit next to Rohit, so Qasim is in seat 6 and Shalini in seat 2.",
+        "From the left end: Tejas, Shalini, Rohit, Pallavi, Usman, Qasim."
+      ],
+      "formulaIds": [
+        "sa-row-f"
+      ],
+      "method": "Neighbours have seat numbers that differ by 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Solve the full row first, then check each pair’s seat numbers."
+        }
+      ],
+      "commonMistakes": [
+        "Selecting Rohit and Usman: clue 2 puts one person between them."
+      ],
+      "tags": [],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-011",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-two-rows",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who faces Charan?",
+      "context": "Eight people sit in two parallel rows of four, facing each other. Amit, Bina, Charan and Disha sit in Row 1 and face south. Pavan, Qadir, Rani and Sona sit in Row 2 and face north. Each person faces exactly one person in the other row.\n1. Amit faces Pavan.\n2. Pavan sits second to the left of Qadir.\n3. Qadir sits at one of the ends of a row.\n4. Rani faces Disha.\n5. Bina sits at one of the ends of a row.\n6. Charan sits immediately to the left of Amit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sona"
+        },
+        {
+          "id": "b",
+          "text": "Pavan"
+        },
+        {
+          "id": "c",
+          "text": "Qadir"
+        },
+        {
+          "id": "d",
+          "text": "Rani"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Row 2 faces north, so a Row 2 person’s left is west. Qadir is at an end; Pavan is second to his left, which only fits with Qadir at the east end (column 4) and Pavan in column 2. Amit faces Pavan, so Amit is in column 2 of Row 1. Row 1 faces south, so a Row 1 person’s left is east: Charan, immediately to Amit’s left, is in column 3. Bina is at an end of Row 1 (column 1 or 4) and Disha takes the other; Rani faces Disha, and column 4 of Row 2 is Qadir’s, so Disha and Rani are in column 1 and Bina in column 4. Sona takes the last seat, column 3 of Row 2. Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir. Charan is in column 3 of Row 1, facing Sona.",
+      "solutionSteps": [
+        "Draw both rows and mark the facing: Row 1 south (left = east), Row 2 north (left = west).",
+        "Qadir at the east end of Row 2, Pavan two seats west of him; Amit faces Pavan.",
+        "Charan is one seat east of Amit. Disha and Rani share column 1, so Bina is at the east end of Row 1 and Sona faces Charan.",
+        "Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir."
+      ],
+      "formulaIds": [
+        "sa-rows-f"
+      ],
+      "method": "Mark the facing of each row before you use any left or right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Row 1 faces south, so for them left is east; Row 2 faces north, so for them left is west."
+        },
+        {
+          "level": 2,
+          "text": "Start with Qadir and Pavan: Pavan is second to Qadir’s left, so Qadir must be at the east end."
+        }
+      ],
+      "commonMistakes": [
+        "Using the same left and right for both rows.",
+        "Putting Qadir at the west end, which leaves no room for Pavan on his left."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-012",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-two-rows",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Who sits immediately to the right of Amit?",
+      "context": "Eight people sit in two parallel rows of four, facing each other. Amit, Bina, Charan and Disha sit in Row 1 and face south. Pavan, Qadir, Rani and Sona sit in Row 2 and face north. Each person faces exactly one person in the other row.\n1. Amit faces Pavan.\n2. Pavan sits second to the left of Qadir.\n3. Qadir sits at one of the ends of a row.\n4. Rani faces Disha.\n5. Bina sits at one of the ends of a row.\n6. Charan sits immediately to the left of Amit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disha"
+        },
+        {
+          "id": "b",
+          "text": "Charan"
+        },
+        {
+          "id": "c",
+          "text": "Pavan"
+        },
+        {
+          "id": "d",
+          "text": "Bina"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir. Amit faces south, so his right hand points west: the person immediately to his right is in column 1, Disha. (Charan, in column 3, is on his left.)",
+      "solutionSteps": [
+        "Draw both rows and mark the facing: Row 1 south (left = east), Row 2 north (left = west).",
+        "Qadir at the east end of Row 2, Pavan two seats west of him; Amit faces Pavan.",
+        "Charan is one seat east of Amit. Disha and Rani share column 1, so Bina is at the east end of Row 1 and Sona faces Charan.",
+        "Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir."
+      ],
+      "formulaIds": [
+        "sa-rows-f"
+      ],
+      "method": "Facing south, right = west, which is the left of your page.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Row 1 faces south. Stand where Amit is: which way does your right hand point?"
+        },
+        {
+          "level": 2,
+          "text": "Charan is immediately to Amit’s left, so the answer is on the other side."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Charan by reading Row 1 from the page instead of from Amit’s seat."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-013",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-two-rows",
+      "levelId": "seating-arrangement-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Disha sits at one end of Row 1. Who sits at the opposite end of Row 2, diagonally opposite her?",
+      "context": "Eight people sit in two parallel rows of four, facing each other. Amit, Bina, Charan and Disha sit in Row 1 and face south. Pavan, Qadir, Rani and Sona sit in Row 2 and face north. Each person faces exactly one person in the other row.\n1. Amit faces Pavan.\n2. Pavan sits second to the left of Qadir.\n3. Qadir sits at one of the ends of a row.\n4. Rani faces Disha.\n5. Bina sits at one of the ends of a row.\n6. Charan sits immediately to the left of Amit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Qadir"
+        },
+        {
+          "id": "b",
+          "text": "Rani"
+        },
+        {
+          "id": "c",
+          "text": "Sona"
+        },
+        {
+          "id": "d",
+          "text": "Bina"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir. Disha is at the west end of Row 1, so diagonally opposite her is the east end of Row 2: Qadir. (Rani faces her directly.)",
+      "solutionSteps": [
+        "Draw both rows and mark the facing: Row 1 south (left = east), Row 2 north (left = west).",
+        "Qadir at the east end of Row 2, Pavan two seats west of him; Amit faces Pavan.",
+        "Charan is one seat east of Amit. Disha and Rani share column 1, so Bina is at the east end of Row 1 and Sona faces Charan.",
+        "Row 1 (west to east): Disha, Amit, Charan, Bina. Row 2 (west to east): Rani, Pavan, Sona, Qadir."
+      ],
+      "formulaIds": [
+        "sa-rows-f"
+      ],
+      "method": "Diagonally opposite = the other end of the other row.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find which end of Row 1 Disha is at."
+        },
+        {
+          "level": 2,
+          "text": "Rani faces Disha. The diagonal is at the far end of Rani’s row."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Rani, who faces Disha.",
+        "Answering Bina, at the other end of Disha’s own row."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-014",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who sits immediately to the right of A?",
+      "context": "Eight people, A, B, C, D, E, F, G and H, sit around a circular table facing the centre.\n1. A sits opposite E.\n2. B sits immediately to the left of E.\n3. G sits immediately to the left of B.\n4. C sits second to the left of A.\n5. D sits opposite H.\n6. H sits immediately to the right of E.",
+      "options": [
+        {
+          "id": "a",
+          "text": "D"
+        },
+        {
+          "id": "b",
+          "text": "F"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        },
+        {
+          "id": "d",
+          "text": "G"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Fix A. E is opposite, four seats round. B is immediately to E’s left (one seat clockwise from E) and G immediately to B’s left (one more seat clockwise). C is second to A’s left, two seats clockwise from A. H is immediately to E’s right, one seat anticlockwise from E. D is opposite H, which puts D in the seat just anticlockwise of A, and F takes the last seat, between A and C. Clockwise from A: A, F, C, H, E, B, G, D. A’s right is anticlockwise: the seat just before A in that list, D.",
+      "solutionSteps": [
+        "Fix A; E sits opposite (4 seats round).",
+        "B then G go clockwise after E; C goes two seats clockwise after A.",
+        "H is one seat anticlockwise from E; D sits opposite H; F takes the last seat.",
+        "Clockwise from A: A, F, C, H, E, B, G, D."
+      ],
+      "formulaIds": [
+        "sa-circle-f"
+      ],
+      "method": "Build the circle round A and E, who are fixed opposite each other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Put A at the top and E at the bottom. B and G go clockwise from E; H goes anticlockwise from E."
+        },
+        {
+          "level": 3,
+          "text": "D is opposite H. Which seat is that?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering F, who sits on A’s left.",
+        "Placing B anticlockwise from E."
+      ],
+      "tags": [],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-015",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Counting from C’s left (that is, clockwise from C), how many people sit between C and G?",
+      "context": "Eight people, A, B, C, D, E, F, G and H, sit around a circular table facing the centre.\n1. A sits opposite E.\n2. B sits immediately to the left of E.\n3. G sits immediately to the left of B.\n4. C sits second to the left of A.\n5. D sits opposite H.\n6. H sits immediately to the right of E.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Clockwise from A: A, F, C, H, E, B, G, D. Going clockwise from C you pass H, E and B before reaching G: 3 people.",
+      "solutionSteps": [
+        "Fix A; E sits opposite (4 seats round).",
+        "B then G go clockwise after E; C goes two seats clockwise after A.",
+        "H is one seat anticlockwise from E; D sits opposite H; F takes the last seat.",
+        "Clockwise from A: A, F, C, H, E, B, G, D."
+      ],
+      "formulaIds": [
+        "sa-sc-count"
+      ],
+      "method": "Walk one way round and count only the people passed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Write the clockwise order and count the names strictly between C and G."
+        }
+      ],
+      "commonMistakes": [
+        "Counting the other way round without checking which way the question asks.",
+        "Including C or G in the count."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-016",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who sits third to the left of F?",
+      "context": "Eight people, A, B, C, D, E, F, G and H, sit around a circular table facing the centre.\n1. A sits opposite E.\n2. B sits immediately to the left of E.\n3. G sits immediately to the left of B.\n4. C sits second to the left of A.\n5. D sits opposite H.\n6. H sits immediately to the right of E.",
+      "options": [
+        {
+          "id": "a",
+          "text": "E"
+        },
+        {
+          "id": "b",
+          "text": "H"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        },
+        {
+          "id": "d",
+          "text": "D"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from A: A, F, C, H, E, B, G, D. F’s left is clockwise: C, H, then E is third.",
+      "solutionSteps": [
+        "Fix A; E sits opposite (4 seats round).",
+        "B then G go clockwise after E; C goes two seats clockwise after A.",
+        "H is one seat anticlockwise from E; D sits opposite H; F takes the last seat.",
+        "Clockwise from A: A, F, C, H, E, B, G, D."
+      ],
+      "formulaIds": [
+        "sa-circle-f"
+      ],
+      "method": "Facing the centre: k-th to the left = k seats clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fix one person anywhere. Facing the centre, left is clockwise and right is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "F sits between A and C. Step three seats clockwise from F."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping anticlockwise and answering B."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-017",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-mixed",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many of the six friends face the centre?",
+      "context": "Six friends, Om, Priya, Ravi, Sara, Tara and Usha, sit around a circular table. Some of them face the centre and the others face away from it.\n1. Om faces the centre.\n2. Priya sits immediately to the left of Om.\n3. Ravi sits immediately to the right of Priya.\n4. Tara sits second to the left of Ravi.\n5. Tara sits immediately to the right of Usha.\n6. Sara sits immediately to the left of Tara.\n7. Sara sits opposite Om.\n8. Sara faces the centre.",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Om faces the centre, so his left is clockwise: Priya sits one seat clockwise from Om. Ravi is immediately to Priya’s right. If Priya faced the centre, her right would be anticlockwise, which is Om’s seat; so Priya faces outwards and Ravi is one seat clockwise from her. Tara is second to Ravi’s left: if Ravi faced outwards that would be two seats anticlockwise, Om’s seat, so Ravi faces in and Tara is two seats clockwise from Ravi. Sara is opposite Om, so Sara is in the seat between Ravi and Tara and Usha in the last seat. Sara sits immediately to Tara’s left, one seat anticlockwise from Tara, so Tara faces outwards. Tara is immediately to Usha’s right, one seat anticlockwise from Usha, so Usha faces the centre; and Sara faces the centre as stated. Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in). Om, Ravi, Sara and Usha face the centre: 4.",
+      "solutionSteps": [
+        "Om faces in, so Priya is the seat clockwise from Om.",
+        "Ravi can be on Priya’s right only if Priya faces out; Tara can be second to Ravi’s left only if Ravi faces in.",
+        "Sara is opposite Om; Usha takes the last seat.",
+        "Sara left of Tara makes Tara face out; Tara right of Usha makes Usha face in; Sara faces in.",
+        "Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in)."
+      ],
+      "formulaIds": [
+        "sa-outward-f",
+        "sa-circle-f"
+      ],
+      "method": "Each \"left/right\" clue either fixes a seat or, when the seat is already known, fixes a facing direction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Facing the centre, left is clockwise; facing outwards, left is anticlockwise."
+        },
+        {
+          "level": 2,
+          "text": "Om faces in, so Priya is clockwise from him. Can Ravi be on Priya’s right if Priya faces in?"
+        },
+        {
+          "level": 3,
+          "text": "Each clue about who sits to someone’s left or right tells you which way that person faces once the seats are known."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming everyone faces the centre.",
+        "Using the facing-in rule for Priya before checking which way she faces."
+      ],
+      "tags": [],
+      "estimatedSeconds": 210,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-018",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-mixed",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who sits immediately to the right of Tara?",
+      "context": "Six friends, Om, Priya, Ravi, Sara, Tara and Usha, sit around a circular table. Some of them face the centre and the others face away from it.\n1. Om faces the centre.\n2. Priya sits immediately to the left of Om.\n3. Ravi sits immediately to the right of Priya.\n4. Tara sits second to the left of Ravi.\n5. Tara sits immediately to the right of Usha.\n6. Sara sits immediately to the left of Tara.\n7. Sara sits opposite Om.\n8. Sara faces the centre.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Usha"
+        },
+        {
+          "id": "b",
+          "text": "Sara"
+        },
+        {
+          "id": "c",
+          "text": "Om"
+        },
+        {
+          "id": "d",
+          "text": "Priya"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in). Tara faces away from the centre, so her right is clockwise: the next seat clockwise is Usha’s.",
+      "solutionSteps": [
+        "Om faces in, so Priya is the seat clockwise from Om.",
+        "Ravi can be on Priya’s right only if Priya faces out; Tara can be second to Ravi’s left only if Ravi faces in.",
+        "Sara is opposite Om; Usha takes the last seat.",
+        "Sara left of Tara makes Tara face out; Tara right of Usha makes Usha face in; Sara faces in.",
+        "Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in)."
+      ],
+      "formulaIds": [
+        "sa-outward-f"
+      ],
+      "method": "Find the person’s facing first; facing outwards, right is clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out which way Tara faces before using her right."
+        },
+        {
+          "level": 2,
+          "text": "Facing outwards, right is clockwise."
+        }
+      ],
+      "commonMistakes": [
+        "Answering Sara by taking right as anticlockwise for someone facing outwards."
+      ],
+      "tags": [],
+      "estimatedSeconds": 180,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-019",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-mixed",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Who sits second to the left of Usha?",
+      "context": "Six friends, Om, Priya, Ravi, Sara, Tara and Usha, sit around a circular table. Some of them face the centre and the others face away from it.\n1. Om faces the centre.\n2. Priya sits immediately to the left of Om.\n3. Ravi sits immediately to the right of Priya.\n4. Tara sits second to the left of Ravi.\n5. Tara sits immediately to the right of Usha.\n6. Sara sits immediately to the left of Tara.\n7. Sara sits opposite Om.\n8. Sara faces the centre.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Priya"
+        },
+        {
+          "id": "b",
+          "text": "Tara"
+        },
+        {
+          "id": "c",
+          "text": "Ravi"
+        },
+        {
+          "id": "d",
+          "text": "Om"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in). Usha faces the centre, so her left is clockwise: one seat is Om, the second is Priya.",
+      "solutionSteps": [
+        "Om faces in, so Priya is the seat clockwise from Om.",
+        "Ravi can be on Priya’s right only if Priya faces out; Tara can be second to Ravi’s left only if Ravi faces in.",
+        "Sara is opposite Om; Usha takes the last seat.",
+        "Sara left of Tara makes Tara face out; Tara right of Usha makes Usha face in; Sara faces in.",
+        "Clockwise from Om: Om (facing in), Priya (out), Ravi (in), Sara (in), Tara (out), Usha (in)."
+      ],
+      "formulaIds": [
+        "sa-outward-f",
+        "sa-circle-f"
+      ],
+      "method": "Find the person’s facing first; facing the centre, left is clockwise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which way does Usha face? Use clue 5 once the seats are known."
+        },
+        {
+          "level": 2,
+          "text": "Step two seats clockwise from Usha."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping anticlockwise and answering Sara."
+      ],
+      "tags": [],
+      "estimatedSeconds": 180,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-020",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-cases",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many different arrangements satisfy all three clues?",
+      "context": "Five people, Kiran, Latha, Mohan, Neel and Om, sit in a row facing north.\n1. Kiran sits at one of the ends of the row.\n2. Latha sits immediately to the right of Kiran.\n3. Mohan does not sit at an end of the row.",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Kiran is at an end and Latha immediately to his right. Facing north, Kiran’s right is towards the right end, so Kiran cannot be at the right end: he is in seat 1 and Latha in seat 2. Mohan is not at an end, so he takes seat 3 or seat 4, and Neel and Om fill the other two seats in either order: 2 × 2 = 4 arrangements.",
+      "solutionSteps": [
+        "Kiran at the right end would leave no seat to his right, so Kiran is in seat 1 and Latha in seat 2.",
+        "Mohan: seat 3 or 4 (not the end seat 5).",
+        "For each, Neel and Om can swap: 2 × 2 = 4."
+      ],
+      "formulaIds": [
+        "sa-cases-f"
+      ],
+      "method": "Branch on the definite clue, then multiply the free choices in each branch.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Number the seats 1, 2, 3, … from the left end. Everyone faces north, so a person’s left is towards seat 1."
+        },
+        {
+          "level": 2,
+          "text": "Can Kiran be at the right end if someone sits immediately to his right?"
+        },
+        {
+          "level": 3,
+          "text": "Count Mohan’s choices, then the ways to seat the two people no clue mentions."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting that Neel and Om can swap seats.",
+        "Allowing Kiran at the right end."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-021",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-cases",
+      "levelId": "seating-arrangement-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which one of the following must be true?",
+      "context": "Five people, Kiran, Latha, Mohan, Neel and Om, sit in a row facing north.\n1. Kiran sits at one of the ends of the row.\n2. Latha sits immediately to the right of Kiran.\n3. Mohan does not sit at an end of the row.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kiran sits at the extreme left end."
+        },
+        {
+          "id": "b",
+          "text": "Mohan sits in the middle of the row."
+        },
+        {
+          "id": "c",
+          "text": "Om sits at the extreme right end."
+        },
+        {
+          "id": "d",
+          "text": "Neel sits next to Latha."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "In all four arrangements Kiran is in seat 1. Mohan can be in seat 3 or 4, Om in seat 3, 4 or 5, and Neel is next to Latha only when he is in seat 3; so only the first statement holds in every case.",
+      "solutionSteps": [
+        "List the four arrangements: Kiran, Latha, Mohan, Neel, Om; Kiran, Latha, Mohan, Om, Neel; Kiran, Latha, Neel, Mohan, Om; Kiran, Latha, Om, Mohan, Neel.",
+        "A statement \"must be true\" only if it holds in all four."
+      ],
+      "formulaIds": [
+        "sa-cases-f"
+      ],
+      "method": "\"Must be true\" means true in every surviving case.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find every arrangement that fits."
+        },
+        {
+          "level": 2,
+          "text": "Check each option against all of them, not just one."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing a statement that is true in one arrangement only."
+      ],
+      "tags": [],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "seating-arrangement-q-022",
+      "topicId": "seating-arrangement",
+      "conceptId": "sa-circle",
+      "levelId": "seating-arrangement-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "single_choice",
+      "question": "Where does B sit with respect to A?",
+      "context": "Eight friends sit around a circular table, all facing the centre. A sits third to the left of B.",
+      "options": [
+        {
+          "id": "a",
+          "text": "3rd to the right of A"
+        },
+        {
+          "id": "b",
+          "text": "3rd to the left of A"
+        },
+        {
+          "id": "c",
+          "text": "5th to the right of A"
+        },
+        {
+          "id": "d",
+          "text": "Opposite A"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A is 3 seats clockwise from B, so B is 3 seats anticlockwise from A. A faces the centre, so anticlockwise is A’s right: B is third to the right of A.",
+      "solutionSteps": [
+        "A is third to B’s left: 3 seats clockwise from B.",
+        "So B is 3 seats anticlockwise from A, which is A’s right."
+      ],
+      "formulaIds": [
+        "sa-sc-mirror"
+      ],
+      "method": "When both face the same way, \"k-th to the left of\" reverses to \"k-th to the right of\".",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw B, then count three seats clockwise to place A."
+        },
+        {
+          "level": 2,
+          "text": "Now walk back from A to B. Which way are you going, and is that A’s left or right?"
+        }
+      ],
+      "commonMistakes": [
+        "Keeping \"left\" when the roles are swapped."
+      ],
+      "tags": [
+        "recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

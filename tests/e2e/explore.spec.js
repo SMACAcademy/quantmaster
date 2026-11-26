@@ -6,7 +6,7 @@ test('the gallery lists the simulations and each one reacts to its sliders', asy
   const errors = watchForErrors(page);
   await page.goto('/#/explore');
   await expect(page.getByRole('heading', { name: 'Explore', level: 1 })).toBeVisible();
-  await expect(page.locator('.sim-card')).toHaveCount(66);
+  await expect(page.locator('.sim-card')).toHaveCount(80);
 
   await page.locator('.sim-card', { hasText: 'The angle between the hands' }).click();
   await expect(page).toHaveURL(/#\/explore\/clock-angle$/);
@@ -171,5 +171,106 @@ test('the geometry pictures respond: angle pairs, a snapping quadrilateral, area
   await page.locator('.sim-task', { hasText: 'twice its surface area' }).getByRole('button', { name: 'Show me' }).click();
   await expect(page.locator('.sim-readout', { hasText: 'Surface area grows' }).locator('dd')).toHaveText('× 2');
   await expect(page.locator('.sim-readout', { hasText: 'Each small sphere' }).locator('dd')).toHaveText('r = 3 cm');
+  expect(errors).toEqual([]);
+});
+
+test('the topics that only borrowed a picture have their own: BODMAS, estimates, trees, sets, caselets, radar, races, wages, roots', async ({ page }) => {
+  const errors = watchForErrors(page);
+  const value = (label) => page.locator('.sim-readout', { hasText: label }).locator('dd');
+
+  // Each one is the first simulation in its topic's first lesson.
+  await page.goto('/#/topics/races/levels/races-level-0');
+  await expect(page.locator('.lesson__block--simulation').first().getByRole('heading', { name: 'A beats B by x metres' })).toBeVisible();
+
+  // BODMAS collapses 8 + 6 × 3 − 4 ÷ 2 to 24; the wrong order gives 19.
+  await page.goto('/#/explore/bodmas-stack');
+  await expect(page.locator('.sim-steps__token.is-next')).toHaveText(['6', '×', '3']);
+  await page.getByRole('slider', { name: 'Operations done' }).focus();
+  await page.keyboard.press('End');
+  await expect(page.locator('.sim-steps__result')).toHaveText('= 24');
+  await page.getByRole('button', { name: 'A common mistake' }).click();
+  await expect(page.locator('.sim-steps__result')).toHaveText('= 19');
+
+  // Rounding one up and one down: only 1,050 is left inside the band.
+  await page.goto('/#/explore/estimate-band');
+  await expect(value('Options inside the band')).toHaveText('1,050, 1,100');
+  await page.locator('.sim-task', { hasText: 'under 0.5%' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('Options inside the band')).toHaveText('1,050');
+
+  // And multiplies, or adds.
+  await page.goto('/#/explore/choice-tree');
+  await expect(page.locator('svg.sim-plot .sim-tree-edge')).toHaveCount(3 + 6);
+  await page.getByRole('button', { name: 'One item in all (or)' }).click();
+  await expect(page.locator('svg.sim-plot .sim-tree-edge')).toHaveCount(5);
+  await expect(value('Ends of the tree')).toHaveText('5');
+
+  // Twelve numbers in two sets of multiples, then the power set doubling.
+  await page.goto('/#/explore/set-elements');
+  await expect(page.locator('.sim-set-dot')).toHaveCount(12);
+  await expect(value('n(A ∪ B)')).toHaveText('6 + 4 − 2 = 8');
+  await page.getByRole('button', { name: 'Power set' }).click();
+  await page.getByRole('slider', { name: 'Elements in S' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.sim-subsets__rows .sim-subsets__item')).toHaveCount(8);
+  await expect(page.locator('.sim-subsets__rows .sim-subsets__item.is-fresh')).toHaveCount(4);
+
+  // A caselet fills its table; leaving a fact out leaves cells that can never be found.
+  await page.goto('/#/explore/caselet-table');
+  await page.locator('.sim-task', { hasText: 'four cells' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-table td.is-derived')).toHaveCount(9);
+  await expect(page.locator('.sim-table td.is-given')).toHaveCount(3);
+  await page.getByRole('button', { name: '"Arts has 100 fewer"' }).click();
+  await expect(page.locator('.sim-table td', { hasText: 'cannot be found' })).toHaveCount(6);
+
+  // Radar to bars: same marks, no shape.
+  await page.goto('/#/explore/radar-or-bars');
+  await expect(page.locator('.chart-radar-shape')).toHaveCount(2);
+  await page.getByRole('button', { name: 'Grouped bars' }).click();
+  await expect(page.locator('.sim-figure--chart .chart-bar')).toHaveCount(10);
+  await expect(value('Totals')).toHaveText('Asha 360 · Ravi 350');
+
+  // A beats B by 10 m; a 10 m start makes a dead heat.
+  await page.goto('/#/explore/race-track');
+  await expect(value('Result')).toHaveText('A beats B by 10 m (1.11 s)');
+  await page.locator('.sim-task', { hasText: 'dead heat' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('Result')).toHaveText('Dead heat');
+
+  // Wages by work: 3 : 2, not 50 : 50; B leaving after 3 days earns ₹600.
+  await page.goto('/#/explore/wage-split');
+  await expect(value('Wages by work done')).toHaveText('A ₹1,800 · B ₹1,200');
+  await page.locator('.sim-task', { hasText: 'leaves after 3 days' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(value('Wages by work done')).toHaveText('A ₹2,400 · B ₹600');
+
+  // Roots on two lines: interleaving roots give no relation.
+  await page.goto('/#/explore/compare-roots');
+  await expect(page.locator('.sim-badge')).toHaveText('x > y');
+  await page.locator('.sim-task', { hasText: 'interleave' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-badge')).toHaveText('Cannot be established');
+  expect(errors).toEqual([]);
+});
+
+test('reasoning simulations: seats fill in, the grid fills itself, the tree grows', async ({ page }) => {
+  const errors = watchForErrors(page);
+
+  await page.goto('/#/explore/seating-clues');
+  const possible = page.locator('.sim-readout', { hasText: 'Arrangements still possible' }).locator('dd');
+  await expect(possible).toHaveText('720');
+  await page.getByRole('slider', { name: 'Clues applied' }).focus();
+  await page.keyboard.press('End');
+  await expect(possible).toHaveText('1');
+  await expect(page.locator('.rp-token:not(.is-waiting)')).toHaveCount(6);
+  await page.getByRole('group', { name: 'Add a clue that contradicts' }).getByRole('button', { name: 'On' }).click();
+  await expect(possible).toHaveText('0');
+  await expect(page.locator('.rp-clue.is-conflict')).toHaveCount(1);
+
+  await page.goto('/#/explore/puzzle-grid');
+  await page.locator('.sim-task', { hasText: 'Five floors' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'Cells settled' }).locator('dd')).toHaveText('25 of 25');
+  await expect(page.locator('.rp-cell.is-yes')).toHaveCount(5);
+
+  await page.goto('/#/explore/family-tree');
+  await page.locator('.sim-task', { hasText: 'how A is related to F' }).getByRole('button', { name: 'Show me' }).click();
+  await expect(page.locator('.sim-readout', { hasText: 'How A is related to F' }).locator('dd')).toHaveText('A is F’s grandfather.');
+  await expect(page.locator('.rp-node')).toHaveCount(6);
   expect(errors).toEqual([]);
 });

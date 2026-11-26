@@ -167,7 +167,7 @@
           },
           {
             "type": "simulation",
-            "simulationId": "tsd-meeting"
+            "simulationId": "race-track"
           },
           {
             "type": "check",
@@ -177,6 +177,10 @@
             "type": "text",
             "title": "Head start = beating, seen from the other side",
             "body": "If A gives B a 20 m start in a 100 m race and they tie, then A runs 100 m while B runs 80 m. It is the same picture as A beating B by 20 m over 100 m."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "tsd-meeting"
           },
           {
             "type": "check",

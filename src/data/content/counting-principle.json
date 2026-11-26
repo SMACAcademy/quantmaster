@@ -198,6 +198,10 @@
             "body": "\"And\" usually means multiply; \"or\" (for mutually exclusive choices) usually means add."
           },
           {
+            "type": "simulation",
+            "simulationId": "choice-tree"
+          },
+          {
             "type": "check",
             "questionId": "counting-principle-q-003"
           }

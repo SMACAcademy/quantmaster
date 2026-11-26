@@ -53,6 +53,10 @@ import { remainderTemplates } from './templates/remainders.js';
 import { factorialTemplates } from './templates/factorials.js';
 import { squaresRootsTemplates } from './templates/squaresRoots.js';
 import { speedMathsTemplates } from './templates/speedMaths.js';
+import { seatingTemplates } from './templates/reasoningSeating.js';
+import { puzzleTemplates } from './templates/reasoningPuzzles.js';
+import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
+import { bloodTemplates } from './templates/reasoningBlood.js';
 import { advReciprocalTemplates } from './templates/advReciprocals.js';
 import { advTrigTemplates } from './templates/advTrigonometry.js';
 import { advPrismTemplates } from './templates/advPrismsPyramids.js';
@@ -99,6 +103,12 @@ const TEMPLATES = [
   ...factorialTemplates,
   ...squaresRootsTemplates,
   ...speedMathsTemplates,
+  // Logical reasoning: every answer is checked by brute force over all arrangements.
+  ...seatingTemplates,
+  ...puzzleTemplates,
+  ...syllogismTemplates,
+  ...inequalityTemplates,
+  ...bloodTemplates,
   ...advReciprocalTemplates,
   ...advTrigTemplates,
   ...advPrismTemplates,

@@ -10,7 +10,7 @@ test('a new learner gets the welcome screen and every topic', async ({ page }) =
   await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
 
   await page.goto('/#/topics');
-  await expect(page.locator('.topic-card')).toHaveCount(75);
+  await expect(page.locator('.topic-card')).toHaveCount(80);
   await expect(page.locator('.topic-card.is-locked')).toHaveCount(0);
 
   await page.goto('/#/privacy');
@@ -91,7 +91,7 @@ test('quick sheets show every formula or shortcut with nothing else on the page'
   const errors = watchForErrors(page);
   await page.goto('/#/sheet?kind=formula');
   await expect(page.getByRole('heading', { name: 'Formula sheet', level: 1 })).toBeVisible();
-  await expect(page.locator('.sheet__topic')).toHaveCount(75);
+  await expect(page.locator('.sheet__topic')).toHaveCount(80);
   // Reading only: no navigation or XP, and no examples until asked for.
   await expect(page.locator('.sidebar')).toBeHidden();
   await expect(page.locator('.topbar')).toBeHidden();
@@ -160,7 +160,8 @@ test('radar and combo charts draw with their values', async ({ page }) => {
   const errors = watchForErrors(page);
   await page.goto('/#/topics/di-mixed-radar/levels/di-mixed-radar-level-0');
   await expect(page.getByRole('heading', { name: 'Radar Charts, Combos and Missing Data', level: 1 })).toBeVisible();
-  const radar = page.locator('svg.chart-svg--radar');
+  // The question's radar, not the one in the lesson's simulation.
+  const radar = page.locator('.lesson__block:not(.lesson__block--simulation) svg.chart-svg--radar');
   await expect(radar).toBeVisible();
   await expect(radar.locator('.chart-radar-value')).toHaveCount(10); // two students × five subjects
   await expect(page.locator('.chart-value-label--inside')).toHaveCount(5); // production bars

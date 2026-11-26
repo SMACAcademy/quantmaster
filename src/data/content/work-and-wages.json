@@ -148,7 +148,7 @@
           },
           {
             "type": "simulation",
-            "simulationId": "work-together"
+            "simulationId": "wage-split"
           },
           {
             "type": "check",
@@ -158,6 +158,10 @@
             "type": "callout",
             "tone": "warn",
             "body": "A common trap: sharing in the ratio of days taken. That rewards the slower worker. Always convert days into rates first."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "work-together"
           },
           {
             "type": "check",

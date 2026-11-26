@@ -64,7 +64,7 @@ Two things to know about spreadsheet programs. Excel likes to turn `1/2` into a 
 Simulations live in code, not JSON, because each one is a small model: `src/simulations/<area>.js`, listed in `src/simulations/index.js`. The shape is described at the top of `src/simulations/core.js`:
 
 - `controls`: sliders (`range`), choices (`choice`) and a "run again" button (`reroll`, for random experiments).
-- `compute(values)`: returns the raw `numbers`, the `readouts` to show, the `plot` to draw (`xy`, `bars`, `clock`, `seesaw`, `chart`, `table`, `geometry`, `stack` and more, see `src/components/simPlots.js`) and one `insight` sentence about the current settings.
+- `compute(values)`: returns the raw `numbers`, the `readouts` to show, the `plot` to draw (`xy`, `bars`, `clock`, `seesaw`, `chart`, `table`, `geometry`, `stack`, `numberlines`, `tree` and more, see `src/components/simPlots.js`) and one `insight` sentence about the current settings.
 - `tasks`: two to four "Try this" challenges, each with a `check` and a `solution` (the settings "Show me" applies).
 
 Then add its entry to `src/simulations/meta.js` (id, topic, title, summary, challenge ids): the app lists simulations from there without loading them, and a test fails if the two disagree.
@@ -75,7 +75,7 @@ To show a simulation inside a lesson, add a block `{ "type": "simulation", "simu
 
 ## Add a topic
 
-1. **The catalogue entry** probably already exists in `src/data/topics.json` (all 75 current topics are there). If not, add one with a unique `id`, a `category` from `arithmetic | algebra | geometry | combinatorics | data | advanced`, a short `glyph` and a `description`. Adding `whyItMatters` shows a callout on the topic page.
+1. **The catalogue entry** probably already exists in `src/data/topics.json` (all 80 current topics are there). If not, add one with a unique `id`, a `category` from `arithmetic | algebra | geometry | combinatorics | data | reasoning` (with the matching `colorToken`; `advanced` is a colour only), a short `glyph` and a `description`. Adding `whyItMatters` shows a callout on the topic page.
 2. **The content** goes in one new file: `src/data/content/<topicId>.json`
 
 ```json

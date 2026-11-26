@@ -1,0 +1,1811 @@
+{
+  "topicId": "reasoning-inequalities",
+  "concepts": [
+    {
+      "id": "iq-direct",
+      "topicId": "reasoning-inequalities",
+      "name": "Reading a chain",
+      "description": "Follow the path between two letters: one direction all along gives a definite relation, strict if any sign is strict.",
+      "sortOrder": 1
+    },
+    {
+      "id": "iq-combined",
+      "topicId": "reasoning-inequalities",
+      "name": "Joining statements",
+      "description": "Several statements that share letters merge into one chain through those letters.",
+      "sortOrder": 2
+    },
+    {
+      "id": "iq-either",
+      "topicId": "reasoning-inequalities",
+      "name": "Either–or conclusions",
+      "description": "Two conclusions on the same pair, neither true alone, of which exactly one must hold.",
+      "sortOrder": 3
+    },
+    {
+      "id": "iq-coded",
+      "topicId": "reasoning-inequalities",
+      "name": "Coded inequalities",
+      "description": "Symbols such as @, # and $ stand for the five signs; decode them before solving.",
+      "sortOrder": 4
+    },
+    {
+      "id": "iq-missing",
+      "topicId": "reasoning-inequalities",
+      "name": "The missing sign",
+      "description": "Find the one sign that makes the required conclusions definitely true.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "iq-path-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "title": "The path rule",
+      "prompt": "When does a chain give a definite relation between two letters?",
+      "formula": "Every sign on the path points the same way (= can be ignored)\nAny strict sign (> or <) ⇒ the result is strict\nOne sign pointing back ⇒ no definite relation",
+      "variables": [],
+      "explanation": "Values only rise (or only fall) along a path that never turns; if it turns, the ends can compare either way.",
+      "example": "P > Q ≥ R = S ⇒ P > S. A ≥ B > C ≤ D ⇒ nothing between A and D.",
+      "commonMistake": "Taking P ≥ Q ≥ R as P > R: with no strict sign the answer is only P ≥ R.",
+      "applicationPrompt": "K ≤ L = M < N. What is the relation between K and N?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq-combine-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "title": "Joining statements",
+      "prompt": "Two statements share a letter. How do you combine them?",
+      "formula": "Rewrite them as one chain through the shared letter\nFlip a statement when needed: A ≥ B is B ≤ A\nThen use the path rule",
+      "variables": [],
+      "explanation": "The shared letter is the only bridge between the two statements.",
+      "example": "A < B ≤ C and D ≥ C ⇒ A < B ≤ C ≤ D ⇒ A < D.",
+      "commonMistake": "Flipping the letters but not the sign.",
+      "applicationPrompt": "P > Q and R ≥ Q. What is the relation between P and R?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq-either-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-either",
+      "title": "Either–or",
+      "prompt": "When is the answer \"Either conclusion I or II is true\"?",
+      "formula": "Neither is true alone, both are about the same two letters, and\nthey split the derived relation (≥ into > and =), or\nthey are exact opposites (> and ≤, < and ≥)",
+      "variables": [],
+      "explanation": "In each case exactly one of the two must hold, whatever the actual values.",
+      "example": "R ≥ T: I. R > T II. R = T ⇒ either. E > F ≤ H: I. E > H II. E ≤ H ⇒ either.",
+      "commonMistake": "Choosing either-or when one conclusion is already true.",
+      "applicationPrompt": "A ≥ B. I. A > B. II. A = B. What is the answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq-coded-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-coded",
+      "title": "Decoding the symbols",
+      "prompt": "How do the usual coded phrases translate?",
+      "formula": "neither smaller than nor equal to ⇒ >\nnot smaller than ⇒ ≥\nneither smaller nor greater ⇒ =\nnot greater than ⇒ ≤\nneither greater than nor equal to ⇒ <",
+      "variables": [],
+      "explanation": "\"Not smaller\" leaves \"greater or equal\"; \"neither smaller nor equal\" leaves only \"greater\".",
+      "example": "\"P @ Q means P is not smaller than Q\" ⇒ @ is ≥.",
+      "commonMistake": "Decoding \"not greater than\" as <.",
+      "applicationPrompt": "\"P % Q means P is not greater than Q.\" Which sign is %?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq-missing-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-missing",
+      "title": "The missing sign",
+      "prompt": "A chain has a \"?\" and some conclusions must be true. How do you find the sign?",
+      "formula": "Start with a conclusion that links the two letters next to \"?\"\nAn \"=\" conclusion needs \"=\" all along its path\nA strict conclusion needs at least one strict sign\nCheck the choice against every conclusion",
+      "variables": [],
+      "explanation": "The conclusion closest to the gap usually decides the sign; the others confirm it.",
+      "example": "A < B ? C ≤ D with B < C required ⇒ ? is <.",
+      "commonMistake": "Choosing ≥ or ≤ when a strict conclusion is required.",
+      "applicationPrompt": "P = Q ? R with Q = R required. Which sign?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "iq-exact-f",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "title": "Exactly what the chain says",
+      "prompt": "A chain gives P ≥ Q. Which conclusions are true: P ≥ Q, P > Q, P = Q?",
+      "formula": "Only the derived relation itself is true:\nP ≥ Q gives P ≥ Q, not P > Q, not P = Q",
+      "variables": [],
+      "explanation": "P > Q and P = Q are each only one part of P ≥ Q.",
+      "example": "M < N = O ≤ P: N ≤ P is true, P > N is not.",
+      "commonMistake": "Reading a weak sign (≥) as strict.",
+      "applicationPrompt": "X = Y ≤ Z. Is Z > X definitely true?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq-sc-equal",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "kind": "shortcut",
+      "title": "Skip the equals",
+      "prompt": "How do \"=\" signs affect a path?",
+      "formula": "Ignore every = on the path;\nread the direction from the other signs",
+      "variables": [],
+      "explanation": "An equals sign never turns the path and never makes it strict.",
+      "example": "P = Q > R = S < T: P to S reads just \">\" ⇒ P > S.",
+      "commonMistake": "Treating = as if it weakened a strict result.",
+      "applicationPrompt": "A = B = C < D. What is A compared with D?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq-sc-flip",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "kind": "shortcut",
+      "title": "Read a conclusion from the other end",
+      "prompt": "A conclusion is written \"T < Q\" but your chain runs from Q to T. What do you do?",
+      "formula": "X < Y is the same as Y > X\nX ≤ Y is the same as Y ≥ X",
+      "variables": [],
+      "explanation": "Swapping the letters flips the sign; the meaning is unchanged.",
+      "example": "Chain gives Q > T; the conclusion T < Q is true.",
+      "commonMistake": "Rejecting a true conclusion because it is written right to left.",
+      "applicationPrompt": "The chain gives L ≥ J. Is \"J ≤ L\" true?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "reasoning-inequalities-level-0",
+      "topicId": "reasoning-inequalities",
+      "order": 0,
+      "title": "Chains and Paths",
+      "description": "The path rule, and when either–or applies.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "iq-direct",
+        "iq-either"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A chain is a path",
+            "body": "Read P ≥ Q > R = S as a path from P to S. If every sign points the same way, the ends have a definite relation, and it is strict if any one sign is strict: P > S. If any sign points back the other way, as in A ≥ B > C ≤ D, the two ends could compare either way, and nothing definite follows."
+          },
+          {
+            "type": "formula",
+            "title": "The path rule",
+            "body": "All one way ⇒ definite (strict if any sign is strict)\nOne sign the other way ⇒ no relation",
+            "caption": "\"=\" signs can be ignored: they never turn the path."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-inequalities-q-001"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "inequality-chain"
+          },
+          {
+            "type": "text",
+            "title": "Either–or",
+            "body": "Sometimes neither conclusion is true alone, but one of the two must be. R ≥ T means \"R > T or R = T\", so the pair I. R > T, II. R = T gives \"either I or II\". So does a pair of exact opposites, like E > H and E ≤ H, when nothing definite links E and H."
+          },
+          {
+            "type": "example",
+            "title": "Joining two statements",
+            "body": "A < B ≤ C and D ≥ C > E share the letter C. Rewrite D ≥ C as C ≤ D and join: A < B ≤ C ≤ D. Now A < D follows, but B and E meet only through B ≤ C > E, which turns, so nothing follows between them."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Answer exactly what the chain says. From M < N = O ≤ P you get N ≤ P, which does not make P > N true. Questions here never ask whether \"P ≥ Q\" follows from \"P > Q\", because answer keys differ on that."
+          },
+          {
+            "type": "check",
+            "questionId": "reasoning-inequalities-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "reasoning-inequalities-level-1",
+      "topicId": "reasoning-inequalities",
+      "order": 1,
+      "title": "Inequality Rules",
+      "description": "The path rule, joining, either–or, decoding and the missing sign.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "reasoning-inequalities-level-0"
+      ],
+      "conceptIds": [
+        "iq-direct",
+        "iq-combined",
+        "iq-either",
+        "iq-coded",
+        "iq-missing"
+      ],
+      "formulaIds": [
+        "iq-path-f",
+        "iq-combine-f",
+        "iq-either-f",
+        "iq-coded-f",
+        "iq-missing-f",
+        "iq-exact-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "reasoning-inequalities-level-2",
+      "topicId": "reasoning-inequalities",
+      "order": 2,
+      "title": "Single Chains",
+      "description": "One chain, two conclusions.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "reasoning-inequalities-level-1"
+      ],
+      "conceptIds": [
+        "iq-direct"
+      ],
+      "questionIds": [
+        "reasoning-inequalities-q-001",
+        "reasoning-inequalities-q-002",
+        "reasoning-inequalities-q-003",
+        "reasoning-inequalities-q-008",
+        "reasoning-inequalities-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "reasoning-inequalities-level-3",
+      "topicId": "reasoning-inequalities",
+      "order": 3,
+      "title": "Either–Or and Joined Statements",
+      "description": "Either–or pairs and statements joined through a shared letter.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "reasoning-inequalities-level-2"
+      ],
+      "conceptIds": [
+        "iq-either",
+        "iq-combined",
+        "iq-direct"
+      ],
+      "questionIds": [
+        "reasoning-inequalities-q-004",
+        "reasoning-inequalities-q-005",
+        "reasoning-inequalities-q-006",
+        "reasoning-inequalities-q-007",
+        "reasoning-inequalities-q-009",
+        "reasoning-inequalities-q-010",
+        "reasoning-inequalities-q-011",
+        "reasoning-inequalities-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "reasoning-inequalities-level-4",
+      "topicId": "reasoning-inequalities",
+      "order": 4,
+      "title": "Coded Signs and Missing Signs",
+      "description": "Longer joins, coded symbols, and finding the missing sign.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 18,
+      "prerequisiteLevelIds": [
+        "reasoning-inequalities-level-3"
+      ],
+      "conceptIds": [
+        "iq-combined",
+        "iq-coded",
+        "iq-missing"
+      ],
+      "questionIds": [
+        "reasoning-inequalities-q-012",
+        "reasoning-inequalities-q-013",
+        "reasoning-inequalities-q-014",
+        "reasoning-inequalities-q-015",
+        "reasoning-inequalities-q-016",
+        "reasoning-inequalities-q-017",
+        "reasoning-inequalities-q-018",
+        "reasoning-inequalities-q-019",
+        "reasoning-inequalities-q-020"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "reasoning-inequalities-level-5",
+      "topicId": "reasoning-inequalities",
+      "order": 5,
+      "title": "Mixed Inequality Practice",
+      "description": "All inequality patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "reasoning-inequalities-level-4"
+      ],
+      "conceptIds": [
+        "iq-coded",
+        "iq-missing"
+      ],
+      "questionQuery": {
+        "topicId": "reasoning-inequalities",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "reasoning-inequalities-q-001",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: P > Q ≥ R = S\nConclusions:\nI. P > S\nII. Q ≥ S",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "I: P > Q ≥ R = S. Every sign points the same way and one is strict, so P > S: true. II: Q ≥ R = S gives Q ≥ S: true. Both are true.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "I: >, ≥, = all point one way, with a strict > ⇒ P > S.",
+        "II: ≥, = ⇒ Q ≥ S."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Same direction all along the path; strict if any sign is strict.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking ≥ on the path stops P > S: one strict sign is enough."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-002",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: A ≥ B > C ≤ D\nConclusions:\nI. A > C\nII. D > B",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "I: A ≥ B > C, so A > C: true. II: from B to D the path is B > C ≤ D; the signs point opposite ways, so B and D have no definite relation and D > B is not true. Only I.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "I: ≥ then > ⇒ A > C.",
+        "II: > then ≤ point opposite ways ⇒ no relation between B and D."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Opposite signs on the path break the chain.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Reading D > B from \"C ≤ D\" and \"B > C\" as if both were about D."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-003",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: M < N = O ≤ P\nConclusions:\nI. M < P\nII. P > N",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "I: M < N = O ≤ P, so M < P: true. II: N = O ≤ P gives N ≤ P, that is P ≥ N. P could equal N, so P > N is not certain. Only I.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "I: <, =, ≤ point one way with a strict < ⇒ M < P.",
+        "II: =, ≤ ⇒ N ≤ P; with no strict sign, P > N is not certain."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "No strict sign on the path ⇒ only ≥ or ≤ can follow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Taking P > N because P is \"after\" N in the chain."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-004",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: J ≤ K < L ≥ M > N\nConclusions:\nI. K < N\nII. L > N",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "I: K < L ≥ M: the signs point opposite ways, so K and N have no definite relation; I is not true. II: L ≥ M > N gives L > N: true. Only II.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "I: from K: <, then ≥ (opposite way) ⇒ no relation.",
+        "II: from L: ≥, > ⇒ L > N."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Check each path for a sign that points back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the ≥ between L and M and concluding K < N."
+      ],
+      "tags": [],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-005",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-either",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: R ≥ S = T ≤ U\nConclusions:\nI. R > T\nII. R = T",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "R ≥ S = T gives R ≥ T. That allows R > T or R = T, so neither I nor II is certain. But they are about the same two letters and together make up R ≥ T: exactly one of them must hold. Either I or II is true.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "R ≥ S = T ⇒ R ≥ T.",
+        "Neither R > T nor R = T is certain alone.",
+        "Together they cover R ≥ T ⇒ either I or II."
+      ],
+      "formulaIds": [
+        "iq-either-f"
+      ],
+      "method": "Derived ≥ split into > and = is the classic either-or.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the relation between R and T first."
+        },
+        {
+          "level": 2,
+          "text": "R ≥ T means \"R > T or R = T\". Are I and II those two parts?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Neither\" after finding that neither is certain alone."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-006",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-either",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: E > F ≤ G < H\nConclusions:\nI. E > H\nII. E ≤ H",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "From E to H the path is E > F ≤ G < H: the first two signs point opposite ways, so E and H have no definite relation. Neither conclusion is certain. But E > H and E ≤ H are exact opposites (between them they cover every case), so exactly one is true: either I or II.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "E > F ≤ … ⇒ no relation between E and H.",
+        "E > H and E ≤ H are opposites: one must be true."
+      ],
+      "formulaIds": [
+        "iq-either-f"
+      ],
+      "method": "Opposite conclusions on the same pair (> and ≤, < and ≥) give either-or when neither follows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is there any definite relation between E and H?"
+        },
+        {
+          "level": 2,
+          "text": "Can E > H and E ≤ H both be false?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Neither\" without noticing the pair are exact opposites."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-007",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-either",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: V ≤ W ≥ X = Y\nConclusions:\nI. V < X\nII. V ≥ X",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "V ≤ W ≥ X: the signs point opposite ways, so V and X have no definite relation. V < X and V ≥ X are exact opposites, so one of them must be true: either I or II.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        "V ≤ W ≥ X ⇒ no relation between V and X.",
+        "V < X and V ≥ X cover every case between them."
+      ],
+      "formulaIds": [
+        "iq-either-f"
+      ],
+      "method": "Opposites on the same pair ⇒ either-or when neither follows.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the signs between V and X."
+        },
+        {
+          "level": 2,
+          "text": "Rewrite II as \"not V < X\". What does that tell you?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking either-or needs a derived ≥ or ≤."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-008",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statement: A > B ≥ C = D\nConclusions:\nI. A > D\nII. A = D",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A > B ≥ C = D gives A > D: I is true. Then A = D is false, so this is not an either-or case: only I.",
+      "solutionSteps": [
+        "Find the path between the two letters of each conclusion.",
+        ">, ≥, = with a strict > ⇒ A > D.",
+        "II contradicts I."
+      ],
+      "formulaIds": [
+        "iq-path-f",
+        "iq-either-f"
+      ],
+      "method": "Look for a definite conclusion before thinking about either-or.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Either\" because I and II are about the same pair."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-009",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statements: P ≥ Q > R; R ≥ S = T\nConclusions:\nI. P > T\nII. T < Q",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Join the statements at R: P ≥ Q > R ≥ S = T. I: P to T has ≥, >, ≥, = with a strict sign: P > T. II: Q > R ≥ S = T gives Q > T, which is T < Q. Both are true.",
+      "solutionSteps": [
+        "Join the statements at the shared letter R: P ≥ Q > R ≥ S = T.",
+        "I: one direction, one strict sign ⇒ P > T.",
+        "II: Q > R ≥ S = T ⇒ Q > T, i.e. T < Q."
+      ],
+      "formulaIds": [
+        "iq-combine-f",
+        "iq-path-f"
+      ],
+      "method": "Merge the statements into one chain through the common letter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "R appears in both statements; write one long chain through it."
+        },
+        {
+          "level": 2,
+          "text": "II is written right to left: T < Q is the same as Q > T."
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting II because it is written in the opposite order."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-010",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statements: A < B ≤ C; D ≥ C > E\nConclusions:\nI. A < D\nII. E < B",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Join at C: A < B ≤ C ≤ D (D ≥ C read the other way) and C > E. I: A < B ≤ C ≤ D gives A < D. II: from E to B: E < C ≥ B, opposite directions, so no relation. Only I.",
+      "solutionSteps": [
+        "Rewrite D ≥ C > E around C: A < B ≤ C ≤ D, and C > E.",
+        "I: <, ≤, ≤ ⇒ A < D.",
+        "II: B ≤ C > E points both ways ⇒ no relation."
+      ],
+      "formulaIds": [
+        "iq-combine-f",
+        "iq-path-f"
+      ],
+      "method": "Flip a statement carefully when you rewrite it the other way round.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "C is the shared letter."
+        },
+        {
+          "level": 2,
+          "text": "Write D ≥ C as C ≤ D so the chain from A runs in one direction."
+        }
+      ],
+      "commonMistakes": [
+        "Flipping the letters but not the sign when rewriting D ≥ C."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-011",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statements: K = L ≥ M; N < M ≤ O\nConclusions:\nI. K > N\nII. O ≥ L",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Join at M: K = L ≥ M > N (N < M read the other way) and M ≤ O. I: K = L ≥ M > N gives K > N. II: from L to O: L ≥ M ≤ O, opposite directions, so no relation. Only I.",
+      "solutionSteps": [
+        "Rewrite N < M as M > N: K = L ≥ M > N, and M ≤ O.",
+        "I: =, ≥, > ⇒ K > N.",
+        "II: ≥ then ≤ ⇒ no relation between L and O."
+      ],
+      "formulaIds": [
+        "iq-combine-f"
+      ],
+      "method": "Merge through the common letter, then follow each path.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "M is the shared letter."
+        },
+        {
+          "level": 2,
+          "text": "Between L and O the path goes down to M and back up."
+        }
+      ],
+      "commonMistakes": [
+        "Concluding O ≥ L because both are \"at least M\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-012",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statements: F ≥ G = H; H > I ≤ J; J < K\nConclusions:\nI. F > I\nII. K > I",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Chain: F ≥ G = H > I ≤ J < K. I: F ≥ G = H > I gives F > I. II: from I to K: I ≤ J < K gives I < K, which is K > I. Both are true.",
+      "solutionSteps": [
+        "Join the three statements at H and J: F ≥ G = H > I ≤ J < K.",
+        "I: ≥, =, > ⇒ F > I.",
+        "II: ≤, < ⇒ I < K, i.e. K > I."
+      ],
+      "formulaIds": [
+        "iq-combine-f",
+        "iq-path-f"
+      ],
+      "method": "Each conclusion only needs its own stretch of the chain.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two letters, H and J, link the three statements."
+        },
+        {
+          "level": 2,
+          "text": "For II, start at I and walk towards K."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking the > before I spoils II: it is not on the path from I to K."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-013",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-combined",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "Statements: U > V ≥ W; X ≤ W < Y; Y = Z\nConclusions:\nI. U > X\nII. Z > V",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Join at W: U > V ≥ W ≥ X (X ≤ W read the other way) and W < Y = Z. I: U > V ≥ W ≥ X gives U > X. II: from Z to V: Z = Y > W ≤ V, opposite directions, so no relation. Only I.",
+      "solutionSteps": [
+        "Rewrite around W: U > V ≥ W ≥ X, and W < Y = Z.",
+        "I: >, ≥, ≥ ⇒ U > X.",
+        "II: Z = Y > W, then W ≤ V: the path turns ⇒ no relation."
+      ],
+      "formulaIds": [
+        "iq-combine-f",
+        "iq-path-f"
+      ],
+      "method": "Merge the chains at the shared letter; a path that goes down then up breaks.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "W is in the first two statements, Y in the last two."
+        },
+        {
+          "level": 2,
+          "text": "Walk from Z to V: does the direction change at W?"
+        }
+      ],
+      "commonMistakes": [
+        "Accepting Z > V because both are bigger than W."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-014",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-coded",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "'P @ Q' means 'P is not smaller than Q'.\n'P # Q' means 'P is neither smaller than nor equal to Q'.\n'P $ Q' means 'P is neither smaller than nor greater than Q'.\n'P % Q' means 'P is not greater than Q'.\n'P & Q' means 'P is neither greater than nor equal to Q'.\nStatements: P # Q; Q @ R; R $ S\nConclusions:\nI. P # S\nII. S & Q",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Decoded: # is >, @ is ≥, $ is =, & is <. The statements read P > Q ≥ R = S. I is P > S: true. II is S < Q, but Q ≥ R = S only gives Q ≥ S, so S < Q is not certain. Only I.",
+      "solutionSteps": [
+        "Decode: # = >, @ = ≥, $ = =, & = <.",
+        "Statements: P > Q ≥ R = S.",
+        "I: P > S true. II: S < Q not certain (only Q ≥ S)."
+      ],
+      "formulaIds": [
+        "iq-coded-f",
+        "iq-path-f"
+      ],
+      "method": "Decode every symbol before reading any conclusion.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Neither smaller than nor equal to\" is >; \"not smaller than\" is ≥."
+        },
+        {
+          "level": 2,
+          "text": "Decode the conclusions with the same key."
+        }
+      ],
+      "commonMistakes": [
+        "Decoding @ (not smaller than) as >."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-015",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-coded",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "'P @ Q' means 'P is not smaller than Q'.\n'P # Q' means 'P is neither smaller than nor equal to Q'.\n'P $ Q' means 'P is neither smaller than nor greater than Q'.\n'P % Q' means 'P is not greater than Q'.\n'P & Q' means 'P is neither greater than nor equal to Q'.\nStatements: A % B; B & C; C @ D\nConclusions:\nI. A & C\nII. D # A",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Decoded: A ≤ B < C ≥ D. I is A < C: from A ≤ B < C, true. II is D > A: the path D ≤ C > B ≥ A turns at C, so there is no definite relation. Only I.",
+      "solutionSteps": [
+        "Decode: % = ≤, & = <, @ = ≥, # = >.",
+        "A ≤ B < C ≥ D.",
+        "I: ≤, < ⇒ A < C. II: path from A to D turns at C ⇒ no relation."
+      ],
+      "formulaIds": [
+        "iq-coded-f"
+      ],
+      "method": "Decode, then follow the path.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Not greater than\" is ≤."
+        },
+        {
+          "level": 2,
+          "text": "Between A and D, does the chain change direction?"
+        }
+      ],
+      "commonMistakes": [
+        "Decoding % (not greater than) as <."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-016",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-coded",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "'P @ Q' means 'P is not smaller than Q'.\n'P # Q' means 'P is neither smaller than nor equal to Q'.\n'P $ Q' means 'P is neither smaller than nor greater than Q'.\n'P % Q' means 'P is not greater than Q'.\n'P & Q' means 'P is neither greater than nor equal to Q'.\nStatements: M @ N; N $ O; O % P\nConclusions:\nI. M # O\nII. M $ O",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Decoded: M ≥ N = O ≤ P. M and O: M ≥ N = O gives M ≥ O. I (M > O) and II (M = O) are each possible but neither is certain; together they make up M ≥ O, so exactly one holds. Either I or II.",
+      "solutionSteps": [
+        "Decode: @ = ≥, $ = =, % = ≤, # = >.",
+        "M ≥ N = O ⇒ M ≥ O.",
+        "M > O and M = O split M ≥ O ⇒ either I or II."
+      ],
+      "formulaIds": [
+        "iq-coded-f",
+        "iq-either-f"
+      ],
+      "method": "Decode, derive, then check for an either-or pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Decode the statements and both conclusions."
+        },
+        {
+          "level": 2,
+          "text": "What is the relation between M and O, and how do I and II split it?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering \"Neither\" after decoding correctly."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-017",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-coded",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of the conclusions is definitely true?",
+      "context": "'P @ Q' means 'P is not smaller than Q'.\n'P # Q' means 'P is neither smaller than nor equal to Q'.\n'P $ Q' means 'P is neither smaller than nor greater than Q'.\n'P % Q' means 'P is not greater than Q'.\n'P & Q' means 'P is neither greater than nor equal to Q'.\nStatements: H & J; J % K; K $ L\nConclusions:\nI. H & L\nII. L @ J",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only conclusion I is true"
+        },
+        {
+          "id": "b",
+          "text": "Only conclusion II is true"
+        },
+        {
+          "id": "c",
+          "text": "Either conclusion I or II is true"
+        },
+        {
+          "id": "d",
+          "text": "Neither conclusion I nor II is true"
+        },
+        {
+          "id": "e",
+          "text": "Both conclusions I and II are true"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Decoded: H < J ≤ K = L. I is H < L: from H < J ≤ K = L, true. II is L ≥ J: from J ≤ K = L, J ≤ L, true. Both.",
+      "solutionSteps": [
+        "Decode: & = <, % = ≤, $ = =, @ = ≥.",
+        "H < J ≤ K = L.",
+        "I: H < L. II: J ≤ L, i.e. L ≥ J."
+      ],
+      "formulaIds": [
+        "iq-coded-f"
+      ],
+      "method": "Decode, then follow each path.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the decoded chain once."
+        },
+        {
+          "level": 2,
+          "text": "II is written from L’s side: L ≥ J is the same as J ≤ L."
+        }
+      ],
+      "commonMistakes": [
+        "Rejecting II because it reads right to left."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-018",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-missing",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which sign should replace the question mark so that both conclusions are definitely true?",
+      "context": "Expression: A < B ? C ≤ D\nConclusions that must definitely be true:\nI. A < D\nII. B < C",
+      "options": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "≥"
+        },
+        {
+          "id": "c",
+          "text": "="
+        },
+        {
+          "id": "d",
+          "text": "≤"
+        },
+        {
+          "id": "e",
+          "text": "<"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "II needs B < C exactly, so the sign must be <. Check I: A < B < C ≤ D gives A < D. With ≤ in its place, II would only give B ≤ C; with =, ≥ or > it fails.",
+      "solutionSteps": [
+        "II involves only B and C, so the missing sign must say B < C.",
+        "Check I with < in place: A < B < C ≤ D ⇒ A < D."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Use the conclusion that pins the missing sign down directly, then check the other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Conclusion II mentions only B and C, the letters either side of the \"?\"."
+        },
+        {
+          "level": 2,
+          "text": "Then check conclusion I with that sign in place."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing ≤, which gives only B ≤ C."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-019",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-missing",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which sign should replace the question mark so that both conclusions are definitely true?",
+      "context": "Expression: P = Q ? R ≤ S\nConclusions that must definitely be true:\nI. P ≤ S\nII. Q = R",
+      "options": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "≥"
+        },
+        {
+          "id": "c",
+          "text": "="
+        },
+        {
+          "id": "d",
+          "text": "≤"
+        },
+        {
+          "id": "e",
+          "text": "<"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "II needs Q = R, so the sign must be =. Check I: P = Q = R ≤ S gives P ≤ S. Any other sign breaks II.",
+      "solutionSteps": [
+        "II is about Q and R, either side of \"?\": the sign must be =.",
+        "Check I: P = Q = R ≤ S ⇒ P ≤ S."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "An \"=\" conclusion needs \"=\" everywhere on its path.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at II first: which letters does it link?"
+        },
+        {
+          "level": 2,
+          "text": "Q = R needs the sign between them to be \"=\"."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing ≤ because the chain already has a ≤."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-020",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-missing",
+      "levelId": "reasoning-inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which sign should replace the question mark so that both conclusions are definitely true?",
+      "context": "Expression: G ≥ H ? I ≥ J\nConclusions that must definitely be true:\nI. G > J\nII. H > I",
+      "options": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "≥"
+        },
+        {
+          "id": "c",
+          "text": "="
+        },
+        {
+          "id": "d",
+          "text": "≤"
+        },
+        {
+          "id": "e",
+          "text": "<"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "II needs H > I exactly, so the sign must be >. Check I: G ≥ H > I ≥ J gives G > J. With ≥, both conclusions would only be ≥.",
+      "solutionSteps": [
+        "II links H and I, either side of \"?\": the sign must be >.",
+        "Check I: G ≥ H > I ≥ J ⇒ G > J (one strict sign)."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "A strict conclusion needs at least one strict sign on its path.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which conclusion links exactly the two letters next to the \"?\"?"
+        },
+        {
+          "level": 2,
+          "text": "Is the path from G to J strict without the missing sign?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing ≥, which makes neither conclusion strict."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-021",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "multiple_choice",
+      "question": "Which of these conclusions are definitely true? Select all that apply.",
+      "context": "Statement: P ≥ Q > R = S ≤ T",
+      "options": [
+        {
+          "id": "a",
+          "text": "P > R"
+        },
+        {
+          "id": "b",
+          "text": "T > R"
+        },
+        {
+          "id": "c",
+          "text": "S < P"
+        },
+        {
+          "id": "d",
+          "text": "Q = S"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "c"
+      ],
+      "explanation": "P > R: P ≥ Q > R, true. T > R: T ≥ S = R gives only T ≥ R, not certain. S < P: P ≥ Q > R = S gives P > S, true. Q = S: Q > R = S gives Q > S, so Q = S is false.",
+      "solutionSteps": [
+        "P to R: ≥, > ⇒ P > R.",
+        "R to T: =, ≤ ⇒ R ≤ T, so T > R is not certain.",
+        "P to S: ≥, >, = ⇒ P > S, i.e. S < P.",
+        "Q to S: >, = ⇒ Q > S, so Q = S is false."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Check every option with the path rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Follow the chain from the first letter of the conclusion to the second."
+        },
+        {
+          "level": 2,
+          "text": "If a sign on that path points the other way (> against <, or ≥ against ≤), there is no definite relation."
+        }
+      ],
+      "commonMistakes": [
+        "Selecting T > R: without a strict sign between R and T, only T ≥ R follows."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "reasoning-inequalities-q-022",
+      "topicId": "reasoning-inequalities",
+      "conceptId": "iq-direct",
+      "levelId": "reasoning-inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "single_choice",
+      "question": "Which pair of signs leaves no definite relation between X and Z?",
+      "context": "A chain reads X ? Y ? Z, with one sign between X and Y and another between Y and Z.",
+      "options": [
+        {
+          "id": "a",
+          "text": "≥ and >"
+        },
+        {
+          "id": "b",
+          "text": "= and <"
+        },
+        {
+          "id": "c",
+          "text": "> and ≤"
+        },
+        {
+          "id": "d",
+          "text": "≤ and <"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "X > Y ≤ Z: X is above Y, and Z is at least Y, so Z could be above, equal to or below X. In the other pairs both signs point the same way (or one is =), so a relation always follows.",
+      "solutionSteps": [
+        "≥ and >: X ≥ Y > Z ⇒ X > Z.",
+        "= and <: X = Y < Z ⇒ X < Z.",
+        "> and ≤: the signs point opposite ways ⇒ no relation.",
+        "≤ and <: X ≤ Y < Z ⇒ X < Z."
+      ],
+      "formulaIds": [
+        "iq-path-f"
+      ],
+      "method": "Opposite directions on a path mean no definite relation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rewrite each pair as a chain X ? Y ? Z."
+        },
+        {
+          "level": 2,
+          "text": "Which pair has one sign opening to the left and the other to the right?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing ≤ and <: two different signs, but they point the same way."
+      ],
+      "tags": [
+        "recognition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

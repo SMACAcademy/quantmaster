@@ -206,7 +206,7 @@ function heroSection({ progress, stats, streak, isNew }) {
       el('div.page-head__text', {}, [
         el('h1', { text: 'Welcome to QuantMaster' }),
         el('p', {
-          text: 'Learn quantitative aptitude the way it actually sticks: concept first, then formula recall, then method, then practice.'
+          text: 'Learn aptitude and reasoning the way it actually sticks: concept first, then formula recall, then method, then practice.'
         })
       ]),
       target
