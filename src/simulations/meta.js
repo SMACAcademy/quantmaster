@@ -459,8 +459,73 @@ export const SIMULATION_META = [
     title: 'The base method as an area',
     summary: 'Multiply two numbers near 100 by cutting strips off a 100 × 100 square, and see why the corner is added back.',
     taskIds: ['carry', 'mixed', 'square-above']
-  }
+  },
   // --- end of numberMethods.js ---
+  // --- moreTopics.js: simplification, approximation, counting, sets, caselets, radar, races, wages, quadratic comparison ---
+  {
+    id: 'bodmas-stack',
+    topicId: 'simplification',
+    title: 'The BODMAS stack',
+    summary: 'Collapse an expression one operation at a time, with the next one lit up. Switch to a common wrong order and watch a different answer appear.',
+    taskIds: ['collapse', 'mistake', 'bracket']
+  },
+  {
+    id: 'estimate-band',
+    topicId: 'approximation',
+    title: 'Round, estimate, check the band',
+    summary: 'Estimate 48.6 × 21.6 by rounding each number. The exact answer stays hidden; an error band shows how far off the estimate can be. Round one up and one down and the band shrinks.',
+    taskIds: ['cancel', 'both-up', 'pick']
+  },
+  {
+    id: 'choice-tree',
+    topicId: 'counting-principle',
+    title: 'A tree of choices: and multiplies, or adds',
+    summary: 'Grow a tree one layer per choice: every branch splits again, so "a shirt and trousers and shoes" multiplies. Switch to "or" and the branches sit side by side, so they add.',
+    taskIds: ['twenty-four', 'same', 'one-option']
+  },
+  {
+    id: 'set-elements',
+    topicId: 'set-theory',
+    title: 'Elements in sets, and the power set',
+    summary: 'Numbers from 1 to n drop into sets of multiples. Read the roster form, check n(A ∪ B) = n(A) + n(B) − n(A ∩ B), then watch the power set double with every new element.',
+    taskIds: ['disjoint', 'subset', 'all-three', 'sixteen']
+  },
+  {
+    id: 'caselet-table',
+    topicId: 'di-caselet',
+    title: 'From a paragraph to a table',
+    summary: 'Read a caselet one sentence at a time. Facts stated outright fill their cells as "given"; a cell whose inputs are all known fills itself as "derived". Leave a fact out and see what can never be found.',
+    taskIds: ['commerce', 'four-at-once', 'missing']
+  },
+  {
+    id: 'radar-or-bars',
+    topicId: 'di-mixed-radar',
+    title: 'Radar or bars: read values, not areas',
+    summary: 'The same two students\' marks drawn as a radar chart or as grouped bars. Reorder the spokes and the shapes change size while every mark stays the same.',
+    taskIds: ['asha-lead', 'ravi-lead', 'order']
+  },
+  {
+    id: 'race-track',
+    topicId: 'races',
+    title: 'A beats B by x metres',
+    summary: 'Two runners on a straight track. Set B\'s speed and head start, and read the margin at the moment the winner crosses the line, and the head start that makes it a dead heat.',
+    taskIds: ['beat-twenty', 'dead-heat', 'b-wins', 'double']
+  },
+  {
+    id: 'wage-split',
+    topicId: 'work-and-wages',
+    title: 'Wages follow the work, not the days',
+    summary: 'Two workers fill one progress bar in their own colours. The wage pile splits in the same colours: by the share of the job each did, not by the days each spent.',
+    taskIds: ['equal', 'double', 'leave']
+  },
+  {
+    id: 'compare-roots',
+    topicId: 'quadratic-comparison',
+    title: 'Compare x and y on two number lines',
+    summary: 'Set the coefficients of two quadratics and see their roots on two number lines. The answer badge follows: x > y, x < y, x ≥ y, x ≤ y, or no relation when the roots interleave.',
+    taskIds: ['less', 'shared', 'overlap']
+  }
+  // --- end of moreTopics.js ---
 ];
 
 const byId = new Map(SIMULATION_META.map((meta) => [meta.id, meta]));

@@ -146,6 +146,10 @@
             "body": "\"The remaining\" always means the total minus everything already accounted for — check you have subtracted every earlier group."
           },
           {
+            "type": "simulation",
+            "simulationId": "caselet-table"
+          },
+          {
             "type": "check",
             "questionId": "di-caselet-q-003"
           }
