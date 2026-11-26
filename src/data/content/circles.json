@@ -49,6 +49,27 @@
       "name": "Segments",
       "description": "A chord cuts a circle into a minor and a major segment. Minor segment = sector − triangle (½r² sin θ); major segment = circle − minor segment.",
       "sortOrder": 7
+    },
+    {
+      "id": "cir-adv-common-tangents",
+      "topicId": "circles",
+      "name": "Common tangents of two circles",
+      "description": "A direct common tangent has both circles on one side: length √(d² − (r₁ − r₂)²). A transverse one passes between them: √(d² − (r₁ + r₂)²). DCT² − TCT² = 4r₁r₂, two circles touching each other and a line touch it 2√(r₁r₂) apart, and the tangents cross the line of centres in the ratio r₁ : r₂.",
+      "sortOrder": 8
+    },
+    {
+      "id": "cir-adv-positions",
+      "topicId": "circles",
+      "name": "Positions of two circles",
+      "description": "Comparing the distance d between the centres with r₁ + r₂ and |r₁ − r₂| tells whether two circles are apart (4 common tangents), touch outside (3), cut each other (2), touch inside (1) or one lies inside the other (0).",
+      "sortOrder": 9
+    },
+    {
+      "id": "cir-adv-tangent-secant",
+      "topicId": "circles",
+      "name": "Tangent and secant",
+      "description": "From a point outside a circle, the tangent squared equals the product of the two lengths along a secant: PT² = PA × PB.",
+      "sortOrder": 10
     }
   ],
   "formulas": [
@@ -223,6 +244,132 @@
       "applicationPrompt": "A chord subtends 120° at the centre of a circle of radius 7 cm. Find the minor segment (π = 22/7).",
       "tags": [
         "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "cir-adv-common-tangent-f",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "title": "Direct and transverse common tangents",
+      "prompt": "Two circles of radii r₁ and r₂ have their centres d apart. How long are their direct and transverse common tangents?",
+      "formula": "Direct = √(d² − (r₁ − r₂)²)\nTransverse = √(d² − (r₁ + r₂)²)",
+      "variables": [
+        {
+          "symbol": "d",
+          "meaning": "the distance between the centres"
+        },
+        {
+          "symbol": "r₁, r₂",
+          "meaning": "the radii"
+        }
+      ],
+      "explanation": "Slide the tangent across to the smaller circle’s centre: it makes a right triangle with hypotenuse d. The other leg is r₁ − r₂ for a direct tangent (both circles on one side) and r₁ + r₂ for a transverse one (crossing between them).",
+      "example": "Radii 7 cm and 1 cm, centres 10 cm apart: direct = √(100 − 36) = 8 cm, transverse = √(100 − 64) = 6 cm.",
+      "commonMistake": "Swapping them: the direct tangent uses the difference r₁ − r₂, the transverse one the sum r₁ + r₂.",
+      "applicationPrompt": "Circles of radii 9 cm and 3 cm have their centres 10 cm apart. Find their direct common tangent.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-adv-positions-f",
+      "topicId": "circles",
+      "conceptId": "cir-adv-positions",
+      "title": "Number of common tangents",
+      "prompt": "How does the distance between the centres decide how many common tangents two circles have?",
+      "formula": "d > r₁ + r₂: 4 (apart)\nd = r₁ + r₂: 3 (touch outside)\n|r₁ − r₂| < d < r₁ + r₂: 2 (cut)\nd = |r₁ − r₂|: 1 (touch inside)\nd < |r₁ − r₂|: 0 (one inside the other)",
+      "variables": [],
+      "explanation": "The two transverse tangents need room to pass between the circles: they merge into one when the circles touch outside and vanish once they cut. The two direct tangents merge when one circle touches the other from inside and vanish when it is wholly inside.",
+      "example": "Radii 7 and 4: d = 15 gives 4, d = 11 gives 3, d = 6 gives 2, d = 3 gives 1, d = 2 gives 0.",
+      "commonMistake": "Counting 2 for circles that touch outside: the tangent at the touch point makes 3.",
+      "applicationPrompt": "Circles of radii 6 cm and 4 cm have their centres 10 cm apart. How many common tangents do they have?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-adv-tangent-secant-f",
+      "topicId": "circles",
+      "conceptId": "cir-adv-tangent-secant",
+      "title": "Tangent and secant from one point",
+      "prompt": "From a point P outside a circle, a tangent touches it at T and a secant cuts it at A and B. How are PT, PA and PB related?",
+      "formula": "PT² = PA × PB",
+      "variables": [
+        {
+          "symbol": "PA",
+          "meaning": "from P to the nearer point where the secant cuts the circle"
+        },
+        {
+          "symbol": "PB",
+          "meaning": "from P to the farther point: the whole secant"
+        }
+      ],
+      "explanation": "Triangles PTA and PBT share the angle at P, and ∠PTA = ∠PBT (alternate segment), so they are similar: PT/PA = PB/PT. Inside the circle the same idea gives crossing chords, PA × PB = PC × PD.",
+      "example": "PA = 3 cm, AB = 9 cm: PB = 12 cm, PT² = 3 × 12 = 36, PT = 6 cm.",
+      "commonMistake": "Multiplying by the chord AB instead of the whole secant PB.",
+      "applicationPrompt": "The tangent from P is 10 cm and a secant from P first meets the circle 5 cm from P. How long is the whole secant PB?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-sc-dct-tct",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "kind": "shortcut",
+      "title": "Direct² − transverse² = 4r₁r₂",
+      "prompt": "You know one common tangent of two circles and both radii, but not the distance between the centres. How do you find the other tangent?",
+      "formula": "DCT² − TCT² = 4r₁r₂",
+      "variables": [],
+      "explanation": "(d² − (r₁ − r₂)²) − (d² − (r₁ + r₂)²): d² cancels, leaving (r₁ + r₂)² − (r₁ − r₂)² = 4r₁r₂.",
+      "example": "Radii 7 cm and 1 cm, direct tangent 8 cm: TCT² = 64 − 4 × 7 × 1 = 36, so the transverse tangent is 6 cm.",
+      "commonMistake": "Using 2r₁r₂, or adding 4r₁r₂ when finding the transverse tangent (it is the shorter one).",
+      "applicationPrompt": "Two circles have radii 8 cm and 2 cm and a direct common tangent of 10 cm. How long is the transverse one?",
+      "tags": [
+        "shortcut",
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "cir-sc-touching-line",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "kind": "shortcut",
+      "title": "Two touching circles on a line",
+      "prompt": "Two circles touch each other externally and both touch a straight line, at P and Q. How long is PQ?",
+      "formula": "PQ = 2√(r₁r₂)",
+      "variables": [],
+      "explanation": "PQ is a direct common tangent with d = r₁ + r₂, so PQ² = (r₁ + r₂)² − (r₁ − r₂)² = 4r₁r₂.",
+      "example": "Radii 16 cm and 4 cm: PQ = 2√64 = 16 cm.",
+      "commonMistake": "Giving √(r₁r₂), half the answer, or r₁ + r₂, the distance between the centres.",
+      "applicationPrompt": "Circles of radii 25 cm and 4 cm touch each other and a line. How far apart are the points where they touch the line?",
+      "tags": [
+        "shortcut",
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-sc-tangent-division",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "kind": "shortcut",
+      "title": "Where the common tangents cross AB",
+      "prompt": "Where do the common tangents of two circles cross the line AB joining their centres?",
+      "formula": "Transverse: AX : XB = r₁ : r₂ (inside AB)\nDirect: XA : XB = r₁ : r₂ (outside AB, beyond the smaller circle)",
+      "variables": [],
+      "explanation": "The radii to a tangent are parallel (both perpendicular to it), so the triangles they make with X are similar in the ratio r₁ : r₂.",
+      "example": "Radii 5 cm and 3 cm, AB = 24 cm: transverse tangents cross at AX = 24 × 5/8 = 15 cm; direct ones at XB = 24 × 3/2 = 36 cm beyond B.",
+      "commonMistake": "Splitting AB into r₁ + r₂ parts for the direct tangents: they divide it externally, so AB is r₁ − r₂ parts.",
+      "applicationPrompt": "Radii 9 cm and 3 cm, centres 24 cm apart. How far from A do the transverse common tangents cross AB?",
+      "tags": [
+        "shortcut",
+        "advanced"
       ],
       "difficulty": "complex"
     }
@@ -705,6 +852,682 @@
         "circles-cir-adv-q-006",
         "circles-cir-adv-q-007",
         "circles-cir-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    },
+    {
+      "id": "circles-level-8",
+      "topicId": "circles",
+      "order": 8,
+      "title": "Advanced: Two Circles and Common Tangents",
+      "description": "Direct and transverse common tangents, how many two circles have, circles touching a line, and the tangent–secant rule.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "circles-level-5"
+      ],
+      "conceptIds": [
+        "cir-adv-common-tangents",
+        "cir-adv-positions",
+        "cir-adv-tangent-secant"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Lines that touch two circles",
+            "body": "A line that touches both of two circles is a common tangent. A direct common tangent has both circles on the same side of it, like a belt round two pulleys. A transverse common tangent passes between them, like a belt crossed into a figure of eight. Each kind comes in a pair, one on each side of the line of centres AB."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "two-circle-tangents"
+          },
+          {
+            "type": "figure",
+            "title": "Why the direct tangent uses r₁ − r₂",
+            "body": "Draw BR parallel to the tangent PQ. Both radii meet PQ at right angles, so PQBR is a rectangle: BR = PQ and RP = BQ = r₂. That leaves AR = r₁ − r₂, and triangle ARB is right-angled at R with hypotenuse AB = d.",
+            "figure": {
+              "type": "diagram",
+              "caption": "Direct tangent PQ; BR is drawn parallel to it and the right triangle ARB is shaded",
+              "points": [
+                {
+                  "id": "A",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 13,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "P",
+                  "x": 2.15,
+                  "y": 6.66,
+                  "labelOffset": [
+                    2,
+                    -9
+                  ]
+                },
+                {
+                  "id": "Q",
+                  "x": 13.92,
+                  "y": 2.85,
+                  "labelOffset": [
+                    2,
+                    -9
+                  ]
+                },
+                {
+                  "id": "R",
+                  "x": 1.23,
+                  "y": 3.81,
+                  "labelOffset": [
+                    -16,
+                    4
+                  ]
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "circle",
+                  "center": "A",
+                  "radius": 7
+                },
+                {
+                  "type": "circle",
+                  "center": "B",
+                  "radius": 3
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "B",
+                  "style": "dashed",
+                  "labelOffset": [
+                    0,
+                    14
+                  ],
+                  "label": "d"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "Q",
+                  "labelOffset": [
+                    14,
+                    3
+                  ],
+                  "label": "r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "Q"
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "R",
+                  "labelOffset": [
+                    -29,
+                    -6
+                  ],
+                  "label": "r₁ − r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "R",
+                  "to": "P",
+                  "labelOffset": [
+                    -14,
+                    -3
+                  ],
+                  "label": "r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "R",
+                  "style": "dashed"
+                }
+              ],
+              "shaded": [
+                {
+                  "parts": [
+                    {
+                      "type": "polygon",
+                      "points": [
+                        "A",
+                        "R",
+                        "B"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "rightAngles": [
+                {
+                  "at": "P",
+                  "from": "A",
+                  "to": "Q"
+                },
+                {
+                  "at": "Q",
+                  "from": "B",
+                  "to": "P"
+                },
+                {
+                  "at": "R",
+                  "from": "A",
+                  "to": "B"
+                }
+              ],
+              "ariaSummary": "Two circles with centres A and B, d apart, and the direct common tangent PQ above them, with right angles at P and Q. BR is drawn parallel to PQ, meeting the radius AP at R, so RP = BQ = r₂ and AR = r₁ − r₂. The right triangle ARB, right-angled at R, is shaded."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Direct common tangent",
+            "body": "Direct = √(d² − (r₁ − r₂)²)",
+            "caption": "d is the distance between the centres. Both direct tangents have this length."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-cir-adv-q-009"
+          },
+          {
+            "type": "figure",
+            "title": "Why the transverse tangent uses r₁ + r₂",
+            "body": "For a transverse tangent, BR parallel to PQ meets the radius AP extended beyond P. Now PR = BQ = r₂ is added to r₁: AR = r₁ + r₂, and again triangle ARB is right-angled at R with hypotenuse d.",
+            "figure": {
+              "type": "diagram",
+              "caption": "Transverse tangent PQ; BR is drawn parallel to it, meeting AP extended, and the right triangle ARB is shaded",
+              "points": [
+                {
+                  "id": "A",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 15,
+                  "y": 0,
+                  "labelOffset": [
+                    6,
+                    -8
+                  ]
+                },
+                {
+                  "id": "P",
+                  "x": 4.67,
+                  "y": 5.22,
+                  "labelOffset": [
+                    7,
+                    -6
+                  ]
+                },
+                {
+                  "id": "Q",
+                  "x": 13,
+                  "y": -2.24,
+                  "labelOffset": [
+                    -14,
+                    14
+                  ]
+                },
+                {
+                  "id": "R",
+                  "x": 6.67,
+                  "y": 7.45,
+                  "labelOffset": [
+                    7,
+                    -6
+                  ]
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "circle",
+                  "center": "A",
+                  "radius": 7
+                },
+                {
+                  "type": "circle",
+                  "center": "B",
+                  "radius": 3
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "B",
+                  "style": "dashed",
+                  "labelOffset": [
+                    -24,
+                    14
+                  ],
+                  "label": "d"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "Q",
+                  "labelOffset": [
+                    11,
+                    7
+                  ],
+                  "label": "r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "Q"
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "P",
+                  "labelOffset": [
+                    -11,
+                    -7
+                  ],
+                  "label": "r₁"
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "R",
+                  "style": "dashed",
+                  "labelOffset": [
+                    -11,
+                    -7
+                  ],
+                  "label": "r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "R",
+                  "style": "dashed"
+                }
+              ],
+              "shaded": [
+                {
+                  "parts": [
+                    {
+                      "type": "polygon",
+                      "points": [
+                        "A",
+                        "R",
+                        "B"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "rightAngles": [
+                {
+                  "at": "P",
+                  "from": "A",
+                  "to": "Q"
+                },
+                {
+                  "at": "Q",
+                  "from": "B",
+                  "to": "P"
+                },
+                {
+                  "at": "R",
+                  "from": "A",
+                  "to": "B"
+                }
+              ],
+              "ariaSummary": "Two circles with centres A and B, d apart, and a transverse common tangent PQ crossing between them, with right angles at P and Q. BR is drawn parallel to PQ, meeting the radius AP extended beyond P at R, so PR = BQ = r₂ and AR = r₁ + r₂. The right triangle ARB, right-angled at R, is shaded."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Transverse common tangent",
+            "body": "Transverse = √(d² − (r₁ + r₂)²)\nDCT² − TCT² = 4r₁r₂",
+            "caption": "The transverse tangent is always the shorter one. Subtracting the squares cancels d, so either tangent gives the other without d."
+          },
+          {
+            "type": "example",
+            "title": "Both tangents at once",
+            "body": "Radii 7 cm and 1 cm, centres 10 cm apart. Direct = √(100 − 6²) = √64 = 8 cm. Transverse = √(100 − 8²) = √36 = 6 cm. Check: 8² − 6² = 28 = 4 × 7 × 1."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Direct (same side) uses the difference r₁ − r₂; transverse (crossing) uses the sum r₁ + r₂. Swapping them is the commonest slip, and the swapped answer is always among the options."
+          },
+          {
+            "type": "figure",
+            "title": "Two circles touching each other and a line",
+            "body": "PQ is a direct common tangent, and the circles touch, so d = r₁ + r₂. Then PQ² = (r₁ + r₂)² − (r₁ − r₂)² = 4r₁r₂, and PQ = 2√(r₁r₂).",
+            "figure": {
+              "type": "diagram",
+              "caption": "Two circles touching each other and a line at P and Q",
+              "points": [
+                {
+                  "id": "A",
+                  "x": 0,
+                  "y": 16,
+                  "labelOffset": [
+                    -4,
+                    -10
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 16,
+                  "y": 4,
+                  "labelOffset": [
+                    6,
+                    -8
+                  ]
+                },
+                {
+                  "id": "P",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "Q",
+                  "x": 16,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "L",
+                  "x": -7.2,
+                  "y": 0,
+                  "labelOffset": [
+                    0,
+                    0
+                  ],
+                  "hidden": true
+                },
+                {
+                  "id": "M",
+                  "x": 23.2,
+                  "y": 0,
+                  "labelOffset": [
+                    0,
+                    0
+                  ],
+                  "hidden": true
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "circle",
+                  "center": "A",
+                  "radius": 16
+                },
+                {
+                  "type": "circle",
+                  "center": "B",
+                  "radius": 4
+                },
+                {
+                  "type": "segment",
+                  "from": "L",
+                  "to": "M"
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "P",
+                  "style": "dashed",
+                  "label": "r₁"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "Q",
+                  "style": "dashed",
+                  "label": "r₂"
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "B",
+                  "style": "dashed"
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "Q",
+                  "labelOffset": [
+                    0,
+                    30
+                  ],
+                  "label": "2√(r₁r₂)"
+                }
+              ],
+              "rightAngles": [
+                {
+                  "at": "P",
+                  "from": "A",
+                  "to": "M"
+                },
+                {
+                  "at": "Q",
+                  "from": "B",
+                  "to": "L"
+                }
+              ],
+              "ariaSummary": "Two circles with centres A and B touch each other and both touch a straight line, at P and Q. The radii AP = r₁ and BQ = r₂ are dashed and perpendicular to the line; AB passes through the point where the circles touch. PQ is labelled 2√(r₁r₂)."
+            }
+          },
+          {
+            "type": "text",
+            "title": "How many common tangents?",
+            "body": "Move the circles together in the simulation and watch d against r₁ + r₂ and r₁ − r₂. Apart: 4 tangents. Touching outside: the two transverse tangents merge into one through the touch point, 3. Cutting each other: nothing can pass between them, 2. Touching inside: the two direct tangents merge, 1. One inside the other: 0."
+          },
+          {
+            "type": "formula",
+            "title": "Positions and common tangents",
+            "body": "d > r₁ + r₂: 4\nd = r₁ + r₂: 3 (touch outside)\n|r₁ − r₂| < d < r₁ + r₂: 2\nd = |r₁ − r₂|: 1 (touch inside)\nd < |r₁ − r₂|: 0",
+            "caption": "Circles with the same centre (d = 0) and different radii have none."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-cir-adv-q-010"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Two circles touch when d = r₁ + r₂ (from outside) or d = r₁ − r₂ (from inside). Counting only 2 tangents for circles that touch from outside forgets the one at the touch point."
+          },
+          {
+            "type": "text",
+            "title": "A tangent and a secant from one point",
+            "body": "From a point P outside a circle, draw the tangent PT and a line that cuts the circle at A and then B. Triangles PTA and PBT share the angle at P, and ∠PTA = ∠PBT (the alternate segment theorem), so they are similar: PT/PA = PB/PT. Inside a circle the same idea gives the crossing-chords rule, PA × PB = PC × PD."
+          },
+          {
+            "type": "figure",
+            "title": "Tangent PT and secant PAB",
+            "body": "PA runs from P to the nearer point A; PB is the whole secant, to the far point B.",
+            "figure": {
+              "type": "diagram",
+              "caption": "From P: the tangent PT and the secant PAB",
+              "points": [
+                {
+                  "id": "P",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -16,
+                    5
+                  ]
+                },
+                {
+                  "id": "A",
+                  "x": 3,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 12,
+                  "y": 0,
+                  "labelOffset": [
+                    4,
+                    18
+                  ]
+                },
+                {
+                  "id": "T",
+                  "x": 3.11,
+                  "y": 5.13,
+                  "labelOffset": [
+                    -17,
+                    -3
+                  ]
+                },
+                {
+                  "id": "O",
+                  "x": 7.5,
+                  "y": 2.48,
+                  "labelOffset": [
+                    4,
+                    16
+                  ],
+                  "hidden": true
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "circle",
+                  "center": "O",
+                  "radius": 5.14
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "A",
+                  "labelOffset": [
+                    0,
+                    14
+                  ]
+                },
+                {
+                  "type": "segment",
+                  "from": "A",
+                  "to": "B",
+                  "labelOffset": [
+                    0,
+                    14
+                  ]
+                },
+                {
+                  "type": "segment",
+                  "from": "P",
+                  "to": "T"
+                }
+              ],
+              "ariaSummary": "A circle with an outside point P. The tangent from P touches the circle at T. A straight line from P cuts the circle first at A, then at B."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Tangent–secant rule",
+            "body": "PT² = PA × PB",
+            "caption": "PB is the whole secant from P, not the chord AB."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-cir-adv-q-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "circles-level-9",
+      "topicId": "circles",
+      "order": 9,
+      "title": "Practice: Two Circles and Common Tangents",
+      "description": "Tangent lengths and the distance between centres, counting tangents, circles on a line, and tangent and secant.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "circles-level-8"
+      ],
+      "conceptIds": [
+        "cir-adv-common-tangents",
+        "cir-adv-positions",
+        "cir-adv-tangent-secant"
+      ],
+      "questionIds": [
+        "circles-cir-adv-q-012",
+        "circles-cir-adv-q-013",
+        "circles-cir-adv-q-014",
+        "circles-cir-adv-q-015",
+        "circles-cir-adv-q-016",
+        "circles-cir-adv-q-017"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "circles-level-10",
+      "topicId": "circles",
+      "order": 10,
+      "title": "Challenge: Two Circles and Common Tangents",
+      "description": "DCT² − TCT² = 4r₁r₂, where the tangents cross the line of centres, secants through the centre, and touching circles.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "circles-level-9"
+      ],
+      "conceptIds": [
+        "cir-adv-common-tangents",
+        "cir-adv-positions",
+        "cir-adv-tangent-secant"
+      ],
+      "questionIds": [
+        "circles-cir-adv-q-018",
+        "circles-cir-adv-q-019",
+        "circles-cir-adv-q-020",
+        "circles-cir-adv-q-021",
+        "circles-cir-adv-q-022",
+        "circles-cir-adv-q-023"
       ],
       "passCriteria": {
         "minimumAccuracy": 70,
@@ -3336,6 +4159,1858 @@
         "advanced"
       ],
       "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-009",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-8",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Two circles of radii 8 cm and 3 cm have their centres 13 cm apart. What is the length of their direct common tangent?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circles with centres A and B, radii 8 cm and 3 cm, 13 cm apart; the direct common tangent PQ is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 13,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "P",
+            "x": 3.08,
+            "y": 7.38,
+            "labelOffset": [
+              3,
+              -9
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 14.15,
+            "y": 2.77,
+            "labelOffset": [
+              3,
+              -9
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 8
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 3
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "13 cm"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "Q",
+            "labelOffset": [
+              19,
+              5
+            ],
+            "label": "3 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q",
+            "label": "?"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "P",
+            "labelOffset": [
+              -19,
+              -5
+            ],
+            "label": "8 cm"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "P",
+            "from": "A",
+            "to": "Q"
+          },
+          {
+            "at": "Q",
+            "from": "B",
+            "to": "P"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A and B, 13 cm apart, radii AP = 8 cm and BQ = 3 cm. The direct common tangent PQ runs above both circles and is marked with a question mark. Both radii meet it at right angles."
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Both circles lie on the same side of PQ, so it is a direct tangent and uses the difference of the radii: r₁ − r₂ = 5. Length = √(13² − 5²) = √(169 − 25) = √144 = 12 cm.",
+      "solutionSteps": [
+        "Direct tangent = √(d² − (r₁ − r₂)²).",
+        "r₁ − r₂ = 8 − 3 = 5.",
+        "13² − 5² = 169 − 25 = 144.",
+        "√144 = 12 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "Direct common tangent = √(d² − (r₁ − r₂)²).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is PQ a direct or a transverse tangent? Are both circles on the same side of it?"
+        },
+        {
+          "level": 2,
+          "text": "Direct: √(d² − (r₁ − r₂)²)."
+        },
+        {
+          "level": 3,
+          "text": "r₁ − r₂ = 5, so work out 13² − 5²."
+        }
+      ],
+      "commonMistakes": [
+        "Using r₁ + r₂ = 11, which gives the transverse tangent, √48 = 4√3 cm.",
+        "Subtracting the lengths: 13 − 5 = 8."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-010",
+      "topicId": "circles",
+      "conceptId": "cir-adv-positions",
+      "levelId": "circles-level-8",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Two circles of radii 5 cm and 3 cm have their centres 8 cm apart. How many common tangents can be drawn to them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "d = 8 = 5 + 3 = r₁ + r₂, so the circles touch externally. They have two direct tangents, and the two transverse tangents have merged into the single tangent at the touch point: 3 in all.",
+      "solutionSteps": [
+        "r₁ + r₂ = 8 = d.",
+        "The circles touch externally.",
+        "Two direct tangents + one tangent at the touch point = 3."
+      ],
+      "formulaIds": [
+        "cir-adv-positions-f"
+      ],
+      "method": "Compare d with r₁ + r₂ and r₁ − r₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare d with r₁ + r₂."
+        },
+        {
+          "level": 2,
+          "text": "d = r₁ + r₂ means the circles touch from outside."
+        },
+        {
+          "level": 3,
+          "text": "Count the direct tangents, then the tangent at the touch point."
+        }
+      ],
+      "commonMistakes": [
+        "Counting 2 tangents for touching circles, forgetting the one at the touch point.",
+        "Counting 4, as if the circles were apart."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-011",
+      "topicId": "circles",
+      "conceptId": "cir-adv-tangent-secant",
+      "levelId": "circles-level-8",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "From a point P outside a circle, PT is a tangent touching the circle at T, and a straight line through P cuts the circle at A and B, with PA = 4 cm and AB = 5 cm. What is the length of PT?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Tangent PT and secant PAB from P; PA = 4 cm and AB = 5 cm",
+        "points": [
+          {
+            "id": "P",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -16,
+              5
+            ]
+          },
+          {
+            "id": "A",
+            "x": 4,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 9,
+            "y": 0,
+            "labelOffset": [
+              4,
+              18
+            ]
+          },
+          {
+            "id": "T",
+            "x": 4.77,
+            "y": 3.64,
+            "labelOffset": [
+              -13,
+              -7
+            ]
+          },
+          {
+            "id": "O",
+            "x": 6.5,
+            "y": 1.38,
+            "labelOffset": [
+              4,
+              16
+            ],
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 2.85
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "4 cm"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "5 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "T",
+            "label": "?"
+          }
+        ],
+        "ariaSummary": "A circle with an outside point P. The tangent from P touches the circle at T; a straight line from P cuts the circle first at A, then at B. PA = 4 cm, AB = 5 cm, and PT is marked with a question mark."
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "PT² = PA × PB, where PB is the whole secant: PB = 4 + 5 = 9 cm. PT² = 4 × 9 = 36, so PT = 6 cm.",
+      "solutionSteps": [
+        "PB = PA + AB = 4 + 5 = 9 cm.",
+        "PT² = PA × PB = 4 × 9 = 36.",
+        "PT = 6 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-tangent-secant-f"
+      ],
+      "method": "Tangent–secant theorem: PT² = PA × PB.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A tangent and a secant from the same point: which theorem links them?"
+        },
+        {
+          "level": 2,
+          "text": "PT² = PA × PB, with PB the whole secant."
+        },
+        {
+          "level": 3,
+          "text": "PB = 4 + 5 = 9."
+        }
+      ],
+      "commonMistakes": [
+        "Using the chord: PT² = 4 × 5 = 20.",
+        "Forgetting the square root and giving 36."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-012",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two circles of radii 11 cm and 4 cm have their centres 25 cm apart. What is the length of their transverse common tangent?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circles with centres A and B, radii 11 cm and 4 cm, 25 cm apart; the transverse common tangent PQ is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 25,
+            "y": 0,
+            "labelOffset": [
+              6,
+              -8
+            ]
+          },
+          {
+            "id": "P",
+            "x": 6.6,
+            "y": 8.8,
+            "labelOffset": [
+              6,
+              -7
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 22.6,
+            "y": -3.2,
+            "labelOffset": [
+              -13,
+              15
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 11
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 4
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed",
+            "labelOffset": [
+              -24,
+              14
+            ],
+            "label": "25 cm"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "Q",
+            "labelOffset": [
+              17,
+              7
+            ],
+            "label": "4 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q",
+            "label": "?"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "P",
+            "labelOffset": [
+              -19,
+              -9
+            ],
+            "label": "11 cm"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "P",
+            "from": "A",
+            "to": "Q"
+          },
+          {
+            "at": "Q",
+            "from": "B",
+            "to": "P"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A and B, 25 cm apart, radii AP = 11 cm and BQ = 4 cm. The transverse common tangent PQ crosses between the circles and is marked with a question mark. Both radii meet it at right angles."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "24 cm"
+        },
+        {
+          "id": "b",
+          "text": "20 cm"
+        },
+        {
+          "id": "c",
+          "text": "10 cm"
+        },
+        {
+          "id": "d",
+          "text": "5√34 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A transverse tangent passes between the circles and uses the sum of the radii: r₁ + r₂ = 15. Length = √(25² − 15²) = √(625 − 225) = √400 = 20 cm.",
+      "solutionSteps": [
+        "Transverse tangent = √(d² − (r₁ + r₂)²).",
+        "r₁ + r₂ = 15.",
+        "625 − 225 = 400.",
+        "√400 = 20 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "Transverse common tangent = √(d² − (r₁ + r₂)²).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does the tangent pass between the circles? Then it uses the sum of the radii."
+        },
+        {
+          "level": 2,
+          "text": "Transverse: √(d² − (r₁ + r₂)²)."
+        },
+        {
+          "level": 3,
+          "text": "25² − 15² = 625 − 225."
+        }
+      ],
+      "commonMistakes": [
+        "Using r₁ − r₂ = 7, which gives the direct tangent, 24 cm.",
+        "Subtracting the lengths: 25 − 15 = 10 cm. Adding the squares: √(625 + 225) = 5√34 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-013",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The direct common tangent of two circles of radii 10 cm and 3 cm is 24 cm long. What is the distance between their centres, in cm?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circles with radii 10 cm and 3 cm and a direct common tangent PQ of 24 cm; the distance AB between the centres is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 25,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "P",
+            "x": 2.8,
+            "y": 9.6,
+            "labelOffset": [
+              2,
+              -9
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 25.84,
+            "y": 2.88,
+            "labelOffset": [
+              2,
+              -9
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 10
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 3
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "?"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "Q",
+            "labelOffset": [
+              20,
+              3
+            ],
+            "label": "3 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q",
+            "label": "24 cm"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "P",
+            "labelOffset": [
+              -23,
+              -4
+            ],
+            "label": "10 cm"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "P",
+            "from": "A",
+            "to": "Q"
+          },
+          {
+            "at": "Q",
+            "from": "B",
+            "to": "P"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A and B and radii AP = 10 cm and BQ = 3 cm. Their direct common tangent PQ is 24 cm long, with right angles at P and Q. The dashed line AB between the centres is marked with a question mark."
+      },
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Direct tangent² = d² − (r₁ − r₂)², so d² = 24² + (10 − 3)² = 576 + 49 = 625 and d = 25 cm. Triangle ARB, with BR = PQ = 24 and AR = r₁ − r₂ = 7, has AB as its hypotenuse.",
+      "solutionSteps": [
+        "24² = d² − 7².",
+        "d² = 576 + 49 = 625.",
+        "d = 25 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "d = √(t² + (r₁ − r₂)²).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A direct tangent uses r₁ − r₂."
+        },
+        {
+          "level": 2,
+          "text": "The tangent and r₁ − r₂ are the two shorter sides of a right triangle; d is the hypotenuse."
+        },
+        {
+          "level": 3,
+          "text": "d² = 24² + 7²."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the square: √(576 − 49) = √527.",
+        "Using r₁ + r₂ = 13: √(576 + 169) = √745. Adding the lengths: 24 + 7 = 31."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-014",
+      "topicId": "circles",
+      "conceptId": "cir-adv-positions",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "match_following",
+      "question": "Two circles have radii 5 cm and 3 cm. Match each distance d between their centres with the number of common tangents.",
+      "pairs": [
+        {
+          "left": "d = 10 cm",
+          "right": "4"
+        },
+        {
+          "left": "d = 8 cm",
+          "right": "3"
+        },
+        {
+          "left": "d = 5 cm",
+          "right": "2"
+        },
+        {
+          "left": "d = 2 cm",
+          "right": "1"
+        },
+        {
+          "left": "d = 1 cm",
+          "right": "0"
+        }
+      ],
+      "explanation": "r₁ + r₂ = 8 and r₁ − r₂ = 2. d = 10 > 8: apart, 4. d = 8: touching outside, 3. d = 5 lies between 2 and 8: cutting, 2. d = 2: touching inside, 1. d = 1 < 2: one inside the other, 0.",
+      "solutionSteps": [
+        "r₁ + r₂ = 8; r₁ − r₂ = 2.",
+        "d = 10 → 4; d = 8 → 3.",
+        "d = 5 → 2; d = 2 → 1; d = 1 → 0."
+      ],
+      "formulaIds": [
+        "cir-adv-positions-f"
+      ],
+      "method": "Compare d with r₁ + r₂ = 8 and r₁ − r₂ = 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out r₁ + r₂ and r₁ − r₂ first."
+        },
+        {
+          "level": 2,
+          "text": "d equal to either of them means the circles touch."
+        },
+        {
+          "level": 3,
+          "text": "Touching outside: 3; touching inside: 1."
+        }
+      ],
+      "commonMistakes": [
+        "Giving touching circles 2 tangents.",
+        "Mixing up touching outside (d = r₁ + r₂) with touching inside (d = r₁ − r₂)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-015",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two circles of radii 9 cm and 4 cm touch each other externally. Both also touch a straight line, at P and Q. What is the length PQ?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two circles touching each other and a line at P and Q, radii 9 cm and 4 cm; PQ is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 9,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 12,
+            "y": 4,
+            "labelOffset": [
+              6,
+              -8
+            ]
+          },
+          {
+            "id": "P",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "L",
+            "x": -4.05,
+            "y": 0,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "hidden": true
+          },
+          {
+            "id": "M",
+            "x": 16.05,
+            "y": 0,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 9
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 4
+          },
+          {
+            "type": "segment",
+            "from": "L",
+            "to": "M"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "P",
+            "style": "dashed",
+            "label": "9 cm"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "Q",
+            "style": "dashed",
+            "label": "4 cm"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q",
+            "labelOffset": [
+              0,
+              30
+            ],
+            "label": "?"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "P",
+            "from": "A",
+            "to": "M"
+          },
+          {
+            "at": "Q",
+            "from": "B",
+            "to": "L"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A and B touch each other and both touch a straight line, at P and Q. The radii AP = 9 cm and BQ = 4 cm are dashed and perpendicular to the line; AB passes through the point where the circles touch. PQ is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "12 cm"
+        },
+        {
+          "id": "b",
+          "text": "13 cm"
+        },
+        {
+          "id": "c",
+          "text": "6 cm"
+        },
+        {
+          "id": "d",
+          "text": "5 cm"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "PQ is a direct common tangent of two touching circles, so d = r₁ + r₂ = 13. PQ² = 13² − (9 − 4)² = 169 − 25 = 144, PQ = 12 cm. The shortcut: PQ = 2√(r₁r₂) = 2√36 = 12 cm.",
+      "solutionSteps": [
+        "The circles touch: AB = 9 + 4 = 13 cm.",
+        "PQ² = 13² − 5² = 144.",
+        "PQ = 12 cm (= 2√(9 × 4))."
+      ],
+      "formulaIds": [
+        "cir-sc-touching-line",
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "Touching circles on a line: PQ = 2√(r₁r₂).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "PQ is a direct common tangent. How far apart are the centres of touching circles?"
+        },
+        {
+          "level": 2,
+          "text": "AB = r₁ + r₂ = 13; the direct tangent uses r₁ − r₂ = 5."
+        },
+        {
+          "level": 3,
+          "text": "Or use the shortcut 2√(r₁r₂)."
+        }
+      ],
+      "commonMistakes": [
+        "Giving AB = 13 cm, the distance between the centres.",
+        "Forgetting the 2: √(9 × 4) = 6 cm. Using r₁ − r₂ = 5 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-016",
+      "topicId": "circles",
+      "conceptId": "cir-adv-tangent-secant",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "From a point P, a tangent PT to a circle is 12 cm long. A straight line through P cuts the circle at A and B, with PA = 8 cm. What is the length of the chord AB, in cm?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Tangent PT = 12 cm and secant PAB from P with PA = 8 cm; the chord AB is asked",
+        "points": [
+          {
+            "id": "P",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -16,
+              5
+            ]
+          },
+          {
+            "id": "A",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 18,
+            "y": 0,
+            "labelOffset": [
+              4,
+              18
+            ]
+          },
+          {
+            "id": "T",
+            "x": 9.54,
+            "y": 7.28,
+            "labelOffset": [
+              -13,
+              -7
+            ]
+          },
+          {
+            "id": "O",
+            "x": 13,
+            "y": 2.75,
+            "labelOffset": [
+              4,
+              16
+            ],
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5.71
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "8 cm"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "?"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "T",
+            "label": "12 cm"
+          }
+        ],
+        "ariaSummary": "A circle with an outside point P. The tangent PT is 12 cm long; a straight line from P cuts the circle first at A, 8 cm from P, then at B. The chord AB is marked with a question mark."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "PT² = PA × PB: 144 = 8 × PB, so PB = 18 cm. The chord is the part of the secant inside the circle: AB = PB − PA = 18 − 8 = 10 cm.",
+      "solutionSteps": [
+        "PT² = PA × PB.",
+        "144 = 8 × PB, so PB = 18.",
+        "AB = 18 − 8 = 10 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-tangent-secant-f"
+      ],
+      "method": "Find the whole secant PB from PT² = PA × PB, then subtract PA.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the tangent–secant theorem."
+        },
+        {
+          "level": 2,
+          "text": "PT² = PA × PB gives the whole secant PB."
+        },
+        {
+          "level": 3,
+          "text": "The chord is PB − PA."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at PB = 18 cm, the whole secant.",
+        "Using PT² = PA × AB, which gives AB = 18."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-017",
+      "topicId": "circles",
+      "conceptId": "cir-adv-positions",
+      "levelId": "circles-level-9",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two circles have radii 10 cm and 6 cm, and their centres are 4 cm apart. Which describes them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They cut each other at two points; 2 common tangents"
+        },
+        {
+          "id": "b",
+          "text": "They touch internally; 1 common tangent"
+        },
+        {
+          "id": "c",
+          "text": "One lies inside the other without touching; 0 common tangents"
+        },
+        {
+          "id": "d",
+          "text": "They touch externally; 3 common tangents"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "r₁ − r₂ = 10 − 6 = 4 = d, so the smaller circle touches the larger one from inside. The only line touching both is the tangent at the touch point: 1 common tangent.",
+      "solutionSteps": [
+        "r₁ + r₂ = 16; r₁ − r₂ = 4.",
+        "d = 4 = r₁ − r₂.",
+        "Touching internally: 1 common tangent."
+      ],
+      "formulaIds": [
+        "cir-adv-positions-f"
+      ],
+      "method": "Compare d with r₁ + r₂ and r₁ − r₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare d with both r₁ + r₂ and r₁ − r₂, not just one of them."
+        },
+        {
+          "level": 2,
+          "text": "r₁ − r₂ = 4."
+        },
+        {
+          "level": 3,
+          "text": "d = r₁ − r₂ means the circles touch from inside."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing d only with r₁ + r₂: 4 < 16 suggests \"cutting\", but d also equals r₁ − r₂.",
+        "Taking any small d as \"one inside the other\"."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-018",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The direct common tangent of two circles is 15 cm long and their transverse common tangent is 9 cm long. What is the product of their radii?",
+      "options": [
+        {
+          "id": "a",
+          "text": "144 cm²"
+        },
+        {
+          "id": "b",
+          "text": "36 cm²"
+        },
+        {
+          "id": "c",
+          "text": "72 cm²"
+        },
+        {
+          "id": "d",
+          "text": "6 cm²"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "DCT² = d² − (r₁ − r₂)² and TCT² = d² − (r₁ + r₂)². Subtracting, d² cancels: DCT² − TCT² = (r₁ + r₂)² − (r₁ − r₂)² = 4r₁r₂. So 4r₁r₂ = 225 − 81 = 144 and r₁r₂ = 36 cm². (Radii 9 cm and 4 cm with d = √250 is one such pair.)",
+      "solutionSteps": [
+        "DCT² − TCT² = 4r₁r₂.",
+        "15² − 9² = 225 − 81 = 144.",
+        "r₁r₂ = 144 ÷ 4 = 36."
+      ],
+      "formulaIds": [
+        "cir-sc-dct-tct"
+      ],
+      "method": "DCT² − TCT² = 4r₁r₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write both tangent lengths as formulas: what do they have in common?"
+        },
+        {
+          "level": 2,
+          "text": "Subtract their squares: d² cancels."
+        },
+        {
+          "level": 3,
+          "text": "(r₁ + r₂)² − (r₁ − r₂)² = 4r₁r₂."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by 4: 144 cm².",
+        "Dividing by 2: 72 cm². Subtracting the lengths: 15 − 9 = 6."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-019",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two circles have centres A and B, 20 cm apart, and radii 6 cm and 4 cm. A transverse common tangent crosses AB at X. What is AX?",
+      "figure": {
+        "type": "diagram",
+        "caption": "The two transverse common tangents cross AB at X; AX is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 20,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "X",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              22
+            ]
+          },
+          {
+            "id": "P1",
+            "x": 3,
+            "y": 5.2,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "Q1",
+            "x": 18,
+            "y": -3.46,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "P2",
+            "x": 3,
+            "y": -5.2,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "Q2",
+            "x": 18,
+            "y": 3.46,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 6
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 4
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "X",
+            "style": "dashed",
+            "label": "AX = ?",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "X",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "P1",
+            "to": "Q1"
+          },
+          {
+            "type": "segment",
+            "from": "P2",
+            "to": "Q2"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A (radius 6 cm) and B (radius 4 cm), 20 cm apart. Both transverse common tangents are drawn and cross the line of centres at X, between the circles. The distance AX is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "8 cm"
+        },
+        {
+          "id": "b",
+          "text": "10 cm"
+        },
+        {
+          "id": "c",
+          "text": "12 cm"
+        },
+        {
+          "id": "d",
+          "text": "60 cm"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The radii AP and BQ are both perpendicular to the tangent, so triangles APX and BQX are similar: AX : XB = 6 : 4. X divides AB internally in the ratio of the radii: AX = 20 × 6/10 = 12 cm.",
+      "solutionSteps": [
+        "AX : XB = r₁ : r₂ = 6 : 4.",
+        "AX + XB = 20, so one part = 20 ÷ 10 = 2.",
+        "AX = 6 × 2 = 12 cm."
+      ],
+      "formulaIds": [
+        "cir-sc-tangent-division"
+      ],
+      "method": "Transverse tangents divide AB internally in r₁ : r₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the right triangles AXP and BXQ. Why are they similar?"
+        },
+        {
+          "level": 2,
+          "text": "AX : XB = 6 : 4."
+        },
+        {
+          "level": 3,
+          "text": "Split 20 cm in the ratio 6 : 4."
+        }
+      ],
+      "commonMistakes": [
+        "Putting the ratio upside down: 8 cm is XB.",
+        "Taking the midpoint, 10 cm. Dividing externally (that is for the direct tangents): 20 × 6/2 = 60 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-020",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two circles of radii 17 cm and 7 cm have a transverse common tangent 10 cm long. How long is their direct common tangent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "26 cm"
+        },
+        {
+          "id": "b",
+          "text": "20 cm"
+        },
+        {
+          "id": "c",
+          "text": "34 cm"
+        },
+        {
+          "id": "d",
+          "text": "24 cm"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "DCT² − TCT² = 4r₁r₂ = 4 × 17 × 7 = 476, whatever d is. DCT² = 10² + 476 = 576, so DCT = 24 cm. (Check through d: d² = 10² + 24² = 676, d = 26; DCT² = 676 − 10² = 576.)",
+      "solutionSteps": [
+        "DCT² = TCT² + 4r₁r₂.",
+        "4 × 17 × 7 = 476.",
+        "DCT² = 100 + 476 = 576, so DCT = 24 cm."
+      ],
+      "formulaIds": [
+        "cir-sc-dct-tct",
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "DCT² − TCT² = 4r₁r₂ (or find d first).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The distance between the centres is not given. Is there a link between the two tangents that does not need it?"
+        },
+        {
+          "level": 2,
+          "text": "DCT² − TCT² = 4r₁r₂."
+        },
+        {
+          "level": 3,
+          "text": "4 × 17 × 7 = 476."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at d = 26 cm, the distance between the centres.",
+        "Adding r₁ − r₂ = 10 to the tangent: 20 cm. Adding r₁ + r₂ = 24 to the tangent: 34 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-021",
+      "topicId": "circles",
+      "conceptId": "cir-adv-tangent-secant",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "From a point P, a tangent PT to a circle is 6 cm long. The line from P through the centre O cuts the circle at A and B, with PA = 4 cm. What is the radius of the circle?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Tangent PT = 6 cm and the line PAB through the centre O, with PA = 4 cm; the radius is asked",
+        "points": [
+          {
+            "id": "P",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -16,
+              5
+            ]
+          },
+          {
+            "id": "A",
+            "x": 4,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              16
+            ]
+          },
+          {
+            "id": "B",
+            "x": 9,
+            "y": 0,
+            "labelOffset": [
+              4,
+              18
+            ]
+          },
+          {
+            "id": "T",
+            "x": 5.54,
+            "y": 2.31,
+            "labelOffset": [
+              -10,
+              -9
+            ]
+          },
+          {
+            "id": "O",
+            "x": 6.5,
+            "y": 0,
+            "labelOffset": [
+              4,
+              16
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 2.5
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A",
+            "labelOffset": [
+              0,
+              14
+            ],
+            "label": "4 cm"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "T",
+            "label": "6 cm"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "T",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "T",
+            "from": "O",
+            "to": "P"
+          }
+        ],
+        "ariaSummary": "A circle with centre O and an outside point P. The tangent PT is 6 cm long, with the radius OT dashed and at right angles to it. The line from P through O cuts the circle at A, 4 cm from P, and at B on the far side."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "5 cm"
+        },
+        {
+          "id": "b",
+          "text": "2.5 cm"
+        },
+        {
+          "id": "c",
+          "text": "9 cm"
+        },
+        {
+          "id": "d",
+          "text": "4.5 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "PT² = PA × PB: 36 = 4 × PB, so PB = 9 cm. The line passes through the centre, so AB = 9 − 4 = 5 cm is a diameter and the radius is 2.5 cm. Check: OP = 4 + 2.5 = 6.5, and 6.5² − 2.5² = 36 = PT².",
+      "solutionSteps": [
+        "PT² = PA × PB: 36 = 4 × PB, PB = 9.",
+        "AB = PB − PA = 5 cm, a diameter.",
+        "r = 5 ÷ 2 = 2.5 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-tangent-secant-f"
+      ],
+      "method": "Tangent–secant theorem, then the chord through the centre is a diameter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A secant through the centre: what is the chord AB then?"
+        },
+        {
+          "level": 2,
+          "text": "PT² = PA × PB gives PB."
+        },
+        {
+          "level": 3,
+          "text": "AB = PB − PA is the diameter."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the diameter, 5 cm.",
+        "Giving PB = 9 cm. Halving PB: 4.5 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-022",
+      "topicId": "circles",
+      "conceptId": "cir-adv-positions",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "statement_evaluation",
+      "question": "Two circles of radii 8 cm and 2 cm have their centres 10 cm apart. They have exactly two common tangents, each 8 cm long.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "d = 10 = 8 + 2, so the circles touch externally and have 3 common tangents, not 2. The two direct tangents are √(10² − 6²) = 8 cm long; the third, transverse, tangent is the line through the touch point (length √(10² − 10²) = 0).",
+      "solutionSteps": [
+        "r₁ + r₂ = 10 = d: the circles touch externally.",
+        "That gives 3 common tangents.",
+        "Two direct ones of 8 cm, plus the tangent at the touch point: false."
+      ],
+      "formulaIds": [
+        "cir-adv-positions-f",
+        "cir-adv-common-tangent-f"
+      ],
+      "method": "Find the position first, then the lengths.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare d with r₁ + r₂ before working out any lengths."
+        },
+        {
+          "level": 2,
+          "text": "d = r₁ + r₂: the circles touch from outside."
+        },
+        {
+          "level": 3,
+          "text": "How many tangents do externally touching circles have?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the two 8 cm direct tangents and missing the tangent at the touch point."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-023",
+      "topicId": "circles",
+      "conceptId": "cir-adv-common-tangents",
+      "levelId": "circles-level-10",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two circles with centres A and B, 20 cm apart, have radii 7 cm and 3 cm. Their direct common tangents meet the line AB, extended beyond B, at X. What is BX?",
+      "figure": {
+        "type": "diagram",
+        "caption": "The two direct common tangents meet AB extended at X, beyond the smaller circle; BX is asked",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "B",
+            "x": 20,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "X",
+            "x": 35,
+            "y": 0,
+            "labelOffset": [
+              6,
+              16
+            ]
+          },
+          {
+            "id": "P1",
+            "x": 1.4,
+            "y": 6.86,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "Q1",
+            "x": 20.6,
+            "y": 2.94,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "P2",
+            "x": 1.4,
+            "y": -6.86,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "Q2",
+            "x": 20.6,
+            "y": -2.94,
+            "labelOffset": [
+              0,
+              0
+            ],
+            "label": ""
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "A",
+            "radius": 7
+          },
+          {
+            "type": "circle",
+            "center": "B",
+            "radius": 3
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "X",
+            "style": "dashed",
+            "label": "BX = ?",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "P1",
+            "to": "X"
+          },
+          {
+            "type": "segment",
+            "from": "P2",
+            "to": "X"
+          }
+        ],
+        "ariaSummary": "Two circles with centres A (radius 7 cm) and B (radius 3 cm), 20 cm apart. Both direct common tangents are drawn and meet the line of centres, extended beyond B, at X. The distance BX is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "35 cm"
+        },
+        {
+          "id": "b",
+          "text": "15 cm"
+        },
+        {
+          "id": "c",
+          "text": "6 cm"
+        },
+        {
+          "id": "d",
+          "text": "10 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The radii to a direct tangent are parallel, so XA : XB = 7 : 3: X divides AB externally in the ratio of the radii. XA − XB = AB = 20 cm is 7 − 3 = 4 parts, so one part is 5 cm and BX = 3 × 5 = 15 cm (and AX = 35 cm).",
+      "solutionSteps": [
+        "XA : XB = 7 : 3, and XA − XB = 20.",
+        "One part = 20 ÷ 4 = 5.",
+        "BX = 3 × 5 = 15 cm."
+      ],
+      "formulaIds": [
+        "cir-sc-tangent-division"
+      ],
+      "method": "Direct tangents divide AB externally in r₁ : r₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which two right triangles at X are similar?"
+        },
+        {
+          "level": 2,
+          "text": "XA : XB = 7 : 3, with XA − XB = AB."
+        },
+        {
+          "level": 3,
+          "text": "AB is 7 − 3 = 4 parts."
+        }
+      ],
+      "commonMistakes": [
+        "Measuring from A: 35 cm.",
+        "Dividing internally (the transverse tangents): 20 × 3/10 = 6 cm. Taking the midpoint, 10 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
       "source": "original",
       "version": 1,
       "active": true

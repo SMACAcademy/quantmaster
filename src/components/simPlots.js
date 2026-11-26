@@ -173,12 +173,14 @@ function xyPlot(plot) {
     svgEl('g', { 'clip-path': `url(#${clipId})` }, [...fills, ...guides, ...lines, ...markers])
   ]);
 
+  // A series without a label (a baseline drawn only to close a fill) stays out of the legend.
+  const named = plot.series.filter((series) => series.label);
   const legend =
-    plot.series.length > 1
+    named.length > 1
       ? el(
           'ul.chart-legend',
           {},
-          plot.series.map((series) =>
+          named.map((series) =>
             el('li.chart-legend__item', {}, [el('span.chart-legend__swatch', { style: { background: tone(series.tone) } }), el('span', { text: series.label })])
           )
         )
@@ -614,7 +616,8 @@ function dotPlot(plot) {
 /**
  * Solids side by side at one shared scale, so their sizes compare truly:
  * `{ kind: 'solids', items: [{ label, caption, tone, parts }], summary }`
- * (each `parts` list as in a `figure.type: 'solid'`).
+ * (each `parts` list as in a `figure.type: 'solid'`). With `fit: true` the picture is only as
+ * tall as the solids need at that scale, so wide, low solids leave no empty band above.
  */
 function solidsPlot(plot) {
   const drawings = plot.items.map((item) => solidDrawing({ type: 'solid', parts: item.parts }));
@@ -627,11 +630,13 @@ function solidsPlot(plot) {
   const boxes = drawings.map(box);
   const cellW = W / plot.items.length;
   const top = 20;
-  const bottom = H - 56;
   const scale = Math.min(
     ...boxes.map((b) => (cellW - 40) / (b.maxX - b.minX || 1)),
-    ...boxes.map((b) => (bottom - top) / (b.maxY - b.minY || 1))
+    ...boxes.map((b) => (H - 56 - top) / (b.maxY - b.minY || 1))
   );
+  const tallest = Math.max(...boxes.map((b) => (b.maxY - b.minY) * scale));
+  const height = plot.fit ? Math.min(H, Math.max(170, Math.ceil(top + tallest + 56))) : H;
+  const bottom = height - 56;
   const children = drawings.flatMap((d, i) => {
     const b = boxes[i];
     const cx = cellW * i + cellW / 2;
@@ -642,11 +647,11 @@ function solidsPlot(plot) {
     return [
       ...d.fills.map((f) => svgEl('polygon', { points: pts(f), class: 'solid-face', style: { fill: tone(item.tone), fillOpacity: 0.18 } })),
       ...d.lines.map((l) => svgEl('polyline', { points: pts(l.pts), class: `solid-edge${l.dashed ? ' solid-edge--hidden' : ''}`, style: l.dashed ? {} : { stroke: tone(item.tone) } })),
-      svgEl('text', { x: cx, y: H - 32, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.label }),
-      item.caption ? svgEl('text', { x: cx, y: H - 14, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.caption }) : null
+      svgEl('text', { x: cx, y: height - 32, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.label }),
+      item.caption ? svgEl('text', { x: cx, y: height - 14, 'text-anchor': 'middle', class: 'sim-marker-label', text: item.caption }) : null
     ];
   });
-  return el('div.sim-figure', {}, [svgRoot(plot.summary, children)]);
+  return el('div.sim-figure', {}, [svgRoot(plot.summary, children, { height })]);
 }
 
 /**

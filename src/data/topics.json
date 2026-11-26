@@ -1273,6 +1273,23 @@
       "tags": []
     },
     {
+      "id": "grouped-data",
+      "name": "Grouped Data and Graphs",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Frequency tables and class marks, histograms, frequency polygons and ogives, and the mean, median and mode of grouped data (direct, assumed-mean and step-deviation methods).",
+      "whyItMatters": "CDS, NDA and SSC CGL Tier 2 set grouped frequency tables every year: the mean by step deviation, the median and mode classes, a missing frequency, or a value read off an ogive.",
+      "glyph": "▥",
+      "colorToken": "data",
+      "prerequisites": [
+        "mean-median-mode"
+      ],
+      "sortOrder": 77,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
       "id": "weighted-mean",
       "name": "Weighted Mean",
       "category": "data",
@@ -1284,7 +1301,7 @@
       "prerequisites": [
         "weighted-average"
       ],
-      "sortOrder": 77,
+      "sortOrder": 78,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1301,7 +1318,7 @@
       "prerequisites": [
         "mean-median-mode"
       ],
-      "sortOrder": 78,
+      "sortOrder": 79,
       "contentStatus": "seeded",
       "active": true,
       "tags": []
@@ -1316,7 +1333,7 @@
       "glyph": "🪑",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 79,
+      "sortOrder": 80,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1333,7 +1350,7 @@
       "glyph": "🧩",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 80,
+      "sortOrder": 81,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1352,7 +1369,7 @@
       "prerequisites": [
         "venn-diagrams"
       ],
-      "sortOrder": 81,
+      "sortOrder": 82,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1369,7 +1386,7 @@
       "glyph": "≷",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 82,
+      "sortOrder": 83,
       "contentStatus": "seeded",
       "active": true,
       "tags": [
@@ -1386,7 +1403,7 @@
       "glyph": "👪",
       "colorToken": "reasoning",
       "prerequisites": [],
-      "sortOrder": 83,
+      "sortOrder": 84,
       "contentStatus": "seeded",
       "active": true,
       "tags": [

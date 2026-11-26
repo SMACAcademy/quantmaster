@@ -26,6 +26,11 @@ import { geometrySims } from './geometry.js';
 import { numberMethodSims } from './numberMethods.js';
 import { moreTopicSims } from './moreTopics.js';
 import { reasoningSims } from './reasoning.js';
+import { reciprocalSims } from './reciprocals.js';
+import { trigWaveSims } from './trigWaves.js';
+import { frustumSims } from './frustums.js';
+import { twoCircleSims } from './twoCircles.js';
+import { groupedDataSims } from './groupedData.js';
 import { catTopicSims } from './catTopics.js';
 
 export const SIMULATIONS = [
@@ -76,6 +81,12 @@ export const SIMULATIONS = [
   ...moreTopicSims,
   // Logical reasoning (reasoning.js). Their meta.js entries keep this order.
   ...reasoningSims,
+  // Batch 4: x + 1/x, a sin θ + b cos θ, frustums, two circles, grouped data (one file each). Their meta.js entries keep this order.
+  ...reciprocalSims,
+  ...trigWaveSims,
+  ...frustumSims,
+  ...twoCircleSims,
+  ...groupedDataSims,
   // Modulus, polynomials, integer solutions and cryptarithms (catTopics.js). Their meta.js entries keep this order.
   ...catTopicSims
 ];

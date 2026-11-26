@@ -6,7 +6,7 @@ How a simulation is tied to a topic:
 
 - Each simulation in `src/simulations/index.js` (mirrored in `meta.js`) has an `id` and an owning `topicId`. The topic page and the Explore gallery list it through `simulationsForTopic(topicId)`.
 - A lesson shows it inline through a block `{ "type": "simulation", "simulationId": "..." }` in `src/data/content/<topicId>.json`. A lesson may embed a simulation owned by another topic ("borrowed").
-- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, which also gave races, work-and-wages and quadratic-comparison their own, 75 after batch 7a, 79 after batch 6). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
+- There were 47 simulations when this report was written (52 after batch 1, 57 after batch 3, 61 after batch 2, 70 after batch 5, which also gave races, work-and-wages and quadratic-comparison their own, 75 after batch 7a, 80 after batch 4, 84 after batch 6). 46 topics own at least one (HCF and LCM owns two). Percentages owns `successive-change`, but its lesson files (`src/data/levels/percentages.json`) do not embed it.
 
 Terms used below:
 
@@ -385,7 +385,7 @@ Each batch is 4 to 6 items. Highest value first: topics tested in the most exams
 **Batch 6 — New CAT and placement topics, and dedicated sims for borrowed topics**
 - Modulus (2.10), polynomials (2.11), integer solutions (2.12), cryptarithmetic (2.13).
 - Dedicated sims for races, work-and-wages and quadratic-comparison.
-- Done: the four topics, each with its own simulation (83 topics, 79 simulations). The three dedicated sims came with batch 5.
+- Done: the four topics, each with its own simulation (84 topics and 84 simulations once merged with batch 4). The three dedicated sims came with batch 5.
 
 **Batch 7 onward — Reasoning (only if the scope widens)**
 - 7a: seating arrangement, puzzles, syllogism, inequalities (reasoning), blood relations.

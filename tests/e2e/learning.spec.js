@@ -10,7 +10,7 @@ test('a new learner gets the welcome screen and every topic', async ({ page }) =
   await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
 
   await page.goto('/#/topics');
-  await expect(page.locator('.topic-card')).toHaveCount(83);
+  await expect(page.locator('.topic-card')).toHaveCount(84);
   await expect(page.locator('.topic-card.is-locked')).toHaveCount(0);
 
   await page.goto('/#/privacy');
@@ -91,7 +91,7 @@ test('quick sheets show every formula or shortcut with nothing else on the page'
   const errors = watchForErrors(page);
   await page.goto('/#/sheet?kind=formula');
   await expect(page.getByRole('heading', { name: 'Formula sheet', level: 1 })).toBeVisible();
-  await expect(page.locator('.sheet__topic')).toHaveCount(83);
+  await expect(page.locator('.sheet__topic')).toHaveCount(84);
   // Reading only: no navigation or XP, and no examples until asked for.
   await expect(page.locator('.sidebar')).toBeHidden();
   await expect(page.locator('.topbar')).toBeHidden();

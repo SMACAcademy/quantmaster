@@ -4,7 +4,7 @@
 
 ```
 src/data/
-  topics.json               the catalogue (all 83 topics)
+  topics.json               the catalogue (all 84 topics)
   achievements.json
   content/<topicId>.json    { topicId, concepts[], formulas[], levels[], questions[] }
   concepts/percentages.json   ┐
@@ -112,7 +112,7 @@ Clock figures: `{ type: "clock", hour: 3, minute: 40, hands: "both" }` draws a c
 
 Number-line figures: `{ type: "numberline", min: -5, max: 5, step?: 1, ranges: [{ from: -2, to: null, fromOpen: true }], points: [{ value: 3, label: "3", open?: false }] }`. A range is drawn as a band; `from: null` runs to −∞ and `to: null` to +∞; open ends are hollow dots, closed ends filled.
 
-Solid figures (3D): `{ type: "solid", parts: [{ shape: "cylinder", r: 7, h: 10, labels: { r: "7 cm", h: "10 cm" } }, { shape: "cone", r: 7, h: 24, labels: { l: "?" } }] }`. Parts stack from the bottom up on one axis. Shapes: `cube { a }`, `cuboid { l, b, h }` and `sphere { r }` on their own; `cylinder { r, h }`, `cone { r, h, down? }`, `hemisphere { r, down? }` and `frustum { R, r, h }` in any sensible stack (`down` only on the bottom part: an ice-cream cone, a bowl). Sizes are the question's own numbers, so the drawing is to scale. Label keys per shape are listed in `src/utils/solidGeometry.js` (`d` is a space diagonal, `l` a slant height); label only what the question gives, and use `"?"` only for the single length asked for.
+Solid figures (3D): `{ type: "solid", parts: [{ shape: "cylinder", r: 7, h: 10, labels: { r: "7 cm", h: "10 cm" } }, { shape: "cone", r: 7, h: 24, labels: { l: "?" } }] }`. Parts stack from the bottom up on one axis. Shapes: `cube { a }`, `cuboid { l, b, h }` and `sphere { r }` on their own; `cylinder { r, h }`, `cone { r, h, down? }`, `hemisphere { r, down? }` and `frustum { R, r, h }` (R at the bottom, so R < r draws a bucket) in any sensible stack (`down` only on the bottom part: an ice-cream cone, a bowl). Flat-faced solids stand on their own on a `base` of `triangle` (equilateral, side a), `square` or `hexagon` (regular): `prism { base, a, h }` (also `base: "right-triangle"` with legs `a` and `b`), `pyramid { base, a, h }` (right and regular, apex above the centre) and `pyramid-frustum { base, a, b, h }` (top side b < a); their hidden edges are worked out and dashed. Sizes are the question's own numbers, so the drawing is to scale. Label keys per shape are listed in `src/utils/solidGeometry.js` (`d` is a space diagonal, `l` a slant height, of a cone or of a pyramid's face, `e` a pyramid's lateral edge); label only what the question gives, and use `"?"` only for the single length asked for.
 
 Venn figures: `{ type: "venn", sets: ["Cricket", "Football"], universe: "50 students", regions: { a: 20, b: 15, ab: 8, none: "?" } }`. Two or three sets; region keys name the circles a region is inside (`a`, `b`, `c`, `ab`, `ac`, `bc`, `abc`) or `none`; each value is a count or `"?"`, and a region left out is drawn empty. Show only numbers the question already gives, and `"?"` only where the answer is that single region.
 

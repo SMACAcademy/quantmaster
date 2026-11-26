@@ -57,6 +57,11 @@ import { seatingTemplates } from './templates/reasoningSeating.js';
 import { puzzleTemplates } from './templates/reasoningPuzzles.js';
 import { syllogismTemplates, inequalityTemplates } from './templates/reasoningLogic.js';
 import { bloodTemplates } from './templates/reasoningBlood.js';
+import { advReciprocalTemplates } from './templates/advReciprocals.js';
+import { advTrigTemplates } from './templates/advTrigonometry.js';
+import { advPrismTemplates } from './templates/advPrismsPyramids.js';
+import { advTwoCircleTemplates } from './templates/advTwoCircles.js';
+import { groupedDataTemplates } from './templates/groupedData.js';
 import { modulusTemplates } from './templates/modulus.js';
 import { polynomialTemplates } from './templates/polynomials.js';
 import { integerSolutionTemplates } from './templates/integerSolutions.js';
@@ -108,6 +113,11 @@ const TEMPLATES = [
   ...syllogismTemplates,
   ...inequalityTemplates,
   ...bloodTemplates,
+  ...advReciprocalTemplates,
+  ...advTrigTemplates,
+  ...advPrismTemplates,
+  ...advTwoCircleTemplates,
+  ...groupedDataTemplates,
   // CAT and placement topics: modulus, polynomials, integer solutions, cryptarithms.
   ...modulusTemplates,
   ...polynomialTemplates,
