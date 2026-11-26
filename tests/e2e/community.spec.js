@@ -10,6 +10,8 @@ test('About introduces the app and its maker, with ways to join in', async ({ pa
   const creator = page.getByRole('region', { name: 'Who built QuantMaster' });
   await expect(creator).toContainText('Muthukumar Subramanian');
   await expect(creator).toContainText('Agentic AI');
+  await expect(creator).toContainText('Created by');
+  await expect(creator.getByRole('link', { name: 'everyone who has contributed' })).toHaveAttribute('href', /graphs\/contributors$/);
   const star = page.getByRole('link', { name: /Star the project/ });
   await expect(star).toHaveAttribute('href', 'https://github.com/SMACAcademy/quantmaster');
   await expect(star).toHaveAttribute('target', '_blank');
