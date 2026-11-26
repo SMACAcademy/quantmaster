@@ -1,0 +1,969 @@
+{
+  "topicId": "unit-conversions",
+  "concepts": [
+    {
+      "id": "uc-metric",
+      "topicId": "unit-conversions",
+      "name": "Length, mass and volume",
+      "description": "Metric units differ by powers of ten: 1 km = 1,000 m, 1 kg = 1,000 g, 1 L = 1,000 mL.",
+      "sortOrder": 1
+    },
+    {
+      "id": "uc-area-volume",
+      "topicId": "unit-conversions",
+      "name": "Areas and volumes",
+      "description": "Area factors are the square of the length factor; volume factors are the cube.",
+      "sortOrder": 2
+    },
+    {
+      "id": "uc-time-speed",
+      "topicId": "unit-conversions",
+      "name": "Time and speed",
+      "description": "Convert hours, minutes and seconds carefully; km/hr to m/s is × 5/18.",
+      "sortOrder": 3
+    },
+    {
+      "id": "uc-rates",
+      "topicId": "unit-conversions",
+      "name": "Compound rates",
+      "description": "Convert the top unit and the bottom unit separately, then combine.",
+      "sortOrder": 4
+    },
+    {
+      "id": "uc-word",
+      "topicId": "unit-conversions",
+      "name": "Conversions in word problems",
+      "description": "Convert everything to one unit before dividing or multiplying.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "uc-metric-f",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-metric",
+      "title": "Metric ladder",
+      "prompt": "What are the basic metric conversions?",
+      "formula": "1 km = 1,000 m; 1 m = 100 cm = 1,000 mm\n1 kg = 1,000 g; 1 tonne = 1,000 kg; 1 quintal = 100 kg\n1 L = 1,000 mL = 1,000 cm³",
+      "variables": [],
+      "explanation": "Going to a smaller unit multiplies (more of them); going to a larger unit divides.",
+      "example": "3.5 km = 3,500 m; 4,500 g = 4.5 kg",
+      "commonMistake": "Multiplying when you should divide, or vice versa.",
+      "applicationPrompt": "Convert 2.5 L into millilitres.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "uc-square-f",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-area-volume",
+      "title": "Squares and cubes",
+      "prompt": "How do area and volume factors relate to length factors?",
+      "formula": "1 m = 100 cm → 1 m² = 100² = 10,000 cm² → 1 m³ = 100³ = 1,000,000 cm³\n1 hectare = 10,000 m²; 1 km² = 100 hectares; 1 m³ = 1,000 L",
+      "variables": [],
+      "explanation": "Area has two lengths, so the factor is squared; volume has three, so it is cubed.",
+      "example": "1 m² = 10,000 cm²",
+      "commonMistake": "Using the linear factor (100) for an area.",
+      "applicationPrompt": "How many square centimetres are in one square metre?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "uc-time-f",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-time-speed",
+      "title": "Time and speed",
+      "prompt": "How do you convert between hours, minutes and seconds, and between km/hr and m/s?",
+      "formula": "1 hr = 60 min = 3,600 s\nkm/hr → m/s: × 5/18\nm/s → km/hr: × 18/5",
+      "variables": [],
+      "explanation": "Speed is distance ÷ time, so convert both: 1 km/hr = 1,000 m ÷ 3,600 s = 5/18 m/s.",
+      "example": "72 km/hr = 72 × 5/18 = 20 m/s",
+      "commonMistake": "Swapping 5/18 and 18/5.",
+      "applicationPrompt": "Convert 72 km/hr into m/s.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "uc-rate-f",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-rates",
+      "title": "Compound rates",
+      "prompt": "How do you convert a rate such as litres per minute into m³ per hour?",
+      "formula": "Convert the top unit and the bottom unit separately, multiplying by conversion fractions that equal 1",
+      "variables": [],
+      "explanation": "Each conversion fraction (like 60 min / 1 hr) equals one, so multiplying by it changes the units but not the quantity.",
+      "example": "12 L/min × 60 min/hr ÷ 1,000 L/m³ = 0.72 m³/hr",
+      "commonMistake": "Converting only one of the two units.",
+      "applicationPrompt": "A tap delivers 12 litres per minute. How many cubic metres is that per hour?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "uc-word-f",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-word",
+      "title": "Unit sanity check",
+      "prompt": "How do you avoid unit slips in word problems?",
+      "formula": "Write every quantity with its unit; cancel units to check the result has the unit you want",
+      "variables": [],
+      "explanation": "If a result comes out in the wrong unit, a conversion is missing.",
+      "example": "Tiles: area (cm²) ÷ tile area (cm²) = a pure number",
+      "commonMistake": "Dividing metres by centimetres without converting.",
+      "applicationPrompt": "How many 20 cm × 30 cm tiles cover a 6 m × 4 m floor?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "uc-sc-3-6",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-time-speed",
+      "kind": "shortcut",
+      "title": "m/s and km/h with 3.6",
+      "prompt": "What single number converts between m/s and km/h?",
+      "formula": "m/s × 3.6 = km/h\nkm/h ÷ 3.6 = m/s",
+      "variables": [],
+      "explanation": "1 m/s is 3,600 m an hour, which is 3.6 km/h. It is the same as × 18/5.",
+      "example": "25 m/s = 90 km/h. 54 km/h = 15 m/s.",
+      "commonMistake": "Multiplying when going from km/h to m/s. The m/s figure is always the smaller.",
+      "applicationPrompt": "A sprinter runs 100 m in 10 s. What is that in km/h?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "unit-conversions-level-0",
+      "topicId": "unit-conversions",
+      "order": 0,
+      "title": "Same Quantity, Different Number",
+      "description": "Change the unit, not the quantity, and never lose a factor of ten.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "uc-metric",
+        "uc-area-volume"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Smaller unit, bigger number",
+            "body": "3.5 km is the same distance as 3,500 m. Kilometres are large, so you need more metres. Going to a smaller unit multiplies; going to a larger unit divides."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "unit-ladder"
+          },
+          {
+            "type": "formula",
+            "title": "Areas and volumes",
+            "body": "1 m = 100 cm\n1 m² = 100² cm² = 10,000 cm²\n1 m³ = 100³ cm³ = 1,000,000 cm³",
+            "caption": "Square the length factor for area and cube it for volume."
+          },
+          {
+            "type": "check",
+            "questionId": "unit-conversions-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "The most common slip is using the length factor for an area: 1 m² is 10,000 cm², not 100 cm²."
+          },
+          {
+            "type": "check",
+            "questionId": "unit-conversions-q-006"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "unit-conversions-level-1",
+      "topicId": "unit-conversions",
+      "order": 1,
+      "title": "Unit Conversions Formulas",
+      "description": "Metric units, areas and volumes, time, speed and rates.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "unit-conversions-level-0"
+      ],
+      "conceptIds": [
+        "uc-metric",
+        "uc-area-volume",
+        "uc-time-speed",
+        "uc-rates",
+        "uc-word"
+      ],
+      "formulaIds": [
+        "uc-metric-f",
+        "uc-square-f",
+        "uc-time-f",
+        "uc-rate-f",
+        "uc-word-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "unit-conversions-level-2",
+      "topicId": "unit-conversions",
+      "order": 2,
+      "title": "Direct Conversions",
+      "description": "Length, mass, volume and time.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "unit-conversions-level-1"
+      ],
+      "conceptIds": [
+        "uc-metric",
+        "uc-area-volume",
+        "uc-time-speed"
+      ],
+      "questionIds": [
+        "unit-conversions-q-001",
+        "unit-conversions-q-002",
+        "unit-conversions-q-003",
+        "unit-conversions-q-004",
+        "unit-conversions-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "unit-conversions-level-3",
+      "topicId": "unit-conversions",
+      "order": 3,
+      "title": "Areas, Volumes and Speeds",
+      "description": "Square and cube factors and speed conversions.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "unit-conversions-level-2"
+      ],
+      "conceptIds": [
+        "uc-area-volume",
+        "uc-time-speed"
+      ],
+      "questionIds": [
+        "unit-conversions-q-006",
+        "unit-conversions-q-007",
+        "unit-conversions-q-008",
+        "unit-conversions-q-009",
+        "unit-conversions-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "unit-conversions-level-4",
+      "topicId": "unit-conversions",
+      "order": 4,
+      "title": "Rates and Word Problems",
+      "description": "Compound rates and tiling.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "unit-conversions-level-3"
+      ],
+      "conceptIds": [
+        "uc-rates",
+        "uc-word"
+      ],
+      "questionIds": [
+        "unit-conversions-q-011",
+        "unit-conversions-q-012",
+        "unit-conversions-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "unit-conversions-level-5",
+      "topicId": "unit-conversions",
+      "order": 5,
+      "title": "Mixed Unit Conversions Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "unit-conversions-level-4"
+      ],
+      "conceptIds": [
+        "uc-rates",
+        "uc-word"
+      ],
+      "questionQuery": {
+        "topicId": "unit-conversions",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "unit-conversions-q-001",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-metric",
+      "levelId": "unit-conversions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many metres are there in 3.5 km?",
+      "options": [
+        {
+          "id": "a",
+          "text": "350"
+        },
+        {
+          "id": "b",
+          "text": "3,500"
+        },
+        {
+          "id": "c",
+          "text": "35"
+        },
+        {
+          "id": "d",
+          "text": "35,000"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1 km = 1,000 m, so 3.5 km = 3.5 × 1,000 = 3,500 m.",
+      "solutionSteps": [
+        "3.5 × 1,000 = 3,500."
+      ],
+      "formulaIds": [
+        "uc-metric-f"
+      ],
+      "method": "To a smaller unit: multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many metres in one kilometre?"
+        }
+      ],
+      "commonMistakes": [
+        "Misplacing a zero."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-002",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-metric",
+      "levelId": "unit-conversions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Convert 4,500 g into kilograms.",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0,
+        "unit": "kg"
+      },
+      "explanation": "1 kg = 1,000 g, so 4,500 g ÷ 1,000 = 4.5 kg.",
+      "solutionSteps": [
+        "4,500 ÷ 1,000 = 4.5."
+      ],
+      "formulaIds": [
+        "uc-metric-f"
+      ],
+      "method": "To a larger unit: divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are 1,000 g in a kilogram."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying instead of dividing."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-003",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-metric",
+      "levelId": "unit-conversions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many millilitres are there in 2.5 litres?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "250"
+        },
+        {
+          "id": "c",
+          "text": "2,500"
+        },
+        {
+          "id": "d",
+          "text": "25,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "1 L = 1,000 mL, so 2.5 L = 2,500 mL.",
+      "solutionSteps": [
+        "2.5 × 1,000 = 2,500."
+      ],
+      "formulaIds": [
+        "uc-metric-f"
+      ],
+      "method": "Multiply by 1,000.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "1 litre is 1,000 millilitres."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 100."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-004",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-area-volume",
+      "levelId": "unit-conversions-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "One cubic metre is equal to how many litres?",
+      "options": [
+        {
+          "id": "a",
+          "text": "100 L"
+        },
+        {
+          "id": "b",
+          "text": "1,000 L"
+        },
+        {
+          "id": "c",
+          "text": "10 L"
+        },
+        {
+          "id": "d",
+          "text": "10,000 L"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1 m³ is a cube 10 dm × 10 dm × 10 dm = 1,000 dm³, and 1 dm³ = 1 litre. So 1 m³ = 1,000 L.",
+      "solutionSteps": [
+        "1 m = 10 dm.",
+        "10³ = 1,000 dm³ = 1,000 L."
+      ],
+      "formulaIds": [
+        "uc-square-f"
+      ],
+      "method": "1 m³ = 1,000 L.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A litre is a cube of side 10 cm."
+        }
+      ],
+      "commonMistakes": [
+        "Using 100 (the linear factor)."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-005",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-time-speed",
+      "levelId": "unit-conversions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Express 2 hours 15 minutes in minutes.",
+      "answer": {
+        "value": 135,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "2 hours = 120 minutes, plus 15 minutes = 135 minutes.",
+      "solutionSteps": [
+        "2 × 60 = 120.",
+        "120 + 15 = 135."
+      ],
+      "formulaIds": [
+        "uc-time-f"
+      ],
+      "method": "Hours × 60, then add the minutes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many minutes in an hour?"
+        }
+      ],
+      "commonMistakes": [
+        "Writing 215."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-006",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-area-volume",
+      "levelId": "unit-conversions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How many square centimetres are there in one square metre?",
+      "options": [
+        {
+          "id": "a",
+          "text": "100"
+        },
+        {
+          "id": "b",
+          "text": "1,000"
+        },
+        {
+          "id": "c",
+          "text": "10,000"
+        },
+        {
+          "id": "d",
+          "text": "100,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A square metre is 100 cm × 100 cm = 10,000 cm².",
+      "solutionSteps": [
+        "1 m = 100 cm.",
+        "100 × 100 = 10,000."
+      ],
+      "formulaIds": [
+        "uc-square-f"
+      ],
+      "method": "Area factor = (length factor)².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A square metre is a 100 cm by 100 cm square."
+        }
+      ],
+      "commonMistakes": [
+        "Using 100, the linear factor."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-007",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-time-speed",
+      "levelId": "unit-conversions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Convert 72 km/hr into metres per second.",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "m/s"
+      },
+      "explanation": "72 × 1,000 m ÷ 3,600 s = 20 m/s (or 72 × 5/18 = 20).",
+      "solutionSteps": [
+        "72 × 5 = 360.",
+        "360 ÷ 18 = 20."
+      ],
+      "formulaIds": [
+        "uc-time-f"
+      ],
+      "method": "km/hr × 5/18 = m/s.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "1 km = 1,000 m and 1 hr = 3,600 s."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 18/5 instead (259.2)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-008",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-area-volume",
+      "levelId": "unit-conversions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A field measures 2.5 hectares. What is its area in square metres?",
+      "answer": {
+        "value": 25000,
+        "tolerance": 0,
+        "unit": "m²"
+      },
+      "explanation": "1 hectare = 10,000 m², so 2.5 hectares = 25,000 m².",
+      "solutionSteps": [
+        "2.5 × 10,000 = 25,000."
+      ],
+      "formulaIds": [
+        "uc-square-f"
+      ],
+      "method": "1 hectare = 10,000 m².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A hectare is a 100 m by 100 m square."
+        }
+      ],
+      "commonMistakes": [
+        "Using 1,000."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-009",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-time-speed",
+      "levelId": "unit-conversions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Convert 15 m/s into km/hr.",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.17"
+        },
+        {
+          "id": "b",
+          "text": "27"
+        },
+        {
+          "id": "c",
+          "text": "54"
+        },
+        {
+          "id": "d",
+          "text": "90"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "m/s → km/hr is × 18/5: 15 × 18 ÷ 5 = 54 km/hr.",
+      "solutionSteps": [
+        "15 × 18 = 270.",
+        "270 ÷ 5 = 54."
+      ],
+      "formulaIds": [
+        "uc-time-f"
+      ],
+      "method": "m/s × 18/5 = km/hr.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A speed in km/hr is a larger number than in m/s."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 5/18 (4.17) instead."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-010",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-area-volume",
+      "levelId": "unit-conversions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many litres are there in 0.25 m³?",
+      "answer": {
+        "value": 250,
+        "tolerance": 0,
+        "unit": "L"
+      },
+      "explanation": "1 m³ = 1,000 L, so 0.25 m³ = 250 L.",
+      "solutionSteps": [
+        "0.25 × 1,000 = 250."
+      ],
+      "formulaIds": [
+        "uc-square-f"
+      ],
+      "method": "1 m³ = 1,000 L.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A quarter of 1,000."
+        }
+      ],
+      "commonMistakes": [
+        "Using 100 (25 L)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-011",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-rates",
+      "levelId": "unit-conversions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A tap delivers 12 litres per minute. How many cubic metres of water does it deliver in 5 hours?",
+      "answer": {
+        "value": 3.6,
+        "tolerance": 0,
+        "unit": "m³"
+      },
+      "explanation": "5 hours = 300 minutes. 12 × 300 = 3,600 litres = 3.6 m³.",
+      "solutionSteps": [
+        "5 × 60 = 300 minutes.",
+        "12 × 300 = 3,600 L.",
+        "3,600 ÷ 1,000 = 3.6 m³."
+      ],
+      "formulaIds": [
+        "uc-rate-f",
+        "uc-square-f"
+      ],
+      "method": "Convert time and volume separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the litres first, then convert to cubic metres."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 100 (36 m³)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-012",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-rates",
+      "levelId": "unit-conversions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Convert 90 km/hr into metres per minute.",
+      "answer": {
+        "value": 1500,
+        "tolerance": 0,
+        "unit": "m/min"
+      },
+      "explanation": "90 km = 90,000 m per hour, and 1 hour = 60 minutes, so 90,000 ÷ 60 = 1,500 m per minute.",
+      "solutionSteps": [
+        "90 km/hr = 90,000 m/hr.",
+        "90,000 ÷ 60 = 1,500 m/min."
+      ],
+      "formulaIds": [
+        "uc-rate-f",
+        "uc-time-f"
+      ],
+      "method": "Convert the distance, then the time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert kilometres to metres first."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 60 instead of dividing."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "unit-conversions-q-013",
+      "topicId": "unit-conversions",
+      "conceptId": "uc-word",
+      "levelId": "unit-conversions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A rectangular floor 6 m by 4 m is to be covered with rectangular tiles of 20 cm by 30 cm. How many tiles are needed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "40"
+        },
+        {
+          "id": "b",
+          "text": "400"
+        },
+        {
+          "id": "c",
+          "text": "4,000"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Floor area = 6 × 4 = 24 m² = 24 × 10,000 = 240,000 cm². One tile is 20 × 30 = 600 cm². Number of tiles = 240,000 ÷ 600 = 400.",
+      "solutionSteps": [
+        "Floor: 24 m² = 240,000 cm².",
+        "Tile: 600 cm².",
+        "240,000 ÷ 600 = 400."
+      ],
+      "formulaIds": [
+        "uc-word-f",
+        "uc-square-f"
+      ],
+      "method": "Convert to the same unit, then divide the areas.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Put both areas in cm²."
+        },
+        {
+          "level": 2,
+          "text": "Remember 1 m² = 10,000 cm²."
+        }
+      ],
+      "commonMistakes": [
+        "Using 1 m² = 1,000 cm² (giving 40 tiles)."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

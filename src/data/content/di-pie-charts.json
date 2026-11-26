@@ -1,0 +1,1237 @@
+{
+  "topicId": "di-pie-charts",
+  "concepts": [
+    {
+      "id": "pch-percent",
+      "topicId": "di-pie-charts",
+      "name": "Reading a sector's percentage",
+      "description": "Each sector's label or legend gives its share of the whole pie directly.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pch-angle",
+      "topicId": "di-pie-charts",
+      "name": "Angle and percentage",
+      "description": "A full circle is 360°, so every percentage point equals 3.6°.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pch-value",
+      "topicId": "di-pie-charts",
+      "name": "Converting a share into an amount",
+      "description": "Multiply a sector's percentage by the total to get its actual quantity.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pch-compare",
+      "topicId": "di-pie-charts",
+      "name": "Comparing sectors",
+      "description": "Differences and ratios between two sectors, in either percentage or actual quantity.",
+      "sortOrder": 4
+    },
+    {
+      "id": "pch-reverse",
+      "topicId": "di-pie-charts",
+      "name": "Finding the total from one sector",
+      "description": "If you know one sector's actual amount and its percentage, you can work backwards to the whole total.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pch-angle-f",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-angle",
+      "title": "Angle from percentage",
+      "prompt": "How do you convert a sector's percentage into its central angle?",
+      "formula": "Angle = Percentage × 3.6°  (since 360° ÷ 100% = 3.6°)",
+      "variables": [],
+      "explanation": "This works in reverse too: divide an angle by 3.6 to recover its percentage.",
+      "example": "25% of a pie has a central angle of 25 × 3.6 = 90°",
+      "commonMistake": "Multiplying by 3.6 only for some sectors and not others, or confusing it with 360.",
+      "applicationPrompt": "A sector represents 25% of the data. What is its central angle?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pch-value-f",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-value",
+      "title": "Value from a percentage share",
+      "prompt": "How do you find the actual quantity a sector represents?",
+      "formula": "Actual value = (Percentage ÷ 100) × Total",
+      "variables": [],
+      "explanation": "The percentage tells you the fraction of the total; multiplying by the total converts that fraction into a real quantity.",
+      "example": "20% of a ₹40,000 budget = 0.20 × 40,000 = ₹8,000",
+      "commonMistake": "Forgetting to convert the percentage to a decimal (or fraction) before multiplying.",
+      "applicationPrompt": "What is 20% of a ₹40,000 budget?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pch-reverse-f",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-reverse",
+      "title": "Finding the total from one sector",
+      "prompt": "If you know one sector's actual value and its percentage, how do you find the total?",
+      "formula": "Total = Actual value ÷ (Percentage ÷ 100)",
+      "variables": [],
+      "explanation": "This is the value formula rearranged — dividing by the percentage (as a decimal) undoes the multiplication.",
+      "example": "₹6,000 is 15% of the total: total = 6,000 ÷ 0.15 = ₹40,000",
+      "commonMistake": "Dividing by the percentage number itself (15) instead of the decimal (0.15).",
+      "applicationPrompt": "₹6,000 represents 15% of a budget. What is the total budget?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pch-sc-degrees",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-angle",
+      "kind": "shortcut",
+      "title": "Degrees and percentages at a glance",
+      "prompt": "Which pie-chart angles should you recognise as percentages instantly?",
+      "formula": "3.6° = 1%   18° = 5%   36° = 10%\n72° = 20%   90° = 25%   180° = 50%",
+      "variables": [],
+      "explanation": "The whole pie is 360° = 100%, so divide degrees by 3.6.",
+      "example": "A 54° sector is 15% of the total.",
+      "commonMistake": "Dividing by 360 and forgetting to multiply by 100.",
+      "applicationPrompt": "A sector is 126°. What percentage is it?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pch-sc-ratio",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "kind": "shortcut",
+      "title": "Compare sectors without the total",
+      "prompt": "How do you compare two sectors when the total is not given?",
+      "formula": "Value ratio = angle ratio (or percentage ratio)",
+      "variables": [],
+      "explanation": "Every sector is the same fraction of the same total, so the total cancels.",
+      "example": "Sectors of 72° and 108°: their values are in the ratio 2 : 3.",
+      "commonMistake": "Working out each value from a total that is not needed.",
+      "applicationPrompt": "Rent is 30% and food 45% of a budget. If rent is ₹12,000, what is food?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-pie-charts-level-0",
+      "topicId": "di-pie-charts",
+      "order": 0,
+      "title": "Shares of a Whole",
+      "description": "Every sector represents a percentage of the total — the whole pie is always 100%.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pch-percent",
+        "pch-angle"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Percent, angle, or amount",
+            "body": "A pie chart can label its sectors by percentage, by angle, or leave you to compute an actual amount from the total. All three describe the same underlying share — you just need to convert between them."
+          },
+          {
+            "type": "formula",
+            "title": "Angle from percentage",
+            "body": "Angle = Percentage × 3.6°",
+            "caption": "Because 360° ÷ 100% = 3.6° per percentage point."
+          },
+          {
+            "type": "check",
+            "questionId": "di-pie-charts-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "When comparing two sectors, their percentages are already proportional to each other — you don't need to convert to actual amounts unless the question asks for rupees."
+          },
+          {
+            "type": "check",
+            "questionId": "di-pie-charts-q-001"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "di-pie-charts-level-1",
+      "topicId": "di-pie-charts",
+      "order": 1,
+      "title": "Pie Charts Formulas",
+      "description": "Percentages, angles, converting to actual values, and working backwards to the total.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "di-pie-charts-level-0"
+      ],
+      "conceptIds": [
+        "pch-angle",
+        "pch-value",
+        "pch-reverse"
+      ],
+      "formulaIds": [
+        "pch-angle-f",
+        "pch-value-f",
+        "pch-reverse-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-pie-charts-level-2",
+      "topicId": "di-pie-charts",
+      "order": 2,
+      "title": "Direct Reading",
+      "description": "Reading percentages, angles, and simple values.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-pie-charts-level-1"
+      ],
+      "conceptIds": [
+        "pch-percent",
+        "pch-angle",
+        "pch-value"
+      ],
+      "questionIds": [
+        "di-pie-charts-q-001",
+        "di-pie-charts-q-002",
+        "di-pie-charts-q-003",
+        "di-pie-charts-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-pie-charts-level-3",
+      "topicId": "di-pie-charts",
+      "order": 3,
+      "title": "Comparing and Scaling",
+      "description": "Comparing sectors, and scaling the whole budget up.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-pie-charts-level-2"
+      ],
+      "conceptIds": [
+        "pch-compare",
+        "pch-value",
+        "pch-percent"
+      ],
+      "questionIds": [
+        "di-pie-charts-q-004",
+        "di-pie-charts-q-005",
+        "di-pie-charts-q-006",
+        "di-pie-charts-q-007",
+        "di-pie-charts-q-011",
+        "di-pie-charts-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-pie-charts-level-4",
+      "topicId": "di-pie-charts",
+      "order": 4,
+      "title": "Working Backwards",
+      "description": "Finding the total from one sector, and multi-step adjustments.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "di-pie-charts-level-3"
+      ],
+      "conceptIds": [
+        "pch-reverse",
+        "pch-compare"
+      ],
+      "questionIds": [
+        "di-pie-charts-q-008",
+        "di-pie-charts-q-009",
+        "di-pie-charts-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-pie-charts-level-5",
+      "topicId": "di-pie-charts",
+      "order": 5,
+      "title": "Mixed Pie Charts Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-pie-charts-level-4"
+      ],
+      "conceptIds": [
+        "pch-reverse",
+        "pch-compare"
+      ],
+      "questionQuery": {
+        "topicId": "di-pie-charts",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-pie-charts-q-001",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-percent",
+      "levelId": "di-pie-charts-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What percentage of the budget is spent on Food?",
+      "context": "Study the pie chart of a monthly household budget and answer the question.",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "The Food sector is labelled 20%.",
+      "solutionSteps": [
+        "Read the Food sector directly: 20%."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Read the percentage directly from the sector or legend.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a direct reading, no calculation needed."
+        }
+      ],
+      "commonMistakes": [
+        "Reading a different sector's percentage."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-002",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-angle",
+      "levelId": "di-pie-charts-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the central angle of the sector representing Savings?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 90,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Savings is 25% of the pie. Angle = 25 × 3.6 = 90°.",
+      "solutionSteps": [
+        "Savings = 25%.",
+        "25 × 3.6 = 90°."
+      ],
+      "formulaIds": [
+        "pch-angle-f"
+      ],
+      "method": "Multiply the percentage by 3.6.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every 1% equals 3.6°."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 360 instead of 3.6."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-003",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-value",
+      "levelId": "di-pie-charts-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How much is spent on Transport (in ₹)?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 4000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Transport is 10% of ₹40,000: 0.10 × 40,000 = ₹4,000.",
+      "solutionSteps": [
+        "10% of 40,000.",
+        "0.10 × 40,000 = 4,000."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Convert the percentage to a decimal, then multiply by the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "10% is one-tenth of the total."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to convert the percentage to a decimal first."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-004",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How much more is spent on Rent than on Other (in ₹)?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 6000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Rent = 30% of 40,000 = 12,000. Other = 15% of 40,000 = 6,000. Difference = 12,000 − 6,000 = 6,000.",
+      "solutionSteps": [
+        "Rent = 0.30 × 40,000 = 12,000.",
+        "Other = 0.15 × 40,000 = 6,000.",
+        "12,000 − 6,000 = 6,000."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Convert both sectors to actual amounts before subtracting.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not subtract the percentages and call it the answer in rupees."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the percentages (30−15=15) and treating that as a rupee amount."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-005",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the ratio of the amount spent on Savings to the amount spent on Transport?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "5 : 2"
+        },
+        {
+          "id": "b",
+          "text": "2 : 5"
+        },
+        {
+          "id": "c",
+          "text": "2 : 1"
+        },
+        {
+          "id": "d",
+          "text": "3 : 1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Savings = 25%, Transport = 10%. Since both are percentages of the same total, their ratio equals 25:10 = 5:2.",
+      "solutionSteps": [
+        "Savings : Transport = 25% : 10%.",
+        "25:10 = 5:2."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Percentages of the same total can be compared directly as a ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need to convert to rupees first — the percentages are already proportional."
+        }
+      ],
+      "commonMistakes": [
+        "Converting to rupees unnecessarily and making an arithmetic slip."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-006",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-value",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If the total budget increases to ₹50,000 with the same percentages, how much would be spent on Rent (in ₹)?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 15000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Rent stays at 30%: 0.30 × 50,000 = 15,000.",
+      "solutionSteps": [
+        "30% of 50,000.",
+        "0.30 × 50,000 = 15,000."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "The percentage stays fixed; only the total changes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the new total, but the same percentage."
+        }
+      ],
+      "commonMistakes": [
+        "Using the old total of 40,000 by mistake."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-007",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-percent",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the combined percentage spent on Food and Transport together?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Food = 20%, Transport = 10%. Combined = 20 + 10 = 30%.",
+      "solutionSteps": [
+        "20% + 10% = 30%."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Percentages of the same whole simply add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the two percentages directly."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two percentages instead of adding them."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-008",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-reverse",
+      "levelId": "di-pie-charts-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The amount spent on Other is ₹6,000. Using only this and the pie chart's percentages, what is the total monthly budget (in ₹)?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 40000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Other is 15% of the total. Total = 6,000 ÷ 0.15 = 40,000.",
+      "solutionSteps": [
+        "Other = 15% of total.",
+        "6,000 ÷ 0.15 = 40,000."
+      ],
+      "formulaIds": [
+        "pch-reverse-f"
+      ],
+      "method": "Divide the known amount by its percentage, as a decimal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This reverses the usual percentage-to-value calculation."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 15 instead of 0.15."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-009",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "levelId": "di-pie-charts-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If ₹2,000 is moved from Savings to Food, what would be the new percentage spent on Food?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly household budget of ₹40,000, by category",
+        "unit": "%",
+        "categories": [
+          "Rent",
+          "Food",
+          "Transport",
+          "Savings",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "Budget",
+            "data": [
+              30,
+              20,
+              10,
+              25,
+              15
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly household budget: Rent 30%, Food 20%, Transport 10%, Savings 25%, Other 15%, of a total of ₹40,000."
+      },
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Food currently = 20% of 40,000 = 8,000. After adding 2,000: 8,000 + 2,000 = 10,000. New percentage = 10,000 ÷ 40,000 × 100 = 25%.",
+      "solutionSteps": [
+        "Current Food = 8,000.",
+        "New Food = 8,000 + 2,000 = 10,000.",
+        "10,000 ÷ 40,000 × 100 = 25%."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Convert to actual amounts, adjust, then convert back to a percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work in rupees first, then convert the new amount back to a percentage."
+        }
+      ],
+      "commonMistakes": [
+        "Simply adding percentage points without converting to actual amounts."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-010",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-angle",
+      "levelId": "di-pie-charts-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which stream's sector has a central angle of 54°?",
+      "context": "Study the pie chart of a college's students by stream and answer the question.",
+      "chart": {
+        "type": "pie",
+        "caption": "Students of a college by stream (total 2,400 students)",
+        "unit": "%",
+        "categories": [
+          "Engineering",
+          "Commerce",
+          "Science",
+          "Arts",
+          "Law"
+        ],
+        "series": [
+          {
+            "label": "Students",
+            "data": [
+              35,
+              20,
+              18,
+              15,
+              12
+            ]
+          }
+        ],
+        "ariaSummary": "Students by stream: Engineering 35%, Commerce 20%, Science 18%, Arts 15%, Law 12%, of a total of 2,400 students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Commerce"
+        },
+        {
+          "id": "b",
+          "text": "Science"
+        },
+        {
+          "id": "c",
+          "text": "Arts"
+        },
+        {
+          "id": "d",
+          "text": "Law"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Each 1% of the pie is 3.6°, so 54° ÷ 3.6 = 15%. Arts is the 15% sector.",
+      "solutionSteps": [
+        "Angle ÷ 3.6 gives the percentage.",
+        "54 ÷ 3.6 = 15%.",
+        "Arts has 15%."
+      ],
+      "formulaIds": [
+        "pch-angle-f"
+      ],
+      "method": "Convert the angle back to a percentage, then find that sector in the legend.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the angle back to a percentage by dividing it by 3.6."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 54 by 3.6 instead of dividing."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-011",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The number of Commerce students is approximately what percentage of the number of Engineering students?",
+      "chart": {
+        "type": "pie",
+        "caption": "Students of a college by stream (total 2,400 students)",
+        "unit": "%",
+        "categories": [
+          "Engineering",
+          "Commerce",
+          "Science",
+          "Arts",
+          "Law"
+        ],
+        "series": [
+          {
+            "label": "Students",
+            "data": [
+              35,
+              20,
+              18,
+              15,
+              12
+            ]
+          }
+        ],
+        "ariaSummary": "Students by stream: Engineering 35%, Commerce 20%, Science 18%, Arts 15%, Law 12%, of a total of 2,400 students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "50%"
+        },
+        {
+          "id": "b",
+          "text": "57%"
+        },
+        {
+          "id": "c",
+          "text": "63%"
+        },
+        {
+          "id": "d",
+          "text": "70%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Both sectors are shares of the same total, so compare the percentages directly: 20 ÷ 35 × 100 ≈ 57.1%, so the nearest option is 57%. (In students: 480 ÷ 840 gives the same.)",
+      "solutionSteps": [
+        "Commerce 20%, Engineering 35%.",
+        "20 ÷ 35 × 100 ≈ 57.1%.",
+        "Nearest option: 57%."
+      ],
+      "formulaIds": [
+        "pch-sc-ratio"
+      ],
+      "method": "Shares of the same total compare exactly like the actual numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need the actual numbers — the sector percentages are already in proportion."
+        },
+        {
+          "level": 2,
+          "text": "20 ÷ 35 = 4 ÷ 7."
+        }
+      ],
+      "commonMistakes": [
+        "Answering the gap of 15 percentage points.",
+        "Dividing Engineering by Commerce instead (175%)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-012",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-percent",
+      "levelId": "di-pie-charts-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By what percentage is the number of Science students more than the number of Law students?",
+      "chart": {
+        "type": "pie",
+        "caption": "Students of a college by stream (total 2,400 students)",
+        "unit": "%",
+        "categories": [
+          "Engineering",
+          "Commerce",
+          "Science",
+          "Arts",
+          "Law"
+        ],
+        "series": [
+          {
+            "label": "Students",
+            "data": [
+              35,
+              20,
+              18,
+              15,
+              12
+            ]
+          }
+        ],
+        "ariaSummary": "Students by stream: Engineering 35%, Commerce 20%, Science 18%, Arts 15%, Law 12%, of a total of 2,400 students."
+      },
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Science = 18% and Law = 12% of the same total. Science exceeds Law by (18 − 12) ÷ 12 × 100 = 50%. In students: 432 and 288, and 144 ÷ 288 × 100 = 50% too.",
+      "solutionSteps": [
+        "Science 18%, Law 12%: a gap of 6 percentage points.",
+        "Divide the gap by Law's share: 6 ÷ 12 × 100 = 50%."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Percentage more = gap ÷ the share being compared against × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The 6-point gap is not the answer — divide it by Law's share."
+        },
+        {
+          "level": 2,
+          "text": "\"More than Law\" makes Law the base."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6%, the gap in percentage points.",
+        "Dividing by Science's 18% instead of Law's 12% (≈ 33.3%)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-pie-charts-q-013",
+      "topicId": "di-pie-charts",
+      "conceptId": "pch-compare",
+      "levelId": "di-pie-charts-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Next year the college's total rises to 3,000 students and Commerce's share rises to 24%. By what percentage does the number of Commerce students increase?",
+      "chart": {
+        "type": "pie",
+        "caption": "Students of a college by stream (total 2,400 students)",
+        "unit": "%",
+        "categories": [
+          "Engineering",
+          "Commerce",
+          "Science",
+          "Arts",
+          "Law"
+        ],
+        "series": [
+          {
+            "label": "Students",
+            "data": [
+              35,
+              20,
+              18,
+              15,
+              12
+            ]
+          }
+        ],
+        "ariaSummary": "Students by stream: Engineering 35%, Commerce 20%, Science 18%, Arts 15%, Law 12%, of a total of 2,400 students."
+      },
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "This year: 20% of 2,400 = 480. Next year: 24% of 3,000 = 720. Increase = (720 − 480) ÷ 480 × 100 = 50%.",
+      "solutionSteps": [
+        "This year: 20% of 2,400 = 480.",
+        "Next year: 24% of 3,000 = 720.",
+        "(720 − 480) ÷ 480 × 100 = 50%."
+      ],
+      "formulaIds": [
+        "pch-value-f"
+      ],
+      "method": "Convert both years to actual numbers before comparing, because the totals differ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Turn both years' shares into actual numbers of students first."
+        },
+        {
+          "level": 2,
+          "text": "The totals differ, so the shares 20% and 24% cannot be compared directly."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 4% (the change in percentage points) or 20% (24 vs 20), both of which ignore the larger total."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

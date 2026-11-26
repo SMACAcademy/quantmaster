@@ -1,0 +1,903 @@
+{
+  "topicId": "functions-graphs",
+  "concepts": [
+    {
+      "id": "fn-notation",
+      "topicId": "functions-graphs",
+      "name": "Function notation",
+      "description": "f(a) means substitute x = a into the rule for f(x), and evaluate.",
+      "sortOrder": 1
+    },
+    {
+      "id": "fn-domain",
+      "topicId": "functions-graphs",
+      "name": "Domain restrictions",
+      "description": "The domain excludes any input that would divide by zero or take the square root of a negative number.",
+      "sortOrder": 2
+    },
+    {
+      "id": "fn-linear",
+      "topicId": "functions-graphs",
+      "name": "Linear graphs",
+      "description": "A line y = mx + c has slope m (how steep it is) and y-intercept c (where it crosses the y-axis).",
+      "sortOrder": 3
+    },
+    {
+      "id": "fn-compose",
+      "topicId": "functions-graphs",
+      "name": "Composing functions",
+      "description": "(f∘g)(x) = f(g(x)) means apply g first, then feed that result into f.",
+      "sortOrder": 4
+    },
+    {
+      "id": "fn-inverse",
+      "topicId": "functions-graphs",
+      "name": "Inverse functions",
+      "description": "The inverse of a linear function undoes it: swap x and y in the equation, then solve for y again.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "fn-eval-f",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "title": "Evaluating a function",
+      "prompt": "What does f(a) mean?",
+      "formula": "f(a) = substitute x = a into the expression for f(x)",
+      "variables": [],
+      "explanation": "The letter inside the brackets is not multiplication — it tells you which input value to substitute.",
+      "example": "f(x) = 3x + 2, so f(4) = 3(4) + 2 = 14",
+      "commonMistake": "Reading f(4) as f × 4.",
+      "applicationPrompt": "If f(x) = 3x + 2, find f(4).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fn-domain-f",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-domain",
+      "title": "Finding a domain restriction",
+      "prompt": "What values must be excluded from the domain of a function?",
+      "formula": "Exclude x-values that make a denominator zero, or that make an expression under a square root negative",
+      "variables": [],
+      "explanation": "These are the two most common sources of domain restrictions for the functions met at this level.",
+      "example": "f(x) = 1/(x − 4) is undefined at x = 4, so 4 is excluded from the domain",
+      "commonMistake": "Forgetting to check for division by zero.",
+      "applicationPrompt": "What value must be excluded from the domain of f(x) = 1/(x − 4)?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fn-linear-f",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-linear",
+      "title": "Slope-intercept form",
+      "prompt": "What do m and c represent in y = mx + c?",
+      "formula": "y = mx + c\nm = slope = rise/run = (y₂ − y₁)/(x₂ − x₁)\nc = y-intercept (value of y when x = 0)",
+      "variables": [],
+      "explanation": "The slope tells you how much y changes for each unit increase in x; the intercept tells you where the line crosses the y-axis.",
+      "example": "Through (2,5) and (6,13): m = (13−5)/(6−2) = 2",
+      "commonMistake": "Reversing the numerator and denominator when computing slope.",
+      "applicationPrompt": "Find the slope of the line through (2,5) and (6,13).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fn-compose-f",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-compose",
+      "title": "Composing two functions",
+      "prompt": "How do you evaluate (f∘g)(x)?",
+      "formula": "(f∘g)(x) = f(g(x))",
+      "variables": [],
+      "explanation": "Work from the inside out: evaluate the inner function first, then use that result as the input to the outer function.",
+      "example": "f(x) = 2x+1, g(x) = x−3: f(g(5)) = f(2) = 5",
+      "commonMistake": "Applying f before g, which reverses the intended order.",
+      "applicationPrompt": "If f(x) = 2x+1 and g(x) = x−3, find f(g(5)).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fn-inverse-f",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-inverse",
+      "title": "Finding an inverse function",
+      "prompt": "How do you find the inverse of a linear function y = mx + c?",
+      "formula": "Swap x and y, then solve for y again: x = my + c  →  y = (x − c)/m",
+      "variables": [],
+      "explanation": "The inverse function undoes the original: applying f and then f⁻¹ (or vice versa) returns the original input.",
+      "example": "f(x) = 2x + 6: f⁻¹(x) = (x − 6)/2, so f⁻¹(10) = 2",
+      "commonMistake": "Forgetting to swap x and y before solving.",
+      "applicationPrompt": "If f(x) = 2x + 6, find f⁻¹(10).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fn-sc-check-inverse",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-inverse",
+      "kind": "shortcut",
+      "title": "Check an inverse by composing",
+      "prompt": "How can you check an inverse function you have found?",
+      "formula": "f(f⁻¹(x)) = x for every x\nTry one number",
+      "variables": [],
+      "explanation": "The inverse undoes the function, so applying both must give back what you started with.",
+      "example": "f(x) = 3x − 2, f⁻¹(x) = (x + 2)/3: f⁻¹(5) = 7/3 and f(7/3) = 7 − 2 = 5.",
+      "commonMistake": "Taking the reciprocal 1/f(x) as the inverse.",
+      "applicationPrompt": "Is (x − 5)/2 the inverse of 2x + 5? Check with x = 1.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fn-sc-shifts",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "kind": "shortcut",
+      "title": "Moving a graph",
+      "prompt": "How do changes to the formula move a graph?",
+      "formula": "f(x) + k: up by k\nf(x − h): right by h (note the minus)\n−f(x): flipped over the x-axis",
+      "variables": [],
+      "explanation": "Changing the input shifts sideways, changing the output shifts up or down.",
+      "example": "y = (x − 2)² + 3 is y = x² moved 2 right and 3 up, so its lowest point is (2, 3).",
+      "commonMistake": "Moving f(x − 2) to the left.",
+      "applicationPrompt": "Where is the lowest point of y = (x + 4)² − 1?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "functions-graphs-level-0",
+      "topicId": "functions-graphs",
+      "order": 0,
+      "title": "Functions as Input-Output Machines",
+      "description": "A function takes an input, applies a rule, and produces an output — f(a) means \"the output when the input is a.\"",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "fn-notation",
+        "fn-domain"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Substitute, don’t multiply",
+            "body": "f(x) = 3x + 2 is a rule. f(4) does not mean f times 4 — it means substitute x = 4 into the rule: 3(4) + 2 = 14."
+          },
+          {
+            "type": "formula",
+            "title": "Evaluating a function",
+            "body": "f(a) = substitute x = a into f(x)",
+            "caption": "The value inside the brackets is the input, not a factor."
+          },
+          {
+            "type": "check",
+            "questionId": "functions-graphs-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "A denominator can never be zero — that is usually where a domain restriction comes from."
+          },
+          {
+            "type": "check",
+            "questionId": "functions-graphs-q-005"
+          },
+          {
+            "type": "text",
+            "title": "A graph is every input with its output",
+            "body": "Plot each input x against its output f(x) and you get the graph of f. Change the rule and the graph moves: f(x − h) + k is the same graph slid h across and k up, and a·f(x) stretches it.\n\nWatch the input: f(x − 3) moves the graph 3 to the right, not the left, because x must be 3 bigger to give the same output."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "function-shift"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "functions-graphs-level-1",
+      "topicId": "functions-graphs",
+      "order": 1,
+      "title": "Functions and Basic Graphs Formulas",
+      "description": "Evaluating functions, domain restrictions, slope-intercept form, composition, inverse functions.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "functions-graphs-level-0"
+      ],
+      "conceptIds": [
+        "fn-notation",
+        "fn-domain",
+        "fn-linear",
+        "fn-compose"
+      ],
+      "formulaIds": [
+        "fn-eval-f",
+        "fn-domain-f",
+        "fn-linear-f",
+        "fn-compose-f",
+        "fn-inverse-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "functions-graphs-level-2",
+      "topicId": "functions-graphs",
+      "order": 2,
+      "title": "Direct Evaluation and Slope",
+      "description": "Evaluating functions and reading slope-intercept form.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "functions-graphs-level-1"
+      ],
+      "conceptIds": [
+        "fn-notation",
+        "fn-linear",
+        "fn-domain"
+      ],
+      "questionIds": [
+        "functions-graphs-q-001",
+        "functions-graphs-q-002",
+        "functions-graphs-q-003",
+        "functions-graphs-q-004",
+        "functions-graphs-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "functions-graphs-level-3",
+      "topicId": "functions-graphs",
+      "order": 3,
+      "title": "Composition, Slope From Points, and Inverses",
+      "description": "Combining functions, and working with lines given only two points.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "functions-graphs-level-2"
+      ],
+      "conceptIds": [
+        "fn-compose",
+        "fn-linear",
+        "fn-inverse",
+        "fn-notation"
+      ],
+      "questionIds": [
+        "functions-graphs-q-006",
+        "functions-graphs-q-007",
+        "functions-graphs-q-008",
+        "functions-graphs-q-009",
+        "functions-graphs-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "functions-graphs-level-4",
+      "topicId": "functions-graphs",
+      "order": 4,
+      "title": "Multi-Step Function Problems",
+      "description": "Composition and simultaneous-equation-style function problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "functions-graphs-level-3"
+      ],
+      "conceptIds": [
+        "fn-compose",
+        "fn-linear",
+        "fn-notation"
+      ],
+      "questionIds": [
+        "functions-graphs-q-011",
+        "functions-graphs-q-012",
+        "functions-graphs-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "functions-graphs-level-5",
+      "topicId": "functions-graphs",
+      "order": 5,
+      "title": "Mixed Functions and Basic Graphs Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "functions-graphs-level-4"
+      ],
+      "conceptIds": [
+        "fn-compose",
+        "fn-linear",
+        "fn-notation"
+      ],
+      "questionQuery": {
+        "topicId": "functions-graphs",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "functions-graphs-q-001",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "levelId": "functions-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If f(x) = 3x + 2, what is f(4)?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0
+      },
+      "explanation": "Substitute x = 4: f(4) = 3(4) + 2 = 12 + 2 = 14.",
+      "solutionSteps": [
+        "3 × 4 = 12.",
+        "12 + 2 = 14."
+      ],
+      "formulaIds": [
+        "fn-eval-f"
+      ],
+      "method": "Replace x with 4, then evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "f(4) means substitute x = 4, not multiply f by 4."
+        }
+      ],
+      "commonMistakes": [
+        "Reading f(4) as f times 4."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-002",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "levelId": "functions-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If f(x) = x² − 1, what is f(−3)?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Substitute x = −3: f(−3) = (−3)² − 1 = 9 − 1 = 8.",
+      "solutionSteps": [
+        "(−3)² = 9.",
+        "9 − 1 = 8."
+      ],
+      "formulaIds": [
+        "fn-eval-f"
+      ],
+      "method": "Square the whole value of x, including its sign.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(−3)² is positive."
+        }
+      ],
+      "commonMistakes": [
+        "Treating (−3)² as −9."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-003",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "levelId": "functions-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "For a function f, the expression f(5) means",
+      "options": [
+        {
+          "id": "a",
+          "text": "multiply f by 5"
+        },
+        {
+          "id": "b",
+          "text": "substitute x = 5 into f(x)"
+        },
+        {
+          "id": "c",
+          "text": "add 5 to f"
+        },
+        {
+          "id": "d",
+          "text": "the 5th function in a list"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "f(5) tells you to substitute x = 5 into the rule for f(x) and evaluate the result.",
+      "solutionSteps": [
+        "f(5) = substitute x = 5."
+      ],
+      "formulaIds": [
+        "fn-eval-f"
+      ],
+      "method": "The bracket holds the input value, not a multiplier.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Function notation is not the same as multiplication."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing f(5) with 5f."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-004",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-linear",
+      "levelId": "functions-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the slope of the line y = 3x − 2?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "In y = mx + c, the coefficient of x is the slope, so the slope is 3.",
+      "solutionSteps": [
+        "Compare to y = mx + c.",
+        "m = 3."
+      ],
+      "formulaIds": [
+        "fn-linear-f"
+      ],
+      "method": "The slope is the coefficient of x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Match the equation to the form y = mx + c."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the y-intercept, −2, instead of the slope."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-005",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-domain",
+      "levelId": "functions-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What value must x avoid in the domain of f(x) = 1/(x − 4)?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "The denominator x − 4 cannot be zero, so x ≠ 4.",
+      "solutionSteps": [
+        "x − 4 ≠ 0.",
+        "x ≠ 4."
+      ],
+      "formulaIds": [
+        "fn-domain-f"
+      ],
+      "method": "A denominator can never equal zero.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set the denominator equal to zero to find the excluded value."
+        }
+      ],
+      "commonMistakes": [
+        "Excluding the wrong value, such as 0."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-006",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-compose",
+      "levelId": "functions-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If f(x) = 2x + 1 and g(x) = x − 3, what is f(g(5))?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "First find g(5) = 5 − 3 = 2. Then f(2) = 2(2) + 1 = 5.",
+      "solutionSteps": [
+        "g(5) = 5 − 3 = 2.",
+        "f(2) = 2(2) + 1 = 5."
+      ],
+      "formulaIds": [
+        "fn-compose-f"
+      ],
+      "method": "Work from the inside out: apply g first, then f.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Evaluate the inner function before the outer one."
+        }
+      ],
+      "commonMistakes": [
+        "Applying f before g."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-007",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "levelId": "functions-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If f(x) = x² + 2x, what is f(3) − f(1)?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "f(3) = 9 + 6 = 15. f(1) = 1 + 2 = 3. So f(3) − f(1) = 15 − 3 = 12.",
+      "solutionSteps": [
+        "f(3) = 9 + 6 = 15.",
+        "f(1) = 1 + 2 = 3.",
+        "15 − 3 = 12."
+      ],
+      "formulaIds": [
+        "fn-eval-f"
+      ],
+      "method": "Evaluate each value separately before subtracting.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compute f(3) and f(1) fully before subtracting."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting inside the function first, computing f(3−1) instead."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-008",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-linear",
+      "levelId": "functions-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the slope of the line through (2, 5) and (6, 13)?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Slope = (13 − 5)/(6 − 2) = 8/4 = 2.",
+      "solutionSteps": [
+        "Rise = 13 − 5 = 8.",
+        "Run = 6 − 2 = 4.",
+        "8 ÷ 4 = 2."
+      ],
+      "formulaIds": [
+        "fn-linear-f"
+      ],
+      "method": "Slope = rise over run, in the same order for both points.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Keep the same point first in both subtractions."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the coordinates in a mismatched order."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-009",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-linear",
+      "levelId": "functions-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A line has slope 4 and passes through (1, 9). What is its y-intercept?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Using y = 4x + c with (1,9): 9 = 4(1) + c, so c = 5.",
+      "solutionSteps": [
+        "9 = 4(1) + c.",
+        "9 = 4 + c.",
+        "c = 5."
+      ],
+      "formulaIds": [
+        "fn-linear-f"
+      ],
+      "method": "Substitute the known point into y = mx + c and solve for c.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Substitute the given point into the slope-intercept equation."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the given point is the y-intercept itself."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-010",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-inverse",
+      "levelId": "functions-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If f(x) = 2x + 6, what is f⁻¹(10)?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "The inverse is f⁻¹(x) = (x − 6)/2. So f⁻¹(10) = (10 − 6)/2 = 2.",
+      "solutionSteps": [
+        "Swap x and y: x = 2y + 6.",
+        "Solve for y: y = (x−6)/2.",
+        "f⁻¹(10) = (10−6)/2 = 2."
+      ],
+      "formulaIds": [
+        "fn-inverse-f"
+      ],
+      "method": "Find the inverse function first, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Swap x and y in the equation, then solve for y."
+        }
+      ],
+      "commonMistakes": [
+        "Substituting 10 into f(x) instead of finding the inverse first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-011",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-compose",
+      "levelId": "functions-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If f(x) = 3x − 2 and g(x) = x² + 1, what is g(f(2))?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "f(2) = 3(2) − 2 = 4. Then g(4) = 4² + 1 = 17.",
+      "solutionSteps": [
+        "f(2) = 6 − 2 = 4.",
+        "g(4) = 16 + 1 = 17."
+      ],
+      "formulaIds": [
+        "fn-compose-f"
+      ],
+      "method": "Apply f first (the inner function), then g.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "g(f(2)) means f is applied first."
+        }
+      ],
+      "commonMistakes": [
+        "Applying g before f."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-012",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-linear",
+      "levelId": "functions-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The points (1, 4) and (3, 10) lie on the line y = mx + c. What is m + c?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Slope m = (10−4)/(3−1) = 3. Using (1,4): 4 = 3(1) + c, so c = 1. Thus m + c = 3 + 1 = 4.",
+      "solutionSteps": [
+        "m = 6/2 = 3.",
+        "c = 4 − 3 = 1.",
+        "m + c = 4."
+      ],
+      "formulaIds": [
+        "fn-linear-f"
+      ],
+      "method": "Find the slope first, then substitute a point to find c.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need both m and c before you can add them."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to solve for c after finding m."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "functions-graphs-q-013",
+      "topicId": "functions-graphs",
+      "conceptId": "fn-notation",
+      "levelId": "functions-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A function f(x) = ax + b satisfies f(1) = 5 and f(3) = 13. What is f(10)?",
+      "answer": {
+        "value": 41,
+        "tolerance": 0
+      },
+      "explanation": "From the two equations: a + b = 5 and 3a + b = 13. Subtracting gives 2a = 8, so a = 4 and b = 1. Then f(10) = 4(10) + 1 = 41.",
+      "solutionSteps": [
+        "a + b = 5; 3a + b = 13.",
+        "Subtract: 2a = 8 → a = 4, b = 1.",
+        "f(10) = 40 + 1 = 41."
+      ],
+      "formulaIds": [
+        "fn-eval-f",
+        "fn-linear-f"
+      ],
+      "method": "Set up two equations from the two given values, solve for a and b, then evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat f(1) = 5 and f(3) = 13 as a pair of simultaneous equations."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to guess a and b instead of solving for them."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

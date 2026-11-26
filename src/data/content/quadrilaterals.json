@@ -1,0 +1,1952 @@
+{
+  "topicId": "quadrilaterals",
+  "concepts": [
+    {
+      "id": "quad-anglesum",
+      "topicId": "quadrilaterals",
+      "name": "Angle sum of a quadrilateral",
+      "description": "The four interior angles of any quadrilateral always add up to 360°.",
+      "sortOrder": 1
+    },
+    {
+      "id": "quad-types",
+      "topicId": "quadrilaterals",
+      "name": "Classifying quadrilaterals",
+      "description": "Quadrilaterals are classified by their side and angle properties: parallelograms, rectangles, rhombuses, squares and trapeziums each have distinctive properties.",
+      "sortOrder": 2
+    },
+    {
+      "id": "quad-parallelogram",
+      "topicId": "quadrilaterals",
+      "name": "Parallelograms",
+      "description": "Opposite sides are equal and parallel, opposite angles are equal, and consecutive angles are supplementary.",
+      "sortOrder": 3
+    },
+    {
+      "id": "quad-rectangle",
+      "topicId": "quadrilaterals",
+      "name": "Rectangles and squares",
+      "description": "A rectangle has four right angles and equal diagonals; a square is a rectangle with all four sides equal.",
+      "sortOrder": 4
+    },
+    {
+      "id": "quad-rhombus",
+      "topicId": "quadrilaterals",
+      "name": "Rhombuses",
+      "description": "A rhombus has four equal sides, and its diagonals bisect each other at right angles.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "quad-anglesum-f",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-anglesum",
+      "title": "Angle sum of a quadrilateral",
+      "prompt": "What do the four angles of a quadrilateral add up to?",
+      "formula": "A + B + C + D = 360°",
+      "variables": [],
+      "explanation": "This holds for every quadrilateral, no matter its shape.",
+      "example": "If three angles are 80°, 95° and 100°, the fourth is 360 − 80 − 95 − 100 = 85°",
+      "commonMistake": "Confusing the quadrilateral angle sum (360°) with the triangle angle sum (180°).",
+      "applicationPrompt": "Three angles of a quadrilateral are 80°, 95° and 100°. Find the fourth.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "quad-parallelogram-f",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-parallelogram",
+      "title": "Parallelogram angles",
+      "prompt": "How are the angles of a parallelogram related?",
+      "formula": "Opposite angles are equal; consecutive angles sum to 180°",
+      "variables": [],
+      "explanation": "Opposite sides being parallel means each pair of consecutive angles forms a co-interior pair, which is why they are supplementary.",
+      "example": "If one angle is 65°, the adjacent angle is 180 − 65 = 115°, and the opposite angle is also 65°.",
+      "commonMistake": "Assuming all four angles are equal, as in a rectangle.",
+      "applicationPrompt": "One angle of a parallelogram is 65°. Find the angle next to it.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "quad-rectangle-f",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rectangle",
+      "title": "Rectangle diagonals",
+      "prompt": "How do the diagonals of a rectangle compare?",
+      "formula": "Diagonals are equal in length: AC = BD",
+      "variables": [],
+      "explanation": "Unlike a general parallelogram, a rectangle's diagonals are always equal (though they still bisect each other).",
+      "example": "If diagonal AC = 10 cm, diagonal BD is also 10 cm.",
+      "commonMistake": "Assuming the diagonals are also perpendicular, which is only true for a square.",
+      "applicationPrompt": "A rectangle has diagonal AC = 10 cm. Find diagonal BD.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "quad-rhombus-f",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rhombus",
+      "title": "Rhombus side from diagonals",
+      "prompt": "How can you find the side of a rhombus from its diagonals?",
+      "formula": "side = √(half-diagonal₁² + half-diagonal₂²)",
+      "variables": [],
+      "explanation": "The diagonals of a rhombus bisect each other at right angles, so each side is the hypotenuse of a right triangle formed by the two half-diagonals.",
+      "example": "Half-diagonals 3 cm and 4 cm: side = √(3² + 4²) = √25 = 5 cm",
+      "commonMistake": "Using the full diagonals instead of half-diagonals in the formula.",
+      "applicationPrompt": "A rhombus has diagonals meeting at right angles with half-diagonals 3 cm and 4 cm. Find the side length.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "quad-sc-rhombus",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rhombus",
+      "kind": "shortcut",
+      "title": "Rhombus from its diagonals",
+      "prompt": "You know a rhombus's diagonals. What are its side and area?",
+      "formula": "Side = ½√(d₁² + d₂²)\nArea = ½ × d₁ × d₂",
+      "variables": [],
+      "explanation": "The diagonals bisect each other at right angles, making four right triangles.",
+      "example": "Diagonals 16 and 12: halves 8 and 6, side 10, area 96.",
+      "commonMistake": "Using the full diagonals as the legs of the right triangle.",
+      "applicationPrompt": "A rhombus has side 13 and one diagonal 24. Find its area.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "quad-sc-rectangle-diagonal",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rectangle",
+      "kind": "shortcut",
+      "title": "Rectangle diagonals by triplets",
+      "prompt": "What is the quick way to a rectangle's diagonal?",
+      "formula": "d = √(l² + b²)\nSpot a triplet: 8 × 6 → 10, 24 × 7 → 25, 12 × 5 → 13",
+      "variables": [],
+      "explanation": "The diagonal is the hypotenuse of a right triangle with the two sides as legs.",
+      "example": "A 24 × 7 rectangle has diagonal 25.",
+      "commonMistake": "Adding the sides.",
+      "applicationPrompt": "A rectangle's diagonal is 17 and one side is 8. Find its area.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "quadrilaterals-level-0",
+      "topicId": "quadrilaterals",
+      "order": 0,
+      "title": "Every Quadrilateral Sums to 360°",
+      "description": "The four interior angles of any quadrilateral always add up to 360°.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "quad-anglesum",
+        "quad-types"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A fact true for every quadrilateral",
+            "body": "No matter how a four-sided shape is stretched, its interior angles always sum to exactly 360° — twice the triangle angle sum, since any quadrilateral can be split into two triangles."
+          },
+          {
+            "type": "formula",
+            "title": "Angle sum",
+            "body": "A + B + C + D = 360°",
+            "caption": "This holds for every quadrilateral: square, rectangle, parallelogram, rhombus, trapezium or any irregular four-sided shape."
+          },
+          {
+            "type": "check",
+            "questionId": "quadrilaterals-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Quadrilaterals are classified by their sides and angles: parallelograms, rectangles, rhombuses, squares and trapeziums each have their own signature properties."
+          },
+          {
+            "type": "check",
+            "questionId": "quadrilaterals-q-007"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "quadrilaterals-level-1",
+      "topicId": "quadrilaterals",
+      "order": 1,
+      "title": "Quadrilaterals Formulas",
+      "description": "Angle sum, parallelogram angles, rectangle diagonals, and the rhombus side-from-diagonals relationship.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "quadrilaterals-level-0"
+      ],
+      "conceptIds": [
+        "quad-anglesum",
+        "quad-parallelogram",
+        "quad-rectangle",
+        "quad-rhombus"
+      ],
+      "formulaIds": [
+        "quad-anglesum-f",
+        "quad-parallelogram-f",
+        "quad-rectangle-f",
+        "quad-rhombus-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "quadrilaterals-level-2",
+      "topicId": "quadrilaterals",
+      "order": 2,
+      "title": "Direct Quadrilateral Facts",
+      "description": "Angle sum, parallelogram definition, and rectangle diagonals.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "quadrilaterals-level-1"
+      ],
+      "conceptIds": [
+        "quad-anglesum",
+        "quad-parallelogram",
+        "quad-rectangle"
+      ],
+      "questionIds": [
+        "quadrilaterals-q-001",
+        "quadrilaterals-q-002",
+        "quadrilaterals-q-003",
+        "quadrilaterals-q-010",
+        "quadrilaterals-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "quadrilaterals-level-3",
+      "topicId": "quadrilaterals",
+      "order": 3,
+      "title": "Parallelogram, Rhombus and Trapezium Angles",
+      "description": "Consecutive angles, the rhombus side relationship, and trapezium/rhombus classification.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "quadrilaterals-level-2"
+      ],
+      "conceptIds": [
+        "quad-parallelogram",
+        "quad-rhombus",
+        "quad-types"
+      ],
+      "questionIds": [
+        "quadrilaterals-q-004",
+        "quadrilaterals-q-005",
+        "quadrilaterals-q-006",
+        "quadrilaterals-q-007",
+        "quadrilaterals-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "quadrilaterals-level-4",
+      "topicId": "quadrilaterals",
+      "order": 4,
+      "title": "Multi-Step Quadrilateral Problems",
+      "description": "Solving for an unknown using opposite angles, and the rhombus diagonal-to-side relationship.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "quadrilaterals-level-3"
+      ],
+      "conceptIds": [
+        "quad-parallelogram",
+        "quad-rhombus",
+        "quad-rectangle"
+      ],
+      "questionIds": [
+        "quadrilaterals-q-008",
+        "quadrilaterals-q-009",
+        "quadrilaterals-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "quadrilaterals-level-5",
+      "topicId": "quadrilaterals",
+      "order": 5,
+      "title": "Mixed Quadrilaterals Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "quadrilaterals-level-4"
+      ],
+      "conceptIds": [
+        "quad-parallelogram",
+        "quad-rhombus"
+      ],
+      "questionQuery": {
+        "topicId": "quadrilaterals",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "quadrilaterals-q-001",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-anglesum",
+      "levelId": "quadrilaterals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In quadrilateral ABCD, angle A = 80°, angle B = 95°, angle C = 100°. What is angle D?",
+      "context": "Study the quadrilateral and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Quadrilateral ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 6,
+            "y": 5,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 1,
+            "y": 5,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "80°",
+            "radius": 16
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "95°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D",
+            "label": "100°",
+            "radius": 16
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "A",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Quadrilateral ABCD with angles marked A: 80°, B: 95°, C: 100°, D: ?."
+      },
+      "answer": {
+        "value": 85,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The four angles sum to 360°: angle D = 360 − 80 − 95 − 100 = 85°.",
+      "solutionSteps": [
+        "80 + 95 + 100 = 275.",
+        "360 − 275 = 85."
+      ],
+      "formulaIds": [
+        "quad-anglesum-f"
+      ],
+      "method": "Subtract the three known angles from 360°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The four angles of any quadrilateral always sum to 360°."
+        }
+      ],
+      "commonMistakes": [
+        "Using 180° instead of 360° as the total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-002",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-parallelogram",
+      "levelId": "quadrilaterals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A quadrilateral with both pairs of opposite sides parallel and equal, and opposite angles equal, is called a",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallelogram ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 4,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "D"
+            ],
+            "count": 2
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 2
+          }
+        ],
+        "ariaSummary": "Parallelogram ABCD, with AB marked parallel to DC and AD marked equal in length to BC."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "parallelogram"
+        },
+        {
+          "id": "b",
+          "text": "trapezium"
+        },
+        {
+          "id": "c",
+          "text": "kite"
+        },
+        {
+          "id": "d",
+          "text": "regular polygon"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A parallelogram is defined by having both pairs of opposite sides parallel and equal, which also makes opposite angles equal.",
+      "solutionSteps": [
+        "Both pairs of opposite sides parallel and equal → parallelogram."
+      ],
+      "formulaIds": [
+        "quad-parallelogram-f"
+      ],
+      "method": "Match the description to the defining shape.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A trapezium has only one pair of parallel sides."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing a parallelogram with a trapezium, which has only one pair of parallel sides."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-003",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rectangle",
+      "levelId": "quadrilaterals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In rectangle ABCD, the diagonals AC and BD are always equal in length. If AC = 10 cm, what is BD?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rectangle ABCD with diagonals",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 5,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D"
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "A"
+          }
+        ],
+        "ariaSummary": "Rectangle ABCD with both diagonals AC and BD drawn, and right angles marked at all four corners."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "A rectangle's two diagonals are always equal, so BD = AC = 10 cm.",
+      "solutionSteps": [
+        "Diagonals of a rectangle are equal.",
+        "BD = AC = 10 cm."
+      ],
+      "formulaIds": [
+        "quad-rectangle-f"
+      ],
+      "method": "Use the equal-diagonals property of a rectangle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This property is unique to rectangles (and squares) among parallelograms."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to compute BD from side lengths that were never given."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-004",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-parallelogram",
+      "levelId": "quadrilaterals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In parallelogram ABCD, consecutive angles A and B are supplementary. If angle A = 65°, what is angle B?",
+      "context": "Study the parallelogram and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallelogram ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 4,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "D"
+            ],
+            "count": 2
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 2
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "65°",
+            "radius": 16
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Parallelogram ABCD with angle A marked 65° and angle B marked ?; AB is parallel to DC, and AD equals BC."
+      },
+      "answer": {
+        "value": 115,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Consecutive angles in a parallelogram sum to 180°: angle B = 180 − 65 = 115°.",
+      "solutionSteps": [
+        "180 − 65 = 115."
+      ],
+      "formulaIds": [
+        "quad-parallelogram-f"
+      ],
+      "method": "Subtract the given angle from 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "AD and BC are parallel, and AB crosses them: angles A and B are co-interior, so they add up to 180°."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming angle B equals angle A, as if it were the opposite angle."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-005",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rhombus",
+      "levelId": "quadrilaterals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In rhombus ABCD, the diagonals bisect each other at right angles at O. If OA = 3 cm and OB = 4 cm, find the length of side AB.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rhombus ABCD with diagonals",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 2,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 4,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 2,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "D",
+            "x": 4,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              12
+            ]
+          },
+          {
+            "id": "O",
+            "x": 4,
+            "y": 2,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "Rhombus ABCD with all four sides tick-marked equal, and diagonals AC and BD crossing at right angles at O."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Triangle OAB is right-angled at O, so AB = √(OA² + OB²) = √(3² + 4²) = √25 = 5 cm.",
+      "solutionSteps": [
+        "3² + 4² = 9 + 16 = 25.",
+        "√25 = 5."
+      ],
+      "formulaIds": [
+        "quad-rhombus-f"
+      ],
+      "method": "Apply the Pythagorean relationship to the right triangle formed by the two half-diagonals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "OA, OB and AB form a right triangle since the diagonals meet at 90°."
+        }
+      ],
+      "commonMistakes": [
+        "Adding OA and OB directly instead of using the Pythagorean relationship."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-006",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-types",
+      "levelId": "quadrilaterals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In trapezium ABCD, AB is parallel to DC, and AD is a leg joining them. Angle A and angle D lie on the same leg, so they are supplementary. If angle A = 70°, what is angle D?",
+      "context": "Study the trapezium and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Trapezium ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 6,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 4,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "70°",
+            "radius": 16
+          },
+          {
+            "at": "D",
+            "from": "A",
+            "to": "C",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Trapezium ABCD with AB parallel to DC; angle A marked 70° and angle D marked with a question mark."
+      },
+      "answer": {
+        "value": 110,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Angles on the same leg between a pair of parallel sides are supplementary: angle D = 180 − 70 = 110°.",
+      "solutionSteps": [
+        "180 − 70 = 110."
+      ],
+      "formulaIds": [],
+      "method": "Subtract the given angle from 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "AB and DC are parallel, and AD is the transversal joining them."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming angle D equals angle A."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-007",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-types",
+      "levelId": "quadrilaterals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which quadrilateral has all four sides equal in length, but its angles are not necessarily 90°?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rhombus"
+        },
+        {
+          "id": "b",
+          "text": "Square"
+        },
+        {
+          "id": "c",
+          "text": "Rectangle"
+        },
+        {
+          "id": "d",
+          "text": "Trapezium"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A rhombus has all four sides equal, but its angles can be anything (a square is the special case where they are all 90°).",
+      "solutionSteps": [
+        "All sides equal, angles not necessarily 90° → rhombus."
+      ],
+      "formulaIds": [],
+      "method": "Match the side/angle description to the shape.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A square is a rhombus with right angles — but the question says angles are not necessarily 90°."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing square, which additionally requires right angles."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-008",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-parallelogram",
+      "levelId": "quadrilaterals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In parallelogram ABCD, angle A = (2x + 20)° and angle C = (3x − 10)° are opposite angles, so they are equal. Find angle A.",
+      "context": "Study the parallelogram and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallelogram ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 4,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "(2x + 20)°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D",
+            "label": "(3x − 10)°",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Parallelogram ABCD with opposite angle A marked (2x + 20)° and opposite angle C marked (3x − 10)°."
+      },
+      "answer": {
+        "value": 80,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Opposite angles are equal: 2x + 20 = 3x − 10, so x = 30. Angle A = 2(30) + 20 = 80°.",
+      "solutionSteps": [
+        "2x + 20 = 3x − 10.",
+        "30 = x.",
+        "Angle A = 2(30) + 20 = 80°."
+      ],
+      "formulaIds": [
+        "quad-parallelogram-f"
+      ],
+      "method": "Set the two opposite angles equal, solve for x, then substitute back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Opposite angles of a parallelogram are always equal."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to substitute x back in to find the actual angle."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-009",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rhombus",
+      "levelId": "quadrilaterals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The diagonals of a rhombus are 16 cm and 12 cm. Find the length of each side.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rhombus ABCD with diagonals",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 2,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 4,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 2,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "D",
+            "x": 4,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              12
+            ]
+          },
+          {
+            "id": "O",
+            "x": 4,
+            "y": 2,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "Rhombus ABCD with all four sides tick-marked equal, and diagonals AC and BD crossing at right angles at O."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Half-diagonals are 8 cm and 6 cm. Side = √(8² + 6²) = √(64 + 36) = √100 = 10 cm.",
+      "solutionSteps": [
+        "Half-diagonals: 16 ÷ 2 = 8, 12 ÷ 2 = 6.",
+        "8² + 6² = 64 + 36 = 100.",
+        "√100 = 10."
+      ],
+      "formulaIds": [
+        "quad-rhombus-f"
+      ],
+      "method": "Halve both diagonals first, then apply the Pythagorean relationship.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The diagonals bisect each other, so use half of each."
+        }
+      ],
+      "commonMistakes": [
+        "Using the full diagonals instead of half-diagonals in the Pythagorean step."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-010",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-anglesum",
+      "levelId": "quadrilaterals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In quadrilateral ABCD, angle A = x°, angle B = 2x°, angle C = 3x° and angle D = 4x°. Find the largest angle.",
+      "context": "Study the quadrilateral and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Quadrilateral ABCD",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -13,
+              8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              13,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8.76,
+            "y": 3.8,
+            "labelOffset": [
+              12,
+              -4
+            ]
+          },
+          {
+            "id": "D",
+            "x": 5.24,
+            "y": 3.8,
+            "labelOffset": [
+              -5,
+              -9
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "x°",
+            "radius": 28
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "2x°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D",
+            "label": "3x°",
+            "radius": 16
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "A",
+            "label": "4x°",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Quadrilateral ABCD with angles marked A: x°, B: 2x°, C: 3x°, D: 4x°."
+      },
+      "answer": {
+        "value": 144,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The angles of a quadrilateral add up to 360°: x + 2x + 3x + 4x = 10x = 360, so x = 36. The largest angle is 4x = 4 × 36 = 144°.",
+      "solutionSteps": [
+        "x + 2x + 3x + 4x = 360.",
+        "10x = 360, so x = 36.",
+        "Largest angle = 4x = 4 × 36 = 144°."
+      ],
+      "formulaIds": [
+        "quad-anglesum-f"
+      ],
+      "method": "Add the four expressions, set the total to 360°, then find 4x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the four expressions and set the total equal to 360°."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at x = 36 instead of finding the largest angle, 4x."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-011",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rectangle",
+      "levelId": "quadrilaterals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Rectangle ABCD has length AB = 24 cm and breadth BC = 7 cm. Find the length of its diagonal AC.",
+      "context": "Study the rectangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rectangle ABCD, 24 cm by 7 cm, with diagonal AC",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 24,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 24,
+            "y": 7,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 7,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "24 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "7 cm",
+            "labelOffset": [
+              -22,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed",
+            "label": "?"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Rectangle ABCD with AB = 24 cm and BC = 7 cm, a right angle marked at B, and diagonal AC drawn dashed and marked ?."
+      },
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The diagonal is the hypotenuse of right triangle ABC: AC = √(24² + 7²) = √(576 + 49) = √625 = 25 cm.",
+      "solutionSteps": [
+        "AC² = 24² + 7² = 576 + 49 = 625.",
+        "AC = √625 = 25 cm."
+      ],
+      "formulaIds": [
+        "quad-sc-rectangle-diagonal"
+      ],
+      "method": "Use Pythagoras in the right triangle formed by two sides and the diagonal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The diagonal is the hypotenuse of a right triangle with legs 24 cm and 7 cm."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the sides (24 + 7 = 31) instead of using Pythagoras."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-012",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-types",
+      "levelId": "quadrilaterals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which property is true of every rhombus, but NOT true of every parallelogram?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Its diagonals bisect each other."
+        },
+        {
+          "id": "b",
+          "text": "Its opposite angles are equal."
+        },
+        {
+          "id": "c",
+          "text": "Its diagonals are equal in length."
+        },
+        {
+          "id": "d",
+          "text": "Its diagonals cross at right angles."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Every parallelogram already has diagonals that bisect each other and equal opposite angles, so those do not single out a rhombus. Equal diagonals belong to rectangles, and a rhombus that is not a square does not have them. Diagonals that cross at right angles hold for every rhombus but fail for a general parallelogram.",
+      "solutionSteps": [
+        "Diagonals bisect each other: true of every parallelogram.",
+        "Opposite angles equal: true of every parallelogram.",
+        "Equal diagonals: a rectangle property, false for most rhombuses.",
+        "Diagonals at right angles: true of every rhombus, not of every parallelogram."
+      ],
+      "formulaIds": [],
+      "method": "Test each property on a slanted parallelogram first, then on a rhombus.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Picture a long, slanted parallelogram that is not a rhombus, and see which properties still hold."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"diagonals bisect each other\", which every parallelogram has.",
+        "Confusing the rhombus with the rectangle, whose diagonals are equal."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadrilaterals-q-013",
+      "topicId": "quadrilaterals",
+      "conceptId": "quad-rectangle",
+      "levelId": "quadrilaterals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In rectangle ABCD, the diagonals AC and BD meet at O. If angle BOC = 70°, find angle OAB.",
+      "context": "Study the rectangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rectangle ABCD with diagonals meeting at O",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 7,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 7,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 5,
+            "y": 3.5,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D"
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "A"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "B",
+            "to": "C",
+            "label": "70°",
+            "radius": 16
+          },
+          {
+            "at": "A",
+            "from": "B",
+            "to": "O",
+            "label": "?",
+            "radius": 30
+          }
+        ],
+        "ariaSummary": "Rectangle ABCD with diagonals AC and BD meeting at O and right angles at all four corners. Angle BOC is marked 70° and angle OAB is marked ?."
+      },
+      "answer": {
+        "value": 35,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Angle AOB = 180° − 70° = 110°, since AOB and BOC lie on the straight line BD. The diagonals of a rectangle are equal and bisect each other, so OA = OB and triangle AOB is isosceles. Angle OAB = (180° − 110°) ÷ 2 = 35°.",
+      "solutionSteps": [
+        "Angle AOB = 180° − 70° = 110° (straight line BD).",
+        "OA = OB, because equal diagonals bisect each other.",
+        "Angle OAB = (180° − 110°) ÷ 2 = 35°."
+      ],
+      "formulaIds": [
+        "quad-rectangle-f"
+      ],
+      "method": "Use the straight angle at O, then the isosceles triangle AOB.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Angles AOB and BOC lie on the straight line BD."
+        },
+        {
+          "level": 2,
+          "text": "Half of each diagonal is the same length, so OA = OB."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 55°, which is angle OBC in triangle BOC, not angle OAB."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

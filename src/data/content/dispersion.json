@@ -1,0 +1,926 @@
+{
+  "topicId": "dispersion",
+  "concepts": [
+    {
+      "id": "disp-range",
+      "topicId": "dispersion",
+      "name": "Range",
+      "description": "The range is the simplest measure of spread: the highest value minus the lowest.",
+      "sortOrder": 1
+    },
+    {
+      "id": "disp-variance",
+      "topicId": "dispersion",
+      "name": "Variance",
+      "description": "Variance is the average of the squared deviations of each value from the mean.",
+      "sortOrder": 2
+    },
+    {
+      "id": "disp-stddev",
+      "topicId": "dispersion",
+      "name": "Standard deviation",
+      "description": "Standard deviation is the square root of the variance, bringing the units back to match the original data.",
+      "sortOrder": 3
+    },
+    {
+      "id": "disp-meandeviation",
+      "topicId": "dispersion",
+      "name": "Mean deviation",
+      "description": "Mean deviation is the average of the absolute (unsigned) deviations from the mean.",
+      "sortOrder": 4
+    },
+    {
+      "id": "disp-cv",
+      "topicId": "dispersion",
+      "name": "Coefficient of variation",
+      "description": "The coefficient of variation expresses spread as a percentage of the mean, making it possible to compare the variability of different data sets.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "disp-range-f",
+      "topicId": "dispersion",
+      "conceptId": "disp-range",
+      "title": "Range",
+      "prompt": "How do you calculate the range of a data set?",
+      "formula": "Range = maximum value − minimum value",
+      "variables": [],
+      "explanation": "The range only looks at the two extreme values, ignoring everything in between.",
+      "example": "5, 12, 7, 20, 3: range = 20 − 3 = 17",
+      "commonMistake": "Including values other than the maximum and minimum in the calculation.",
+      "applicationPrompt": "Find the range of 5, 12, 7, 20, 3.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "disp-variance-f",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "title": "Variance",
+      "prompt": "How do you calculate the variance of a data set?",
+      "formula": "Variance = (1/n) × Σ(x − mean)²",
+      "variables": [],
+      "explanation": "Squaring the deviations makes them all positive and gives more weight to values further from the mean.",
+      "example": "2,4,6,8,10 (mean 6): deviations −4,−2,0,2,4; squares 16,4,0,4,16; variance = 40/5 = 8",
+      "commonMistake": "Forgetting to square the deviations, or forgetting to divide by n at the end.",
+      "applicationPrompt": "Find the variance of 2, 4, 6, 8, 10.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "disp-stddev-f",
+      "topicId": "dispersion",
+      "conceptId": "disp-stddev",
+      "title": "Standard deviation",
+      "prompt": "How do you find the standard deviation once you know the variance?",
+      "formula": "Standard deviation = √(variance)",
+      "variables": [],
+      "explanation": "Taking the square root returns the measure of spread to the same units as the original data.",
+      "example": "Variance = 8: standard deviation = √8 ≈ 2.83",
+      "commonMistake": "Reporting the variance itself instead of taking its square root.",
+      "applicationPrompt": "If the variance of a data set is 8, find its standard deviation.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "disp-meandev-f",
+      "topicId": "dispersion",
+      "conceptId": "disp-meandeviation",
+      "title": "Mean deviation",
+      "prompt": "How do you calculate the mean deviation of a data set?",
+      "formula": "Mean deviation = (1/n) × Σ|x − mean|",
+      "variables": [],
+      "explanation": "Unlike variance, this uses the absolute value of each deviation rather than squaring it.",
+      "example": "10,12,14,16,18 (mean 14): |deviations| = 4,2,0,2,4; mean deviation = 12/5 = 2.4",
+      "commonMistake": "Forgetting to take the absolute value, letting negative and positive deviations cancel out.",
+      "applicationPrompt": "Find the mean deviation of 10, 12, 14, 16, 18.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "disp-cv-f",
+      "topicId": "dispersion",
+      "conceptId": "disp-cv",
+      "title": "Coefficient of variation",
+      "prompt": "How do you calculate the coefficient of variation, and why is it useful?",
+      "formula": "Coefficient of variation = (standard deviation / mean) × 100%",
+      "variables": [],
+      "explanation": "Because it is a percentage of the mean, the CV lets you compare the relative spread of two data sets even if they use different units or have very different means.",
+      "example": "Mean = 50, SD = 5: CV = (5/50) × 100 = 10%",
+      "commonMistake": "Comparing raw standard deviations directly when the two data sets have very different means.",
+      "applicationPrompt": "A data set has mean 50 and standard deviation 5. Find its coefficient of variation.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "disp-sc-variance",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "kind": "shortcut",
+      "title": "Variance without deviations",
+      "prompt": "Is there a quicker way to variance than squaring each deviation?",
+      "formula": "Variance = (mean of the squares) − (square of the mean)",
+      "variables": [],
+      "explanation": "Expanding Σ(x − x̄)² gives Σx² − n x̄², so the deviations are not needed.",
+      "example": "2, 4, 6: mean of squares (4 + 16 + 36)/3 = 56/3, square of the mean 16, variance 8/3.",
+      "commonMistake": "Squaring the sum instead of summing the squares.",
+      "applicationPrompt": "Find the variance of 1, 3, 5, 7.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "disp-sc-transform",
+      "topicId": "dispersion",
+      "conceptId": "disp-stddev",
+      "kind": "shortcut",
+      "title": "Shifting and scaling the spread",
+      "prompt": "Every value is multiplied by k and then has c added. What is the new standard deviation?",
+      "formula": "New SD = |k| × old SD\nAdding c changes nothing",
+      "variables": [],
+      "explanation": "Adding moves every value together; multiplying stretches the gaps.",
+      "example": "SD of marks 8; each mark × 1.5 + 10: new SD 12.",
+      "commonMistake": "Adding c to the standard deviation too.",
+      "applicationPrompt": "The SD of temperatures is 5 °C. What is it in °F (F = 1.8C + 32)?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "dispersion-level-0",
+      "topicId": "dispersion",
+      "order": 0,
+      "title": "How Spread Out Is the Data?",
+      "description": "The mean tells you the centre; dispersion tells you how far the data spreads around it.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "disp-range",
+        "disp-variance"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Two data sets, same mean, different spread",
+            "body": "Both {5,5,5,5,5} and {1,3,5,7,9} have a mean of 5, but they look very different. The range, variance and standard deviation all describe how spread out the values are around that mean."
+          },
+          {
+            "type": "formula",
+            "title": "Range and variance",
+            "body": "Range = max − min\nVariance = average of the squared deviations from the mean",
+            "caption": "Range only uses two values; variance uses every value."
+          },
+          {
+            "type": "check",
+            "questionId": "dispersion-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Standard deviation is just √variance — it brings the units back to match the original data."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "spread-transform"
+          },
+          {
+            "type": "check",
+            "questionId": "dispersion-q-006"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "dispersion-level-1",
+      "topicId": "dispersion",
+      "order": 1,
+      "title": "Measures of Dispersion Formulas",
+      "description": "Range, variance, standard deviation, mean deviation, and the coefficient of variation.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "dispersion-level-0"
+      ],
+      "conceptIds": [
+        "disp-range",
+        "disp-variance",
+        "disp-stddev",
+        "disp-meandeviation"
+      ],
+      "formulaIds": [
+        "disp-range-f",
+        "disp-variance-f",
+        "disp-stddev-f",
+        "disp-meandev-f",
+        "disp-cv-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "dispersion-level-2",
+      "topicId": "dispersion",
+      "order": 2,
+      "title": "Direct Measures",
+      "description": "Calculating range and recognising the variance formula.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "dispersion-level-1"
+      ],
+      "conceptIds": [
+        "disp-range",
+        "disp-variance"
+      ],
+      "questionIds": [
+        "dispersion-q-001",
+        "dispersion-q-002",
+        "dispersion-q-003",
+        "dispersion-q-004",
+        "dispersion-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "dispersion-level-3",
+      "topicId": "dispersion",
+      "order": 3,
+      "title": "Variance, Deviation and Comparison",
+      "description": "Computing variance, standard deviation, mean deviation and CV directly.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "dispersion-level-2"
+      ],
+      "conceptIds": [
+        "disp-variance",
+        "disp-stddev",
+        "disp-meandeviation",
+        "disp-cv"
+      ],
+      "questionIds": [
+        "dispersion-q-006",
+        "dispersion-q-007",
+        "dispersion-q-008",
+        "dispersion-q-009",
+        "dispersion-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "dispersion-level-4",
+      "topicId": "dispersion",
+      "order": 4,
+      "title": "Multi-Step Dispersion Problems",
+      "description": "Missing values, and how dispersion behaves under shifts.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "dispersion-level-3"
+      ],
+      "conceptIds": [
+        "disp-variance",
+        "disp-cv"
+      ],
+      "questionIds": [
+        "dispersion-q-011",
+        "dispersion-q-012",
+        "dispersion-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "dispersion-level-5",
+      "topicId": "dispersion",
+      "order": 5,
+      "title": "Mixed Measures of Dispersion Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "dispersion-level-4"
+      ],
+      "conceptIds": [
+        "disp-variance",
+        "disp-cv"
+      ],
+      "questionQuery": {
+        "topicId": "dispersion",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "dispersion-q-001",
+      "topicId": "dispersion",
+      "conceptId": "disp-range",
+      "levelId": "dispersion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the range of 5, 12, 7, 20, 3?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "Range = maximum − minimum = 20 − 3 = 17.",
+      "solutionSteps": [
+        "Max = 20, min = 3.",
+        "20 − 3 = 17."
+      ],
+      "formulaIds": [
+        "disp-range-f"
+      ],
+      "method": "Subtract the smallest value from the largest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the maximum and minimum values first."
+        }
+      ],
+      "commonMistakes": [
+        "Using values other than the true maximum and minimum."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-002",
+      "topicId": "dispersion",
+      "conceptId": "disp-range",
+      "levelId": "dispersion-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The range of a data set measures",
+      "options": [
+        {
+          "id": "a",
+          "text": "the average distance of every value from the mean"
+        },
+        {
+          "id": "b",
+          "text": "the spread between the highest and lowest values only"
+        },
+        {
+          "id": "c",
+          "text": "the most frequently occurring value"
+        },
+        {
+          "id": "d",
+          "text": "the middle value once the data is sorted"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The range only uses the two extreme values — the maximum and the minimum — and ignores everything in between.",
+      "solutionSteps": [
+        "Range = max − min."
+      ],
+      "formulaIds": [
+        "disp-range-f"
+      ],
+      "method": "Range depends only on the two extreme values.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Range does not use every value in the data set."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the range with the mean deviation, which does use every value."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-003",
+      "topicId": "dispersion",
+      "conceptId": "disp-range",
+      "levelId": "dispersion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the range of 100, 85, 92, 78, 110?",
+      "answer": {
+        "value": 32,
+        "tolerance": 0
+      },
+      "explanation": "Range = maximum − minimum = 110 − 78 = 32.",
+      "solutionSteps": [
+        "Max = 110, min = 78.",
+        "110 − 78 = 32."
+      ],
+      "formulaIds": [
+        "disp-range-f"
+      ],
+      "method": "Identify the largest and smallest values.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Scan the whole list for the true maximum and minimum."
+        }
+      ],
+      "commonMistakes": [
+        "Missing the true minimum or maximum by scanning too quickly."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-004",
+      "topicId": "dispersion",
+      "conceptId": "disp-range",
+      "levelId": "dispersion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A data set has a maximum of 45 and a minimum of 12. What is its range?",
+      "answer": {
+        "value": 33,
+        "tolerance": 0
+      },
+      "explanation": "Range = 45 − 12 = 33.",
+      "solutionSteps": [
+        "45 − 12 = 33."
+      ],
+      "formulaIds": [
+        "disp-range-f"
+      ],
+      "method": "Subtract the minimum from the maximum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a direct subtraction."
+        }
+      ],
+      "commonMistakes": [
+        "Adding instead of subtracting."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-005",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "levelId": "dispersion-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The variance of a data set is calculated as",
+      "options": [
+        {
+          "id": "a",
+          "text": "the average of the values"
+        },
+        {
+          "id": "b",
+          "text": "the average of the squared deviations from the mean"
+        },
+        {
+          "id": "c",
+          "text": "the square root of the mean"
+        },
+        {
+          "id": "d",
+          "text": "the largest deviation from the mean"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Variance is the average of the squared distances of each value from the mean.",
+      "solutionSteps": [
+        "Variance = (1/n)Σ(x − mean)²."
+      ],
+      "formulaIds": [
+        "disp-variance-f"
+      ],
+      "method": "Variance squares every deviation before averaging them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Variance involves squaring, not just averaging the raw values."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing variance with the mean itself."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-006",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "levelId": "dispersion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the variance of 2, 4, 6, 8, 10?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Mean = 6. Deviations: −4,−2,0,2,4. Squared: 16,4,0,4,16, summing to 40. Variance = 40 ÷ 5 = 8.",
+      "solutionSteps": [
+        "Mean = 6.",
+        "Squared deviations sum to 40.",
+        "40 ÷ 5 = 8."
+      ],
+      "formulaIds": [
+        "disp-variance-f"
+      ],
+      "method": "Find the mean, then the average of the squared deviations from it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the mean first, then work out each deviation."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to square the deviations before averaging."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-007",
+      "topicId": "dispersion",
+      "conceptId": "disp-stddev",
+      "levelId": "dispersion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The variance of a data set is 8. What is its standard deviation, to 2 decimal places?",
+      "answer": {
+        "value": 2.83,
+        "tolerance": 0
+      },
+      "explanation": "Standard deviation = √8 ≈ 2.83.",
+      "solutionSteps": [
+        "√8 ≈ 2.83."
+      ],
+      "formulaIds": [
+        "disp-stddev-f"
+      ],
+      "method": "Take the square root of the variance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not report the variance itself as the standard deviation."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting 8 instead of √8."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-008",
+      "topicId": "dispersion",
+      "conceptId": "disp-meandeviation",
+      "levelId": "dispersion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the mean deviation of 10, 12, 14, 16, 18?",
+      "answer": {
+        "value": 2.4,
+        "tolerance": 0
+      },
+      "explanation": "Mean = 14. Absolute deviations: 4,2,0,2,4, summing to 12. Mean deviation = 12 ÷ 5 = 2.4.",
+      "solutionSteps": [
+        "Mean = 14.",
+        "Absolute deviations sum to 12.",
+        "12 ÷ 5 = 2.4."
+      ],
+      "formulaIds": [
+        "disp-meandev-f"
+      ],
+      "method": "Average the unsigned (absolute) deviations from the mean.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use absolute values, not the deviations' original signs."
+        }
+      ],
+      "commonMistakes": [
+        "Letting the negative and positive deviations cancel out to zero."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-009",
+      "topicId": "dispersion",
+      "conceptId": "disp-cv",
+      "levelId": "dispersion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A data set has mean 50 and standard deviation 5. What is its coefficient of variation, as a percentage?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "CV = (SD / mean) × 100 = (5/50) × 100 = 10%.",
+      "solutionSteps": [
+        "5 ÷ 50 = 0.1.",
+        "0.1 × 100 = 10%."
+      ],
+      "formulaIds": [
+        "disp-cv-f"
+      ],
+      "method": "Divide the standard deviation by the mean, then convert to a percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "CV is always expressed as a percentage."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to multiply by 100."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-010",
+      "topicId": "dispersion",
+      "conceptId": "disp-cv",
+      "levelId": "dispersion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Data set A has mean 80 and SD 8 (CV = 10%). Data set B has mean 60 and SD 9 (CV = 15%). Which data set is more consistent (less variable)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data set A"
+        },
+        {
+          "id": "b",
+          "text": "Data set B"
+        },
+        {
+          "id": "c",
+          "text": "They are equally consistent"
+        },
+        {
+          "id": "d",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A lower coefficient of variation means less relative spread. Since A's CV (10%) is lower than B's (15%), A is more consistent.",
+      "solutionSteps": [
+        "Compare the two CVs: 10% vs 15%.",
+        "Lower CV → more consistent."
+      ],
+      "formulaIds": [
+        "disp-cv-f"
+      ],
+      "method": "Compare the coefficients of variation, not the raw standard deviations.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Comparing raw SDs (8 vs 9) would be misleading since the means differ."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing the raw standard deviations (8 vs 9) instead of the CVs."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-011",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "levelId": "dispersion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The data set 4, 8, x, 12 has a mean of 8. What is the variance of the completed data set?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Since the mean is 8, the sum must be 32, so 4+8+x+12 = 24+x = 32, giving x = 8. The data set is 4, 8, 8, 12: deviations −4,0,0,4; squared 16,0,0,16, summing to 32. Variance = 32 ÷ 4 = 8.",
+      "solutionSteps": [
+        "24 + x = 32 → x = 8.",
+        "Data: 4, 8, 8, 12.",
+        "Squared deviations sum to 32; variance = 32 ÷ 4 = 8."
+      ],
+      "formulaIds": [
+        "disp-variance-f"
+      ],
+      "method": "Find the missing value from the mean first, then compute the variance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need the complete data set before you can find the variance."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to compute variance before finding x."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-012",
+      "topicId": "dispersion",
+      "conceptId": "disp-cv",
+      "levelId": "dispersion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A data set has standard deviation 6 and mean 30. What is its coefficient of variation, as a percentage?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "CV = (6/30) × 100 = 20%.",
+      "solutionSteps": [
+        "6 ÷ 30 = 0.2.",
+        "0.2 × 100 = 20%."
+      ],
+      "formulaIds": [
+        "disp-cv-f"
+      ],
+      "method": "Divide the SD by the mean, then express as a percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a direct application of the CV formula."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the mean by the SD instead of the other way round."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "dispersion-q-013",
+      "topicId": "dispersion",
+      "conceptId": "disp-variance",
+      "levelId": "dispersion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A data set has a variance of 16. If every value in the data set is increased by 5, what is the new variance?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Adding the same constant to every value shifts the mean by that constant too, so every deviation from the mean stays exactly the same. The variance is unchanged: 16.",
+      "solutionSteps": [
+        "Adding a constant shifts every value and the mean equally.",
+        "Deviations from the mean are unchanged.",
+        "Variance stays at 16."
+      ],
+      "formulaIds": [
+        "disp-variance-f"
+      ],
+      "method": "Variance measures spread, which does not change when every value shifts by the same amount.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think about what happens to the deviations from the mean, not the values themselves."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the variance also increases by 5, confusing it with the mean."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

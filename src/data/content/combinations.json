@@ -1,0 +1,1296 @@
+{
+  "topicId": "combinations",
+  "concepts": [
+    {
+      "id": "comb-selection",
+      "topicId": "combinations",
+      "name": "Selection without order",
+      "description": "Counting groups where rearranging the members changes nothing.",
+      "sortOrder": 1
+    },
+    {
+      "id": "comb-properties",
+      "topicId": "combinations",
+      "name": "Properties of nCr",
+      "description": "Symmetry, and the relationship with permutations.",
+      "sortOrder": 2
+    },
+    {
+      "id": "comb-groups",
+      "topicId": "combinations",
+      "name": "Selections with conditions",
+      "description": "Committees with a required mix, or with people who must be included.",
+      "sortOrder": 3
+    },
+    {
+      "id": "comb-geometry",
+      "topicId": "combinations",
+      "name": "Counting lines and diagonals",
+      "description": "Applying nC2 to points, handshakes and polygons.",
+      "sortOrder": 4
+    },
+    {
+      "id": "comb-adv-circular",
+      "topicId": "combinations",
+      "name": "Circular arrangements",
+      "description": "Around a circle, rotating everyone gives the same arrangement, so n objects can be arranged in (n − 1)! ways. If flipping over also gives the same arrangement (a necklace), divide by 2 again.",
+      "sortOrder": 5
+    },
+    {
+      "id": "comb-adv-distribution",
+      "topicId": "combinations",
+      "name": "Distribution and grouping",
+      "description": "Sharing identical items between people is a matter of placing dividers. Splitting different items into groups of equal size needs dividing by the number of ways to order the groups.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "comb-ncr",
+      "topicId": "combinations",
+      "conceptId": "comb-selection",
+      "title": "Combinations",
+      "prompt": "How many ways can r objects be selected from n when order does not matter?",
+      "formula": "ⁿCᵣ = n! ÷ [r! × (n − r)!]",
+      "variables": [],
+      "explanation": "Count the ordered selections, then divide by r! because each group has been counted in every possible order.",
+      "example": "⁵C₂ = (5 × 4) ÷ (2 × 1) = 10",
+      "commonMistake": "Using it when the roles in the group are distinct — that is a permutation.",
+      "applicationPrompt": "How many 2-person teams can be formed from 5 people?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "comb-symmetry",
+      "topicId": "combinations",
+      "conceptId": "comb-properties",
+      "kind": "shortcut",
+      "title": "Symmetry of nCr",
+      "prompt": "What is the relationship between ⁿCᵣ and ⁿCₙ₋ᵣ?",
+      "formula": "ⁿCᵣ = ⁿCₙ₋ᵣ",
+      "variables": [],
+      "explanation": "Choosing which r to include is the same as choosing which n − r to leave out. Use it to shrink the arithmetic.",
+      "example": "¹⁰C₈ = ¹⁰C₂ = 45",
+      "commonMistake": "Expanding ¹⁰C₈ the long way when the short form is available.",
+      "applicationPrompt": "You need ¹⁰C₈. What is the quickest equivalent?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "comb-perm-link",
+      "topicId": "combinations",
+      "conceptId": "comb-properties",
+      "title": "Combinations and permutations",
+      "prompt": "How are ⁿPᵣ and ⁿCᵣ related?",
+      "formula": "ⁿPᵣ = ⁿCᵣ × r!",
+      "variables": [],
+      "explanation": "Select the group, then arrange it. This is the cleanest way to remember why the r! appears in the combination formula.",
+      "example": "⁵P₂ = 20 and ⁵C₂ = 10, since 2! = 2",
+      "commonMistake": "Confusing which of the two is larger.",
+      "applicationPrompt": "You know ⁵C₂ = 10. How do you get ⁵P₂?",
+      "tags": [
+        "properties"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "comb-pairs",
+      "topicId": "combinations",
+      "conceptId": "comb-geometry",
+      "kind": "shortcut",
+      "title": "Counting pairs",
+      "prompt": "How many pairs can be formed from n items?",
+      "formula": "ⁿC₂ = n(n − 1) ÷ 2",
+      "variables": [],
+      "explanation": "Handshakes, matches in a round robin, lines through points and polygon diagonals all reduce to counting pairs.",
+      "example": "10 people shaking hands once each\n= (10 × 9) ÷ 2 = 45 handshakes",
+      "commonMistake": "Counting each handshake twice by forgetting to halve.",
+      "applicationPrompt": "Ten people each shake hands once with everyone else. How many handshakes?",
+      "tags": [
+        "applications",
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "comb-adv-circular-f",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-circular",
+      "title": "Circular arrangements",
+      "prompt": "How many ways can n different objects be arranged in a circle?",
+      "formula": "Around a table: (n − 1)!; necklace or garland: (n − 1)! ÷ 2",
+      "variables": [],
+      "explanation": "Fix one person's seat to remove the rotations, then arrange the rest. A necklace can also be turned over, which pairs up mirror images.",
+      "example": "6 people at a round table: 5! = 120; a necklace of 6 different beads: 120 ÷ 2 = 60",
+      "commonMistake": "Using n! as for a row, which counts every rotation as different.",
+      "applicationPrompt": "In how many ways can 6 people sit around a round table?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "comb-adv-distribution-f",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-distribution",
+      "title": "Identical items into groups",
+      "prompt": "How many ways can n identical items be shared among r people?",
+      "formula": "Any number each: ⁿ⁺ʳ⁻¹Cᵣ₋₁; at least one each: ⁿ⁻¹Cᵣ₋₁",
+      "variables": [],
+      "explanation": "Line the items up and place r − 1 dividers among them. If everyone must get at least one, the dividers go in the n − 1 gaps between items.",
+      "example": "10 identical chocolates, 3 children, at least one each: ⁹C₂ = 36",
+      "commonMistake": "Using 3¹⁰, which treats the identical chocolates as different.",
+      "applicationPrompt": "In how many ways can 10 identical chocolates be shared among 3 children if each gets at least one?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "combinations-level-0",
+      "topicId": "combinations",
+      "order": 0,
+      "title": "When Order Stops Mattering",
+      "description": "The difference between selecting and arranging, and why nCr divides by r!.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "comb-selection",
+        "comb-properties"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A committee is not a podium",
+            "body": "Picking Asha and Bilal for a committee is the same outcome as picking Bilal and Asha. Picking Asha for gold and Bilal for silver is not the same as the reverse.\n\nWhen order is irrelevant, count with combinations."
+          },
+          {
+            "type": "formula",
+            "title": "Where the r! comes from",
+            "body": "ⁿCᵣ = ⁿPᵣ ÷ r!",
+            "caption": "Each unordered group was counted r! times among the ordered selections, so divide it out."
+          },
+          {
+            "type": "example",
+            "title": "Seeing the division",
+            "body": "From 5 people choose 2:\nOrdered: 5 × 4 = 20\nBut AB and BA are the same team, so divide by 2! = 2\n⁵C₂ = 10"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Use symmetry to save time: ¹⁰C₈ = ¹⁰C₂ = 45. Choosing 8 to include is the same as choosing 2 to leave out."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "pascal-ncr"
+          },
+          {
+            "type": "check",
+            "questionId": "combinations-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Conditions mean split, then multiply",
+            "body": "'A committee of 3 with exactly 2 men from 5 men and 4 women' becomes two independent selections: ⁵C₂ for the men and ⁴C₁ for the woman, multiplied together — 10 × 4 = 40."
+          },
+          {
+            "type": "check",
+            "questionId": "combinations-q-010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "combinations-level-1",
+      "topicId": "combinations",
+      "order": 1,
+      "title": "Selection Formulas",
+      "description": "nCr, symmetry, the link to permutations and the pair shortcut.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [
+        "combinations-level-0"
+      ],
+      "conceptIds": [
+        "comb-selection",
+        "comb-properties",
+        "comb-geometry"
+      ],
+      "formulaIds": [
+        "comb-ncr",
+        "comb-symmetry",
+        "comb-perm-link",
+        "comb-pairs"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "combinations-level-2",
+      "topicId": "combinations",
+      "order": 2,
+      "title": "Direct Selection Questions",
+      "description": "Evaluating nCr and counting simple selections.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "combinations-level-1"
+      ],
+      "conceptIds": [
+        "comb-selection",
+        "comb-geometry"
+      ],
+      "questionIds": [
+        "combinations-q-001",
+        "combinations-q-002",
+        "combinations-q-003",
+        "combinations-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "combinations-level-3",
+      "topicId": "combinations",
+      "order": 3,
+      "title": "Committees and Diagonals",
+      "description": "Selections with conditions, and geometric counting.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 11,
+      "prerequisiteLevelIds": [
+        "combinations-level-2"
+      ],
+      "conceptIds": [
+        "comb-groups",
+        "comb-geometry"
+      ],
+      "questionIds": [
+        "combinations-q-010",
+        "combinations-q-020",
+        "combinations-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "combinations-level-4",
+      "topicId": "combinations",
+      "order": 4,
+      "title": "At Least, At Most",
+      "description": "Selections that require summing several cases.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "combinations-level-3"
+      ],
+      "conceptIds": [
+        "comb-groups"
+      ],
+      "questionIds": [
+        "combinations-q-030",
+        "combinations-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "combinations-level-5",
+      "topicId": "combinations",
+      "order": 5,
+      "title": "Mixed Combination Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "combinations-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "combinations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 7,
+        "preferUnseen": true,
+        "conceptIds": [
+          "comb-selection",
+          "comb-properties",
+          "comb-groups",
+          "comb-geometry"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "combinations-level-6",
+      "topicId": "combinations",
+      "order": 6,
+      "title": "Advanced: Circular Arrangements and Distribution",
+      "description": "Seating around a table, necklaces, and sharing identical items between people.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "combinations-level-5"
+      ],
+      "conceptIds": [
+        "comb-adv-circular",
+        "comb-adv-distribution"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Rotations do not count",
+            "body": "Around a round table there is no first seat. Fix one person anywhere; everyone else is then placed relative to them, which gives (n − 1)! arrangements."
+          },
+          {
+            "type": "check",
+            "questionId": "combinations-comb-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Dividers for identical items",
+            "body": "n identical items, r people, at least one each: ⁿ⁻¹Cᵣ₋₁",
+            "caption": "Place r − 1 dividers in the n − 1 gaps. With no minimum, it is ⁿ⁺ʳ⁻¹Cᵣ₋₁."
+          },
+          {
+            "type": "check",
+            "questionId": "combinations-comb-adv-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Split different items into equal groups? Count as if the groups were labelled, then divide by (number of groups)! because the groups have no names."
+          }
+        ]
+      }
+    },
+    {
+      "id": "combinations-level-7",
+      "topicId": "combinations",
+      "order": 7,
+      "title": "Challenge: Circular Arrangements and Distribution",
+      "description": "Round-table seating with conditions, necklaces, distributions and equal groups.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "combinations-level-6"
+      ],
+      "conceptIds": [
+        "comb-adv-circular",
+        "comb-adv-distribution"
+      ],
+      "questionIds": [
+        "combinations-comb-adv-q-002",
+        "combinations-comb-adv-q-003",
+        "combinations-comb-adv-q-005",
+        "combinations-comb-adv-q-006",
+        "combinations-comb-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "combinations-q-001",
+      "topicId": "combinations",
+      "conceptId": "comb-selection",
+      "levelId": "combinations-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "In how many ways can a team of 2 be chosen from 5 people?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "120"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "⁵C₂ = (5 × 4) ÷ 2 = 10. Order does not matter in a team, so we divide the 20 ordered picks by 2.",
+      "solutionSteps": [
+        "Ordered selections = 5 × 4 = 20.",
+        "Each team counted twice (AB and BA).",
+        "20 ÷ 2 = 10."
+      ],
+      "formulaIds": [
+        "comb-ncr"
+      ],
+      "method": "nCr — order does not matter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does it matter which of the two was picked first?"
+        },
+        {
+          "level": 2,
+          "text": "No — so divide the ordered count by 2."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 20, the permutation count."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-002",
+      "topicId": "combinations",
+      "conceptId": "comb-selection",
+      "levelId": "combinations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many ways can 3 books be selected from 6 different books?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "120"
+        },
+        {
+          "id": "d",
+          "text": "216"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "⁶C₃ = (6 × 5 × 4) ÷ (3 × 2 × 1) = 120 ÷ 6 = 20.",
+      "solutionSteps": [
+        "⁶C₃ = 6!/(3!3!).",
+        "= (6 × 5 × 4) ÷ 6.",
+        "= 20."
+      ],
+      "formulaIds": [
+        "comb-ncr"
+      ],
+      "method": "nCr with r = 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Selecting books to read is unordered."
+        },
+        {
+          "level": 2,
+          "text": "Divide the ordered count 120 by 3! = 6."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 120, the ordered count."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-003",
+      "topicId": "combinations",
+      "conceptId": "comb-geometry",
+      "levelId": "combinations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Ten people at a meeting each shake hands once with every other person. How many handshakes take place?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0
+      },
+      "explanation": "Each handshake is a pair: ¹⁰C₂ = (10 × 9) ÷ 2 = 45.",
+      "solutionSteps": [
+        "Each handshake involves a pair of people.",
+        "Number of pairs = ¹⁰C₂ = (10 × 9) ÷ 2.",
+        "= 45."
+      ],
+      "formulaIds": [
+        "comb-pairs"
+      ],
+      "method": "Count pairs with nC2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each person shakes 9 hands — but that counts each handshake twice."
+        },
+        {
+          "level": 2,
+          "text": "So take 10 × 9 = 90 and halve it."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 90 by forgetting to halve."
+      ],
+      "tags": [
+        "pairs",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-010",
+      "topicId": "combinations",
+      "conceptId": "comb-groups",
+      "levelId": "combinations-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "A committee of 3 must be formed from 5 men and 4 women, with exactly 2 men. What is the correct approach?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Compute ⁵C₂ × ⁴C₁"
+        },
+        {
+          "id": "b",
+          "text": "Compute ⁹C₃"
+        },
+        {
+          "id": "c",
+          "text": "Compute ⁵C₂ + ⁴C₁"
+        },
+        {
+          "id": "d",
+          "text": "Compute ⁵P₂ × ⁴P₁"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Choose the men and the women independently, then multiply: 10 × 4 = 40 committees.",
+      "solutionSteps": [
+        "Exactly 2 men means 1 woman, since the committee has 3 members.",
+        "Men: ⁵C₂ = 10. Women: ⁴C₁ = 4.",
+        "The two choices happen together, so multiply: 40."
+      ],
+      "formulaIds": [
+        "comb-ncr"
+      ],
+      "method": "Split by category, count each, multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If 2 of the 3 are men, how many women are there?"
+        },
+        {
+          "level": 2,
+          "text": "The two selections happen together, so they multiply."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the two counts instead of multiplying."
+      ],
+      "tags": [
+        "method",
+        "groups"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-011",
+      "topicId": "combinations",
+      "conceptId": "comb-properties",
+      "levelId": "combinations-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression is equal to ¹⁰C₈?",
+      "options": [
+        {
+          "id": "a",
+          "text": "¹⁰C₂"
+        },
+        {
+          "id": "b",
+          "text": "¹⁰P₈"
+        },
+        {
+          "id": "c",
+          "text": "¹⁰C₈₋₂"
+        },
+        {
+          "id": "d",
+          "text": "8! ÷ 10!"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "ⁿCᵣ = ⁿCₙ₋ᵣ, so ¹⁰C₈ = ¹⁰C₂ = 45. Choosing 8 to include is the same as choosing 2 to exclude.",
+      "solutionSteps": [
+        "Selecting 8 from 10 fixes which 2 are left out.",
+        "So ¹⁰C₈ = ¹⁰C₂.",
+        "= (10 × 9) ÷ 2 = 45."
+      ],
+      "formulaIds": [
+        "comb-symmetry"
+      ],
+      "method": "Use the symmetry property to shrink the calculation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What do you decide when you choose which 8 to keep?"
+        }
+      ],
+      "commonMistakes": [
+        "Expanding the factorials unnecessarily."
+      ],
+      "tags": [
+        "formula-recognition",
+        "shortcut"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-020",
+      "topicId": "combinations",
+      "conceptId": "comb-groups",
+      "levelId": "combinations-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "From 5 men and 4 women, how many committees of 3 can be formed containing exactly 2 men?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14"
+        },
+        {
+          "id": "b",
+          "text": "40"
+        },
+        {
+          "id": "c",
+          "text": "60"
+        },
+        {
+          "id": "d",
+          "text": "84"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "⁵C₂ × ⁴C₁ = 10 × 4 = 40.",
+      "solutionSteps": [
+        "Choose 2 men from 5: ⁵C₂ = 10.",
+        "Choose 1 woman from 4: ⁴C₁ = 4.",
+        "Multiply: 10 × 4 = 40."
+      ],
+      "formulaIds": [
+        "comb-ncr"
+      ],
+      "method": "Independent selections multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The committee has 3 members and exactly 2 are men."
+        },
+        {
+          "level": 2,
+          "text": "So exactly 1 woman is needed."
+        }
+      ],
+      "commonMistakes": [
+        "Computing ⁹C₃ = 84, which ignores the condition."
+      ],
+      "tags": [
+        "groups"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-021",
+      "topicId": "combinations",
+      "conceptId": "comb-geometry",
+      "levelId": "combinations-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many diagonals does a regular octagon have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "16"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "28"
+        },
+        {
+          "id": "d",
+          "text": "36"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Pairs of vertices: ⁸C₂ = 28. Eight of those pairs are sides, so the diagonals number 28 − 8 = 20.",
+      "solutionSteps": [
+        "Every pair of vertices defines a line: ⁸C₂ = 28.",
+        "Eight of these lines are the octagon's sides.",
+        "Diagonals = 28 − 8 = 20."
+      ],
+      "formulaIds": [
+        "comb-pairs"
+      ],
+      "method": "Count all vertex pairs, then subtract the sides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start by counting every line joining two vertices."
+        },
+        {
+          "level": 2,
+          "text": "Some of those lines are edges of the octagon, not diagonals."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 28 by including the sides."
+      ],
+      "tags": [
+        "geometry",
+        "pairs"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-030",
+      "topicId": "combinations",
+      "conceptId": "comb-groups",
+      "levelId": "combinations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "From 7 men and 6 women, how many committees of 5 can be formed with at least 3 women?",
+      "options": [
+        {
+          "id": "a",
+          "text": "420"
+        },
+        {
+          "id": "b",
+          "text": "525"
+        },
+        {
+          "id": "c",
+          "text": "531"
+        },
+        {
+          "id": "d",
+          "text": "756"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Sum the cases: 3W2M = ⁶C₃ × ⁷C₂ = 20 × 21 = 420; 4W1M = 15 × 7 = 105; 5W = 6. Total = 531.",
+      "solutionSteps": [
+        "'At least 3 women' means 3, 4 or 5 women.",
+        "3W, 2M: ⁶C₃ × ⁷C₂ = 20 × 21 = 420.",
+        "4W, 1M: ⁶C₄ × ⁷C₁ = 15 × 7 = 105.",
+        "5W, 0M: ⁶C₅ = 6. Total = 420 + 105 + 6 = 531."
+      ],
+      "formulaIds": [
+        "comb-ncr"
+      ],
+      "method": "Break 'at least' into exhaustive cases and add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the possible numbers of women: 3, 4 or 5."
+        },
+        {
+          "level": 2,
+          "text": "Count each case separately, then add."
+        },
+        {
+          "level": 3,
+          "text": "Within a case, multiply the men and women counts."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the 3-women case."
+      ],
+      "tags": [
+        "groups",
+        "complex"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-q-031",
+      "topicId": "combinations",
+      "conceptId": "comb-groups",
+      "levelId": "combinations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cricket team of 11 must be chosen from 15 players. If 2 particular players must always be included, in how many ways can the team be selected?",
+      "answer": {
+        "value": 715,
+        "tolerance": 0
+      },
+      "explanation": "With 2 places fixed, 9 more come from the remaining 13: ¹³C₉ = ¹³C₄ = 715.",
+      "solutionSteps": [
+        "Two players are already in, leaving 9 places.",
+        "They must come from the remaining 13 players.",
+        "¹³C₉ = ¹³C₄ = (13 × 12 × 11 × 10) ÷ 24 = 715."
+      ],
+      "formulaIds": [
+        "comb-ncr",
+        "comb-symmetry"
+      ],
+      "method": "Remove the forced choices, then count what is left to decide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many places remain once the two are included?"
+        },
+        {
+          "level": 2,
+          "text": "Nine places from 13 players."
+        },
+        {
+          "level": 3,
+          "text": "Use symmetry: ¹³C₉ = ¹³C₄."
+        }
+      ],
+      "commonMistakes": [
+        "Computing ¹⁵C₁₁ and ignoring the condition."
+      ],
+      "tags": [
+        "groups",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-001",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-circular",
+      "levelId": "combinations-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many ways can 6 people be seated around a round table?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "ways"
+      },
+      "explanation": "Fix one person to remove rotations; the other 5 can be arranged in 5! = 120 ways.",
+      "solutionSteps": [
+        "Fix one person's seat.",
+        "Arrange the other 5: 5! = 120."
+      ],
+      "formulaIds": [
+        "comb-adv-circular-f"
+      ],
+      "method": "Circular arrangements: (n − 1)!.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rotating everyone one seat gives the same seating."
+        },
+        {
+          "level": 2,
+          "text": "Fix one person, then arrange the rest."
+        }
+      ],
+      "commonMistakes": [
+        "Using 6! = 720, as for a row."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-002",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-circular",
+      "levelId": "combinations-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many ways can 8 people sit around a round table if two particular people must sit next to each other?",
+      "answer": {
+        "value": 1440,
+        "tolerance": 0,
+        "unit": "ways"
+      },
+      "explanation": "Treat the pair as one unit: 7 units around a table give 6! = 720 ways. The pair can swap seats in 2 ways. Total 720 × 2 = 1440.",
+      "solutionSteps": [
+        "Pair = 1 unit, so 7 units.",
+        "Circular: 6! = 720.",
+        "Pair swaps: × 2 = 1440."
+      ],
+      "formulaIds": [
+        "comb-adv-circular-f"
+      ],
+      "method": "Glue the pair into one unit, arrange in a circle, then multiply by the ways inside the unit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat the two people as one block."
+        },
+        {
+          "level": 2,
+          "text": "How many units are there now, and how can the pair be ordered?"
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the × 2 for the pair swapping.",
+        "Using 7! for the units, as if in a row."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-003",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-circular",
+      "levelId": "combinations-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many different necklaces can be made using 7 different beads, all 7 used each time?",
+      "answer": {
+        "value": 360,
+        "tolerance": 0,
+        "unit": "necklaces"
+      },
+      "explanation": "Around a circle: 6! = 720. A necklace can be turned over, so each design is counted twice: 720 ÷ 2 = 360.",
+      "solutionSteps": [
+        "Circular: (7 − 1)! = 720.",
+        "Turning over pairs mirror images: ÷ 2.",
+        "360."
+      ],
+      "formulaIds": [
+        "comb-adv-circular-f"
+      ],
+      "method": "Necklace or garland: (n − 1)! ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First count as if seating around a table."
+        },
+        {
+          "level": 2,
+          "text": "Can a necklace be flipped over?"
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 720 without dividing by 2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-004",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-distribution",
+      "levelId": "combinations-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many ways can 10 identical chocolates be distributed among 3 children so that each child gets at least one?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "ways"
+      },
+      "explanation": "Put 2 dividers in the 9 gaps between the 10 chocolates: ⁹C₂ = 36.",
+      "solutionSteps": [
+        "10 chocolates in a row have 9 gaps.",
+        "Choose 2 gaps for the dividers: ⁹C₂.",
+        "9 × 8 ÷ 2 = 36."
+      ],
+      "formulaIds": [
+        "comb-adv-distribution-f"
+      ],
+      "method": "At least one each: ⁿ⁻¹Cᵣ₋₁.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Line the chocolates up; where would you cut to share them?"
+        },
+        {
+          "level": 2,
+          "text": "You need 2 cuts, in different gaps."
+        }
+      ],
+      "commonMistakes": [
+        "Using 3¹⁰, which treats the chocolates as different.",
+        "Using ¹²C₂ = 66, which allows a child to get none."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-005",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-distribution",
+      "levelId": "combinations-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many solutions does a + b + c = 8 have, if a, b and c are whole numbers (0 allowed)?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "unit": "solutions"
+      },
+      "explanation": "This is 8 identical units shared among 3 variables with none required: ⁸⁺²C₂ = ¹⁰C₂ = 45.",
+      "solutionSteps": [
+        "8 identical units, 3 groups, zero allowed.",
+        "ⁿ⁺ʳ⁻¹Cᵣ₋₁ = ¹⁰C₂.",
+        "10 × 9 ÷ 2 = 45."
+      ],
+      "formulaIds": [
+        "comb-adv-distribution-f"
+      ],
+      "method": "Stars and dividers: 8 stars and 2 dividers in a row.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of 8 identical stars split by 2 dividers."
+        },
+        {
+          "level": 2,
+          "text": "Arrange 10 symbols, choosing which 2 are dividers."
+        }
+      ],
+      "commonMistakes": [
+        "Using ⁷C₂ = 21, which forces each variable to be at least 1."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-006",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-distribution",
+      "levelId": "combinations-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In how many ways can 6 different books be divided into 3 groups of 2 books each?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15"
+        },
+        {
+          "id": "b",
+          "text": "90"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "720"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Choosing labelled groups: ⁶C₂ × ⁴C₂ × ²C₂ = 15 × 6 × 1 = 90. The groups have no names, so divide by 3! = 6: 90 ÷ 6 = 15.",
+      "solutionSteps": [
+        "Labelled groups: 15 × 6 × 1 = 90.",
+        "Groups are unlabelled: ÷ 3! = 6.",
+        "15."
+      ],
+      "formulaIds": [
+        "comb-adv-distribution-f",
+        "comb-ncr"
+      ],
+      "method": "Count as if the groups were labelled, then divide by the ways to order the equal groups.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Pick the first pair, then the second, then the third."
+        },
+        {
+          "level": 2,
+          "text": "Swapping two whole groups gives the same division."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 90, which is the count for giving 2 books each to 3 named people."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "combinations-comb-adv-q-007",
+      "topicId": "combinations",
+      "conceptId": "comb-adv-circular",
+      "levelId": "combinations-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many ways can 5 men and 5 women sit around a round table so that no two women sit next to each other?",
+      "answer": {
+        "value": 2880,
+        "tolerance": 0,
+        "unit": "ways"
+      },
+      "explanation": "Seat the men first: (5 − 1)! = 24. That leaves 5 gaps between them, one woman per gap: 5! = 120. Total 24 × 120 = 2880.",
+      "solutionSteps": [
+        "Men around the table: 4! = 24.",
+        "Women into the 5 gaps: 5! = 120.",
+        "24 × 120 = 2880."
+      ],
+      "formulaIds": [
+        "comb-adv-circular-f"
+      ],
+      "method": "Seat one group in a circle first, then place the other group in the gaps.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Seat the men first. How many gaps do they leave?"
+        },
+        {
+          "level": 2,
+          "text": "The women's seats are now fixed positions, like a row."
+        }
+      ],
+      "commonMistakes": [
+        "Using 4! for the women too, as if they formed a second circle.",
+        "Using 5! for the men."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

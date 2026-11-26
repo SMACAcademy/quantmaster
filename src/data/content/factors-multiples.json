@@ -1,0 +1,1064 @@
+{
+  "topicId": "factors-multiples",
+  "concepts": [
+    {
+      "id": "fm-primes",
+      "topicId": "factors-multiples",
+      "name": "Prime factorisation",
+      "description": "Every number breaks into primes in exactly one way; that fingerprint answers most factor questions.",
+      "sortOrder": 1
+    },
+    {
+      "id": "fm-count",
+      "topicId": "factors-multiples",
+      "name": "Counting and summing factors",
+      "description": "Add one to each exponent and multiply to count; use geometric sums to add.",
+      "sortOrder": 2
+    },
+    {
+      "id": "fm-multiples",
+      "topicId": "factors-multiples",
+      "name": "Counting multiples",
+      "description": "Multiples of k up to n number ⌊n ÷ k⌋; combine sets with inclusion–exclusion.",
+      "sortOrder": 3
+    },
+    {
+      "id": "fm-squares",
+      "topicId": "factors-multiples",
+      "name": "Perfect squares",
+      "description": "A number is a perfect square exactly when every prime exponent is even.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "fm-factorise-f",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-primes",
+      "title": "Prime factorisation",
+      "prompt": "How do you write a number in prime-factor form?",
+      "formula": "N = p^a × q^b × r^c × …",
+      "variables": [
+        {
+          "symbol": "p, q, r",
+          "meaning": "distinct primes"
+        },
+        {
+          "symbol": "a, b, c",
+          "meaning": "their exponents"
+        }
+      ],
+      "explanation": "Divide out the smallest prime again and again until only primes remain, then collect equal primes into powers.",
+      "example": "60 = 2 × 2 × 3 × 5 = 2² × 3 × 5",
+      "commonMistake": "Stopping at a composite factor such as 60 = 2 × 30.",
+      "applicationPrompt": "Write 84 as a product of prime powers.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fm-count-f",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "title": "Number of factors",
+      "prompt": "If N = p^a × q^b × r^c, how many factors does N have?",
+      "formula": "Count = (a + 1)(b + 1)(c + 1)",
+      "variables": [],
+      "explanation": "A factor picks an exponent from 0 to a for p, 0 to b for q, and so on. The choices multiply.",
+      "example": "72 = 2³ × 3² → (3 + 1)(2 + 1) = 12 factors",
+      "commonMistake": "Multiplying the exponents without adding 1.",
+      "applicationPrompt": "How many factors does 360 = 2³ × 3² × 5 have?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fm-sum-f",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "title": "Sum of factors",
+      "prompt": "If N = p^a × q^b, what is the sum of all its factors?",
+      "formula": "Sum = (1 + p + … + p^a)(1 + q + … + q^b)",
+      "variables": [],
+      "explanation": "Expanding this product produces every factor exactly once.",
+      "example": "28 = 2² × 7 → (1 + 2 + 4)(1 + 7) = 56",
+      "commonMistake": "Adding only the prime factors.",
+      "applicationPrompt": "Find the sum of all factors of 12.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fm-multiples-f",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-multiples",
+      "title": "Counting multiples",
+      "prompt": "How many multiples of k are there from 1 to n?",
+      "formula": "Count = ⌊n ÷ k⌋\nA or B: ⌊n/a⌋ + ⌊n/b⌋ − ⌊n/LCM(a, b)⌋",
+      "variables": [],
+      "explanation": "Divide and drop the remainder. When counting numbers divisible by a or b, the common multiples were counted twice, so subtract them once.",
+      "example": "Multiples of 7 up to 100: ⌊100 ÷ 7⌋ = 14",
+      "commonMistake": "Rounding up, or forgetting to subtract the overlap.",
+      "applicationPrompt": "How many multiples of 6 are there between 1 and 100?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fm-square-f",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-squares",
+      "title": "Perfect squares",
+      "prompt": "When is a number a perfect square, and how many factors does it have?",
+      "formula": "Perfect square ⇔ every exponent is even ⇔ odd number of factors",
+      "variables": [],
+      "explanation": "Factors come in pairs (d, N ÷ d), except when d = √N. Only squares have that unpaired factor.",
+      "example": "36 = 2² × 3² → 9 factors",
+      "commonMistake": "Multiplying by every odd-exponent prime twice.",
+      "applicationPrompt": "What is the smallest number that 180 must be multiplied by to give a perfect square?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fm-sc-odd-even",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "kind": "shortcut",
+      "title": "Odd and even factors",
+      "prompt": "How many factors of a number are odd, and how many even?",
+      "formula": "Odd factors: count the factors of the odd part (ignore the 2s)\nEven factors = all factors − odd factors",
+      "variables": [],
+      "explanation": "An odd factor cannot contain 2, so the power of 2 must be 0.",
+      "example": "360 = 2³ × 3² × 5: odd factors (2 + 1)(1 + 1) = 6, all factors 24, so 18 even.",
+      "commonMistake": "Halving the total number of factors.",
+      "applicationPrompt": "How many even factors does 720 have?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fm-sc-square-factors",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-squares",
+      "kind": "shortcut",
+      "title": "Factors that are perfect squares",
+      "prompt": "How many factors of N are perfect squares?",
+      "formula": "For each prime power pᵉ, choose an even exponent: ⌊e/2⌋ + 1 ways\nMultiply the choices",
+      "variables": [],
+      "explanation": "A square factor uses only even powers of each prime.",
+      "example": "360 = 2³ × 3² × 5: (1 + 1)(1 + 1)(0 + 1) = 4 square factors: 1, 4, 9, 36.",
+      "commonMistake": "Counting the odd exponents as well.",
+      "applicationPrompt": "How many factors of 2⁴ × 3⁵ × 7² are perfect squares?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "factors-multiples-level-0",
+      "topicId": "factors-multiples",
+      "order": 0,
+      "title": "The Prime Fingerprint",
+      "description": "Break a number into primes once and every factor question becomes counting.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "fm-primes",
+        "fm-count"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "One way to build every number",
+            "body": "Every whole number above 1 is a product of primes in exactly one way. 60 = 2² × 3 × 5, and no other combination of primes gives 60. That uniqueness is what makes prime factorisation so powerful."
+          },
+          {
+            "type": "formula",
+            "title": "Counting factors",
+            "body": "N = pᵃ × qᵇ × rᶜ\nNumber of factors = (a + 1)(b + 1)(c + 1)",
+            "caption": "A factor may use each prime any number of times from 0 up to its exponent."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "factor-pairs"
+          },
+          {
+            "type": "check",
+            "questionId": "factors-multiples-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Multiples go the other way",
+            "body": "The multiples of k up to n number ⌊n ÷ k⌋. To count numbers divisible by a or b, add the two counts and subtract the multiples of LCM(a, b), which were counted twice."
+          },
+          {
+            "type": "check",
+            "questionId": "factors-multiples-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "factors-multiples-level-1",
+      "topicId": "factors-multiples",
+      "order": 1,
+      "title": "Factors Formulas",
+      "description": "Factorisation, factor counts, sums, multiples and squares.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "factors-multiples-level-0"
+      ],
+      "conceptIds": [
+        "fm-primes",
+        "fm-count",
+        "fm-multiples",
+        "fm-squares"
+      ],
+      "formulaIds": [
+        "fm-factorise-f",
+        "fm-count-f",
+        "fm-sum-f",
+        "fm-multiples-f",
+        "fm-square-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "factors-multiples-level-2",
+      "topicId": "factors-multiples",
+      "order": 2,
+      "title": "Direct Factor Questions",
+      "description": "One-step factorising, counting and multiples.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "factors-multiples-level-1"
+      ],
+      "conceptIds": [
+        "fm-primes",
+        "fm-count",
+        "fm-multiples"
+      ],
+      "questionIds": [
+        "factors-multiples-q-001",
+        "factors-multiples-q-002",
+        "factors-multiples-q-003",
+        "factors-multiples-q-004",
+        "factors-multiples-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "factors-multiples-level-3",
+      "topicId": "factors-multiples",
+      "order": 3,
+      "title": "Counting with Restrictions",
+      "description": "Sums, odd factors, overlaps and squares.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "factors-multiples-level-2"
+      ],
+      "conceptIds": [
+        "fm-count",
+        "fm-multiples",
+        "fm-squares"
+      ],
+      "questionIds": [
+        "factors-multiples-q-006",
+        "factors-multiples-q-007",
+        "factors-multiples-q-008",
+        "factors-multiples-q-009",
+        "factors-multiples-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "factors-multiples-level-4",
+      "topicId": "factors-multiples",
+      "order": 4,
+      "title": "Structured Factor Problems",
+      "description": "Restricted exponent ranges and square factors.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "factors-multiples-level-3"
+      ],
+      "conceptIds": [
+        "fm-count",
+        "fm-squares"
+      ],
+      "questionIds": [
+        "factors-multiples-q-011",
+        "factors-multiples-q-012",
+        "factors-multiples-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "factors-multiples-level-5",
+      "topicId": "factors-multiples",
+      "order": 5,
+      "title": "Mixed Factors Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "factors-multiples-level-4"
+      ],
+      "conceptIds": [
+        "fm-count",
+        "fm-squares"
+      ],
+      "questionQuery": {
+        "topicId": "factors-multiples",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "factors-multiples-q-001",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-primes",
+      "levelId": "factors-multiples-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these is the prime factorisation of 60?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 × 3 × 10"
+        },
+        {
+          "id": "b",
+          "text": "2² × 3 × 5"
+        },
+        {
+          "id": "c",
+          "text": "2 × 3² × 5"
+        },
+        {
+          "id": "d",
+          "text": "4 × 3 × 5"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "60 = 2 × 30 = 2 × 2 × 15 = 2² × 3 × 5. The others either contain a composite (10, 4) or multiply to a different number (90).",
+      "solutionSteps": [
+        "60 ÷ 2 = 30, ÷ 2 = 15.",
+        "15 = 3 × 5.",
+        "60 = 2² × 3 × 5."
+      ],
+      "formulaIds": [
+        "fm-factorise-f"
+      ],
+      "method": "Keep dividing by primes until all factors are prime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every factor in the answer must itself be prime."
+        },
+        {
+          "level": 2,
+          "text": "Two of the options contain a composite number."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving a composite such as 10 or 4 in the factorisation."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-002",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many factors does 36 have?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "36 = 2² × 3², so the number of factors is (2 + 1)(2 + 1) = 9: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+      "solutionSteps": [
+        "36 = 2² × 3².",
+        "(2 + 1)(2 + 1) = 9."
+      ],
+      "formulaIds": [
+        "fm-count-f"
+      ],
+      "method": "Add 1 to each exponent and multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with the prime factorisation."
+        },
+        {
+          "level": 2,
+          "text": "Add one to each exponent."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying exponents: 2 × 2 = 4."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-003",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-multiples",
+      "levelId": "factors-multiples-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many multiples of 7 are there from 1 to 100?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "⌊100 ÷ 7⌋ = 14, because 7 × 14 = 98 is the last multiple not above 100.",
+      "solutionSteps": [
+        "100 ÷ 7 = 14.28…",
+        "Drop the fraction: 14."
+      ],
+      "formulaIds": [
+        "fm-multiples-f"
+      ],
+      "method": "Divide and round down.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the largest multiple of 7 that does not exceed 100?"
+        }
+      ],
+      "commonMistakes": [
+        "Rounding up to 15."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-004",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "If N = pᵃ × qᵇ (p and q distinct primes), the number of factors of N is",
+      "options": [
+        {
+          "id": "a",
+          "text": "a × b"
+        },
+        {
+          "id": "b",
+          "text": "a + b + 2"
+        },
+        {
+          "id": "c",
+          "text": "(a + 1)(b + 1)"
+        },
+        {
+          "id": "d",
+          "text": "(a − 1)(b − 1)"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A factor uses p to some power from 0 to a (a + 1 choices) and q to some power from 0 to b (b + 1 choices). The choices multiply.",
+      "solutionSteps": [
+        "Choices for p: a + 1.",
+        "Choices for q: b + 1.",
+        "Total: (a + 1)(b + 1)."
+      ],
+      "formulaIds": [
+        "fm-count-f"
+      ],
+      "method": "Count the choices for each prime and multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A factor may use p zero times, so p has more than a choices."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the exponent 0."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-005",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-primes",
+      "levelId": "factors-multiples-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these numbers is prime?",
+      "options": [
+        {
+          "id": "a",
+          "text": "51"
+        },
+        {
+          "id": "b",
+          "text": "57"
+        },
+        {
+          "id": "c",
+          "text": "59"
+        },
+        {
+          "id": "d",
+          "text": "91"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. Only 59 has no factor other than 1 and itself.",
+      "solutionSteps": [
+        "Test primes up to √59 ≈ 7.7: 2, 3, 5, 7.",
+        "None divides 59."
+      ],
+      "formulaIds": [
+        "fm-factorise-f"
+      ],
+      "method": "Test divisibility by primes up to the square root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Numbers that look prime often hide a factor of 3 or 7."
+        },
+        {
+          "level": 2,
+          "text": "Check the digit sum for 3."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 51, 57 or 91 as prime because they look odd and irregular."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-006",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many factors does 72 have?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "72 = 2³ × 3², so (3 + 1)(2 + 1) = 12 factors.",
+      "solutionSteps": [
+        "72 = 8 × 9 = 2³ × 3².",
+        "(3 + 1)(2 + 1) = 12."
+      ],
+      "formulaIds": [
+        "fm-count-f"
+      ],
+      "method": "Prime-factorise, add 1 to each exponent, multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise 72 completely first."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the prime factors."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-007",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the sum of all the factors of 28?",
+      "answer": {
+        "value": 56,
+        "tolerance": 0
+      },
+      "explanation": "28 = 2² × 7, so the sum is (1 + 2 + 4)(1 + 7) = 7 × 8 = 56. Check: 1 + 2 + 4 + 7 + 14 + 28 = 56.",
+      "solutionSteps": [
+        "28 = 2² × 7.",
+        "(1 + 2 + 4) = 7 and (1 + 7) = 8.",
+        "7 × 8 = 56."
+      ],
+      "formulaIds": [
+        "fm-sum-f"
+      ],
+      "method": "Multiply the geometric sums for each prime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the powers of each prime from 0 up to its exponent."
+        },
+        {
+          "level": 2,
+          "text": "Multiply the two sums."
+        }
+      ],
+      "commonMistakes": [
+        "Adding just the prime factors, 2 + 7."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-008",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How many odd factors does 360 have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "18"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "360 = 2³ × 3² × 5. An odd factor cannot use any 2, so the exponent of 2 is fixed at 0: (2 + 1)(1 + 1) = 6.",
+      "solutionSteps": [
+        "360 = 2³ × 3² × 5.",
+        "Odd factors: ignore the 2s.",
+        "(2 + 1)(1 + 1) = 6."
+      ],
+      "formulaIds": [
+        "fm-count-f"
+      ],
+      "method": "Set the exponent of 2 to zero and count the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which prime makes a factor even?"
+        },
+        {
+          "level": 2,
+          "text": "Remove it from the count."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 24, the count of all factors."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-009",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-multiples",
+      "levelId": "factors-multiples-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many numbers from 1 to 100 are divisible by 4 or 6?",
+      "answer": {
+        "value": 33,
+        "tolerance": 0
+      },
+      "explanation": "Multiples of 4: 25. Multiples of 6: 16. Multiples of both are multiples of 12: 8. Total = 25 + 16 − 8 = 33.",
+      "solutionSteps": [
+        "⌊100 ÷ 4⌋ = 25, ⌊100 ÷ 6⌋ = 16.",
+        "Common: multiples of LCM(4, 6) = 12 → 8.",
+        "25 + 16 − 8 = 33."
+      ],
+      "formulaIds": [
+        "fm-multiples-f"
+      ],
+      "method": "Inclusion–exclusion with the LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Some numbers are multiples of both 4 and 6 and got counted twice."
+        },
+        {
+          "level": 2,
+          "text": "Both means a multiple of 12, not 24."
+        }
+      ],
+      "commonMistakes": [
+        "Not subtracting the overlap (41) or using 4 × 6 = 24 for the overlap."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-010",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-squares",
+      "levelId": "factors-multiples-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the smallest number by which 180 must be multiplied to make it a perfect square?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "180 = 2² × 3² × 5. Only the 5 has an odd exponent, so one more 5 makes every exponent even: 180 × 5 = 900 = 30².",
+      "solutionSteps": [
+        "180 = 2² × 3² × 5.",
+        "Find primes with odd exponents: 5.",
+        "Multiply by 5 → 900 = 30²."
+      ],
+      "formulaIds": [
+        "fm-square-f"
+      ],
+      "method": "Multiply by the primes whose exponents are odd.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 180 in prime powers."
+        },
+        {
+          "level": 2,
+          "text": "Which prime is unpaired?"
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 6 or 2, which changes the wrong exponents."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-011",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-count",
+      "levelId": "factors-multiples-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many factors of 2⁴ × 3³ × 5² are multiples of 6?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "A multiple of 6 needs at least one 2 and one 3. Exponent of 2: 1 to 4 (4 choices); of 3: 1 to 3 (3 choices); of 5: 0 to 2 (3 choices). 4 × 3 × 3 = 36.",
+      "solutionSteps": [
+        "2: exponent 1–4 → 4 choices.",
+        "3: exponent 1–3 → 3 choices.",
+        "5: exponent 0–2 → 3 choices.",
+        "4 × 3 × 3 = 36."
+      ],
+      "formulaIds": [
+        "fm-count-f"
+      ],
+      "method": "Restrict the exponent range for each prime, then multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What must every multiple of 6 contain?"
+        },
+        {
+          "level": 2,
+          "text": "Count the allowed exponents for each prime separately."
+        }
+      ],
+      "commonMistakes": [
+        "Counting all factors (60)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-012",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-squares",
+      "levelId": "factors-multiples-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How many factors of 720 are perfect squares?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "720 = 2⁴ × 3² × 5. A square factor needs even exponents: 2 can use 0, 2, 4 (3 choices), 3 can use 0, 2 (2 choices), 5 must use 0 (1 choice). 3 × 2 × 1 = 6.",
+      "solutionSteps": [
+        "720 = 2⁴ × 3² × 5.",
+        "2: exponents 0, 2, 4 → 3.",
+        "3: exponents 0, 2 → 2.",
+        "5: exponent 0 → 1.",
+        "3 × 2 × 1 = 6."
+      ],
+      "formulaIds": [
+        "fm-count-f",
+        "fm-square-f"
+      ],
+      "method": "Count only the even exponents for each prime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A perfect square has only even exponents."
+        },
+        {
+          "level": 2,
+          "text": "Count the even exponents available to each prime."
+        }
+      ],
+      "commonMistakes": [
+        "Counting all exponents, giving 30."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "factors-multiples-q-013",
+      "topicId": "factors-multiples",
+      "conceptId": "fm-squares",
+      "levelId": "factors-multiples-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of these numbers has exactly 3 factors?",
+      "options": [
+        {
+          "id": "a",
+          "text": "36"
+        },
+        {
+          "id": "b",
+          "text": "49"
+        },
+        {
+          "id": "c",
+          "text": "50"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Exactly three factors means the form p². 49 = 7² has factors 1, 7, 49. 36 has 9, 50 has 6 and 64 has 7.",
+      "solutionSteps": [
+        "(a + 1) = 3 gives a = 2 for a single prime.",
+        "So the number is the square of a prime.",
+        "49 = 7²."
+      ],
+      "formulaIds": [
+        "fm-count-f",
+        "fm-square-f"
+      ],
+      "method": "Three factors ⇒ the square of a prime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve (a + 1)(b + 1) … = 3."
+        },
+        {
+          "level": 2,
+          "text": "Three is prime, so only one prime can be present."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing any perfect square such as 36 or 64."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

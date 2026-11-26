@@ -1,0 +1,2589 @@
+{
+  "topicId": "number-system",
+  "concepts": [
+    {
+      "id": "ns-types",
+      "topicId": "number-system",
+      "name": "Types of numbers",
+      "description": "Natural, whole, integer, rational — and what primes and composites are.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ns-divisibility",
+      "topicId": "number-system",
+      "name": "Divisibility rules",
+      "description": "Testing divisibility without doing the division.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ns-factors",
+      "topicId": "number-system",
+      "name": "Factors and prime factorisation",
+      "description": "Breaking a number into primes, and counting its factors.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ns-remainders",
+      "topicId": "number-system",
+      "name": "Remainders",
+      "description": "Working with what is left over, including cyclic patterns.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ns-series",
+      "topicId": "number-system",
+      "name": "Standard sums",
+      "description": "Sums of the first n natural numbers and their relatives.",
+      "sortOrder": 5
+    },
+    {
+      "id": "ns-adv-puz-digits",
+      "topicId": "number-system",
+      "name": "Digit puzzles",
+      "description": "A two-digit number with tens digit a and units digit b is 10a + b, not a + b. Reversing the digits changes the number by 9 × (the difference of the digits).",
+      "sortOrder": 6
+    },
+    {
+      "id": "ns-adv-puz-clues",
+      "topicId": "number-system",
+      "name": "Numbers from several clues",
+      "description": "Turn each clue into an equation or a list of candidates, then keep only the numbers that satisfy every clue.",
+      "sortOrder": 7
+    },
+    {
+      "id": "ns-adv-rsn-statements",
+      "topicId": "number-system",
+      "name": "Always, sometimes, never",
+      "description": "To show a claim is not always true, one counterexample is enough. To show it is always true, you need a reason that covers every case, not a few examples.",
+      "sortOrder": 8
+    },
+    {
+      "id": "ns-adv-rsn-deduction",
+      "topicId": "number-system",
+      "name": "What must be true",
+      "description": "Combine the given facts (odd or even, order, divisibility, sums) to find what follows in every possible case, and use extreme cases to find largest or smallest values.",
+      "sortOrder": 9
+    },
+    {
+      "id": "ns-adv-nb-convert",
+      "topicId": "number-system",
+      "name": "Converting between bases",
+      "description": "In base b the places are worth 1, b, b², … from the right. Multiply each digit by its place value to reach decimal; divide by b again and again to leave it. Binary turns into octal or hexadecimal by grouping 3 or 4 bits.",
+      "sortOrder": 10
+    },
+    {
+      "id": "ns-adv-nb-arith",
+      "topicId": "number-system",
+      "name": "Working in a base",
+      "description": "Carry when a column reaches b, not 10. Write each number as place values to find an unknown base. The last digit of N in base b is N mod b, and N leaves the same remainder on division by b − 1 as its digit sum.",
+      "sortOrder": 11
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ns-divisibility-rules",
+      "topicId": "number-system",
+      "conceptId": "ns-divisibility",
+      "title": "Divisibility rules",
+      "prompt": "What are the quick tests for divisibility by 3, 4, 8, 9 and 11?",
+      "formula": "3 → digit sum divisible by 3\n4 → last two digits divisible by 4\n8 → last three digits divisible by 8\n9 → digit sum divisible by 9\n11 → alternating digit sum divisible by 11",
+      "variables": [],
+      "explanation": "These turn a long division into a glance, which matters when a question hides a factorisation.",
+      "example": "3,672 → last three digits 672 ÷ 8 = 84, so divisible by 8\nDigit sum 3+6+7+2 = 18, so divisible by 9 too",
+      "commonMistake": "Using the last two digits for the divisibility-by-8 test.",
+      "applicationPrompt": "You need to know whether 3,672 is divisible by 8. What do you check?",
+      "tags": [
+        "core",
+        "speed"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ns-factor-count",
+      "topicId": "number-system",
+      "conceptId": "ns-factors",
+      "title": "Number of factors",
+      "prompt": "How many factors does a number have?",
+      "formula": "If N = p^a × q^b × r^c, factors = (a + 1)(b + 1)(c + 1)",
+      "variables": [
+        {
+          "symbol": "p, q, r",
+          "meaning": "distinct prime factors"
+        }
+      ],
+      "explanation": "Each prime can appear 0 up to a times in a factor, giving (a + 1) choices for each prime independently.",
+      "example": "36 = 2² × 3²\nFactors = (2 + 1)(2 + 1) = 9\nThey are 1, 2, 3, 4, 6, 9, 12, 18, 36 ✓",
+      "commonMistake": "Multiplying the exponents instead of adding one to each first.",
+      "applicationPrompt": "How many factors does 36 have?",
+      "tags": [
+        "factors"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-sum-natural",
+      "topicId": "number-system",
+      "conceptId": "ns-series",
+      "title": "Sum of the first n natural numbers",
+      "prompt": "What is the sum of 1 + 2 + 3 + … + n?",
+      "formula": "Sum = n(n + 1) ÷ 2",
+      "variables": [],
+      "explanation": "Pair the first with the last, the second with the second-last, and so on: each pair totals n + 1.",
+      "example": "First 20 numbers\n= (20 × 21) ÷ 2\n= 210",
+      "commonMistake": "Forgetting to halve.",
+      "applicationPrompt": "What is 1 + 2 + … + 20?",
+      "tags": [
+        "series"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ns-division-identity",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "title": "The division identity",
+      "prompt": "How do you express a number in terms of its divisor and remainder?",
+      "formula": "Dividend = Divisor × Quotient + Remainder",
+      "variables": [],
+      "explanation": "Writing an unknown as 7k + 3 turns a remainder statement into ordinary algebra.",
+      "example": "A number leaves remainder 3 when divided by 7\nWrite it as 7k + 3\nTwice the number = 14k + 6 → remainder 6",
+      "commonMistake": "Testing one example and assuming the pattern holds — algebra proves it.",
+      "applicationPrompt": "A number leaves remainder 3 on division by 7. How do you represent it?",
+      "tags": [
+        "remainders",
+        "method"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-adv-puz-digits-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-digits",
+      "title": "Two-digit numbers",
+      "prompt": "How do you write a two-digit number with digits a and b, and what happens when you reverse it?",
+      "formula": "Number = 10a + b; reversed − original = 9 × (b − a)",
+      "variables": [],
+      "explanation": "The tens digit is worth ten times its face value. Swapping the digits moves 9 × (b − a) between the two places.",
+      "example": "Digits add to 9 and reversing adds 27: b − a = 3 and a + b = 9, so the number is 36",
+      "commonMistake": "Writing the number as a + b or ab (a times b).",
+      "applicationPrompt": "The digits of a two-digit number add up to 9. Reversing the digits increases the number by 27. What is the number?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-adv-puz-consecutive-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-clues",
+      "title": "Consecutive numbers",
+      "prompt": "How do you find consecutive numbers from their sum?",
+      "formula": "Sum of k equally spaced numbers = k × middle value; consecutive even or odd numbers step by 2",
+      "variables": [],
+      "explanation": "Equally spaced numbers balance around the middle, so dividing the sum by how many there are gives the middle one.",
+      "example": "Three consecutive even numbers add to 78: the middle is 78 ÷ 3 = 26, so they are 24, 26, 28",
+      "commonMistake": "Stepping by 1 for consecutive even or odd numbers.",
+      "applicationPrompt": "The sum of three consecutive even numbers is 78. What is the largest of them?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-adv-rsn-parity-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "title": "Odd and even rules",
+      "prompt": "What are the rules for adding and multiplying odd and even numbers?",
+      "formula": "even ± even = even; odd ± odd = even; odd ± even = odd; odd × odd = odd; anything × even = even",
+      "variables": [],
+      "explanation": "Only the last digit matters, so you can reason with 0 (even) and 1 (odd).",
+      "example": "n odd: n² is odd, so n² + n = odd + odd = even",
+      "commonMistake": "Thinking odd + odd is odd.",
+      "applicationPrompt": "If n is odd, is n² + n odd or even?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-adv-rsn-counter-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "title": "Testing a claim",
+      "prompt": "How do you decide whether a claim about numbers is always true?",
+      "formula": "One counterexample disproves \"always\"; examples alone never prove it",
+      "variables": [],
+      "explanation": "A claim that holds for many cases can still fail. Try special numbers: 0, 1, 2, negatives, fractions, and the smallest or largest allowed values.",
+      "example": "\"n² + n + 41 is always prime\" works for n = 1 to 39 but fails at n = 40: 1681 = 41²",
+      "commonMistake": "Accepting a claim because it works for the first few cases.",
+      "applicationPrompt": "Which value of n shows that n² + n + 41 is not always prime?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-adv-nb-place-value-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-convert",
+      "title": "Place values in base b",
+      "prompt": "How do you convert a number between base b and decimal?",
+      "formula": "dₖ…d₁d₀ in base b = dₖ × bᵏ + … + d₁ × b + d₀\nDecimal → base b: divide by b repeatedly, then read the remainders from the bottom up",
+      "variables": [],
+      "explanation": "Each place is worth b times the place to its right, just as each decimal place is worth 10 times the next. Every digit must be less than b.",
+      "example": "2134₅ = 2 × 125 + 1 × 25 + 3 × 5 + 4 = 294",
+      "commonMistake": "Reading the remainders from the top down, which writes the digits in reverse order.",
+      "applicationPrompt": "What is 101101₂ in decimal?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-adv-nb-equation-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "title": "Calculating in base b",
+      "prompt": "How do you add in base b, and how do you find an unknown base?",
+      "formula": "Carry 1 each time a column reaches b\nUnknown base: write each number as place values (35 in base b = 3b + 5), solve for b, and keep b larger than every digit",
+      "variables": [],
+      "explanation": "Column arithmetic works in any base; only the carrying point changes. An equation that is true in one base becomes an equation in b once every number is written out by place values.",
+      "example": "35 + 26 = 63 in base b: (3b + 5) + (2b + 6) = 6b + 3, so 5b + 11 = 6b + 3 and b = 8",
+      "commonMistake": "Carrying at 10 out of habit, or giving a base that is not larger than every digit.",
+      "applicationPrompt": "In which base is 35 + 26 = 63 a correct sum?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-adv-nb-last-digit-f",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "title": "Last digit and trailing zeros",
+      "prompt": "What decides the last digit, and the number of zeros at the end, of N written in base b?",
+      "formula": "Last digit of N in base b = N mod b\nN ends in exactly k zeros in base b when bᵏ divides N but bᵏ⁺¹ does not",
+      "variables": [],
+      "explanation": "Every place except the last is a multiple of b, so only the last digit survives division by b. Each zero at the end is one more factor of b.",
+      "example": "72 = 200₆ ends in two zeros: 36 divides 72, but 216 does not",
+      "commonMistake": "Counting the zeros at the end of the decimal number instead of the powers of b that divide it.",
+      "applicationPrompt": "How many zeros does 20! end with when written in base 12?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ns-sc-unit-digit",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "kind": "shortcut",
+      "title": "Unit digit of a power",
+      "prompt": "How do you find the last digit of a large power?",
+      "formula": "Last digits repeat in cycles:\n2, 3, 7, 8 → cycle of 4\n4, 9 → cycle of 2\n0, 1, 5, 6 → never change",
+      "variables": [],
+      "explanation": "Only the unit digit of the base matters, and its powers repeat. Divide the exponent by the cycle length and use the remainder (a remainder of 0 means the last power in the cycle).",
+      "example": "Unit digit of 7¹²³: 123 ÷ 4 leaves 3, and 7³ = 343, so the digit is 3.",
+      "commonMistake": "Treating a remainder of 0 as the power 0 (digit 1) instead of the fourth power in the cycle.",
+      "applicationPrompt": "What is the unit digit of 3⁹⁸?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-sc-trailing-zeros",
+      "topicId": "number-system",
+      "conceptId": "ns-factors",
+      "kind": "shortcut",
+      "title": "Zeros at the end of n!",
+      "prompt": "How many zeros does n! end with?",
+      "formula": "Zeros = ⌊n/5⌋ + ⌊n/25⌋ + ⌊n/125⌋ + …",
+      "variables": [],
+      "explanation": "Each zero needs a factor 10 = 2 × 5, and fives are scarcer than twos, so count the fives.",
+      "example": "100!: 20 + 4 = 24 zeros.",
+      "commonMistake": "Stopping at ⌊n/5⌋ and missing the extra fives in 25, 50, 75 and 100.",
+      "applicationPrompt": "How many zeros are at the end of 60! ?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-sc-sum-odd-even",
+      "topicId": "number-system",
+      "conceptId": "ns-series",
+      "kind": "shortcut",
+      "title": "Sums of odd and even numbers",
+      "prompt": "What are the sums of the first n odd numbers and the first n even numbers?",
+      "formula": "First n odd numbers: n²\nFirst n even numbers: n(n + 1)",
+      "variables": [],
+      "explanation": "The odd numbers build squares layer by layer; the even numbers are twice 1 + 2 + … + n.",
+      "example": "1 + 3 + … + 39 has 20 terms: 20² = 400. 2 + 4 + … + 40 = 20 × 21 = 420.",
+      "commonMistake": "Using the last term for n. Count the terms first: (last + 1) ÷ 2 for odd numbers.",
+      "applicationPrompt": "Find 1 + 3 + 5 + … + 99.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ns-sc-remainder-nine",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "kind": "shortcut",
+      "title": "Remainder on dividing by 9 or 3",
+      "prompt": "How do you find the remainder when a large number is divided by 9?",
+      "formula": "Remainder = remainder of the digit sum",
+      "variables": [],
+      "explanation": "Every power of 10 leaves remainder 1 on division by 9, so a number and its digit sum leave the same remainder.",
+      "example": "4,728: digits sum to 21, and 21 leaves 3 on division by 9, so the remainder is 3.",
+      "commonMistake": "Giving the digit sum itself (21) as the remainder without reducing it.",
+      "applicationPrompt": "What remainder does 87,654 leave when divided by 9?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ns-sc-nb-bit-groups",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-convert",
+      "kind": "shortcut",
+      "title": "Binary to octal or hexadecimal",
+      "prompt": "How do you turn binary into octal or hexadecimal without going through decimal?",
+      "formula": "Octal: group the bits in 3s from the right\nHexadecimal: group the bits in 4s from the right\nThen write each group as one digit (A = 10, B = 11, …, F = 15)",
+      "variables": [],
+      "explanation": "8 = 2³ and 16 = 2⁴, so each octal digit stands for exactly 3 bits and each hexadecimal digit for 4. Pad the leftmost group with zeros if it is short.",
+      "example": "1011010₂ = 1 | 011 | 010 = 132₈, and 101 | 1010 = 5A₁₆",
+      "commonMistake": "Grouping from the left, which leaves the short group at the wrong end.",
+      "applicationPrompt": "Write 11100101₂ in hexadecimal.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ns-sc-nb-digit-sum",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "kind": "shortcut",
+      "title": "Divisibility by b − 1",
+      "prompt": "How do you find the remainder on dividing a base-b number by b − 1?",
+      "formula": "N mod (b − 1) = (sum of its base-b digits) mod (b − 1)\nSo N is divisible by b − 1 exactly when its digit sum is",
+      "variables": [],
+      "explanation": "b leaves remainder 1 on division by b − 1, and so does every power of b. Each digit therefore counts only its face value. It is the base-b version of the rule for 9 in decimal.",
+      "example": "2465₇: digit sum 2 + 4 + 6 + 5 = 17, which leaves 5 on division by 6, so 2465₇ leaves remainder 5 when divided by 6",
+      "commonMistake": "Testing with 9, the decimal rule, instead of b − 1.",
+      "applicationPrompt": "Which digit x makes 247x5₉ divisible by 8?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "number-system-level-0",
+      "topicId": "number-system",
+      "order": 0,
+      "title": "The Vocabulary of Numbers",
+      "description": "Primes, factors and divisibility — the words the rest of the syllabus assumes you know.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ns-types",
+        "ns-divisibility"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Primes are the building blocks",
+            "body": "A prime has exactly two factors: 1 and itself. Every other number above 1 breaks down into primes in exactly one way — 36 = 2² × 3², always.\n\nThat factorisation is what makes questions about factors, multiples, HCF and LCM tractable."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Numbers that look prime often are not. 51 = 3 × 17, 57 = 3 × 19, 91 = 7 × 13. Test divisibility by primes up to the square root before declaring anything prime."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "prime-sieve"
+          },
+          {
+            "type": "formula",
+            "title": "Divisibility at a glance",
+            "body": "3 → digit sum ÷ 3        9 → digit sum ÷ 9\n4 → last two digits      8 → last three digits\n11 → alternating digit sum",
+            "caption": "Faster than division, and less error-prone under time pressure."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Counting factors",
+            "body": "Once a number is written as a product of prime powers, counting its factors is mechanical: add one to each exponent and multiply.\n\n36 = 2² × 3² → (2+1)(2+1) = 9 factors."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-q-020"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-system-level-1",
+      "topicId": "number-system",
+      "order": 1,
+      "title": "Number Facts and Rules",
+      "description": "Divisibility tests, factor counting, standard sums and the division identity.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "number-system-level-0"
+      ],
+      "conceptIds": [
+        "ns-divisibility",
+        "ns-factors",
+        "ns-series",
+        "ns-remainders"
+      ],
+      "formulaIds": [
+        "ns-divisibility-rules",
+        "ns-factor-count",
+        "ns-sum-natural",
+        "ns-division-identity"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "number-system-level-2",
+      "topicId": "number-system",
+      "order": 2,
+      "title": "Direct Number Questions",
+      "description": "Primes, divisibility and standard sums.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "number-system-level-1"
+      ],
+      "conceptIds": [
+        "ns-types",
+        "ns-divisibility",
+        "ns-series"
+      ],
+      "questionIds": [
+        "number-system-q-001",
+        "number-system-q-002",
+        "number-system-q-003",
+        "number-system-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "number-system-level-3",
+      "topicId": "number-system",
+      "order": 3,
+      "title": "Factors, Remainders and Cycles",
+      "description": "Counting factors, unit digits and remainder patterns.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "number-system-level-2"
+      ],
+      "conceptIds": [
+        "ns-factors",
+        "ns-remainders"
+      ],
+      "questionIds": [
+        "number-system-q-010",
+        "number-system-q-020",
+        "number-system-q-021",
+        "number-system-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "number-system-level-4",
+      "topicId": "number-system",
+      "order": 4,
+      "title": "Remainder Reasoning",
+      "description": "Algebraic handling of remainders and common-multiple problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "number-system-level-3"
+      ],
+      "conceptIds": [
+        "ns-remainders"
+      ],
+      "questionIds": [
+        "number-system-q-030",
+        "number-system-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "number-system-level-5",
+      "topicId": "number-system",
+      "order": 5,
+      "title": "Mixed Number System Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "number-system-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "number-system",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "ns-types",
+          "ns-divisibility",
+          "ns-factors",
+          "ns-remainders",
+          "ns-series"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "number-system-level-6",
+      "topicId": "number-system",
+      "order": 6,
+      "title": "Advanced: Number Puzzles",
+      "description": "Finding a number from clues: digit puzzles, consecutive numbers and remainder conditions.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "number-system-level-5"
+      ],
+      "conceptIds": [
+        "ns-adv-puz-digits",
+        "ns-adv-puz-clues"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Write the digits as place values",
+            "body": "In a two-digit number, the tens digit counts ten times. So a number with digits a and b is 10a + b, and the same digits reversed make 10b + a."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-ns-adv-puz-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Equally spaced numbers",
+            "body": "Sum = number of terms × middle term",
+            "caption": "Consecutive numbers step by 1; consecutive even or odd numbers step by 2."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-ns-adv-puz-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "When a puzzle has several clues, check your answer against every clue before moving on. One missed clue is the usual reason for a wrong answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-system-level-7",
+      "topicId": "number-system",
+      "order": 7,
+      "title": "Challenge: Number Puzzles",
+      "description": "Reversed digits, consecutive numbers, and numbers that must satisfy several clues at once.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "number-system-level-6"
+      ],
+      "conceptIds": [
+        "ns-adv-puz-digits",
+        "ns-adv-puz-clues"
+      ],
+      "questionIds": [
+        "number-system-ns-adv-puz-q-002",
+        "number-system-ns-adv-puz-q-003",
+        "number-system-ns-adv-puz-q-005",
+        "number-system-ns-adv-puz-q-006",
+        "number-system-ns-adv-puz-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    },
+    {
+      "id": "number-system-level-8",
+      "topicId": "number-system",
+      "order": 8,
+      "title": "Advanced: Reasoning with Numbers",
+      "description": "Deciding whether a statement about numbers is always, sometimes or never true, and what must follow from given facts.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "number-system-level-5"
+      ],
+      "conceptIds": [
+        "ns-adv-rsn-statements",
+        "ns-adv-rsn-deduction"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Examples are not proof",
+            "body": "A statement like \"every odd number greater than 1 is prime\" holds for 3, 5 and 7, and is still false: 9 = 3 × 3 breaks it. One case that breaks a claim is enough to disprove it; special numbers such as 0, 1 and 2 are good places to look."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-ns-adv-rsn-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Odd and even",
+            "body": "odd ± odd = even · odd ± even = odd · odd × odd = odd",
+            "caption": "Anything multiplied by an even number is even."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-ns-adv-rsn-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For \"largest possible\" questions, make everything else as small as the rules allow. For \"smallest possible\", make everything else as large as it can be."
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-system-level-9",
+      "topicId": "number-system",
+      "order": 9,
+      "title": "Challenge: Reasoning with Numbers",
+      "description": "Counterexamples, odd and even rules, divisibility of consecutive numbers, and extreme values.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "number-system-level-8"
+      ],
+      "conceptIds": [
+        "ns-adv-rsn-statements",
+        "ns-adv-rsn-deduction"
+      ],
+      "questionIds": [
+        "number-system-ns-adv-rsn-q-002",
+        "number-system-ns-adv-rsn-q-003",
+        "number-system-ns-adv-rsn-q-005",
+        "number-system-ns-adv-rsn-q-006",
+        "number-system-ns-adv-rsn-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    },
+    {
+      "id": "number-system-level-10",
+      "topicId": "number-system",
+      "order": 10,
+      "title": "Advanced: Number Bases",
+      "description": "Converting between decimal, binary, octal, hexadecimal and other bases, and working inside a base.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "number-system-level-5"
+      ],
+      "conceptIds": [
+        "ns-adv-nb-convert",
+        "ns-adv-nb-arith"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Every place is a power of the base",
+            "body": "In base b the places, from the right, are worth 1, b, b², b³, … So 2134₅ = 2 × 125 + 1 × 25 + 3 × 5 + 4 = 294. Every digit must be less than the base: base 5 uses only 0 to 4."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-nb-adv-q-001"
+          },
+          {
+            "type": "example",
+            "title": "Decimal to base b: divide repeatedly",
+            "body": "100 to base 3:\n100 ÷ 3 = 33 remainder 1\n33 ÷ 3 = 11 remainder 0\n11 ÷ 3 = 3 remainder 2\n3 ÷ 3 = 1 remainder 0\n1 ÷ 3 = 0 remainder 1\nRead the remainders from the bottom up: 100 = 10201₃"
+          },
+          {
+            "type": "formula",
+            "title": "Binary, octal and hexadecimal",
+            "body": "3 bits = 1 octal digit · 4 bits = 1 hexadecimal digit",
+            "caption": "Group from the right: 1011010₂ is 1 | 011 | 010 = 132₈, and 101 | 1010 = 5A₁₆."
+          },
+          {
+            "type": "text",
+            "title": "Carry at the base, not at 10",
+            "body": "Add column by column as usual, but carry when a column reaches b. In base 6, 5 + 3 = 8 = 1 × 6 + 2: write 2 and carry 1."
+          },
+          {
+            "type": "check",
+            "questionId": "number-system-nb-adv-q-004"
+          },
+          {
+            "type": "formula",
+            "title": "Last digit and digit sum",
+            "body": "Last digit of N in base b = N mod b · N mod (b − 1) = digit sum mod (b − 1)",
+            "caption": "In decimal these are the familiar rules: the last digit is N mod 10, and the digit sum gives the remainder on division by 9."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "To find an unknown base, write every number as place values and solve for b. The base must be larger than every digit you can see: a number that uses the digit 7 needs a base of at least 8."
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-system-level-11",
+      "topicId": "number-system",
+      "order": 11,
+      "title": "Challenge: Number Bases",
+      "description": "Base conversions, hexadecimal shortcuts, unknown bases, last digits, trailing zeros and divisibility by b − 1.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "number-system-level-10"
+      ],
+      "conceptIds": [
+        "ns-adv-nb-convert",
+        "ns-adv-nb-arith"
+      ],
+      "questionIds": [
+        "number-system-nb-adv-q-002",
+        "number-system-nb-adv-q-003",
+        "number-system-nb-adv-q-005",
+        "number-system-nb-adv-q-006",
+        "number-system-nb-adv-q-007",
+        "number-system-nb-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "number-system-q-001",
+      "topicId": "number-system",
+      "conceptId": "ns-types",
+      "levelId": "number-system-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Which of these numbers is prime?",
+      "options": [
+        {
+          "id": "a",
+          "text": "51"
+        },
+        {
+          "id": "b",
+          "text": "57"
+        },
+        {
+          "id": "c",
+          "text": "61"
+        },
+        {
+          "id": "d",
+          "text": "91"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. Only 61 has no factors other than 1 and itself.",
+      "solutionSteps": [
+        "Check divisibility by small primes for each option.",
+        "51 and 57 have digit sums divisible by 3.",
+        "91 = 7 × 13.",
+        "61 is divisible by none of 2, 3, 5 or 7, and 7² > 61, so it is prime."
+      ],
+      "formulaIds": [
+        "ns-divisibility-rules"
+      ],
+      "method": "Test primes up to the square root of the number.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the digit-sum test for 3 first."
+        },
+        {
+          "level": 2,
+          "text": "Do not forget to test 7 — 91 is a classic trap."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming any odd number not ending in 5 is prime."
+      ],
+      "tags": [
+        "primes",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-002",
+      "topicId": "number-system",
+      "conceptId": "ns-divisibility",
+      "levelId": "number-system-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these numbers is divisible by 8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3,672"
+        },
+        {
+          "id": "b",
+          "text": "4,530"
+        },
+        {
+          "id": "c",
+          "text": "2,345"
+        },
+        {
+          "id": "d",
+          "text": "6,714"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For divisibility by 8, check the last three digits: 672 ÷ 8 = 84, so 3,672 is divisible by 8.",
+      "solutionSteps": [
+        "Divisibility by 8 depends only on the last three digits.",
+        "672 ÷ 8 = 84 exactly.",
+        "So 3,672 is divisible by 8."
+      ],
+      "formulaIds": [
+        "ns-divisibility-rules"
+      ],
+      "method": "Last three digits test.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You only need to look at part of each number."
+        },
+        {
+          "level": 2,
+          "text": "For 8, that is the last three digits."
+        }
+      ],
+      "commonMistakes": [
+        "Checking only the last two digits, which tests divisibility by 4."
+      ],
+      "tags": [
+        "divisibility"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-003",
+      "topicId": "number-system",
+      "conceptId": "ns-series",
+      "levelId": "number-system-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the sum of the first 20 natural numbers?",
+      "answer": {
+        "value": 210,
+        "tolerance": 0
+      },
+      "explanation": "n(n + 1)/2 = (20 × 21)/2 = 210.",
+      "solutionSteps": [
+        "Use n(n + 1) ÷ 2 with n = 20.",
+        "= (20 × 21) ÷ 2.",
+        "= 210."
+      ],
+      "formulaIds": [
+        "ns-sum-natural"
+      ],
+      "method": "Standard sum formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Pair 1 with 20, 2 with 19 — each pair totals 21."
+        },
+        {
+          "level": 2,
+          "text": "There are 10 such pairs."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by 2 and answering 420."
+      ],
+      "tags": [
+        "series",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-010",
+      "topicId": "number-system",
+      "conceptId": "ns-factors",
+      "levelId": "number-system-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A number is written as 2³ × 5². Which expression gives its total number of factors?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(3 + 1) × (2 + 1)"
+        },
+        {
+          "id": "b",
+          "text": "3 × 2"
+        },
+        {
+          "id": "c",
+          "text": "2 × 5"
+        },
+        {
+          "id": "d",
+          "text": "3 + 2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Each prime contributes (exponent + 1) choices, so the count is 4 × 3 = 12 factors.",
+      "solutionSteps": [
+        "The power of 2 in a factor can be 0, 1, 2 or 3 — four options.",
+        "The power of 5 can be 0, 1 or 2 — three options.",
+        "Total = 4 × 3 = 12 factors."
+      ],
+      "formulaIds": [
+        "ns-factor-count"
+      ],
+      "method": "Add one to each exponent and multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each prime's exponent can also be zero in a factor."
+        },
+        {
+          "level": 2,
+          "text": "That is why you add 1 to each exponent."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the exponents directly."
+      ],
+      "tags": [
+        "formula-recognition",
+        "factors"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-011",
+      "topicId": "number-system",
+      "conceptId": "ns-divisibility",
+      "levelId": "number-system-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "How do you test whether a large number is divisible by 3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add its digits and check whether that sum is divisible by 3"
+        },
+        {
+          "id": "b",
+          "text": "Check whether the last digit is 3, 6 or 9"
+        },
+        {
+          "id": "c",
+          "text": "Check whether the last two digits are divisible by 3"
+        },
+        {
+          "id": "d",
+          "text": "Check whether the number is odd"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The digit sum test works for 3 and 9. For example 3,672 has digit sum 18, which is divisible by both 3 and 9.",
+      "solutionSteps": [
+        "Add all the digits.",
+        "If that total is divisible by 3, so is the original number.",
+        "The same test with 9 checks divisibility by 9."
+      ],
+      "formulaIds": [
+        "ns-divisibility-rules"
+      ],
+      "method": "Digit sum test.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The test for 3 involves all the digits, not just the last ones."
+        }
+      ],
+      "commonMistakes": [
+        "Applying a last-digit rule, which only works for 2, 5 and 10."
+      ],
+      "tags": [
+        "method",
+        "divisibility"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-020",
+      "topicId": "number-system",
+      "conceptId": "ns-factors",
+      "levelId": "number-system-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many factors does 36 have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "36 = 2² × 3², so the count is (2 + 1)(2 + 1) = 9: namely 1, 2, 3, 4, 6, 9, 12, 18 and 36.",
+      "solutionSteps": [
+        "Prime factorise: 36 = 2² × 3².",
+        "Factors = (2 + 1)(2 + 1) = 9.",
+        "List check: 1, 2, 3, 4, 6, 9, 12, 18, 36 ✓"
+      ],
+      "formulaIds": [
+        "ns-factor-count"
+      ],
+      "method": "Prime factorise, then apply the exponent rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 36 as a product of prime powers first."
+        },
+        {
+          "level": 2,
+          "text": "36 = 2² × 3²."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only factor pairs and missing the square root, 6."
+      ],
+      "tags": [
+        "factors"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-021",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "levelId": "number-system-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the remainder when 2¹⁰ is divided by 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "2³ = 8 leaves remainder 1 on division by 7, so 2¹⁰ = (2³)³ × 2 leaves 1 × 2 = 2. (Directly: 1024 = 7 × 146 + 2.)",
+      "solutionSteps": [
+        "2³ = 8, which leaves remainder 1 when divided by 7.",
+        "2¹⁰ = (2³)³ × 2¹.",
+        "Remainder = 1³ × 2 = 2."
+      ],
+      "formulaIds": [
+        "ns-division-identity"
+      ],
+      "method": "Find a small power that leaves remainder 1, then use the cycle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the remainders of 2¹, 2², 2³ … and find the cycle."
+        },
+        {
+          "level": 2,
+          "text": "2³ = 8 = 7 + 1."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 1024 and dividing carelessly."
+      ],
+      "tags": [
+        "remainders",
+        "cyclicity"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-022",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "levelId": "number-system-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the unit digit of 7³⁵?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Unit digits of powers of 7 cycle 7, 9, 3, 1 with period 4. Since 35 = 4 × 8 + 3, the unit digit is the third in the cycle: 3.",
+      "solutionSteps": [
+        "Unit digits of 7¹, 7², 7³, 7⁴ are 7, 9, 3, 1 — a cycle of length 4.",
+        "35 ÷ 4 leaves remainder 3.",
+        "So the unit digit is the third in the cycle: 3."
+      ],
+      "formulaIds": [
+        "ns-division-identity"
+      ],
+      "method": "Find the cycle length, then use the remainder of the exponent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write out the unit digits of the first few powers of 7."
+        },
+        {
+          "level": 2,
+          "text": "They repeat every 4 powers."
+        },
+        {
+          "level": 3,
+          "text": "35 leaves remainder 3 when divided by 4."
+        }
+      ],
+      "commonMistakes": [
+        "Using remainder 0 positions incorrectly — a remainder of 0 points to the LAST digit in the cycle."
+      ],
+      "tags": [
+        "cyclicity",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-030",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "levelId": "number-system-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A number leaves a remainder of 3 when divided by 7. What is the remainder when twice that number is divided by 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Write the number as 7k + 3. Twice it is 14k + 6, and 14k is divisible by 7, so the remainder is 6.",
+      "solutionSteps": [
+        "Let the number be 7k + 3.",
+        "Twice it: 2(7k + 3) = 14k + 6.",
+        "14k is a multiple of 7, so the remainder is 6."
+      ],
+      "formulaIds": [
+        "ns-division-identity"
+      ],
+      "method": "Represent the number algebraically rather than testing examples.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the number in the form 7k + 3."
+        },
+        {
+          "level": 2,
+          "text": "Double it and see which part is divisible by 7."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the remainder without checking whether it exceeds the divisor."
+      ],
+      "tags": [
+        "remainders",
+        "complex"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-q-031",
+      "topicId": "number-system",
+      "conceptId": "ns-remainders",
+      "levelId": "number-system-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the smallest number greater than 2 that leaves a remainder of 2 when divided by 3, 4 and 5?",
+      "answer": {
+        "value": 62,
+        "tolerance": 0
+      },
+      "explanation": "The number must be 2 more than a common multiple of 3, 4 and 5. The LCM is 60, so the number is 60 + 2 = 62. (2 itself, which is 0 + 2, is excluded by \"greater than 2\".)",
+      "solutionSteps": [
+        "If it leaves remainder 2 with each divisor, then (number − 2) is divisible by 3, 4 and 5.",
+        "LCM(3, 4, 5) = 60.",
+        "Number = 60 + 2 = 62. Check: 62 ÷ 3, ÷ 4 and ÷ 5 each leave 2 ✓"
+      ],
+      "formulaIds": [
+        "ns-division-identity"
+      ],
+      "method": "Subtract the common remainder, find the LCM, add it back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What can you say about (number − 2)?"
+        },
+        {
+          "level": 2,
+          "text": "It is divisible by all three numbers."
+        },
+        {
+          "level": 3,
+          "text": "Find the LCM of 3, 4 and 5."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 2 to each divisor rather than to the LCM."
+      ],
+      "tags": [
+        "remainders",
+        "lcm",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-001",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-digits",
+      "levelId": "number-system-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The digits of a two-digit number add up to 9. When the digits are reversed, the number increases by 27. What is the number?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "Let the number be 10a + b. Then a + b = 9, and reversing adds 9(b − a) = 27, so b − a = 3. Solving: a = 3 and b = 6, so the number is 36. Check: 63 − 36 = 27.",
+      "solutionSteps": [
+        "a + b = 9.",
+        "9(b − a) = 27, so b − a = 3.",
+        "a = 3, b = 6: the number is 36."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-digits-f"
+      ],
+      "method": "Turn both clues into equations in the digits, then solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reversing a two-digit number changes it by 9 × (difference of the digits)."
+        },
+        {
+          "level": 2,
+          "text": "You need two digits that add to 9 and differ by 3."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 63, the reversed number."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-002",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-digits",
+      "levelId": "number-system-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A two-digit number is 4 times the sum of its digits. If 18 is added to the number, its digits are reversed. What is the number?",
+      "answer": {
+        "value": 24,
+        "tolerance": 0
+      },
+      "explanation": "10a + b = 4(a + b) gives 6a = 3b, so b = 2a. Adding 18 reverses the digits, so 9(b − a) = 18 and b − a = 2. Then a = 2, b = 4: the number is 24. Check: 24 = 4 × 6, and 24 + 18 = 42.",
+      "solutionSteps": [
+        "10a + b = 4(a + b), so b = 2a.",
+        "9(b − a) = 18, so b − a = 2.",
+        "a = 2, b = 4: the number is 24."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-digits-f"
+      ],
+      "method": "Write each clue as an equation in the digits.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the number as 10a + b."
+        },
+        {
+          "level": 2,
+          "text": "Adding 18 to reverse the digits means 9(b − a) = 18."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 42, the number after 18 is added."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-003",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-digits",
+      "levelId": "number-system-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A two-digit number and the number formed by reversing its digits are subtracted (larger minus smaller). The result is always divisible by which of these?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "11"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(10a + b) − (10b + a) = 9a − 9b = 9(a − b), which is always a multiple of 9.",
+      "solutionSteps": [
+        "Number: 10a + b. Reversed: 10b + a.",
+        "Difference: 9a − 9b = 9(a − b)."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-digits-f"
+      ],
+      "method": "Write both numbers with place values and simplify the difference.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try a few examples: 72 − 27, 51 − 15."
+        },
+        {
+          "level": 2,
+          "text": "Write the difference in terms of a and b."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 11, which divides the sum of the number and its reverse, not the difference."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-004",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-clues",
+      "levelId": "number-system-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The sum of three consecutive even numbers is 78. What is the largest of them?",
+      "answer": {
+        "value": 28,
+        "tolerance": 0
+      },
+      "explanation": "The middle number is 78 ÷ 3 = 26, so the numbers are 24, 26 and 28. The largest is 28.",
+      "solutionSteps": [
+        "Middle = 78 ÷ 3 = 26.",
+        "Even numbers step by 2: 24, 26, 28.",
+        "Largest: 28."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-consecutive-f"
+      ],
+      "method": "Divide the sum by the number of terms to get the middle term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Equally spaced numbers balance around the middle one."
+        },
+        {
+          "level": 2,
+          "text": "Consecutive even numbers are 2 apart."
+        }
+      ],
+      "commonMistakes": [
+        "Stepping by 1 and giving 27.",
+        "Giving the middle number, 26."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-005",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-clues",
+      "levelId": "number-system-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the smallest number that leaves a remainder of 5 when divided by 6, by 8 and by 12, and is also divisible by 7?",
+      "answer": {
+        "value": 77,
+        "tolerance": 0
+      },
+      "explanation": "Numbers leaving remainder 5 on division by 6, 8 and 12 are 24k + 5 (24 is the LCM): 29, 53, 77, … The first multiple of 7 in this list is 77 = 7 × 11.",
+      "solutionSteps": [
+        "LCM(6, 8, 12) = 24, so the number is 24k + 5.",
+        "Try k = 1, 2, 3: 29, 53, 77.",
+        "77 = 7 × 11 is the first divisible by 7."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-consecutive-f",
+        "ns-division-identity"
+      ],
+      "method": "List the numbers that fit the remainder clue, then test the divisibility clue.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Numbers that leave the same remainder share the form LCM × k + remainder."
+        },
+        {
+          "level": 2,
+          "text": "Go through 24k + 5 until one is a multiple of 7."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 29, which fits the remainders but is not divisible by 7."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-006",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-clues",
+      "levelId": "number-system-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The product of two positive numbers is 192 and their difference is 4. What is their sum?",
+      "answer": {
+        "value": 28,
+        "tolerance": 0
+      },
+      "explanation": "Let the numbers be x and x + 4. Then x(x + 4) = 192, so x² + 4x − 192 = 0 and (x + 16)(x − 12) = 0. So x = 12 and the numbers are 12 and 16, with sum 28.",
+      "solutionSteps": [
+        "x(x + 4) = 192.",
+        "(x + 16)(x − 12) = 0, so x = 12.",
+        "Numbers 12 and 16: sum 28."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-consecutive-f"
+      ],
+      "method": "Write both numbers with one unknown, then solve the equation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Call the smaller number x."
+        },
+        {
+          "level": 2,
+          "text": "Look for two factors of 192 that differ by 4."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at x = 12 and giving that as the answer."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-puz-q-007",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-puz-digits",
+      "levelId": "number-system-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many two-digit numbers have digits that add up to 10?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "The tens digit can be 1 to 9, and the units digit is then 10 minus it: 19, 28, 37, 46, 55, 64, 73, 82, 91. That is 9 numbers.",
+      "solutionSteps": [
+        "Tens digit a from 1 to 9.",
+        "Units digit b = 10 − a, always a digit from 1 to 9.",
+        "9 numbers."
+      ],
+      "formulaIds": [
+        "ns-adv-puz-digits-f"
+      ],
+      "method": "Choose the tens digit; the clue then fixes the units digit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Once the tens digit is chosen, is the units digit fixed?"
+        },
+        {
+          "level": 2,
+          "text": "Can the tens digit be 0?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting 10 by allowing a tens digit of 0 (01 is not a two-digit number).",
+        "Counting 55 twice."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-001",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "levelId": "number-system-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Consider the statement \"The sum of two prime numbers is always even.\" Which response is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "False: 2 + 3 = 5 is odd"
+        },
+        {
+          "id": "b",
+          "text": "True: all primes are odd"
+        },
+        {
+          "id": "c",
+          "text": "True: it holds for 3 + 5, 5 + 7 and 7 + 11"
+        },
+        {
+          "id": "d",
+          "text": "False: 9 + 4 = 13 is odd"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The prime 2 is even, so 2 + 3 = 5 is a sum of two primes that is odd. One counterexample is enough to show the statement is false.",
+      "solutionSteps": [
+        "2 is a prime and it is even.",
+        "2 + 3 = 5 is odd.",
+        "So the statement is false."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-counter-f"
+      ],
+      "method": "Look for a counterexample, especially using special numbers like 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is every prime odd?"
+        },
+        {
+          "level": 2,
+          "text": "Try adding the only even prime to another prime."
+        }
+      ],
+      "commonMistakes": [
+        "Believing a claim because it works for a few examples.",
+        "Using 9 and 4, which are not prime."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-002",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "levelId": "number-system-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "If n is an odd number, which of these must be even?",
+      "options": [
+        {
+          "id": "a",
+          "text": "n² + n"
+        },
+        {
+          "id": "b",
+          "text": "n²"
+        },
+        {
+          "id": "c",
+          "text": "n + 2"
+        },
+        {
+          "id": "d",
+          "text": "3n"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "n odd means n² is odd, so n² + n = odd + odd = even. n², n + 2 and 3n are all odd.",
+      "solutionSteps": [
+        "n² = odd × odd = odd.",
+        "n² + n = odd + odd = even.",
+        "n + 2 and 3n stay odd."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-parity-f"
+      ],
+      "method": "Replace n by \"odd\" and apply the parity rules.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try n = 3 in each option."
+        },
+        {
+          "level": 2,
+          "text": "odd + odd is even; odd × odd is odd."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing n + 2: adding an even number keeps n odd."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-003",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "levelId": "number-system-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The product of any three consecutive whole numbers is always divisible by which of these?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Among three consecutive numbers, at least one is even and exactly one is a multiple of 3, so the product is divisible by 2 × 3 = 6. It need not be divisible by 4 (1 × 2 × 3 = 6), 9 or 5.",
+      "solutionSteps": [
+        "At least one of the three is even.",
+        "One of the three is a multiple of 3.",
+        "So 6 always divides the product; 1 × 2 × 3 = 6 rules out 4, 9 and 5."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-counter-f"
+      ],
+      "method": "Find what is guaranteed, and use a small case to rule out the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Must one of three consecutive numbers be even? A multiple of 3?"
+        },
+        {
+          "level": 2,
+          "text": "Test 1 × 2 × 3 against each option."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 4 from examples like 2 × 3 × 4 = 24, although 1 × 2 × 3 = 6 is not divisible by 4."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-004",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-deduction",
+      "levelId": "number-system-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "x and y are whole numbers. x + y is odd. Which of these must be true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Exactly one of x and y is even"
+        },
+        {
+          "id": "b",
+          "text": "Both x and y are even"
+        },
+        {
+          "id": "c",
+          "text": "Both x and y are odd"
+        },
+        {
+          "id": "d",
+          "text": "x is even"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Two evens or two odds add to an even number. For the sum to be odd, one must be even and the other odd, but either one could be the even one.",
+      "solutionSteps": [
+        "even + even = even; odd + odd = even.",
+        "So one is even and one is odd.",
+        "Which one is even is not fixed, so \"x is even\" need not be true."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-parity-f"
+      ],
+      "method": "Rule out the parity combinations that give an even sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What do two odd numbers add to?"
+        },
+        {
+          "level": 2,
+          "text": "Could x be the odd one?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"x is even\", which is possible but not certain."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-005",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-deduction",
+      "levelId": "number-system-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "a, b and c are positive whole numbers with a > b and b > c. Which of these must be true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "a − c ≥ 2"
+        },
+        {
+          "id": "b",
+          "text": "a − c = 2"
+        },
+        {
+          "id": "c",
+          "text": "a > 2c"
+        },
+        {
+          "id": "d",
+          "text": "a + c > 2b"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Whole numbers that are strictly greater differ by at least 1 each time, so a ≥ c + 2. The others can fail: a = 4, b = 3, c = 2 gives a − c = 2 but a = 2c; a = 3, b = 2, c = 1 gives a + c = 2b; a = 5, b = 2, c = 1 gives a − c = 4.",
+      "solutionSteps": [
+        "a ≥ b + 1 and b ≥ c + 1, so a ≥ c + 2.",
+        "a = 4, b = 3, c = 2 breaks a > 2c.",
+        "a = 3, b = 2, c = 1 breaks a + c > 2b."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-counter-f"
+      ],
+      "method": "Find what follows in every case; break the other options with a counterexample.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much bigger than c must a be, at the very least?"
+        },
+        {
+          "level": 2,
+          "text": "Try the smallest possible values: 3, 2, 1."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing a − c = 2, which is only the smallest possible gap."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-006",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-statements",
+      "levelId": "number-system-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "n² + n + 41 is prime for n = 1, 2, 3 and many more values. For which of these values of n is it NOT prime?",
+      "options": [
+        {
+          "id": "a",
+          "text": "40"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "At n = 40: 1600 + 40 + 41 = 1681 = 41 × 41, which is not prime. At n = 1, 10 and 5 the values are 43, 151 and 71, all prime.",
+      "solutionSteps": [
+        "n = 40: 40² + 40 + 41 = 40 × 41 + 41 = 41 × 41.",
+        "1681 = 41², so it is not prime.",
+        "n = 1, 5, 10 give 43, 71, 151: all prime."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-counter-f"
+      ],
+      "method": "Look for a value that makes the expression factorise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Can you choose n so that every term is a multiple of 41?"
+        },
+        {
+          "level": 2,
+          "text": "n² + n = n(n + 1). What if n + 1 = 41?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the pattern continues because it works for the first several values."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-ns-adv-rsn-q-007",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-rsn-deduction",
+      "levelId": "number-system-level-9",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The average of five different positive whole numbers is 10. What is the largest possible value of the biggest of them?",
+      "answer": {
+        "value": 40,
+        "tolerance": 0
+      },
+      "explanation": "The five numbers add to 5 × 10 = 50. To make the biggest as large as possible, make the other four as small as possible while still different: 1, 2, 3, 4, which add to 10. The biggest is then 50 − 10 = 40.",
+      "solutionSteps": [
+        "Total = 5 × 10 = 50.",
+        "Smallest four different positive whole numbers: 1 + 2 + 3 + 4 = 10.",
+        "Biggest = 50 − 10 = 40."
+      ],
+      "formulaIds": [
+        "ns-adv-rsn-counter-f"
+      ],
+      "method": "To maximise one number, minimise all the others within the rules.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the total of the five numbers?"
+        },
+        {
+          "level": 2,
+          "text": "How small can the other four be if they must all be different?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 1, 1, 1, 1, which ignores \"different\", to get 46.",
+        "Forgetting that the numbers must be positive and using 0."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-001",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-convert",
+      "levelId": "number-system-level-10",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is 101101₂ in decimal?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0
+      },
+      "explanation": "From the right, the binary places are worth 1, 2, 4, 8, 16 and 32. Add the places that hold a 1: 32 + 8 + 4 + 1 = 45.",
+      "solutionSteps": [
+        "Place values from the right: 1, 2, 4, 8, 16, 32.",
+        "101101₂ = 1 × 32 + 0 × 16 + 1 × 8 + 1 × 4 + 0 × 2 + 1 × 1.",
+        "= 32 + 8 + 4 + 1 = 45."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-place-value-f"
+      ],
+      "method": "Multiply each digit by its place value and add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The rightmost place is worth 1; each place to the left is worth twice as much."
+        },
+        {
+          "level": 2,
+          "text": "Only the places holding a 1 count: 32, 8, 4 and 1."
+        }
+      ],
+      "commonMistakes": [
+        "Treating the digits as a decimal number and answering 101101.",
+        "Doubling from the wrong end, so the leftmost 1 is worth 1 instead of 32."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-002",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-convert",
+      "levelId": "number-system-level-11",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is 156 written in base 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "213₇"
+        },
+        {
+          "id": "b",
+          "text": "234₇"
+        },
+        {
+          "id": "c",
+          "text": "312₇"
+        },
+        {
+          "id": "d",
+          "text": "420₇"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Divide by 7 again and again: 156 = 22 × 7 + 2, 22 = 3 × 7 + 1, 3 = 0 × 7 + 3. Reading the remainders from the bottom up gives 312₇. Check: 3 × 49 + 1 × 7 + 2 = 156.",
+      "solutionSteps": [
+        "156 ÷ 7 = 22 remainder 2.",
+        "22 ÷ 7 = 3 remainder 1.",
+        "3 ÷ 7 = 0 remainder 3.",
+        "Read the remainders from the bottom up: 312₇."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-place-value-f"
+      ],
+      "method": "Divide by the base repeatedly and read the remainders from last to first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide 156 by 7 and note the remainder."
+        },
+        {
+          "level": 2,
+          "text": "Keep dividing the quotient by 7 until it reaches 0, then read the remainders upwards."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the remainders from the top down, which gives 213₇.",
+        "Dividing by 8 or 6 instead of 7, which gives 234₇ or 420₇."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-003",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-convert",
+      "levelId": "number-system-level-11",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Write 1101011₂ in hexadecimal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "D3₁₆"
+        },
+        {
+          "id": "b",
+          "text": "6B₁₆"
+        },
+        {
+          "id": "c",
+          "text": "153₁₆"
+        },
+        {
+          "id": "d",
+          "text": "B6₁₆"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Group the bits in fours from the right: 110 | 1011, which is 0110 | 1011. 0110₂ = 6 and 1011₂ = 11 = B, so the answer is 6B₁₆. Check: 6 × 16 + 11 = 107 = 1101011₂.",
+      "solutionSteps": [
+        "Split 1101011₂ into groups of 4 from the right: 110 | 1011.",
+        "Pad the left group: 0110 = 6.",
+        "1011 = 8 + 2 + 1 = 11, written B.",
+        "So the number is 6B₁₆."
+      ],
+      "formulaIds": [
+        "ns-sc-nb-bit-groups"
+      ],
+      "method": "One hexadecimal digit for each group of 4 bits, grouping from the right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "16 = 2⁴, so each hexadecimal digit stands for 4 bits."
+        },
+        {
+          "level": 2,
+          "text": "Start the groups at the right-hand end: the last four bits are 1011."
+        }
+      ],
+      "commonMistakes": [
+        "Grouping from the left (1101 | 011), which gives D3₁₆.",
+        "Grouping in threes, which gives the octal digits 153, not hexadecimal."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-004",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "levelId": "number-system-level-10",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Add in base 6: 345₆ + 253₆",
+      "options": [
+        {
+          "id": "a",
+          "text": "532₆"
+        },
+        {
+          "id": "b",
+          "text": "1032₆"
+        },
+        {
+          "id": "c",
+          "text": "242₆"
+        },
+        {
+          "id": "d",
+          "text": "1042₆"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Add column by column from the right, carrying at 6: 5 + 3 = 8 = 6 + 2 (write 2, carry 1); 4 + 5 + 1 = 10 = 6 + 4 (write 4, carry 1); 3 + 2 + 1 = 6 (write 0, carry 1). The sum is 1042₆. Check in decimal: 137 + 105 = 242 = 216 + 24 + 2.",
+      "solutionSteps": [
+        "Units: 5 + 3 = 8 = 1 × 6 + 2 → write 2, carry 1.",
+        "Sixes: 4 + 5 + 1 = 10 = 1 × 6 + 4 → write 4, carry 1.",
+        "Thirty-sixes: 3 + 2 + 1 = 6 = 1 × 6 + 0 → write 0, carry 1.",
+        "The final carry is the leading digit: 1042₆."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-equation-f"
+      ],
+      "method": "Column addition with a carry each time a column reaches 6.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In base 6 a column carries as soon as it reaches 6, not 10."
+        },
+        {
+          "level": 2,
+          "text": "The units column gives 5 + 3 = 8, which is one 6 and 2 more."
+        }
+      ],
+      "commonMistakes": [
+        "Dropping the carries, which gives 532₆.",
+        "Converting to decimal and adding (137 + 105 = 242), then forgetting to convert 242 back to base 6."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-005",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "levelId": "number-system-level-11",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The multiplication 14 × 14 = 207 is correct when all three numbers are written in the same base b. What is b?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "In base b, 14 = b + 4 and 207 = 2b² + 7. So (b + 4)² = 2b² + 7, which gives b² + 8b + 16 = 2b² + 7, that is b² − 8b − 9 = 0, or (b − 9)(b + 1) = 0. The base is 9. Check: 14₉ = 13 and 13 × 13 = 169 = 2 × 81 + 7 = 207₉.",
+      "solutionSteps": [
+        "14 in base b is b + 4; 207 in base b is 2b² + 0 × b + 7.",
+        "(b + 4)² = 2b² + 7.",
+        "b² + 8b + 16 = 2b² + 7, so b² − 8b − 9 = 0.",
+        "(b − 9)(b + 1) = 0, and a base is positive, so b = 9."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-equation-f"
+      ],
+      "method": "Write each number as place values in b and solve the equation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 14 and 207 as expressions in b, using place values."
+        },
+        {
+          "level": 2,
+          "text": "You should reach (b + 4)² = 2b² + 7."
+        },
+        {
+          "level": 3,
+          "text": "The quadratic b² − 8b − 9 = 0 factorises."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 8, the smallest base the digit 7 allows, without solving the equation.",
+        "Writing 207 in base b as 2b + 7, forgetting that the 2 is in the b² place."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-006",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "levelId": "number-system-level-11",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the last digit of 7²⁵ when it is written in base 5?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "The last digit in base 5 is the remainder on division by 5. 7 leaves 2, so 7²⁵ leaves the same remainder as 2²⁵. Powers of 2 leave 2, 4, 3, 1, then repeat every 4. 25 = 4 × 6 + 1, so 2²⁵ leaves 2. The last digit is 2.",
+      "solutionSteps": [
+        "Last digit in base 5 = remainder on division by 5.",
+        "7 ≡ 2 (mod 5), so 7²⁵ ≡ 2²⁵.",
+        "Remainders of 2, 2², 2³, 2⁴ on division by 5: 2, 4, 3, 1, repeating every 4.",
+        "25 leaves 1 on division by 4, so the remainder is the first in the cycle: 2."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-last-digit-f"
+      ],
+      "method": "Last digit in base b = N mod b; find the remainder with a cycle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The last digit of N in base 5 is N mod 5."
+        },
+        {
+          "level": 2,
+          "text": "7 leaves remainder 2 on division by 5, so look at powers of 2."
+        },
+        {
+          "level": 3,
+          "text": "Remainders of powers of 2 on division by 5 repeat every 4."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 7, the last digit of 7²⁵ in decimal; 7 is not even a digit in base 5.",
+        "Using the cycle position wrongly: a remainder of 1 means the first value in the cycle."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-007",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "levelId": "number-system-level-11",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "When 20! is written in base 12, how many zeros does it end with?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Each zero at the end in base 12 is a factor of 12 = 2² × 3. 20! contains 2 to the power 10 + 5 + 2 + 1 = 18 and 3 to the power 6 + 2 = 8. The 2s make 18 ÷ 2 = 9 fours, but there are only 8 threes, so 12⁸ divides 20! and 12⁹ does not. It ends in 8 zeros.",
+      "solutionSteps": [
+        "12 = 2² × 3, so count the 2s and 3s in 20!.",
+        "Powers of 2: ⌊20/2⌋ + ⌊20/4⌋ + ⌊20/8⌋ + ⌊20/16⌋ = 10 + 5 + 2 + 1 = 18.",
+        "Powers of 3: ⌊20/3⌋ + ⌊20/9⌋ = 6 + 2 = 8.",
+        "Factors of 12 available: min(18 ÷ 2, 8) = min(9, 8) = 8."
+      ],
+      "formulaIds": [
+        "ns-adv-nb-last-digit-f"
+      ],
+      "method": "Count how many times the base divides the number, prime by prime.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A zero at the end in base 12 means one factor of 12."
+        },
+        {
+          "level": 2,
+          "text": "Break 12 into primes: 2² × 3. Count the 2s and the 3s in 20!."
+        },
+        {
+          "level": 3,
+          "text": "Each 12 needs two 2s but only one 3. Which runs out first?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 4, the number of zeros at the end of 20! in decimal.",
+        "Using 18 or 9 from the 2s alone, forgetting that the 3s run out first."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "number-system-nb-adv-q-008",
+      "topicId": "number-system",
+      "conceptId": "ns-adv-nb-arith",
+      "levelId": "number-system-level-11",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In the base-9 number 247x5₉, x is a single digit. The number is divisible by 8. What is x?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "In base 9, a number leaves the same remainder on division by 8 as its digit sum. The digit sum is 2 + 4 + 7 + x + 5 = 18 + x, which must be a multiple of 8. Since x is between 0 and 8, 18 + x = 24 and x = 6.",
+      "solutionSteps": [
+        "Base 9, so test divisibility by 9 − 1 = 8 with the digit sum.",
+        "Digit sum = 2 + 4 + 7 + x + 5 = 18 + x.",
+        "18 + x must be a multiple of 8, and x ≤ 8, so 18 + x = 24.",
+        "x = 6."
+      ],
+      "formulaIds": [
+        "ns-sc-nb-digit-sum"
+      ],
+      "method": "Divisibility by b − 1 through the digit sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "8 is one less than the base 9."
+        },
+        {
+          "level": 2,
+          "text": "A base-9 number and its digit sum leave the same remainder on division by 8."
+        },
+        {
+          "level": 3,
+          "text": "Which digit from 0 to 8 makes 18 + x a multiple of 8?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the decimal rule for 8 (the last three digits), which does not apply in base 9.",
+        "Answering 14 from 18 + x = 32; a base-9 digit is at most 8."
+      ],
+      "tags": [
+        "advanced",
+        "number-bases"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

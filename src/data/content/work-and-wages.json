@@ -1,0 +1,962 @@
+{
+  "topicId": "work-and-wages",
+  "concepts": [
+    {
+      "id": "ww-ratio",
+      "topicId": "work-and-wages",
+      "name": "Wages follow work done",
+      "description": "When workers are paid at the same rate, money is split in the ratio of work done.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ww-days",
+      "topicId": "work-and-wages",
+      "name": "Wages from days taken",
+      "description": "Faster workers take fewer days, so their share is proportional to 1 ÷ days.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ww-mandays",
+      "topicId": "work-and-wages",
+      "name": "Man-days and daily rates",
+      "description": "Total pay is workers × days × daily rate; hours work the same way.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ww-stages",
+      "topicId": "work-and-wages",
+      "name": "Changing crews",
+      "description": "Work out each person's fraction of the whole job, then split the money by those fractions.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ww-ratio-f",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "title": "Split by work done",
+      "prompt": "Two workers are paid at the same rate for a job. How is the total split?",
+      "formula": "Share ∝ work done = efficiency × time",
+      "variables": [],
+      "explanation": "Equal pay per unit of work means total pay is proportional to units of work.",
+      "example": "Work done 3 : 2, total ₹1,500 → ₹900 and ₹600",
+      "commonMistake": "Splitting equally regardless of work.",
+      "applicationPrompt": "A and B did 3 : 2 of a job and earned ₹1,500. What does A get?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ww-days-f",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-days",
+      "title": "Wages from time taken",
+      "prompt": "A and B finish a job alone in a and b days. If they work together, how do they split the pay?",
+      "formula": "A : B = 1/a : 1/b = b : a",
+      "variables": [],
+      "explanation": "A worker who takes fewer days does more each day. In equal time, work done is proportional to the daily rate.",
+      "example": "a = 10, b = 15 → 1/10 : 1/15 = 3 : 2",
+      "commonMistake": "Using the days themselves as the ratio (10 : 15 = 2 : 3).",
+      "applicationPrompt": "A takes 10 days and B takes 15 days alone. In what ratio do they share the wages?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ww-mandays-f",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-mandays",
+      "title": "Total wages",
+      "prompt": "N workers each earn w per day and work for d days. What is the total wage bill?",
+      "formula": "Total = N × d × w",
+      "variables": [],
+      "explanation": "Each worker earns w every day, so multiply by workers and days.",
+      "example": "5 workers, 6 days, ₹200/day → ₹6,000",
+      "commonMistake": "Forgetting to multiply by the number of days.",
+      "applicationPrompt": "How much do 8 workers earn in 12 days at ₹150 per day each?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ww-stages-f",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-stages",
+      "title": "Changing crews",
+      "prompt": "Workers join or leave part-way through. How is pay divided?",
+      "formula": "Share of A = (A's fraction of the whole job) ÷ 1\nFraction = rate × days worked",
+      "variables": [],
+      "explanation": "Work out the fraction of the job each person completed, checking that the fractions total 1.",
+      "example": "A does 1/10 per day for 5 days = 1/2",
+      "commonMistake": "Paying by days worked without adjusting for different rates.",
+      "applicationPrompt": "A does 1/10 per day and B does 1/15 per day. Both work 5 days and C finishes the rest. What fraction did C complete?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ww-sc-helper-share",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "kind": "shortcut",
+      "title": "The helper's share",
+      "prompt": "A and B alone take a and b days. With C they finish in t days. What is C's share of the wage?",
+      "formula": "C's share = 1 − t/a − t/b of the total",
+      "variables": [],
+      "explanation": "In t days A does t/a of the job and B does t/b; C did the rest and is paid for it.",
+      "example": "A 6 days, B 8 days, with C 3 days, wage ₹3,200: C does 1 − 1/2 − 3/8 = 1/8, so ₹400.",
+      "commonMistake": "Splitting the wage equally among the three.",
+      "applicationPrompt": "A and B take 10 and 15 days; with C they take 5 days. Out of ₹1,500, what does C get?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "work-and-wages-level-0",
+      "topicId": "work-and-wages",
+      "order": 0,
+      "title": "Pay Follows Work",
+      "description": "Turn time-and-work rates into a fair split of the money.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ww-ratio",
+        "ww-days"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Same rate per unit of work",
+            "body": "If everyone is paid the same per unit of work, the total money is split in the ratio of work done. So the whole problem becomes: what fraction of the job did each person do?"
+          },
+          {
+            "type": "formula",
+            "title": "Working from days",
+            "body": "Alone in a and b days → A : B = 1/a : 1/b",
+            "caption": "The quicker worker does more each day, so gets a larger share."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "work-together"
+          },
+          {
+            "type": "check",
+            "questionId": "work-and-wages-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "A common trap: sharing in the ratio of days taken. That rewards the slower worker. Always convert days into rates first."
+          },
+          {
+            "type": "check",
+            "questionId": "work-and-wages-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "work-and-wages-level-1",
+      "topicId": "work-and-wages",
+      "order": 1,
+      "title": "Wages Formulas",
+      "description": "Work splits, rates from days, total wage bills and changing crews.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "work-and-wages-level-0"
+      ],
+      "conceptIds": [
+        "ww-ratio",
+        "ww-days",
+        "ww-mandays",
+        "ww-stages"
+      ],
+      "formulaIds": [
+        "ww-ratio-f",
+        "ww-days-f",
+        "ww-mandays-f",
+        "ww-stages-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "work-and-wages-level-2",
+      "topicId": "work-and-wages",
+      "order": 2,
+      "title": "Direct Wage Questions",
+      "description": "Ratio splits and wage bills.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "work-and-wages-level-1"
+      ],
+      "conceptIds": [
+        "ww-ratio",
+        "ww-days",
+        "ww-mandays"
+      ],
+      "questionIds": [
+        "work-and-wages-q-001",
+        "work-and-wages-q-002",
+        "work-and-wages-q-003",
+        "work-and-wages-q-004",
+        "work-and-wages-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "work-and-wages-level-3",
+      "topicId": "work-and-wages",
+      "order": 3,
+      "title": "Rates, Efficiency and Man-Days",
+      "description": "Split the pay by rates and man-days.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "work-and-wages-level-2"
+      ],
+      "conceptIds": [
+        "ww-days",
+        "ww-mandays",
+        "ww-ratio"
+      ],
+      "questionIds": [
+        "work-and-wages-q-006",
+        "work-and-wages-q-007",
+        "work-and-wages-q-008",
+        "work-and-wages-q-009",
+        "work-and-wages-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "work-and-wages-level-4",
+      "topicId": "work-and-wages",
+      "order": 4,
+      "title": "Crews That Change",
+      "description": "Third workers, leaving workers and hour totals.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "work-and-wages-level-3"
+      ],
+      "conceptIds": [
+        "ww-stages",
+        "ww-mandays"
+      ],
+      "questionIds": [
+        "work-and-wages-q-011",
+        "work-and-wages-q-012",
+        "work-and-wages-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "work-and-wages-level-5",
+      "topicId": "work-and-wages",
+      "order": 5,
+      "title": "Mixed Wages Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "work-and-wages-level-4"
+      ],
+      "conceptIds": [
+        "ww-stages",
+        "ww-mandays"
+      ],
+      "questionQuery": {
+        "topicId": "work-and-wages",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "work-and-wages-q-001",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "levelId": "work-and-wages-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A does 1/3 of a piece of work and B does the remaining 2/3. They are paid ₹900 in total. How much does B get?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹300"
+        },
+        {
+          "id": "b",
+          "text": "₹450"
+        },
+        {
+          "id": "c",
+          "text": "₹600"
+        },
+        {
+          "id": "d",
+          "text": "₹900"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "B did 2/3 of the work, so B gets 2/3 of ₹900 = ₹600.",
+      "solutionSteps": [
+        "B's fraction = 2/3.",
+        "B's wages = 900 × 2/3 = ₹600."
+      ],
+      "formulaIds": [
+        "ww-ratio-f"
+      ],
+      "method": "Split the money in the ratio of work done.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Who did more of the work?"
+        }
+      ],
+      "commonMistakes": [
+        "Splitting equally (₹450)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-002",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "levelId": "work-and-wages-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A and B do work in the ratio 3 : 2 and are paid ₹1,500 in total. How much does A get, in rupees?",
+      "answer": {
+        "value": 900,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Total parts = 5, so one part = ₹300. A gets 3 parts = ₹900.",
+      "solutionSteps": [
+        "Parts: 3 + 2 = 5.",
+        "One part = 1500 ÷ 5 = ₹300.",
+        "A = 3 × 300 = ₹900."
+      ],
+      "formulaIds": [
+        "ww-ratio-f"
+      ],
+      "method": "Divide the total by the sum of the ratio terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the ratio terms to find the total number of parts."
+        }
+      ],
+      "commonMistakes": [
+        "Giving B's share of ₹600."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-003",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-days",
+      "levelId": "work-and-wages-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A can finish a job in 10 days and B in 15 days. They work together and share the wages. In what ratio should A and B share?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 2"
+        },
+        {
+          "id": "b",
+          "text": "2 : 3"
+        },
+        {
+          "id": "c",
+          "text": "1 : 1"
+        },
+        {
+          "id": "d",
+          "text": "5 : 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Daily rates: A = 1/10, B = 1/15, which is 3/30 : 2/30 = 3 : 2. The quicker worker does more and earns more.",
+      "solutionSteps": [
+        "A: 1/10 = 3/30 per day.",
+        "B: 1/15 = 2/30 per day.",
+        "Ratio = 3 : 2."
+      ],
+      "formulaIds": [
+        "ww-days-f"
+      ],
+      "method": "Use rates, not days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each time into a daily rate."
+        },
+        {
+          "level": 2,
+          "text": "Who works faster?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the days directly (10 : 15 = 2 : 3), which pays the slower worker more."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-004",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "levelId": "work-and-wages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "When two workers finish a job together at the same pay rate, their wages are divided in proportion to",
+      "options": [
+        {
+          "id": "a",
+          "text": "the number of days each would take alone"
+        },
+        {
+          "id": "b",
+          "text": "the work each actually did"
+        },
+        {
+          "id": "c",
+          "text": "equal shares"
+        },
+        {
+          "id": "d",
+          "text": "their ages"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Wages track work done. The days each would take alone give the reverse ratio, so they cannot be used directly.",
+      "solutionSteps": [
+        "Money follows units of work."
+      ],
+      "formulaIds": [
+        "ww-ratio-f"
+      ],
+      "method": "Share ∝ work done.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A worker who takes longer alone does less per day."
+        }
+      ],
+      "commonMistakes": [
+        "Sharing by days taken alone."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-005",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-mandays",
+      "levelId": "work-and-wages-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "5 workers each work 6 days at ₹200 per day. What is the total wage bill, in rupees?",
+      "answer": {
+        "value": 6000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "5 × 6 = 30 man-days, and 30 × ₹200 = ₹6,000.",
+      "solutionSteps": [
+        "Man-days = 5 × 6 = 30.",
+        "Wages = 30 × 200 = ₹6,000."
+      ],
+      "formulaIds": [
+        "ww-mandays-f"
+      ],
+      "method": "Total = workers × days × daily wage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the man-days first."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the number of days (₹1,000)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-006",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-days",
+      "levelId": "work-and-wages-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A alone can do a job in 12 days and B alone in 24 days. They complete it together and earn ₹1,800. How much does A get, in rupees?",
+      "answer": {
+        "value": 1200,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Rates: 1/12 : 1/24 = 2 : 1. A gets 2/3 of ₹1,800 = ₹1,200.",
+      "solutionSteps": [
+        "Ratio of rates = 2 : 1.",
+        "A = 1800 × 2/3 = ₹1,200."
+      ],
+      "formulaIds": [
+        "ww-days-f"
+      ],
+      "method": "Share ∝ 1 ÷ days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the times into rates and compare."
+        }
+      ],
+      "commonMistakes": [
+        "Using 12 : 24 = 1 : 2 and paying A only ₹600."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-007",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-days",
+      "levelId": "work-and-wages-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A, B and C can finish a job alone in 6, 8 and 12 days. They work together and earn ₹1,800. How much does C get?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹300"
+        },
+        {
+          "id": "b",
+          "text": "₹400"
+        },
+        {
+          "id": "c",
+          "text": "₹600"
+        },
+        {
+          "id": "d",
+          "text": "₹800"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Rates 1/6 : 1/8 : 1/12 = 4 : 3 : 2 (over 24). C gets 2/9 of ₹1,800 = ₹400.",
+      "solutionSteps": [
+        "LCM of 6, 8, 12 = 24.",
+        "Rates in units: 4, 3, 2.",
+        "Total parts 9; C = 1800 × 2/9 = ₹400."
+      ],
+      "formulaIds": [
+        "ww-days-f"
+      ],
+      "method": "Convert days into rates using the LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Take the LCM as the size of the job in units."
+        },
+        {
+          "level": 2,
+          "text": "How many units per day does each do?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the days themselves as the ratio (6 : 8 : 12)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-008",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-days",
+      "levelId": "work-and-wages-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A can do a job alone in 15 days and B in 10 days. They complete it together for ₹4,200. How much does B get, in rupees?",
+      "answer": {
+        "value": 2520,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Rates 1/15 : 1/10 = 2 : 3. B does 3/5 of the work and gets 3/5 of ₹4,200 = ₹2,520.",
+      "solutionSteps": [
+        "A : B = 2 : 3.",
+        "B = 4200 × 3/5 = ₹2,520."
+      ],
+      "formulaIds": [
+        "ww-days-f"
+      ],
+      "method": "Faster worker, larger share.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Who is faster?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving A's share (₹1,680)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-009",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-mandays",
+      "levelId": "work-and-wages-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "12 men finish a job in 20 days for a total wage bill of ₹48,000. What is the daily wage of one man?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹4,000"
+        },
+        {
+          "id": "b",
+          "text": "₹2,400"
+        },
+        {
+          "id": "c",
+          "text": "₹200"
+        },
+        {
+          "id": "d",
+          "text": "₹250"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Man-days = 12 × 20 = 240. Daily wage = 48,000 ÷ 240 = ₹200.",
+      "solutionSteps": [
+        "Man-days = 240.",
+        "48,000 ÷ 240 = ₹200."
+      ],
+      "formulaIds": [
+        "ww-mandays-f"
+      ],
+      "method": "Daily wage = total ÷ man-days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many man-days were worked altogether?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 12 only (₹4,000 is a man's wage for the whole job)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-010",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-ratio",
+      "levelId": "work-and-wages-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A is twice as efficient as B. They work for the same time and are paid ₹2,700 in total. How much does A get, in rupees?",
+      "answer": {
+        "value": 1800,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Efficiency 2 : 1, and equal time means work done 2 : 1. A gets 2/3 of ₹2,700 = ₹1,800.",
+      "solutionSteps": [
+        "Ratio of work = 2 : 1.",
+        "A = 2700 × 2/3 = ₹1,800."
+      ],
+      "formulaIds": [
+        "ww-ratio-f"
+      ],
+      "method": "Work done = efficiency × time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Equal times means the ratio of work equals the ratio of efficiencies."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting equally."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-011",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-stages",
+      "levelId": "work-and-wages-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A alone can do a job in 10 days and B alone in 15 days. With C's help they finish it in 5 days. The total payment is ₹3,600. How much does C get, in rupees?",
+      "answer": {
+        "value": 600,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "In 5 days A does 5/10 = 1/2 and B does 5/15 = 1/3. C does 1 − 1/2 − 1/3 = 1/6. C's share is 1/6 of ₹3,600 = ₹600.",
+      "solutionSteps": [
+        "A: 5 × 1/10 = 1/2.",
+        "B: 5 × 1/15 = 1/3.",
+        "C: 1 − 1/2 − 1/3 = 1/6.",
+        "C = 3600 ÷ 6 = ₹600."
+      ],
+      "formulaIds": [
+        "ww-stages-f",
+        "ww-days-f"
+      ],
+      "method": "Find what is left over for the third worker.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much work do A and B each do in 5 days?"
+        },
+        {
+          "level": 2,
+          "text": "C completed whatever fraction remains."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting three ways equally (₹1,200)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-012",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-stages",
+      "levelId": "work-and-wages-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A can do a job in 24 days and B in 16 days. They work together for 6 days, then A leaves and B finishes the rest. The total payment is ₹4,800. How much does B get, in rupees?",
+      "answer": {
+        "value": 3600,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "A works 6 days: 6/24 = 1/4 of the job. So B does the remaining 3/4. B gets 3/4 of ₹4,800 = ₹3,600. Check: B works 6 days (3/8) then 6 more days (3/8): 3/4 ✓.",
+      "solutionSteps": [
+        "A's work = 6 × 1/24 = 1/4.",
+        "B's work = 1 − 1/4 = 3/4.",
+        "B = 4800 × 3/4 = ₹3,600."
+      ],
+      "formulaIds": [
+        "ww-stages-f"
+      ],
+      "method": "A's fraction is rate × days; B gets the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much did A do in his 6 days?"
+        },
+        {
+          "level": 2,
+          "text": "B's share is everything A did not do."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting by rates only, ignoring that B worked longer."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "work-and-wages-q-013",
+      "topicId": "work-and-wages",
+      "conceptId": "ww-mandays",
+      "levelId": "work-and-wages-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A works 8 hours a day for 5 days and B works 6 hours a day for 10 days. They are paid at the same hourly rate for a job worth ₹2,400 in total. How much does B get?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹960"
+        },
+        {
+          "id": "b",
+          "text": "₹1,200"
+        },
+        {
+          "id": "c",
+          "text": "₹1,440"
+        },
+        {
+          "id": "d",
+          "text": "₹1,500"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A works 8 × 5 = 40 hours and B works 6 × 10 = 60 hours. Ratio 2 : 3, so B gets 3/5 of ₹2,400 = ₹1,440.",
+      "solutionSteps": [
+        "A: 40 hours; B: 60 hours.",
+        "Ratio 2 : 3.",
+        "B = 2400 × 3/5 = ₹1,440."
+      ],
+      "formulaIds": [
+        "ww-mandays-f",
+        "ww-ratio-f"
+      ],
+      "method": "Compare total hours, not hours per day or days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out total hours for each person."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing days only (5 : 10) or hours per day only (8 : 6)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

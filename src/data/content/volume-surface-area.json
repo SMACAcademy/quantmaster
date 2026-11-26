@@ -1,0 +1,1094 @@
+{
+  "topicId": "volume-surface-area",
+  "concepts": [
+    {
+      "id": "vsa-recast",
+      "topicId": "volume-surface-area",
+      "name": "Melting and recasting",
+      "description": "When a solid is melted down and recast into a different shape, its volume stays exactly the same (assuming no material is lost).",
+      "sortOrder": 1
+    },
+    {
+      "id": "vsa-capacity",
+      "topicId": "volume-surface-area",
+      "name": "Capacity and unit conversion",
+      "description": "Capacity is just volume measured in litres: 1 litre = 1000 cm³, and 1 m³ = 1000 litres.",
+      "sortOrder": 2
+    },
+    {
+      "id": "vsa-composite-volume",
+      "topicId": "volume-surface-area",
+      "name": "Volume of combined solids",
+      "description": "The volume of a combined solid is the sum (or difference, if one part is removed) of the volumes of its simple parts.",
+      "sortOrder": 3
+    },
+    {
+      "id": "vsa-composite-surface",
+      "topicId": "volume-surface-area",
+      "name": "Surface area of combined solids",
+      "description": "When two solids are joined, the surface area exposed to the outside excludes the faces at the join — only the outward-facing surfaces count.",
+      "sortOrder": 4
+    },
+    {
+      "id": "vsa-rate",
+      "topicId": "volume-surface-area",
+      "name": "Filling and emptying rates",
+      "description": "The time to fill or empty a container equals the container's volume divided by the rate of flow.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "vsa-recast-f",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-recast",
+      "title": "Volume is conserved when recasting",
+      "prompt": "What stays the same when a solid is melted and recast into another shape?",
+      "formula": "Volume before melting = Volume after recasting",
+      "variables": [],
+      "explanation": "This lets you find an unknown dimension of the new shape, or how many smaller identical solids can be made from one larger one (by dividing the volumes).",
+      "example": "A cube of edge 6 cm (volume 216 cm³) is recast into a cuboid 9 cm × 4 cm × h: 9 × 4 × h = 216, so h = 6 cm",
+      "commonMistake": "Assuming the surface area is also conserved — only the volume stays the same.",
+      "applicationPrompt": "A metal cube of edge 6 cm is melted and recast into a cuboid of length 9 cm and breadth 4 cm. Find its height.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-capacity-f",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-capacity",
+      "title": "Converting volume to capacity",
+      "prompt": "How do you convert a volume in cm³ or m³ into litres?",
+      "formula": "1 litre = 1000 cm³; 1 m³ = 1000 litres",
+      "variables": [],
+      "explanation": "Find the volume first using the usual formula for the solid's shape, then convert using these fixed relationships.",
+      "example": "A tank of volume 3 m³ has a capacity of 3 × 1000 = 3000 litres",
+      "commonMistake": "Mixing up the conversion factor between cm³ and litres with the one between m³ and litres.",
+      "applicationPrompt": "A tank measures 2 m by 1.5 m by 1 m. Find its capacity in litres.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-composite-volume-f",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-volume",
+      "title": "Volume of a combined solid",
+      "prompt": "How do you find the volume of a solid made of several simple solids joined together?",
+      "formula": "Volume = sum of the parts' volumes (or subtract, if a part is carved out)",
+      "variables": [],
+      "explanation": "Identify each simple solid the shape is built from, find each volume separately using its own formula, then add (or subtract, for a hollowed-out part).",
+      "example": "A cube of edge 4 cm (64 cm³) on a cuboid 10 × 8 × 3 cm (240 cm³): total volume = 64 + 240 = 304 cm³",
+      "commonMistake": "Trying to apply a single formula to the whole combined shape instead of splitting it into parts first.",
+      "applicationPrompt": "A solid is a cube of edge 4 cm placed on a cuboid 10 cm by 8 cm by 3 cm. Find its total volume.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-composite-surface-f",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-surface",
+      "title": "Surface area of a combined solid",
+      "prompt": "How do you find the exposed surface area of two solids joined together?",
+      "formula": "Exposed surface area = sum of only the outward-facing surfaces (excluding the internal join)",
+      "variables": [],
+      "explanation": "The circular face where a cone meets a hemisphere, for instance, is hidden inside the joined solid and is never part of the exposed surface area.",
+      "example": "A cone (curved surface 47.1 cm²) on a hemisphere of the same radius (curved surface 56.52 cm²): exposed area = 47.1 + 56.52 = 103.62 cm², with neither flat circular face included",
+      "commonMistake": "Including the flat circular face where the two solids meet, which is hidden and not exposed.",
+      "applicationPrompt": "A toy is a cone mounted on a hemisphere of the same radius. Which surfaces should be included in its total exposed surface area?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-rate-f",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-rate",
+      "title": "Time to fill or empty a container",
+      "prompt": "How do you find the time needed to fill or empty a container at a steady rate?",
+      "formula": "Time = Volume of the container ÷ rate of flow",
+      "variables": [],
+      "explanation": "Make sure the volume and the rate use matching units (both in cm³, or both in litres) before dividing.",
+      "example": "A tank of volume 6160 cm³ filled at 44 cm³ per second: time = 6160 ÷ 44 = 140 seconds",
+      "commonMistake": "Dividing the rate by the volume instead of the volume by the rate.",
+      "applicationPrompt": "A tank of volume 6160 cm³ is filled by a pipe at 44 cm³ per second. Find the time taken to fill it.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-sc-how-many",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-recast",
+      "kind": "shortcut",
+      "title": "How many small solids from a big one",
+      "prompt": "A big solid is melted into small ones of the same shape. How many?",
+      "formula": "Number = big volume ÷ small volume\nSame shape: (big length ÷ small length)³",
+      "variables": [],
+      "explanation": "Melting keeps the volume, and for the same shape the volume follows the cube of the size.",
+      "example": "A sphere of radius 6 recast into spheres of radius 2: (6 ÷ 2)³ = 27.",
+      "commonMistake": "Dividing the radii without cubing.",
+      "applicationPrompt": "How many cubes of side 3 cm can be cut from a cube of side 12 cm?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vsa-sc-painted-cube",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-surface",
+      "kind": "shortcut",
+      "title": "A painted cube cut into n³ pieces",
+      "prompt": "A painted cube is cut into n × n × n small cubes. How many have 3, 2, 1 or 0 painted faces?",
+      "formula": "3 faces: 8 (corners)\n2 faces: 12(n − 2) (edges)\n1 face: 6(n − 2)² (faces)\n0 faces: (n − 2)³ (inside)",
+      "variables": [],
+      "explanation": "Corners touch three outer faces, edge pieces two, face pieces one, inner pieces none.",
+      "example": "n = 4: 8 + 24 + 24 + 8 = 64.",
+      "commonMistake": "Using n instead of n − 2 for the edge and face pieces.",
+      "applicationPrompt": "A painted cube is cut into 125 equal cubes. How many have no paint?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "volume-surface-area-level-0",
+      "topicId": "volume-surface-area",
+      "order": 0,
+      "title": "Melting, Recasting and Capacity",
+      "description": "Volume is conserved when a solid is melted and recast; capacity converts volume into litres.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "vsa-recast",
+        "vsa-capacity"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Same material, new shape",
+            "body": "When a solid is melted down and poured into a new mould, its shape changes completely — but its volume never does, as long as no material is lost. This one fact unlocks a whole family of problems."
+          },
+          {
+            "type": "formula",
+            "title": "Recasting and capacity",
+            "body": "Volume before = Volume after; 1 litre = 1000 cm³",
+            "caption": "Capacity is simply volume measured in litres instead of cm³ or m³."
+          },
+          {
+            "type": "check",
+            "questionId": "volume-surface-area-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "When two solids are joined, only their outward-facing surfaces are exposed — the surface where they touch is hidden and never counted."
+          },
+          {
+            "type": "figure",
+            "title": "A tent: a cylinder with a cone on top",
+            "body": "The canvas is the curved surface of the cylinder (2πrh) plus the curved surface of the cone (πrl). The circle where they meet is inside the tent, and the floor is not canvas, so neither is counted.",
+            "figure": {
+              "type": "solid",
+              "caption": "A cylinder with a cone of the same radius on top",
+              "parts": [
+                {
+                  "shape": "cylinder",
+                  "r": 7,
+                  "h": 6,
+                  "labels": {
+                    "r": "r",
+                    "h": "h"
+                  }
+                },
+                {
+                  "shape": "cone",
+                  "r": 7,
+                  "h": 8,
+                  "labels": {
+                    "l": "l"
+                  }
+                }
+              ],
+              "ariaSummary": "A tent shape: a cylinder of radius r and height h, with a cone of the same radius and slant height l sitting on top. The circle where they join is drawn dashed at the back."
+            }
+          },
+          {
+            "type": "check",
+            "questionId": "volume-surface-area-q-001"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "volume-surface-area-level-1",
+      "topicId": "volume-surface-area",
+      "order": 1,
+      "title": "Volume and Surface Area Formulas",
+      "description": "Recasting, capacity conversion, combined-solid volume, combined-solid surface area, and fill/empty rates.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "volume-surface-area-level-0"
+      ],
+      "conceptIds": [
+        "vsa-recast",
+        "vsa-capacity",
+        "vsa-composite-volume",
+        "vsa-composite-surface",
+        "vsa-rate"
+      ],
+      "formulaIds": [
+        "vsa-recast-f",
+        "vsa-capacity-f",
+        "vsa-composite-volume-f",
+        "vsa-composite-surface-f",
+        "vsa-rate-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "volume-surface-area-level-2",
+      "topicId": "volume-surface-area",
+      "order": 2,
+      "title": "Recasting, Capacity and Combined Volumes",
+      "description": "Finding an unknown dimension after recasting, converting to litres, and adding two solids' volumes.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "volume-surface-area-level-1"
+      ],
+      "conceptIds": [
+        "vsa-capacity",
+        "vsa-recast",
+        "vsa-composite-volume",
+        "vsa-composite-surface",
+        "vsa-rate"
+      ],
+      "questionIds": [
+        "volume-surface-area-q-001",
+        "volume-surface-area-q-002",
+        "volume-surface-area-q-003",
+        "volume-surface-area-q-010",
+        "volume-surface-area-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "volume-surface-area-level-3",
+      "topicId": "volume-surface-area",
+      "order": 3,
+      "title": "Ratios, Exposed Surfaces and Rates",
+      "description": "Recasting into many identical solids, converting a cylinder's volume to capacity, exposed surface area of a joined solid, and a filling-rate problem.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "volume-surface-area-level-2"
+      ],
+      "conceptIds": [
+        "vsa-recast",
+        "vsa-capacity",
+        "vsa-composite-surface",
+        "vsa-rate"
+      ],
+      "questionIds": [
+        "volume-surface-area-q-004",
+        "volume-surface-area-q-005",
+        "volume-surface-area-q-006",
+        "volume-surface-area-q-007",
+        "volume-surface-area-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "volume-surface-area-level-4",
+      "topicId": "volume-surface-area",
+      "order": 4,
+      "title": "Multi-Step Volume and Surface Area Problems",
+      "description": "Recasting between two different shapes, and subtracting a carved-out cone from a cylinder.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "volume-surface-area-level-3"
+      ],
+      "conceptIds": [
+        "vsa-recast",
+        "vsa-composite-volume",
+        "vsa-rate"
+      ],
+      "questionIds": [
+        "volume-surface-area-q-008",
+        "volume-surface-area-q-009",
+        "volume-surface-area-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "volume-surface-area-level-5",
+      "topicId": "volume-surface-area",
+      "order": 5,
+      "title": "Mixed Volume and Surface Area Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "volume-surface-area-level-4"
+      ],
+      "conceptIds": [
+        "vsa-recast",
+        "vsa-composite-volume"
+      ],
+      "questionQuery": {
+        "topicId": "volume-surface-area",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "volume-surface-area-q-001",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-capacity",
+      "levelId": "volume-surface-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A tank measures 2 m by 1.5 m by 1 m. Find its capacity in litres.",
+      "figure": {
+        "type": "solid",
+        "caption": "A tank 2 m by 1.5 m by 1 m",
+        "parts": [
+          {
+            "shape": "cuboid",
+            "l": 2,
+            "b": 1.5,
+            "h": 1,
+            "labels": {
+              "l": "2 m",
+              "b": "1.5 m",
+              "h": "1 m"
+            }
+          }
+        ],
+        "ariaSummary": "A cuboid tank with length labelled 2 m, breadth 1.5 m and height 1 m."
+      },
+      "answer": {
+        "value": 3000,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "Volume = 2 × 1.5 × 1 = 3 m³. Since 1 m³ = 1000 litres, capacity = 3 × 1000 = 3000 litres.",
+      "solutionSteps": [
+        "2 × 1.5 × 1 = 3.",
+        "3 × 1000 = 3000."
+      ],
+      "formulaIds": [
+        "vsa-capacity-f"
+      ],
+      "method": "Find the volume in m³ first, then multiply by 1000 to convert to litres.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "1 cubic metre holds exactly 1000 litres."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to convert from m³ to litres at the end."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-002",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-recast",
+      "levelId": "volume-surface-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A metal cube of edge 6 cm is melted and recast into a cuboid of length 9 cm and breadth 4 cm. Find the height of the cuboid.",
+      "figure": {
+        "type": "solid",
+        "caption": "The metal cube of edge 6 cm, before it is melted",
+        "parts": [
+          {
+            "shape": "cube",
+            "a": 6
+          }
+        ],
+        "ariaSummary": "An unlabelled cube: the metal cube of edge 6 cm before it is melted and recast into a cuboid."
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Cube volume = 6³ = 216 cm³. This equals the cuboid's volume: 9 × 4 × h = 216, so 36h = 216, giving h = 6 cm.",
+      "solutionSteps": [
+        "6³ = 216.",
+        "9 × 4 = 36.",
+        "216 ÷ 36 = 6."
+      ],
+      "formulaIds": [
+        "vsa-recast-f"
+      ],
+      "method": "Find the cube's volume, then divide by the cuboid's known base area.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Melting and recasting keeps the volume the same."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to match a linear dimension of the cube to one of the cuboid's sides instead of equating volumes."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-003",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-volume",
+      "levelId": "volume-surface-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A solid is made of a cube of edge 4 cm placed on top of a cuboid measuring 10 cm by 8 cm by 3 cm. Find the total volume.",
+      "answer": {
+        "value": 304,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Cube volume = 4³ = 64 cm³. Cuboid volume = 10 × 8 × 3 = 240 cm³. Total = 64 + 240 = 304 cm³.",
+      "solutionSteps": [
+        "4³ = 64.",
+        "10 × 8 × 3 = 240.",
+        "64 + 240 = 304."
+      ],
+      "formulaIds": [
+        "vsa-composite-volume-f"
+      ],
+      "method": "Find each simple solid's volume separately, then add them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split the combined solid into its cube part and its cuboid part."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add one of the two parts' volumes."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-004",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-recast",
+      "levelId": "volume-surface-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A solid metal sphere of radius 6 cm is melted and recast into small spheres of radius 3 cm each. How many small spheres can be made?",
+      "figure": {
+        "type": "solid",
+        "caption": "The large sphere of radius 6 cm, before it is melted",
+        "parts": [
+          {
+            "shape": "sphere",
+            "r": 6,
+            "labels": {
+              "r": "6 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A sphere with a radius labelled 6 cm: the large metal sphere before it is melted into small spheres."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Volume scales with the cube of the radius. The number of small spheres = (6/3)³ = 2³ = 8.",
+      "solutionSteps": [
+        "6 ÷ 3 = 2.",
+        "2³ = 8."
+      ],
+      "formulaIds": [
+        "vsa-recast-f"
+      ],
+      "method": "Take the ratio of the radii, then cube it — no need to compute either volume with π.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "π cancels out entirely when you compare two spheres' volumes as a ratio."
+        }
+      ],
+      "commonMistakes": [
+        "Cubing the radii separately and dividing, instead of cubing the ratio directly (the results are the same, but this shortcut avoids large numbers)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-005",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-capacity",
+      "levelId": "volume-surface-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cylindrical container has radius 7 cm and height 20 cm. Find its capacity in litres. (Use π = 22/7; 1 litre = 1000 cm³.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cylindrical container of radius 7 cm and height 20 cm",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 20,
+            "labels": {
+              "r": "7 cm",
+              "h": "20 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cylinder with its radius labelled 7 cm and its height labelled 20 cm."
+      },
+      "answer": {
+        "value": 3.08,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "Volume = πr²h = 22/7 × 7² × 20 = 22 × 7 × 20 = 3080 cm³. Capacity = 3080 ÷ 1000 = 3.08 litres.",
+      "solutionSteps": [
+        "22/7 × 49 × 20 = 3080.",
+        "3080 ÷ 1000 = 3.08."
+      ],
+      "formulaIds": [
+        "vsa-capacity-f"
+      ],
+      "method": "Find the volume in cm³ first, then divide by 1000 to convert to litres.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is the same cylinder volume formula from 3D Mensuration — the conversion is the only new step."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to convert the volume from cm³ to litres."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-006",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-surface",
+      "levelId": "volume-surface-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A toy is a cone of radius 3 cm and slant height 5 cm mounted on a hemisphere of the same radius. Find the total surface area exposed to the outside. (Use π = 3.14.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone of slant height 5 cm on a hemisphere, both of radius 3 cm",
+        "parts": [
+          {
+            "shape": "hemisphere",
+            "r": 3,
+            "down": true
+          },
+          {
+            "shape": "cone",
+            "r": 3,
+            "h": 4,
+            "labels": {
+              "r": "3 cm",
+              "l": "5 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A toy: a hemisphere, dome pointing down, with a cone standing on its flat face. The shared radius is labelled 3 cm and the cone's slant side is labelled 5 cm."
+      },
+      "answer": {
+        "value": 103.62,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Only the curved surfaces are exposed — the flat circular face where they join is hidden. Cone's curved surface = πrl = 3.14 × 3 × 5 = 47.1 cm². Hemisphere's curved surface = 2πr² = 2 × 3.14 × 9 = 56.52 cm². Total = 47.1 + 56.52 = 103.62 cm².",
+      "solutionSteps": [
+        "3.14 × 3 × 5 = 47.1.",
+        "2 × 3.14 × 9 = 56.52.",
+        "47.1 + 56.52 = 103.62."
+      ],
+      "formulaIds": [
+        "vsa-composite-surface-f"
+      ],
+      "method": "Add only the two curved surfaces — never the flat circular face where the solids join.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The circular base of the cone and the flat face of the hemisphere are glued together, so neither is exposed."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the cone's flat circular base area, which is actually hidden inside the joined solid."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-007",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-rate",
+      "levelId": "volume-surface-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cylindrical tank of radius 7 cm and height 40 cm is filled by a pipe at a rate of 44 cm³ per second. Find the time taken to fill the tank completely. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cylindrical tank of radius 7 cm and height 40 cm",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 40,
+            "labels": {
+              "r": "7 cm",
+              "h": "40 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A tall upright cylinder with its radius labelled 7 cm and its height labelled 40 cm."
+      },
+      "answer": {
+        "value": 140,
+        "tolerance": 0,
+        "unit": "seconds"
+      },
+      "explanation": "Volume = πr²h = 22/7 × 49 × 40 = 22 × 7 × 40 = 6160 cm³. Time = 6160 ÷ 44 = 140 seconds.",
+      "solutionSteps": [
+        "22/7 × 49 × 40 = 6160.",
+        "6160 ÷ 44 = 140."
+      ],
+      "formulaIds": [
+        "vsa-rate-f"
+      ],
+      "method": "Find the tank's volume first, then divide by the flow rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Make sure the volume and the rate are both in cm³ before dividing."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the rate by the volume instead of the volume by the rate."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-008",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-recast",
+      "levelId": "volume-surface-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A cylindrical metal rod of radius 2 cm and length 45 cm is melted and recast into spherical balls of radius 3 cm each. How many balls can be made?",
+      "figure": {
+        "type": "solid",
+        "caption": "The rod, radius 2 cm and length 45 cm, before it is melted",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 2,
+            "h": 45,
+            "labels": {
+              "r": "2 cm",
+              "h": "45 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A long thin cylinder standing on end, with its radius labelled 2 cm and its length labelled 45 cm: the metal rod before it is melted into balls."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Rod volume = πr²h = π × 2² × 45 = 180π cm³. Each ball's volume = 4/3 × π × 3³ = 36π cm³. Number of balls = 180π ÷ 36π = 5.",
+      "solutionSteps": [
+        "π × 4 × 45 = 180π.",
+        "4/3 × π × 27 = 36π.",
+        "180π ÷ 36π = 5."
+      ],
+      "formulaIds": [
+        "vsa-recast-f"
+      ],
+      "method": "Write both volumes in terms of π, then divide — the π cancels out.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Unlike the sphere-to-sphere case, the two shapes are different here, so you must compute both volume formulas."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use a simple ratio of radii, which only works when both solids are the same shape."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-009",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-volume",
+      "levelId": "volume-surface-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A solid cylinder of radius 7 cm and height 21 cm has a conical cavity of the same radius and the same height carved out from one end. Find the volume of the remaining solid. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "The solid cylinder, radius 7 cm and height 21 cm, before the cone is carved out",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 21,
+            "labels": {
+              "r": "7 cm",
+              "h": "21 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cylinder with its radius labelled 7 cm and its height labelled 21 cm: the solid cylinder before the conical cavity is carved out."
+      },
+      "answer": {
+        "value": 2156,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Cylinder volume = πr²h = 22/7 × 49 × 21 = 3234 cm³. Cone volume (carved out) = ⅓ × 3234 = 1078 cm³. Remaining volume = 3234 − 1078 = 2156 cm³.",
+      "solutionSteps": [
+        "22/7 × 49 × 21 = 3234.",
+        "3234 ÷ 3 = 1078.",
+        "3234 − 1078 = 2156."
+      ],
+      "formulaIds": [
+        "vsa-composite-volume-f"
+      ],
+      "method": "Find the full cylinder's volume and the carved-out cone's volume, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cone with the same radius and height as a cylinder always has exactly one-third of its volume."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the cone's volume instead of subtracting it, since it is removed material."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-010",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-surface",
+      "levelId": "volume-surface-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Two cubes, each of edge 5 cm, are joined face to face to make a cuboid. Find the total surface area of the cuboid.",
+      "answer": {
+        "value": 250,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "The cuboid measures 10 cm × 5 cm × 5 cm. TSA = 2(lb + bh + hl) = 2(50 + 25 + 50) = 250 cm². (The two cubes alone have 2 × 150 = 300 cm², but the two joined faces, 2 × 25 = 50 cm², are hidden.)",
+      "solutionSteps": [
+        "New cuboid: 10 cm × 5 cm × 5 cm.",
+        "TSA = 2(10 × 5 + 5 × 5 + 5 × 10) = 2(50 + 25 + 50) = 250 cm²."
+      ],
+      "formulaIds": [
+        "vsa-composite-surface-f"
+      ],
+      "method": "Find the dimensions of the new cuboid, then use 2(lb + bh + hl).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Joining the cubes hides one face of each."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling one cube's surface area (300 cm²) without removing the two hidden faces."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-011",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-rate",
+      "levelId": "volume-surface-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "An empty cuboid tank is 2 m long, 1 m wide and 0.5 m deep. A tap fills it at 50 litres per minute. How many minutes does it take to fill the tank? (1 m³ = 1000 litres.)",
+      "figure": {
+        "type": "solid",
+        "caption": "The empty tank: 2 m long, 1 m wide and 0.5 m deep",
+        "parts": [
+          {
+            "shape": "cuboid",
+            "l": 2,
+            "b": 1,
+            "h": 0.5,
+            "labels": {
+              "l": "2 m",
+              "b": "1 m",
+              "h": "0.5 m"
+            }
+          }
+        ],
+        "ariaSummary": "A cuboid tank with length labelled 2 m, width 1 m and depth 0.5 m."
+      },
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "Volume = 2 × 1 × 0.5 = 1 m³ = 1000 litres. Time = 1000 ÷ 50 = 20 minutes.",
+      "solutionSteps": [
+        "Volume = 2 × 1 × 0.5 = 1 m³.",
+        "1 m³ = 1000 litres.",
+        "Time = 1000 ÷ 50 = 20 minutes."
+      ],
+      "formulaIds": [
+        "vsa-rate-f",
+        "vsa-capacity-f"
+      ],
+      "method": "Convert the volume to litres, then divide by the rate of flow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Change cubic metres to litres before dividing by the rate."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 1 m³ by 50 without converting to litres first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-012",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-composite-surface",
+      "levelId": "volume-surface-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A cube is painted on all six faces and then cut into 125 equal small cubes. How many of the small cubes have exactly one face painted?",
+      "options": [
+        {
+          "id": "a",
+          "text": "36"
+        },
+        {
+          "id": "b",
+          "text": "27"
+        },
+        {
+          "id": "c",
+          "text": "54"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "125 = 5³, so each edge is cut into 5. A small cube has exactly one painted face when it sits on a face but away from every edge: (5 − 2)² = 9 on each face, and 6 × 9 = 54.",
+      "solutionSteps": [
+        "125 = 5 × 5 × 5, so n = 5.",
+        "On each face the inner block has (5 − 2)² = 9 cubes.",
+        "6 faces × 9 = 54."
+      ],
+      "formulaIds": [
+        "vsa-sc-painted-cube"
+      ],
+      "method": "Count the inner squares of each face, away from the edges.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Cubes on an edge or a corner have two or three painted faces, so leave them out."
+        },
+        {
+          "level": 2,
+          "text": "On each face, the inner block is (5 − 2) × (5 − 2)."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 36, the number with exactly two faces painted.",
+        "Giving 27, the hidden inner cubes with no paint at all."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "volume-surface-area-q-013",
+      "topicId": "volume-surface-area",
+      "conceptId": "vsa-rate",
+      "levelId": "volume-surface-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Water flows at 3 m per second through a cylindrical pipe of internal diameter 20 cm into an empty cylindrical tank of radius 3 m. By how many metres does the water level in the tank rise in 10 minutes?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "The pipe's radius is 20 ÷ 2 = 10 cm = 0.1 m. Each second a cylinder of water 3 m long leaves the pipe: π × 0.1² × 3 = 0.03π m³. In 10 minutes (600 s) that is 18π m³. Rise = volume ÷ tank base area = 18π ÷ (π × 3²) = 2 m.",
+      "solutionSteps": [
+        "Pipe radius = 10 cm = 0.1 m.",
+        "Flow per second = π × 0.1² × 3 = 0.03π m³.",
+        "In 600 s: 600 × 0.03π = 18π m³.",
+        "Rise = 18π ÷ (π × 3²) = 18 ÷ 9 = 2 m."
+      ],
+      "formulaIds": [
+        "vsa-rate-f"
+      ],
+      "method": "Treat each second's flow as a cylinder of water, then spread the total over the tank's base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Change the pipe's radius to metres: 10 cm = 0.1 m."
+        },
+        {
+          "level": 2,
+          "text": "π cancels when you divide by the tank's base area."
+        }
+      ],
+      "commonMistakes": [
+        "Using the diameter 0.2 m as the radius, which gives 8 m, 4 times too much."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

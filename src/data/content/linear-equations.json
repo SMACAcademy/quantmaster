@@ -1,0 +1,903 @@
+{
+  "topicId": "linear-equations",
+  "concepts": [
+    {
+      "id": "le-onevar",
+      "topicId": "linear-equations",
+      "name": "One-variable equations",
+      "description": "Isolate the variable by performing the same operation on both sides.",
+      "sortOrder": 1
+    },
+    {
+      "id": "le-brackets",
+      "topicId": "linear-equations",
+      "name": "Equations with brackets and fractions",
+      "description": "Clear brackets and fractions first, then solve as usual.",
+      "sortOrder": 2
+    },
+    {
+      "id": "le-word",
+      "topicId": "linear-equations",
+      "name": "Translating word problems",
+      "description": "Assign a variable to the unknown quantity, then write the given relationship as an equation.",
+      "sortOrder": 3
+    },
+    {
+      "id": "le-age",
+      "topicId": "linear-equations",
+      "name": "Age problems",
+      "description": "Represent ages algebraically, using the same time shift for every person.",
+      "sortOrder": 4
+    },
+    {
+      "id": "le-check",
+      "topicId": "linear-equations",
+      "name": "Checking a solution",
+      "description": "Substitute the answer back into the original equation to confirm both sides match.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "le-balance-f",
+      "topicId": "linear-equations",
+      "conceptId": "le-onevar",
+      "title": "Balancing an equation",
+      "prompt": "How do you solve ax + b = c for x?",
+      "formula": "ax + b = c  →  x = (c − b) / a",
+      "variables": [],
+      "explanation": "Whatever you do to one side of an equation, you must do to the other, to keep both sides equal.",
+      "example": "3x + 7 = 22  →  3x = 15  →  x = 5",
+      "commonMistake": "Moving a term across the equals sign without changing its sign.",
+      "applicationPrompt": "Solve 3x + 7 = 22.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "le-bothsides-f",
+      "topicId": "linear-equations",
+      "conceptId": "le-onevar",
+      "title": "Variable on both sides",
+      "prompt": "How do you solve an equation with x on both sides?",
+      "formula": "Collect all x terms on one side and all constants on the other",
+      "variables": [],
+      "explanation": "Subtract the smaller x-term from both sides first, then isolate x as usual.",
+      "example": "5x − 3 = 2x + 9  →  3x = 12  →  x = 4",
+      "commonMistake": "Combining terms from different sides without moving them properly.",
+      "applicationPrompt": "Solve 5x − 3 = 2x + 9.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "le-clear-f",
+      "topicId": "linear-equations",
+      "conceptId": "le-brackets",
+      "title": "Clearing brackets and fractions",
+      "prompt": "How do you solve an equation with brackets or fractions?",
+      "formula": "Expand every bracket first; multiply every term by the LCM of the denominators to clear fractions",
+      "variables": [],
+      "explanation": "Once brackets and fractions are gone, the equation becomes a simple balancing problem.",
+      "example": "2(x + 3) = 16  →  2x + 6 = 16  →  x = 5",
+      "commonMistake": "Multiplying only some terms by the LCM.",
+      "applicationPrompt": "Solve 2(x + 3) = 16.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "le-word-f",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "title": "Setting up word problems",
+      "prompt": "How do you turn a word problem into an equation?",
+      "formula": "Let the unknown be x; translate each phrase into algebra; set the two sides equal",
+      "variables": [],
+      "explanation": "\"5 more than a number\" is x + 5; \"twice a number\" is 2x; combine according to the sentence.",
+      "example": "\"5 more than twice a number is 17\" → 2x + 5 = 17 → x = 6",
+      "commonMistake": "Reversing the order, writing 5 + 2x as 2(x + 5).",
+      "applicationPrompt": "Five more than twice a number is 17. Find the number.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "le-age-f",
+      "topicId": "linear-equations",
+      "conceptId": "le-age",
+      "title": "Age problems",
+      "prompt": "How do you handle ages \"in the future\" or \"in the past\"?",
+      "formula": "If a person is currently x years old, they will be x + k in k years, and were x − k, k years ago",
+      "variables": [],
+      "explanation": "The same shift k applies to everyone in the problem at the same time.",
+      "example": "A father is 3 times his son’s age; in 5 years he will be 2.5 times. Set up: F = 3S and F + 5 = 2.5(S + 5).",
+      "commonMistake": "Adding the shift to only one person’s age.",
+      "applicationPrompt": "Set up equations for a father 3 times his son’s current age.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "le-sc-options",
+      "topicId": "linear-equations",
+      "conceptId": "le-check",
+      "kind": "shortcut",
+      "title": "Try the options",
+      "prompt": "In a multiple-choice equation, what is often faster than solving it?",
+      "formula": "Substitute each option; the one that balances is the answer.\nStart with the middle option.",
+      "variables": [],
+      "explanation": "Checking a value takes one line, while solving may take several. Starting in the middle tells you which way to go.",
+      "example": "3x/4 + 5 = 17, options 12, 14, 16, 18: x = 16 gives 12 + 5 = 17.",
+      "commonMistake": "Stopping at an option that only nearly balances because of rounding.",
+      "applicationPrompt": "(x + 4)/3 = (x − 2)/2. Options: 8, 12, 14, 16.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "le-sc-middle",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "kind": "shortcut",
+      "title": "Consecutive numbers: start from the middle",
+      "prompt": "How do you find consecutive numbers from their sum quickly?",
+      "formula": "Middle number = Sum ÷ how many numbers\n(for an even count, the average of the two middle ones)",
+      "variables": [],
+      "explanation": "Evenly spaced numbers average to their middle value, so dividing the sum gives it at once.",
+      "example": "Three consecutive numbers add to 72: middle 24, so 23, 24, 25.",
+      "commonMistake": "Writing x + (x + 1) + (x + 2) and solving when one division is enough.",
+      "applicationPrompt": "Five consecutive odd numbers add to 125. Find the largest.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "linear-equations-level-0",
+      "topicId": "linear-equations",
+      "order": 0,
+      "title": "Keeping Both Sides Equal",
+      "description": "Solving for an unknown by doing the same thing to both sides of an equation.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "le-onevar",
+        "le-check"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The balance idea",
+            "body": "An equation is a balance: both sides have the same value. Whatever you add, subtract, multiply or divide on one side, you must do to the other, to keep it balanced."
+          },
+          {
+            "type": "formula",
+            "title": "Solving ax + b = c",
+            "body": "x = (c − b) / a",
+            "caption": "Undo addition/subtraction first, then undo multiplication/division."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "two-lines"
+          },
+          {
+            "type": "check",
+            "questionId": "linear-equations-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Always check your answer by substituting it back into the original equation."
+          },
+          {
+            "type": "check",
+            "questionId": "linear-equations-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "linear-equations-level-1",
+      "topicId": "linear-equations",
+      "order": 1,
+      "title": "Linear Equations Formulas",
+      "description": "Balancing equations, variables on both sides, clearing brackets and fractions, word problems, age problems.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "linear-equations-level-0"
+      ],
+      "conceptIds": [
+        "le-onevar",
+        "le-brackets",
+        "le-word",
+        "le-age"
+      ],
+      "formulaIds": [
+        "le-balance-f",
+        "le-bothsides-f",
+        "le-clear-f",
+        "le-word-f",
+        "le-age-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "linear-equations-level-2",
+      "topicId": "linear-equations",
+      "order": 2,
+      "title": "Direct Equations",
+      "description": "One-step and two-step balancing.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "linear-equations-level-1"
+      ],
+      "conceptIds": [
+        "le-onevar",
+        "le-brackets",
+        "le-word"
+      ],
+      "questionIds": [
+        "linear-equations-q-001",
+        "linear-equations-q-002",
+        "linear-equations-q-003",
+        "linear-equations-q-004",
+        "linear-equations-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "linear-equations-level-3",
+      "topicId": "linear-equations",
+      "order": 3,
+      "title": "Word Problems and Fractions",
+      "description": "Setting up equations and clearing fractions.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "linear-equations-level-2"
+      ],
+      "conceptIds": [
+        "le-word",
+        "le-brackets",
+        "le-onevar"
+      ],
+      "questionIds": [
+        "linear-equations-q-006",
+        "linear-equations-q-007",
+        "linear-equations-q-008",
+        "linear-equations-q-009",
+        "linear-equations-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "linear-equations-level-4",
+      "topicId": "linear-equations",
+      "order": 4,
+      "title": "Age and Multi-Step Problems",
+      "description": "Age relationships and layered word problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "linear-equations-level-3"
+      ],
+      "conceptIds": [
+        "le-age",
+        "le-word",
+        "le-brackets"
+      ],
+      "questionIds": [
+        "linear-equations-q-011",
+        "linear-equations-q-012",
+        "linear-equations-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "linear-equations-level-5",
+      "topicId": "linear-equations",
+      "order": 5,
+      "title": "Mixed Linear Equations Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "linear-equations-level-4"
+      ],
+      "conceptIds": [
+        "le-age",
+        "le-word",
+        "le-brackets"
+      ],
+      "questionQuery": {
+        "topicId": "linear-equations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "linear-equations-q-001",
+      "topicId": "linear-equations",
+      "conceptId": "le-onevar",
+      "levelId": "linear-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve for x: 3x + 7 = 22.",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Subtract 7 from both sides: 3x = 15. Divide by 3: x = 5.",
+      "solutionSteps": [
+        "3x = 22 − 7 = 15.",
+        "x = 15 ÷ 3 = 5."
+      ],
+      "formulaIds": [
+        "le-balance-f"
+      ],
+      "method": "Undo addition, then undo multiplication.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Move the constant first."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 22 by 3 before subtracting 7."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-002",
+      "topicId": "linear-equations",
+      "conceptId": "le-onevar",
+      "levelId": "linear-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve for x: 5x − 3 = 2x + 9.",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Subtract 2x from both sides: 3x − 3 = 9. Add 3: 3x = 12. Divide: x = 4.",
+      "solutionSteps": [
+        "5x − 2x = 3x.",
+        "3x − 3 = 9 → 3x = 12.",
+        "x = 4."
+      ],
+      "formulaIds": [
+        "le-bothsides-f"
+      ],
+      "method": "Collect x terms on one side first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Move the smaller x term across."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 3 from 2x by mistake."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-003",
+      "topicId": "linear-equations",
+      "conceptId": "le-brackets",
+      "levelId": "linear-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve for x: 2(x + 3) = 16.",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Expand: 2x + 6 = 16. Subtract 6: 2x = 10. Divide: x = 5.",
+      "solutionSteps": [
+        "2x + 6 = 16.",
+        "2x = 10.",
+        "x = 5."
+      ],
+      "formulaIds": [
+        "le-clear-f"
+      ],
+      "method": "Expand the bracket first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply both terms inside by 2."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 16 by 2 before expanding, then subtracting 3 incorrectly."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-004",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "levelId": "linear-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "\"5 more than twice a number\" translates to",
+      "options": [
+        {
+          "id": "a",
+          "text": "2(x + 5)"
+        },
+        {
+          "id": "b",
+          "text": "2x + 5"
+        },
+        {
+          "id": "c",
+          "text": "5x + 2"
+        },
+        {
+          "id": "d",
+          "text": "x + 10"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Twice a number is 2x; 5 more than that is 2x + 5.",
+      "solutionSteps": [
+        "Twice a number: 2x.",
+        "5 more than that: 2x + 5."
+      ],
+      "formulaIds": [
+        "le-word-f"
+      ],
+      "method": "Translate phrase by phrase.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Twice a number\" comes before \"5 more\"."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 2(x + 5), which adds 5 before doubling."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-005",
+      "topicId": "linear-equations",
+      "conceptId": "le-check",
+      "levelId": "linear-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A number x satisfies 4x − 5 = 11. What is x?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Add 5: 4x = 16. Divide by 4: x = 4. Check: 4(4) − 5 = 11. ✓",
+      "solutionSteps": [
+        "4x = 16.",
+        "x = 4."
+      ],
+      "formulaIds": [
+        "le-balance-f"
+      ],
+      "method": "Undo subtraction, then division.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Isolate the term with x first."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 11 by 4 before adding 5."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-006",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "levelId": "linear-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Five more than twice a number is 17. What is the number?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "Equation: 2x + 5 = 17. So 2x = 12, x = 6.",
+      "solutionSteps": [
+        "2x + 5 = 17.",
+        "2x = 12.",
+        "x = 6."
+      ],
+      "formulaIds": [
+        "le-word-f",
+        "le-balance-f"
+      ],
+      "method": "Set up, then solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Translate the sentence into an equation first."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 2(x + 5) = 17."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-007",
+      "topicId": "linear-equations",
+      "conceptId": "le-brackets",
+      "levelId": "linear-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve for x: 3(2x − 1) − 2(x + 4) = 7.",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0
+      },
+      "explanation": "Expand: 6x − 3 − 2x − 8 = 7 → 4x − 11 = 7 → 4x = 18 → x = 4.5.",
+      "solutionSteps": [
+        "6x − 3 − 2x − 8 = 4x − 11.",
+        "4x − 11 = 7 → 4x = 18.",
+        "x = 4.5."
+      ],
+      "formulaIds": [
+        "le-clear-f"
+      ],
+      "method": "Expand both brackets, watch the signs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "−2(x + 4) gives −2x − 8, not −2x + 8."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error on the second bracket."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-008",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "levelId": "linear-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The sum of three consecutive integers is 72. What is the smallest one?",
+      "answer": {
+        "value": 23,
+        "tolerance": 0
+      },
+      "explanation": "Let the integers be x, x+1, x+2. Sum: 3x + 3 = 72, so x = 23.",
+      "solutionSteps": [
+        "x + (x+1) + (x+2) = 3x + 3.",
+        "3x + 3 = 72 → 3x = 69.",
+        "x = 23."
+      ],
+      "formulaIds": [
+        "le-word-f"
+      ],
+      "method": "Represent consecutive integers as x, x+1, x+2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the three expressions and set equal to 72."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the integers are evenly spaced by more than 1."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-009",
+      "topicId": "linear-equations",
+      "conceptId": "le-brackets",
+      "levelId": "linear-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve for x: x/3 + x/4 = 7.",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "Multiply every term by 12 (LCM of 3, 4): 4x + 3x = 84, so 7x = 84, x = 12.",
+      "solutionSteps": [
+        "LCM(3,4) = 12.",
+        "4x + 3x = 84.",
+        "x = 12."
+      ],
+      "formulaIds": [
+        "le-clear-f"
+      ],
+      "method": "Multiply by the LCM of the denominators.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Clear fractions before solving."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the fractions incorrectly as 2x/7."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-010",
+      "topicId": "linear-equations",
+      "conceptId": "le-onevar",
+      "levelId": "linear-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve for x: 7 − 2x = 3x − 8.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Add 2x to both sides: 7 = 5x − 8. Add 8: 15 = 5x. So x = 3.",
+      "solutionSteps": [
+        "7 = 5x − 8.",
+        "15 = 5x.",
+        "x = 3."
+      ],
+      "formulaIds": [
+        "le-bothsides-f"
+      ],
+      "method": "Move all x terms to one side.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add 2x to both sides first."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 3x from −2x incorrectly."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-011",
+      "topicId": "linear-equations",
+      "conceptId": "le-age",
+      "levelId": "linear-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A father is 3 times as old as his son. In 5 years, he will be 2.5 times as old. What is the son’s current age?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "Let son = S, father = 3S. In 5 years: 3S + 5 = 2.5(S + 5). So 3S + 5 = 2.5S + 12.5, giving 0.5S = 7.5, S = 15. (Check: father is 45 now, 50 in 5 years; son is 15 now, 20 in 5 years; 50/20 = 2.5.)",
+      "solutionSteps": [
+        "3S + 5 = 2.5(S + 5).",
+        "3S + 5 = 2.5S + 12.5.",
+        "0.5S = 7.5 → S = 15."
+      ],
+      "formulaIds": [
+        "le-age-f"
+      ],
+      "method": "Apply the same time shift to both ages.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add 5 to both current ages."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 5 to only one person’s age."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-012",
+      "topicId": "linear-equations",
+      "conceptId": "le-brackets",
+      "levelId": "linear-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Solve for x: (x + 2)/3 − (x − 1)/4 = 2.",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "LCM of 3 and 4 is 12. Multiply through: 4(x+2) − 3(x−1) = 24 → 4x + 8 − 3x + 3 = 24 → x + 11 = 24 → x = 13.",
+      "solutionSteps": [
+        "Multiply by 12: 4(x+2) − 3(x−1) = 24.",
+        "4x + 8 − 3x + 3 = x + 11.",
+        "x + 11 = 24 → x = 13."
+      ],
+      "formulaIds": [
+        "le-clear-f"
+      ],
+      "method": "Clear denominators, expand carefully, watch signs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "−3(x − 1) gives −3x + 3."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error distributing the negative fraction."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "linear-equations-q-013",
+      "topicId": "linear-equations",
+      "conceptId": "le-word",
+      "levelId": "linear-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A number is increased by 20% and then decreased by 10%, giving 108. What was the original number?",
+      "answer": {
+        "value": 100,
+        "tolerance": 0
+      },
+      "explanation": "Let the number be x. After changes: x × 1.2 × 0.9 = 108, so 1.08x = 108, x = 100.",
+      "solutionSteps": [
+        "x × 1.2 × 0.9 = 1.08x.",
+        "1.08x = 108.",
+        "x = 100."
+      ],
+      "formulaIds": [
+        "le-word-f",
+        "le-balance-f"
+      ],
+      "method": "Combine successive percentage changes into one multiplier.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Apply both percentage changes as multipliers."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 20% − 10% = 10% and using 1.1x."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

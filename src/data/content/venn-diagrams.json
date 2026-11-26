@@ -1,0 +1,933 @@
+{
+  "topicId": "venn-diagrams",
+  "concepts": [
+    {
+      "id": "vd-two-regions",
+      "topicId": "venn-diagrams",
+      "name": "The four regions of a two-set diagram",
+      "description": "A two-set Venn diagram splits everything into only A, only B, both, and neither.",
+      "sortOrder": 1
+    },
+    {
+      "id": "vd-two-solve",
+      "topicId": "venn-diagrams",
+      "name": "Solving for an unknown region",
+      "description": "Once every other region and the total are known, the last region is found by subtraction.",
+      "sortOrder": 2
+    },
+    {
+      "id": "vd-three-regions",
+      "topicId": "venn-diagrams",
+      "name": "The eight regions of a three-set diagram",
+      "description": "Three overlapping circles create eight regions: three \"only\" regions, three \"exactly two\" regions, one \"all three\" region, and \"none.\"",
+      "sortOrder": 3
+    },
+    {
+      "id": "vd-word",
+      "topicId": "venn-diagrams",
+      "name": "Reading survey word problems",
+      "description": "Words like \"both\", \"only\", \"at least one\" and \"neither\" each point to a specific region or combination of regions.",
+      "sortOrder": 4
+    },
+    {
+      "id": "vd-only-vs-total",
+      "topicId": "venn-diagrams",
+      "name": "Only A vs total in A",
+      "description": "The total number of people \"in A\" includes everyone in the \"only A\" region plus everyone where A overlaps another circle.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "vd-regions-f",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-regions",
+      "title": "Two-set regions",
+      "prompt": "What are the four regions of a two-set Venn diagram?",
+      "formula": "Only A = |A| − |A∩B|\nOnly B = |B| − |A∩B|\nNeither = Total − |A∪B|",
+      "variables": [],
+      "explanation": "The \"both\" region is |A∩B| itself; the other three regions are found by subtracting it out or subtracting the union from the total.",
+      "example": "|A|=15, |A∩B|=6: Only A = 15 − 6 = 9",
+      "commonMistake": "Confusing \"only A\" (a region) with the total size of A (a region plus the overlap).",
+      "applicationPrompt": "If |A|=15 and |A∩B|=6, find \"only A.\"",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vd-total-f",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-solve",
+      "title": "The four regions add to the total",
+      "prompt": "How are the four regions of a two-set Venn diagram related to the total?",
+      "formula": "Total = Only A + Only B + Both + Neither",
+      "variables": [],
+      "explanation": "Knowing any three of the four quantities lets you find the fourth by subtraction.",
+      "example": "Total=30, only A=12, only B=10, both=5: Neither = 30−12−10−5 = 3",
+      "commonMistake": "Leaving out one of the four regions when solving for another.",
+      "applicationPrompt": "A class of 30: 12 in only A, 10 in only B, 5 in both. How many are in neither?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vd-three-regions-f",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-three-regions",
+      "title": "Three-set regions",
+      "prompt": "How many regions does a three-set Venn diagram have, and what are they?",
+      "formula": "Only A, Only B, Only C, (A&B only), (B&C only), (A&C only), All three, None — 8 regions in total",
+      "variables": [],
+      "explanation": "Every element falls into exactly one of these eight non-overlapping regions.",
+      "example": "Adding up all eight regions gives the total number of people surveyed",
+      "commonMistake": "Confusing \"A&B only\" (exactly two) with |A∩B| (which also includes the all-three region).",
+      "applicationPrompt": "How many distinct regions does a three-circle Venn diagram have?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vd-word-f",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-word",
+      "title": "Translating survey language",
+      "prompt": "How do you translate phrases like \"only\", \"both\" and \"neither\" into Venn diagram regions?",
+      "formula": "\"Only A\" = the A region excluding all overlaps\n\"Both\"/\"all three\" = the innermost shared region\n\"At least one\" = everything except \"none\"",
+      "variables": [],
+      "explanation": "Getting these phrases right is usually the hardest part of a Venn diagram word problem — the arithmetic afterwards is simple.",
+      "example": "\"At least one of A or B\" = Only A + Only B + Both",
+      "commonMistake": "Treating \"only A\" and \"total in A\" as the same quantity.",
+      "applicationPrompt": "Translate \"at least one of A or B\" into a sum of Venn diagram regions.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vd-only-total-f",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-only-vs-total",
+      "title": "Only A vs total A",
+      "prompt": "How does \"only A\" relate to the total count of A?",
+      "formula": "Total in A = Only A + (A∩B only) + (A∩C only) + (all three)",
+      "variables": [],
+      "explanation": "The total count for a set includes every region touched by that circle, not just the part that does not overlap anything else.",
+      "example": "If only A = 10 and A also overlaps B and C in various regions, the total for A is larger than 10",
+      "commonMistake": "Reporting \"only A\" when the question asks for the total size of A, or vice versa.",
+      "applicationPrompt": "Explain why \"only A\" is smaller than the total count of A whenever A overlaps another set.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vd-sc-exactly-two",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-three-regions",
+      "kind": "shortcut",
+      "title": "Exactly two of three",
+      "prompt": "Given the pairwise overlaps and the triple overlap, how many are in exactly two sets?",
+      "formula": "Exactly two = (sum of the three pair overlaps) − 3 × (all three)",
+      "variables": [],
+      "explanation": "Each person in all three sets is counted in every pair overlap, three times in all.",
+      "example": "Pairs 20, 15 and 10, all three 5: exactly two = 45 − 15 = 30.",
+      "commonMistake": "Subtracting the triple overlap only once.",
+      "applicationPrompt": "Pairs of 12, 9 and 7 and 3 in all three: how many are in exactly two?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "venn-diagrams-level-0",
+      "topicId": "venn-diagrams",
+      "order": 0,
+      "title": "Reading the Regions",
+      "description": "A two-set Venn diagram always has exactly four non-overlapping regions.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "vd-two-regions",
+        "vd-only-vs-total"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Only A is not the same as all of A",
+            "body": "If |A|=15 and 6 of those overlap with B, then \"only A\" — the part of A that does not touch B — is 15 − 6 = 9. The full circle for A is bigger than \"only A\" whenever there is any overlap."
+          },
+          {
+            "type": "formula",
+            "title": "The four regions",
+            "body": "Only A, Only B, Both, Neither",
+            "caption": "These four regions never overlap and always add up to the total."
+          },
+          {
+            "type": "check",
+            "questionId": "venn-diagrams-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Always double-check whether a question is asking for \"only A\" or for the full total of A — they are usually different numbers."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "venn-explorer"
+          },
+          {
+            "type": "check",
+            "questionId": "venn-diagrams-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "venn-diagrams-level-1",
+      "topicId": "venn-diagrams",
+      "order": 1,
+      "title": "Venn Diagrams Formulas",
+      "description": "The four two-set regions, solving for an unknown region, three-set regions, survey word problems, only vs total.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "venn-diagrams-level-0"
+      ],
+      "conceptIds": [
+        "vd-two-regions",
+        "vd-two-solve",
+        "vd-three-regions",
+        "vd-word"
+      ],
+      "formulaIds": [
+        "vd-regions-f",
+        "vd-total-f",
+        "vd-three-regions-f",
+        "vd-word-f",
+        "vd-only-total-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "venn-diagrams-level-2",
+      "topicId": "venn-diagrams",
+      "order": 2,
+      "title": "Reading Two-Set Diagrams",
+      "description": "Finding a region directly from the total and the overlap.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "venn-diagrams-level-1"
+      ],
+      "conceptIds": [
+        "vd-two-regions",
+        "vd-two-solve",
+        "vd-only-vs-total"
+      ],
+      "questionIds": [
+        "venn-diagrams-q-001",
+        "venn-diagrams-q-002",
+        "venn-diagrams-q-003",
+        "venn-diagrams-q-004",
+        "venn-diagrams-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "venn-diagrams-level-3",
+      "topicId": "venn-diagrams",
+      "order": 3,
+      "title": "Word Problems and Missing Regions",
+      "description": "Survey-style word problems, and solving for a missing region.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "venn-diagrams-level-2"
+      ],
+      "conceptIds": [
+        "vd-word",
+        "vd-two-solve",
+        "vd-only-vs-total",
+        "vd-three-regions"
+      ],
+      "questionIds": [
+        "venn-diagrams-q-006",
+        "venn-diagrams-q-007",
+        "venn-diagrams-q-008",
+        "venn-diagrams-q-009",
+        "venn-diagrams-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "venn-diagrams-level-4",
+      "topicId": "venn-diagrams",
+      "order": 4,
+      "title": "Three-Set Diagrams",
+      "description": "Working with all eight regions of a three-set Venn diagram.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "venn-diagrams-level-3"
+      ],
+      "conceptIds": [
+        "vd-three-regions",
+        "vd-word"
+      ],
+      "questionIds": [
+        "venn-diagrams-q-011",
+        "venn-diagrams-q-012",
+        "venn-diagrams-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "venn-diagrams-level-5",
+      "topicId": "venn-diagrams",
+      "order": 5,
+      "title": "Mixed Venn Diagrams Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "venn-diagrams-level-4"
+      ],
+      "conceptIds": [
+        "vd-three-regions",
+        "vd-word"
+      ],
+      "questionQuery": {
+        "topicId": "venn-diagrams",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "venn-diagrams-q-001",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-regions",
+      "levelId": "venn-diagrams-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a two-set Venn diagram, |A|=15 and |A∩B|=6. What is \"only A\" (the part of A outside B)?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "Only A = |A| − |A∩B| = 15 − 6 = 9.",
+      "solutionSteps": [
+        "15 − 6 = 9."
+      ],
+      "formulaIds": [
+        "vd-regions-f"
+      ],
+      "method": "Remove the overlapping part from the total for A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Only A\" excludes the shared region."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting |A|=15 itself as \"only A.\""
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-002",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-regions",
+      "levelId": "venn-diagrams-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "\"Only A\" in a two-set Venn diagram refers to",
+      "options": [
+        {
+          "id": "a",
+          "text": "everyone in A, including any overlap with B"
+        },
+        {
+          "id": "b",
+          "text": "the part of A that does not overlap with B"
+        },
+        {
+          "id": "c",
+          "text": "everyone in either A or B"
+        },
+        {
+          "id": "d",
+          "text": "everyone outside both A and B"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "\"Only A\" specifically excludes the part shared with B — it is |A| − |A∩B|.",
+      "solutionSteps": [
+        "\"Only A\" = |A| − |A∩B|."
+      ],
+      "formulaIds": [
+        "vd-regions-f"
+      ],
+      "method": "\"Only\" always excludes the overlapping region.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Only A\" is a strict subset of the full A region."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing \"only A\" with the full circle for A."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-003",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-solve",
+      "levelId": "venn-diagrams-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A class of 30 students: 12 are in only A, 10 are in only B, and 5 are in both. How many are in neither?",
+      "figure": {
+        "type": "venn",
+        "caption": "The class of 30",
+        "sets": [
+          "A",
+          "B"
+        ],
+        "universe": "Class of 30",
+        "regions": {
+          "a": 12,
+          "b": 10,
+          "ab": 5,
+          "none": "?"
+        },
+        "ariaSummary": "Two overlapping circles A and B in a class of 30: only A is 12, only B is 10, both is 5, and the region outside both is unknown."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Total = Only A + Only B + Both + Neither, so 30 = 12 + 10 + 5 + Neither, giving Neither = 3.",
+      "solutionSteps": [
+        "12 + 10 + 5 = 27.",
+        "30 − 27 = 3."
+      ],
+      "formulaIds": [
+        "vd-total-f"
+      ],
+      "method": "The four regions must add up to the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the three known regions, then subtract from the total."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to include one of the three known regions."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-004",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-regions",
+      "levelId": "venn-diagrams-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If |A|=20, |B|=15 and |A∩B|=8, what is \"only B\"?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Only B = |B| − |A∩B| = 15 − 8 = 7.",
+      "solutionSteps": [
+        "15 − 8 = 7."
+      ],
+      "formulaIds": [
+        "vd-regions-f"
+      ],
+      "method": "Remove the shared region from the total for B.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the total for B, not for A."
+        }
+      ],
+      "commonMistakes": [
+        "Using |A| instead of |B| in the subtraction."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-005",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-only-vs-total",
+      "levelId": "venn-diagrams-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In a two-set Venn diagram, \"only A\" = 14 and \"both\" = 6. What is the total count of A (|A|)?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "|A| = Only A + Both = 14 + 6 = 20.",
+      "solutionSteps": [
+        "14 + 6 = 20."
+      ],
+      "formulaIds": [
+        "vd-only-total-f"
+      ],
+      "method": "The total for a set includes its \"only\" region plus any overlap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "|A| is bigger than \"only A\" whenever there is overlap."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting \"only A\" (14) as the total for A."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-006",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-word",
+      "levelId": "venn-diagrams-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A survey of 50 students: 20 play only cricket, 15 play only football, and 8 play both. How many play at least one of the two sports?",
+      "figure": {
+        "type": "venn",
+        "caption": "The survey of 50 students",
+        "sets": [
+          "Cricket",
+          "Football"
+        ],
+        "universe": "50 students",
+        "regions": {
+          "a": 20,
+          "b": 15,
+          "ab": 8
+        },
+        "ariaSummary": "Two overlapping circles, Cricket and Football, among 50 students: only cricket is 20, only football is 15 and both is 8."
+      },
+      "answer": {
+        "value": 43,
+        "tolerance": 0
+      },
+      "explanation": "\"At least one\" = Only cricket + Only football + Both = 20 + 15 + 8 = 43.",
+      "solutionSteps": [
+        "20 + 15 + 8 = 43."
+      ],
+      "formulaIds": [
+        "vd-word-f"
+      ],
+      "method": "\"At least one\" adds up every region except \"neither.\"",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Sum every region that is not \"neither.\""
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to include the \"both\" region."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-007",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-solve",
+      "levelId": "venn-diagrams-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Continuing the previous survey of 50 students, where 43 play at least one sport, how many play neither?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Neither = Total − at least one = 50 − 43 = 7.",
+      "solutionSteps": [
+        "50 − 43 = 7."
+      ],
+      "formulaIds": [
+        "vd-total-f"
+      ],
+      "method": "\"Neither\" is the total minus everyone accounted for.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Subtract the \"at least one\" count from the total."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting only one of the \"only\" regions instead of the full \"at least one\" count."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-008",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-only-vs-total",
+      "levelId": "venn-diagrams-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "|A| (the total for A) is 25, and \"only A\" is 18. What is |A∩B|?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "|A∩B| = |A| − Only A = 25 − 18 = 7.",
+      "solutionSteps": [
+        "25 − 18 = 7."
+      ],
+      "formulaIds": [
+        "vd-only-total-f"
+      ],
+      "method": "The overlap makes up the difference between the total and \"only.\"",
+      "hints": [
+        {
+          "level": 1,
+          "text": "|A| = Only A + |A∩B|."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing this with a subtraction involving |B| instead."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-009",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-two-solve",
+      "levelId": "venn-diagrams-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Only A = 10, Only B = 14, Neither = 6, and the total is 40. How many are in both A and B?",
+      "figure": {
+        "type": "venn",
+        "caption": "A group of 40",
+        "sets": [
+          "A",
+          "B"
+        ],
+        "universe": "Total = 40",
+        "regions": {
+          "a": 10,
+          "b": 14,
+          "ab": "?",
+          "none": 6
+        },
+        "ariaSummary": "Two overlapping circles A and B in a group of 40: only A is 10, only B is 14, neither is 6, and the overlap is unknown."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Total = Only A + Only B + Both + Neither, so 40 = 10 + 14 + Both + 6, giving Both = 10.",
+      "solutionSteps": [
+        "10 + 14 + 6 = 30.",
+        "40 − 30 = 10."
+      ],
+      "formulaIds": [
+        "vd-total-f"
+      ],
+      "method": "Rearrange the total equation to isolate the unknown region.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add up the three known regions, then subtract from the total."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to include \"neither\" among the known regions."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-010",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-three-regions",
+      "levelId": "venn-diagrams-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many distinct, non-overlapping regions does a three-circle Venn diagram have (including \"none\")?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Three circles create 3 \"only\" regions, 3 \"exactly two\" regions, 1 \"all three\" region, and 1 \"none\" region: 3+3+1+1 = 8.",
+      "solutionSteps": [
+        "3 only-regions + 3 pairwise-only regions + 1 all-three + 1 none.",
+        "= 8."
+      ],
+      "formulaIds": [
+        "vd-three-regions-f"
+      ],
+      "method": "Count each type of region separately, then add them up.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget the region outside all three circles."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to count the \"none\" region."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-011",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-three-regions",
+      "levelId": "venn-diagrams-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a survey of 100: only A=30, only B=25, only C=20, (A&B only)=8, (B&C only)=5, (A&C only)=4, all three=3. How many are in none of the three?",
+      "figure": {
+        "type": "venn",
+        "caption": "The survey of 100",
+        "sets": [
+          "A",
+          "B",
+          "C"
+        ],
+        "universe": "Total = 100",
+        "regions": {
+          "a": 30,
+          "b": 25,
+          "c": 20,
+          "ab": 8,
+          "bc": 5,
+          "ac": 4,
+          "abc": 3,
+          "none": "?"
+        },
+        "ariaSummary": "Three overlapping circles A, B and C in a survey of 100, with every region counted except the region outside all three, which is unknown."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Sum of the seven known regions: 30+25+20+8+5+4+3 = 95. None = 100 − 95 = 5.",
+      "solutionSteps": [
+        "30+25+20+8+5+4+3 = 95.",
+        "100 − 95 = 5."
+      ],
+      "formulaIds": [
+        "vd-three-regions-f"
+      ],
+      "method": "Add up every known region, then subtract from the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are seven regions besides \"none\" — make sure to add all of them."
+        }
+      ],
+      "commonMistakes": [
+        "Missing one of the \"exactly two\" regions in the sum."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-012",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-word",
+      "levelId": "venn-diagrams-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A total of 100 people were surveyed. 70 like at least one of A or B. |A|=45 and |B|=40. What is |A∩B|?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "|A∪B| = |A| + |B| − |A∩B|, so 70 = 45 + 40 − |A∩B|, giving |A∩B| = 15.",
+      "solutionSteps": [
+        "45 + 40 = 85.",
+        "85 − 70 = 15."
+      ],
+      "formulaIds": [
+        "vd-word-f",
+        "vd-total-f"
+      ],
+      "method": "Use the union formula, rearranged to isolate the overlap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"At least one\" is the same as the union."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing \"at least one\" with the total surveyed."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "venn-diagrams-q-013",
+      "topicId": "venn-diagrams",
+      "conceptId": "vd-three-regions",
+      "levelId": "venn-diagrams-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Of 70 people: only A=15, only B=12, only C=10, exactly two of the three (combined, all pairs)=18, and all three=5. How many are in none of the three?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Sum of known regions: 15+12+10+18+5 = 60. None = 70 − 60 = 10.",
+      "solutionSteps": [
+        "15+12+10+18+5 = 60.",
+        "70 − 60 = 10."
+      ],
+      "formulaIds": [
+        "vd-three-regions-f"
+      ],
+      "method": "Add every known region (grouping the \"exactly two\" regions together here), then subtract from the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The \"exactly two\" total already combines all three pairwise-only regions."
+        }
+      ],
+      "commonMistakes": [
+        "Double-counting the \"exactly two\" regions by also trying to split them further."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

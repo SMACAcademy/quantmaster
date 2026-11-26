@@ -1,0 +1,1435 @@
+{
+  "topicId": "probability",
+  "concepts": [
+    {
+      "id": "prob-basic",
+      "topicId": "probability",
+      "name": "Favourable over total",
+      "description": "The definition of probability for equally likely outcomes.",
+      "sortOrder": 1
+    },
+    {
+      "id": "prob-complement",
+      "topicId": "probability",
+      "name": "Complement",
+      "description": "Using 'not happening' when it is easier to count.",
+      "sortOrder": 2
+    },
+    {
+      "id": "prob-combined",
+      "topicId": "probability",
+      "name": "Combining events",
+      "description": "AND multiplies, OR adds — with a correction for overlap.",
+      "sortOrder": 3
+    },
+    {
+      "id": "prob-without-replacement",
+      "topicId": "probability",
+      "name": "Dependent events",
+      "description": "When the first draw changes the odds for the second.",
+      "sortOrder": 4
+    },
+    {
+      "id": "prob-adv-conditional",
+      "topicId": "probability",
+      "name": "Conditional probability",
+      "description": "When you are told something has happened, only the outcomes that match it remain. Count favourable outcomes inside that smaller sample space.",
+      "sortOrder": 5
+    },
+    {
+      "id": "prob-adv-stages",
+      "topicId": "probability",
+      "name": "Multi-stage events",
+      "description": "When an event happens in stages, multiply along each route and add the routes that lead to the outcome you want.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "prob-definition",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "title": "Probability of an event",
+      "prompt": "What is the probability of an event with equally likely outcomes?",
+      "formula": "P(E) = Favourable outcomes ÷ Total outcomes",
+      "variables": [],
+      "explanation": "Both counts must come from the same sample space — the commonest source of error is a mismatched total.",
+      "example": "A bag with 5 red and 3 blue balls\nP(red) = 5 ÷ 8",
+      "commonMistake": "Using the count of the other colour as the denominator (5/3 here).",
+      "applicationPrompt": "A bag holds 5 red and 3 blue balls. What is P(red)?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "prob-complement-rule",
+      "topicId": "probability",
+      "conceptId": "prob-complement",
+      "title": "Complement rule",
+      "prompt": "How do you find the probability that an event does NOT happen?",
+      "formula": "P(not E) = 1 − P(E)",
+      "variables": [],
+      "explanation": "'At least one' questions are almost always faster through the complement: 1 − P(none).",
+      "example": "P(at least one six in two rolls)\n= 1 − (5/6)² = 11/36",
+      "commonMistake": "Adding the probabilities of each 'one six' case and double-counting the double six.",
+      "applicationPrompt": "You need P(at least one six in two rolls). What is the fastest route?",
+      "tags": [
+        "core",
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "prob-and-or",
+      "topicId": "probability",
+      "conceptId": "prob-combined",
+      "title": "AND / OR rules",
+      "prompt": "How do you combine two events?",
+      "formula": "Independent AND: P(A) × P(B)\nOR: P(A) + P(B) − P(A and B)",
+      "variables": [],
+      "explanation": "Subtracting the overlap avoids counting outcomes in both events twice. If the events cannot occur together, that overlap is zero.",
+      "example": "A card is a king OR a heart\n= 4/52 + 13/52 − 1/52 = 16/52 = 4/13",
+      "commonMistake": "Forgetting the overlap and answering 17/52.",
+      "applicationPrompt": "What is P(king or heart) from a standard deck?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "prob-dependent",
+      "topicId": "probability",
+      "conceptId": "prob-without-replacement",
+      "title": "Drawing without replacement",
+      "prompt": "Two items are drawn without replacement. How do you find the probability of both being a given type?",
+      "formula": "P(both) = P(first) × P(second given the first)",
+      "variables": [],
+      "explanation": "After the first draw, both the favourable count and the total shrink by one.",
+      "example": "5 red and 3 blue, draw 2 without replacement\nP(both red) = (5/8) × (4/7) = 5/14",
+      "commonMistake": "Using 5/8 twice, which is the with-replacement answer.",
+      "applicationPrompt": "Two balls are drawn without replacement from 5 red and 3 blue. What is P(both red)?",
+      "tags": [
+        "dependent"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "prob-adv-conditional-f",
+      "topicId": "probability",
+      "conceptId": "prob-adv-conditional",
+      "title": "Conditional probability",
+      "prompt": "What is the probability of A given that B has happened?",
+      "formula": "P(A | B) = P(A and B) ÷ P(B)",
+      "variables": [],
+      "explanation": "Knowing B has happened shrinks the sample space to B. Of those outcomes, count the ones where A also happens.",
+      "example": "Two dice, given the sum is 8: 5 outcomes, of which (4,4) is a double, so P(double | sum 8) = 1/5",
+      "commonMistake": "Dividing by the full sample space (36) instead of by the outcomes where B happens.",
+      "applicationPrompt": "Two dice are rolled and the sum is 8. What is the probability that both dice show the same number?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "prob-adv-total-f",
+      "topicId": "probability",
+      "conceptId": "prob-adv-stages",
+      "title": "Adding the routes",
+      "prompt": "How do you find a probability when there are several ways the event can happen?",
+      "formula": "P(A) = P(route 1) × P(A | route 1) + P(route 2) × P(A | route 2)",
+      "variables": [],
+      "explanation": "Multiply along each branch of the tree, then add the branches that end in A.",
+      "example": "Coin picks bag A (3 red of 5) or bag B (1 red of 5): P(red) = ½ × 3/5 + ½ × 1/5 = 2/5",
+      "commonMistake": "Pouring both bags together (4 red of 10) when the bags are chosen first.",
+      "applicationPrompt": "A coin decides between bag A (3 red, 2 blue) and bag B (1 red, 4 blue); one ball is drawn. What is P(red)?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "prob-sc-dice-sum",
+      "topicId": "probability",
+      "conceptId": "prob-combined",
+      "kind": "shortcut",
+      "title": "Sums of two dice",
+      "prompt": "How many ways can two dice show a total of s?",
+      "formula": "Ways = 6 − |s − 7|   (s from 2 to 12)\n7 is the most likely total (6 ways)",
+      "variables": [],
+      "explanation": "The counts rise 1, 2, …, 6 up to 7 and fall back symmetrically.",
+      "example": "Total 9: 6 − 2 = 4 ways, so the probability is 4/36 = 1/9.",
+      "commonMistake": "Counting (3, 6) and (6, 3) as the same outcome.",
+      "applicationPrompt": "Find the probability that two dice show a total of 10 or more.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "prob-sc-at-least-one",
+      "topicId": "probability",
+      "conceptId": "prob-complement",
+      "kind": "shortcut",
+      "title": "At least one success in n tries",
+      "prompt": "What is the chance of at least one success in n independent tries?",
+      "formula": "P(at least one) = 1 − (1 − p)ⁿ",
+      "variables": [],
+      "explanation": "The only way to fail is to miss every time, which is easy to compute.",
+      "example": "At least one six in 3 throws: 1 − (5/6)³ = 1 − 125/216 = 91/216.",
+      "commonMistake": "Adding 1/6 three times to get 1/2.",
+      "applicationPrompt": "Three coins are tossed. What is the chance of at least one head?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "prob-sc-odds",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "kind": "shortcut",
+      "title": "Odds into probability",
+      "prompt": "The odds in favour of an event are a : b. What is its probability?",
+      "formula": "Odds in favour a : b → P = a ÷ (a + b)\nOdds against a : b → P = b ÷ (a + b)",
+      "variables": [],
+      "explanation": "Odds compare successes with failures; probability compares successes with all outcomes.",
+      "example": "Odds 3 : 5 in favour: P = 3/8.",
+      "commonMistake": "Writing 3/5.",
+      "applicationPrompt": "The odds against a horse winning are 7 : 2. What is its chance of winning?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "probability-level-0",
+      "topicId": "probability",
+      "order": 0,
+      "title": "Counting, Carefully",
+      "description": "Probability is counting with a denominator. Most errors are counting errors.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "prob-basic",
+        "prob-complement"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Favourable over total",
+            "body": "For equally likely outcomes, probability is a fraction: how many outcomes you want, divided by how many there are altogether.\n\nThe skill is not the division. It is counting both numbers correctly, from the same sample space."
+          },
+          {
+            "type": "example",
+            "title": "Two dice",
+            "body": "Total outcomes = 6 × 6 = 36\nSum of 7: (1,6) (2,5) (3,4) (4,3) (5,2) (6,1) = 6 outcomes\nP(sum 7) = 6/36 = 1/6\n\nNote that (2,5) and (5,2) are different outcomes — the dice are distinguishable."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Every probability lies between 0 and 1. If your answer is above 1, you have counted favourable outcomes that are not in your total."
+          },
+          {
+            "type": "check",
+            "questionId": "probability-q-003"
+          },
+          {
+            "type": "text",
+            "title": "The complement saves time",
+            "body": "'At least one' questions are usually easier backwards. P(at least one six in two rolls) = 1 − P(no six) = 1 − (5/6)² = 11/36.\n\nCounting 'none' is one case; counting 'at least one' is several."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "probability-trials"
+          },
+          {
+            "type": "check",
+            "questionId": "probability-q-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "probability-level-1",
+      "topicId": "probability",
+      "order": 1,
+      "title": "Probability Rules",
+      "description": "Definition, complement, AND/OR, and dependent draws.",
+      "type": "formula_revision",
+      "difficulty": "medium",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "probability-level-0"
+      ],
+      "conceptIds": [
+        "prob-basic",
+        "prob-complement",
+        "prob-combined",
+        "prob-without-replacement"
+      ],
+      "formulaIds": [
+        "prob-definition",
+        "prob-complement-rule",
+        "prob-and-or",
+        "prob-dependent"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "probability-level-2",
+      "topicId": "probability",
+      "order": 2,
+      "title": "Basic Probability",
+      "description": "Coins, dice and bags of balls.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "probability-level-1"
+      ],
+      "conceptIds": [
+        "prob-basic"
+      ],
+      "questionIds": [
+        "probability-q-001",
+        "probability-q-002",
+        "probability-q-003",
+        "probability-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "probability-level-3",
+      "topicId": "probability",
+      "order": 3,
+      "title": "Combining Events",
+      "description": "Two dice, card decks and overlapping events.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "probability-level-2"
+      ],
+      "conceptIds": [
+        "prob-combined",
+        "prob-complement"
+      ],
+      "questionIds": [
+        "probability-q-011",
+        "probability-q-020",
+        "probability-q-021"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "probability-level-4",
+      "topicId": "probability",
+      "order": 4,
+      "title": "Dependent Events",
+      "description": "Drawing without replacement, and 'at least one' problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "probability-level-3"
+      ],
+      "conceptIds": [
+        "prob-without-replacement",
+        "prob-complement"
+      ],
+      "questionIds": [
+        "probability-q-030",
+        "probability-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "probability-level-5",
+      "topicId": "probability",
+      "order": 5,
+      "title": "Mixed Probability Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "probability-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "probability",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 7,
+        "preferUnseen": true,
+        "conceptIds": [
+          "prob-basic",
+          "prob-complement",
+          "prob-combined",
+          "prob-without-replacement"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "probability-level-6",
+      "topicId": "probability",
+      "order": 6,
+      "title": "Advanced: Conditional and Multi-stage Probability",
+      "description": "Probability when you already know something, and events that happen in stages.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "probability-level-5"
+      ],
+      "conceptIds": [
+        "prob-adv-conditional",
+        "prob-adv-stages"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Knowing something changes the odds",
+            "body": "When a question says \"given that\", throw away every outcome that does not match what you are told. The remaining outcomes are your new total, and you count the favourable ones among them."
+          },
+          {
+            "type": "check",
+            "questionId": "probability-prob-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Events in stages",
+            "body": "P(A) = Σ P(route) × P(A | route)",
+            "caption": "Draw the tree: multiply along each branch, then add the branches that end in A."
+          },
+          {
+            "type": "check",
+            "questionId": "probability-prob-adv-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For \"at least once in n tries\", work out the chance of never succeeding and subtract it from 1."
+          }
+        ]
+      }
+    },
+    {
+      "id": "probability-level-7",
+      "topicId": "probability",
+      "order": 7,
+      "title": "Challenge: Conditional and Multi-stage Probability",
+      "description": "Given-that questions, two-bag draws, repeated trials and taking turns.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "probability-level-6"
+      ],
+      "conceptIds": [
+        "prob-adv-conditional",
+        "prob-adv-stages"
+      ],
+      "questionIds": [
+        "probability-prob-adv-q-002",
+        "probability-prob-adv-q-003",
+        "probability-prob-adv-q-005",
+        "probability-prob-adv-q-006",
+        "probability-prob-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "probability-q-001",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "levelId": "probability-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A fair coin is tossed once. What is the probability of getting a head?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/4"
+        },
+        {
+          "id": "b",
+          "text": "1/2"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "There are two equally likely outcomes and one is favourable, so P = 1/2.",
+      "solutionSteps": [
+        "Total outcomes: head, tail = 2.",
+        "Favourable: head = 1.",
+        "P = 1/2."
+      ],
+      "formulaIds": [
+        "prob-definition"
+      ],
+      "method": "Favourable ÷ total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many outcomes does a single coin toss have?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving an answer greater than 1."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-002",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "levelId": "probability-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A fair die is rolled once. What is the probability of getting an even number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/6"
+        },
+        {
+          "id": "b",
+          "text": "1/3"
+        },
+        {
+          "id": "c",
+          "text": "1/2"
+        },
+        {
+          "id": "d",
+          "text": "2/3"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Even outcomes are 2, 4 and 6 — three of six equally likely outcomes, so 3/6 = 1/2.",
+      "solutionSteps": [
+        "Total outcomes = 6.",
+        "Even outcomes: 2, 4, 6 = 3.",
+        "P = 3/6 = 1/2."
+      ],
+      "formulaIds": [
+        "prob-definition"
+      ],
+      "method": "Count favourable outcomes explicitly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the even faces on a die."
+        }
+      ],
+      "commonMistakes": [
+        "Counting 0 as an even outcome on a die."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-003",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "levelId": "probability-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A bag contains 5 red balls and 3 blue balls. One ball is drawn at random. What is the probability that it is red?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3/8"
+        },
+        {
+          "id": "b",
+          "text": "5/8"
+        },
+        {
+          "id": "c",
+          "text": "5/3"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "There are 8 balls in total and 5 are red, so P(red) = 5/8.",
+      "solutionSteps": [
+        "Total balls = 5 + 3 = 8.",
+        "Favourable = 5 red.",
+        "P = 5/8."
+      ],
+      "formulaIds": [
+        "prob-definition"
+      ],
+      "method": "Favourable ÷ total, where the total is every ball.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The denominator is all the balls, not just the blue ones."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 5/3, which compares red with blue rather than with the total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-010",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "levelId": "probability-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "A probability can be greater than 1 if an event is very likely.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Favourable outcomes are a subset of all outcomes, so the fraction can never exceed 1. A probability of 1 means certainty.",
+      "solutionSteps": [
+        "Favourable outcomes ≤ total outcomes.",
+        "So the ratio is at most 1.",
+        "Probabilities always lie between 0 and 1."
+      ],
+      "formulaIds": [
+        "prob-definition"
+      ],
+      "method": "Sanity check every probability against the 0-to-1 range.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Can the favourable count exceed the total count?"
+        }
+      ],
+      "commonMistakes": [
+        "Reporting odds (like 5 : 3) as a probability."
+      ],
+      "tags": [
+        "true-false",
+        "definition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-011",
+      "topicId": "probability",
+      "conceptId": "prob-complement",
+      "levelId": "probability-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression gives the probability of getting at least one head in two coin tosses?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 − (1/2)²"
+        },
+        {
+          "id": "b",
+          "text": "(1/2) + (1/2)"
+        },
+        {
+          "id": "c",
+          "text": "(1/2) × (1/2)"
+        },
+        {
+          "id": "d",
+          "text": "2 × (1/2)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "'At least one head' is the complement of 'no heads at all', which has probability (1/2)² = 1/4. So the answer is 3/4.",
+      "solutionSteps": [
+        "The opposite of 'at least one head' is 'two tails'.",
+        "P(two tails) = 1/2 × 1/2 = 1/4.",
+        "P(at least one head) = 1 − 1/4 = 3/4."
+      ],
+      "formulaIds": [
+        "prob-complement-rule"
+      ],
+      "method": "Complement rule for 'at least one'.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the only outcome with no heads?"
+        },
+        {
+          "level": 2,
+          "text": "Work out that probability and subtract from 1."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 1/2 + 1/2 = 1, which would claim certainty."
+      ],
+      "tags": [
+        "formula-recognition",
+        "complement"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-020",
+      "topicId": "probability",
+      "conceptId": "prob-basic",
+      "levelId": "probability-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two fair dice are rolled. What is the probability that the sum is 7?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/12"
+        },
+        {
+          "id": "b",
+          "text": "1/6"
+        },
+        {
+          "id": "c",
+          "text": "5/36"
+        },
+        {
+          "id": "d",
+          "text": "7/36"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Six of the 36 outcomes total 7: (1,6) (2,5) (3,4) (4,3) (5,2) (6,1). So P = 6/36 = 1/6.",
+      "solutionSteps": [
+        "Total outcomes = 6 × 6 = 36.",
+        "Pairs summing to 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) — six of them.",
+        "P = 6/36 = 1/6."
+      ],
+      "formulaIds": [
+        "prob-definition"
+      ],
+      "method": "Enumerate the favourable pairs over 36 outcomes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many outcomes does rolling two dice have in total?"
+        },
+        {
+          "level": 2,
+          "text": "List the pairs that add to 7 — remember (2,5) and (5,2) are different."
+        }
+      ],
+      "commonMistakes": [
+        "Counting (2,5) and (5,2) as one outcome, giving 3/36."
+      ],
+      "tags": [
+        "dice"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-021",
+      "topicId": "probability",
+      "conceptId": "prob-combined",
+      "levelId": "probability-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A card is drawn from a standard 52-card deck. What is the probability that it is a king or a heart?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4/13"
+        },
+        {
+          "id": "b",
+          "text": "17/52"
+        },
+        {
+          "id": "c",
+          "text": "1/4"
+        },
+        {
+          "id": "d",
+          "text": "1/13"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P(king) + P(heart) − P(king of hearts) = 4/52 + 13/52 − 1/52 = 16/52 = 4/13.",
+      "solutionSteps": [
+        "Kings: 4. Hearts: 13.",
+        "The king of hearts is in both groups, so subtract it once.",
+        "(4 + 13 − 1) ÷ 52 = 16/52 = 4/13."
+      ],
+      "formulaIds": [
+        "prob-and-or"
+      ],
+      "method": "OR rule with an overlap correction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is there a card that is both a king and a heart?"
+        },
+        {
+          "level": 2,
+          "text": "Yes — and it must not be counted twice."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 17/52 by ignoring the overlap."
+      ],
+      "tags": [
+        "cards",
+        "or-rule"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-030",
+      "topicId": "probability",
+      "conceptId": "prob-without-replacement",
+      "levelId": "probability-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A bag contains 5 red and 3 blue balls. Two balls are drawn one after the other without replacement. What is the probability that both are red?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25/64"
+        },
+        {
+          "id": "b",
+          "text": "5/14"
+        },
+        {
+          "id": "c",
+          "text": "5/16"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "P = (5/8) × (4/7) = 20/56 = 5/14. After the first red ball is taken, only 4 red remain among 7 balls.",
+      "solutionSteps": [
+        "First draw: P(red) = 5/8.",
+        "Without replacement, 4 red remain out of 7 balls.",
+        "P(both red) = (5/8) × (4/7) = 5/14."
+      ],
+      "formulaIds": [
+        "prob-dependent"
+      ],
+      "method": "Multiply, adjusting the second probability for the ball already removed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does the bag still hold 8 balls for the second draw?"
+        },
+        {
+          "level": 2,
+          "text": "Both the red count and the total drop by one."
+        },
+        {
+          "level": 3,
+          "text": "(5/8) × (4/7)."
+        }
+      ],
+      "commonMistakes": [
+        "Using (5/8)² = 25/64, which assumes replacement."
+      ],
+      "tags": [
+        "dependent",
+        "complex"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-q-031",
+      "topicId": "probability",
+      "conceptId": "prob-complement",
+      "levelId": "probability-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A fair die is rolled twice. What is the probability of getting at least one six?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/3"
+        },
+        {
+          "id": "b",
+          "text": "11/36"
+        },
+        {
+          "id": "c",
+          "text": "1/36"
+        },
+        {
+          "id": "d",
+          "text": "1/6"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "P(no six) = (5/6)² = 25/36, so P(at least one six) = 1 − 25/36 = 11/36.",
+      "solutionSteps": [
+        "P(no six on one roll) = 5/6.",
+        "P(no six on either roll) = (5/6)² = 25/36.",
+        "P(at least one six) = 1 − 25/36 = 11/36."
+      ],
+      "formulaIds": [
+        "prob-complement-rule"
+      ],
+      "method": "Complement: 1 − P(none).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Counting 'at least one' directly needs three cases; the opposite needs one."
+        },
+        {
+          "level": 2,
+          "text": "Find P(no six at all) first."
+        },
+        {
+          "level": 3,
+          "text": "Subtract that from 1."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 1/6 + 1/6 = 1/3, which double-counts the double six."
+      ],
+      "tags": [
+        "complement",
+        "complex"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-001",
+      "topicId": "probability",
+      "conceptId": "prob-adv-conditional",
+      "levelId": "probability-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two fair dice are rolled and the sum is 8. What is the probability that both dice show the same number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/5"
+        },
+        {
+          "id": "b",
+          "text": "1/36"
+        },
+        {
+          "id": "c",
+          "text": "5/36"
+        },
+        {
+          "id": "d",
+          "text": "1/6"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Sum 8 happens in 5 ways: (2,6), (3,5), (4,4), (5,3), (6,2). Only (4,4) is a double, so the probability is 1/5.",
+      "solutionSteps": [
+        "Outcomes with sum 8: 5.",
+        "Of these, doubles: (4,4), which is 1.",
+        "P = 1/5."
+      ],
+      "formulaIds": [
+        "prob-adv-conditional-f"
+      ],
+      "method": "Restrict the sample space to what you are told, then count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List every way to roll a sum of 8."
+        },
+        {
+          "level": 2,
+          "text": "How many of those show the same number twice?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 36 as the total, giving 1/36.",
+        "Giving P(sum is 8) = 5/36."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-002",
+      "topicId": "probability",
+      "conceptId": "prob-adv-conditional",
+      "levelId": "probability-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A family has two children. Given that at least one of them is a boy, what is the probability that both are boys? (Assume boys and girls are equally likely.)",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/3"
+        },
+        {
+          "id": "b",
+          "text": "1/2"
+        },
+        {
+          "id": "c",
+          "text": "1/4"
+        },
+        {
+          "id": "d",
+          "text": "2/3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Equally likely families: BB, BG, GB, GG. \"At least one boy\" leaves BB, BG, GB. Only BB has two boys, so the probability is 1/3.",
+      "solutionSteps": [
+        "Sample space: BB, BG, GB, GG.",
+        "At least one boy: BB, BG, GB.",
+        "Both boys: BB, so 1/3."
+      ],
+      "formulaIds": [
+        "prob-adv-conditional-f"
+      ],
+      "method": "List the ordered outcomes, remove those that break the condition, and count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat the older and younger child as different."
+        },
+        {
+          "level": 2,
+          "text": "Which of the four families have at least one boy?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1/2 by treating BG and GB as a single outcome."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-003",
+      "topicId": "probability",
+      "conceptId": "prob-adv-conditional",
+      "levelId": "probability-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a college, 60% of students study Maths, 40% study Physics and 25% study both. A student chosen at random studies Physics. What is the probability that the student also studies Maths?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/8"
+        },
+        {
+          "id": "b",
+          "text": "5/12"
+        },
+        {
+          "id": "c",
+          "text": "1/4"
+        },
+        {
+          "id": "d",
+          "text": "3/5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P(Maths | Physics) = P(both) ÷ P(Physics) = 25% ÷ 40% = 5/8.",
+      "solutionSteps": [
+        "P(both) = 0.25, P(Physics) = 0.40.",
+        "0.25 ÷ 0.40 = 5/8."
+      ],
+      "formulaIds": [
+        "prob-adv-conditional-f"
+      ],
+      "method": "Divide the overlap by the group you are told the student belongs to.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You already know the student studies Physics."
+        },
+        {
+          "level": 2,
+          "text": "What fraction of the Physics students also study Maths?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the Maths share instead, giving 25 ÷ 60 = 5/12.",
+        "Giving the overlap itself, 1/4."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-004",
+      "topicId": "probability",
+      "conceptId": "prob-adv-stages",
+      "levelId": "probability-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Bag A holds 3 red and 2 blue balls. Bag B holds 1 red and 4 blue balls. A fair coin is tossed: heads means bag A, tails means bag B. One ball is drawn from the chosen bag. What is the probability that it is red?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2/5"
+        },
+        {
+          "id": "b",
+          "text": "4/5"
+        },
+        {
+          "id": "c",
+          "text": "3/25"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P(red) = ½ × 3/5 + ½ × 1/5 = 3/10 + 1/10 = 2/5.",
+      "solutionSteps": [
+        "Route via bag A: ½ × 3/5 = 3/10.",
+        "Route via bag B: ½ × 1/5 = 1/10.",
+        "Add the routes: 4/10 = 2/5."
+      ],
+      "formulaIds": [
+        "prob-adv-total-f"
+      ],
+      "method": "Multiply along each route, then add the routes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are two ways to end up with a red ball."
+        },
+        {
+          "level": 2,
+          "text": "Weight each bag's chance of red by the chance of choosing that bag."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 3/5 and 1/5 without halving, giving 4/5.",
+        "Multiplying the two bags' chances, giving 3/25."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-005",
+      "topicId": "probability",
+      "conceptId": "prob-adv-stages",
+      "levelId": "probability-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A shooter hits a target with probability 0.4 on each shot, independently. What is the probability of at least one hit in 3 shots? (Give the answer as a decimal.)",
+      "answer": {
+        "value": 0.784,
+        "tolerance": 0.001
+      },
+      "explanation": "P(no hit) = 0.6 × 0.6 × 0.6 = 0.216, so P(at least one hit) = 1 − 0.216 = 0.784.",
+      "solutionSteps": [
+        "P(miss) = 0.6 each time.",
+        "P(three misses) = 0.6³ = 0.216.",
+        "1 − 0.216 = 0.784."
+      ],
+      "formulaIds": [
+        "prob-adv-total-f",
+        "prob-complement-rule"
+      ],
+      "method": "For \"at least one\", subtract the chance of none from 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Counting one, two or three hits separately is slow."
+        },
+        {
+          "level": 2,
+          "text": "What is the chance that every shot misses?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding 0.4 three times to get 1.2, which is impossible for a probability.",
+        "Giving 0.4³ = 0.064, the chance of three hits."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-006",
+      "topicId": "probability",
+      "conceptId": "prob-adv-stages",
+      "levelId": "probability-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A and B take turns tossing a fair coin, with A going first. The first to toss a head wins. What is the probability that A wins?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2/3"
+        },
+        {
+          "id": "b",
+          "text": "1/2"
+        },
+        {
+          "id": "c",
+          "text": "1/3"
+        },
+        {
+          "id": "d",
+          "text": "3/4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A wins on toss 1, 3, 5 …: ½ + (½)³ + (½)⁵ + … = ½ ÷ (1 − ¼) = 2/3.",
+      "solutionSteps": [
+        "A wins on the 1st toss with probability ½.",
+        "Each full round of two tails multiplies by ¼.",
+        "Sum = ½ ÷ (1 − ¼) = 2/3."
+      ],
+      "formulaIds": [
+        "prob-adv-total-f"
+      ],
+      "method": "Add the chances of winning on each of A's turns: a geometric series.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A can win on the first toss, or after two tails, or after four tails …"
+        },
+        {
+          "level": 2,
+          "text": "Each extra round multiplies by ½ × ½."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1/2 by ignoring that A gets the first chance."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "probability-prob-adv-q-007",
+      "topicId": "probability",
+      "conceptId": "prob-adv-conditional",
+      "levelId": "probability-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Bag A holds 3 red and 2 blue balls. Bag B holds 1 red and 4 blue balls. A fair coin chooses the bag, and one ball is drawn. The ball is red. What is the probability that it came from bag A?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3/4"
+        },
+        {
+          "id": "b",
+          "text": "3/5"
+        },
+        {
+          "id": "c",
+          "text": "1/2"
+        },
+        {
+          "id": "d",
+          "text": "3/10"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "P(red) = 3/10 + 1/10 = 2/5. P(A and red) = 3/10. So P(A | red) = (3/10) ÷ (2/5) = 3/4.",
+      "solutionSteps": [
+        "P(A and red) = ½ × 3/5 = 3/10.",
+        "P(red) = 3/10 + 1/10 = 2/5.",
+        "(3/10) ÷ (2/5) = 3/4."
+      ],
+      "formulaIds": [
+        "prob-adv-conditional-f",
+        "prob-adv-total-f"
+      ],
+      "method": "Of all the ways to draw red, find the share that goes through bag A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the chance of red by each route."
+        },
+        {
+          "level": 2,
+          "text": "Divide the bag A route by the total chance of red."
+        }
+      ],
+      "commonMistakes": [
+        "Giving bag A's own chance of red, 3/5.",
+        "Giving P(A and red) = 3/10 without dividing."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

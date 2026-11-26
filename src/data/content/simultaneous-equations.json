@@ -1,0 +1,931 @@
+{
+  "topicId": "simultaneous-equations",
+  "concepts": [
+    {
+      "id": "se-substitution",
+      "topicId": "simultaneous-equations",
+      "name": "Substitution method",
+      "description": "Solve one equation for one variable, then substitute that expression into the other equation.",
+      "sortOrder": 1
+    },
+    {
+      "id": "se-elimination",
+      "topicId": "simultaneous-equations",
+      "name": "Elimination method",
+      "description": "Multiply the equations so one variable has matching coefficients, then add or subtract to remove it.",
+      "sortOrder": 2
+    },
+    {
+      "id": "se-word",
+      "topicId": "simultaneous-equations",
+      "name": "Setting up two equations",
+      "description": "Assign two variables to the two unknowns, then translate each given fact into one equation.",
+      "sortOrder": 3
+    },
+    {
+      "id": "se-special",
+      "topicId": "simultaneous-equations",
+      "name": "No solution or infinite solutions",
+      "description": "Equations that reduce to a false statement have no solution; equations that reduce to a true statement have infinitely many.",
+      "sortOrder": 4
+    },
+    {
+      "id": "se-check",
+      "topicId": "simultaneous-equations",
+      "name": "Checking a pair of values",
+      "description": "Substitute both values into both original equations to confirm they satisfy each one.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "se-elim-f",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "title": "Elimination method",
+      "prompt": "How do you eliminate one variable from two equations?",
+      "formula": "Multiply each equation so one variable has equal (or opposite) coefficients, then add or subtract the equations",
+      "variables": [],
+      "explanation": "Once the coefficients of one variable match, adding or subtracting the equations removes that variable, leaving one equation in one unknown.",
+      "example": "2x + 3y = 12 and 2x + y = 8 → subtract: 2y = 4 → y = 2, then x = 3",
+      "commonMistake": "Multiplying only one side of an equation.",
+      "applicationPrompt": "Eliminate x from 2x + 3y = 12 and 2x + y = 8.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "se-sub-f",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-substitution",
+      "title": "Substitution method",
+      "prompt": "How do you solve by substitution?",
+      "formula": "Solve one equation for one variable; substitute that expression into the other equation",
+      "variables": [],
+      "explanation": "This turns two equations in two unknowns into one equation in one unknown.",
+      "example": "From x + y = 10, x = 10 − y. Substitute into 2x + y = 16: 2(10 − y) + y = 16 → y = 4, x = 6",
+      "commonMistake": "Substituting back into the same equation instead of the other one.",
+      "applicationPrompt": "Solve x + y = 10 and 2x + y = 16 by substitution.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "se-word-f",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-word",
+      "title": "Setting up two equations",
+      "prompt": "How do you set up simultaneous equations from a word problem?",
+      "formula": "Assign a variable to each unknown; write one equation per independent fact given",
+      "variables": [],
+      "explanation": "Two unknowns need two independent equations; check that the second equation is not just a repeat of the first.",
+      "example": "\"Twice the cost of a pen plus a pencil is 25; a pen plus twice a pencil is 20\" → 2p + q = 25, p + 2q = 20",
+      "commonMistake": "Writing two equations that carry the same information.",
+      "applicationPrompt": "Set up equations for two pens and a pencil costing 25.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "se-special-f",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-special",
+      "title": "Consistent, inconsistent, dependent",
+      "prompt": "When do two linear equations have no solution or infinitely many?",
+      "formula": "a1/a2 = b1/b2 ≠ c1/c2 → no solution\na1/a2 = b1/b2 = c1/c2 → infinitely many solutions\na1/a2 ≠ b1/b2 → exactly one solution",
+      "variables": [],
+      "explanation": "Comparing the ratios of coefficients tells you the type of solution before solving.",
+      "example": "2x + 3y = 6 and 4x + 6y = 10: ratios 2/4 = 3/6 ≠ 6/10, so no solution",
+      "commonMistake": "Assuming two equations always have exactly one solution.",
+      "applicationPrompt": "Does 2x + 3y = 6 and 4x + 6y = 10 have a solution?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "se-check-f",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-check",
+      "title": "Checking a solution pair",
+      "prompt": "How do you verify a solution (x, y) to simultaneous equations?",
+      "formula": "Substitute x and y into both original equations; both must hold",
+      "variables": [],
+      "explanation": "A pair that satisfies only one equation is not the solution to the system.",
+      "example": "For x = 3, y = 2: check both 2x + 3y = 12 and 2x + y = 8",
+      "commonMistake": "Checking only one of the two equations.",
+      "applicationPrompt": "Verify x = 3, y = 2 in 2x + 3y = 12 and 2x + y = 8.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "se-sc-swap-pair",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "kind": "shortcut",
+      "title": "Swapped coefficients: add and subtract",
+      "prompt": "The equations are ax + by = p and bx + ay = q. What is the quick way?",
+      "formula": "Add: x + y = (p + q) ÷ (a + b)\nSubtract: x − y = (p − q) ÷ (a − b)",
+      "variables": [],
+      "explanation": "Adding and subtracting give two very simple equations, which together give x and y at once.",
+      "example": "3x + 2y = 12 and 2x + 3y = 13: x + y = 5 and x − y = −1, so x = 2, y = 3.",
+      "commonMistake": "Multiplying to eliminate one variable as usual, which takes three times as long.",
+      "applicationPrompt": "37x + 43y = 123 and 43x + 37y = 117.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "se-sc-cross-multiply",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "kind": "shortcut",
+      "title": "Cross-multiplication",
+      "prompt": "Is there a formula that gives x and y directly from a₁x + b₁y = c₁ and a₂x + b₂y = c₂?",
+      "formula": "D = a₁b₂ − a₂b₁\nx = (c₁b₂ − c₂b₁) ÷ D\ny = (a₁c₂ − a₂c₁) ÷ D",
+      "variables": [],
+      "explanation": "This is elimination done once in general. D = 0 means the lines are parallel or the same.",
+      "example": "2x + y = 7, x − y = 2: D = −2 − 1 = −3, x = (−7 − 2) ÷ −3 = 3, y = (4 − 7) ÷ −3 = 1.",
+      "commonMistake": "Mixing up the order in the numerators, which flips the sign.",
+      "applicationPrompt": "Solve 5x − 3y = 11 and 2x + y = 11.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "simultaneous-equations-level-0",
+      "topicId": "simultaneous-equations",
+      "order": 0,
+      "title": "Two Unknowns, Two Equations",
+      "description": "Finding a pair of values that satisfies two equations at once.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "se-substitution",
+        "se-elimination"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Why two equations?",
+            "body": "One equation in two unknowns, like x + y = 10, has endless solutions. A second independent equation, like x − y = 4, narrows it down to exactly one pair: x = 7, y = 3."
+          },
+          {
+            "type": "formula",
+            "title": "Elimination",
+            "body": "Match coefficients, then add or subtract to remove one variable.",
+            "caption": "x + y = 10 and x − y = 4 add to 2x = 14."
+          },
+          {
+            "type": "check",
+            "questionId": "simultaneous-equations-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Substitution",
+            "body": "Solve one equation for one variable, then plug that expression into the other equation, turning two unknowns into one."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "two-lines"
+          },
+          {
+            "type": "check",
+            "questionId": "simultaneous-equations-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "simultaneous-equations-level-1",
+      "topicId": "simultaneous-equations",
+      "order": 1,
+      "title": "Simultaneous Linear Equations Formulas",
+      "description": "Elimination, substitution, setting up word problems, special cases, checking solutions.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "simultaneous-equations-level-0"
+      ],
+      "conceptIds": [
+        "se-elimination",
+        "se-substitution",
+        "se-word",
+        "se-special"
+      ],
+      "formulaIds": [
+        "se-elim-f",
+        "se-sub-f",
+        "se-word-f",
+        "se-special-f",
+        "se-check-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "simultaneous-equations-level-2",
+      "topicId": "simultaneous-equations",
+      "order": 2,
+      "title": "Direct Elimination and Substitution",
+      "description": "Solving equations already given in standard form.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "simultaneous-equations-level-1"
+      ],
+      "conceptIds": [
+        "se-elimination",
+        "se-substitution",
+        "se-check"
+      ],
+      "questionIds": [
+        "simultaneous-equations-q-001",
+        "simultaneous-equations-q-002",
+        "simultaneous-equations-q-003",
+        "simultaneous-equations-q-004",
+        "simultaneous-equations-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "simultaneous-equations-level-3",
+      "topicId": "simultaneous-equations",
+      "order": 3,
+      "title": "Scaling and Word Problems",
+      "description": "Scaling equations before eliminating, and setting up from words.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "simultaneous-equations-level-2"
+      ],
+      "conceptIds": [
+        "se-elimination",
+        "se-word",
+        "se-substitution",
+        "se-special"
+      ],
+      "questionIds": [
+        "simultaneous-equations-q-006",
+        "simultaneous-equations-q-007",
+        "simultaneous-equations-q-008",
+        "simultaneous-equations-q-009",
+        "simultaneous-equations-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "simultaneous-equations-level-4",
+      "topicId": "simultaneous-equations",
+      "order": 4,
+      "title": "Applied Simultaneous Equations",
+      "description": "Boats, digits, and equations that need care to set up.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "simultaneous-equations-level-3"
+      ],
+      "conceptIds": [
+        "se-word",
+        "se-elimination"
+      ],
+      "questionIds": [
+        "simultaneous-equations-q-011",
+        "simultaneous-equations-q-012",
+        "simultaneous-equations-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "simultaneous-equations-level-5",
+      "topicId": "simultaneous-equations",
+      "order": 5,
+      "title": "Mixed Simultaneous Linear Equations Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "simultaneous-equations-level-4"
+      ],
+      "conceptIds": [
+        "se-word",
+        "se-elimination"
+      ],
+      "questionQuery": {
+        "topicId": "simultaneous-equations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "simultaneous-equations-q-001",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "levelId": "simultaneous-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve: x + y = 10, x − y = 4. What is x?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Add the equations: 2x = 14, so x = 7 (and y = 3).",
+      "solutionSteps": [
+        "Add: 2x = 14.",
+        "x = 7."
+      ],
+      "formulaIds": [
+        "se-elim-f"
+      ],
+      "method": "Adding removes y since its coefficients are +1 and −1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the two equations directly."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting instead of adding."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-002",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-substitution",
+      "levelId": "simultaneous-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve: x + y = 10, 2x + y = 16. What is x?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "From the first equation, y = 10 − x. Substitute: 2x + 10 − x = 16, so x + 10 = 16, x = 6.",
+      "solutionSteps": [
+        "y = 10 − x.",
+        "2x + (10 − x) = 16.",
+        "x = 6."
+      ],
+      "formulaIds": [
+        "se-sub-f"
+      ],
+      "method": "Express one variable, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve the simpler equation for y first."
+        }
+      ],
+      "commonMistakes": [
+        "Substituting into the same equation again."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-003",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-word",
+      "levelId": "simultaneous-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "To solve for two unknowns, you generally need",
+      "options": [
+        {
+          "id": "a",
+          "text": "one equation"
+        },
+        {
+          "id": "b",
+          "text": "two independent equations"
+        },
+        {
+          "id": "c",
+          "text": "three equations"
+        },
+        {
+          "id": "d",
+          "text": "no equations, just guessing"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Two unknowns require two independent equations that are not multiples of each other.",
+      "solutionSteps": [
+        "Two unknowns → two equations."
+      ],
+      "formulaIds": [
+        "se-word-f"
+      ],
+      "method": "Match the number of equations to the number of unknowns.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think about how many constraints pin down two values."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming one equation is enough."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-004",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "levelId": "simultaneous-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Solve: 2x + 3y = 12, 2x + y = 8. What is y?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Subtract the second equation from the first: 2y = 4, so y = 2 (and x = 3).",
+      "solutionSteps": [
+        "Subtract: (2x+3y) − (2x+y) = 12 − 8.",
+        "2y = 4 → y = 2."
+      ],
+      "formulaIds": [
+        "se-elim-f"
+      ],
+      "method": "Equal x-coefficients cancel on subtraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both equations have 2x."
+        }
+      ],
+      "commonMistakes": [
+        "Adding instead of subtracting, doubling x."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-005",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-check",
+      "levelId": "simultaneous-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "For x = 3, y = 2, does the pair satisfy 2x + 3y = 12 and 2x + y = 8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, both hold"
+        },
+        {
+          "id": "b",
+          "text": "Only the first holds"
+        },
+        {
+          "id": "c",
+          "text": "Only the second holds"
+        },
+        {
+          "id": "d",
+          "text": "Neither holds"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2(3) + 3(2) = 6 + 6 = 12 ✓. 2(3) + 2 = 6 + 2 = 8 ✓. Both equations hold.",
+      "solutionSteps": [
+        "2(3) + 3(2) = 12. ✓",
+        "2(3) + 2 = 8. ✓"
+      ],
+      "formulaIds": [
+        "se-check-f"
+      ],
+      "method": "Substitute into both original equations.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each equation separately."
+        }
+      ],
+      "commonMistakes": [
+        "Checking only one equation and assuming the other also holds."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-006",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "levelId": "simultaneous-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve: 3x + 2y = 16, 5x − 2y = 8. What is x?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Add the equations: 8x = 24, so x = 3 (and y = 3.5).",
+      "solutionSteps": [
+        "Add: 8x = 24.",
+        "x = 3."
+      ],
+      "formulaIds": [
+        "se-elim-f"
+      ],
+      "method": "Opposite y-coefficients cancel on addition.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The y terms are +2y and −2y."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting instead of adding."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-007",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "levelId": "simultaneous-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve: 2x + 3y = 18, 3x + 2y = 17. What is x + y?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Adding the two equations: 5x + 5y = 35, so x + y = 7.",
+      "solutionSteps": [
+        "Add: 5x + 5y = 35.",
+        "x + y = 7."
+      ],
+      "formulaIds": [
+        "se-elim-f"
+      ],
+      "method": "Sometimes adding directly gives the combined value needed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the two equations before solving for x and y separately."
+        }
+      ],
+      "commonMistakes": [
+        "Solving fully for x and y before noticing the shortcut."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-008",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-word",
+      "levelId": "simultaneous-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Two pens and a pencil cost ₹25; a pen and two pencils cost ₹20. What is the cost of one pen?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Let pen = p, pencil = q: 2p + q = 25, p + 2q = 20. Multiply the second by 2: 2p + 4q = 40. Subtract the first: 3q = 15, q = 5. Then p = 20 − 10 = 10.",
+      "solutionSteps": [
+        "2p + q = 25; p + 2q = 20.",
+        "Double the second: 2p + 4q = 40.",
+        "Subtract: 3q = 15 → q = 5; p = 10."
+      ],
+      "formulaIds": [
+        "se-word-f",
+        "se-elim-f"
+      ],
+      "method": "Set up two equations, then eliminate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Scale one equation so a variable matches."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming one pen equals one pencil."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-009",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-substitution",
+      "levelId": "simultaneous-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve: 3x − y = 7, 2x + 3y = 1. What is y?",
+      "answer": {
+        "value": -1,
+        "tolerance": 0
+      },
+      "explanation": "From the first, y = 3x − 7. Substitute: 2x + 3(3x − 7) = 1 → 2x + 9x − 21 = 1 → 11x = 22 → x = 2, y = 3(2) − 7 = −1.",
+      "solutionSteps": [
+        "y = 3x − 7.",
+        "2x + 9x − 21 = 1 → 11x = 22 → x = 2.",
+        "y = 6 − 7 = −1."
+      ],
+      "formulaIds": [
+        "se-sub-f"
+      ],
+      "method": "Solve one equation for a variable, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Isolate y from the first equation."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error when substituting a negative expression."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-010",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-special",
+      "levelId": "simultaneous-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "How many solutions does 2x + 3y = 6 and 4x + 6y = 10 have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Exactly one"
+        },
+        {
+          "id": "b",
+          "text": "None"
+        },
+        {
+          "id": "c",
+          "text": "Infinitely many"
+        },
+        {
+          "id": "d",
+          "text": "Exactly two"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The coefficient ratios 2/4 = 3/6 = 1/2 are equal but 6/10 ≠ 1/2, so the lines are parallel and distinct: no solution.",
+      "solutionSteps": [
+        "a1/a2 = 1/2; b1/b2 = 1/2; c1/c2 = 3/5.",
+        "a/a = b/b ≠ c/c → no solution."
+      ],
+      "formulaIds": [
+        "se-special-f"
+      ],
+      "method": "Compare the ratios of coefficients.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check if the ratios of x, y and constant terms are equal."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming two different-looking equations always intersect."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-011",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-word",
+      "levelId": "simultaneous-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A boat travels 30 km upstream in 3 hours and 30 km downstream in 2 hours. What is the speed of the boat in still water (in km/hr)?",
+      "answer": {
+        "value": 12.5,
+        "tolerance": 0
+      },
+      "explanation": "Upstream speed = 30/3 = 10 = b − s. Downstream speed = 30/2 = 15 = b + s. Adding: 2b = 25, so b = 12.5 km/hr.",
+      "solutionSteps": [
+        "Upstream: b − s = 10.",
+        "Downstream: b + s = 15.",
+        "Add: 2b = 25 → b = 12.5."
+      ],
+      "formulaIds": [
+        "se-word-f",
+        "se-elim-f"
+      ],
+      "method": "Set up boat-speed equations, then eliminate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Speed = distance ÷ time for each leg."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two speeds incorrectly by forgetting to divide by 2 correctly."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-012",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-elimination",
+      "levelId": "simultaneous-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Solve: 4x + 3y = 25, 3x + 4y = 24. What is x − y?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "Subtracting the equations: x − y = 1. (Solving fully: adding gives 7x + 7y = 49, so x + y = 7; combined with x − y = 1 gives x = 4, y = 3.)",
+      "solutionSteps": [
+        "Subtract: (4x+3y) − (3x+4y) = 25 − 24.",
+        "x − y = 1."
+      ],
+      "formulaIds": [
+        "se-elim-f"
+      ],
+      "method": "Subtracting directly can give the requested combination.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need to solve for x and y separately if you only need x − y."
+        }
+      ],
+      "commonMistakes": [
+        "Solving the full system unnecessarily and making an arithmetic slip."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simultaneous-equations-q-013",
+      "topicId": "simultaneous-equations",
+      "conceptId": "se-word",
+      "levelId": "simultaneous-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The sum of a two-digit number’s digits is 9. If the digits are reversed, the new number is 27 more than the original. What is the original number?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "Let tens digit = x, units digit = y: x + y = 9. Original = 10x + y; reversed = 10y + x. Reversed − original = 9(y − x) = 27, so y − x = 3. With x + y = 9: y = 6, x = 3. Number = 36.",
+      "solutionSteps": [
+        "x + y = 9.",
+        "9(y − x) = 27 → y − x = 3.",
+        "Solve: x = 3, y = 6 → number = 36."
+      ],
+      "formulaIds": [
+        "se-word-f",
+        "se-elim-f"
+      ],
+      "method": "Represent the two-digit number algebraically, then set up two equations.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reversed minus original simplifies to a multiple of (y − x)."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the factor of 9 when comparing reversed and original numbers."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

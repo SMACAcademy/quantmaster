@@ -1,0 +1,1729 @@
+{
+  "topicId": "lines-angles",
+  "concepts": [
+    {
+      "id": "la-types",
+      "topicId": "lines-angles",
+      "name": "Angle facts",
+      "description": "Angles on a straight line sum to 180°; angles all the way around a point sum to 360°.",
+      "sortOrder": 1
+    },
+    {
+      "id": "la-pairs",
+      "topicId": "lines-angles",
+      "name": "Linear pairs",
+      "description": "Two adjacent angles that together form a straight line are supplementary — they add to 180°.",
+      "sortOrder": 2
+    },
+    {
+      "id": "la-vertical",
+      "topicId": "lines-angles",
+      "name": "Vertically opposite angles",
+      "description": "When two lines cross, the angles directly opposite each other are always equal.",
+      "sortOrder": 3
+    },
+    {
+      "id": "la-parallel",
+      "topicId": "lines-angles",
+      "name": "Angles formed by a transversal",
+      "description": "A line crossing two parallel lines creates equal corresponding and alternate angles, and co-interior angles that sum to 180°.",
+      "sortOrder": 4
+    },
+    {
+      "id": "la-solve",
+      "topicId": "lines-angles",
+      "name": "Setting up angle equations",
+      "description": "Translate an angle relationship (vertical, linear pair, co-interior) into an equation and solve for the unknown.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "la-straight-f",
+      "topicId": "lines-angles",
+      "conceptId": "la-types",
+      "title": "Angles on a straight line",
+      "prompt": "What do angles on a straight line add up to?",
+      "formula": "Angles on a straight line sum to 180°",
+      "variables": [],
+      "explanation": "Any number of angles sitting side by side along one straight line always total 180°.",
+      "example": "If one angle on a line is 130°, the other is 180 − 130 = 50°",
+      "commonMistake": "Assuming angles on a line sum to 360° (that is for angles all the way around a point).",
+      "applicationPrompt": "One angle on a straight line is 130°. What is the other?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "la-vertical-f",
+      "topicId": "lines-angles",
+      "conceptId": "la-vertical",
+      "title": "Vertically opposite angles",
+      "prompt": "What is true about the angles formed when two straight lines cross?",
+      "formula": "Vertically opposite angles are equal",
+      "variables": [],
+      "explanation": "Two crossing lines create two pairs of equal angles, directly across from each other through the crossing point.",
+      "example": "If one angle at the crossing is 130°, the angle directly opposite it is also 130°",
+      "commonMistake": "Confusing vertically opposite angles (equal) with adjacent angles (supplementary).",
+      "applicationPrompt": "Two lines cross, and one angle is 130°. What is the angle vertically opposite it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "la-parallel-f",
+      "topicId": "lines-angles",
+      "conceptId": "la-parallel",
+      "title": "Transversal angle relationships",
+      "prompt": "What angle relationships appear when a transversal crosses two parallel lines?",
+      "formula": "Corresponding angles are equal.\nAlternate angles are equal.\nCo-interior (same-side interior) angles sum to 180°.",
+      "variables": [],
+      "explanation": "Corresponding angles sit in matching positions at each crossing; co-interior angles sit between the parallel lines, on the same side of the transversal.",
+      "example": "If a corresponding angle is 65°, the matching corresponding angle at the other crossing is also 65°; the co-interior angle there is 180 − 65 = 115°",
+      "commonMistake": "Treating co-interior angles as equal instead of supplementary.",
+      "applicationPrompt": "A corresponding angle is 65°. What is the co-interior angle at the other line?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "la-sc-bend",
+      "topicId": "lines-angles",
+      "conceptId": "la-parallel",
+      "kind": "shortcut",
+      "title": "A bend between parallel lines",
+      "prompt": "A path bends between two parallel lines. How do you find the angle at the bend?",
+      "formula": "Angle at the bend = sum of the two angles it makes with the parallel lines",
+      "variables": [],
+      "explanation": "Draw a third parallel line through the bend: it splits the angle into two alternate angles.",
+      "example": "The path makes 40° with the top line and 30° with the bottom line: the bend is 70°.",
+      "commonMistake": "Subtracting the angles instead of adding them.",
+      "applicationPrompt": "Angles of 55° and 35° at two parallel lines meet at a bend. Find it.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "la-sc-bisectors",
+      "topicId": "lines-angles",
+      "conceptId": "la-pairs",
+      "kind": "shortcut",
+      "title": "Bisectors of a linear pair",
+      "prompt": "Two angles on a straight line are each bisected. What angle do the bisectors make?",
+      "formula": "Always 90°",
+      "variables": [],
+      "explanation": "The halves add to half of 180°.",
+      "example": "130° and 50°: halves 65° and 25° add to 90°.",
+      "commonMistake": "Working out each half separately and not noticing the answer never changes.",
+      "applicationPrompt": "Angles of 112° and 68° lie on a line. Find the angle between their bisectors.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "lines-angles-level-0",
+      "topicId": "lines-angles",
+      "order": 0,
+      "title": "When Lines Cross",
+      "description": "Two crossing lines always create two pairs of equal, vertically opposite angles.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "la-types",
+        "la-vertical"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Vertically opposite angles",
+            "body": "When two straight lines cross, they form two pairs of angles that face each other across the crossing point. Each pair is always exactly equal — no measuring needed once you know one angle."
+          },
+          {
+            "type": "formula",
+            "title": "Vertically opposite angles",
+            "body": "Vertically opposite angles are equal",
+            "caption": "The two angles adjacent to a given angle are supplementary to it, not equal."
+          },
+          {
+            "type": "check",
+            "questionId": "lines-angles-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Angles on one straight line always sum to 180° — use this to find the angle right next to the one you know."
+          },
+          {
+            "type": "check",
+            "questionId": "lines-angles-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "lines-angles-level-1",
+      "topicId": "lines-angles",
+      "order": 1,
+      "title": "Lines and Angles Formulas",
+      "description": "Straight-line and around-a-point angle sums, vertically opposite angles, and transversal relationships.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "lines-angles-level-0"
+      ],
+      "conceptIds": [
+        "la-types",
+        "la-vertical",
+        "la-parallel"
+      ],
+      "formulaIds": [
+        "la-straight-f",
+        "la-vertical-f",
+        "la-parallel-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "lines-angles-level-2",
+      "topicId": "lines-angles",
+      "order": 2,
+      "title": "Direct Angle Reading",
+      "description": "Vertically opposite and linear-pair angles from a crossing-lines figure.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "lines-angles-level-1"
+      ],
+      "conceptIds": [
+        "la-vertical",
+        "la-pairs",
+        "la-types"
+      ],
+      "questionIds": [
+        "lines-angles-q-001",
+        "lines-angles-q-002",
+        "lines-angles-q-003",
+        "lines-angles-q-010",
+        "lines-angles-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "lines-angles-level-3",
+      "topicId": "lines-angles",
+      "order": 3,
+      "title": "Parallel Lines and a Transversal",
+      "description": "Corresponding, alternate and co-interior angle relationships.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "lines-angles-level-2"
+      ],
+      "conceptIds": [
+        "la-vertical",
+        "la-parallel",
+        "la-types"
+      ],
+      "questionIds": [
+        "lines-angles-q-004",
+        "lines-angles-q-005",
+        "lines-angles-q-006",
+        "lines-angles-q-007",
+        "lines-angles-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "lines-angles-level-4",
+      "topicId": "lines-angles",
+      "order": 4,
+      "title": "Solving for an Unknown Angle",
+      "description": "Setting up and solving equations from angle relationships.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "lines-angles-level-3"
+      ],
+      "conceptIds": [
+        "la-solve",
+        "la-parallel"
+      ],
+      "questionIds": [
+        "lines-angles-q-008",
+        "lines-angles-q-009",
+        "lines-angles-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "lines-angles-level-5",
+      "topicId": "lines-angles",
+      "order": 5,
+      "title": "Mixed Lines and Angles Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "lines-angles-level-4"
+      ],
+      "conceptIds": [
+        "la-solve",
+        "la-parallel"
+      ],
+      "questionQuery": {
+        "topicId": "lines-angles",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "lines-angles-q-001",
+      "topicId": "lines-angles",
+      "conceptId": "la-vertical",
+      "levelId": "lines-angles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In the figure, angle AOC = 130°. What is angle BOD?",
+      "context": "Study the figure of two crossing lines and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two straight lines AB and CD crossing at O",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "C",
+            "label": "130°",
+            "radius": 24
+          }
+        ],
+        "ariaSummary": "Two straight lines AB and CD cross at point O. The angle AOC is marked as 130°. Find the angle vertically opposite it, BOD."
+      },
+      "answer": {
+        "value": 130,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "AOC and BOD are vertically opposite angles, so they are equal: 130°.",
+      "solutionSteps": [
+        "BOD is vertically opposite AOC.",
+        "Vertically opposite angles are equal: 130°."
+      ],
+      "formulaIds": [
+        "la-vertical-f"
+      ],
+      "method": "Vertically opposite angles are always equal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "BOD is directly across the crossing point from AOC."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming vertically opposite angles are supplementary instead of equal."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-002",
+      "topicId": "lines-angles",
+      "conceptId": "la-pairs",
+      "levelId": "lines-angles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In the figure, angle AOC = 130°. What is angle AOD?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two straight lines AB and CD crossing at O",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "C",
+            "label": "130°",
+            "radius": 24
+          }
+        ],
+        "ariaSummary": "Two straight lines AB and CD cross at point O. The angle AOC is marked as 130°. Find the adjacent angle on the straight line, AOD."
+      },
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "AOC and AOD lie together on the straight line CD, so they sum to 180°: AOD = 180 − 130 = 50°.",
+      "solutionSteps": [
+        "AOC + AOD = 180° (straight line CD).",
+        "180 − 130 = 50°."
+      ],
+      "formulaIds": [
+        "la-straight-f"
+      ],
+      "method": "Angles on the same straight line are supplementary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "C, O and D lie on one straight line."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming AOD equals AOC instead of being supplementary to it."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-003",
+      "topicId": "lines-angles",
+      "conceptId": "la-types",
+      "levelId": "lines-angles-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Angles on a straight line always sum to",
+      "options": [
+        {
+          "id": "a",
+          "text": "90°"
+        },
+        {
+          "id": "b",
+          "text": "180°"
+        },
+        {
+          "id": "c",
+          "text": "270°"
+        },
+        {
+          "id": "d",
+          "text": "360°"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Any set of angles sitting along one straight line totals 180°.",
+      "solutionSteps": [
+        "Angles on a line sum to 180°."
+      ],
+      "formulaIds": [
+        "la-straight-f"
+      ],
+      "method": "A straight line represents a 180° angle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of a straight line as a perfectly flat angle."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing this with the 360° angle sum around a point."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-004",
+      "topicId": "lines-angles",
+      "conceptId": "la-vertical",
+      "levelId": "lines-angles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, angle AOD = 50°. What is angle BOC?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two straight lines AB and CD crossing at O",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "D",
+            "label": "50°",
+            "radius": 24
+          }
+        ],
+        "ariaSummary": "Two straight lines AB and CD cross at point O. The angle AOD is marked as 50°. Find the vertically opposite angle, BOC."
+      },
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "AOD and BOC are vertically opposite, so they are equal: 50°.",
+      "solutionSteps": [
+        "BOC is vertically opposite AOD.",
+        "Equal: 50°."
+      ],
+      "formulaIds": [
+        "la-vertical-f"
+      ],
+      "method": "Identify which angle is vertically opposite the given one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "BOC is directly across the crossing point from AOD."
+        }
+      ],
+      "commonMistakes": [
+        "Picking AOC (adjacent, not opposite) instead of BOC."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-005",
+      "topicId": "lines-angles",
+      "conceptId": "la-parallel",
+      "levelId": "lines-angles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, angle AXP = 65°. What is angle CYX (the corresponding angle at Y)?",
+      "context": "Study the figure of two parallel lines cut by a transversal and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallel lines AB and CD cut by transversal PQ",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 6,
+            "labelOffset": [
+              12,
+              -4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              12,
+              10
+            ]
+          },
+          {
+            "id": "X",
+            "x": 3.2,
+            "y": 6,
+            "labelOffset": [
+              -6,
+              -14
+            ]
+          },
+          {
+            "id": "Y",
+            "x": 6.8,
+            "y": 0,
+            "labelOffset": [
+              6,
+              16
+            ]
+          },
+          {
+            "id": "P",
+            "x": 2,
+            "y": 8,
+            "hidden": true
+          },
+          {
+            "id": "Q",
+            "x": 8,
+            "y": -2,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q"
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "X",
+            "from": "A",
+            "to": "P",
+            "label": "65°",
+            "radius": 22
+          }
+        ],
+        "ariaSummary": "Parallel lines AB and CD are cut by transversal PQ, meeting them at X and Y respectively. Angle AXP is marked 65°; find the corresponding angle at Y, angle CYX."
+      },
+      "answer": {
+        "value": 65,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "AXP and CYX are corresponding angles (same relative position at each parallel line), so they are equal: 65°.",
+      "solutionSteps": [
+        "AXP and CYX are corresponding angles.",
+        "Corresponding angles are equal: 65°."
+      ],
+      "formulaIds": [
+        "la-parallel-f"
+      ],
+      "method": "Corresponding angles sit in matching positions at each intersection.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look for the angle in the same position at the second parallel line."
+        }
+      ],
+      "commonMistakes": [
+        "Picking a non-corresponding angle at Y."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-006",
+      "topicId": "lines-angles",
+      "conceptId": "la-parallel",
+      "levelId": "lines-angles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, angle BXY = 65°. What is angle XYD (co-interior with it)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallel lines AB and CD cut by transversal PQ",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 6,
+            "labelOffset": [
+              12,
+              -4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              12,
+              10
+            ]
+          },
+          {
+            "id": "X",
+            "x": 3.2,
+            "y": 6,
+            "labelOffset": [
+              -6,
+              -14
+            ]
+          },
+          {
+            "id": "Y",
+            "x": 6.8,
+            "y": 0,
+            "labelOffset": [
+              6,
+              16
+            ]
+          },
+          {
+            "id": "P",
+            "x": 2,
+            "y": 8,
+            "hidden": true
+          },
+          {
+            "id": "Q",
+            "x": 8,
+            "y": -2,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q"
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "X",
+            "from": "B",
+            "to": "Y",
+            "label": "65°",
+            "radius": 22
+          }
+        ],
+        "ariaSummary": "Parallel lines AB and CD are cut by transversal PQ, meeting them at X and Y respectively. Angle BXY is marked 65°; find the co-interior angle at Y, angle XYD."
+      },
+      "answer": {
+        "value": 115,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "BXY and XYD are co-interior angles (between the parallel lines, same side of the transversal), so they sum to 180°: XYD = 180 − 65 = 115°.",
+      "solutionSteps": [
+        "BXY + XYD = 180° (co-interior angles).",
+        "180 − 65 = 115°."
+      ],
+      "formulaIds": [
+        "la-parallel-f"
+      ],
+      "method": "Co-interior angles are supplementary, not equal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Co-interior angles sum to 180°, unlike corresponding angles."
+        }
+      ],
+      "commonMistakes": [
+        "Treating co-interior angles as equal, giving 65° instead of 115°."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-007",
+      "topicId": "lines-angles",
+      "conceptId": "la-types",
+      "levelId": "lines-angles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Three angles around a point are 90°, 150°, and x°. What is x?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Angles all the way around a point sum to 360°: x = 360 − 90 − 150 = 120°.",
+      "solutionSteps": [
+        "90 + 150 = 240.",
+        "360 − 240 = 120."
+      ],
+      "formulaIds": [
+        "la-straight-f"
+      ],
+      "method": "Angles around a point sum to 360°, not 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is the \"around a point\" rule, not the \"straight line\" rule."
+        }
+      ],
+      "commonMistakes": [
+        "Using 180° instead of 360° as the total."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-008",
+      "topicId": "lines-angles",
+      "conceptId": "la-solve",
+      "levelId": "lines-angles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In the figure, angle AOC = (3x + 10)° and angle AOD = (2x + 30)°. Since AOC and AOD lie on the straight line CD, find angle AOC.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two straight lines AB and CD crossing at O",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "C",
+            "label": "(3x + 10)°",
+            "radius": 24
+          }
+        ],
+        "ariaSummary": "Two straight lines AB and CD cross at point O. The angle AOC is marked as (3x + 10)°. Angle AOC is (3x+10)°, and angle AOD is (2x+30)°; these two form a straight line."
+      },
+      "answer": {
+        "value": 94,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "AOC + AOD = 180°, so (3x+10) + (2x+30) = 180, giving 5x + 40 = 180, so x = 28. Angle AOC = 3(28) + 10 = 94°.",
+      "solutionSteps": [
+        "(3x+10) + (2x+30) = 180.",
+        "5x + 40 = 180 → x = 28.",
+        "AOC = 3(28) + 10 = 94°."
+      ],
+      "formulaIds": [
+        "la-straight-f"
+      ],
+      "method": "Set the two linear-pair angles to sum to 180°, then solve for x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set up the linear-pair equation before substituting x back in."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to substitute x back in to find the actual angle, stopping at x = 28."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-009",
+      "topicId": "lines-angles",
+      "conceptId": "la-solve",
+      "levelId": "lines-angles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In the figure, angle BXY = (3x + 15)° and angle XYD = (2x + 45)° are co-interior angles. Find angle BXY.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallel lines AB and CD cut by transversal PQ",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 6,
+            "labelOffset": [
+              12,
+              -4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              12,
+              10
+            ]
+          },
+          {
+            "id": "X",
+            "x": 3.2,
+            "y": 6,
+            "labelOffset": [
+              -6,
+              -14
+            ]
+          },
+          {
+            "id": "Y",
+            "x": 6.8,
+            "y": 0,
+            "labelOffset": [
+              6,
+              16
+            ]
+          },
+          {
+            "id": "P",
+            "x": 2,
+            "y": 8,
+            "hidden": true
+          },
+          {
+            "id": "Q",
+            "x": 8,
+            "y": -2,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q"
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "X",
+            "from": "B",
+            "to": "Y",
+            "label": "(3x + 15)°",
+            "radius": 22
+          }
+        ],
+        "ariaSummary": "Parallel lines AB and CD are cut by transversal PQ, meeting them at X and Y respectively. Angle BXY is (3x+15)° and angle XYD is (2x+45)°; these are co-interior angles."
+      },
+      "answer": {
+        "value": 87,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Co-interior angles sum to 180°: (3x+15) + (2x+45) = 180, giving 5x + 60 = 180, so x = 24. Angle BXY = 3(24) + 15 = 87°.",
+      "solutionSteps": [
+        "(3x+15) + (2x+45) = 180.",
+        "5x + 60 = 180 → x = 24.",
+        "BXY = 3(24) + 15 = 87°."
+      ],
+      "formulaIds": [
+        "la-parallel-f"
+      ],
+      "method": "Set the co-interior angles to sum to 180°, then solve for x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the co-interior rule (sum to 180°), not the corresponding rule (equal)."
+        }
+      ],
+      "commonMistakes": [
+        "Setting the two expressions equal instead of summing them to 180°."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-010",
+      "topicId": "lines-angles",
+      "conceptId": "la-types",
+      "levelId": "lines-angles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which pair of angles is complementary?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35° and 145°"
+        },
+        {
+          "id": "b",
+          "text": "45° and 135°"
+        },
+        {
+          "id": "c",
+          "text": "35° and 55°"
+        },
+        {
+          "id": "d",
+          "text": "50° and 50°"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Complementary angles add up to 90°. 35° + 55° = 90°. The pairs 35° and 145°, and 45° and 135°, add up to 180°, so they are supplementary; 50° + 50° = 100°.",
+      "solutionSteps": [
+        "Complementary means the two angles add up to 90°.",
+        "35° + 55° = 90°."
+      ],
+      "formulaIds": [],
+      "method": "Add each pair and look for a total of 90°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two complementary angles fit together to make a right angle."
+        }
+      ],
+      "commonMistakes": [
+        "Mixing up complementary (sum 90°) with supplementary (sum 180°)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-011",
+      "topicId": "lines-angles",
+      "conceptId": "la-pairs",
+      "levelId": "lines-angles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In the figure, AOB is a straight line. Angle AOC = 4x° and angle COB = 5x°. Find x.",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Ray OC standing on the straight line AB",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "C",
+            "x": -0.87,
+            "y": 4.92,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "C"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "C",
+            "label": "4x°",
+            "radius": 24
+          },
+          {
+            "at": "O",
+            "from": "C",
+            "to": "B",
+            "label": "5x°",
+            "radius": 30
+          }
+        ],
+        "ariaSummary": "A straight line AB with point O on it and a ray OC. Angle AOC is marked 4x° and angle COB is marked 5x°."
+      },
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "Angles on a straight line add up to 180°: 4x + 5x = 180, so 9x = 180 and x = 20. (Check: 80° + 100° = 180°.)",
+      "solutionSteps": [
+        "4x + 5x = 180.",
+        "9x = 180.",
+        "x = 180 ÷ 9 = 20."
+      ],
+      "formulaIds": [
+        "la-straight-f"
+      ],
+      "method": "Set the linear pair equal to 180° and solve for x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Angles AOC and COB together make the straight angle AOB."
+        }
+      ],
+      "commonMistakes": [
+        "Giving one of the angles (80° or 100°) instead of the value of x."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-012",
+      "topicId": "lines-angles",
+      "conceptId": "la-parallel",
+      "levelId": "lines-angles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, AB ∥ CD and E is a point between the two lines. If angle ABE = 40° and angle CDE = 35°, find angle BED.",
+      "context": "Study the figure of two parallel lines and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallel lines AB and CD with a bend at E",
+        "points": [
+          {
+            "id": "A",
+            "x": -6,
+            "y": 4,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 2,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -6
+            ]
+          },
+          {
+            "id": "C",
+            "x": -6,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 0,
+            "labelOffset": [
+              10,
+              14
+            ]
+          },
+          {
+            "id": "E",
+            "x": -0.6,
+            "y": 1.82,
+            "labelOffset": [
+              -16,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "E"
+          },
+          {
+            "type": "segment",
+            "from": "D",
+            "to": "E"
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "E",
+            "label": "40°",
+            "radius": 26
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "E",
+            "label": "35°",
+            "radius": 26
+          },
+          {
+            "at": "E",
+            "from": "B",
+            "to": "D",
+            "label": "?",
+            "radius": 18
+          }
+        ],
+        "ariaSummary": "Parallel lines AB and CD, with E between them. Segments BE and DE meet at E. Angle ABE is marked 40°, angle CDE is marked 35° and angle BED is marked ?."
+      },
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Draw a line EF through E parallel to AB and CD, pointing the same way as B and D. It splits angle BED into two parts, each an alternate angle: angle BEF = angle ABE = 40° and angle FED = angle CDE = 35°. So angle BED = 40° + 35° = 75°.",
+      "solutionSteps": [
+        "Draw EF through E parallel to AB and CD.",
+        "Angle BEF = angle ABE = 40° (alternate angles, transversal BE).",
+        "Angle FED = angle CDE = 35° (alternate angles, transversal DE).",
+        "Angle BED = 40° + 35° = 75°."
+      ],
+      "formulaIds": [
+        "la-parallel-f",
+        "la-sc-bend"
+      ],
+      "method": "Draw a parallel line through the bend and use alternate angles twice.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw a third line through E, parallel to AB and CD."
+        },
+        {
+          "level": 2,
+          "text": "Each part of angle BED is an alternate angle to one of the given angles."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the angles (40° − 35° = 5°) instead of adding them.",
+        "Answering 180° − 75° = 105°, as if the angles were co-interior."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "lines-angles-q-013",
+      "topicId": "lines-angles",
+      "conceptId": "la-solve",
+      "levelId": "lines-angles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The supplement of an angle is three times its complement. What is the angle?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°"
+        },
+        {
+          "id": "b",
+          "text": "60°"
+        },
+        {
+          "id": "c",
+          "text": "67.5°"
+        },
+        {
+          "id": "d",
+          "text": "45°"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Let the angle be x. Its supplement is 180° − x and its complement is 90° − x. So 180 − x = 3(90 − x) = 270 − 3x, which gives 2x = 90 and x = 45°. Check: the supplement is 135° and three times the complement is 3 × 45° = 135°.",
+      "solutionSteps": [
+        "Supplement = 180° − x; complement = 90° − x.",
+        "180 − x = 3(90 − x).",
+        "180 − x = 270 − 3x, so 2x = 90.",
+        "x = 45°."
+      ],
+      "formulaIds": [],
+      "method": "Write the supplement and the complement in terms of x, then form one equation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The complement of x is 90° − x; the supplement is 180° − x."
+        },
+        {
+          "level": 2,
+          "text": "Expand 3(90 − x) before collecting the x terms."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the equation the wrong way round: complement = 3 × supplement.",
+        "Expanding 3(90 − x) as 270 − x."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

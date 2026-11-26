@@ -1,0 +1,21 @@
+name: Bug report
+description: Something in the app does not work as it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. Screenshots help.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Page
+      description: The address of the page, for example .../quantmaster/#/practice
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      description: For example "Android 14, Chrome" or "Windows 11, Edge". Say if the app is installed.

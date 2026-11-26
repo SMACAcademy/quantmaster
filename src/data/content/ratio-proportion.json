@@ -1,0 +1,1359 @@
+{
+  "topicId": "ratio-proportion",
+  "concepts": [
+    {
+      "id": "rp-meaning",
+      "topicId": "ratio-proportion",
+      "name": "Reading a ratio",
+      "description": "A ratio compares quantities in parts, not in absolute amounts.",
+      "sortOrder": 1
+    },
+    {
+      "id": "rp-simplify",
+      "topicId": "ratio-proportion",
+      "name": "Equivalent ratios",
+      "description": "Scaling both terms by the same factor leaves a ratio unchanged.",
+      "sortOrder": 2
+    },
+    {
+      "id": "rp-divide",
+      "topicId": "ratio-proportion",
+      "name": "Dividing in a given ratio",
+      "description": "Splitting a total into parts that follow a ratio.",
+      "sortOrder": 3
+    },
+    {
+      "id": "rp-proportion",
+      "topicId": "ratio-proportion",
+      "name": "Proportion",
+      "description": "Two equal ratios, and the cross-multiplication that follows.",
+      "sortOrder": 4
+    },
+    {
+      "id": "rp-chain",
+      "topicId": "ratio-proportion",
+      "name": "Chained ratios",
+      "description": "Combining A:B and B:C into A:B:C by matching the common term.",
+      "sortOrder": 5
+    },
+    {
+      "id": "rp-applications",
+      "topicId": "ratio-proportion",
+      "name": "Ratio word problems",
+      "description": "Turning statements about shares, mixtures and changes into ratio equations.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "rp-share",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "title": "Share of a total",
+      "prompt": "A total is divided in the ratio a : b. How do you find each share?",
+      "formula": "First share = Total × a/(a + b)\nSecond share = Total × b/(a + b)",
+      "variables": [
+        {
+          "symbol": "a, b",
+          "meaning": "the ratio terms"
+        },
+        {
+          "symbol": "a + b",
+          "meaning": "the total number of parts"
+        }
+      ],
+      "explanation": "Add the ratio terms to get the number of parts, find the value of one part, then scale.",
+      "example": "₹1,200 in 2 : 3\nParts = 5, one part = ₹240\nShares = ₹480 and ₹720",
+      "commonMistake": "Multiplying by a/b instead of a/(a+b) — that compares the shares rather than splitting the total.",
+      "applicationPrompt": "₹4,500 is shared between A and B in 4 : 5. Which expression gives A's share?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rp-one-part",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "title": "Value of one part",
+      "prompt": "What is the fastest first step in almost every ratio question?",
+      "formula": "One part = Total ÷ (sum of ratio terms)",
+      "variables": [],
+      "explanation": "Almost every ratio problem becomes arithmetic once you know what a single part is worth.",
+      "example": "91 divided in 4 : 3\nParts = 7, one part = 13\nShares = 52 and 39",
+      "commonMistake": "Dividing by the number of terms (2) instead of the sum of the terms.",
+      "applicationPrompt": "A total of 91 is split in 4 : 3. What is one part worth?",
+      "tags": [
+        "core",
+        "speed"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rp-cross",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-proportion",
+      "title": "Proportion and cross multiplication",
+      "prompt": "What does a : b = c : d let you write?",
+      "formula": "a : b = c : d  ⟹  a × d = b × c",
+      "variables": [
+        {
+          "symbol": "a, d",
+          "meaning": "the extremes"
+        },
+        {
+          "symbol": "b, c",
+          "meaning": "the means"
+        }
+      ],
+      "explanation": "Equal ratios mean equal fractions, so cross multiplying gives a usable equation.",
+      "example": "3 : 4 = 9 : 12\n3 × 12 = 36 = 4 × 9 ✓",
+      "commonMistake": "Multiplying a × c and b × d, which pairs the wrong terms.",
+      "applicationPrompt": "You are told 5 : 8 = x : 24. Which equation follows?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rp-fourth",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-proportion",
+      "title": "Fourth proportional",
+      "prompt": "How do you find the fourth proportional to a, b and c?",
+      "formula": "Fourth proportional = (b × c) ÷ a",
+      "variables": [
+        {
+          "symbol": "a : b = c : x",
+          "meaning": "the arrangement being solved"
+        }
+      ],
+      "explanation": "It is cross multiplication rearranged: from a : b = c : x you get x = bc/a.",
+      "example": "Fourth proportional to 4, 6, 14\n= (6 × 14) ÷ 4\n= 21",
+      "commonMistake": "Mixing up the order of a, b and c — write the proportion out before substituting.",
+      "applicationPrompt": "Find the fourth proportional to 4, 6 and 14.",
+      "tags": [
+        "proportion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rp-chain-formula",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-chain",
+      "title": "Combining A : B and B : C",
+      "prompt": "You know A : B and B : C. How do you get A : B : C?",
+      "formula": "Scale both ratios so the B terms match, then read off A : B : C",
+      "variables": [],
+      "explanation": "Multiply the first ratio by B's value in the second, and the second by B's value in the first.",
+      "example": "A : B = 2 : 3 and B : C = 4 : 5\nA : B = 8 : 12 and B : C = 12 : 15\nSo A : B : C = 8 : 12 : 15",
+      "commonMistake": "Writing 2 : 3 : 5 by just joining the ratios — the two B values must be made equal first.",
+      "applicationPrompt": "A : B = 2 : 3 and B : C = 4 : 5. What is A : B : C?",
+      "tags": [
+        "chain"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rp-compound",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-chain",
+      "title": "Compound ratio",
+      "prompt": "What is the compound ratio of a : b and c : d?",
+      "formula": "Compound ratio = (a × c) : (b × d)",
+      "variables": [],
+      "explanation": "Compounding multiplies corresponding terms — useful when two ratios act together, such as speed and time.",
+      "example": "2 : 3 compounded with 4 : 5\n= (2 × 4) : (3 × 5)\n= 8 : 15",
+      "commonMistake": "Adding the terms instead of multiplying them.",
+      "applicationPrompt": "What is the compound ratio of 2 : 3 and 4 : 5?",
+      "tags": [
+        "chain"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rp-sc-difference",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "kind": "shortcut",
+      "title": "One part from the difference",
+      "prompt": "Two quantities are in the ratio a : b and you know their difference, not their total. How do you find them?",
+      "formula": "One part = Difference ÷ (a − b)",
+      "variables": [],
+      "explanation": "The quantities differ by a − b parts, so the given difference is that many parts.",
+      "example": "Ratio 7 : 4, difference 36: one part = 36 ÷ 3 = 12, so the quantities are 84 and 48.",
+      "commonMistake": "Dividing the difference by a + b, as if it were the total.",
+      "applicationPrompt": "Two numbers are in the ratio 9 : 5 and differ by 48.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rp-sc-chain",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-chain",
+      "kind": "shortcut",
+      "title": "Joining A : B and B : C in one line",
+      "prompt": "A : B = a : b and B : C = c : d. What is A : B : C?",
+      "formula": "A : B : C = ac : bc : bd",
+      "variables": [],
+      "explanation": "Multiply the first ratio by c and the second by b so the B terms both become bc.",
+      "example": "A : B = 2 : 3 and B : C = 4 : 5 give 8 : 12 : 15.",
+      "commonMistake": "Writing 2 : 3 : 5 by dropping the mismatched B terms.",
+      "applicationPrompt": "A : B = 3 : 4 and B : C = 6 : 7. Find A : C.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rp-sc-equal-products",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-applications",
+      "kind": "shortcut",
+      "title": "When aA = bB = cC",
+      "prompt": "aA = bB = cC. What is A : B : C?",
+      "formula": "A : B : C = 1/a : 1/b : 1/c = bc : ac : ab",
+      "variables": [],
+      "explanation": "Equal products mean each quantity is inversely proportional to its multiplier.",
+      "example": "2A = 3B = 4C gives 1/2 : 1/3 : 1/4 = 6 : 4 : 3.",
+      "commonMistake": "Writing the ratio as 2 : 3 : 4, the multipliers themselves.",
+      "applicationPrompt": "4 times A's share equals 5 times B's share and 10 times C's share.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rp-sc-componendo",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-proportion",
+      "kind": "shortcut",
+      "title": "Componendo and dividendo",
+      "prompt": "An equation has the form (x + k)/(x − k) = p/q. What is the quickest way to x?",
+      "formula": "If a/b = c/d, then (a + b)/(a − b) = (c + d)/(c − d)",
+      "variables": [],
+      "explanation": "Adding and subtracting numerator and denominator on both sides keeps the equality and removes the sum-over-difference form.",
+      "example": "(x + 3)/(x − 3) = 5/2: apply it to get x/3 = (5 + 2)/(5 − 2) = 7/3, so x = 7.",
+      "commonMistake": "Applying it to one side only.",
+      "applicationPrompt": "(a + b)/(a − b) = 9/5. Find a : b.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "ratio-proportion-level-0",
+      "topicId": "ratio-proportion",
+      "order": 0,
+      "title": "What a Ratio Actually Says",
+      "description": "Ratios describe parts, not amounts. Getting this straight prevents most errors.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "rp-meaning",
+        "rp-simplify"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A ratio is a comparison in parts",
+            "body": "When a recipe says flour and sugar are in the ratio 3 : 2, it is not saying 3 grams and 2 grams. It says: split whatever you have into 5 equal parts, give 3 to flour and 2 to sugar.\n\nThat is the whole idea. A ratio fixes the proportions but leaves the size open."
+          },
+          {
+            "type": "formula",
+            "title": "The move that solves most questions",
+            "body": "One part = Total ÷ (sum of the ratio terms)",
+            "caption": "Find what one part is worth, and the rest is multiplication."
+          },
+          {
+            "type": "example",
+            "title": "Splitting ₹1,200 in 2 : 3",
+            "body": "Sum of terms = 2 + 3 = 5\nOne part = 1200 ÷ 5 = ₹240\nShares = 2 × 240 = ₹480 and 3 × 240 = ₹720\nCheck: 480 + 720 = 1200 ✓"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Ratios are unchanged by scaling: 3 : 2, 6 : 4 and 30 : 20 are the same ratio. Always simplify before working — smaller numbers mean fewer mistakes."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ratio-bar-model"
+          },
+          {
+            "type": "check",
+            "questionId": "ratio-proportion-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Ratio vs fraction",
+            "body": "In the ratio 2 : 3, the first quantity is 2/5 of the total, not 2/3 of it. The 2/3 comparison answers a different question: how the first compares with the second.\n\nConfusing these two is the single most common error in this topic."
+          },
+          {
+            "type": "check",
+            "questionId": "ratio-proportion-q-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ratio-proportion-level-1",
+      "topicId": "ratio-proportion",
+      "order": 1,
+      "title": "The Ratio Toolkit",
+      "description": "Recall the six relationships that cover almost every ratio question.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-0"
+      ],
+      "conceptIds": [
+        "rp-divide",
+        "rp-proportion",
+        "rp-chain"
+      ],
+      "formulaIds": [
+        "rp-one-part",
+        "rp-share",
+        "rp-cross",
+        "rp-fourth",
+        "rp-chain-formula",
+        "rp-compound"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "ratio-proportion-level-2",
+      "topicId": "ratio-proportion",
+      "order": 2,
+      "title": "Choose the Right Move",
+      "description": "Identify what a ratio question is really asking before you calculate.",
+      "type": "method_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-1"
+      ],
+      "conceptIds": [
+        "rp-divide",
+        "rp-chain"
+      ],
+      "questionIds": [
+        "ratio-proportion-q-010",
+        "ratio-proportion-q-011",
+        "ratio-proportion-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "ratio-proportion-level-3",
+      "topicId": "ratio-proportion",
+      "order": 3,
+      "title": "Direct Ratio Questions",
+      "description": "Simplifying, scaling and splitting totals — one step each.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-2"
+      ],
+      "conceptIds": [
+        "rp-simplify",
+        "rp-divide"
+      ],
+      "questionIds": [
+        "ratio-proportion-q-001",
+        "ratio-proportion-q-002",
+        "ratio-proportion-q-003",
+        "ratio-proportion-q-004",
+        "ratio-proportion-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "ratio-proportion-level-4",
+      "topicId": "ratio-proportion",
+      "order": 4,
+      "title": "Sharing, Chaining and Proportion",
+      "description": "Three-way splits, chained ratios and proportion equations.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-3"
+      ],
+      "conceptIds": [
+        "rp-chain",
+        "rp-proportion",
+        "rp-applications"
+      ],
+      "questionIds": [
+        "ratio-proportion-q-020",
+        "ratio-proportion-q-021",
+        "ratio-proportion-q-022",
+        "ratio-proportion-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "ratio-proportion-level-5",
+      "topicId": "ratio-proportion",
+      "order": 5,
+      "title": "Multi-Step Ratio Problems",
+      "description": "Word problems where the ratio has to be built before it can be used.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-4"
+      ],
+      "conceptIds": [
+        "rp-applications"
+      ],
+      "questionIds": [
+        "ratio-proportion-q-030",
+        "ratio-proportion-q-031",
+        "ratio-proportion-q-032"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "ratio-proportion-level-6",
+      "topicId": "ratio-proportion",
+      "order": 6,
+      "title": "Mixed Ratio Practice",
+      "description": "Everything above, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "ratio-proportion-level-5"
+      ],
+      "questionQuery": {
+        "topicId": "ratio-proportion",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 55
+    }
+  ],
+  "questions": [
+    {
+      "id": "ratio-proportion-q-001",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-simplify",
+      "levelId": "ratio-proportion-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Write the ratio 45 : 60 in its simplest form.",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 4"
+        },
+        {
+          "id": "b",
+          "text": "4 : 3"
+        },
+        {
+          "id": "c",
+          "text": "9 : 12"
+        },
+        {
+          "id": "d",
+          "text": "5 : 6"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Divide both terms by their HCF, 15: 45 ÷ 15 = 3 and 60 ÷ 15 = 4.",
+      "solutionSteps": [
+        "Find the HCF of 45 and 60, which is 15.",
+        "Divide both terms by 15.",
+        "45 : 60 = 3 : 4."
+      ],
+      "formulaIds": [],
+      "method": "Divide both terms by their highest common factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the largest number that divides both 45 and 60?"
+        },
+        {
+          "level": 2,
+          "text": "Both are divisible by 15."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 9 : 12, which is equivalent but not fully simplified."
+      ],
+      "tags": [
+        "simplify"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-002",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-meaning",
+      "levelId": "ratio-proportion-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Two quantities are in the ratio 2 : 3. What fraction of the total is the first quantity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2/3"
+        },
+        {
+          "id": "b",
+          "text": "2/5"
+        },
+        {
+          "id": "c",
+          "text": "3/5"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The total is 2 + 3 = 5 parts, and the first quantity is 2 of them, so 2/5.",
+      "solutionSteps": [
+        "Add the ratio terms to get the number of parts: 2 + 3 = 5.",
+        "The first quantity takes 2 of those 5 parts.",
+        "Fraction = 2/5."
+      ],
+      "formulaIds": [
+        "rp-share"
+      ],
+      "method": "Term ÷ sum of terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many equal parts is the total split into?"
+        },
+        {
+          "level": 2,
+          "text": "2/3 compares the first with the SECOND, not with the total."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 2/3 by comparing the two quantities rather than using the total."
+      ],
+      "tags": [
+        "fraction-vs-ratio",
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-003",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "levelId": "ratio-proportion-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "₹1,200 is divided between two people in the ratio 2 : 3. How much does the second person get?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹480"
+        },
+        {
+          "id": "b",
+          "text": "₹600"
+        },
+        {
+          "id": "c",
+          "text": "₹720"
+        },
+        {
+          "id": "d",
+          "text": "₹800"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Five parts in total, so one part is ₹240. The second person gets 3 × 240 = ₹720.",
+      "solutionSteps": [
+        "Total parts = 2 + 3 = 5.",
+        "One part = 1200 ÷ 5 = 240.",
+        "Second share = 3 × 240 = ₹720."
+      ],
+      "formulaIds": [
+        "rp-one-part",
+        "rp-share"
+      ],
+      "method": "Find one part, then scale.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many parts is ₹1,200 being split into?"
+        },
+        {
+          "level": 2,
+          "text": "One part = 1200 ÷ 5."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the smaller share, ₹480."
+      ],
+      "tags": [
+        "share"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-004",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "levelId": "ratio-proportion-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "91 is divided in the ratio 4 : 3. What is the larger part?",
+      "answer": {
+        "value": 52,
+        "tolerance": 0
+      },
+      "explanation": "Seven parts in total, so one part is 13. The larger part is 4 × 13 = 52.",
+      "solutionSteps": [
+        "Total parts = 4 + 3 = 7.",
+        "One part = 91 ÷ 7 = 13.",
+        "Larger part = 4 × 13 = 52."
+      ],
+      "formulaIds": [
+        "rp-one-part"
+      ],
+      "method": "One part, then scale.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "91 splits neatly into 7 parts."
+        },
+        {
+          "level": 2,
+          "text": "One part = 13."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 39, which is the smaller part."
+      ],
+      "tags": [
+        "share",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-005",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-proportion",
+      "levelId": "ratio-proportion-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If a : b = 3 : 4 and b = 20, what is a?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "16"
+        },
+        {
+          "id": "d",
+          "text": "26.67"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "b corresponds to 4 parts, so one part is 5 and a = 3 × 5 = 15.",
+      "solutionSteps": [
+        "b = 4 parts = 20, so one part = 5.",
+        "a = 3 parts = 3 × 5.",
+        "a = 15."
+      ],
+      "formulaIds": [
+        "rp-cross"
+      ],
+      "method": "Find the value of one part from the known term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which ratio term does b correspond to?"
+        },
+        {
+          "level": 2,
+          "text": "4 parts = 20, so 1 part = 5."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 3/4 of 20 correctly as 15 but then doubting it — check by forming 15 : 20 = 3 : 4 ✓"
+      ],
+      "tags": [
+        "proportion"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-010",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "levelId": "ratio-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "₹4,500 is shared between A and B in the ratio 4 : 5. Which expression gives A's share?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4500 × 4/9"
+        },
+        {
+          "id": "b",
+          "text": "4500 × 4/5"
+        },
+        {
+          "id": "c",
+          "text": "4500 ÷ 4"
+        },
+        {
+          "id": "d",
+          "text": "4500 × 5/9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "There are 4 + 5 = 9 parts and A takes 4 of them, so A gets 4500 × 4/9 = ₹2,000.",
+      "solutionSteps": [
+        "Total parts = 9.",
+        "A's fraction of the total = 4/9.",
+        "A's share = 4500 × 4/9 = ₹2,000."
+      ],
+      "formulaIds": [
+        "rp-share"
+      ],
+      "method": "Share = Total × (own term ÷ sum of terms).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The denominator should be the total number of parts."
+        },
+        {
+          "level": 2,
+          "text": "4 : 5 means 9 parts altogether."
+        }
+      ],
+      "commonMistakes": [
+        "Using 4/5, which compares A with B rather than with the total."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-011",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-chain",
+      "levelId": "ratio-proportion-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "You are told A : B = 2 : 3 and B : C = 4 : 5, and you need A : B : C. What must you do first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make B the same number in both ratios"
+        },
+        {
+          "id": "b",
+          "text": "Add the ratios together"
+        },
+        {
+          "id": "c",
+          "text": "Write A : B : C = 2 : 3 : 5 directly"
+        },
+        {
+          "id": "d",
+          "text": "Multiply A by C"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "B appears as 3 in one ratio and 4 in the other. Scaling to a common value of 12 gives A : B : C = 8 : 12 : 15.",
+      "solutionSteps": [
+        "B is 3 in the first ratio and 4 in the second.",
+        "Scale the first by 4 and the second by 3 so B becomes 12 in both.",
+        "A : B = 8 : 12 and B : C = 12 : 15, so A : B : C = 8 : 12 : 15."
+      ],
+      "formulaIds": [
+        "rp-chain-formula"
+      ],
+      "method": "Match the common term before joining the ratios.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "B has two different values. Can both be true at once?"
+        },
+        {
+          "level": 2,
+          "text": "Find a common multiple of 3 and 4."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 2 : 3 : 5 by simply appending C's term."
+      ],
+      "tags": [
+        "method",
+        "chain"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-012",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-simplify",
+      "levelId": "ratio-proportion-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "Adding 2 to both terms of the ratio 3 : 5 makes the ratio larger.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "3/5 = 0.6 while 5/7 ≈ 0.714. Adding the same amount to both terms of a ratio below 1 moves it towards 1, so it increases.",
+      "solutionSteps": [
+        "Original ratio as a fraction: 3/5 = 0.6.",
+        "After adding 2 to each term: 5/7 ≈ 0.714.",
+        "0.714 > 0.6, so the ratio increased."
+      ],
+      "formulaIds": [],
+      "method": "Convert both ratios to decimals and compare.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each ratio as a fraction and compare their values."
+        },
+        {
+          "level": 2,
+          "text": "Adding equally to both terms always pulls a ratio towards 1 : 1."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming adding the same value to both terms leaves the ratio unchanged — only multiplying does that."
+      ],
+      "tags": [
+        "true-false",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-020",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-chain",
+      "levelId": "ratio-proportion-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If A : B = 2 : 3 and B : C = 4 : 5, what is A : B : C?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 : 3 : 5"
+        },
+        {
+          "id": "b",
+          "text": "8 : 12 : 15"
+        },
+        {
+          "id": "c",
+          "text": "2 : 12 : 5"
+        },
+        {
+          "id": "d",
+          "text": "6 : 12 : 20"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Make B equal in both: multiply the first ratio by 4 and the second by 3, giving 8 : 12 and 12 : 15.",
+      "solutionSteps": [
+        "A : B = 2 : 3 → multiply by 4 → 8 : 12.",
+        "B : C = 4 : 5 → multiply by 3 → 12 : 15.",
+        "A : B : C = 8 : 12 : 15."
+      ],
+      "formulaIds": [
+        "rp-chain-formula"
+      ],
+      "method": "Scale both ratios to a common value of the shared term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "B must have the same value in both ratios."
+        },
+        {
+          "level": 2,
+          "text": "The LCM of 3 and 4 is 12."
+        }
+      ],
+      "commonMistakes": [
+        "Joining the ratios without matching B."
+      ],
+      "tags": [
+        "chain"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-021",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-applications",
+      "levelId": "ratio-proportion-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two numbers are in the ratio 5 : 7. If 6 is added to each, the ratio becomes 7 : 9. What are the numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 and 14"
+        },
+        {
+          "id": "b",
+          "text": "15 and 21"
+        },
+        {
+          "id": "c",
+          "text": "20 and 28"
+        },
+        {
+          "id": "d",
+          "text": "25 and 35"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Let the numbers be 5x and 7x. Then (5x + 6)/(7x + 6) = 7/9 gives 45x + 54 = 49x + 42, so x = 3 and the numbers are 15 and 21.",
+      "solutionSteps": [
+        "Let the numbers be 5x and 7x.",
+        "(5x + 6)/(7x + 6) = 7/9.",
+        "Cross multiply: 45x + 54 = 49x + 42.",
+        "4x = 12, so x = 3 → the numbers are 15 and 21.",
+        "Check: 21/27 = 7/9 ✓"
+      ],
+      "formulaIds": [
+        "rp-cross"
+      ],
+      "method": "Introduce x for one part, form a proportion, cross multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the numbers as 5x and 7x so the ratio is built in."
+        },
+        {
+          "level": 2,
+          "text": "Form the equation (5x + 6)/(7x + 6) = 7/9."
+        },
+        {
+          "level": 3,
+          "text": "Cross multiply and solve for x."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 6 to only one of the numbers."
+      ],
+      "tags": [
+        "equation",
+        "applications"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-022",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-divide",
+      "levelId": "ratio-proportion-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "₹6,000 is divided among A, B and C in the ratio 3 : 4 : 5. How much does C receive?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,500"
+        },
+        {
+          "id": "b",
+          "text": "₹2,000"
+        },
+        {
+          "id": "c",
+          "text": "₹2,500"
+        },
+        {
+          "id": "d",
+          "text": "₹3,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Twelve parts in total, so one part is ₹500. C gets 5 × 500 = ₹2,500.",
+      "solutionSteps": [
+        "Total parts = 3 + 4 + 5 = 12.",
+        "One part = 6000 ÷ 12 = 500.",
+        "C's share = 5 × 500 = ₹2,500."
+      ],
+      "formulaIds": [
+        "rp-one-part"
+      ],
+      "method": "Same one-part method, extended to three terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add all three terms to find the number of parts."
+        },
+        {
+          "level": 2,
+          "text": "One part = 6000 ÷ 12."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 3 (the number of people) instead of 12 (the number of parts)."
+      ],
+      "tags": [
+        "share"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-023",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-proportion",
+      "levelId": "ratio-proportion-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the fourth proportional to 4, 6 and 14.",
+      "answer": {
+        "value": 21,
+        "tolerance": 0
+      },
+      "explanation": "4 : 6 = 14 : x gives 4x = 84, so x = 21.",
+      "solutionSteps": [
+        "Write the proportion 4 : 6 = 14 : x.",
+        "Cross multiply: 4x = 6 × 14 = 84.",
+        "x = 21."
+      ],
+      "formulaIds": [
+        "rp-fourth"
+      ],
+      "method": "Fourth proportional = (b × c) ÷ a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set it up as 4 : 6 = 14 : x."
+        },
+        {
+          "level": 2,
+          "text": "Cross multiply and solve for x."
+        }
+      ],
+      "commonMistakes": [
+        "Pairing the numbers in the wrong order, giving 9.33."
+      ],
+      "tags": [
+        "proportion",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-030",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-applications",
+      "levelId": "ratio-proportion-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The sum of two numbers is 63 and they are in the ratio 4 : 5. What is the difference between them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "14"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Nine parts total, so one part is 7. The numbers are 28 and 35, and their difference is one part — 7.",
+      "solutionSteps": [
+        "Total parts = 4 + 5 = 9, so one part = 63 ÷ 9 = 7.",
+        "The numbers are 28 and 35.",
+        "Difference = 35 − 28 = 7 (which is simply one part)."
+      ],
+      "formulaIds": [
+        "rp-one-part"
+      ],
+      "method": "The difference between the terms is always (difference of ratio terms) × one part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the value of one part first."
+        },
+        {
+          "level": 2,
+          "text": "The difference of the ratio terms is 5 − 4 = 1 part."
+        }
+      ],
+      "commonMistakes": [
+        "Computing both numbers correctly and then subtracting incorrectly."
+      ],
+      "tags": [
+        "applications",
+        "shortcut"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-031",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-applications",
+      "levelId": "ratio-proportion-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a mixture, milk and water are in the ratio 5 : 3. When 16 litres of water is added, the ratio becomes 5 : 7. How much milk is in the mixture?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15 litres"
+        },
+        {
+          "id": "b",
+          "text": "20 litres"
+        },
+        {
+          "id": "c",
+          "text": "24 litres"
+        },
+        {
+          "id": "d",
+          "text": "30 litres"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Let milk = 5x and water = 3x. Then 5x/(3x + 16) = 5/7 gives 35x = 15x + 80, so x = 4 and milk = 20 litres.",
+      "solutionSteps": [
+        "Let milk = 5x and water = 3x.",
+        "Milk is unchanged, so 5x/(3x + 16) = 5/7.",
+        "Cross multiply: 35x = 15x + 80 → 20x = 80 → x = 4.",
+        "Milk = 5 × 4 = 20 litres. Check: water becomes 12 + 16 = 28, and 20 : 28 = 5 : 7 ✓"
+      ],
+      "formulaIds": [
+        "rp-cross"
+      ],
+      "method": "Hold the unchanged quantity fixed and let the ratio equation do the work.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only the water changes — the milk stays the same."
+        },
+        {
+          "level": 2,
+          "text": "Write milk = 5x, water = 3x, then form the new ratio."
+        },
+        {
+          "level": 3,
+          "text": "5x / (3x + 16) = 5/7."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 16 to both quantities."
+      ],
+      "tags": [
+        "applications",
+        "mixture-link",
+        "complex"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "ratio-proportion-q-032",
+      "topicId": "ratio-proportion",
+      "conceptId": "rp-applications",
+      "levelId": "ratio-proportion-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "₹5,000 is divided among A, B and C so that A gets twice what B gets, and B gets three times what C gets. How much does A receive? (Answer in ₹)",
+      "answer": {
+        "value": 3000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Let C = x. Then B = 3x and A = 6x, so 10x = 5,000, x = 500 and A = ₹3,000.",
+      "solutionSteps": [
+        "Let C's share be x.",
+        "B = 3x and A = 2 × 3x = 6x.",
+        "Total: 6x + 3x + x = 10x = 5,000, so x = 500.",
+        "A = 6 × 500 = ₹3,000."
+      ],
+      "formulaIds": [
+        "rp-one-part"
+      ],
+      "method": "Anchor on the smallest quantity, then express the others in terms of it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from C, since everything is defined relative to it."
+        },
+        {
+          "level": 2,
+          "text": "If C = x, then B = 3x and A = 6x."
+        },
+        {
+          "level": 3,
+          "text": "The ratio A : B : C is 6 : 3 : 1."
+        }
+      ],
+      "commonMistakes": [
+        "Starting from A, which forces fractions unnecessarily."
+      ],
+      "tags": [
+        "applications",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

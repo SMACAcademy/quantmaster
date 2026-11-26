@@ -1,0 +1,953 @@
+{
+  "topicId": "partnership",
+  "concepts": [
+    {
+      "id": "pt-capital",
+      "topicId": "partnership",
+      "name": "Profit follows capital",
+      "description": "When everyone invests for the same time, profit is shared in the ratio of capitals.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pt-time",
+      "topicId": "partnership",
+      "name": "Capital and time together",
+      "description": "Different amounts for different periods: share in the ratio of capital × months.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pt-changes",
+      "topicId": "partnership",
+      "name": "Joining late and changing capital",
+      "description": "Break the year into stages and add up capital × months across them.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pt-working",
+      "topicId": "partnership",
+      "name": "Working partners",
+      "description": "A working partner takes a commission first; the rest is shared by capital and time.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pt-capital-f",
+      "topicId": "partnership",
+      "conceptId": "pt-capital",
+      "title": "Equal time",
+      "prompt": "Partners invest for the same period. How is profit divided?",
+      "formula": "Share = Profit × (own capital ÷ total capital)",
+      "variables": [],
+      "explanation": "With equal time, each rupee earns the same, so profit is in the ratio of capitals.",
+      "example": "₹6,000 and ₹4,000, profit ₹5,000\nA gets 5,000 × 6/10 = ₹3,000",
+      "commonMistake": "Splitting equally regardless of capital.",
+      "applicationPrompt": "A invests ₹6,000 and B ₹4,000 for a year. Profit is ₹5,000. What does A get?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pt-time-f",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "title": "Capital × time",
+      "prompt": "Partners invest different amounts for different periods. How is profit divided?",
+      "formula": "Profit ratio = (Capital₁ × Time₁) : (Capital₂ × Time₂) : …",
+      "variables": [],
+      "explanation": "A rupee invested for two months earns twice as much as a rupee invested for one, so capital and time both count.",
+      "example": "₹4,000 for 12 months : ₹6,000 for 8 months = 48,000 : 48,000 = 1 : 1",
+      "commonMistake": "Using capital alone or time alone.",
+      "applicationPrompt": "A puts in ₹4,000 for 12 months and B ₹6,000 for 8 months. In what ratio is profit shared?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pt-stages-f",
+      "topicId": "partnership",
+      "conceptId": "pt-changes",
+      "title": "Changing capital",
+      "prompt": "A partner joins late or changes capital. How do you handle it?",
+      "formula": "Capital-months = Σ (capital in each stage × months in that stage)",
+      "variables": [],
+      "explanation": "Add the capital-months of every stage, then compare partners.",
+      "example": "₹20,000 for 6 months, then ₹15,000 for 6 months\n120,000 + 90,000 = 210,000",
+      "commonMistake": "Using the final capital for the whole year.",
+      "applicationPrompt": "A invests ₹20,000 and withdraws ₹5,000 after 6 months. What are A's capital-months for the year?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pt-working-f",
+      "topicId": "partnership",
+      "conceptId": "pt-working",
+      "title": "Working partner",
+      "prompt": "One partner manages the business for a commission. How is the profit split?",
+      "formula": "Commission = c% of the profit (paid first)\nRest shared by capital × time",
+      "variables": [],
+      "explanation": "The manager takes the commission off the top, then also shares the remainder as an investor.",
+      "example": "Profit ₹10,000, manager A gets 10% = ₹1,000\nRest ₹9,000 split 2 : 3",
+      "commonMistake": "Applying the commission to the manager's share only.",
+      "applicationPrompt": "A manages the business for 10% of the profit. Capitals are ₹6,000 and ₹9,000; profit is ₹10,000. What does A get in all?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pt-sc-equal-profit",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "kind": "shortcut",
+      "title": "Equal profits",
+      "prompt": "Two partners earn equal profits but invested for different periods. How do their capitals compare?",
+      "formula": "Capital ratio = inverse of the time ratio",
+      "variables": [],
+      "explanation": "Profit follows capital × time, so equal profits mean the two products are equal.",
+      "example": "A invests for 12 months and B for 8 months with equal profits: capitals are in the ratio 8 : 12 = 2 : 3.",
+      "commonMistake": "Giving the capitals in the same ratio as the times.",
+      "applicationPrompt": "A joins for the full year, B for 9 months, and they share the profit equally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "partnership-level-0",
+      "topicId": "partnership",
+      "order": 0,
+      "title": "Profit Follows Money and Time",
+      "description": "How to divide profit fairly when partners put in different amounts for different periods.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pt-capital",
+        "pt-time"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Each rupee earns the same",
+            "body": "If every rupee earns the same profit each month, a partner's share depends on how many rupee-months they put in. With equal time, it is simply the ratio of capitals."
+          },
+          {
+            "type": "formula",
+            "title": "The share ratio",
+            "body": "Ratio = (Capital × Months) for each partner",
+            "caption": "Simplify the ratio, then divide the profit into parts."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "partnership-shares"
+          },
+          {
+            "type": "check",
+            "questionId": "partnership-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Joining late",
+            "body": "A partner who joins after 3 months is invested for only 9 of the 12 months. Multiply capital by the months actually invested. If the capital changes mid-year, add up each stage."
+          },
+          {
+            "type": "check",
+            "questionId": "partnership-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "partnership-level-1",
+      "topicId": "partnership",
+      "order": 1,
+      "title": "Partnership Formulas",
+      "description": "Capital, capital × time, stage changes and working partners.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "partnership-level-0"
+      ],
+      "conceptIds": [
+        "pt-capital",
+        "pt-time",
+        "pt-changes",
+        "pt-working"
+      ],
+      "formulaIds": [
+        "pt-capital-f",
+        "pt-time-f",
+        "pt-stages-f",
+        "pt-working-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "partnership-level-2",
+      "topicId": "partnership",
+      "order": 2,
+      "title": "Direct Profit Sharing",
+      "description": "Capital ratios and equal-capital time ratios.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "partnership-level-1"
+      ],
+      "conceptIds": [
+        "pt-capital",
+        "pt-time"
+      ],
+      "questionIds": [
+        "partnership-q-001",
+        "partnership-q-002",
+        "partnership-q-003",
+        "partnership-q-004",
+        "partnership-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "partnership-level-3",
+      "topicId": "partnership",
+      "order": 3,
+      "title": "Time, Joining and Commission",
+      "description": "Capital × months, late joiners and managers.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "partnership-level-2"
+      ],
+      "conceptIds": [
+        "pt-time",
+        "pt-changes",
+        "pt-working"
+      ],
+      "questionIds": [
+        "partnership-q-006",
+        "partnership-q-007",
+        "partnership-q-008",
+        "partnership-q-009",
+        "partnership-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "partnership-level-4",
+      "topicId": "partnership",
+      "order": 4,
+      "title": "Unknown Capitals and Multiple Stages",
+      "description": "Work back to a capital; multi-stage investments.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "partnership-level-3"
+      ],
+      "conceptIds": [
+        "pt-changes",
+        "pt-working"
+      ],
+      "questionIds": [
+        "partnership-q-011",
+        "partnership-q-012",
+        "partnership-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "partnership-level-5",
+      "topicId": "partnership",
+      "order": 5,
+      "title": "Mixed Partnership Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "partnership-level-4"
+      ],
+      "conceptIds": [
+        "pt-changes",
+        "pt-working"
+      ],
+      "questionQuery": {
+        "topicId": "partnership",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "partnership-q-001",
+      "topicId": "partnership",
+      "conceptId": "pt-capital",
+      "levelId": "partnership-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A invests ₹6,000 and B invests ₹4,000 in a business for one year. The profit is ₹5,000. What is A's share?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹2,000"
+        },
+        {
+          "id": "b",
+          "text": "₹2,500"
+        },
+        {
+          "id": "c",
+          "text": "₹3,000"
+        },
+        {
+          "id": "d",
+          "text": "₹5,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The capitals are in the ratio 6 : 4 = 3 : 2, so A gets 3/5 of the profit: 5,000 × 3/5 = ₹3,000.",
+      "solutionSteps": [
+        "Ratio 6,000 : 4,000 = 3 : 2.",
+        "A = 5,000 × 3/5 = 3,000."
+      ],
+      "formulaIds": [
+        "pt-capital-f"
+      ],
+      "method": "Equal time: share by capital.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Simplify the ratio of capitals first."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting equally (₹2,500)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-002",
+      "topicId": "partnership",
+      "conceptId": "pt-capital",
+      "levelId": "partnership-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A and B invest in the ratio 3 : 5 for the same period. The profit is ₹16,000. What is B's share, in rupees?",
+      "answer": {
+        "value": 10000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Total parts = 8, so one part = ₹2,000. B gets 5 parts = ₹10,000.",
+      "solutionSteps": [
+        "3 + 5 = 8 parts.",
+        "16,000 ÷ 8 = 2,000.",
+        "5 × 2,000 = 10,000."
+      ],
+      "formulaIds": [
+        "pt-capital-f"
+      ],
+      "method": "Divide the profit by the sum of the ratio terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many equal parts are there in all?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving A's share of ₹6,000."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-003",
+      "topicId": "partnership",
+      "conceptId": "pt-capital",
+      "levelId": "partnership-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A, B and C invest ₹5,000, ₹7,000 and ₹8,000 for a year. The profit is ₹10,000. What is B's share, in rupees?",
+      "answer": {
+        "value": 3500,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Total capital = ₹20,000, so B gets 7/20 of the profit: 10,000 × 7 ÷ 20 = ₹3,500.",
+      "solutionSteps": [
+        "5,000 + 7,000 + 8,000 = 20,000.",
+        "10,000 × 7,000 ÷ 20,000 = 3,500."
+      ],
+      "formulaIds": [
+        "pt-capital-f"
+      ],
+      "method": "Own capital ÷ total capital.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the three capitals to get the total."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting equally three ways (₹3,333)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-004",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "levelId": "partnership-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "When partners invest different amounts for different lengths of time, the profit is divided in the ratio of",
+      "options": [
+        {
+          "id": "a",
+          "text": "their capitals only"
+        },
+        {
+          "id": "b",
+          "text": "capital × time for each partner"
+        },
+        {
+          "id": "c",
+          "text": "their times only"
+        },
+        {
+          "id": "d",
+          "text": "capital ÷ time for each partner"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A rupee invested for longer earns more, so both the amount and the duration count: capital × time.",
+      "solutionSteps": [
+        "Profit ∝ capital × time."
+      ],
+      "formulaIds": [
+        "pt-time-f"
+      ],
+      "method": "Multiply capital by months.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A rupee left in twice as long should earn twice as much."
+        }
+      ],
+      "commonMistakes": [
+        "Sharing by capital only."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-005",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "levelId": "partnership-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A and B invest equal amounts. A invests for 12 months and B for 8 months. In what ratio should they share the profit?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 : 3"
+        },
+        {
+          "id": "b",
+          "text": "3 : 2"
+        },
+        {
+          "id": "c",
+          "text": "12 : 20"
+        },
+        {
+          "id": "d",
+          "text": "1 : 1"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Equal capital, so the ratio of times decides: 12 : 8 = 3 : 2.",
+      "solutionSteps": [
+        "12 : 8 = 3 : 2."
+      ],
+      "formulaIds": [
+        "pt-time-f"
+      ],
+      "method": "Equal capital: share by time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The capitals cancel."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the ratio to 2 : 3."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-006",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "levelId": "partnership-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A invests ₹4,000 for 12 months and B invests ₹6,000 for 8 months. The profit is ₹9,600. What is A's share, in rupees?",
+      "answer": {
+        "value": 4800,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Capital-months: A = 4,000 × 12 = 48,000 and B = 6,000 × 8 = 48,000. They are equal, so the profit splits equally: ₹4,800 each.",
+      "solutionSteps": [
+        "A: 48,000. B: 48,000.",
+        "Ratio 1 : 1.",
+        "A = 9,600 ÷ 2 = 4,800."
+      ],
+      "formulaIds": [
+        "pt-time-f"
+      ],
+      "method": "Compare capital × months.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply each capital by its months."
+        }
+      ],
+      "commonMistakes": [
+        "Sharing by capital only: 4 : 6 gives A ₹3,840."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-007",
+      "topicId": "partnership",
+      "conceptId": "pt-changes",
+      "levelId": "partnership-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A starts a business with ₹8,000. After 3 months B joins with ₹12,000. At the end of the year the profit is ₹8,500. What is B's share?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹4,000"
+        },
+        {
+          "id": "b",
+          "text": "₹4,500"
+        },
+        {
+          "id": "c",
+          "text": "₹5,100"
+        },
+        {
+          "id": "d",
+          "text": "₹3,400"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A: 8,000 × 12 = 96,000. B: 12,000 × 9 = 108,000. Ratio 96 : 108 = 8 : 9. B gets 9/17 of ₹8,500 = ₹4,500.",
+      "solutionSteps": [
+        "A invests for 12 months, B for 9.",
+        "96,000 : 108,000 = 8 : 9.",
+        "B = 8,500 × 9 ÷ 17 = 4,500."
+      ],
+      "formulaIds": [
+        "pt-time-f",
+        "pt-stages-f"
+      ],
+      "method": "B is in the business for 12 − 3 = 9 months.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many months is B invested?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 12 months for B, which gives A a smaller share than deserved."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-008",
+      "topicId": "partnership",
+      "conceptId": "pt-changes",
+      "levelId": "partnership-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A starts with ₹20,000 and B with ₹30,000. After 6 months A withdraws ₹5,000. At the end of the year the profit is ₹19,000. What is A's share, in rupees?",
+      "answer": {
+        "value": 7000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "A: 20,000 × 6 + 15,000 × 6 = 210,000. B: 30,000 × 12 = 360,000. Ratio 210 : 360 = 7 : 12. Parts = 19, so one part = ₹1,000 and A gets ₹7,000.",
+      "solutionSteps": [
+        "A: 120,000 + 90,000 = 210,000.",
+        "B: 360,000.",
+        "7 : 12 → A = 19,000 × 7 ÷ 19 = 7,000."
+      ],
+      "formulaIds": [
+        "pt-stages-f",
+        "pt-time-f"
+      ],
+      "method": "Add the capital-months of each stage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split A's year into two stages."
+        }
+      ],
+      "commonMistakes": [
+        "Using ₹15,000 for the full year."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-009",
+      "topicId": "partnership",
+      "conceptId": "pt-working",
+      "levelId": "partnership-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A and B invest ₹6,000 and ₹9,000. A also manages the business and receives 10% of the profit as commission before the rest is divided in proportion to capital. The profit is ₹10,000. How much does A receive in all?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹4,000"
+        },
+        {
+          "id": "b",
+          "text": "₹3,600"
+        },
+        {
+          "id": "c",
+          "text": "₹4,600"
+        },
+        {
+          "id": "d",
+          "text": "₹5,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Commission = ₹1,000. The remaining ₹9,000 is split 6 : 9 = 2 : 3, giving A ₹3,600. A's total = 1,000 + 3,600 = ₹4,600.",
+      "solutionSteps": [
+        "Commission: 10% of 10,000 = 1,000.",
+        "Rest: 9,000 split 2 : 3 → A gets 3,600.",
+        "A = 1,000 + 3,600 = 4,600."
+      ],
+      "formulaIds": [
+        "pt-working-f"
+      ],
+      "method": "Commission first, then share the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A gets two amounts: commission and investor share."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the commission (₹3,600) or the investor share (₹1,000)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-010",
+      "topicId": "partnership",
+      "conceptId": "pt-time",
+      "levelId": "partnership-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A invests ₹5,000 for 6 months, B invests ₹4,000 for 9 months and C invests ₹6,000 for 4 months. The profit is ₹7,500. What is C's share, in rupees?",
+      "answer": {
+        "value": 2000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Capital-months: A 30,000, B 36,000, C 24,000 → ratio 5 : 6 : 4. There are 15 parts, so one part = ₹500 and C gets 4 × 500 = ₹2,000.",
+      "solutionSteps": [
+        "30,000 : 36,000 : 24,000 = 5 : 6 : 4.",
+        "7,500 ÷ 15 = 500.",
+        "C = 4 × 500 = 2,000."
+      ],
+      "formulaIds": [
+        "pt-time-f"
+      ],
+      "method": "Compare capital × months.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply each capital by its months, then simplify."
+        }
+      ],
+      "commonMistakes": [
+        "Sharing by capital only: 5 : 4 : 6."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-011",
+      "topicId": "partnership",
+      "conceptId": "pt-changes",
+      "levelId": "partnership-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A invests ₹15,000 for the whole year. B joins after 4 months. At the end of the year the profit is shared between A and B in the ratio 2 : 1. How much did B invest, in rupees?",
+      "answer": {
+        "value": 11250,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "A: 15,000 × 12 = 180,000. B invests for 8 months, so B's capital-months are 8b. The ratio 180,000 : 8b = 2 : 1 gives 8b = 90,000 and b = 11,250.",
+      "solutionSteps": [
+        "A: 180,000 capital-months.",
+        "B's capital-months = 90,000 (half of A's).",
+        "b = 90,000 ÷ 8 = 11,250."
+      ],
+      "formulaIds": [
+        "pt-time-f",
+        "pt-stages-f"
+      ],
+      "method": "Set up the capital-months ratio and solve for the unknown capital.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many months is B invested?"
+        },
+        {
+          "level": 2,
+          "text": "Write B's capital-months as 8 × b."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the time and answering 7,500."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-012",
+      "topicId": "partnership",
+      "conceptId": "pt-changes",
+      "levelId": "partnership-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A invests ₹9,000 for the whole year. B invests ₹8,000 for the first 6 months and then adds ₹4,000 more, keeping ₹12,000 in for the last 6 months. The profit is ₹19,000. What is A's share, in rupees?",
+      "answer": {
+        "value": 9000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "A: 9,000 × 12 = 108,000. B: 8,000 × 6 + 12,000 × 6 = 48,000 + 72,000 = 120,000. Ratio 108 : 120 = 9 : 10. Parts = 19, so one part = ₹1,000 and A gets ₹9,000.",
+      "solutionSteps": [
+        "A: 108,000.",
+        "B: 48,000 + 72,000 = 120,000.",
+        "9 : 10 → A = 19,000 × 9 ÷ 19 = 9,000."
+      ],
+      "formulaIds": [
+        "pt-stages-f"
+      ],
+      "method": "Add capital-months across B's two stages.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split B's year into two stages."
+        }
+      ],
+      "commonMistakes": [
+        "Using ₹12,000 for the whole year for B."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "partnership-q-013",
+      "topicId": "partnership",
+      "conceptId": "pt-working",
+      "levelId": "partnership-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A and B invest in the ratio 3 : 2 for one year. A manages the business and takes 20% of the profit as a salary; the rest is shared according to capital. The total profit is ₹10,000. How much does B get?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹4,000"
+        },
+        {
+          "id": "b",
+          "text": "₹3,200"
+        },
+        {
+          "id": "c",
+          "text": "₹2,800"
+        },
+        {
+          "id": "d",
+          "text": "₹4,800"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Salary = ₹2,000. Rest ₹8,000 is split 3 : 2, so B gets 8,000 × 2/5 = ₹3,200. (A gets 2,000 + 4,800 = ₹6,800.)",
+      "solutionSteps": [
+        "Salary: 20% of 10,000 = 2,000.",
+        "Remaining 8,000 in the ratio 3 : 2.",
+        "B = 8,000 × 2 ÷ 5 = 3,200."
+      ],
+      "formulaIds": [
+        "pt-working-f"
+      ],
+      "method": "Salary off the top; B only shares the remainder.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which amount is left to divide by capital?"
+        }
+      ],
+      "commonMistakes": [
+        "Sharing the whole ₹10,000 by capital (₹4,000)."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

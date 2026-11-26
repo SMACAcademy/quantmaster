@@ -1,0 +1,1146 @@
+{
+  "topicId": "data-sufficiency",
+  "concepts": [
+    {
+      "id": "dsq-options",
+      "topicId": "data-sufficiency",
+      "name": "The five standard answer choices",
+      "description": "Every Data Sufficiency question uses the same five options, describing every possible combination of sufficiency.",
+      "sortOrder": 1
+    },
+    {
+      "id": "dsq-single",
+      "topicId": "data-sufficiency",
+      "name": "One statement alone is sufficient",
+      "description": "A statement is sufficient by itself if it pins down exactly one possible answer to the question.",
+      "sortOrder": 2
+    },
+    {
+      "id": "dsq-combined",
+      "topicId": "data-sufficiency",
+      "name": "Sufficient only when combined",
+      "description": "Sometimes neither statement alone narrows things down enough, but using both together does.",
+      "sortOrder": 3
+    },
+    {
+      "id": "dsq-neither",
+      "topicId": "data-sufficiency",
+      "name": "Not sufficient even together",
+      "description": "If more than one answer is still possible after using both statements, the data is not sufficient.",
+      "sortOrder": 4
+    },
+    {
+      "id": "dsq-strategy",
+      "topicId": "data-sufficiency",
+      "name": "Testing each statement independently",
+      "description": "Always test statement (1) alone and statement (2) alone — completely separately — before ever considering them together.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "dsq-options-f",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-options",
+      "title": "The five standard options",
+      "prompt": "What are the five standard Data Sufficiency answer choices?",
+      "formula": "A: (1) alone is sufficient, (2) alone is not.\nB: (2) alone is sufficient, (1) alone is not.\nC: Both together are sufficient, but neither alone.\nD: Each statement alone is sufficient.\nE: Not sufficient even together.",
+      "variables": [],
+      "explanation": "These five options cover every possible outcome, so exactly one of them is always correct.",
+      "example": "If statement (1) alone answers the question but statement (2) alone does not, the answer is A.",
+      "commonMistake": "Confusing option A with option D, or option C with option E.",
+      "applicationPrompt": "What does option C mean in a Data Sufficiency question?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dsq-strategy-f",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-strategy",
+      "title": "Test each statement separately first",
+      "prompt": "What is the standard strategy for approaching a Data Sufficiency question?",
+      "formula": "Test statement (1) alone (forgetting statement (2) completely).\nThen test statement (2) alone (forgetting statement (1) completely).\nOnly combine them if neither alone works.",
+      "variables": [],
+      "explanation": "Testing them in this fixed order avoids the common trap of assuming information from one statement while testing the other.",
+      "example": "Even if statement (2) looks obviously useful, still test statement (1) alone, in isolation, first.",
+      "commonMistake": "Combining the statements immediately without checking each one alone first.",
+      "applicationPrompt": "Why should you test statement (1) in complete isolation from statement (2)?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dsq-single-f",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "title": "Recognising sufficiency",
+      "prompt": "When is a single statement \"sufficient\" on its own?",
+      "formula": "A statement is sufficient if it leads to exactly one possible value or answer, and insufficient if more than one value remains possible",
+      "variables": [],
+      "explanation": "The statement does not need to be a full equation — it just needs to leave no ambiguity in the final answer.",
+      "example": "\"x is divisible by 6\" is sufficient to answer \"is x even?\" because every multiple of 6 is even",
+      "commonMistake": "Assuming a statement is insufficient just because it does not directly give a numeric value.",
+      "applicationPrompt": "Is \"x is divisible by 6\" sufficient to answer \"is x even?\"",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dsq-combined-f",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "title": "Combining statements",
+      "prompt": "How do you know when to combine both statements?",
+      "formula": "If both statement (1) alone and statement (2) alone leave more than one possibility, combine them and see if only one possibility survives",
+      "variables": [],
+      "explanation": "Combining rules out possibilities allowed by one statement but excluded by the other.",
+      "example": "(1) x+y=10 alone: infinitely many pairs. (2) x−y=4 alone: also infinitely many pairs. Together: a unique solution, x=7,y=3",
+      "commonMistake": "Giving up and calling the data insufficient without actually testing the combination.",
+      "applicationPrompt": "If x+y=10 and x−y=4 are given as two separate statements, what happens when they are combined?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dsq-neither-f",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-neither",
+      "title": "Recognising true insufficiency",
+      "prompt": "How do you confirm that even both statements together are not sufficient?",
+      "formula": "Find at least two different values that satisfy both statements at once but give different answers to the question",
+      "variables": [],
+      "explanation": "A single counterexample pair is enough to prove that the combined data is not sufficient.",
+      "example": "(1) x > 5 and (2) x < 10 together only give a range, 5 < x < 10, which still allows many different values of x",
+      "commonMistake": "Assuming that combining two statements must always narrow things down to one answer.",
+      "applicationPrompt": "If x > 5 and x < 10 are the only two statements given, is that enough to find the exact value of x?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dsq-sc-definite-no",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "kind": "shortcut",
+      "title": "A definite \"No\" is sufficient",
+      "prompt": "In a yes/no data sufficiency question, when is a statement sufficient?",
+      "formula": "Sufficient = always the same answer, Yes or No\nInsufficient = Yes for some values, No for others",
+      "variables": [],
+      "explanation": "The question asks whether the answer can be determined, not whether it is Yes.",
+      "example": "Is x > 5? Statement: x < 3. The answer is always No, so the statement is sufficient.",
+      "commonMistake": "Marking a statement insufficient because it answers \"No\".",
+      "applicationPrompt": "Is n even? Statement: n² is odd.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dsq-sc-same-equation",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "kind": "shortcut",
+      "title": "Two equations that are really one",
+      "prompt": "Two statements each give an equation in x and y. When are they not enough together?",
+      "formula": "Two equations fix two unknowns only if one is not a multiple of the other",
+      "variables": [],
+      "explanation": "A multiple of an equation carries no new information.",
+      "example": "x + y = 10 and 2x + 2y = 20 together still leave x = 3, y = 7 or x = 4, y = 6: not sufficient.",
+      "commonMistake": "Counting equations without checking that they are independent.",
+      "applicationPrompt": "What is x? (1) 3x − y = 5 (2) 6x − 2y = 10.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "data-sufficiency-level-0",
+      "topicId": "data-sufficiency",
+      "order": 0,
+      "title": "Five Options, One Strategy",
+      "description": "Every Data Sufficiency question is answered the same way: test each statement alone, then combine only if needed.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "dsq-options",
+        "dsq-strategy"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The same five answers, every time",
+            "body": "A Data Sufficiency question never asks you to actually solve the problem — only to decide whether it CAN be solved, and with which information. There are always exactly five possible answers, covering every combination of \"alone\" and \"together.\""
+          },
+          {
+            "type": "formula",
+            "title": "The five options",
+            "body": "A: (1) alone. B: (2) alone. C: both together, not alone. D: each alone. E: not even together.",
+            "caption": "Exactly one of these five is always the correct answer."
+          },
+          {
+            "type": "check",
+            "questionId": "data-sufficiency-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Always test statement (1) in total isolation from statement (2), and vice versa, before ever combining them."
+          },
+          {
+            "type": "check",
+            "questionId": "data-sufficiency-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "data-sufficiency-level-1",
+      "topicId": "data-sufficiency",
+      "order": 1,
+      "title": "Data Sufficiency Formulas",
+      "description": "The five standard options, the testing strategy, recognising single and combined sufficiency, and true insufficiency.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "data-sufficiency-level-0"
+      ],
+      "conceptIds": [
+        "dsq-options",
+        "dsq-strategy",
+        "dsq-single",
+        "dsq-combined"
+      ],
+      "formulaIds": [
+        "dsq-options-f",
+        "dsq-strategy-f",
+        "dsq-single-f",
+        "dsq-combined-f",
+        "dsq-neither-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "data-sufficiency-level-2",
+      "topicId": "data-sufficiency",
+      "order": 2,
+      "title": "Single-Statement Sufficiency",
+      "description": "Recognising when one statement alone is enough (or each is).",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "data-sufficiency-level-1"
+      ],
+      "conceptIds": [
+        "dsq-single",
+        "dsq-strategy",
+        "dsq-combined"
+      ],
+      "questionIds": [
+        "data-sufficiency-q-001",
+        "data-sufficiency-q-002",
+        "data-sufficiency-q-003",
+        "data-sufficiency-q-004",
+        "data-sufficiency-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "data-sufficiency-level-3",
+      "topicId": "data-sufficiency",
+      "order": 3,
+      "title": "Sharper Single Statements and Simple Combinations",
+      "description": "Trickier single-statement cases, and straightforward combined-sufficiency problems.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "data-sufficiency-level-2"
+      ],
+      "conceptIds": [
+        "dsq-single",
+        "dsq-combined",
+        "dsq-strategy"
+      ],
+      "questionIds": [
+        "data-sufficiency-q-006",
+        "data-sufficiency-q-007",
+        "data-sufficiency-q-008",
+        "data-sufficiency-q-009",
+        "data-sufficiency-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "data-sufficiency-level-4",
+      "topicId": "data-sufficiency",
+      "order": 4,
+      "title": "Harder Combinations and True Insufficiency",
+      "description": "Using one statement to filter another, and recognising when even both together fail.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "data-sufficiency-level-3"
+      ],
+      "conceptIds": [
+        "dsq-combined",
+        "dsq-single",
+        "dsq-neither"
+      ],
+      "questionIds": [
+        "data-sufficiency-q-011",
+        "data-sufficiency-q-012",
+        "data-sufficiency-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "data-sufficiency-level-5",
+      "topicId": "data-sufficiency",
+      "order": 5,
+      "title": "Mixed Data Sufficiency Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "data-sufficiency-level-4"
+      ],
+      "conceptIds": [
+        "dsq-combined",
+        "dsq-single",
+        "dsq-neither"
+      ],
+      "questionQuery": {
+        "topicId": "data-sufficiency",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "data-sufficiency-q-001",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "levelId": "data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of x? (1) x + 5 = 12. (2) x is a positive integer.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Statement (1) alone gives x = 7 directly — a single, definite value, so it is sufficient. Statement (2) alone allows countless positive integers, so it is not sufficient alone.",
+      "solutionSteps": [
+        "(1): x + 5 = 12 → x = 7. Sufficient.",
+        "(2): many positive integers fit. Not sufficient."
+      ],
+      "formulaIds": [
+        "dsq-single-f"
+      ],
+      "method": "Test each statement completely on its own.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve statement (1) by itself: does it give one definite value?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming a vague property statement like (2) is enough on its own."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-002",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-options",
+      "levelId": "data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "In a Data Sufficiency question, option C means",
+      "options": [
+        {
+          "id": "a",
+          "text": "statement (1) alone is sufficient"
+        },
+        {
+          "id": "b",
+          "text": "both statements together are sufficient, but neither alone is"
+        },
+        {
+          "id": "c",
+          "text": "each statement alone is sufficient"
+        },
+        {
+          "id": "d",
+          "text": "neither statement is sufficient, even together"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Option C specifically means the two statements are only sufficient when combined — neither one works by itself.",
+      "solutionSteps": [
+        "Option C = sufficient together, not sufficient separately."
+      ],
+      "formulaIds": [
+        "dsq-options-f"
+      ],
+      "method": "Match the outcome to the exact wording of each option.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Option C requires that neither statement works alone."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing option C with option D (each alone sufficient)."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-003",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "levelId": "data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of y? (1) 2y = 16. (2) y > 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Statement (1) alone gives y = 8, a single definite value — sufficient. Statement (2) alone only says y is positive, which still allows countless values — not sufficient.",
+      "solutionSteps": [
+        "(1): 2y = 16 → y = 8. Sufficient.",
+        "(2): y > 0 allows many values. Not sufficient."
+      ],
+      "formulaIds": [
+        "dsq-single-f"
+      ],
+      "method": "Check whether each statement alone pins down one exact value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A statement giving an equation is often sufficient by itself."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming statement (2) alone is enough just because it is true."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-004",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-strategy",
+      "levelId": "data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Is n even? (1) n is divisible by 4. (2) n is divisible by 6.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Statement (1) alone: every multiple of 4 is even, so it is sufficient by itself. Statement (2) alone: every multiple of 6 is also even, so it too is sufficient by itself. Since each works alone, the answer is D.",
+      "solutionSteps": [
+        "(1): multiples of 4 are always even. Sufficient.",
+        "(2): multiples of 6 are always even. Sufficient.",
+        "Each alone works → D."
+      ],
+      "formulaIds": [
+        "dsq-strategy-f"
+      ],
+      "method": "Test each statement completely independently before comparing results.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check whether statement (1) alone is enough, then separately check statement (2) alone."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping after confirming statement (1) works, without checking statement (2) alone too."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-005",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "levelId": "data-sufficiency-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of x? (1) x² = 25. (2) x > 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Statement (1) alone gives x = 5 or x = −5 — two possibilities, so it is not sufficient alone. Statement (2) alone only says x is positive, allowing countless values — not sufficient alone. Together, only x = 5 satisfies both, so combined they are sufficient.",
+      "solutionSteps": [
+        "(1): x = ±5. Not sufficient.",
+        "(2): x > 0 alone allows many values. Not sufficient.",
+        "Together: only x = 5 fits both. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-combined-f"
+      ],
+      "method": "Test each statement alone first, then combine only if needed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A squared equation usually gives two possible roots."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming statement (1) alone gives a single answer, forgetting the negative root."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-006",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "levelId": "data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Is x > 0? (1) x² > 0. (2) x³ > 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Statement (1) alone: x² > 0 just means x is not zero — x could be positive or negative, so it is not sufficient. Statement (2) alone: cubing preserves the sign of a number, so x³ > 0 means x must be positive — sufficient by itself.",
+      "solutionSteps": [
+        "(1): x² > 0 allows x positive or negative. Not sufficient.",
+        "(2): x³ > 0 forces x > 0. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-single-f"
+      ],
+      "method": "Remember that squaring hides the sign, but cubing preserves it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Squaring a negative number also gives a positive result."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming statement (1) also proves x is positive, like statement (2) does."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-007",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "levelId": "data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the average (mean) of 5 numbers? (1) Their sum is 50. (2) Their median is 10.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Statement (1) alone: mean = sum ÷ count = 50 ÷ 5 = 10 — a single definite value, sufficient. Statement (2) alone: knowing the median tells you nothing about the sum or mean of the other numbers, so it is not sufficient.",
+      "solutionSteps": [
+        "(1): mean = 50 ÷ 5 = 10. Sufficient.",
+        "(2): median does not determine the mean. Not sufficient."
+      ],
+      "formulaIds": [
+        "dsq-single-f"
+      ],
+      "method": "Check whether the given statistic actually determines the one you need.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The median and the mean are generally independent pieces of information."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the median and mean must be equal or related."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-008",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "levelId": "data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Is quadrilateral ABCD a square? (1) All four sides are equal. (2) All four angles are equal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Statement (1) alone: equal sides describe a rhombus, which is not necessarily a square. Not sufficient. Statement (2) alone: equal angles describe a rectangle, which is not necessarily a square. Not sufficient. Together: equal sides AND equal angles force a square. Sufficient.",
+      "solutionSteps": [
+        "(1): equal sides → rhombus, not necessarily square. Not sufficient.",
+        "(2): equal angles → rectangle, not necessarily square. Not sufficient.",
+        "Together: equal sides and angles → square. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-combined-f"
+      ],
+      "method": "Think of shapes that satisfy one condition but not the other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A rhombus has equal sides but is not always a square."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming equal sides alone already guarantees a square."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-009",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "levelId": "data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the value of x? (1) x + y = 10. (2) x − y = 4.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Statement (1) alone: infinitely many (x,y) pairs satisfy x+y=10. Not sufficient. Statement (2) alone: infinitely many pairs satisfy x−y=4 too. Not sufficient. Together: solving the two equations gives a unique x = 7. Sufficient.",
+      "solutionSteps": [
+        "(1) alone: infinitely many pairs. Not sufficient.",
+        "(2) alone: infinitely many pairs. Not sufficient.",
+        "Together: unique solution x = 7. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-combined-f"
+      ],
+      "method": "Two linear equations in two unknowns usually need both to pin down a unique solution.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "One linear equation in two unknowns never gives a unique answer by itself."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming one equation is already sufficient because it \"looks solvable.\""
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-010",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-strategy",
+      "levelId": "data-sufficiency-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Is x a multiple of 3? (1) x is a multiple of 9. (2) x is a multiple of 6.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Statement (1) alone: every multiple of 9 is also a multiple of 3. Sufficient. Statement (2) alone: every multiple of 6 is also a multiple of 3. Sufficient. Since each works alone, the answer is D.",
+      "solutionSteps": [
+        "(1): multiples of 9 are always multiples of 3. Sufficient.",
+        "(2): multiples of 6 are always multiples of 3. Sufficient.",
+        "Each alone works → D."
+      ],
+      "formulaIds": [
+        "dsq-strategy-f"
+      ],
+      "method": "Check whether each divisibility statement alone forces the answer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "9 and 6 are both themselves multiples of 3."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming you need both statements just because there are two of them."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-011",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-combined",
+      "levelId": "data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the value of x? (1) x² − 5x + 6 = 0. (2) x > 2.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Statement (1) alone: factorises to (x−2)(x−3)=0, giving x = 2 or x = 3 — two possibilities, not sufficient. Statement (2) alone: x > 2 allows countless values, not sufficient. Together: of the two roots from (1), only x = 3 satisfies x > 2, so the combination gives a unique answer.",
+      "solutionSteps": [
+        "(1): x = 2 or x = 3. Not sufficient.",
+        "(2) alone: x > 2 allows many values. Not sufficient.",
+        "Together: only x = 3 satisfies both. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-combined-f"
+      ],
+      "method": "Use statement (2) to filter the possibilities left by statement (1).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Statement (1) narrows x to a short list; statement (2) can then filter that list."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming statement (1) is already sufficient because it \"solves\" the equation."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-012",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-single",
+      "levelId": "data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Is the number n prime? (1) n is odd. (2) n has exactly two positive divisors.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Statement (1) alone: many odd numbers are not prime (9, 15, 21, …), so it is not sufficient. Statement (2) alone: having exactly two positive divisors is the definition of a prime number, so it is sufficient by itself.",
+      "solutionSteps": [
+        "(1): odd numbers like 9 and 15 are not prime. Not sufficient.",
+        "(2): \"exactly two divisors\" is the definition of prime. Sufficient."
+      ],
+      "formulaIds": [
+        "dsq-single-f"
+      ],
+      "method": "Recognise when a statement is actually a definition in disguise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of a specific odd composite number as a counterexample for statement (1)."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming all odd numbers are prime."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "data-sufficiency-q-013",
+      "topicId": "data-sufficiency",
+      "conceptId": "dsq-neither",
+      "levelId": "data-sufficiency-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the value of x? (1) x > 5. (2) x < 10.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient."
+        },
+        {
+          "id": "b",
+          "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient."
+        },
+        {
+          "id": "c",
+          "text": "BOTH statements TOGETHER are sufficient, but NEITHER statement alone is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "EACH statement ALONE is sufficient."
+        },
+        {
+          "id": "e",
+          "text": "Statements (1) and (2) TOGETHER are still NOT sufficient."
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "Statement (1) alone allows any value greater than 5 — not sufficient. Statement (2) alone allows any value less than 10 — not sufficient. Even combined, they only narrow x down to the range 5 < x < 10, which still contains infinitely many possible values, so the data is not sufficient even together.",
+      "solutionSteps": [
+        "(1) alone: x > 5, infinitely many values. Not sufficient.",
+        "(2) alone: x < 10, infinitely many values. Not sufficient.",
+        "Together: 5 < x < 10, still infinitely many values. Not sufficient."
+      ],
+      "formulaIds": [
+        "dsq-neither-f"
+      ],
+      "method": "A range of possible values, however narrow, is not the same as a single definite answer.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Combining a \"greater than\" and a \"less than\" statement usually just gives a range, not a single value."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming that combining any two statements must always produce a unique answer."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

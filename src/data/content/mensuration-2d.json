@@ -1,0 +1,2074 @@
+{
+  "topicId": "mensuration-2d",
+  "concepts": [
+    {
+      "id": "md-composite-perimeter",
+      "topicId": "mensuration-2d",
+      "name": "Perimeter of a composite figure",
+      "description": "To find the perimeter of a composite figure, add up only the lengths that form its actual outer boundary.",
+      "sortOrder": 1
+    },
+    {
+      "id": "md-composite-area",
+      "topicId": "mensuration-2d",
+      "name": "Area of a composite figure",
+      "description": "To find the area of a composite figure, split it into simple shapes (rectangles, triangles, circles) and add their areas.",
+      "sortOrder": 2
+    },
+    {
+      "id": "md-shaded",
+      "topicId": "mensuration-2d",
+      "name": "Shaded and remaining regions",
+      "description": "The area of a shaded or remaining region equals the area of the outer figure minus the area of the part removed from it.",
+      "sortOrder": 3
+    },
+    {
+      "id": "md-path",
+      "topicId": "mensuration-2d",
+      "name": "Paths and borders",
+      "description": "The area of a uniform border or path equals the area enclosed by its outer boundary minus the area enclosed by its inner boundary.",
+      "sortOrder": 4
+    },
+    {
+      "id": "md-inscribed",
+      "topicId": "mensuration-2d",
+      "name": "Circles inscribed in squares",
+      "description": "The largest circle that fits inside a square has a diameter equal to the square's side.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "md-composite-perimeter-f",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-perimeter",
+      "title": "Perimeter of a composite figure",
+      "prompt": "How do you find the perimeter of a composite figure?",
+      "formula": "Perimeter = sum of the segments forming the outer boundary only",
+      "variables": [],
+      "explanation": "Any internal edges used to split the figure into simpler shapes are not part of the actual boundary, so they are never included.",
+      "example": "An L-shaped figure with boundary sides 10, 5, 4, 3, 6 and 8 cm: perimeter = 10 + 5 + 4 + 3 + 6 + 8 = 36 cm",
+      "commonMistake": "Including an internal joining edge that is not actually part of the outer boundary.",
+      "applicationPrompt": "An L-shaped figure has boundary sides 10, 5, 4, 3, 6 and 8 cm. Find its perimeter.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-composite-area-f",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-area",
+      "title": "Area of a composite figure",
+      "prompt": "How do you find the area of a composite figure?",
+      "formula": "Area = sum of the areas of the simple shapes it is divided into",
+      "variables": [],
+      "explanation": "Split the figure along a natural line (like where a rectangle meets a triangle or semicircle), find each simple area, then add them.",
+      "example": "Rectangle 10 × 6 with a triangular roof of base 10 and height 4: area = (10 × 6) + (½ × 10 × 4) = 60 + 20 = 80 cm²",
+      "commonMistake": "Forgetting to add one of the sub-shapes, or double-counting the shared edge.",
+      "applicationPrompt": "A figure is a rectangle 10 cm by 6 cm with a triangular roof of base 10 cm and height 4 cm. Find its total area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-shaded-f",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-shaded",
+      "title": "Area of a shaded region",
+      "prompt": "How do you find the area of a shaded or remaining region?",
+      "formula": "Shaded area = area of the outer figure − area of the removed figure",
+      "variables": [],
+      "explanation": "This works whether the removed shape is a circle cut from a square, a triangle cut from a rectangle, or any other combination.",
+      "example": "A square of side 10 cm with a circle of radius 5 cm removed (π = 3.14): shaded area = 100 − 78.5 = 21.5 cm²",
+      "commonMistake": "Subtracting in the wrong order, or forgetting to compute the removed shape's area first.",
+      "applicationPrompt": "A square of side 10 cm has a circle of radius 5 cm removed from it. Find the shaded area (π = 3.14).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-path-f",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-path",
+      "title": "Area of a path or border",
+      "prompt": "How do you find the area of a uniform-width path or border?",
+      "formula": "Path area = area enclosed by the outer boundary − area enclosed by the inner boundary",
+      "variables": [],
+      "explanation": "Work out the outer and inner dimensions separately first, then subtract their areas — never subtract dimensions directly.",
+      "example": "A 20 m × 15 m garden with a 2 m wide path all around it (outer 24 m × 19 m): path area = (24 × 19) − (20 × 15) = 456 − 300 = 156 m²",
+      "commonMistake": "Forgetting that a border of width w adds 2w (not w) to both the length and the breadth.",
+      "applicationPrompt": "A 20 m by 15 m garden has a 2 m wide path built all around it. Find the area of the path.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-inscribed-f",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-inscribed",
+      "title": "Largest circle inside a square",
+      "prompt": "How do you find the area of the largest circle that fits inside a square?",
+      "formula": "diameter = side of the square, so radius = side ÷ 2; Area = πr²",
+      "variables": [],
+      "explanation": "The circle touches all four sides of the square, so its diameter exactly equals the square's side length.",
+      "example": "Square of side 14 cm (π = 22/7): radius = 7 cm, area = 22/7 × 7² = 154 cm²",
+      "commonMistake": "Using the square's side directly as the radius instead of halving it first.",
+      "applicationPrompt": "The largest possible circle is cut from a square sheet of side 14 cm. Find the area of the circle (π = 22/7).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "md-sc-path",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-path",
+      "kind": "shortcut",
+      "title": "A path round a rectangle",
+      "prompt": "What is the area of a path of width w round the outside (or inside) of an l × b plot?",
+      "formula": "Outside: 2w(l + b + 2w)\nInside: 2w(l + b − 2w)",
+      "variables": [],
+      "explanation": "It equals the outer rectangle minus the inner one, simplified once.",
+      "example": "20 × 10 plot, 2 m path outside: 2 × 2 × 34 = 136 m² (= 24 × 14 − 200).",
+      "commonMistake": "Adding w instead of 2w to each side.",
+      "applicationPrompt": "A 30 × 20 lawn has a 2.5 m path inside along its edge. Find the path area.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "md-sc-cross-roads",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-area",
+      "kind": "shortcut",
+      "title": "Two roads crossing a field",
+      "prompt": "Two roads of width w cross a rectangular field, one along each direction. What area do they cover?",
+      "formula": "Area = w(l + b − w)\n(the square where they meet is counted once)",
+      "variables": [],
+      "explanation": "Each road covers w times its length; the overlap would otherwise be counted twice.",
+      "example": "60 × 40 field, roads 3 m wide: 3 × 97 = 291 m².",
+      "commonMistake": "Forgetting to subtract the w × w crossing square.",
+      "applicationPrompt": "Two 5 m roads cross an 80 × 50 park. Find the road area.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "md-sc-inscribed",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-inscribed",
+      "kind": "shortcut",
+      "title": "Circle in a square, square in a circle",
+      "prompt": "How are a square and a circle related when one fits exactly inside the other?",
+      "formula": "Circle inside a square of side a: r = a/2\nSquare inside a circle of radius r: side = r√2, area = 2r²",
+      "variables": [],
+      "explanation": "The square's side is the circle's diameter in the first case, and its diagonal in the second.",
+      "example": "A square inside a circle of radius 5 has area 2 × 25 = 50.",
+      "commonMistake": "Using the diameter as the square's side when the square is inside.",
+      "applicationPrompt": "Find the area between a circle of radius 7 and the largest square inside it (π = 22/7).",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mensuration-2d-level-0",
+      "topicId": "mensuration-2d",
+      "order": 0,
+      "title": "Composite Figures: Perimeter and Area",
+      "description": "Add boundary lengths for perimeter; split into simple shapes and add areas.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "md-composite-perimeter",
+        "md-composite-area"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Breaking a figure into simple pieces",
+            "body": "A composite figure looks complicated, but it is always built from simple shapes — rectangles, triangles, circles — joined together. The trick is always the same: split it up, work out each simple piece, then combine."
+          },
+          {
+            "type": "formula",
+            "title": "Composite perimeter and area",
+            "body": "Perimeter = sum of the outer boundary sides; Area = sum of the simple shapes' areas",
+            "caption": "Perimeter only counts the actual outer edge; area adds up every piece, including ones only visible after you split the figure."
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-2d-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For a shaded or remaining region, subtract instead of add: shaded area = outer figure's area − removed figure's area."
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-2d-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "mensuration-2d-level-1",
+      "topicId": "mensuration-2d",
+      "order": 1,
+      "title": "2D Mensuration Formulas",
+      "description": "Composite perimeter, composite area, shaded regions, paths/borders, and circles inscribed in squares.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mensuration-2d-level-0"
+      ],
+      "conceptIds": [
+        "md-composite-perimeter",
+        "md-composite-area",
+        "md-shaded",
+        "md-path",
+        "md-inscribed"
+      ],
+      "formulaIds": [
+        "md-composite-perimeter-f",
+        "md-composite-area-f",
+        "md-shaded-f",
+        "md-path-f",
+        "md-inscribed-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mensuration-2d-level-2",
+      "topicId": "mensuration-2d",
+      "order": 2,
+      "title": "Composite Perimeter, Area and Shaded Regions",
+      "description": "Adding boundary sides, combining simple areas, and subtracting a removed shape.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "mensuration-2d-level-1"
+      ],
+      "conceptIds": [
+        "md-composite-perimeter",
+        "md-composite-area",
+        "md-shaded",
+        "md-inscribed"
+      ],
+      "questionIds": [
+        "mensuration-2d-q-001",
+        "mensuration-2d-q-002",
+        "mensuration-2d-q-003",
+        "mensuration-2d-q-010",
+        "mensuration-2d-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mensuration-2d-level-3",
+      "topicId": "mensuration-2d",
+      "order": 3,
+      "title": "Paths, Semicircles and Inscribed Circles",
+      "description": "Uniform-width paths, a rectangle-plus-semicircle composite, a triangle-in-rectangle shaded region, and the largest circle in a square.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mensuration-2d-level-2"
+      ],
+      "conceptIds": [
+        "md-path",
+        "md-composite-area",
+        "md-shaded",
+        "md-inscribed"
+      ],
+      "questionIds": [
+        "mensuration-2d-q-004",
+        "mensuration-2d-q-005",
+        "mensuration-2d-q-006",
+        "mensuration-2d-q-007",
+        "mensuration-2d-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mensuration-2d-level-4",
+      "topicId": "mensuration-2d",
+      "order": 4,
+      "title": "Multi-Step Composite Problems",
+      "description": "A circular path around a pond, and a running-track shape combining a rectangle with two semicircles.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mensuration-2d-level-3"
+      ],
+      "conceptIds": [
+        "md-path",
+        "md-composite-area",
+        "md-inscribed"
+      ],
+      "questionIds": [
+        "mensuration-2d-q-008",
+        "mensuration-2d-q-009",
+        "mensuration-2d-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "mensuration-2d-level-5",
+      "topicId": "mensuration-2d",
+      "order": 5,
+      "title": "Mixed 2D Mensuration Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "mensuration-2d-level-4"
+      ],
+      "conceptIds": [
+        "md-path",
+        "md-composite-area"
+      ],
+      "questionQuery": {
+        "topicId": "mensuration-2d",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "mensuration-2d-q-001",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-perimeter",
+      "levelId": "mensuration-2d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "An L-shaped figure has boundary sides, in order around its edge, of 10 cm, 5 cm, 4 cm, 3 cm, 6 cm and 8 cm. Find its perimeter.",
+      "context": "Study the L-shaped figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "An L-shaped figure with boundary sides 10 cm, 5 cm, 4 cm, 3 cm, 6 cm and 8 cm, in order",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -12,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 5,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": 6,
+            "y": 5,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "E",
+            "x": 6,
+            "y": 8,
+            "labelOffset": [
+              -4,
+              -8
+            ]
+          },
+          {
+            "id": "F",
+            "x": 0,
+            "y": 8,
+            "labelOffset": [
+              -12,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          }
+        ],
+        "ariaSummary": "An L-shaped figure with boundary sides 10 cm, 5 cm, 4 cm, 3 cm, 6 cm and 8 cm, in order"
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Perimeter = sum of all boundary sides = 10 + 5 + 4 + 3 + 6 + 8 = 36 cm.",
+      "solutionSteps": [
+        "10 + 5 + 4 + 3 = 22.",
+        "22 + 6 + 8 = 36."
+      ],
+      "formulaIds": [
+        "md-composite-perimeter-f"
+      ],
+      "method": "Add up every side that forms the outer boundary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every side listed is part of the outer edge — just add them all."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use a rectangle perimeter formula instead of adding the actual boundary sides."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-002",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-area",
+      "levelId": "mensuration-2d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A figure is made of a rectangle 10 cm by 6 cm with a triangular roof of base 10 cm and height 4 cm attached on top. Find its total area.",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A rectangle 10 cm by 6 cm with a triangular roof of base 10 cm and height 4 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 6,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "E",
+            "x": 5,
+            "y": 10,
+            "labelOffset": [
+              -4,
+              12
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "E",
+              "D"
+            ]
+          }
+        ],
+        "ariaSummary": "A rectangle 10 cm by 6 cm with a triangular roof of base 10 cm and height 4 cm"
+      },
+      "answer": {
+        "value": 80,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Rectangle area = 10 × 6 = 60 cm². Triangle area = ½ × 10 × 4 = 20 cm². Total = 60 + 20 = 80 cm².",
+      "solutionSteps": [
+        "10 × 6 = 60.",
+        "½ × 10 × 4 = 20.",
+        "60 + 20 = 80."
+      ],
+      "formulaIds": [
+        "md-composite-area-f"
+      ],
+      "method": "Find the rectangle's area and the triangle's area separately, then add them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split the figure along the line where the roof meets the rectangle."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add the triangular roof's area to the rectangle's area."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-003",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-shaded",
+      "levelId": "mensuration-2d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A square of side 10 cm has a circle of radius 5 cm removed from it. Find the area of the shaded (remaining) region. (Use π = 3.14.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A square of side 10 cm with a circle of radius 5 cm removed; the remaining corners are shaded",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 10,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 10,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 5,
+            "y": 5,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 5
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "Square ABCD of side 10 cm with a circle of radius 5 cm removed from its middle. The four corner pieces left over, inside the square but outside the circle, are shaded."
+      },
+      "answer": {
+        "value": 21.5,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Square area = 10² = 100 cm². Circle area = 3.14 × 5² = 78.5 cm². Shaded area = 100 − 78.5 = 21.5 cm².",
+      "solutionSteps": [
+        "10² = 100.",
+        "3.14 × 25 = 78.5.",
+        "100 − 78.5 = 21.5."
+      ],
+      "formulaIds": [
+        "md-shaded-f"
+      ],
+      "method": "Find the square's area and the circle's area, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The circle's diameter exactly matches the square's side here."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the radius from the side instead of subtracting the areas."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-004",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-path",
+      "levelId": "mensuration-2d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A rectangular garden 20 m by 15 m has a path of uniform width 2 m built all around it. Find the area of the path.",
+      "context": "Study the garden and its path.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A 20 m by 15 m garden with a 2 m wide path all around it; the path is shaded",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 24,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 24,
+            "y": 19,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 19,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "E",
+            "x": 2,
+            "y": 2,
+            "hidden": true
+          },
+          {
+            "id": "F",
+            "x": 22,
+            "y": 2,
+            "hidden": true
+          },
+          {
+            "id": "G",
+            "x": 22,
+            "y": 17,
+            "hidden": true
+          },
+          {
+            "id": "H",
+            "x": 2,
+            "y": 17,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "E",
+              "F",
+              "G",
+              "H"
+            ],
+            "style": "dashed"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  "E",
+                  "F",
+                  "G",
+                  "H"
+                ]
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "A 20 m by 15 m garden (dashed) inside a 24 m by 19 m outer boundary ABCD. The 2 m wide path between them is shaded."
+      },
+      "answer": {
+        "value": 156,
+        "tolerance": 0,
+        "unit": "m²"
+      },
+      "explanation": "The path adds 2 m on every side, so the outer rectangle is (20 + 4) × (15 + 4) = 24 × 19 = 456 m². Path area = 456 − (20 × 15) = 456 − 300 = 156 m².",
+      "solutionSteps": [
+        "20 + 2×2 = 24; 15 + 2×2 = 19.",
+        "24 × 19 = 456.",
+        "456 − 300 = 156."
+      ],
+      "formulaIds": [
+        "md-path-f"
+      ],
+      "method": "Add twice the path width to both dimensions to get the outer size, then subtract the inner area.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A path of width 2 m adds 2 m on each of the two opposite sides, so 4 m in total to each dimension."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the path width only once to each dimension instead of twice."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-005",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-area",
+      "levelId": "mensuration-2d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A figure is made of a rectangle 14 cm by 12 cm with a semicircle of diameter 14 cm attached to one of its 14 cm sides. Find the total area. (Use π = 22/7.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A rectangle 14 cm by 12 cm with a semicircle of diameter 14 cm on top",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 14,
+            "y": 12,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 12,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "M",
+            "x": 7,
+            "y": 12,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "arc",
+            "center": "M",
+            "radius": 7,
+            "startAngle": -90,
+            "endAngle": 90
+          }
+        ],
+        "ariaSummary": "A rectangle 14 cm by 12 cm with a semicircle of diameter 14 cm on top"
+      },
+      "answer": {
+        "value": 245,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Rectangle area = 14 × 12 = 168 cm². The semicircle has radius 7 cm, so its area = ½ × 22/7 × 7² = 77 cm². Total = 168 + 77 = 245 cm².",
+      "solutionSteps": [
+        "14 × 12 = 168.",
+        "radius = 14 ÷ 2 = 7.",
+        "½ × 22/7 × 49 = 77.",
+        "168 + 77 = 245."
+      ],
+      "formulaIds": [
+        "md-composite-area-f"
+      ],
+      "method": "Find the rectangle's area and the semicircle's area separately, then add them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The semicircle's diameter matches the rectangle's 14 cm side, so its radius is 7 cm."
+        }
+      ],
+      "commonMistakes": [
+        "Using the full circle area instead of half of it for the semicircle."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-006",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-shaded",
+      "levelId": "mensuration-2d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A rectangle 16 cm by 10 cm has a triangle drawn inside it, using one full 16 cm side as its base and reaching all the way to the opposite side (height 10 cm). Find the area of the shaded region outside the triangle but inside the rectangle.",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A rectangle 16 cm by 10 cm with a triangle on one full side; the part outside the triangle is shaded",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 16,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 16,
+            "y": 10,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 10,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "P",
+            "x": 6,
+            "y": 10,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "P"
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "P"
+                ]
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "Rectangle ABCD, 16 cm by 10 cm, with a triangle on base AB whose top vertex touches the opposite side DC, so its height is 10 cm. The two parts of the rectangle outside the triangle are shaded."
+      },
+      "answer": {
+        "value": 80,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Rectangle area = 16 × 10 = 160 cm². Triangle area = ½ × 16 × 10 = 80 cm². Shaded area = 160 − 80 = 80 cm².",
+      "solutionSteps": [
+        "16 × 10 = 160.",
+        "½ × 16 × 10 = 80.",
+        "160 − 80 = 80."
+      ],
+      "formulaIds": [
+        "md-shaded-f"
+      ],
+      "method": "Find the rectangle's area and the triangle's area, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The triangle's base and height both match the rectangle's sides exactly."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to halve the triangle's area before subtracting."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-007",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-inscribed",
+      "levelId": "mensuration-2d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The largest possible circle is cut from a square sheet of side 14 cm. Find the area of the circle. (Use π = 22/7.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "The largest possible circle cut from a square sheet of side 14 cm; the circle is shaded",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 14,
+            "y": 14,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 14,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 7,
+            "y": 7,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 7
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 7
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "Square sheet ABCD of side 14 cm with the largest circle that fits inside it, touching all four sides. The circle is shaded."
+      },
+      "answer": {
+        "value": 154,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "The circle's diameter equals the square's side, 14 cm, so its radius is 7 cm. Area = 22/7 × 7² = 154 cm².",
+      "solutionSteps": [
+        "radius = 14 ÷ 2 = 7.",
+        "22/7 × 49 = 154."
+      ],
+      "formulaIds": [
+        "md-inscribed-f"
+      ],
+      "method": "Halve the square's side to get the circle's radius, then apply the area formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The circle touches all four sides of the square, so its diameter equals the side length."
+        }
+      ],
+      "commonMistakes": [
+        "Using the full side length as the radius instead of halving it first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-008",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-path",
+      "levelId": "mensuration-2d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A circular pond of radius 7 m is surrounded by a circular path of uniform width 7 m. Find the area of the path. (Use π = 22/7.)",
+      "context": "Study the pond and its surrounding path.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A circular pond of radius 7 m surrounded by a path of width 7 m; the path is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              14
+            ]
+          },
+          {
+            "id": "P",
+            "x": 7,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "A",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 14
+          },
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 7,
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "P",
+            "style": "dashed",
+            "label": "7 m"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A",
+            "style": "dashed",
+            "label": "7 m"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 14
+              },
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 7
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "A circular pond with center O and radius 7 m (dashed edge), surrounded by a path 7 m wide, so the outer edge has radius 14 m. The ring-shaped path is shaded."
+      },
+      "answer": {
+        "value": 462,
+        "tolerance": 0,
+        "unit": "m²"
+      },
+      "explanation": "The outer radius is 7 + 7 = 14 m. Outer area = 22/7 × 14² = 616 m². Inner (pond) area = 22/7 × 7² = 154 m². Path area = 616 − 154 = 462 m².",
+      "solutionSteps": [
+        "Outer radius = 7 + 7 = 14.",
+        "22/7 × 14² = 616.",
+        "22/7 × 7² = 154.",
+        "616 − 154 = 462."
+      ],
+      "formulaIds": [
+        "md-path-f"
+      ],
+      "method": "Add the path width to the pond's radius to get the outer radius, then subtract the two circle areas.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A path of width w around a circle of radius r has outer radius r + w."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the width incorrectly, unlike a rectangular path which needs the width added on both opposite sides of each dimension."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-009",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-area",
+      "levelId": "mensuration-2d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A running track is made of a rectangle 40 m by 14 m with a semicircle attached at each of the two shorter ends (each semicircle has diameter 14 m). Find the total area enclosed by the track. (Use π = 22/7.)",
+      "context": "Study the running track and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A running track: a rectangle 40 m by 14 m with a semicircle at each short end",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              -8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 40,
+            "y": 0,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 40,
+            "y": 14,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 14,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "ML",
+            "x": 0,
+            "y": 7,
+            "hidden": true
+          },
+          {
+            "id": "MR",
+            "x": 40,
+            "y": 7,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "arc",
+            "center": "ML",
+            "radius": 7,
+            "startAngle": 180,
+            "endAngle": 360
+          },
+          {
+            "type": "arc",
+            "center": "MR",
+            "radius": 7,
+            "startAngle": 0,
+            "endAngle": 180
+          }
+        ],
+        "ariaSummary": "A running track: a rectangle 40 m by 14 m with a semicircle at each short end"
+      },
+      "answer": {
+        "value": 714,
+        "tolerance": 0,
+        "unit": "m²"
+      },
+      "explanation": "Rectangle area = 40 × 14 = 560 m². The two semicircles together make one full circle of radius 7 m: area = 22/7 × 7² = 154 m². Total = 560 + 154 = 714 m².",
+      "solutionSteps": [
+        "40 × 14 = 560.",
+        "radius = 14 ÷ 2 = 7.",
+        "22/7 × 49 = 154 (both semicircles combined).",
+        "560 + 154 = 714."
+      ],
+      "formulaIds": [
+        "md-composite-area-f"
+      ],
+      "method": "The two semicircles at the ends combine into one full circle — find that area, then add the rectangle's area.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two semicircles of the same radius always combine to make one full circle."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the single-circle area instead of recognising the two semicircles already form one full circle."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-010",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-composite-perimeter",
+      "levelId": "mensuration-2d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A protractor is a semicircle of diameter 14 cm. Find its perimeter, including the straight edge. (Use π = 22/7.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A semicircle of diameter 14 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "M",
+            "x": 7,
+            "y": 0,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "14 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "arc",
+            "center": "M",
+            "radius": 7,
+            "startAngle": -90,
+            "endAngle": 90
+          }
+        ],
+        "ariaSummary": "A semicircle standing on its straight edge AB, the diameter, 14 cm long."
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Curved edge = half the circumference = ½ × π × 14 = ½ × 22/7 × 14 = 22 cm. Add the straight edge (the diameter): 22 + 14 = 36 cm.",
+      "solutionSteps": [
+        "Curved part = ½ × 22/7 × 14 = 22 cm.",
+        "Straight part = diameter = 14 cm.",
+        "Perimeter = 22 + 14 = 36 cm."
+      ],
+      "formulaIds": [
+        "md-composite-perimeter-f"
+      ],
+      "method": "Add half the circumference to the diameter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The boundary has two parts: a curved arc and the straight diameter."
+        }
+      ],
+      "commonMistakes": [
+        "Giving only the curved length, 22 cm, and leaving out the diameter."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-011",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-inscribed",
+      "levelId": "mensuration-2d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A square ABCD is drawn inside a circle of radius 5 cm so that all four of its corners lie on the circle. How long is the diagonal AC of the square?",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A square with its corners on a circle of radius 5 cm",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "A",
+            "x": -3.54,
+            "y": -3.54,
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3.54,
+            "y": -3.54,
+            "labelOffset": [
+              10,
+              14
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3.54,
+            "y": 3.54,
+            "labelOffset": [
+              10,
+              -6
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3.54,
+            "y": 3.54,
+            "labelOffset": [
+              -10,
+              -6
+            ]
+          },
+          {
+            "id": "R",
+            "x": 0,
+            "y": 5,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "R",
+            "style": "dashed",
+            "label": "5 cm",
+            "labelOffset": [
+              -18,
+              0
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "A circle with center O and a radius marked 5 cm. Square ABCD has all four corners on the circle, and its diagonal AC is drawn dashed."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "5 cm"
+        },
+        {
+          "id": "b",
+          "text": "5√2 cm"
+        },
+        {
+          "id": "c",
+          "text": "10 cm"
+        },
+        {
+          "id": "d",
+          "text": "20 cm"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Diagonal AC passes through the center O, so it is a diameter of the circle: AC = 2 × 5 = 10 cm. (5√2 cm is the side of the square, not its diagonal.)",
+      "solutionSteps": [
+        "The diagonal of the square passes through the center of the circle.",
+        "So diagonal = diameter = 2 × 5 = 10 cm."
+      ],
+      "formulaIds": [
+        "md-sc-inscribed"
+      ],
+      "method": "Recognise the square's diagonal as a diameter of the circle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Opposite corners of the square sit at opposite ends of the circle. What line joins them?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking the radius, 5 cm, as the diagonal.",
+        "Giving the side of the square, 5√2 cm, instead of its diagonal."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-012",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-shaded",
+      "levelId": "mensuration-2d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "ABCD is a square of side 14 cm. A quarter circle of radius 7 cm is cut away at each of its four corners. Find the area of the part that remains. (Use π = 22/7.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A square of side 14 cm with a quarter circle of radius 7 cm cut from each corner; the part that remains is shaded",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 14,
+            "y": 14,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 14,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "arc",
+            "center": "A",
+            "radius": 7,
+            "startAngle": 0,
+            "endAngle": 90
+          },
+          {
+            "type": "arc",
+            "center": "B",
+            "radius": 7,
+            "startAngle": 270,
+            "endAngle": 360
+          },
+          {
+            "type": "arc",
+            "center": "C",
+            "radius": 7,
+            "startAngle": 180,
+            "endAngle": 270
+          },
+          {
+            "type": "arc",
+            "center": "D",
+            "radius": 7,
+            "startAngle": 90,
+            "endAngle": 180
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "14 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              {
+                "type": "sector",
+                "center": "A",
+                "radius": 7,
+                "startAngle": 0,
+                "endAngle": 90
+              },
+              {
+                "type": "sector",
+                "center": "B",
+                "radius": 7,
+                "startAngle": 270,
+                "endAngle": 360
+              },
+              {
+                "type": "sector",
+                "center": "C",
+                "radius": 7,
+                "startAngle": 180,
+                "endAngle": 270
+              },
+              {
+                "type": "sector",
+                "center": "D",
+                "radius": 7,
+                "startAngle": 90,
+                "endAngle": 180
+              }
+            ]
+          }
+        ],
+        "ariaSummary": "Square ABCD of side 14 cm. A quarter circle of radius 7 cm is cut away at each corner; neighbouring quarter circles meet at the midpoints of the sides. The part that remains, in the middle, is shaded."
+      },
+      "answer": {
+        "value": 42,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "The four quarter circles together make one full circle of radius 7 cm: area = 22/7 × 7 × 7 = 154 cm². The square's area is 14 × 14 = 196 cm². Remaining area = 196 − 154 = 42 cm².",
+      "solutionSteps": [
+        "Square = 14 × 14 = 196 cm².",
+        "4 quarter circles = 1 circle of radius 7: 22/7 × 7² = 154 cm².",
+        "Remaining = 196 − 154 = 42 cm²."
+      ],
+      "formulaIds": [
+        "md-shaded-f"
+      ],
+      "method": "Combine the four quarters into one circle and subtract it from the square.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Four quarter circles of the same radius make one whole circle."
+        },
+        {
+          "level": 2,
+          "text": "Each radius is half the side, so neighbouring quarters just meet."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting only one quarter circle (38.5 cm²) instead of all four."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-2d-q-013",
+      "topicId": "mensuration-2d",
+      "conceptId": "md-inscribed",
+      "levelId": "mensuration-2d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A square is drawn inside a circle of radius 7 cm with all four of its corners on the circle. Find the area of the region inside the circle but outside the square. (Use π = 22/7.)",
+      "context": "Study the figure and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A square with its corners on a circle of radius 7 cm; the region between them is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "A",
+            "x": -4.95,
+            "y": -4.95,
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.95,
+            "y": -4.95,
+            "labelOffset": [
+              10,
+              14
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.95,
+            "y": 4.95,
+            "labelOffset": [
+              10,
+              -6
+            ]
+          },
+          {
+            "id": "D",
+            "x": -4.95,
+            "y": 4.95,
+            "labelOffset": [
+              -10,
+              -6
+            ]
+          },
+          {
+            "id": "R",
+            "x": 0,
+            "y": 7,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 7
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "R",
+            "style": "dashed",
+            "label": "7 cm",
+            "labelOffset": [
+              -18,
+              0
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 7
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              }
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "A circle with center O and a radius marked 7 cm. Square ABCD has all four corners on the circle. The four pieces inside the circle but outside the square are shaded."
+      },
+      "answer": {
+        "value": 56,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Circle area = 22/7 × 7² = 154 cm². The square's diagonal is a diameter, 14 cm, so its area = ½ × 14² = 98 cm². Region between them = 154 − 98 = 56 cm².",
+      "solutionSteps": [
+        "Circle = 22/7 × 7 × 7 = 154 cm².",
+        "Square diagonal = diameter = 14 cm.",
+        "Square area = ½ × 14² = 98 cm².",
+        "Region = 154 − 98 = 56 cm²."
+      ],
+      "formulaIds": [
+        "md-sc-inscribed",
+        "md-shaded-f"
+      ],
+      "method": "Find the square's area from its diagonal, then subtract it from the circle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The square's diagonal equals the circle's diameter."
+        },
+        {
+          "level": 2,
+          "text": "A square with diagonal d has area d² ÷ 2."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the square's side as 14 cm, giving 196 cm², which is bigger than the circle itself."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

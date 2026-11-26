@@ -1,0 +1,1025 @@
+{
+  "topicId": "surds-indices",
+  "concepts": [
+    {
+      "id": "si-laws",
+      "topicId": "surds-indices",
+      "name": "Laws of indices",
+      "description": "Powers of the same base combine by adding, subtracting or multiplying exponents.",
+      "sortOrder": 1
+    },
+    {
+      "id": "si-fractional",
+      "topicId": "surds-indices",
+      "name": "Zero, negative and fractional exponents",
+      "description": "a⁰ = 1, a⁻ⁿ = 1/aⁿ and a^(1/n) is the n-th root of a.",
+      "sortOrder": 2
+    },
+    {
+      "id": "si-surds",
+      "topicId": "surds-indices",
+      "name": "Simplifying and combining surds",
+      "description": "Pull out square factors; add and subtract only like surds.",
+      "sortOrder": 3
+    },
+    {
+      "id": "si-equations",
+      "topicId": "surds-indices",
+      "name": "Equations with exponents",
+      "description": "Write both sides in the same base, then equate the exponents.",
+      "sortOrder": 4
+    },
+    {
+      "id": "si-rationalise",
+      "topicId": "surds-indices",
+      "name": "Rationalising the denominator",
+      "description": "Multiply top and bottom by the conjugate to clear surds from the denominator.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "si-laws-f",
+      "topicId": "surds-indices",
+      "conceptId": "si-laws",
+      "title": "Laws of indices",
+      "prompt": "How do you combine powers of the same base?",
+      "formula": "aᵐ × aⁿ = aᵐ⁺ⁿ\naᵐ ÷ aⁿ = aᵐ⁻ⁿ\n(aᵐ)ⁿ = aᵐⁿ\n(ab)ⁿ = aⁿbⁿ",
+      "variables": [],
+      "explanation": "A power is repeated multiplication, so multiplying powers of one base just counts the total number of factors.",
+      "example": "2³ × 2⁴ = 2⁷ = 128\n(3²)³ = 3⁶ = 729",
+      "commonMistake": "Multiplying the exponents when multiplying the powers (2³ × 2⁴ ≠ 2¹²).",
+      "applicationPrompt": "Find 2³ × 2⁴.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-fractional-f",
+      "topicId": "surds-indices",
+      "conceptId": "si-fractional",
+      "title": "Special exponents",
+      "prompt": "What do a zero, negative or fractional exponent mean?",
+      "formula": "a⁰ = 1\na⁻ⁿ = 1/aⁿ\na^(1/n) = ⁿ√a\na^(m/n) = (ⁿ√a)ᵐ",
+      "variables": [],
+      "explanation": "These definitions keep the laws of indices working: a³ ÷ a³ must be 1, so a⁰ = 1.",
+      "example": "2⁻³ = 1/8\n16^(3/4) = (⁴√16)³ = 2³ = 8",
+      "commonMistake": "Treating a negative exponent as a negative number.",
+      "applicationPrompt": "Find 16^(3/4).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-surd-f",
+      "topicId": "surds-indices",
+      "conceptId": "si-surds",
+      "title": "Surd rules",
+      "prompt": "How do you simplify and combine surds?",
+      "formula": "√(ab) = √a × √b\n√a × √a = a\nk√a + m√a = (k + m)√a",
+      "variables": [],
+      "explanation": "Take out perfect-square factors. Only surds with the same radicand can be added.",
+      "example": "√50 = √25 × √2 = 5√2\n3√2 + 5√2 − √2 = 7√2",
+      "commonMistake": "Adding surds with different radicands (√2 + √3 ≠ √5).",
+      "applicationPrompt": "Simplify √50.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-equation-f",
+      "topicId": "surds-indices",
+      "conceptId": "si-equations",
+      "title": "Equal bases",
+      "prompt": "How do you solve an equation with the unknown in an exponent?",
+      "formula": "aˣ = aʸ  ⇒  x = y  (a > 0, a ≠ 1)",
+      "variables": [],
+      "explanation": "Write both sides as powers of the same base, then the exponents must match.",
+      "example": "9^(x+1) = 27^(x−1)\n3^(2x+2) = 3^(3x−3) → x = 5",
+      "commonMistake": "Equating the bases or the exponents before making the bases equal.",
+      "applicationPrompt": "Solve 9^(x+1) = 27^(x−1).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-rationalise-f",
+      "topicId": "surds-indices",
+      "conceptId": "si-rationalise",
+      "title": "Rationalising",
+      "prompt": "How do you remove a surd from a denominator?",
+      "formula": "1/√a = √a/a\n1/(√a − √b) = (√a + √b)/(a − b)\n1/(√a + √b) = (√a − √b)/(a − b)",
+      "variables": [],
+      "explanation": "Multiplying by the conjugate turns the denominator into a difference of squares, which is rational.",
+      "example": "1/(√5 − √2) = (√5 + √2)/(5 − 2) = (√5 + √2)/3",
+      "commonMistake": "Forgetting to divide by a − b.",
+      "applicationPrompt": "Rationalise 1/(√5 − √2).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-sc-same-base",
+      "topicId": "surds-indices",
+      "conceptId": "si-equations",
+      "kind": "shortcut",
+      "title": "Make the bases match",
+      "prompt": "An equation has powers of 4, 8 and 16. What do you do first?",
+      "formula": "Rewrite every number as a power of the same prime, then equate the powers",
+      "variables": [],
+      "explanation": "Once the bases are equal, the exponents must be equal.",
+      "example": "4ˣ = 8: 2^(2x) = 2³, so x = 3/2.",
+      "commonMistake": "Equating exponents while the bases are still different.",
+      "applicationPrompt": "Solve 9^(x + 1) = 27^x.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-sc-compare-roots",
+      "topicId": "surds-indices",
+      "conceptId": "si-surds",
+      "kind": "shortcut",
+      "title": "Comparing roots of different orders",
+      "prompt": "Which is larger, ∛4 or √3?",
+      "formula": "Raise both to the LCM of the root orders, then compare whole numbers",
+      "variables": [],
+      "explanation": "Raising positive numbers to the same power keeps their order and removes the roots.",
+      "example": "∛4 and √3: raise to the 6th power: 4² = 16 and 3³ = 27, so √3 is larger.",
+      "commonMistake": "Comparing 4 and 3 directly and ignoring the different roots.",
+      "applicationPrompt": "Arrange ∜5, √2 and ∛3 in order.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-sc-nested",
+      "topicId": "surds-indices",
+      "conceptId": "si-rationalise",
+      "kind": "shortcut",
+      "title": "Square root of a + 2√b",
+      "prompt": "How do you simplify √(7 + 2√10)?",
+      "formula": "√(a + 2√b) = √x + √y\nwhere x + y = a and xy = b",
+      "variables": [],
+      "explanation": "(√x + √y)² = x + y + 2√(xy), so match the two parts.",
+      "example": "√(7 + 2√10): numbers adding to 7 and multiplying to 10 are 5 and 2, so it is √5 + √2.",
+      "commonMistake": "Forgetting to make the middle term 2√b first, for example 8 + √60 = 8 + 2√15.",
+      "applicationPrompt": "Simplify √(8 + 2√15).",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "surds-indices-level-0",
+      "topicId": "surds-indices",
+      "order": 0,
+      "title": "Powers Follow Rules",
+      "description": "A handful of laws that make large powers and roots easy.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "si-laws",
+        "si-fractional"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Counting factors",
+            "body": "2³ means 2 × 2 × 2. So 2³ × 2⁴ is seven 2s multiplied together: 2⁷. Every law of indices is just counting factors in a different way."
+          },
+          {
+            "type": "formula",
+            "title": "The laws",
+            "body": "aᵐ × aⁿ = aᵐ⁺ⁿ\naᵐ ÷ aⁿ = aᵐ⁻ⁿ\n(aᵐ)ⁿ = aᵐⁿ",
+            "caption": "The base must be the same to add or subtract exponents."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "index-laws"
+          },
+          {
+            "type": "check",
+            "questionId": "surds-indices-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Beyond whole numbers",
+            "body": "a⁰ = 1, a⁻ⁿ = 1/aⁿ and a^(1/n) is the n-th root. So 2⁻³ = 1/8 (not −8), and 16^(3/4) = (⁴√16)³ = 8."
+          },
+          {
+            "type": "check",
+            "questionId": "surds-indices-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "surds-indices-level-1",
+      "topicId": "surds-indices",
+      "order": 1,
+      "title": "Surds & Indices Formulas",
+      "description": "Index laws, special exponents, surds, equations and rationalising.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "surds-indices-level-0"
+      ],
+      "conceptIds": [
+        "si-laws",
+        "si-fractional",
+        "si-surds",
+        "si-equations",
+        "si-rationalise"
+      ],
+      "formulaIds": [
+        "si-laws-f",
+        "si-fractional-f",
+        "si-surd-f",
+        "si-equation-f",
+        "si-rationalise-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "surds-indices-level-2",
+      "topicId": "surds-indices",
+      "order": 2,
+      "title": "Direct Index Questions",
+      "description": "Apply one law at a time.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "surds-indices-level-1"
+      ],
+      "conceptIds": [
+        "si-laws",
+        "si-fractional"
+      ],
+      "questionIds": [
+        "surds-indices-q-001",
+        "surds-indices-q-002",
+        "surds-indices-q-003",
+        "surds-indices-q-004",
+        "surds-indices-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "surds-indices-level-3",
+      "topicId": "surds-indices",
+      "order": 3,
+      "title": "Surds and Equal Bases",
+      "description": "Simplify surds, fractional powers and simple equations.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "surds-indices-level-2"
+      ],
+      "conceptIds": [
+        "si-surds",
+        "si-equations",
+        "si-fractional"
+      ],
+      "questionIds": [
+        "surds-indices-q-006",
+        "surds-indices-q-007",
+        "surds-indices-q-008",
+        "surds-indices-q-009",
+        "surds-indices-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "surds-indices-level-4",
+      "topicId": "surds-indices",
+      "order": 4,
+      "title": "Rationalising and Exponent Equations",
+      "description": "Conjugates, factoring powers and prime bases.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "surds-indices-level-3"
+      ],
+      "conceptIds": [
+        "si-rationalise",
+        "si-equations",
+        "si-laws"
+      ],
+      "questionIds": [
+        "surds-indices-q-011",
+        "surds-indices-q-012",
+        "surds-indices-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "surds-indices-level-5",
+      "topicId": "surds-indices",
+      "order": 5,
+      "title": "Mixed Surds & Indices Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "surds-indices-level-4"
+      ],
+      "conceptIds": [
+        "si-rationalise",
+        "si-equations",
+        "si-laws"
+      ],
+      "questionQuery": {
+        "topicId": "surds-indices",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "surds-indices-q-001",
+      "topicId": "surds-indices",
+      "conceptId": "si-laws",
+      "levelId": "surds-indices-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of 2³ × 2⁴?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4,096"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "128"
+        },
+        {
+          "id": "d",
+          "text": "32"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Same base, so add the exponents: 2³ × 2⁴ = 2⁷ = 128. (Multiplying the exponents would wrongly give 2¹² = 4,096.)",
+      "solutionSteps": [
+        "Add the exponents: 3 + 4 = 7.",
+        "2⁷ = 128."
+      ],
+      "formulaIds": [
+        "si-laws-f"
+      ],
+      "method": "aᵐ × aⁿ = aᵐ⁺ⁿ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the total number of 2s being multiplied."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the exponents (4,096)."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-002",
+      "topicId": "surds-indices",
+      "conceptId": "si-laws",
+      "levelId": "surds-indices-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the value of (3²)³?",
+      "answer": {
+        "value": 729,
+        "tolerance": 0
+      },
+      "explanation": "A power of a power multiplies the exponents: (3²)³ = 3⁶ = 729.",
+      "solutionSteps": [
+        "2 × 3 = 6.",
+        "3⁶ = 729."
+      ],
+      "formulaIds": [
+        "si-laws-f"
+      ],
+      "method": "(aᵐ)ⁿ = aᵐⁿ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(3²)³ means 3² multiplied by itself three times."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the exponents to get 3⁵ = 243."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-003",
+      "topicId": "surds-indices",
+      "conceptId": "si-fractional",
+      "levelId": "surds-indices-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of 2⁻³?",
+      "options": [
+        {
+          "id": "a",
+          "text": "−8"
+        },
+        {
+          "id": "b",
+          "text": "1/8"
+        },
+        {
+          "id": "c",
+          "text": "−1/8"
+        },
+        {
+          "id": "d",
+          "text": "1/6"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A negative exponent means the reciprocal: 2⁻³ = 1/2³ = 1/8. It is not negative.",
+      "solutionSteps": [
+        "2⁻³ = 1 ÷ 2³.",
+        "= 1/8."
+      ],
+      "formulaIds": [
+        "si-fractional-f"
+      ],
+      "method": "a⁻ⁿ = 1/aⁿ.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A negative exponent flips the base into the denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Making the answer negative."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-004",
+      "topicId": "surds-indices",
+      "conceptId": "si-laws",
+      "levelId": "surds-indices-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "aᵐ ÷ aⁿ is equal to",
+      "options": [
+        {
+          "id": "a",
+          "text": "aᵐ⁺ⁿ"
+        },
+        {
+          "id": "b",
+          "text": "aᵐ⁻ⁿ"
+        },
+        {
+          "id": "c",
+          "text": "aᵐ/ⁿ"
+        },
+        {
+          "id": "d",
+          "text": "aᵐⁿ"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Dividing cancels n of the m factors of a, leaving m − n.",
+      "solutionSteps": [
+        "aᵐ ÷ aⁿ: cancel n factors.",
+        "m − n remain."
+      ],
+      "formulaIds": [
+        "si-laws-f"
+      ],
+      "method": "Divide → subtract exponents.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try 2⁵ ÷ 2² = 32 ÷ 4 = 8 = 2³."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the exponents."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-005",
+      "topicId": "surds-indices",
+      "conceptId": "si-fractional",
+      "levelId": "surds-indices-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the value of √144 + ∛27?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "√144 = 12 and ∛27 = 3, so the sum is 15.",
+      "solutionSteps": [
+        "√144 = 12.",
+        "∛27 = 3.",
+        "12 + 3 = 15."
+      ],
+      "formulaIds": [
+        "si-fractional-f"
+      ],
+      "method": "Evaluate each root, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12 × 12 = 144 and 3 × 3 × 3 = 27."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the square and cube roots."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-006",
+      "topicId": "surds-indices",
+      "conceptId": "si-surds",
+      "levelId": "surds-indices-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is √50 in its simplest surd form?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25√2"
+        },
+        {
+          "id": "b",
+          "text": "5√2"
+        },
+        {
+          "id": "c",
+          "text": "2√5"
+        },
+        {
+          "id": "d",
+          "text": "10√5"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "√50 = √(25 × 2) = √25 × √2 = 5√2.",
+      "solutionSteps": [
+        "50 = 25 × 2.",
+        "√25 = 5.",
+        "5√2."
+      ],
+      "formulaIds": [
+        "si-surd-f"
+      ],
+      "method": "Take out the largest square factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the largest perfect square that divides 50?"
+        }
+      ],
+      "commonMistakes": [
+        "Leaving 25 outside the root instead of taking √25."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-007",
+      "topicId": "surds-indices",
+      "conceptId": "si-equations",
+      "levelId": "surds-indices-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If 9^(x+1) = 27^(x−1), what is x?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Write both sides in base 3: 3^(2(x+1)) = 3^(3(x−1)). So 2x + 2 = 3x − 3 and x = 5. Check: 9⁶ = 531,441 = 27⁴.",
+      "solutionSteps": [
+        "9 = 3² and 27 = 3³.",
+        "2x + 2 = 3x − 3.",
+        "x = 5."
+      ],
+      "formulaIds": [
+        "si-equation-f"
+      ],
+      "method": "Common base, then equate exponents.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both 9 and 27 are powers of 3."
+        }
+      ],
+      "commonMistakes": [
+        "Equating exponents before changing to a common base."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-008",
+      "topicId": "surds-indices",
+      "conceptId": "si-fractional",
+      "levelId": "surds-indices-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the value of 16^(3/4)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "64"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "16^(1/4) = 2 (the fourth root), and 2³ = 8.",
+      "solutionSteps": [
+        "16^(1/4) = 2.",
+        "2³ = 8."
+      ],
+      "formulaIds": [
+        "si-fractional-f"
+      ],
+      "method": "Root first, then the power.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The denominator 4 asks for the fourth root."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 16 × 3/4 = 12."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-009",
+      "topicId": "surds-indices",
+      "conceptId": "si-surds",
+      "levelId": "surds-indices-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Simplify 3√2 + 5√2 − √2.",
+      "options": [
+        {
+          "id": "a",
+          "text": "8√2"
+        },
+        {
+          "id": "b",
+          "text": "7√2"
+        },
+        {
+          "id": "c",
+          "text": "7√6"
+        },
+        {
+          "id": "d",
+          "text": "9√2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "These are like surds, so add the coefficients: 3 + 5 − 1 = 7, giving 7√2.",
+      "solutionSteps": [
+        "3 + 5 − 1 = 7.",
+        "7√2."
+      ],
+      "formulaIds": [
+        "si-surd-f"
+      ],
+      "method": "Combine like surds as if they were like terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat √2 like a variable."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting that −√2 has coefficient −1."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-010",
+      "topicId": "surds-indices",
+      "conceptId": "si-surds",
+      "levelId": "surds-indices-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the value of (√5 + √3)(√5 − √3)?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "This is (a + b)(a − b) = a² − b²: 5 − 3 = 2.",
+      "solutionSteps": [
+        "(√5)² = 5.",
+        "(√3)² = 3.",
+        "5 − 3 = 2."
+      ],
+      "formulaIds": [
+        "si-surd-f"
+      ],
+      "method": "Difference of squares removes the surds.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiplying conjugates leaves no surds."
+        }
+      ],
+      "commonMistakes": [
+        "Expanding and keeping √15 terms without cancelling."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-011",
+      "topicId": "surds-indices",
+      "conceptId": "si-rationalise",
+      "levelId": "surds-indices-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Rationalise 1/(√5 − √2).",
+      "options": [
+        {
+          "id": "a",
+          "text": "(√5 − √2)/3"
+        },
+        {
+          "id": "b",
+          "text": "√5 + √2"
+        },
+        {
+          "id": "c",
+          "text": "(√5 + √2)/3"
+        },
+        {
+          "id": "d",
+          "text": "(√5 + √2)/7"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Multiply top and bottom by the conjugate √5 + √2: the denominator becomes 5 − 2 = 3, so the result is (√5 + √2)/3.",
+      "solutionSteps": [
+        "Multiply by (√5 + √2)/(√5 + √2).",
+        "Denominator: (√5)² − (√2)² = 3.",
+        "(√5 + √2)/3."
+      ],
+      "formulaIds": [
+        "si-rationalise-f"
+      ],
+      "method": "Multiply by the conjugate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The conjugate of √5 − √2 is √5 + √2."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by 3, or subtracting where the conjugate adds."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-012",
+      "topicId": "surds-indices",
+      "conceptId": "si-equations",
+      "levelId": "surds-indices-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If 2^(x+2) − 2^x = 96, what is x?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "2^(x+2) = 4 × 2^x, so 4 × 2^x − 2^x = 3 × 2^x = 96. Then 2^x = 32 and x = 5.",
+      "solutionSteps": [
+        "2^(x+2) = 4 · 2^x.",
+        "3 · 2^x = 96.",
+        "2^x = 32 → x = 5."
+      ],
+      "formulaIds": [
+        "si-laws-f",
+        "si-equation-f"
+      ],
+      "method": "Factor out the common power.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 2^(x+2) as 2^x × 2²."
+        }
+      ],
+      "commonMistakes": [
+        "Cancelling the powers of 2 and getting 4 − 1 = 96."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "surds-indices-q-013",
+      "topicId": "surds-indices",
+      "conceptId": "si-laws",
+      "levelId": "surds-indices-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the value of (2⁵ × 3³ × 4²) ÷ (6³ × 2²)?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Write in primes: numerator = 2⁵ × 3³ × 2⁴ = 2⁹ × 3³; denominator = (2³ × 3³) × 2² = 2⁵ × 3³. Dividing, 2⁴ = 16.",
+      "solutionSteps": [
+        "4² = 2⁴; 6³ = 2³ × 3³.",
+        "Numerator 2⁹ × 3³; denominator 2⁵ × 3³.",
+        "2⁹⁻⁵ = 2⁴ = 16."
+      ],
+      "formulaIds": [
+        "si-laws-f"
+      ],
+      "method": "Reduce everything to prime bases.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Break 4 and 6 into primes."
+        },
+        {
+          "level": 2,
+          "text": "Cancel the powers of 3."
+        }
+      ],
+      "commonMistakes": [
+        "Cancelling different bases."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

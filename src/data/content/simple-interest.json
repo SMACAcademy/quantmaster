@@ -1,0 +1,1878 @@
+{
+  "topicId": "simple-interest",
+  "concepts": [
+    {
+      "id": "si-meaning",
+      "topicId": "simple-interest",
+      "name": "What simple interest is",
+      "description": "Interest charged only on the original principal, never on interest already earned.",
+      "sortOrder": 1
+    },
+    {
+      "id": "si-apply",
+      "topicId": "simple-interest",
+      "name": "Applying the SI formula",
+      "description": "Identifying P, R and T correctly and substituting them.",
+      "sortOrder": 2
+    },
+    {
+      "id": "si-units",
+      "topicId": "simple-interest",
+      "name": "Time units",
+      "description": "Rates are per annum, so months and days must be converted into years.",
+      "sortOrder": 3
+    },
+    {
+      "id": "si-reverse",
+      "topicId": "simple-interest",
+      "name": "Finding P, R or T",
+      "description": "Rearranging the formula when the unknown is not the interest.",
+      "sortOrder": 4
+    },
+    {
+      "id": "si-amount",
+      "topicId": "simple-interest",
+      "name": "Amount vs interest",
+      "description": "The amount includes the principal; the interest does not.",
+      "sortOrder": 5
+    },
+    {
+      "id": "si-applications",
+      "topicId": "simple-interest",
+      "name": "Multiplying sums and split investments",
+      "description": "Doubling/tripling problems and sums split across two rates.",
+      "sortOrder": 6
+    },
+    {
+      "id": "si-adv-true-discount",
+      "topicId": "simple-interest",
+      "name": "True discount and present worth",
+      "description": "A sum due later is worth less today. Its present worth is the principal that grows into the sum due at simple interest, and the true discount is the interest on that present worth. Time is in years.",
+      "sortOrder": 7
+    },
+    {
+      "id": "si-adv-bankers-discount",
+      "topicId": "simple-interest",
+      "name": "Banker's discount and banker's gain",
+      "description": "A banker deducts simple interest on the full face value: the banker's discount. Its excess over the true discount is the banker's gain, which is the interest on the true discount.",
+      "sortOrder": 8
+    }
+  ],
+  "formulas": [
+    {
+      "id": "si-basic",
+      "topicId": "simple-interest",
+      "conceptId": "si-meaning",
+      "title": "Simple interest",
+      "prompt": "What is the formula for simple interest?",
+      "formula": "SI = (P × R × T) ÷ 100",
+      "variables": [
+        {
+          "symbol": "P",
+          "meaning": "principal — the sum invested or borrowed"
+        },
+        {
+          "symbol": "R",
+          "meaning": "rate percent per annum"
+        },
+        {
+          "symbol": "T",
+          "meaning": "time in YEARS"
+        }
+      ],
+      "explanation": "Each year earns the same interest, because the calculation always uses the original principal.",
+      "example": "P = ₹1,000, R = 10%, T = 2 years\nSI = (1000 × 10 × 2) ÷ 100 = ₹200",
+      "commonMistake": "Using months as though they were years. Convert first: 6 months = 0.5 years.",
+      "applicationPrompt": "₹1,000 is invested at 10% per annum for 2 years. Which formula gives the interest?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-amount-formula",
+      "topicId": "simple-interest",
+      "conceptId": "si-amount",
+      "title": "Amount",
+      "prompt": "How do you find the total amount repayable under simple interest?",
+      "formula": "A = P + SI = P × (1 + RT/100)",
+      "variables": [
+        {
+          "symbol": "A",
+          "meaning": "amount — principal plus interest"
+        }
+      ],
+      "explanation": "Questions often ask for the amount, not the interest. Read carefully which one is wanted.",
+      "example": "P = ₹1,500, R = 6%, T = 4 years\nSI = ₹360, A = ₹1,860",
+      "commonMistake": "Reporting the interest when the amount was asked for, or vice versa.",
+      "applicationPrompt": "A loan of ₹1,500 runs at 6% for 4 years. Which expression gives the total repayable?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-find-rate",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "title": "Finding the rate",
+      "prompt": "You know the interest, principal and time. How do you find the rate?",
+      "formula": "R = (100 × SI) ÷ (P × T)",
+      "variables": [],
+      "explanation": "The same formula rearranged. The same move gives P or T when those are the unknowns.",
+      "example": "SI = ₹1,440 on ₹6,000 over 4 years\nR = (100 × 1440) ÷ (6000 × 4) = 6%",
+      "commonMistake": "Forgetting the factor of 100 and getting a rate that is 100 times too small.",
+      "applicationPrompt": "₹6,000 earns ₹1,440 in 4 years. Which formula gives the rate?",
+      "tags": [
+        "reverse"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-find-time",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "title": "Finding the time",
+      "prompt": "How long does it take for a principal to earn a given amount of simple interest?",
+      "formula": "T = (100 × SI) ÷ (P × R)",
+      "variables": [],
+      "explanation": "If the question gives an amount rather than interest, subtract the principal first to get SI.",
+      "example": "₹5,000 grows to ₹6,500 at 10%\nSI = ₹1,500\nT = (100 × 1500) ÷ (5000 × 10) = 3 years",
+      "commonMistake": "Using the final amount in place of the interest.",
+      "applicationPrompt": "₹5,000 becomes ₹6,500 at 10% per annum. Which formula gives the time?",
+      "tags": [
+        "reverse"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-multiply",
+      "topicId": "simple-interest",
+      "conceptId": "si-applications",
+      "kind": "shortcut",
+      "title": "Doubling and tripling",
+      "prompt": "Under simple interest, when does a sum double or triple?",
+      "formula": "To become n times: SI must equal (n − 1)P, so T = 100(n − 1) ÷ R",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "the multiple the sum grows to"
+        }
+      ],
+      "explanation": "Doubling needs interest equal to the principal; tripling needs twice the principal. Under simple interest the time is directly proportional.",
+      "example": "A sum doubles in 8 years → R = 100 ÷ 8 = 12.5%\nTripling needs SI = 2P → T = 16 years",
+      "commonMistake": "Assuming tripling takes 1.5 times as long as doubling.",
+      "applicationPrompt": "A sum doubles in 8 years under simple interest. How long to triple?",
+      "tags": [
+        "applications",
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-time-units",
+      "topicId": "simple-interest",
+      "conceptId": "si-units",
+      "title": "Converting time",
+      "prompt": "The time is given in months. What must you do?",
+      "formula": "T (years) = months ÷ 12",
+      "variables": [],
+      "explanation": "Rates are quoted per annum, so every time period must be expressed in years before substituting.",
+      "example": "2 years 4 months = 2 + 4/12 = 7/3 years",
+      "commonMistake": "Writing 2 years 4 months as 2.4 years.",
+      "applicationPrompt": "A loan runs for 2 years and 4 months. What value of T do you use?",
+      "tags": [
+        "units",
+        "trap"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-sc-two-amounts",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "kind": "shortcut",
+      "title": "Two amounts, one year's interest",
+      "prompt": "A sum at simple interest amounts to A₁ after t₁ years and A₂ after t₂ years. How do you find the principal quickly?",
+      "formula": "One year's interest = (A₂ − A₁) ÷ (t₂ − t₁)\nPrincipal = A₁ − t₁ × (one year's interest)",
+      "variables": [],
+      "explanation": "Simple interest adds the same amount every year, so the gap between the two amounts is pure interest.",
+      "example": "₹1,160 after 2 years and ₹1,400 after 5 years: yearly interest = 240 ÷ 3 = ₹80, so P = 1,160 − 160 = ₹1,000.",
+      "commonMistake": "Setting up two equations in P and R when a subtraction gives the yearly interest directly.",
+      "applicationPrompt": "A sum becomes ₹2,300 in 3 years and ₹2,700 in 5 years at simple interest.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-sc-rate-equals-time",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "kind": "shortcut",
+      "title": "Rate and time numerically equal",
+      "prompt": "The simple interest is a fraction k of the principal, and the rate equals the number of years. What are they?",
+      "formula": "R = T = √(100 × k)",
+      "variables": [],
+      "explanation": "SI = P × R × T ÷ 100 with R = T gives R² = 100 × SI ÷ P.",
+      "example": "Interest is 16/25 of the principal: R = T = √64 = 8, so 8% for 8 years.",
+      "commonMistake": "Taking the square root of k alone and forgetting the 100.",
+      "applicationPrompt": "The interest on a sum is 4/9 of the sum, and the number of years equals the rate percent.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "si-sc-rate-gap",
+      "topicId": "simple-interest",
+      "conceptId": "si-applications",
+      "kind": "shortcut",
+      "title": "Same sum at two rates",
+      "prompt": "The same principal is lent at two different rates for the same time. What is the difference in interest?",
+      "formula": "Difference = P × (R₁ − R₂) × T ÷ 100",
+      "variables": [],
+      "explanation": "Everything else is common, so only the gap in the rates earns the extra interest.",
+      "example": "₹5,000 for 2 years at rates 1% apart: 5,000 × 1 × 2 ÷ 100 = ₹100.",
+      "commonMistake": "Computing both interests in full and then subtracting.",
+      "applicationPrompt": "A sum earns ₹360 more over 3 years at 11% than at 8%. Find the sum.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "si-adv-pw-f",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-true-discount",
+      "title": "Present worth and true discount",
+      "prompt": "A sum is due T years from now. What is it worth today, and what is the true discount?",
+      "formula": "PW = (100 × A) ÷ (100 + RT)\nTD = A − PW = (A × R × T) ÷ (100 + RT)",
+      "variables": [
+        {
+          "symbol": "A",
+          "meaning": "amount due — the face value of the bill"
+        },
+        {
+          "symbol": "PW",
+          "meaning": "present worth — the sum that grows into A by the due date"
+        },
+        {
+          "symbol": "TD",
+          "meaning": "true discount — simple interest on PW"
+        },
+        {
+          "symbol": "T",
+          "meaning": "time in YEARS (months ÷ 12)"
+        }
+      ],
+      "explanation": "Present worth is the principal that grows into the amount at simple interest, so the true discount is the interest on PW, not on the amount.",
+      "example": "₹2,650 due 6 months hence at 12%\nT = 6/12 = 1/2 year, RT = 6\nPW = 2,65,000 ÷ 106 = ₹2,500\nTD = 2,650 − 2,500 = ₹150 (6% of ₹2,500)",
+      "commonMistake": "Taking interest on the amount due (6% of ₹2,650 = ₹159). That is the banker's discount; the true discount is interest on the present worth.",
+      "applicationPrompt": "A debt of ₹1,450 is due 3 years hence at 15% per annum. What is its present worth?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "si-adv-bd-f",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "title": "Banker's discount and banker's gain",
+      "prompt": "A bill is cashed at a bank before it is due. What does the banker deduct, and how much more is it than the true discount?",
+      "formula": "BD = (A × R × T) ÷ 100\nBG = BD − TD = (TD × R × T) ÷ 100",
+      "variables": [
+        {
+          "symbol": "BD",
+          "meaning": "banker's discount — simple interest on the face value A"
+        },
+        {
+          "symbol": "BG",
+          "meaning": "banker's gain — BD minus the true discount"
+        },
+        {
+          "symbol": "T",
+          "meaning": "time in YEARS (months ÷ 12)"
+        }
+      ],
+      "explanation": "The banker charges interest on the whole face value instead of on the present worth. The extra charge is exactly the interest on the true discount for the same rate and time.",
+      "example": "₹2,650 due 6 months hence at 12% (RT = 6)\nBD = 6% of 2,650 = ₹159\nTD = ₹150\nBG = 159 − 150 = ₹9 = 6% of ₹150",
+      "commonMistake": "Taking the banker's gain as interest on the banker's discount (6% of ₹159) instead of on the true discount.",
+      "applicationPrompt": "A bill of ₹6,600 is due 1 year hence at 10% per annum. Find the banker's discount and the banker's gain.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "si-adv-sc-sum-due",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "kind": "shortcut",
+      "title": "Sum from BD and TD",
+      "prompt": "You know the banker's discount and the true discount. How do you find the sum due without the rate or the time?",
+      "formula": "Sum = (BD × TD) ÷ (BD − TD)",
+      "variables": [],
+      "explanation": "BD is interest on the sum and TD is the same interest on the present worth, so BD ÷ TD = Sum ÷ PW. With PW = Sum − TD, this rearranges to Sum = BD × TD ÷ BG.",
+      "example": "BD = ₹159, TD = ₹150: Sum = 159 × 150 ÷ 9 = ₹2,650.",
+      "commonMistake": "Dividing by BD + TD instead of by BD − TD.",
+      "applicationPrompt": "The banker's discount and the true discount on a bill are ₹660 and ₹600.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "si-adv-sc-gain-square",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "kind": "shortcut",
+      "title": "Banker's gain from TD and PW",
+      "prompt": "You know the true discount and the present worth. What is the banker's gain?",
+      "formula": "BG = TD² ÷ PW\nso TD = √(PW × BG)",
+      "variables": [],
+      "explanation": "BG is interest on TD at the same rate and time, and TD ÷ PW is exactly that rate-times-time fraction, so BG = TD × TD ÷ PW.",
+      "example": "PW = ₹2,500, TD = ₹150: BG = 22,500 ÷ 2,500 = ₹9.",
+      "commonMistake": "Dividing TD² by the face value instead of by the present worth.",
+      "applicationPrompt": "The present worth of a bill is ₹1,600 and the banker's gain is ₹4. Find the true discount.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "simple-interest-level-0",
+      "topicId": "simple-interest",
+      "order": 0,
+      "title": "Interest on the Original Sum",
+      "description": "What simple interest means, and the three quantities every question hands you.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "si-meaning",
+        "si-units"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The defining property",
+            "body": "Under simple interest, every year earns exactly the same amount, because interest is always calculated on the original principal. Interest already earned never earns interest of its own.\n\nThat single sentence is what separates this topic from compound interest."
+          },
+          {
+            "type": "formula",
+            "title": "The formula",
+            "body": "SI = (P × R × T) ÷ 100",
+            "caption": "P in rupees, R percent per annum, T in years."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ci-vs-si"
+          },
+          {
+            "type": "example",
+            "title": "Year by year",
+            "body": "P = ₹1,000 at 10% per annum\nYear 1 interest: ₹100\nYear 2 interest: ₹100  (still on the original ₹1,000)\nSI over 2 years = ₹200, amount = ₹1,200"
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "The most common error in this topic is not the formula — it is the units. R is per YEAR, so 6 months must be entered as 0.5, and 2 years 4 months as 7/3, never as 2.4."
+          },
+          {
+            "type": "check",
+            "questionId": "simple-interest-q-003"
+          },
+          {
+            "type": "text",
+            "title": "Interest or amount?",
+            "body": "SI is just the interest. The amount A = P + SI includes the original sum. Questions switch between the two deliberately, so underline which one is being asked for before you calculate."
+          },
+          {
+            "type": "check",
+            "questionId": "simple-interest-q-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "simple-interest-level-1",
+      "topicId": "simple-interest",
+      "order": 1,
+      "title": "Interest Formulas",
+      "description": "The core formula plus the three rearrangements exams actually ask for.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-0"
+      ],
+      "conceptIds": [
+        "si-apply",
+        "si-reverse",
+        "si-amount"
+      ],
+      "formulaIds": [
+        "si-basic",
+        "si-amount-formula",
+        "si-find-rate",
+        "si-find-time",
+        "si-multiply",
+        "si-time-units"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "simple-interest-level-2",
+      "topicId": "simple-interest",
+      "order": 2,
+      "title": "Identify, Convert, Substitute",
+      "description": "The method-first drill: spot the concept, check the units, then calculate.",
+      "type": "method_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-1"
+      ],
+      "conceptIds": [
+        "si-meaning",
+        "si-units",
+        "si-amount"
+      ],
+      "questionIds": [
+        "simple-interest-q-010",
+        "simple-interest-q-011",
+        "simple-interest-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "simple-interest-level-3",
+      "topicId": "simple-interest",
+      "order": 3,
+      "title": "Direct Interest Calculations",
+      "description": "Substituting into the formula, including one with months.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-2"
+      ],
+      "conceptIds": [
+        "si-apply",
+        "si-units",
+        "si-amount"
+      ],
+      "questionIds": [
+        "simple-interest-q-001",
+        "simple-interest-q-002",
+        "simple-interest-q-003",
+        "simple-interest-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "simple-interest-level-4",
+      "topicId": "simple-interest",
+      "order": 4,
+      "title": "Finding the Missing Quantity",
+      "description": "When the unknown is the rate, the time or the principal.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-3"
+      ],
+      "conceptIds": [
+        "si-reverse",
+        "si-applications"
+      ],
+      "questionIds": [
+        "simple-interest-q-020",
+        "simple-interest-q-021",
+        "simple-interest-q-022",
+        "simple-interest-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "simple-interest-level-5",
+      "topicId": "simple-interest",
+      "order": 5,
+      "title": "Split Sums and Growth Multiples",
+      "description": "Two rates at once, and sums that double or triple.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-4"
+      ],
+      "conceptIds": [
+        "si-applications"
+      ],
+      "questionIds": [
+        "simple-interest-q-030",
+        "simple-interest-q-031",
+        "simple-interest-q-032"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "simple-interest-level-6",
+      "topicId": "simple-interest",
+      "order": 6,
+      "title": "Mixed Interest Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-5"
+      ],
+      "questionQuery": {
+        "topicId": "simple-interest",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "si-meaning",
+          "si-apply",
+          "si-units",
+          "si-reverse",
+          "si-amount",
+          "si-applications"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "simple-interest-level-7",
+      "topicId": "simple-interest",
+      "order": 7,
+      "title": "Advanced: True Discount and Banker's Discount",
+      "description": "What a sum due later is worth today, and what a banker deducts for paying early.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-6"
+      ],
+      "conceptIds": [
+        "si-adv-true-discount",
+        "si-adv-bankers-discount"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Present worth",
+            "body": "A bill for ₹A due T years from now is worth less today. Its present worth (PW) is the sum that, lent today at simple interest, grows into exactly ₹A by the due date. The true discount (TD) is the gap A − PW, which is simply the interest on PW.\n\nEverything here uses simple interest, with R per annum and T in years: 6 months is 6/12 = 1/2 year, and 9 months is 3/4 year."
+          },
+          {
+            "type": "formula",
+            "title": "Present worth and true discount",
+            "body": "PW = (100 × A) ÷ (100 + RT)\nTD = (A × R × T) ÷ (100 + RT)",
+            "caption": "Simple interest throughout; R per annum, T in years (months ÷ 12)."
+          },
+          {
+            "type": "check",
+            "questionId": "simple-interest-si-adv-q-001"
+          },
+          {
+            "type": "text",
+            "title": "What a banker deducts",
+            "body": "A banker who pays out a bill early deducts simple interest on the whole face value, not on the present worth. That deduction is the banker's discount (BD). Because it is interest on a bigger sum, BD is always more than TD, and the extra is the banker's gain (BG)."
+          },
+          {
+            "type": "formula",
+            "title": "Banker's discount and gain",
+            "body": "BD = (A × R × T) ÷ 100\nBG = BD − TD = interest on TD = TD² ÷ PW",
+            "caption": "Same R and T as for the true discount."
+          },
+          {
+            "type": "example",
+            "title": "₹2,650 due in 6 months at 12%",
+            "body": "T = 6/12 = 1/2 year, so RT = 6\nPW = 2,65,000 ÷ 106 = ₹2,500\nTD = 2,650 − 2,500 = ₹150\nBD = 6% of ₹2,650 = ₹159\nBG = 159 − 150 = ₹9  (6% of ₹150)"
+          },
+          {
+            "type": "check",
+            "questionId": "simple-interest-si-adv-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Given only BD and TD, the sum due is BD × TD ÷ (BD − TD). And whenever the time is in months, divide by 12 before working out RT."
+          }
+        ]
+      }
+    },
+    {
+      "id": "simple-interest-level-8",
+      "topicId": "simple-interest",
+      "order": 8,
+      "title": "Challenge: True Discount and Banker's Discount",
+      "description": "Months as years, true discount over a longer term, and finding the sum from BD, TD or the gain.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "simple-interest-level-7"
+      ],
+      "conceptIds": [
+        "si-adv-true-discount",
+        "si-adv-bankers-discount"
+      ],
+      "questionIds": [
+        "simple-interest-si-adv-q-003",
+        "simple-interest-si-adv-q-004",
+        "simple-interest-si-adv-q-005",
+        "simple-interest-si-adv-q-006",
+        "simple-interest-si-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "simple-interest-q-001",
+      "topicId": "simple-interest",
+      "conceptId": "si-apply",
+      "levelId": "simple-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Find the simple interest on ₹1,000 at 10% per annum for 2 years.",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹100"
+        },
+        {
+          "id": "b",
+          "text": "₹200"
+        },
+        {
+          "id": "c",
+          "text": "₹210"
+        },
+        {
+          "id": "d",
+          "text": "₹1,200"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "SI = (1000 × 10 × 2) ÷ 100 = ₹200. Note ₹210 would be the COMPOUND interest, and ₹1,200 is the amount.",
+      "solutionSteps": [
+        "Substitute P = 1000, R = 10, T = 2.",
+        "SI = (1000 × 10 × 2) ÷ 100.",
+        "SI = ₹200."
+      ],
+      "formulaIds": [
+        "si-basic"
+      ],
+      "method": "Direct substitution into PRT/100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each year earns 10% of the ORIGINAL ₹1,000."
+        },
+        {
+          "level": 2,
+          "text": "₹100 per year for 2 years."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the amount ₹1,200 instead of the interest."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-002",
+      "topicId": "simple-interest",
+      "conceptId": "si-apply",
+      "levelId": "simple-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the simple interest on ₹5,000 at 8% per annum for 3 years?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹400"
+        },
+        {
+          "id": "b",
+          "text": "₹1,200"
+        },
+        {
+          "id": "c",
+          "text": "₹1,298.56"
+        },
+        {
+          "id": "d",
+          "text": "₹6,200"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "SI = (5000 × 8 × 3) ÷ 100 = ₹1,200.",
+      "solutionSteps": [
+        "Interest per year = 8% of 5,000 = ₹400.",
+        "Over 3 years: 3 × 400.",
+        "SI = ₹1,200."
+      ],
+      "formulaIds": [
+        "si-basic"
+      ],
+      "method": "Find one year's interest, then multiply by the number of years.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out one year's interest first."
+        },
+        {
+          "level": 2,
+          "text": "8% of 5,000 = 400."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹1,296, which is the compound interest."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-003",
+      "topicId": "simple-interest",
+      "conceptId": "si-units",
+      "levelId": "simple-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "numerical_input",
+      "question": "Find the simple interest on ₹2,400 at 5% per annum for 6 months. (Answer in ₹)",
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "6 months is 0.5 years, so SI = (2400 × 5 × 0.5) ÷ 100 = ₹60.",
+      "solutionSteps": [
+        "Convert the time: 6 months = 0.5 years.",
+        "SI = (2400 × 5 × 0.5) ÷ 100.",
+        "SI = ₹60."
+      ],
+      "formulaIds": [
+        "si-basic",
+        "si-time-units"
+      ],
+      "method": "Convert time to years before substituting.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The rate is per annum but the period is in months."
+        },
+        {
+          "level": 2,
+          "text": "6 months = 1/2 year."
+        },
+        {
+          "level": 3,
+          "text": "A full year would give ₹120."
+        }
+      ],
+      "commonMistakes": [
+        "Using T = 6 and getting ₹720."
+      ],
+      "tags": [
+        "units",
+        "numeric-entry",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-004",
+      "topicId": "simple-interest",
+      "conceptId": "si-amount",
+      "levelId": "simple-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "₹1,500 is lent at 6% per annum for 4 years. What amount is repayable at the end?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹360"
+        },
+        {
+          "id": "b",
+          "text": "₹1,560"
+        },
+        {
+          "id": "c",
+          "text": "₹1,860"
+        },
+        {
+          "id": "d",
+          "text": "₹2,100"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "SI = (1500 × 6 × 4) ÷ 100 = ₹360, so the amount is 1,500 + 360 = ₹1,860.",
+      "solutionSteps": [
+        "SI = (1500 × 6 × 4) ÷ 100 = 360.",
+        "Amount = principal + interest.",
+        "A = 1500 + 360 = ₹1,860."
+      ],
+      "formulaIds": [
+        "si-amount-formula"
+      ],
+      "method": "Interest first, then add the principal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The question asks for the AMOUNT, not the interest."
+        },
+        {
+          "level": 2,
+          "text": "Interest per year is ₹90."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹360, the interest alone."
+      ],
+      "tags": [
+        "amount"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-010",
+      "topicId": "simple-interest",
+      "conceptId": "si-meaning",
+      "levelId": "simple-interest-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "A sum is invested at a fixed annual rate and the interest is calculated only on the original principal. Which concept is involved?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Simple interest"
+        },
+        {
+          "id": "b",
+          "text": "Compound interest"
+        },
+        {
+          "id": "c",
+          "text": "Profit and loss"
+        },
+        {
+          "id": "d",
+          "text": "Ratio and proportion"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Interest on the original principal only is the definition of simple interest. If interest earned also earned interest, it would be compound.",
+      "solutionSteps": [
+        "Look for the phrase 'only on the original principal'.",
+        "That rules out compounding.",
+        "So the concept is simple interest."
+      ],
+      "formulaIds": [
+        "si-basic"
+      ],
+      "method": "Classify the concept before choosing a formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does the interest itself earn interest here?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing compound interest because the word 'annual' appears."
+      ],
+      "tags": [
+        "method",
+        "classification"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-011",
+      "topicId": "simple-interest",
+      "conceptId": "si-amount",
+      "levelId": "simple-interest-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "In an SI question, the 'amount' and the 'interest' are the same thing.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The amount includes the principal: A = P + SI. Interest is only the extra earned on top.",
+      "solutionSteps": [
+        "SI is the interest earned.",
+        "Amount = principal + interest.",
+        "They differ by the whole principal, so they are not the same."
+      ],
+      "formulaIds": [
+        "si-amount-formula"
+      ],
+      "method": "Distinguish what is being asked for.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If you lend ₹1,000 and get ₹1,200 back, which figure is the interest?"
+        }
+      ],
+      "commonMistakes": [
+        "Reporting the amount when the interest was asked for."
+      ],
+      "tags": [
+        "true-false",
+        "definition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-012",
+      "topicId": "simple-interest",
+      "conceptId": "si-apply",
+      "levelId": "simple-interest-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "ordering",
+      "question": "Put the steps of a simple interest calculation in order.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Identify the principal, rate and time in the question"
+        },
+        {
+          "id": "s2",
+          "text": "Convert the time into years"
+        },
+        {
+          "id": "s3",
+          "text": "Substitute into SI = PRT/100"
+        },
+        {
+          "id": "s4",
+          "text": "Calculate the interest"
+        },
+        {
+          "id": "s5",
+          "text": "Check whether the question wanted the interest or the amount"
+        }
+      ],
+      "explanation": "Unit conversion belongs before substitution, and the final check catches the most common mark-loser: answering the wrong quantity.",
+      "solutionSteps": [
+        "Read the values out of the question first.",
+        "Convert months or days into years before anything else.",
+        "Substitute and calculate.",
+        "Finally, re-read the question to see whether SI or A was wanted."
+      ],
+      "formulaIds": [
+        "si-basic",
+        "si-time-units"
+      ],
+      "method": "Identify → convert → substitute → calculate → check.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Something must happen to the time before it goes into the formula."
+        },
+        {
+          "level": 2,
+          "text": "The last step is about the question, not the arithmetic."
+        }
+      ],
+      "commonMistakes": [
+        "Substituting before converting the units."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-020",
+      "topicId": "simple-interest",
+      "conceptId": "si-apply",
+      "levelId": "simple-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the simple interest on ₹8,000 at 12% per annum for 2 years and 6 months.",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,920"
+        },
+        {
+          "id": "b",
+          "text": "₹2,304"
+        },
+        {
+          "id": "c",
+          "text": "₹2,400"
+        },
+        {
+          "id": "d",
+          "text": "₹2,880"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "T = 2.5 years, so SI = (8000 × 12 × 2.5) ÷ 100 = ₹2,400.",
+      "solutionSteps": [
+        "2 years 6 months = 2.5 years.",
+        "Interest per year = 12% of 8,000 = ₹960.",
+        "SI = 960 × 2.5 = ₹2,400."
+      ],
+      "formulaIds": [
+        "si-basic",
+        "si-time-units"
+      ],
+      "method": "Convert the period, find one year's interest, scale.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert 6 months into a fraction of a year."
+        },
+        {
+          "level": 2,
+          "text": "One year's interest is ₹960."
+        }
+      ],
+      "commonMistakes": [
+        "Using 2.6 years instead of 2.5."
+      ],
+      "tags": [
+        "units"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-021",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "levelId": "simple-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "At what rate per annum will ₹6,000 earn ₹1,440 in simple interest over 4 years?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4%"
+        },
+        {
+          "id": "b",
+          "text": "6%"
+        },
+        {
+          "id": "c",
+          "text": "8%"
+        },
+        {
+          "id": "d",
+          "text": "12%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "R = (100 × 1440) ÷ (6000 × 4) = 6%.",
+      "solutionSteps": [
+        "Interest per year = 1440 ÷ 4 = ₹360.",
+        "₹360 as a percentage of ₹6,000 = 6%.",
+        "So the rate is 6% per annum."
+      ],
+      "formulaIds": [
+        "si-find-rate"
+      ],
+      "method": "Interest per year ÷ principal × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find how much interest one year produced."
+        },
+        {
+          "level": 2,
+          "text": "360 out of 6,000 as a percentage."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing the full ₹1,440 with the principal and answering 24%."
+      ],
+      "tags": [
+        "reverse"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-022",
+      "topicId": "simple-interest",
+      "conceptId": "si-reverse",
+      "levelId": "simple-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In how many years will ₹5,000 amount to ₹6,500 at 10% per annum simple interest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 years"
+        },
+        {
+          "id": "b",
+          "text": "3 years"
+        },
+        {
+          "id": "c",
+          "text": "4 years"
+        },
+        {
+          "id": "d",
+          "text": "5 years"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "SI = 6,500 − 5,000 = ₹1,500. Interest per year is ₹500, so it takes 3 years.",
+      "solutionSteps": [
+        "Interest earned = 6500 − 5000 = ₹1,500.",
+        "One year's interest = 10% of 5,000 = ₹500.",
+        "T = 1500 ÷ 500 = 3 years."
+      ],
+      "formulaIds": [
+        "si-find-time"
+      ],
+      "method": "Subtract the principal to get SI, then divide by one year's interest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹6,500 is the amount, not the interest."
+        },
+        {
+          "level": 2,
+          "text": "Interest earned is ₹1,500."
+        }
+      ],
+      "commonMistakes": [
+        "Using ₹6,500 as SI in the formula."
+      ],
+      "tags": [
+        "reverse",
+        "amount"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-023",
+      "topicId": "simple-interest",
+      "conceptId": "si-applications",
+      "levelId": "simple-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A sum of money triples itself in 20 years under simple interest. What is the rate percent per annum? (Enter the number only.)",
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Tripling means the interest equals twice the principal, so 2P = (P × R × 20)/100, giving R = 10%.",
+      "solutionSteps": [
+        "To triple, the interest earned must be 2 × principal.",
+        "2P = (P × R × 20) ÷ 100.",
+        "200 = 20R, so R = 10%."
+      ],
+      "formulaIds": [
+        "si-multiply"
+      ],
+      "method": "Express the growth as interest equal to (n − 1) × principal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If ₹100 triples, how much interest was earned?"
+        },
+        {
+          "level": 2,
+          "text": "Interest = 2 × principal."
+        }
+      ],
+      "commonMistakes": [
+        "Using 3P as the interest instead of 2P."
+      ],
+      "tags": [
+        "applications",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-030",
+      "topicId": "simple-interest",
+      "conceptId": "si-applications",
+      "levelId": "simple-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "₹12,000 is split into two parts, one lent at 10% and the other at 12% per annum. The total simple interest after 2 years is ₹2,640. How much was lent at 12%?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹4,000"
+        },
+        {
+          "id": "b",
+          "text": "₹5,000"
+        },
+        {
+          "id": "c",
+          "text": "₹6,000"
+        },
+        {
+          "id": "d",
+          "text": "₹7,200"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Let x be lent at 12%. Then 2[0.12x + 0.10(12000 − x)] = 2640, which gives 0.04x = 240 and x = ₹6,000.",
+      "solutionSteps": [
+        "Let ₹x be at 12%, so ₹(12,000 − x) is at 10%.",
+        "Interest over 2 years: 0.24x + 0.20(12000 − x) = 2640.",
+        "0.24x + 2400 − 0.20x = 2640 → 0.04x = 240.",
+        "x = ₹6,000. Check: 6,000 at 12% gives ₹1,440 and 6,000 at 10% gives ₹1,200 over 2 years ✓"
+      ],
+      "formulaIds": [
+        "si-basic"
+      ],
+      "method": "One unknown, one equation: express both parts in terms of x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Call the amount at 12% x, and write the other part in terms of x."
+        },
+        {
+          "level": 2,
+          "text": "Work out each part's interest over the full 2 years."
+        },
+        {
+          "level": 3,
+          "text": "0.24x + 0.20(12000 − x) = 2640."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to multiply by the 2-year period."
+      ],
+      "tags": [
+        "applications",
+        "complex",
+        "equation"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-031",
+      "topicId": "simple-interest",
+      "conceptId": "si-applications",
+      "levelId": "simple-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A sum of money doubles itself in 8 years under simple interest. In how many years will it triple?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12 years"
+        },
+        {
+          "id": "b",
+          "text": "16 years"
+        },
+        {
+          "id": "c",
+          "text": "20 years"
+        },
+        {
+          "id": "d",
+          "text": "24 years"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Doubling means earning interest equal to the principal in 8 years. Tripling needs twice that interest, so it takes 16 years.",
+      "solutionSteps": [
+        "Doubling: SI = P in 8 years, so the rate is 12.5%.",
+        "Tripling: SI must equal 2P.",
+        "Since simple interest accumulates at a constant rate, the time doubles: 16 years."
+      ],
+      "formulaIds": [
+        "si-multiply"
+      ],
+      "method": "Count how many 'principals' of interest are needed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much interest is needed to double? And to triple?"
+        },
+        {
+          "level": 2,
+          "text": "Doubling needs 1P of interest; tripling needs 2P."
+        },
+        {
+          "level": 3,
+          "text": "Under SI, twice the interest takes twice the time."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 12 years by assuming a 1.5× relationship."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-q-032",
+      "topicId": "simple-interest",
+      "conceptId": "si-units",
+      "levelId": "simple-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Find the simple interest on ₹4,000 at 9% per annum for 2 years and 4 months. (Answer in ₹)",
+      "answer": {
+        "value": 840,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "T = 2 + 4/12 = 7/3 years, so SI = (4000 × 9 × 7/3) ÷ 100 = ₹840.",
+      "solutionSteps": [
+        "Convert: 2 years 4 months = 2⅓ = 7/3 years.",
+        "Interest per year = 9% of 4,000 = ₹360.",
+        "SI = 360 × 7/3 = ₹840."
+      ],
+      "formulaIds": [
+        "si-basic",
+        "si-time-units"
+      ],
+      "method": "Convert to an exact fraction of a year rather than a rounded decimal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "4 months is one third of a year."
+        },
+        {
+          "level": 2,
+          "text": "T = 7/3, not 2.4."
+        },
+        {
+          "level": 3,
+          "text": "One year's interest is ₹360."
+        }
+      ],
+      "commonMistakes": [
+        "Using 2.4 years, which gives ₹864."
+      ],
+      "tags": [
+        "units",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-001",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-true-discount",
+      "levelId": "simple-interest-level-7",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find the present worth of ₹2,360 due 3 years hence at 6% per annum simple interest. (Answer in ₹)",
+      "answer": {
+        "value": 2000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "RT = 6 × 3 = 18, so PW = 2,360 × 100 ÷ 118 = ₹2,000. Check: the simple interest on ₹2,000 for 3 years at 6% is ₹360, and 2,000 + 360 = 2,360.",
+      "solutionSteps": [
+        "RT = 6 × 3 = 18.",
+        "PW = (100 × 2,360) ÷ (100 + 18) = 2,36,000 ÷ 118 = ₹2,000.",
+        "Check: SI on ₹2,000 = ₹360, and ₹2,000 + ₹360 = ₹2,360."
+      ],
+      "formulaIds": [
+        "si-adv-pw-f"
+      ],
+      "method": "Present worth is the principal that grows into the sum due.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which sum, lent today at 6% for 3 years, would grow to ₹2,360?"
+        },
+        {
+          "level": 2,
+          "text": "The amount is 118% of the present worth, so divide ₹2,360 by 1.18."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 18% of ₹2,360 (₹424.80) to get ₹1,935.20. That takes interest on the amount, not on the present worth."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-002",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "levelId": "simple-interest-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A bill of ₹3,600 is due 2 years hence. At 10% per annum simple interest, what is the banker's gain?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹600"
+        },
+        {
+          "id": "b",
+          "text": "₹120"
+        },
+        {
+          "id": "c",
+          "text": "₹720"
+        },
+        {
+          "id": "d",
+          "text": "₹144"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "BD = simple interest on the face value = 3,600 × 10 × 2 ÷ 100 = ₹720. TD = 3,600 × 20 ÷ 120 = ₹600. BG = 720 − 600 = ₹120, which is also the interest on ₹600 for 2 years at 10%.",
+      "solutionSteps": [
+        "BD = 3,600 × 20 ÷ 100 = ₹720.",
+        "PW = 3,600 × 100 ÷ 120 = ₹3,000, so TD = ₹600.",
+        "BG = 720 − 600 = ₹120 (check: 20% of ₹600 = ₹120)."
+      ],
+      "formulaIds": [
+        "si-adv-bd-f",
+        "si-adv-pw-f"
+      ],
+      "method": "Banker's gain = banker's discount − true discount.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the banker's discount (interest on ₹3,600) and the true discount (interest on the present worth) separately."
+        },
+        {
+          "level": 2,
+          "text": "BD = ₹720 and TD = ₹600."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 20% of the banker's discount (₹144). The gain is the interest on the true discount.",
+        "Stopping at the banker's discount or the true discount."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-003",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-true-discount",
+      "levelId": "simple-interest-level-8",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Find the true discount on a bill of ₹5,300 due 9 months hence at 8% per annum simple interest. (Answer in ₹)",
+      "answer": {
+        "value": 300,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "9 months = 9/12 = 3/4 year, so RT = 8 × 3/4 = 6. TD = 5,300 × 6 ÷ 106 = ₹300. (PW = ₹5,000, and 6% of ₹5,000 is ₹300.)",
+      "solutionSteps": [
+        "T = 9 ÷ 12 = 3/4 year, so RT = 6.",
+        "PW = 5,300 × 100 ÷ 106 = ₹5,000.",
+        "TD = 5,300 − 5,000 = ₹300."
+      ],
+      "formulaIds": [
+        "si-adv-pw-f",
+        "si-time-units"
+      ],
+      "method": "Convert months to years, find PW, then TD = amount − PW.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert 9 months into years before working out RT."
+        },
+        {
+          "level": 2,
+          "text": "RT = 6, so the amount is 106% of the present worth."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 6% of ₹5,300 (₹318). That is the banker's discount, not the true discount.",
+        "Using T = 9, which treats the months as years."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-004",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-true-discount",
+      "levelId": "simple-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The true discount on ₹1,320 due 1 year hence is ₹120. At the same rate, what is the true discount on the same sum due 2 years hence?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹240"
+        },
+        {
+          "id": "b",
+          "text": "₹264"
+        },
+        {
+          "id": "c",
+          "text": "₹220"
+        },
+        {
+          "id": "d",
+          "text": "₹1,100"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "PW = 1,320 − 120 = ₹1,200, and ₹120 is 10% of ₹1,200, so R = 10%. Over 2 years RT = 20, so TD = 1,320 × 20 ÷ 120 = ₹220.",
+      "solutionSteps": [
+        "PW = ₹1,200; ₹120 interest in 1 year → R = 10%.",
+        "For 2 years, RT = 20, so PW = 1,320 × 100 ÷ 120 = ₹1,100.",
+        "TD = 1,320 − 1,100 = ₹220."
+      ],
+      "formulaIds": [
+        "si-adv-pw-f"
+      ],
+      "method": "Find the rate from the first bill, then recompute PW for the new time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the rate: the true discount is the interest on the present worth."
+        },
+        {
+          "level": 2,
+          "text": "With R = 10% and T = 2, the amount is 120% of the new present worth."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling ₹120 to ₹240. The present worth falls as the time grows, so the true discount is not proportional to time.",
+        "Taking 20% of ₹1,320 (₹264), which is the banker's discount."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-005",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "levelId": "simple-interest-level-8",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A bill of ₹10,900 is due 9 months hence. If the rate is 12% per annum simple interest, find the banker's gain. (Answer in ₹)",
+      "answer": {
+        "value": 81,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "9 months = 3/4 year, so RT = 9. BD = 9% of ₹10,900 = ₹981. PW = 10,900 × 100 ÷ 109 = ₹10,000, so TD = ₹900. BG = 981 − 900 = ₹81, which is 9% of the true discount.",
+      "solutionSteps": [
+        "RT = 12 × 3/4 = 9.",
+        "BD = 10,900 × 9 ÷ 100 = ₹981.",
+        "TD = 10,900 × 9 ÷ 109 = ₹900.",
+        "BG = 981 − 900 = ₹81 (check: TD² ÷ PW = 8,10,000 ÷ 10,000 = ₹81)."
+      ],
+      "formulaIds": [
+        "si-adv-bd-f",
+        "si-adv-sc-gain-square",
+        "si-time-units"
+      ],
+      "method": "Convert months to years, then BG = BD − TD.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert 9 months to years first: RT = 9."
+        },
+        {
+          "level": 2,
+          "text": "Find BD (9% of the face value) and TD (the amount is 109% of the present worth)."
+        }
+      ],
+      "commonMistakes": [
+        "Using T = 9 years.",
+        "Giving the banker's discount (₹981) as the gain."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-006",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "levelId": "simple-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The banker's discount and the true discount on a sum due at a certain time are ₹550 and ₹500. What is the sum?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹5,500"
+        },
+        {
+          "id": "b",
+          "text": "₹5,000"
+        },
+        {
+          "id": "c",
+          "text": "₹1,050"
+        },
+        {
+          "id": "d",
+          "text": "₹6,050"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "BG = 550 − 500 = ₹50. Sum = BD × TD ÷ BG = 550 × 500 ÷ 50 = ₹5,500. Check: ₹50 is the interest on ₹500, so RT = 10; 10% of ₹5,500 is ₹550 (BD) and 5,500 × 10 ÷ 110 = ₹500 (TD).",
+      "solutionSteps": [
+        "BG = BD − TD = ₹50.",
+        "Sum = (BD × TD) ÷ BG = 2,75,000 ÷ 50 = ₹5,500.",
+        "Check: RT = 50 × 100 ÷ 500 = 10; BD = 10% of ₹5,500 = ₹550 ✓."
+      ],
+      "formulaIds": [
+        "si-adv-sc-sum-due",
+        "si-adv-bd-f"
+      ],
+      "method": "Sum = BD × TD ÷ (BD − TD).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The banker's gain is BD − TD."
+        },
+        {
+          "level": 2,
+          "text": "Use Sum = BD × TD ÷ (BD − TD)."
+        }
+      ],
+      "commonMistakes": [
+        "Working out TD² ÷ BG = ₹5,000, which is the present worth, not the sum due.",
+        "Using BD² ÷ BG = ₹6,050."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simple-interest-si-adv-q-007",
+      "topicId": "simple-interest",
+      "conceptId": "si-adv-bankers-discount",
+      "levelId": "simple-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The banker's gain on a bill due 3 years hence at 10% per annum simple interest is ₹36. Find the face value of the bill. (Answer in ₹)",
+      "answer": {
+        "value": 520,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "The banker's gain is the interest on the true discount: 30% of TD = ₹36, so TD = ₹120 and BD = 120 + 36 = ₹156. Face value = BD × TD ÷ BG = 156 × 120 ÷ 36 = ₹520.",
+      "solutionSteps": [
+        "RT = 30, so TD = 36 × 100 ÷ 30 = ₹120.",
+        "BD = TD + BG = ₹156.",
+        "Face value = 156 × 120 ÷ 36 = ₹520.",
+        "Check: 30% of ₹520 = ₹156 = BD ✓."
+      ],
+      "formulaIds": [
+        "si-adv-bd-f",
+        "si-adv-sc-sum-due"
+      ],
+      "method": "Gain → true discount → banker's discount → face value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The banker's gain is the simple interest on the true discount for the same time and rate."
+        },
+        {
+          "level": 2,
+          "text": "TD = ₹120. Now find BD and use Sum = BD × TD ÷ BG."
+        }
+      ],
+      "commonMistakes": [
+        "Treating ₹36 as interest on the face value, giving ₹120. The gain is interest on the true discount.",
+        "Stopping at the true discount."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

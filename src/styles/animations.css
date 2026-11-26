@@ -1,0 +1,251 @@
+/* ============================================================
+   Animations — all respect prefers-reduced-motion at the end
+   ============================================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes view-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(16px) scale(0.96);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 0.82;
+  }
+}
+
+@keyframes shake-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes xp-float {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, -8vh, 0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift, 0px), 92vh, 0) rotate(var(--spin, 540deg));
+  }
+}
+
+@keyframes card-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(130%) rotate(18deg);
+  }
+}
+
+@keyframes card-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-130%) rotate(-18deg);
+  }
+}
+
+@keyframes count-up-flash {
+  0% {
+    color: var(--warning);
+    transform: scale(1.18);
+  }
+  100% {
+    color: inherit;
+    transform: scale(1);
+  }
+}
+
+/* Applied helpers */
+.view-enter {
+  animation: view-in var(--dur-base) var(--ease-out);
+}
+.animate-shake {
+  animation: shake-x 420ms var(--ease-out);
+}
+.animate-pop {
+  animation: pop-in var(--dur-base) var(--ease-spring);
+}
+.animate-flash {
+  animation: count-up-flash 600ms var(--ease-out);
+}
+
+.xp-float {
+  position: fixed;
+  z-index: 130;
+  pointer-events: none;
+  font-weight: 800;
+  font-size: var(--text-md);
+  color: var(--warning);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: xp-float 1100ms var(--ease-out) forwards;
+}
+
+.confetti-root {
+  position: fixed;
+  inset: 0;
+  z-index: 125;
+  pointer-events: none;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  top: 0;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+  animation: confetti-fall var(--fall, 2.4s) var(--ease-out) forwards;
+}
+
+/* Stagger helper for lists */
+.stagger > * {
+  animation: slide-up var(--dur-base) var(--ease-out) backwards;
+}
+.stagger > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 160ms;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 200ms;
+}
+.stagger > *:nth-child(n + 7) {
+  animation-delay: 240ms;
+}
+
+/* ---------------- Motion preferences ----------------
+   Two switches: the OS setting, and the in-app animation level
+   (data-motion="reduced" set from Settings).                    */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .flashcard.is-flipped {
+    transition: none;
+  }
+}
+
+:root[data-motion='reduced'] *,
+:root[data-motion='reduced'] *::before,
+:root[data-motion='reduced'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 60ms !important;
+}
+:root[data-motion='reduced'] .confetti-root {
+  display: none;
+}

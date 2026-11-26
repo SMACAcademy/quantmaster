@@ -1,0 +1,1125 @@
+{
+  "topicId": "permutations",
+  "concepts": [
+    {
+      "id": "perm-counting",
+      "topicId": "permutations",
+      "name": "Fundamental counting principle",
+      "description": "Independent choices multiply.",
+      "sortOrder": 1
+    },
+    {
+      "id": "perm-arrange",
+      "topicId": "permutations",
+      "name": "Arranging distinct objects",
+      "description": "Ordering n objects, or r of them chosen from n.",
+      "sortOrder": 2
+    },
+    {
+      "id": "perm-repetition",
+      "topicId": "permutations",
+      "name": "Repeated objects",
+      "description": "Dividing out the arrangements that identical items duplicate.",
+      "sortOrder": 3
+    },
+    {
+      "id": "perm-restrictions",
+      "topicId": "permutations",
+      "name": "Arrangements with conditions",
+      "description": "Items that must stay together, or must not.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "perm-fpc",
+      "topicId": "permutations",
+      "conceptId": "perm-counting",
+      "title": "Fundamental principle of counting",
+      "prompt": "A task has m ways for the first step and n for the second. How many ways in total?",
+      "formula": "Total ways = m × n",
+      "variables": [],
+      "explanation": "Independent choices multiply. Choices that are alternatives to each other add instead.",
+      "example": "3 shirts and 4 trousers\n= 3 × 4 = 12 outfits",
+      "commonMistake": "Adding when the steps happen together rather than as alternatives.",
+      "applicationPrompt": "You pick one of 3 shirts and one of 4 trousers. How many outfits?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "perm-factorial",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "title": "Arranging n distinct objects",
+      "prompt": "In how many ways can n distinct objects be arranged in a row?",
+      "formula": "n! = n × (n − 1) × … × 2 × 1",
+      "variables": [],
+      "explanation": "The first position has n choices, the next n − 1, and so on down to 1.",
+      "example": "4 books on a shelf\n= 4! = 24 arrangements",
+      "commonMistake": "Using 4 × 4 × 4 × 4, which allows repetition that a row of distinct books does not have.",
+      "applicationPrompt": "How many ways can 4 distinct books be arranged on a shelf?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "perm-npr",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "title": "Permutations of r from n",
+      "prompt": "How many ways can r objects be chosen AND arranged from n distinct objects?",
+      "formula": "ⁿPᵣ = n! ÷ (n − r)!",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "objects available"
+        },
+        {
+          "symbol": "r",
+          "meaning": "positions to fill"
+        }
+      ],
+      "explanation": "Fill the r positions in turn: n choices, then n − 1, and so on for r factors.",
+      "example": "⁵P₂ = 5 × 4 = 20\n(5!/3! = 120/6 = 20)",
+      "commonMistake": "Using it when order does not matter — that is a combination.",
+      "applicationPrompt": "How many ways can 2 prizes be given to 5 different people, one each?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "perm-repeat",
+      "topicId": "permutations",
+      "conceptId": "perm-repetition",
+      "title": "Arrangements with repeated items",
+      "prompt": "How many distinct arrangements are there when some objects are identical?",
+      "formula": "n! ÷ (p! × q! × …)",
+      "variables": [
+        {
+          "symbol": "p, q",
+          "meaning": "counts of each repeated item"
+        }
+      ],
+      "explanation": "Swapping two identical letters produces the same word, so divide by the arrangements of each repeated group.",
+      "example": "LEVEL: 5 letters with L twice and E twice\n= 5! ÷ (2! × 2!) = 30",
+      "commonMistake": "Forgetting to divide, which counts each distinct word several times.",
+      "applicationPrompt": "How many distinct arrangements does the word LEVEL have?",
+      "tags": [
+        "repetition"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "perm-together",
+      "topicId": "permutations",
+      "conceptId": "perm-restrictions",
+      "title": "Items that must stay together",
+      "prompt": "Two people must sit next to each other. How do you count the arrangements?",
+      "formula": "Treat the pair as one block: (n − 1)! × 2!",
+      "variables": [],
+      "explanation": "Glue the pair into a single unit, arrange the units, then arrange the pair internally.",
+      "example": "5 people, 2 must sit together\n= 4! × 2! = 24 × 2 = 48",
+      "commonMistake": "Forgetting the internal 2! for the pair's own order.",
+      "applicationPrompt": "5 people sit in a row and two of them must be adjacent. How many arrangements?",
+      "tags": [
+        "restrictions"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "perm-sc-not-together",
+      "topicId": "permutations",
+      "conceptId": "perm-restrictions",
+      "kind": "shortcut",
+      "title": "Never together = all − together",
+      "prompt": "How many arrangements keep two particular people apart?",
+      "formula": "Not together = n! − (n − 1)! × 2!",
+      "variables": [],
+      "explanation": "Counting the arrangements where they are together is easy (treat them as one block); subtract from the total.",
+      "example": "5 people, A and B apart: 120 − 24 × 2 = 72.",
+      "commonMistake": "Forgetting that the pair can stand in 2 orders inside the block.",
+      "applicationPrompt": "In how many ways can 6 books be shelved so that two given books are not side by side?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "perm-sc-vowels",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "kind": "shortcut",
+      "title": "Letters with a block of vowels",
+      "prompt": "How do you count arrangements of a word with all the vowels together?",
+      "formula": "Treat the vowels as one letter: (consonants + 1)! × (vowels)!\nDivide by k! for each letter repeated k times",
+      "variables": [],
+      "explanation": "The block moves as one unit; inside it the vowels can still be arranged.",
+      "example": "LEADER (L, D, R and E, A, E): (3 + 1)! × 3!/2! = 24 × 3 = 72.",
+      "commonMistake": "Forgetting to divide for the repeated E.",
+      "applicationPrompt": "In how many ways can the letters of TRIANGLE be arranged with the vowels together?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "permutations-level-0",
+      "topicId": "permutations",
+      "order": 0,
+      "title": "Counting Without Listing",
+      "description": "Multiply choices, and decide whether order matters before touching a formula.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "perm-counting",
+        "perm-arrange"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Choices multiply",
+            "body": "If you pick a shirt in 3 ways and trousers in 4, there are 3 × 4 = 12 outfits. Every shirt pairs with every trouser.\n\nThat is the fundamental principle of counting, and almost everything else in this topic follows from it."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "'And' usually means multiply; 'or' usually means add. Shirt AND trousers → 3 × 4. Bus OR train → 3 + 4."
+          },
+          {
+            "type": "example",
+            "title": "Arranging is repeated choosing",
+            "body": "Four books on a shelf:\nfirst slot 4 ways, then 3, then 2, then 1\n= 4 × 3 × 2 × 1 = 4! = 24"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "counting-slots"
+          },
+          {
+            "type": "check",
+            "questionId": "permutations-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The question to ask first",
+            "body": "Does order matter? Prize-giving, seating and forming numbers care about order — those are permutations. Selecting a team or a committee does not — those are combinations.\n\nClassify first, calculate second. Most errors here are classification errors."
+          },
+          {
+            "type": "check",
+            "questionId": "permutations-q-010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "permutations-level-1",
+      "topicId": "permutations",
+      "order": 1,
+      "title": "Arrangement Formulas",
+      "description": "Counting principle, factorials, nPr, repeated letters and blocks.",
+      "type": "formula_revision",
+      "difficulty": "medium",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "permutations-level-0"
+      ],
+      "conceptIds": [
+        "perm-counting",
+        "perm-arrange",
+        "perm-repetition",
+        "perm-restrictions"
+      ],
+      "formulaIds": [
+        "perm-fpc",
+        "perm-factorial",
+        "perm-npr",
+        "perm-repeat",
+        "perm-together"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "permutations-level-2",
+      "topicId": "permutations",
+      "order": 2,
+      "title": "Direct Counting Questions",
+      "description": "Factorials, nPr and simple multi-step choices.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "permutations-level-1"
+      ],
+      "conceptIds": [
+        "perm-counting",
+        "perm-arrange"
+      ],
+      "questionIds": [
+        "permutations-q-001",
+        "permutations-q-002",
+        "permutations-q-003",
+        "permutations-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "permutations-level-3",
+      "topicId": "permutations",
+      "order": 3,
+      "title": "Repetition and Restrictions",
+      "description": "Repeated letters and items that must stay together.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 11,
+      "prerequisiteLevelIds": [
+        "permutations-level-2"
+      ],
+      "conceptIds": [
+        "perm-repetition",
+        "perm-restrictions"
+      ],
+      "questionIds": [
+        "permutations-q-011",
+        "permutations-q-020",
+        "permutations-q-021",
+        "permutations-q-022",
+        "permutations-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "permutations-level-4",
+      "topicId": "permutations",
+      "order": 4,
+      "title": "Harder Arrangements",
+      "description": "Partial arrangements and multiple repeated groups.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 11,
+      "prerequisiteLevelIds": [
+        "permutations-level-3"
+      ],
+      "conceptIds": [
+        "perm-arrange",
+        "perm-repetition"
+      ],
+      "questionIds": [
+        "permutations-q-030",
+        "permutations-q-031",
+        "permutations-q-032",
+        "permutations-q-033"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "permutations-level-5",
+      "topicId": "permutations",
+      "order": 5,
+      "title": "Mixed Permutation Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "permutations-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "permutations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 7,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "permutations-q-001",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "levelId": "permutations-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "In how many ways can 4 different books be arranged on a shelf?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "256"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "4! = 4 × 3 × 2 × 1 = 24.",
+      "solutionSteps": [
+        "First position: 4 choices.",
+        "Then 3, then 2, then 1.",
+        "4 × 3 × 2 × 1 = 24."
+      ],
+      "formulaIds": [
+        "perm-factorial"
+      ],
+      "method": "n! for arranging n distinct objects.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Once a book is placed, it cannot be used again."
+        },
+        {
+          "level": 2,
+          "text": "Multiply 4 × 3 × 2 × 1."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 4⁴ = 256, which allows repetition."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-002",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "levelId": "permutations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of ⁵P₂?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "120"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "⁵P₂ = 5!/3! = 5 × 4 = 20.",
+      "solutionSteps": [
+        "⁵P₂ = 5 × 4.",
+        "= 20."
+      ],
+      "formulaIds": [
+        "perm-npr"
+      ],
+      "method": "Multiply r descending factors starting at n.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two positions to fill: 5 choices then 4."
+        },
+        {
+          "level": 2,
+          "text": "Multiply those two counts together: 5 × 4."
+        }
+      ],
+      "commonMistakes": [
+        "Computing ⁵C₂ = 10, which ignores order."
+      ],
+      "tags": [
+        "npr"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-003",
+      "topicId": "permutations",
+      "conceptId": "perm-counting",
+      "levelId": "permutations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many 3-digit codes can be formed from the digits 1, 2, 3, 4, 5 if no digit may repeat?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "5 × 4 × 3 = 60.",
+      "solutionSteps": [
+        "First digit: 5 choices.",
+        "Second: 4 remaining. Third: 3 remaining.",
+        "5 × 4 × 3 = 60."
+      ],
+      "formulaIds": [
+        "perm-npr",
+        "perm-fpc"
+      ],
+      "method": "Fill positions one at a time, reducing the pool.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each digit used removes an option for the next position."
+        },
+        {
+          "level": 2,
+          "text": "5 × 4 × 3."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 125 by allowing repetition."
+      ],
+      "tags": [
+        "counting",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-004",
+      "topicId": "permutations",
+      "conceptId": "perm-counting",
+      "levelId": "permutations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many 3-digit codes can be formed from the digits 1, 2, 3, 4, 5 if a digit may be repeated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60"
+        },
+        {
+          "id": "b",
+          "text": "125"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "243"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each of the 3 places can be filled by any of the 5 digits, because digits may repeat. Ways = 5 × 5 × 5 = 125.",
+      "solutionSteps": [
+        "Hundreds place: 5 choices.",
+        "Tens place: still 5 choices, since repetition is allowed.",
+        "Units place: 5 choices.",
+        "Total = 5 × 5 × 5 = 125."
+      ],
+      "formulaIds": [
+        "perm-fpc"
+      ],
+      "method": "Repetition allowed: the pool does not shrink, so multiply 5 three times.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Repetition is allowed, so how many choices does each place have?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply the choices for the three places."
+        }
+      ],
+      "commonMistakes": [
+        "Reducing the pool each time (5 × 4 × 3 = 60), which is the no-repetition answer.",
+        "Writing 3⁵ = 243 instead of 5³."
+      ],
+      "tags": [
+        "counting",
+        "repetition-allowed"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-010",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "levelId": "permutations-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "Which of these situations requires a PERMUTATION rather than a combination?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Awarding gold, silver and bronze medals to 3 of 8 runners"
+        },
+        {
+          "id": "b",
+          "text": "Choosing 3 students from 8 to form a committee"
+        },
+        {
+          "id": "c",
+          "text": "Selecting 3 books from 8 to take on holiday"
+        },
+        {
+          "id": "d",
+          "text": "Picking 3 toppings from 8 for a pizza"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Medals are distinguishable, so the order of selection changes the outcome. Committees, book selections and toppings are unordered.",
+      "solutionSteps": [
+        "Ask whether swapping two chosen items changes the outcome.",
+        "Gold and silver swapped is a different result — order matters.",
+        "So it is a permutation."
+      ],
+      "formulaIds": [
+        "perm-npr"
+      ],
+      "method": "Classify by whether order changes the outcome.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Would the people involved care which of them got which position?"
+        }
+      ],
+      "commonMistakes": [
+        "Treating any 'choose r from n' wording as a combination."
+      ],
+      "tags": [
+        "method",
+        "classification"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-011",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "levelId": "permutations-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "For the same n and r (with r ≥ 2), ⁿPᵣ is always greater than ⁿCᵣ.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "ⁿPᵣ = ⁿCᵣ × r!, and r! > 1 when r ≥ 2, so the permutation count is always larger.",
+      "solutionSteps": [
+        "Every selection of r items can be arranged in r! orders.",
+        "ⁿPᵣ = ⁿCᵣ × r!.",
+        "For r ≥ 2, r! ≥ 2, so ⁿPᵣ > ⁿCᵣ."
+      ],
+      "formulaIds": [
+        "perm-npr"
+      ],
+      "method": "Relate the two counts through r!.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each unordered selection corresponds to how many ordered ones?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the two are equal when r = n."
+      ],
+      "tags": [
+        "true-false",
+        "comparison"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-020",
+      "topicId": "permutations",
+      "conceptId": "perm-repetition",
+      "levelId": "permutations-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many distinct arrangements can be made of the letters of the word LEVEL?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "30"
+        },
+        {
+          "id": "c",
+          "text": "60"
+        },
+        {
+          "id": "d",
+          "text": "120"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "5 letters with L twice and E twice: 5! ÷ (2! × 2!) = 120 ÷ 4 = 30.",
+      "solutionSteps": [
+        "Total letters = 5, so 5! = 120 if all were distinct.",
+        "L repeats twice and E repeats twice.",
+        "Divide: 120 ÷ (2! × 2!) = 30."
+      ],
+      "formulaIds": [
+        "perm-repeat"
+      ],
+      "method": "Divide by the factorial of each repeated group.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which letters appear more than once?"
+        },
+        {
+          "level": 2,
+          "text": "Swapping the two Ls gives the same word, so those arrangements are double-counted."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 120 by ignoring the repeats."
+      ],
+      "tags": [
+        "repetition"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-021",
+      "topicId": "permutations",
+      "conceptId": "perm-restrictions",
+      "levelId": "permutations-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In how many ways can 5 people be seated in a row if two particular people must sit next to each other?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24"
+        },
+        {
+          "id": "b",
+          "text": "48"
+        },
+        {
+          "id": "c",
+          "text": "60"
+        },
+        {
+          "id": "d",
+          "text": "120"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Treat the pair as one block: 4 units arrange in 4! = 24 ways, and the pair can swap internally in 2! ways, giving 48.",
+      "solutionSteps": [
+        "Glue the two people together: now there are 4 units.",
+        "Arrange the units: 4! = 24.",
+        "The pair can sit in 2 orders internally: 24 × 2 = 48."
+      ],
+      "formulaIds": [
+        "perm-together"
+      ],
+      "method": "Block method, then multiply by the internal arrangements.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of the pair as a single person for a moment."
+        },
+        {
+          "level": 2,
+          "text": "That gives 4 units to arrange."
+        },
+        {
+          "level": 3,
+          "text": "Do not forget the pair can swap places."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 24 by forgetting the internal 2!."
+      ],
+      "tags": [
+        "restrictions"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-022",
+      "topicId": "permutations",
+      "conceptId": "perm-restrictions",
+      "levelId": "permutations-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In how many ways can the letters of the word GARDEN be arranged so that the two vowels are always together?",
+      "answer": {
+        "value": 240,
+        "tolerance": 0
+      },
+      "explanation": "GARDEN has 6 different letters, with vowels A and E. Tie the vowels into one block: the block and G, R, D, N make 5 units, arranged in 5! = 120 ways. Inside the block A and E can swap in 2! = 2 ways. Total = 120 × 2 = 240.",
+      "solutionSteps": [
+        "Vowels: A, E. Consonants: G, R, D, N.",
+        "Treat AE as one block: 5 units in all.",
+        "Arrange the 5 units: 5! = 120.",
+        "Arrange the vowels inside the block: 2! = 2.",
+        "Total = 120 × 2 = 240."
+      ],
+      "formulaIds": [
+        "perm-sc-vowels",
+        "perm-together"
+      ],
+      "method": "Block method: (consonants + 1)! × (vowels)!.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Glue the two vowels together and count the block as one letter."
+        },
+        {
+          "level": 2,
+          "text": "How many units are there to arrange now?"
+        },
+        {
+          "level": 3,
+          "text": "Do not forget that A and E can swap places inside the block."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the 2! for the order inside the block (120).",
+        "Counting all arrangements, 6! = 720."
+      ],
+      "tags": [
+        "restrictions",
+        "block-method",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-030",
+      "topicId": "permutations",
+      "conceptId": "perm-arrange",
+      "levelId": "permutations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many 4-letter arrangements (words, meaningful or not) can be formed from the letters of MONDAY, with no letter repeated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15"
+        },
+        {
+          "id": "b",
+          "text": "24"
+        },
+        {
+          "id": "c",
+          "text": "360"
+        },
+        {
+          "id": "d",
+          "text": "720"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "MONDAY has 6 distinct letters, so ⁶P₄ = 6 × 5 × 4 × 3 = 360.",
+      "solutionSteps": [
+        "MONDAY has 6 distinct letters.",
+        "Four positions to fill in order: 6 × 5 × 4 × 3.",
+        "= 360."
+      ],
+      "formulaIds": [
+        "perm-npr"
+      ],
+      "method": "⁶P₄ — order matters because these are words.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Are all six letters different?"
+        },
+        {
+          "level": 2,
+          "text": "Four positions, filled from a shrinking pool."
+        }
+      ],
+      "commonMistakes": [
+        "Using ⁶C₄ = 15, which ignores the ordering of letters in a word."
+      ],
+      "tags": [
+        "npr",
+        "complex"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-031",
+      "topicId": "permutations",
+      "conceptId": "perm-repetition",
+      "levelId": "permutations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many distinct arrangements can be made of the letters of the word BANANA?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "6 letters with A three times and N twice: 6! ÷ (3! × 2!) = 720 ÷ 12 = 60.",
+      "solutionSteps": [
+        "BANANA has 6 letters: B, A×3, N×2.",
+        "6! = 720.",
+        "Divide by 3! for the As and 2! for the Ns: 720 ÷ 12 = 60."
+      ],
+      "formulaIds": [
+        "perm-repeat"
+      ],
+      "method": "Divide by the factorial of each repeated group.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count how many times each letter appears."
+        },
+        {
+          "level": 2,
+          "text": "A appears 3 times and N appears twice."
+        },
+        {
+          "level": 3,
+          "text": "720 ÷ (6 × 2)."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by only one of the repeated groups."
+      ],
+      "tags": [
+        "repetition",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-032",
+      "topicId": "permutations",
+      "conceptId": "perm-counting",
+      "levelId": "permutations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many 4-digit even numbers can be formed from the digits 0, 1, 2, 3, 4, 5 if no digit may be repeated?",
+      "answer": {
+        "value": 156,
+        "tolerance": 0
+      },
+      "explanation": "Split by the units digit. If it is 0, the other three places take any 3 of the remaining 5 digits in order: ⁵P₃ = 60. If it is 2 or 4, the thousands digit cannot be 0 or the units digit, leaving 4 choices, and the middle two places take 4 × 3 = 12 ways: 2 × 4 × 12 = 96. Total = 60 + 96 = 156.",
+      "solutionSteps": [
+        "An even number ends in 0, 2 or 4.",
+        "Units digit 0: the rest is ⁵P₃ = 60.",
+        "Units digit 2 or 4: thousands digit has 4 choices (not 0, not the units digit).",
+        "Middle two digits: 4 × 3 = 12, so 2 × 4 × 12 = 96.",
+        "Total = 60 + 96 = 156."
+      ],
+      "formulaIds": [
+        "perm-fpc",
+        "perm-npr"
+      ],
+      "method": "Fill the restricted places first, and split into cases when 0 is involved.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fill the units place first, since it must be even."
+        },
+        {
+          "level": 2,
+          "text": "Zero is special: it cannot go in the thousands place."
+        },
+        {
+          "level": 3,
+          "text": "Count \"ends in 0\" and \"ends in 2 or 4\" separately, then add."
+        }
+      ],
+      "commonMistakes": [
+        "Treating all three even endings alike (3 × 4 × 4 × 3 = 144).",
+        "Forgetting that 0 cannot be the first digit."
+      ],
+      "tags": [
+        "counting",
+        "zero-digit",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "permutations-q-033",
+      "topicId": "permutations",
+      "conceptId": "perm-repetition",
+      "levelId": "permutations-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In how many distinct ways can the letters of the word BALLOON be arranged so that the two Ls are next to each other?",
+      "options": [
+        {
+          "id": "a",
+          "text": "720"
+        },
+        {
+          "id": "b",
+          "text": "180"
+        },
+        {
+          "id": "c",
+          "text": "1260"
+        },
+        {
+          "id": "d",
+          "text": "360"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "BALLOON has 7 letters: B, A, L, L, O, O, N. Treat LL as one block. That leaves 6 units — LL, B, A, O, O, N — with O repeated twice: 6! ÷ 2! = 360. The two Ls are identical, so swapping them inside the block gives nothing new.",
+      "solutionSteps": [
+        "Letters: B, A, L, L, O, O, N (L twice, O twice).",
+        "Glue LL into one block: 6 units.",
+        "Only O is still repeated among the units.",
+        "Arrangements = 6! ÷ 2! = 720 ÷ 2 = 360."
+      ],
+      "formulaIds": [
+        "perm-repeat",
+        "perm-together"
+      ],
+      "method": "Block the identical pair, then divide by the factorials of what is still repeated.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat the two Ls as a single block."
+        },
+        {
+          "level": 2,
+          "text": "After blocking, which letter is still repeated?"
+        },
+        {
+          "level": 3,
+          "text": "Identical letters inside a block cannot be swapped."
+        }
+      ],
+      "commonMistakes": [
+        "Not dividing by 2! for the two Os (720).",
+        "Still dividing by 2! for the Ls after they are blocked (180)."
+      ],
+      "tags": [
+        "repetition",
+        "restrictions",
+        "complex"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

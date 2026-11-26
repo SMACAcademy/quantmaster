@@ -1,0 +1,25 @@
+name: Content error
+description: A wrong answer, a confusing question, or a figure that does not match its text.
+labels: [content]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: For example "Time and Work" or "Mensuration 2D".
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: Paste the question text, or add a screenshot.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: What you think the right answer or wording is, and your working.
+    validations:
+      required: true

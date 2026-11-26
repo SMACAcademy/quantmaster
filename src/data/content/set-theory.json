@@ -1,0 +1,867 @@
+{
+  "topicId": "set-theory",
+  "concepts": [
+    {
+      "id": "st-notation",
+      "topicId": "set-theory",
+      "name": "Sets and subsets",
+      "description": "A set is a collection of distinct elements; a subset contains only elements that also belong to the original set.",
+      "sortOrder": 1
+    },
+    {
+      "id": "st-operations",
+      "topicId": "set-theory",
+      "name": "Union, intersection and complement",
+      "description": "Union combines elements, intersection keeps only shared elements, and complement takes everything outside a set.",
+      "sortOrder": 2
+    },
+    {
+      "id": "st-venn-two",
+      "topicId": "set-theory",
+      "name": "Counting with two sets",
+      "description": "|A∪B| = |A| + |B| − |A∩B| avoids double-counting the elements shared by both sets.",
+      "sortOrder": 3
+    },
+    {
+      "id": "st-venn-three",
+      "topicId": "set-theory",
+      "name": "Counting with three sets",
+      "description": "Extending inclusion-exclusion to three sets requires adding back the triple overlap that gets subtracted too many times.",
+      "sortOrder": 4
+    },
+    {
+      "id": "st-subsets",
+      "topicId": "set-theory",
+      "name": "Counting subsets",
+      "description": "A set with n elements has exactly 2ⁿ subsets, including the empty set and the set itself.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "st-union-f",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "title": "Union of two sets",
+      "prompt": "How do you find the size of the union of two sets?",
+      "formula": "|A ∪ B| = |A| + |B| − |A ∩ B|",
+      "variables": [],
+      "explanation": "Adding |A| and |B| counts the shared elements twice, so the overlap is subtracted once to correct for it.",
+      "example": "|A|=10, |B|=6, |A∩B|=3: |A∪B| = 10+6−3 = 13",
+      "commonMistake": "Forgetting to subtract the intersection, double-counting shared elements.",
+      "applicationPrompt": "If |A|=10, |B|=6 and |A∩B|=3, find |A∪B|.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "st-complement-f",
+      "topicId": "set-theory",
+      "conceptId": "st-operations",
+      "title": "Complement within a universal set",
+      "prompt": "How do you find the size of the complement of a set?",
+      "formula": "|A'| = |U| − |A|",
+      "variables": [],
+      "explanation": "The complement is everything in the universal set that is not in A.",
+      "example": "|U|=20, |A|=8: |A'| = 20−8 = 12",
+      "commonMistake": "Forgetting that the complement is relative to the universal set, not some other total.",
+      "applicationPrompt": "If the universal set has 20 elements and |A|=8, find |A'|.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "st-three-f",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-three",
+      "title": "Union of three sets",
+      "prompt": "How do you find |A ∪ B ∪ C|?",
+      "formula": "|A∪B∪C| = |A|+|B|+|C| − |A∩B| − |B∩C| − |A∩C| + |A∩B∩C|",
+      "variables": [],
+      "explanation": "Each pairwise overlap is subtracted once, but this removes the triple overlap three times, so it must be added back once.",
+      "example": "30+25+20−10−8−7+3 = 53",
+      "commonMistake": "Forgetting to add back the triple intersection at the end.",
+      "applicationPrompt": "Given the sizes of three sets and all their overlaps, find |A∪B∪C|.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "st-subsets-f",
+      "topicId": "set-theory",
+      "conceptId": "st-subsets",
+      "title": "Number of subsets",
+      "prompt": "How many subsets does a set with n elements have?",
+      "formula": "Number of subsets = 2ⁿ\nNumber of proper subsets = 2ⁿ − 1",
+      "variables": [],
+      "explanation": "Each of the n elements is either in a given subset or not, giving 2 choices per element.",
+      "example": "A set with 4 elements has 2⁴ = 16 subsets",
+      "commonMistake": "Forgetting that the empty set and the whole set both count as subsets.",
+      "applicationPrompt": "How many subsets does a set with 4 elements have?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "st-difference-f",
+      "topicId": "set-theory",
+      "conceptId": "st-operations",
+      "title": "Set difference",
+      "prompt": "How do you find the number of elements in A but not in B?",
+      "formula": "|A − B| = |A| − |A ∩ B|",
+      "variables": [],
+      "explanation": "Removing the shared elements from A leaves only the elements unique to A.",
+      "example": "|A|=25, |A∩B|=9: |A−B| = 25−9 = 16",
+      "commonMistake": "Subtracting |B| instead of |A∩B|.",
+      "applicationPrompt": "If |A|=25 and |A∩B|=9, find |A−B|.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "st-sc-overlap-bounds",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "kind": "shortcut",
+      "title": "Smallest and largest possible overlap",
+      "prompt": "Two groups in a fixed total: how small and how large can the overlap be?",
+      "formula": "Largest overlap = the smaller group\nSmallest overlap = A + B − Total (or 0 if that is negative)",
+      "variables": [],
+      "explanation": "The overlap cannot exceed either group, and the two groups cannot together exceed the total without overlapping.",
+      "example": "100 students, 70 like tea and 60 coffee: both is at least 30 and at most 60.",
+      "commonMistake": "Giving one fixed answer when the question only allows a range.",
+      "applicationPrompt": "In a class of 50, 35 play cricket and 28 play football. What is the least number who play both?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "set-theory-level-0",
+      "topicId": "set-theory",
+      "order": 0,
+      "title": "Sets, Unions and Intersections",
+      "description": "Combining and comparing sets without double-counting shared elements.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "st-notation",
+        "st-operations"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Why the union formula subtracts something",
+            "body": "If |A|=10 and |B|=6, simply adding gives 16 — but any element in both sets gets counted twice. Subtracting |A∩B| once corrects for that double count."
+          },
+          {
+            "type": "formula",
+            "title": "Union of two sets",
+            "body": "|A∪B| = |A| + |B| − |A∩B|",
+            "caption": "Subtract the overlap exactly once."
+          },
+          {
+            "type": "check",
+            "questionId": "set-theory-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "If two sets share no elements at all, |A∩B| = 0 and the union is just the sum."
+          },
+          {
+            "type": "check",
+            "questionId": "set-theory-q-001"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "set-theory-level-1",
+      "topicId": "set-theory",
+      "order": 1,
+      "title": "Set Theory Formulas",
+      "description": "Union of two and three sets, complement, subset counting, set difference.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "set-theory-level-0"
+      ],
+      "conceptIds": [
+        "st-venn-two",
+        "st-operations",
+        "st-subsets",
+        "st-venn-three"
+      ],
+      "formulaIds": [
+        "st-union-f",
+        "st-complement-f",
+        "st-three-f",
+        "st-subsets-f",
+        "st-difference-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "set-theory-level-2",
+      "topicId": "set-theory",
+      "order": 2,
+      "title": "Direct Set Counting",
+      "description": "Applying the union formula, complements and subset counts directly.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "set-theory-level-1"
+      ],
+      "conceptIds": [
+        "st-venn-two",
+        "st-operations",
+        "st-subsets"
+      ],
+      "questionIds": [
+        "set-theory-q-001",
+        "set-theory-q-002",
+        "set-theory-q-003",
+        "set-theory-q-004",
+        "set-theory-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "set-theory-level-3",
+      "topicId": "set-theory",
+      "order": 3,
+      "title": "Rearranging and Applying",
+      "description": "Solving for an unknown region, and word problems with two sets.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "set-theory-level-2"
+      ],
+      "conceptIds": [
+        "st-venn-two",
+        "st-operations",
+        "st-subsets"
+      ],
+      "questionIds": [
+        "set-theory-q-006",
+        "set-theory-q-007",
+        "set-theory-q-008",
+        "set-theory-q-009",
+        "set-theory-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "set-theory-level-4",
+      "topicId": "set-theory",
+      "order": 4,
+      "title": "Three-Set Problems",
+      "description": "Inclusion-exclusion with three overlapping sets.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "set-theory-level-3"
+      ],
+      "conceptIds": [
+        "st-venn-three",
+        "st-subsets"
+      ],
+      "questionIds": [
+        "set-theory-q-011",
+        "set-theory-q-012",
+        "set-theory-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "set-theory-level-5",
+      "topicId": "set-theory",
+      "order": 5,
+      "title": "Mixed Set Theory Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "set-theory-level-4"
+      ],
+      "conceptIds": [
+        "st-venn-three",
+        "st-subsets"
+      ],
+      "questionQuery": {
+        "topicId": "set-theory",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "set-theory-q-001",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "levelId": "set-theory-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Set A has 5 elements and set B has 7 elements, and they share no elements. What is |A∪B|?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "Since the sets are disjoint, |A∩B| = 0, so |A∪B| = 5 + 7 − 0 = 12.",
+      "solutionSteps": [
+        "|A∩B| = 0 (disjoint).",
+        "5 + 7 = 12."
+      ],
+      "formulaIds": [
+        "st-union-f"
+      ],
+      "method": "With no overlap, the union is just the sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Disjoint sets share no elements."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming there must always be some overlap to subtract."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-002",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "levelId": "set-theory-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The formula |A∪B| = |A| + |B| − |A∩B| subtracts the intersection because",
+      "options": [
+        {
+          "id": "a",
+          "text": "the intersection elements were counted twice"
+        },
+        {
+          "id": "b",
+          "text": "the intersection elements should not be counted at all"
+        },
+        {
+          "id": "c",
+          "text": "it corrects a typing convention"
+        },
+        {
+          "id": "d",
+          "text": "the formula only works for disjoint sets"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Adding |A| and |B| counts every element of the overlap twice — once in each set — so subtracting |A∩B| once corrects the double count.",
+      "solutionSteps": [
+        "|A|+|B| double-counts the shared elements.",
+        "Subtract |A∩B| once to fix it."
+      ],
+      "formulaIds": [
+        "st-union-f"
+      ],
+      "method": "Adding two sets over-counts their shared elements.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think about an element that belongs to both A and B."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the intersection should not be counted at all."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-003",
+      "topicId": "set-theory",
+      "conceptId": "st-subsets",
+      "levelId": "set-theory-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A set has 4 elements. How many subsets does it have (including the empty set and the set itself)?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "2⁴ = 16.",
+      "solutionSteps": [
+        "2⁴ = 16."
+      ],
+      "formulaIds": [
+        "st-subsets-f"
+      ],
+      "method": "Each element is either in or out of a subset: 2 choices per element.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Raise 2 to the power of the number of elements."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 4² instead of 2⁴."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-004",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "levelId": "set-theory-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If |A|=10, |B|=6 and |A∩B|=3, what is |A∪B|?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "|A∪B| = 10 + 6 − 3 = 13.",
+      "solutionSteps": [
+        "10 + 6 = 16.",
+        "16 − 3 = 13."
+      ],
+      "formulaIds": [
+        "st-union-f"
+      ],
+      "method": "Add the two sets, then subtract the overlap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget to subtract the intersection."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract |A∩B|, giving 16."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-005",
+      "topicId": "set-theory",
+      "conceptId": "st-operations",
+      "levelId": "set-theory-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The universal set has 20 elements and |A|=8. What is |A'|?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "|A'| = |U| − |A| = 20 − 8 = 12.",
+      "solutionSteps": [
+        "20 − 8 = 12."
+      ],
+      "formulaIds": [
+        "st-complement-f"
+      ],
+      "method": "Subtract from the universal set.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The complement is everything not in A."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting from the wrong total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-006",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "levelId": "set-theory-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If |A|=15, |B|=12 and |A∪B|=20, what is |A∩B|?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Rearranging the union formula: |A∩B| = |A| + |B| − |A∪B| = 15 + 12 − 20 = 7.",
+      "solutionSteps": [
+        "15 + 12 = 27.",
+        "27 − 20 = 7."
+      ],
+      "formulaIds": [
+        "st-union-f"
+      ],
+      "method": "Rearrange the union formula to isolate the intersection.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve the union formula for |A∩B| instead of |A∪B|."
+        }
+      ],
+      "commonMistakes": [
+        "Adding |A| and |B| without subtracting the union."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-007",
+      "topicId": "set-theory",
+      "conceptId": "st-operations",
+      "levelId": "set-theory-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If |A|=25 and |A∩B|=9, what is |A−B|?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "|A−B| = |A| − |A∩B| = 25 − 9 = 16.",
+      "solutionSteps": [
+        "25 − 9 = 16."
+      ],
+      "formulaIds": [
+        "st-difference-f"
+      ],
+      "method": "Remove the shared elements from A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A − B keeps only elements unique to A."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting |B| instead of |A∩B|."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-008",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-two",
+      "levelId": "set-theory-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a class of 40 students, 25 like Math and 20 like Science, and 10 like both. How many like neither?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "At least one: 25 + 20 − 10 = 35. Neither: 40 − 35 = 5.",
+      "solutionSteps": [
+        "|Math∪Science| = 25+20−10 = 35.",
+        "40 − 35 = 5."
+      ],
+      "formulaIds": [
+        "st-union-f"
+      ],
+      "method": "Find the union first, then subtract from the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Neither\" is the total minus the union."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract the overlap before finding \"neither.\""
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-009",
+      "topicId": "set-theory",
+      "conceptId": "st-operations",
+      "levelId": "set-theory-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A universal set has 50 elements. |A|=18, |B|=22, |A∩B|=7. How many elements are in neither A nor B?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "|A∪B| = 18+22−7 = 33. Neither: 50 − 33 = 17.",
+      "solutionSteps": [
+        "|A∪B| = 33.",
+        "50 − 33 = 17."
+      ],
+      "formulaIds": [
+        "st-union-f",
+        "st-complement-f"
+      ],
+      "method": "Find the union, then take the complement of that within the universal set.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Neither\" means outside both A and B."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting |A| and |B| separately instead of the union."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-010",
+      "topicId": "set-theory",
+      "conceptId": "st-subsets",
+      "levelId": "set-theory-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A set has 6 elements. How many proper subsets does it have?",
+      "answer": {
+        "value": 63,
+        "tolerance": 0
+      },
+      "explanation": "Total subsets: 2⁶ = 64. Proper subsets exclude the set itself: 64 − 1 = 63.",
+      "solutionSteps": [
+        "2⁶ = 64.",
+        "64 − 1 = 63."
+      ],
+      "formulaIds": [
+        "st-subsets-f"
+      ],
+      "method": "Subtract 1 from the total subset count to exclude the full set.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A proper subset cannot be the whole set itself."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract 1 for the full set."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-011",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-three",
+      "levelId": "set-theory-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "|A|=30, |B|=25, |C|=20, |A∩B|=10, |B∩C|=8, |A∩C|=7, |A∩B∩C|=3. What is |A∪B∪C|?",
+      "answer": {
+        "value": 53,
+        "tolerance": 0
+      },
+      "explanation": "|A∪B∪C| = 30+25+20−10−8−7+3 = 53.",
+      "solutionSteps": [
+        "Sum individual: 30+25+20 = 75.",
+        "Subtract pairwise: 75−10−8−7 = 50.",
+        "Add back triple: 50+3 = 53."
+      ],
+      "formulaIds": [
+        "st-three-f"
+      ],
+      "method": "Sum the sets, subtract pairwise overlaps, then add back the triple overlap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget to add the triple intersection back at the end."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add back |A∩B∩C|."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-012",
+      "topicId": "set-theory",
+      "conceptId": "st-venn-three",
+      "levelId": "set-theory-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a survey of 100 people: 50 read A, 40 read B, 30 read C, 20 read A&B, 15 read B&C, 10 read A&C, and 5 read all three. How many read none of the three?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "|A∪B∪C| = 50+40+30−20−15−10+5 = 80. None: 100 − 80 = 20.",
+      "solutionSteps": [
+        "Sum: 50+40+30 = 120.",
+        "Subtract pairwise: 120−20−15−10 = 75.",
+        "Add triple: 75+5 = 80.",
+        "100 − 80 = 20."
+      ],
+      "formulaIds": [
+        "st-three-f"
+      ],
+      "method": "Find the union using inclusion-exclusion, then subtract from the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"None\" is the total minus the three-set union."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add back the triple overlap before subtracting from the total."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "set-theory-q-013",
+      "topicId": "set-theory",
+      "conceptId": "st-subsets",
+      "levelId": "set-theory-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A set has n elements and 128 subsets. What is n?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "2ⁿ = 128 = 2⁷, so n = 7.",
+      "solutionSteps": [
+        "2⁷ = 128.",
+        "n = 7."
+      ],
+      "formulaIds": [
+        "st-subsets-f"
+      ],
+      "method": "Express 128 as a power of 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find which power of 2 equals 128."
+        }
+      ],
+      "commonMistakes": [
+        "Guessing n from 128 ÷ 2 instead of using powers."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1895 @@
+{
+  "topicId": "perimeter-area",
+  "concepts": [
+    {
+      "id": "pa-rectangle",
+      "topicId": "perimeter-area",
+      "name": "Rectangles and squares",
+      "description": "Perimeter = 2 × (length + breadth); Area = length × breadth. A square is the special case where length equals breadth.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pa-triangle",
+      "topicId": "perimeter-area",
+      "name": "Triangles",
+      "description": "Perimeter is the sum of the three sides; Area = ½ × base × height, where the height is measured perpendicular to the chosen base.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pa-parallelogram-trapezium",
+      "topicId": "perimeter-area",
+      "name": "Parallelograms and trapeziums",
+      "description": "Area of a parallelogram = base × height; area of a trapezium = ½ × (sum of the parallel sides) × height.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pa-circle",
+      "topicId": "perimeter-area",
+      "name": "Circles",
+      "description": "Circumference = 2πr; Area = πr², where r is the radius.",
+      "sortOrder": 4
+    },
+    {
+      "id": "pa-rhombus",
+      "topicId": "perimeter-area",
+      "name": "Rhombuses",
+      "description": "Area of a rhombus = ½ × product of its two diagonals.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pa-rectangle-f",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "title": "Perimeter and area of a rectangle",
+      "prompt": "How do you find the perimeter and area of a rectangle?",
+      "formula": "Perimeter = 2(l + b); Area = l × b",
+      "variables": [],
+      "explanation": "l is the length and b is the breadth. For a square, l = b, so perimeter = 4s and area = s².",
+      "example": "Length 8 cm, breadth 5 cm: perimeter = 2(8 + 5) = 26 cm; area = 8 × 5 = 40 cm²",
+      "commonMistake": "Adding length and breadth once instead of doubling the sum for the perimeter.",
+      "applicationPrompt": "A rectangle has length 8 cm and breadth 5 cm. Find its perimeter and area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pa-triangle-f",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-triangle",
+      "title": "Perimeter and area of a triangle",
+      "prompt": "How do you find the perimeter and area of a triangle?",
+      "formula": "Perimeter = a + b + c; Area = ½ × base × height",
+      "variables": [],
+      "explanation": "The height must be the perpendicular distance from the chosen base to the opposite vertex, not a slanted side.",
+      "example": "Base 10 cm, height 6 cm: area = ½ × 10 × 6 = 30 cm²",
+      "commonMistake": "Using a slanted side length as the height instead of the perpendicular distance.",
+      "applicationPrompt": "A triangle has base 10 cm and height 6 cm. Find its area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pa-trapezium-f",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-parallelogram-trapezium",
+      "title": "Area of a parallelogram and a trapezium",
+      "prompt": "How do you find the area of a parallelogram or a trapezium?",
+      "formula": "Parallelogram: Area = base × height; Trapezium: Area = ½ × (a + b) × height",
+      "variables": [],
+      "explanation": "For the trapezium formula, a and b are the lengths of the two parallel sides, and height is the perpendicular distance between them.",
+      "example": "Trapezium with parallel sides 10 cm and 14 cm, height 6 cm: area = ½ × (10 + 14) × 6 = 72 cm²",
+      "commonMistake": "Forgetting to add both parallel sides before halving in the trapezium formula.",
+      "applicationPrompt": "A trapezium has parallel sides 10 cm and 14 cm, and height 6 cm. Find its area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pa-circle-f",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-circle",
+      "title": "Circumference and area of a circle",
+      "prompt": "How do you find the circumference and area of a circle?",
+      "formula": "Circumference = 2πr; Area = πr²",
+      "variables": [],
+      "explanation": "r is the radius. Use π ≈ 22/7 when the radius is a multiple of 7, otherwise π ≈ 3.14.",
+      "example": "Radius 7 cm: circumference = 2 × 22/7 × 7 = 44 cm; area = 22/7 × 7 × 7 = 154 cm²",
+      "commonMistake": "Using the diameter in place of the radius without adjusting the formula.",
+      "applicationPrompt": "A circle has radius 7 cm. Find its circumference and area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pa-rhombus-f",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rhombus",
+      "title": "Area of a rhombus",
+      "prompt": "How do you find the area of a rhombus from its diagonals?",
+      "formula": "Area = ½ × d₁ × d₂",
+      "variables": [],
+      "explanation": "d₁ and d₂ are the lengths of the two diagonals, which always cross at right angles in a rhombus.",
+      "example": "Diagonals 12 cm and 16 cm: area = ½ × 12 × 16 = 96 cm²",
+      "commonMistake": "Using one diagonal alone, or forgetting the ½, and computing d₁ × d₂ directly.",
+      "applicationPrompt": "A rhombus has diagonals 12 cm and 16 cm. Find its area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pa-sc-percent-area",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "kind": "shortcut",
+      "title": "Both sides change by x%",
+      "prompt": "Each side of a rectangle (or square) grows by x%. By how much does the area grow?",
+      "formula": "Area change = 2x + x²/100 %\n(the successive change rule with a = b = x)",
+      "variables": [],
+      "explanation": "Area is length × width, so the two percentage changes combine.",
+      "example": "Each side up 10%: area up 21%. Each side down 10%: area down 19%.",
+      "commonMistake": "Saying the area also rises by 10%, or by 20%.",
+      "applicationPrompt": "The radius of a circle rises by 20%. By what percentage does its area rise?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pa-sc-heron",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-triangle",
+      "kind": "shortcut",
+      "title": "Heron's formula",
+      "prompt": "How do you find a triangle's area from its three sides alone?",
+      "formula": "s = (a + b + c) ÷ 2\nArea = √(s(s − a)(s − b)(s − c))",
+      "variables": [],
+      "explanation": "It needs no height. The 13-14-15 triangle (area 84) is a favourite.",
+      "example": "13, 14, 15: s = 21, area = √(21 × 8 × 7 × 6) = √7,056 = 84.",
+      "commonMistake": "Using the perimeter instead of half of it.",
+      "applicationPrompt": "Find the area of a triangle with sides 5, 5 and 6.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pa-sc-max-area",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "kind": "shortcut",
+      "title": "Fixed perimeter, largest area",
+      "prompt": "With a fixed length of fencing, which rectangle encloses the most?",
+      "formula": "A square, with side = perimeter ÷ 4\n(a circle beats every shape)",
+      "variables": [],
+      "explanation": "For a fixed sum of two sides, their product is largest when they are equal.",
+      "example": "Perimeter 40: a 10 × 10 square gives 100, a 12 × 8 rectangle only 96.",
+      "commonMistake": "Assuming every rectangle with the same perimeter has the same area.",
+      "applicationPrompt": "What is the largest rectangular area 60 m of fencing can enclose?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "perimeter-area-level-0",
+      "topicId": "perimeter-area",
+      "order": 0,
+      "title": "Perimeter and Area of Rectangles",
+      "description": "Perimeter = 2 × (length + breadth); Area = length × breadth.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pa-rectangle",
+        "pa-triangle"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Two different measurements",
+            "body": "Perimeter measures the distance around the outside of a shape; area measures the space it covers. They use different formulas and different units — length units for perimeter, squared units for area."
+          },
+          {
+            "type": "formula",
+            "title": "Rectangle formulas",
+            "body": "Perimeter = 2(l + b); Area = l × b",
+            "caption": "A square is just a rectangle where length and breadth are equal."
+          },
+          {
+            "type": "check",
+            "questionId": "perimeter-area-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For a triangle, the height must be measured perpendicular to the base — never use a slanted side as the height."
+          },
+          {
+            "type": "check",
+            "questionId": "perimeter-area-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "perimeter-area-level-1",
+      "topicId": "perimeter-area",
+      "order": 1,
+      "title": "Perimeter and Area Formulas",
+      "description": "Rectangles, triangles, parallelograms/trapeziums, circles, and rhombuses.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "perimeter-area-level-0"
+      ],
+      "conceptIds": [
+        "pa-rectangle",
+        "pa-triangle",
+        "pa-parallelogram-trapezium",
+        "pa-circle",
+        "pa-rhombus"
+      ],
+      "formulaIds": [
+        "pa-rectangle-f",
+        "pa-triangle-f",
+        "pa-trapezium-f",
+        "pa-circle-f",
+        "pa-rhombus-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "perimeter-area-level-2",
+      "topicId": "perimeter-area",
+      "order": 2,
+      "title": "Direct Perimeter and Area",
+      "description": "Rectangle perimeter, square area, and triangle area.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "perimeter-area-level-1"
+      ],
+      "conceptIds": [
+        "pa-rectangle",
+        "pa-triangle",
+        "pa-parallelogram-trapezium",
+        "pa-rhombus"
+      ],
+      "questionIds": [
+        "perimeter-area-q-001",
+        "perimeter-area-q-002",
+        "perimeter-area-q-003",
+        "perimeter-area-q-010",
+        "perimeter-area-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "perimeter-area-level-3",
+      "topicId": "perimeter-area",
+      "order": 3,
+      "title": "More Shapes, Same Ideas",
+      "description": "Working backwards for a rectangle, triangle perimeter, trapezium area, and circle circumference.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "perimeter-area-level-2"
+      ],
+      "conceptIds": [
+        "pa-rectangle",
+        "pa-triangle",
+        "pa-parallelogram-trapezium",
+        "pa-circle"
+      ],
+      "questionIds": [
+        "perimeter-area-q-004",
+        "perimeter-area-q-005",
+        "perimeter-area-q-006",
+        "perimeter-area-q-007",
+        "perimeter-area-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "perimeter-area-level-4",
+      "topicId": "perimeter-area",
+      "order": 4,
+      "title": "Multi-Step Perimeter and Area Problems",
+      "description": "Finding a circle's area from its diameter, and a rhombus's area from its diagonals.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "perimeter-area-level-3"
+      ],
+      "conceptIds": [
+        "pa-circle",
+        "pa-rhombus"
+      ],
+      "questionIds": [
+        "perimeter-area-q-008",
+        "perimeter-area-q-009",
+        "perimeter-area-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "perimeter-area-level-5",
+      "topicId": "perimeter-area",
+      "order": 5,
+      "title": "Mixed Perimeter and Area Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "perimeter-area-level-4"
+      ],
+      "conceptIds": [
+        "pa-circle",
+        "pa-rhombus"
+      ],
+      "questionQuery": {
+        "topicId": "perimeter-area",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "perimeter-area-q-001",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "levelId": "perimeter-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A rectangle has length 8 cm and breadth 5 cm. Find its perimeter.",
+      "context": "Study the rectangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rectangle with length 8 cm and breadth 5 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 5,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "Rectangle with length 8 cm and breadth 5 cm"
+      },
+      "answer": {
+        "value": 26,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Perimeter = 2(l + b) = 2(8 + 5) = 2 × 13 = 26 cm.",
+      "solutionSteps": [
+        "8 + 5 = 13.",
+        "2 × 13 = 26."
+      ],
+      "formulaIds": [
+        "pa-rectangle-f"
+      ],
+      "method": "Add the length and breadth, then double the sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The perimeter formula is 2 × (length + breadth)."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to double the sum of length and breadth."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-002",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "levelId": "perimeter-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A square has side 6 cm. Find its area.",
+      "context": "Study the square and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Square with side 6 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 6,
+            "y": 6,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Square with side 6 cm"
+      },
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Area of a square = side² = 6² = 36 cm².",
+      "solutionSteps": [
+        "6 × 6 = 36."
+      ],
+      "formulaIds": [
+        "pa-rectangle-f"
+      ],
+      "method": "Square the side length.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A square is a rectangle with length equal to breadth."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the side by 4 (perimeter) instead of squaring it (area)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-003",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-triangle",
+      "levelId": "perimeter-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A triangle has base 10 cm and height 6 cm. Find its area.",
+      "context": "Study the triangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle with base 10 cm and height 6 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4,
+            "y": 6,
+            "labelOffset": [
+              -4,
+              12
+            ]
+          },
+          {
+            "id": "H",
+            "x": 4,
+            "y": 0,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "H",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "H",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Triangle with base 10 cm and height 6 cm"
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+      "solutionSteps": [
+        "10 × 6 = 60.",
+        "60 ÷ 2 = 30."
+      ],
+      "formulaIds": [
+        "pa-triangle-f"
+      ],
+      "method": "Multiply base by height, then halve the result.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The height is the perpendicular distance from the base to the opposite vertex, shown as the dashed line."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to halve the product of base and height."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-004",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rectangle",
+      "levelId": "perimeter-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A rectangle has length 10 cm and perimeter 36 cm. Find its breadth.",
+      "context": "Study the rectangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rectangle with length 10 cm and unknown breadth",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 8,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 8,
+            "labelOffset": [
+              -14,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "Rectangle with length 10 cm and unknown breadth"
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Perimeter = 2(l + b), so 36 = 2(10 + b), giving 18 = 10 + b, so b = 8 cm.",
+      "solutionSteps": [
+        "36 ÷ 2 = 18.",
+        "18 − 10 = 8."
+      ],
+      "formulaIds": [
+        "pa-rectangle-f"
+      ],
+      "method": "Halve the perimeter, then subtract the known length.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work backwards from the perimeter formula."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the perimeter by 4 as if it were a square."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-005",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-triangle",
+      "levelId": "perimeter-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A triangle has sides 7 cm, 9 cm and 12 cm. Find its perimeter.",
+      "context": "Study the triangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle with sides 7 cm, 9 cm and 12 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.67,
+            "y": 5.22,
+            "labelOffset": [
+              -4,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ],
+        "ariaSummary": "Triangle with sides 7 cm, 9 cm and 12 cm"
+      },
+      "answer": {
+        "value": 28,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Perimeter = 7 + 9 + 12 = 28 cm.",
+      "solutionSteps": [
+        "7 + 9 = 16.",
+        "16 + 12 = 28."
+      ],
+      "formulaIds": [
+        "pa-triangle-f"
+      ],
+      "method": "Add up all three side lengths.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The perimeter of any triangle is just the sum of its three sides."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use the area formula when only the perimeter is asked for."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-006",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-parallelogram-trapezium",
+      "levelId": "perimeter-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A trapezium has parallel sides 10 cm and 14 cm, and height 6 cm. Find its area.",
+      "context": "Study the trapezium and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Trapezium with parallel sides 10 cm and 14 cm, height 6 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 12,
+            "y": 6,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 2,
+            "y": 6,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Trapezium with parallel sides 10 cm and 14 cm, height 6 cm"
+      },
+      "answer": {
+        "value": 72,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Area = ½ × (a + b) × height = ½ × (10 + 14) × 6 = ½ × 24 × 6 = 72 cm².",
+      "solutionSteps": [
+        "10 + 14 = 24.",
+        "24 × 6 = 144.",
+        "144 ÷ 2 = 72."
+      ],
+      "formulaIds": [
+        "pa-trapezium-f"
+      ],
+      "method": "Add the two parallel sides, multiply by the height, then halve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both parallel sides must be added together before multiplying by the height."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to halve the final product."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-007",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-circle",
+      "levelId": "perimeter-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A circle has radius 7 cm. Find its circumference. (Use π = 22/7.)",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with radius 7 cm",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed"
+          }
+        ],
+        "ariaSummary": "Circle with radius 7 cm"
+      },
+      "answer": {
+        "value": 44,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Circumference = 2πr = 2 × 22/7 × 7 = 44 cm.",
+      "solutionSteps": [
+        "2 × 22/7 = 44/7.",
+        "44/7 × 7 = 44."
+      ],
+      "formulaIds": [
+        "pa-circle-f"
+      ],
+      "method": "Use 2πr with π = 22/7, which cancels neatly since r = 7.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Choosing r = 7 makes the 22/7 cancel exactly."
+        }
+      ],
+      "commonMistakes": [
+        "Using the area formula (πr²) instead of the circumference formula (2πr)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-008",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-circle",
+      "levelId": "perimeter-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A circle has diameter 28 cm. Find its area. (Use π = 22/7.)",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with diameter 28 cm",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed"
+          }
+        ],
+        "ariaSummary": "Circle with diameter 28 cm"
+      },
+      "answer": {
+        "value": 616,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Radius = 28 ÷ 2 = 14 cm. Area = πr² = 22/7 × 14 × 14 = 22 × 28 = 616 cm².",
+      "solutionSteps": [
+        "28 ÷ 2 = 14.",
+        "22/7 × 14 × 14 = 22 × 2 × 14 = 616."
+      ],
+      "formulaIds": [
+        "pa-circle-f"
+      ],
+      "method": "Halve the diameter to get the radius first, then apply the area formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The area formula uses the radius, not the diameter — halve it first."
+        }
+      ],
+      "commonMistakes": [
+        "Using the diameter directly in the area formula instead of the radius."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-009",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rhombus",
+      "levelId": "perimeter-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A rhombus has diagonals 12 cm and 16 cm. Find its area.",
+      "context": "Study the rhombus and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rhombus with diagonals 12 cm and 16 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 12,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "C",
+            "x": 16,
+            "y": 6,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "D",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "O",
+            "x": 8,
+            "y": 6,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B"
+          }
+        ],
+        "ariaSummary": "Rhombus with diagonals 12 cm and 16 cm"
+      },
+      "answer": {
+        "value": 96,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Area = ½ × d₁ × d₂ = ½ × 12 × 16 = ½ × 192 = 96 cm².",
+      "solutionSteps": [
+        "12 × 16 = 192.",
+        "192 ÷ 2 = 96."
+      ],
+      "formulaIds": [
+        "pa-rhombus-f"
+      ],
+      "method": "Multiply the two diagonals, then halve the product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This formula only needs the diagonals, not the side length."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to halve the product of the two diagonals."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-010",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-parallelogram-trapezium",
+      "levelId": "perimeter-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Parallelogram ABCD has base AB = 13 cm, slanting side AD = 9 cm and height 7 cm. Find its area.",
+      "context": "Study the parallelogram and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Parallelogram with base 13 cm, slanting side 9 cm and height 7 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 13,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 18.66,
+            "y": 7,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 5.66,
+            "y": 7,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          },
+          {
+            "id": "H",
+            "x": 5.66,
+            "y": 0,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "13 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "D",
+            "label": "9 cm"
+          },
+          {
+            "type": "segment",
+            "from": "D",
+            "to": "H",
+            "style": "dashed",
+            "label": "7 cm",
+            "labelOffset": [
+              16,
+              0
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "H",
+            "from": "B",
+            "to": "D"
+          }
+        ],
+        "parallels": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Parallelogram ABCD with base AB 13 cm, slanting side AD 9 cm, and a dashed height of 7 cm drawn from D at right angles to AB."
+      },
+      "answer": {
+        "value": 91,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Area of a parallelogram = base × perpendicular height = 13 × 7 = 91 cm². The slanting side, 9 cm, is not the height.",
+      "solutionSteps": [
+        "Area = base × perpendicular height.",
+        "13 × 7 = 91 cm²."
+      ],
+      "formulaIds": [
+        "pa-trapezium-f"
+      ],
+      "method": "Multiply the base by the perpendicular height, not by the slanting side.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The height is the dashed line at right angles to AB."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 13 × 9 = 117 with the slanting side."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-011",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rhombus",
+      "levelId": "perimeter-area-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Each side of rhombus ABCD is 9 cm long. What is its perimeter?",
+      "context": "Study the rhombus and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rhombus ABCD with side 9 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 9,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 13.5,
+            "y": 7.79,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "D",
+            "x": 4.5,
+            "y": 7.79,
+            "labelOffset": [
+              -12,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "9 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Rhombus ABCD with all four sides tick-marked as equal; side AB is 9 cm."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "18 cm"
+        },
+        {
+          "id": "b",
+          "text": "81 cm"
+        },
+        {
+          "id": "c",
+          "text": "36 cm"
+        },
+        {
+          "id": "d",
+          "text": "27 cm"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "All four sides of a rhombus are equal, so perimeter = 4 × 9 = 36 cm.",
+      "solutionSteps": [
+        "A rhombus has four equal sides.",
+        "Perimeter = 4 × 9 = 36 cm."
+      ],
+      "formulaIds": [],
+      "method": "Multiply the side by 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Like a square, a rhombus has four sides of the same length."
+        }
+      ],
+      "commonMistakes": [
+        "Squaring the side (81) as if finding the area of a square."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-012",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-triangle",
+      "levelId": "perimeter-area-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A triangle has sides 13 cm, 14 cm and 15 cm. Find its area.",
+      "context": "Study the triangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle with sides 13 cm, 14 cm and 15 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 5,
+            "y": 12,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "A",
+            "label": "13 cm"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "14 cm",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "label": "15 cm"
+          }
+        ],
+        "ariaSummary": "Triangle ABC with AB = 13 cm, BC = 14 cm and AC = 15 cm. No height is drawn."
+      },
+      "answer": {
+        "value": 84,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "No height is given, so use Heron's formula. s = (13 + 14 + 15) ÷ 2 = 21. Area = √(21 × 8 × 7 × 6) = √7056 = 84 cm².",
+      "solutionSteps": [
+        "s = (13 + 14 + 15) ÷ 2 = 21.",
+        "s − a = 8, s − b = 7, s − c = 6.",
+        "Area = √(21 × 8 × 7 × 6) = √7056 = 84 cm²."
+      ],
+      "formulaIds": [
+        "pa-sc-heron"
+      ],
+      "method": "No height is given, so use Heron's formula with the semi-perimeter.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the semi-perimeter s, half of the perimeter."
+        },
+        {
+          "level": 2,
+          "text": "Multiply s by (s − a), (s − b) and (s − c), then take the square root."
+        }
+      ],
+      "commonMistakes": [
+        "Using the full perimeter, 42, instead of the semi-perimeter, 21."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "perimeter-area-q-013",
+      "topicId": "perimeter-area",
+      "conceptId": "pa-rhombus",
+      "levelId": "perimeter-area-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A rhombus has side 13 cm and one diagonal 24 cm. Find its area.",
+      "context": "Study the rhombus and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Rhombus ABCD with side 13 cm and diagonal AC = 24 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": -12,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              -4,
+              16
+            ]
+          },
+          {
+            "id": "C",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          },
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed",
+            "label": "24 cm",
+            "labelOffset": [
+              40,
+              12
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "D",
+            "label": "13 cm"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "O",
+            "from": "C",
+            "to": "D"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "B",
+              "C"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "C",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Rhombus ABCD with all sides 13 cm. Diagonal AC is 24 cm; diagonal BD is drawn dashed with no length given. The diagonals cross at O at right angles."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "156 cm²"
+        },
+        {
+          "id": "b",
+          "text": "120 cm²"
+        },
+        {
+          "id": "c",
+          "text": "240 cm²"
+        },
+        {
+          "id": "d",
+          "text": "60 cm²"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The diagonals of a rhombus bisect each other at right angles. Half of the known diagonal is 12 cm, so half of the other = √(13² − 12²) = √25 = 5 cm, and the other diagonal is 10 cm. Area = ½ × 24 × 10 = 120 cm².",
+      "solutionSteps": [
+        "Half of AC = 24 ÷ 2 = 12 cm.",
+        "Half of BD = √(13² − 12²) = √25 = 5 cm.",
+        "BD = 2 × 5 = 10 cm.",
+        "Area = ½ × 24 × 10 = 120 cm²."
+      ],
+      "formulaIds": [
+        "pa-rhombus-f"
+      ],
+      "method": "Find the missing diagonal from a right triangle, then use ½ × d₁ × d₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The diagonals cut the rhombus into four right triangles with hypotenuse 13 cm."
+        },
+        {
+          "level": 2,
+          "text": "One leg of each right triangle is half of 24 cm."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the ½ in ½ × d₁ × d₂ (240 cm²).",
+        "Using 5 cm as the whole second diagonal instead of half of it (60 cm²)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

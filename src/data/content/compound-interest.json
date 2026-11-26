@@ -1,0 +1,1977 @@
+{
+  "topicId": "compound-interest",
+  "concepts": [
+    {
+      "id": "ci-meaning",
+      "topicId": "compound-interest",
+      "name": "What compounding does",
+      "description": "Interest is added to the principal, so later interest is earned on earlier interest.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ci-formula",
+      "topicId": "compound-interest",
+      "name": "The compound amount formula",
+      "description": "Using A = P(1 + R/100)^T and subtracting to get the interest.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ci-frequency",
+      "topicId": "compound-interest",
+      "name": "Compounding frequency",
+      "description": "Half-yearly and quarterly compounding change both the rate and the number of periods.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ci-vs-si",
+      "topicId": "compound-interest",
+      "name": "CI compared with SI",
+      "description": "The gap between them, and the two-year shortcut for the difference.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ci-growth",
+      "topicId": "compound-interest",
+      "name": "Growth and depreciation",
+      "description": "Populations, machine values and price rises use the same formula.",
+      "sortOrder": 5
+    },
+    {
+      "id": "ci-reverse",
+      "topicId": "compound-interest",
+      "name": "Finding the rate or principal",
+      "description": "Working backwards from a growth multiple to the rate.",
+      "sortOrder": 6
+    },
+    {
+      "id": "ci-adv-emi-compound",
+      "topicId": "compound-interest",
+      "name": "Equal instalments under compound interest",
+      "description": "The sum borrowed equals the present values of the instalments: each one is divided by (1 + R/100) once for every year until it is paid.",
+      "sortOrder": 7
+    },
+    {
+      "id": "ci-adv-emi-simple",
+      "topicId": "compound-interest",
+      "name": "Equal instalments under simple interest",
+      "description": "The bank-exam rule: the amount due at the end equals the instalments plus the simple interest each one earns from its payment date to the end.",
+      "sortOrder": 8
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ci-amount",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "title": "Compound amount",
+      "prompt": "What is the formula for the amount under compound interest?",
+      "formula": "A = P × (1 + R/100)^T",
+      "variables": [
+        {
+          "symbol": "P",
+          "meaning": "principal"
+        },
+        {
+          "symbol": "R",
+          "meaning": "rate percent per period"
+        },
+        {
+          "symbol": "T",
+          "meaning": "number of periods"
+        }
+      ],
+      "explanation": "Each period multiplies the balance by the same factor, so growth is repeated multiplication rather than repeated addition.",
+      "example": "P = ₹1,000, R = 10%, T = 2\nA = 1000 × 1.1² = ₹1,210",
+      "commonMistake": "Multiplying by (1 + RT/100), which is the simple-interest form.",
+      "applicationPrompt": "₹1,000 is invested at 10% compounded annually for 2 years. Which formula gives the amount?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ci-interest",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "title": "Compound interest",
+      "prompt": "How do you get the compound interest itself?",
+      "formula": "CI = A − P = P[(1 + R/100)^T − 1]",
+      "variables": [],
+      "explanation": "The formula gives the amount, so the principal must be subtracted to leave the interest.",
+      "example": "P = ₹1,000, R = 10%, T = 2\nA = ₹1,210, CI = ₹210",
+      "commonMistake": "Reporting the amount as the interest.",
+      "applicationPrompt": "You have computed the compound amount. What is left to do to find the interest?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ci-half-yearly",
+      "topicId": "compound-interest",
+      "conceptId": "ci-frequency",
+      "title": "Half-yearly compounding",
+      "prompt": "How does the formula change when interest compounds half-yearly?",
+      "formula": "A = P × (1 + R/200)^(2T)",
+      "variables": [
+        {
+          "symbol": "2T",
+          "meaning": "number of half-year periods"
+        }
+      ],
+      "explanation": "Halve the rate and double the number of periods. Quarterly compounding uses R/400 and 4T.",
+      "example": "₹16,000 at 10% half-yearly for 1 year\nA = 16000 × 1.05² = ₹17,640",
+      "commonMistake": "Halving the rate but forgetting to double the periods (or vice versa).",
+      "applicationPrompt": "₹16,000 is invested at 10% per annum compounded half-yearly. What rate and period do you use?",
+      "tags": [
+        "frequency"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-si-difference",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "kind": "shortcut",
+      "title": "Difference between CI and SI (2 years)",
+      "prompt": "What is the difference between compound and simple interest over exactly two years?",
+      "formula": "CI − SI = P × (R/100)²",
+      "variables": [],
+      "explanation": "The gap is precisely the interest earned in year two on year one's interest — nothing else.",
+      "example": "P = ₹10,000, R = 8%, T = 2\nDifference = 10000 × 0.08² = ₹64",
+      "commonMistake": "Applying this to periods other than two years, where it does not hold.",
+      "applicationPrompt": "You need the gap between CI and SI on ₹10,000 at 8% over 2 years. Which shortcut applies?",
+      "tags": [
+        "shortcut",
+        "comparison"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-growth-formula",
+      "topicId": "compound-interest",
+      "conceptId": "ci-growth",
+      "title": "Growth and depreciation",
+      "prompt": "How do you model a population or value that changes by a fixed percentage each year?",
+      "formula": "Final = Initial × (1 ± R/100)^T",
+      "variables": [
+        {
+          "symbol": "±",
+          "meaning": "plus for growth, minus for depreciation"
+        }
+      ],
+      "explanation": "Population growth, machine depreciation and price inflation are compound interest with different words.",
+      "example": "Population 10,000 growing 5% a year for 2 years\n= 10000 × 1.05² = 11,025",
+      "commonMistake": "Multiplying the annual percentage by the number of years.",
+      "applicationPrompt": "A town grows 5% a year. Which formula gives its population after 2 years?",
+      "tags": [
+        "applications"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-find-rate",
+      "topicId": "compound-interest",
+      "conceptId": "ci-reverse",
+      "title": "Finding the rate from a growth multiple",
+      "prompt": "A sum becomes k times itself in T years. How do you find the rate?",
+      "formula": "(1 + R/100)^T = k  ⟹  R = (ᵀ√k − 1) × 100",
+      "variables": [
+        {
+          "symbol": "k",
+          "meaning": "the multiple the sum grows to"
+        }
+      ],
+      "explanation": "Take the T-th root of the growth multiple. For two years, that is simply a square root.",
+      "example": "A sum becomes 1.44 times in 2 years\n√1.44 = 1.2, so R = 20%",
+      "commonMistake": "Dividing the total growth by the number of years.",
+      "applicationPrompt": "A sum becomes 1.44 times itself in 2 years. How do you get the rate?",
+      "tags": [
+        "reverse"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ci-sc-two-year-rate",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "kind": "shortcut",
+      "title": "Effective rate for two and three years",
+      "prompt": "What single percentage does R% compounded for two years amount to?",
+      "formula": "2 years: 2R + R²/100 %\n10% → 21%, then 33.1% for 3 years\n20% → 44%, then 72.8% for 3 years",
+      "variables": [],
+      "explanation": "Two successive increases of R% combine as R + R + R×R/100.",
+      "example": "₹5,000 at 10% for 2 years: interest = 21% of 5,000 = ₹1,050.",
+      "commonMistake": "Using 2R (simple interest) and missing the interest on interest.",
+      "applicationPrompt": "Find the compound interest on ₹8,000 at 20% for 2 years without working out the amount.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-sc-fractions",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "kind": "shortcut",
+      "title": "Multiply by a fraction each year",
+      "prompt": "How do you compound without decimals?",
+      "formula": "5% → 21/20   10% → 11/10   12½% → 9/8\n16⅔% → 7/6   20% → 6/5   25% → 5/4",
+      "variables": [],
+      "explanation": "A rate of 1/n a year multiplies the amount by (n + 1)/n each year.",
+      "example": "₹8,000 at 12½% for 2 years: 8,000 × 9/8 × 9/8 = ₹10,125.",
+      "commonMistake": "Using 8/9 instead of 9/8: growth multiplies by the larger over the smaller.",
+      "applicationPrompt": "₹7,200 is invested at 16⅔% compound interest for 2 years.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-sc-rule-72",
+      "topicId": "compound-interest",
+      "conceptId": "ci-growth",
+      "kind": "shortcut",
+      "title": "Rule of 72",
+      "prompt": "Roughly how long does money take to double at R% compound interest?",
+      "formula": "Years to double ≈ 72 ÷ R",
+      "variables": [],
+      "explanation": "An approximation that works well for rates between about 4% and 15%.",
+      "example": "At 8%: about 72 ÷ 8 = 9 years (1.08⁹ ≈ 2.0).",
+      "commonMistake": "Using it for an exact answer, or for simple interest (where doubling takes 100 ÷ R years).",
+      "applicationPrompt": "About how many years does a population growing at 6% a year take to double?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ci-sc-three-year-gap",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "kind": "shortcut",
+      "title": "CI minus SI for three years",
+      "prompt": "What is the difference between compound and simple interest over three years?",
+      "formula": "CI − SI = P × (R/100)² × (3 + R/100)",
+      "variables": [],
+      "explanation": "The extra is all the interest earned on earlier interest across the three years.",
+      "example": "₹1,000 at 10%: 1,000 × 0.01 × 3.1 = ₹31 (CI 331, SI 300).",
+      "commonMistake": "Using the two-year result P(R/100)² for a three-year question.",
+      "applicationPrompt": "The difference between CI and SI on a sum for 3 years at 5% is ₹61. Find the sum.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ci-sc-consecutive-years",
+      "topicId": "compound-interest",
+      "conceptId": "ci-reverse",
+      "kind": "shortcut",
+      "title": "Amounts in consecutive years give the rate",
+      "prompt": "You know the compound amount after n years and after n + 1 years. What is the rate?",
+      "formula": "R = (A₂ − A₁) ÷ A₁ × 100",
+      "variables": [],
+      "explanation": "Each year the whole amount grows by R%, so the last year's growth is R% of the earlier amount.",
+      "example": "₹2,420 after 2 years and ₹2,662 after 3 years: 242 ÷ 2,420 × 100 = 10%.",
+      "commonMistake": "Dividing the difference by the principal, which is not given and not needed.",
+      "applicationPrompt": "A sum amounts to ₹4,840 in 2 years and ₹5,324 in 3 years at compound interest.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ci-adv-emi-pv-f",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "title": "Equal instalments under compound interest",
+      "prompt": "A loan P at R% compound interest is repaid in n equal annual instalments of x. How are P and x linked?",
+      "formula": "P = x/(1 + R/100) + x/(1 + R/100)² + … + x/(1 + R/100)ⁿ",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "each annual instalment"
+        },
+        {
+          "symbol": "n",
+          "meaning": "number of instalments, the first paid one year after the loan"
+        }
+      ],
+      "explanation": "Each instalment is worth less today the later it is paid, so discount it back to the start of the loan. The present values add up to the sum borrowed.",
+      "example": "₹1,210 a year for 2 years at 10%\nP = 1,210/1.1 + 1,210/1.21 = 1,100 + 1,000 = ₹2,100",
+      "commonMistake": "Adding the instalments (₹2,420) without discounting each one back.",
+      "applicationPrompt": "A loan is cleared by two annual instalments of ₹1,210 at 10% compound interest. How much was borrowed?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ci-adv-emi-si-f",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-simple",
+      "title": "Equal instalments under simple interest",
+      "prompt": "A sum P is borrowed at R% simple interest and repaid in n equal annual instalments of x. What equation gives x?",
+      "formula": "P(1 + nR/100) = x × [n + (R/100) × n(n − 1)/2]",
+      "variables": [
+        {
+          "symbol": "P(1 + nR/100)",
+          "meaning": "the amount due at the end of n years"
+        },
+        {
+          "symbol": "n(n − 1)/2",
+          "meaning": "total years of interest earned by the instalments: n − 1, n − 2, …, 0"
+        }
+      ],
+      "explanation": "Each instalment earns simple interest from the day it is paid to the end: the first for n − 1 years, the last for none. Together they must equal the amount due.",
+      "example": "₹6,300 at 5% in 3 instalments\nAmount due = 6,300 × 1.15 = ₹7,245\n7,245 = x(3 + 0.05 × 3) = 3.15x, so x = ₹2,300",
+      "commonMistake": "Dividing the amount due by the number of instalments (7,245 ÷ 3 = ₹2,415), which ignores the interest the early instalments earn.",
+      "applicationPrompt": "₹6,300 is borrowed at 5% simple interest and repaid in 3 equal yearly instalments. Find each instalment.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ci-adv-sc-two-instalments",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "kind": "shortcut",
+      "title": "Two instalments by the ratio method",
+      "prompt": "How do you find two equal compound-interest instalments without dividing by decimals?",
+      "formula": "Write one year as P : A = a : b (10% → 10 : 11, 20% → 5 : 6)\nInstalment = P × b² ÷ [a × (a + b)]\nThree instalments: P × b³ ÷ [a × (a² + ab + b²)]",
+      "variables": [],
+      "explanation": "Take the instalment as b² units. Its present values are ab units for the first year and a² for the second, so the loan is a(a + b) units.",
+      "example": "₹5,500 at 20% (5 : 6): 5,500 × 36 ÷ (5 × 11) = ₹3,600.",
+      "commonMistake": "Halving the two-year amount: 5,500 × 1.44 ÷ 2 = ₹3,960 is too much, because the first instalment earns only one year of interest.",
+      "applicationPrompt": "₹8,200 is repaid in two equal annual instalments at 5% compound interest.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ci-adv-sc-si-debt",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-simple",
+      "kind": "shortcut",
+      "title": "Instalment that clears a debt (simple interest)",
+      "prompt": "What equal annual instalment clears a debt of A due in n years at R% simple interest?",
+      "formula": "x = 100A ÷ [100n + R × n(n − 1)/2]",
+      "variables": [],
+      "explanation": "The instalments earn 0 + 1 + … + (n − 1) = n(n − 1)/2 years of interest between them, at R% of x a year.",
+      "example": "Debt ₹1,092 due in 3 years at 12%: 1,09,200 ÷ (300 + 36) = ₹325.",
+      "commonMistake": "Using n(n + 1)/2, which gives the last instalment a year of interest it never earns.",
+      "applicationPrompt": "What annual instalment discharges a debt of ₹1,092 due in 3 years at 12% simple interest?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "compound-interest-level-0",
+      "topicId": "compound-interest",
+      "order": 0,
+      "title": "Interest That Earns Interest",
+      "description": "Why compounding pulls away from simple interest, and how fast.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ci-meaning",
+        "ci-vs-si"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The one difference that matters",
+            "body": "Under simple interest, every year earns interest on the original sum. Under compound interest, the interest is added to the balance, so the next year earns interest on a larger amount.\n\nThat is the entire distinction — and it is worth real money over time."
+          },
+          {
+            "type": "example",
+            "title": "₹1,000 at 10% for two years",
+            "body": "Simple interest\nYear 1: ₹100 → Year 2: ₹100 → total ₹200\n\nCompound interest\nYear 1: ₹100 (balance ₹1,100)\nYear 2: 10% of 1,100 = ₹110 → total ₹210\n\nThe extra ₹10 is exactly the interest on year one's interest."
+          },
+          {
+            "type": "formula",
+            "title": "The formula",
+            "body": "A = P × (1 + R/100)^T        CI = A − P",
+            "caption": "It gives the AMOUNT. Subtract the principal to get the interest."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Think in multipliers. A 10% annual rate is × 1.1 each year; three years is × 1.1³. This makes growth, depreciation and successive percentage changes all the same calculation."
+          },
+          {
+            "type": "check",
+            "questionId": "compound-interest-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Frequency changes the answer",
+            "body": "'10% per annum compounded half-yearly' means 5% applied twice a year, not 10% twice. Halve the rate, double the periods — and notice the result is slightly higher than annual compounding."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ci-vs-si"
+          },
+          {
+            "type": "check",
+            "questionId": "compound-interest-q-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "compound-interest-level-1",
+      "topicId": "compound-interest",
+      "order": 1,
+      "title": "Compounding Formulas",
+      "description": "The amount formula, frequency adjustments and the two-year difference shortcut.",
+      "type": "formula_revision",
+      "difficulty": "medium",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-0"
+      ],
+      "conceptIds": [
+        "ci-formula",
+        "ci-frequency",
+        "ci-vs-si"
+      ],
+      "formulaIds": [
+        "ci-amount",
+        "ci-interest",
+        "ci-half-yearly",
+        "ci-si-difference",
+        "ci-growth-formula",
+        "ci-find-rate"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "compound-interest-level-2",
+      "topicId": "compound-interest",
+      "order": 2,
+      "title": "Spot the Compounding",
+      "description": "Tell compound from simple, and annual from half-yearly, before calculating.",
+      "type": "method_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-1"
+      ],
+      "conceptIds": [
+        "ci-meaning",
+        "ci-frequency"
+      ],
+      "questionIds": [
+        "compound-interest-q-010",
+        "compound-interest-q-011",
+        "compound-interest-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "compound-interest-level-3",
+      "topicId": "compound-interest",
+      "order": 3,
+      "title": "Direct Compound Calculations",
+      "description": "Applying the amount formula over two and three years.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-2"
+      ],
+      "conceptIds": [
+        "ci-formula"
+      ],
+      "questionIds": [
+        "compound-interest-q-001",
+        "compound-interest-q-002",
+        "compound-interest-q-003",
+        "compound-interest-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "compound-interest-level-4",
+      "topicId": "compound-interest",
+      "order": 4,
+      "title": "Frequency, Differences and Growth",
+      "description": "Half-yearly compounding, the CI−SI gap, and growth problems.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 13,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-3"
+      ],
+      "conceptIds": [
+        "ci-frequency",
+        "ci-vs-si",
+        "ci-growth"
+      ],
+      "questionIds": [
+        "compound-interest-q-020",
+        "compound-interest-q-021",
+        "compound-interest-q-022",
+        "compound-interest-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "compound-interest-level-5",
+      "topicId": "compound-interest",
+      "order": 5,
+      "title": "Working Backwards",
+      "description": "Recovering the principal, the rate or the simple-interest equivalent.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-4"
+      ],
+      "conceptIds": [
+        "ci-reverse",
+        "ci-vs-si",
+        "ci-growth"
+      ],
+      "questionIds": [
+        "compound-interest-q-030",
+        "compound-interest-q-031",
+        "compound-interest-q-032"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "compound-interest-level-6",
+      "topicId": "compound-interest",
+      "order": 6,
+      "title": "Mixed Compounding Practice",
+      "description": "Everything above, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-5"
+      ],
+      "questionQuery": {
+        "topicId": "compound-interest",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "ci-meaning",
+          "ci-formula",
+          "ci-frequency",
+          "ci-vs-si",
+          "ci-growth",
+          "ci-reverse"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "compound-interest-level-7",
+      "topicId": "compound-interest",
+      "order": 7,
+      "title": "Advanced: Equal Instalments (EMI)",
+      "description": "Repaying a loan in equal yearly instalments, under compound and simple interest.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-6"
+      ],
+      "conceptIds": [
+        "ci-adv-emi-compound",
+        "ci-adv-emi-simple"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Each instalment repays part of the loan",
+            "body": "When a loan is cleared in equal yearly instalments, a payment made later is worth less today. Discount every instalment back to the day of the loan at the loan's rate: those present values add up to the sum borrowed."
+          },
+          {
+            "type": "formula",
+            "title": "Present value of the instalments",
+            "body": "P = x/(1 + R/100) + x/(1 + R/100)² + … + x/(1 + R/100)ⁿ",
+            "caption": "Divide by the yearly multiplier once for the first instalment, twice for the second, and so on."
+          },
+          {
+            "type": "example",
+            "title": "₹2,100 at 10%, two instalments of ₹1,210",
+            "body": "Year 1: 2,100 + 10% = 2,310; pay 1,210 → 1,100 left\nYear 2: 1,100 + 10% = 1,210; pay 1,210 → nothing left\n\nBackwards: 1,210 ÷ 1.1 + 1,210 ÷ 1.21 = 1,100 + 1,000 = ₹2,100."
+          },
+          {
+            "type": "check",
+            "questionId": "compound-interest-ci-adv-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Exam shortcut for two instalments: write one year as P : A = a : b (10% → 10 : 11). The instalment is P × b² ÷ [a(a + b)], so ₹2,100 × 121 ÷ 210 = ₹1,210."
+          },
+          {
+            "type": "text",
+            "title": "Under simple interest",
+            "body": "Bank papers use a different rule for simple interest. At the end of the loan, the amount due must equal the instalments plus the simple interest each one earns from the day it is paid to the end. The first instalment earns interest for n − 1 years, the last for none."
+          },
+          {
+            "type": "formula",
+            "title": "Equal instalments under simple interest",
+            "body": "P(1 + nR/100) = x × [n + (R/100) × n(n − 1)/2]",
+            "caption": "n(n − 1)/2 counts the interest years: (n − 1) + … + 1 + 0."
+          },
+          {
+            "type": "check",
+            "questionId": "compound-interest-ci-adv-q-002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "compound-interest-level-8",
+      "topicId": "compound-interest",
+      "order": 8,
+      "title": "Challenge: Equal Instalments",
+      "description": "Instalments, sums borrowed and total interest, as asked in bank PO papers.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "compound-interest-level-7"
+      ],
+      "conceptIds": [
+        "ci-adv-emi-compound",
+        "ci-adv-emi-simple"
+      ],
+      "questionIds": [
+        "compound-interest-ci-adv-q-003",
+        "compound-interest-ci-adv-q-004",
+        "compound-interest-ci-adv-q-005",
+        "compound-interest-ci-adv-q-006",
+        "compound-interest-ci-adv-q-007",
+        "compound-interest-ci-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "compound-interest-q-001",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "levelId": "compound-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Find the compound interest on ₹1,000 at 10% per annum for 2 years, compounded annually.",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹200"
+        },
+        {
+          "id": "b",
+          "text": "₹210"
+        },
+        {
+          "id": "c",
+          "text": "₹1,210"
+        },
+        {
+          "id": "d",
+          "text": "₹220"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A = 1000 × 1.1² = ₹1,210, so CI = 1,210 − 1,000 = ₹210. The ₹10 above simple interest is year two's interest on year one's ₹100.",
+      "solutionSteps": [
+        "Year 1 interest = ₹100, balance = ₹1,100.",
+        "Year 2 interest = 10% of 1,100 = ₹110.",
+        "CI = 100 + 110 = ₹210."
+      ],
+      "formulaIds": [
+        "ci-amount",
+        "ci-interest"
+      ],
+      "method": "Apply the multiplier twice, then subtract the principal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Year two's interest is not on ₹1,000 any more."
+        },
+        {
+          "level": 2,
+          "text": "The balance at the start of year two is ₹1,100."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹200, which is the simple interest.",
+        "Answering ₹1,210, which is the amount."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-002",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "levelId": "compound-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the compound interest on ₹8,000 at 5% per annum for 2 years?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹800"
+        },
+        {
+          "id": "b",
+          "text": "₹820"
+        },
+        {
+          "id": "c",
+          "text": "₹840"
+        },
+        {
+          "id": "d",
+          "text": "₹8,820"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A = 8000 × 1.05² = 8000 × 1.1025 = ₹8,820, so CI = ₹820.",
+      "solutionSteps": [
+        "Year 1 interest = 5% of 8,000 = ₹400 → balance ₹8,400.",
+        "Year 2 interest = 5% of 8,400 = ₹420.",
+        "CI = 400 + 420 = ₹820."
+      ],
+      "formulaIds": [
+        "ci-amount",
+        "ci-interest"
+      ],
+      "method": "Year by year, or 8000 × 1.05².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the first year, then apply the rate to the new balance."
+        },
+        {
+          "level": 2,
+          "text": "5% of 8,400 = 420."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹800, the simple interest."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-003",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "levelId": "compound-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What amount will ₹5,000 grow to in 3 years at 10% per annum compound interest? (Answer in ₹)",
+      "answer": {
+        "value": 6655,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "A = 5000 × 1.1³ = 5000 × 1.331 = ₹6,655.",
+      "solutionSteps": [
+        "Year 1: 5,000 × 1.1 = 5,500.",
+        "Year 2: 5,500 × 1.1 = 6,050.",
+        "Year 3: 6,050 × 1.1 = ₹6,655."
+      ],
+      "formulaIds": [
+        "ci-amount"
+      ],
+      "method": "Apply the multiplier once per year.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply by 1.1 three times."
+        },
+        {
+          "level": 2,
+          "text": "1.1³ = 1.331."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 30% and answering ₹6,500."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-004",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "levelId": "compound-interest-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "On ₹1,000 at 10% per annum for 2 years, by how much does compound interest exceed simple interest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹5"
+        },
+        {
+          "id": "b",
+          "text": "₹10"
+        },
+        {
+          "id": "c",
+          "text": "₹20"
+        },
+        {
+          "id": "d",
+          "text": "₹100"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "CI = ₹210 and SI = ₹200, so the gap is ₹10 — which is 10% of the first year's ₹100 interest.",
+      "solutionSteps": [
+        "SI = (1000 × 10 × 2) ÷ 100 = ₹200.",
+        "CI = ₹210.",
+        "Difference = ₹10, or use P(R/100)² = 1000 × 0.01 = ₹10."
+      ],
+      "formulaIds": [
+        "ci-si-difference"
+      ],
+      "method": "Two-year shortcut: P(R/100)².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The gap is the interest earned on the first year's interest."
+        },
+        {
+          "level": 2,
+          "text": "10% of ₹100."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the difference grows with the principal only, ignoring the rate squared."
+      ],
+      "tags": [
+        "comparison"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-010",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "levelId": "compound-interest-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "₹1,000 is invested at 10% per annum compounded annually for 2 years. Which expression gives the amount?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1000 × (1 + 10/100)²"
+        },
+        {
+          "id": "b",
+          "text": "1000 × (1 + 10 × 2/100)"
+        },
+        {
+          "id": "c",
+          "text": "1000 + (1000 × 10 × 2)/100"
+        },
+        {
+          "id": "d",
+          "text": "1000 × 10 × 2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Compounding applies the multiplier once per period: A = P(1 + R/100)^T. Options b and c are the simple-interest forms.",
+      "solutionSteps": [
+        "Compound growth is repeated multiplication.",
+        "Each year multiplies by (1 + 10/100) = 1.1.",
+        "Two years → 1000 × 1.1² = ₹1,210."
+      ],
+      "formulaIds": [
+        "ci-amount"
+      ],
+      "method": "Recognise repeated multiplication rather than repeated addition.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Should the rate be applied to a growing balance or a fixed one?"
+        },
+        {
+          "level": 2,
+          "text": "Look for the exponent."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the simple-interest expression."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-011",
+      "topicId": "compound-interest",
+      "conceptId": "ci-frequency",
+      "levelId": "compound-interest-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "A deposit earns 10% per annum compounded half-yearly for 2 years. Which rate and number of periods should you use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5% for 4 periods"
+        },
+        {
+          "id": "b",
+          "text": "10% for 4 periods"
+        },
+        {
+          "id": "c",
+          "text": "5% for 2 periods"
+        },
+        {
+          "id": "d",
+          "text": "20% for 2 periods"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Half-yearly compounding halves the rate to 5% and doubles the number of periods to 4.",
+      "solutionSteps": [
+        "The annual rate is split across two periods per year: 10% ÷ 2 = 5%.",
+        "Two years contains 4 half-year periods.",
+        "So A = P × 1.05⁴."
+      ],
+      "formulaIds": [
+        "ci-half-yearly"
+      ],
+      "method": "Halve the rate, double the periods.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many times is interest added in two years?"
+        },
+        {
+          "level": 2,
+          "text": "Four times, at half the annual rate each time."
+        }
+      ],
+      "commonMistakes": [
+        "Applying the full 10% four times."
+      ],
+      "tags": [
+        "method",
+        "frequency"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-012",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "levelId": "compound-interest-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "For the same principal, rate and a period longer than one year, compound interest is always greater than simple interest.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "After the first period, compounding earns interest on interest, so it pulls ahead and stays ahead. For exactly one period the two are equal.",
+      "solutionSteps": [
+        "In period 1, both earn the same interest.",
+        "From period 2 onwards, CI also earns interest on the interest already added.",
+        "So for more than one period, CI > SI."
+      ],
+      "formulaIds": [
+        "ci-si-difference"
+      ],
+      "method": "Compare the growth mechanisms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In the first year the two are identical — what changes afterwards?"
+        }
+      ],
+      "commonMistakes": [
+        "Thinking the difference can reverse at high rates."
+      ],
+      "tags": [
+        "true-false",
+        "comparison"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-020",
+      "topicId": "compound-interest",
+      "conceptId": "ci-formula",
+      "levelId": "compound-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Find the compound interest on ₹12,000 at 10% per annum for 2 years.",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹2,400"
+        },
+        {
+          "id": "b",
+          "text": "₹2,520"
+        },
+        {
+          "id": "c",
+          "text": "₹2,640"
+        },
+        {
+          "id": "d",
+          "text": "₹14,520"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A = 12,000 × 1.21 = ₹14,520, so CI = ₹2,520.",
+      "solutionSteps": [
+        "Two years at 10% gives a factor of 1.1² = 1.21.",
+        "A = 12,000 × 1.21 = ₹14,520.",
+        "CI = 14,520 − 12,000 = ₹2,520."
+      ],
+      "formulaIds": [
+        "ci-amount",
+        "ci-interest"
+      ],
+      "method": "Multiply by 1.21, then subtract the principal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The two-year factor at 10% is 1.21, not 1.2."
+        },
+        {
+          "level": 2,
+          "text": "Remember to subtract the principal at the end."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting the amount ₹14,520."
+      ],
+      "tags": [
+        "core"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-021",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "levelId": "compound-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the difference between the compound interest and the simple interest on ₹10,000 at 8% per annum for 2 years? (Answer in ₹)",
+      "answer": {
+        "value": 64,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Difference = P(R/100)² = 10,000 × 0.08² = 10,000 × 0.0064 = ₹64.",
+      "solutionSteps": [
+        "Use the two-year shortcut: difference = P × (R/100)².",
+        "= 10,000 × (0.08)² = 10,000 × 0.0064.",
+        "= ₹64. Check: SI = ₹1,600, CI = ₹1,664 ✓"
+      ],
+      "formulaIds": [
+        "ci-si-difference"
+      ],
+      "method": "Two-year shortcut.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The gap is the interest on the first year's interest."
+        },
+        {
+          "level": 2,
+          "text": "First year's interest is ₹800; 8% of that is ₹64."
+        }
+      ],
+      "commonMistakes": [
+        "Computing CI and SI separately and subtracting incorrectly."
+      ],
+      "tags": [
+        "comparison",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-022",
+      "topicId": "compound-interest",
+      "conceptId": "ci-frequency",
+      "levelId": "compound-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "₹16,000 is invested for one year at 10% per annum compounded half-yearly. What is the interest earned?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,600"
+        },
+        {
+          "id": "b",
+          "text": "₹1,640"
+        },
+        {
+          "id": "c",
+          "text": "₹1,680"
+        },
+        {
+          "id": "d",
+          "text": "₹3,280"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Two half-year periods at 5%: A = 16,000 × 1.05² = ₹17,640, so the interest is ₹1,640.",
+      "solutionSteps": [
+        "Half-yearly: rate 5%, periods 2.",
+        "A = 16,000 × 1.05² = 16,000 × 1.1025 = ₹17,640.",
+        "Interest = ₹1,640 — slightly more than the ₹1,600 annual compounding would give."
+      ],
+      "formulaIds": [
+        "ci-half-yearly"
+      ],
+      "method": "Halve the rate, double the periods, then subtract the principal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Interest is added twice during the year."
+        },
+        {
+          "level": 2,
+          "text": "Each time at 5%, not 10%."
+        }
+      ],
+      "commonMistakes": [
+        "Using 10% twice and answering ₹3,360."
+      ],
+      "tags": [
+        "frequency"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-023",
+      "topicId": "compound-interest",
+      "conceptId": "ci-growth",
+      "levelId": "compound-interest-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The population of a town grows by 5% each year. If it is 10,000 today, what will it be in 2 years?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10,500"
+        },
+        {
+          "id": "b",
+          "text": "11,000"
+        },
+        {
+          "id": "c",
+          "text": "11,025"
+        },
+        {
+          "id": "d",
+          "text": "11,250"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "10,000 × 1.05² = 10,000 × 1.1025 = 11,025. Growth compounds just like interest.",
+      "solutionSteps": [
+        "Year 1: 10,000 × 1.05 = 10,500.",
+        "Year 2: 10,500 × 1.05 = 11,025."
+      ],
+      "formulaIds": [
+        "ci-growth-formula"
+      ],
+      "method": "Population growth uses the compound amount formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second year's growth applies to the larger population."
+        },
+        {
+          "level": 2,
+          "text": "5% of 10,500 is 525, not 500."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 10% and answering 11,000."
+      ],
+      "tags": [
+        "applications",
+        "growth"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-030",
+      "topicId": "compound-interest",
+      "conceptId": "ci-reverse",
+      "levelId": "compound-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A sum of money becomes 1.44 times itself in 2 years under compound interest. What is the annual rate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "11%"
+        },
+        {
+          "id": "b",
+          "text": "20%"
+        },
+        {
+          "id": "c",
+          "text": "22%"
+        },
+        {
+          "id": "d",
+          "text": "44%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(1 + R/100)² = 1.44, so 1 + R/100 = 1.2 and R = 20%.",
+      "solutionSteps": [
+        "Write the growth as (1 + R/100)² = 1.44.",
+        "Take the square root: 1 + R/100 = 1.2.",
+        "R = 20% per annum."
+      ],
+      "formulaIds": [
+        "ci-find-rate"
+      ],
+      "method": "Take the T-th root of the growth multiple.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two years of growth means the annual factor is applied twice."
+        },
+        {
+          "level": 2,
+          "text": "What number squared gives 1.44?"
+        }
+      ],
+      "commonMistakes": [
+        "Halving 44% to get 22%."
+      ],
+      "tags": [
+        "reverse",
+        "complex"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-031",
+      "topicId": "compound-interest",
+      "conceptId": "ci-vs-si",
+      "levelId": "compound-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The compound interest on a sum for 2 years at 10% per annum is ₹840. What would the simple interest be on the same sum for the same period and rate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹760"
+        },
+        {
+          "id": "b",
+          "text": "₹800"
+        },
+        {
+          "id": "c",
+          "text": "₹820"
+        },
+        {
+          "id": "d",
+          "text": "₹840"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "CI = P(1.21 − 1) = 0.21P = 840, so P = ₹4,000 and SI = (4000 × 10 × 2)/100 = ₹800.",
+      "solutionSteps": [
+        "0.21P = 840, so P = ₹4,000.",
+        "SI = (4000 × 10 × 2) ÷ 100 = ₹800.",
+        "Check the gap: 840 − 800 = ₹40 = P(R/100)² = 4000 × 0.01 ✓"
+      ],
+      "formulaIds": [
+        "ci-interest",
+        "ci-si-difference"
+      ],
+      "method": "Recover the principal from the CI, then compute SI.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two years at 10% multiplies the sum by 1.21."
+        },
+        {
+          "level": 2,
+          "text": "So the interest is 0.21 of the principal."
+        },
+        {
+          "level": 3,
+          "text": "P = 840 ÷ 0.21."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming SI is simply 10% less than CI."
+      ],
+      "tags": [
+        "comparison",
+        "complex"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-q-032",
+      "topicId": "compound-interest",
+      "conceptId": "ci-growth",
+      "levelId": "compound-interest-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A machine costing ₹6,250 depreciates by 4% each year. What is its value after 2 years? (Answer in ₹)",
+      "answer": {
+        "value": 5760,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Value = 6,250 × 0.96² = 6,250 × 0.9216 = ₹5,760.",
+      "solutionSteps": [
+        "Depreciation of 4% leaves 96% each year.",
+        "Year 1: 6,250 × 0.96 = 6,000.",
+        "Year 2: 6,000 × 0.96 = ₹5,760."
+      ],
+      "formulaIds": [
+        "ci-growth-formula"
+      ],
+      "method": "Compound decrease: multiply by (1 − R/100) each year.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Depreciation is compound interest with a negative rate."
+        },
+        {
+          "level": 2,
+          "text": "Multiply by 0.96 twice."
+        },
+        {
+          "level": 3,
+          "text": "After year 1 the value is exactly ₹6,000."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 8% in one go, which gives ₹5,750."
+      ],
+      "tags": [
+        "applications",
+        "depreciation",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-001",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "levelId": "compound-interest-level-7",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A loan at 10% per annum compound interest is repaid in two equal annual instalments of ₹1,210 each, the first one year after the loan. What was the sum borrowed? (Answer in ₹)",
+      "answer": {
+        "value": 2100,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Discount each instalment back to the start: 1,210 ÷ 1.1 = ₹1,100 and 1,210 ÷ 1.21 = ₹1,000. The sum borrowed is ₹1,100 + ₹1,000 = ₹2,100.",
+      "solutionSteps": [
+        "First instalment, paid after 1 year: 1,210 ÷ 1.1 = ₹1,100.",
+        "Second instalment, paid after 2 years: 1,210 ÷ 1.1² = 1,210 ÷ 1.21 = ₹1,000.",
+        "Sum borrowed = 1,100 + 1,000 = ₹2,100. Check: 2,100 → 2,310 − 1,210 = 1,100 → 1,210 − 1,210 = 0 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-pv-f"
+      ],
+      "method": "Add the present values of the instalments.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each instalment must be brought back to the day of the loan."
+        },
+        {
+          "level": 2,
+          "text": "Divide the first ₹1,210 by 1.1 and the second by 1.21."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the two instalments to get ₹2,420, which ignores the interest built into them."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-002",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-simple",
+      "levelId": "compound-interest-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "₹6,300 is borrowed at 5% per annum simple interest and repaid in 3 equal annual instalments, the first one year after the loan. What is each instalment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹2,100"
+        },
+        {
+          "id": "b",
+          "text": "₹2,205"
+        },
+        {
+          "id": "c",
+          "text": "₹2,300.00"
+        },
+        {
+          "id": "d",
+          "text": "₹2,415.00"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The amount due after 3 years is 6,300 × 1.15 = ₹7,245.00. The instalments earn simple interest for 2, 1 and 0 years, so 7,245 = x(3 + 0.05 × 3) = 3.15x and x = ₹2,300.00.",
+      "solutionSteps": [
+        "Amount due = 6,300 + 15% = ₹7,245.00.",
+        "The 1st instalment earns 2 years of interest, the 2nd 1 year, the 3rd none: 3 years in all, so 3 × 5% = 0.15x.",
+        "3x + 0.15x = 7,245, so x = 7,245 ÷ 3.15 = ₹2,300.00."
+      ],
+      "formulaIds": [
+        "ci-adv-emi-si-f",
+        "ci-adv-sc-si-debt"
+      ],
+      "method": "Amount due = instalments + the SI each earns to the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find what ₹6,300 amounts to in 3 years at 5% simple interest."
+        },
+        {
+          "level": 2,
+          "text": "The instalments earn interest for 2, 1 and 0 years: add 3 × 5% of x to 3x."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the amount ₹7,245.00 by 3 to get ₹2,415.00.",
+        "Adding one year's interest to a third of the loan, giving ₹2,205."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-003",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A loan of ₹5,500 at 20% per annum compound interest is repaid in two equal annual instalments. What is each instalment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹3,500.00"
+        },
+        {
+          "id": "b",
+          "text": "₹3,600.00"
+        },
+        {
+          "id": "c",
+          "text": "₹3,960"
+        },
+        {
+          "id": "d",
+          "text": "₹3,300"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "At 20%, one year turns 5 into 6, so P : A = 5 : 6. Instalment = 5,500 × 6² ÷ [5 × (5 + 6)] = 5,500 × 36 ÷ 55 = ₹3,600.00.",
+      "solutionSteps": [
+        "20% = 1/5, so a : b = 5 : 6.",
+        "Take the instalment as 36 units: present values 30 and 25 units, so the loan is 55 units.",
+        "55 units = ₹5,500 → 1 unit = ₹100 → instalment = 36 × 100 = ₹3,600.00.",
+        "Check: 5,500 × 1.2 = 6,600; − 3,600 = 3,000; × 1.2 = 3,600; − 3,600 = 0 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-pv-f",
+        "ci-adv-sc-two-instalments"
+      ],
+      "method": "Ratio method: instalment = P × b² ÷ [a(a + b)].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 20% as a ratio of principal to amount for one year."
+        },
+        {
+          "level": 2,
+          "text": "With 5 : 6, let the instalment be 36 units; its present values are 30 and 25 units."
+        }
+      ],
+      "commonMistakes": [
+        "Halving the two-year amount 5,500 × 1.44 to get ₹3,960.",
+        "Using the simple-interest rule, which gives ₹3,500."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-004",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A loan of ₹33,100 at 10% per annum compound interest is repaid in three equal annual instalments. What is each instalment? (Answer in ₹)",
+      "answer": {
+        "value": 13310,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "With P : A = 10 : 11 for one year, take the instalment as 11³ = 1,331 units. Its present values are 1,210, 1,100 and 1,000 units, so the loan is 3,310 units. One unit is 33,100 ÷ 3,310 = ₹10, and the instalment is ₹13,310.",
+      "solutionSteps": [
+        "10% = 1/10, so a : b = 10 : 11.",
+        "Instalment = 1,331 units; present values 1,210 + 1,100 + 1,000 = 3,310 units = the loan.",
+        "1 unit = 33,100 ÷ 3,310 = ₹10, so the instalment = ₹13,310.",
+        "Check: 36,410 − 13,310 = 23,100; 25,410 − 13,310 = 12,100; 13,310 − 13,310 = 0 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-pv-f",
+        "ci-adv-sc-two-instalments"
+      ],
+      "method": "Ratio method: instalment = P × b³ ÷ [a(a² + ab + b²)].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write 10% as the one-year ratio 10 : 11."
+        },
+        {
+          "level": 2,
+          "text": "Let the instalment be 11³ = 1,331 units and find each one's present value in units."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the three-year amount (33,100 × 1.331) by 3, about ₹14,685, as if every instalment waited the full three years."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-005",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A loan at 20% per annum compound interest is cleared by three equal annual instalments of ₹4,320 each. How much was borrowed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹12,960"
+        },
+        {
+          "id": "b",
+          "text": "₹7,500.00"
+        },
+        {
+          "id": "c",
+          "text": "₹10,800"
+        },
+        {
+          "id": "d",
+          "text": "₹9,100"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Discount each instalment: 4,320 ÷ 1.2 = ₹3,600, 4,320 ÷ 1.44 = ₹3,000 and 4,320 ÷ 1.728 = ₹2,500. The loan was ₹9,100.",
+      "solutionSteps": [
+        "After 1 year: 4,320 ÷ 1.2 = ₹3,600.",
+        "After 2 years: 4,320 ÷ 1.44 = ₹3,000.",
+        "After 3 years: 4,320 ÷ 1.728 = ₹2,500.",
+        "Sum borrowed = 3,600 + 3,000 + 2,500 = ₹9,100."
+      ],
+      "formulaIds": [
+        "ci-adv-emi-pv-f"
+      ],
+      "method": "Add the present values of the three instalments.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Bring each instalment back to the day of the loan separately."
+        },
+        {
+          "level": 2,
+          "text": "Divide by 1.2 once, twice and three times — or use 5 : 6 and multiply by 5/6 each time."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the instalments to get ₹12,960.",
+        "Discounting the total of ₹12,960 by all three years, giving ₹7,500."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-006",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-simple",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What equal annual instalment will discharge a debt of ₹1,092 due in 3 years at 12% per annum simple interest? (Answer in ₹)",
+      "answer": {
+        "value": 325,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "The instalments earn simple interest for 2, 1 and 0 years: 3 years of 12% in all. So 1,092 = x(3 + 0.36) = 3.36x, and x = ₹325.",
+      "solutionSteps": [
+        "1st instalment: x + 24% of x; 2nd: x + 12% of x; 3rd: x.",
+        "Total = 3.36x = 1,092.",
+        "x = 1,092 ÷ 3.36 = ₹325. Check: 403 + 364 + 325 = 1,092 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-si-f",
+        "ci-adv-sc-si-debt"
+      ],
+      "method": "Shortcut: x = 100A ÷ [100n + R × n(n − 1)/2].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The debt is due at the end, so grow each instalment to the end with simple interest."
+        },
+        {
+          "level": 2,
+          "text": "The interest years are 2, 1 and 0: the bracket is 300 + 12 × 3 = 336."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing ₹1,092 by 3 to get ₹364.",
+        "Using n(n + 1)/2 = 6 years of interest, which gives about ₹294."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-007",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-compound",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "₹13,600 is borrowed at 12½% per annum compound interest and repaid in two equal annual instalments. How much interest is paid in all?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹3,612.50"
+        },
+        {
+          "id": "b",
+          "text": "₹2,600"
+        },
+        {
+          "id": "c",
+          "text": "₹3,400"
+        },
+        {
+          "id": "d",
+          "text": "₹1,700"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "12½% = 1/8, so P : A = 8 : 9. Instalment = 13,600 × 81 ÷ (8 × 17) = ₹8,100. Two instalments total ₹16,200, so the interest is 16,200 − 13,600 = ₹2,600.",
+      "solutionSteps": [
+        "Ratio 8 : 9 → instalment = 13,600 × 81 ÷ 136 = ₹8,100.",
+        "Total paid = 2 × 8,100 = ₹16,200.",
+        "Interest = 16,200 − 13,600 = ₹2,600.",
+        "Check by year: interest ₹1,700, balance 15,300 − 8,100 = 7,200; interest ₹900; 8,100 − 8,100 = 0 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-pv-f",
+        "ci-adv-sc-two-instalments"
+      ],
+      "method": "Find the instalment, then total paid − sum borrowed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the instalment with the ratio 8 : 9."
+        },
+        {
+          "level": 2,
+          "text": "Interest is everything paid minus what was borrowed."
+        }
+      ],
+      "commonMistakes": [
+        "Charging compound interest on the whole loan for 2 years (₹3,612.50), forgetting the first instalment cuts the balance.",
+        "Charging simple interest on the whole loan for 2 years (₹3,400)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "compound-interest-ci-adv-q-008",
+      "topicId": "compound-interest",
+      "conceptId": "ci-adv-emi-simple",
+      "levelId": "compound-interest-level-8",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "₹4,600 is borrowed at 10% per annum simple interest and repaid in 4 equal annual instalments, the first one year after the loan. What is each instalment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,400"
+        },
+        {
+          "id": "b",
+          "text": "₹1,610"
+        },
+        {
+          "id": "c",
+          "text": "₹1,150"
+        },
+        {
+          "id": "d",
+          "text": "₹1,288"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The amount due after 4 years is 4,600 × 1.4 = ₹6,440. The instalments earn interest for 3, 2, 1 and 0 years — 6 years of 10% in all — so 6,440 = x(4 + 0.6) = 4.6x and x = ₹1,400.",
+      "solutionSteps": [
+        "Amount due = 4,600 + 40% = ₹6,440.",
+        "Interest years on the instalments: 3 + 2 + 1 + 0 = 6, worth 6 × 10% = 0.6x.",
+        "4.6x = 6,440, so x = ₹1,400.",
+        "Check: 1,820 + 1,680 + 1,540 + 1,400 = 6,440 ✓"
+      ],
+      "formulaIds": [
+        "ci-adv-emi-si-f",
+        "ci-adv-sc-si-debt"
+      ],
+      "method": "Amount due = instalments + the SI each earns to the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the amount due after 4 years first."
+        },
+        {
+          "level": 2,
+          "text": "The 4 instalments earn 3 + 2 + 1 + 0 = 6 years of interest between them."
+        }
+      ],
+      "commonMistakes": [
+        "Counting 4 + 3 + 2 + 1 = 10 interest years, which gives ₹1,288.",
+        "Dividing the amount due by 4 to get ₹1,610."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

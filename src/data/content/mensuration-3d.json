@@ -1,0 +1,1190 @@
+{
+  "topicId": "mensuration-3d",
+  "concepts": [
+    {
+      "id": "td-cube",
+      "topicId": "mensuration-3d",
+      "name": "Cubes",
+      "description": "A cube has all edges equal in length. Volume = a³; total surface area = 6a².",
+      "sortOrder": 1
+    },
+    {
+      "id": "td-cuboid",
+      "topicId": "mensuration-3d",
+      "name": "Cuboids",
+      "description": "A cuboid has length, breadth and height, which need not be equal. Volume = l × b × h; total surface area = 2(lb + bh + hl).",
+      "sortOrder": 2
+    },
+    {
+      "id": "td-cylinder",
+      "topicId": "mensuration-3d",
+      "name": "Cylinders",
+      "description": "A cylinder has a circular base of radius r and height h. Volume = πr²h; curved surface area = 2πrh.",
+      "sortOrder": 3
+    },
+    {
+      "id": "td-cone",
+      "topicId": "mensuration-3d",
+      "name": "Cones",
+      "description": "A cone has base radius r, height h, and slant height l = √(r² + h²). Volume = ⅓πr²h; curved surface area = πrl.",
+      "sortOrder": 4
+    },
+    {
+      "id": "td-sphere",
+      "topicId": "mensuration-3d",
+      "name": "Spheres and hemispheres",
+      "description": "A sphere of radius r has volume 4/3πr³ and surface area 4πr². A hemisphere is exactly half a sphere, with an additional flat circular face.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "td-cube-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cube",
+      "title": "Volume and surface area of a cube",
+      "prompt": "How do you find the volume and total surface area of a cube?",
+      "formula": "Volume = a³; Total surface area = 6a²",
+      "variables": [],
+      "explanation": "a is the length of one edge. All six faces of a cube are identical squares, which is why the surface area formula uses 6.",
+      "example": "Edge 5 cm: volume = 5³ = 125 cm³; surface area = 6 × 5² = 150 cm²",
+      "commonMistake": "Multiplying the edge by 6 instead of squaring it first for the surface area.",
+      "applicationPrompt": "A cube has edge 5 cm. Find its volume and total surface area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-cuboid-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cuboid",
+      "title": "Volume and surface area of a cuboid",
+      "prompt": "How do you find the volume and total surface area of a cuboid?",
+      "formula": "Volume = l × b × h; Total surface area = 2(lb + bh + hl)",
+      "variables": [],
+      "explanation": "A cuboid has three pairs of identical rectangular faces — one pair for each combination of two dimensions — which is why the surface area formula has three terms, each doubled.",
+      "example": "Length 8, breadth 5, height 3 cm: volume = 8 × 5 × 3 = 120 cm³; surface area = 2(40 + 15 + 24) = 158 cm²",
+      "commonMistake": "Forgetting one of the three face-pairs when computing the surface area.",
+      "applicationPrompt": "A cuboid has length 8 cm, breadth 5 cm and height 3 cm. Find its volume and total surface area.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-cylinder-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cylinder",
+      "title": "Volume and surface area of a cylinder",
+      "prompt": "How do you find the volume and curved surface area of a cylinder?",
+      "formula": "Volume = πr²h; Curved surface area = 2πrh",
+      "variables": [],
+      "explanation": "The curved surface \"unrolls\" into a rectangle of width 2πr (the circle's circumference) and height h, which is why the curved surface area formula looks like a rectangle's area.",
+      "example": "Radius 7 cm, height 10 cm (π = 22/7): volume = 22/7 × 7² × 10 = 1540 cm³; curved surface area = 2 × 22/7 × 7 × 10 = 440 cm²",
+      "commonMistake": "Using the diameter instead of the radius in either formula.",
+      "applicationPrompt": "A cylinder has radius 7 cm and height 10 cm. Find its volume and curved surface area (π = 22/7).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-cone-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cone",
+      "title": "Volume and surface area of a cone",
+      "prompt": "How do you find the volume and surface area of a cone?",
+      "formula": "Volume = ⅓πr²h; slant height l = √(r² + h²); Curved surface area = πrl; Total surface area = πr(l + r)",
+      "variables": [],
+      "explanation": "The slant height is the distance from the apex to a point on the base circle's edge — not the same as the vertical height h — and must be found with the Pythagorean relationship first.",
+      "example": "Radius 7 cm, height 24 cm (π = 22/7): slant height = √(7² + 24²) = √625 = 25 cm; total surface area = 22/7 × 7 × (25 + 7) = 704 cm²",
+      "commonMistake": "Using the vertical height h in place of the slant height l in the curved surface area formula.",
+      "applicationPrompt": "A cone has base radius 7 cm and height 24 cm. Find its total surface area (π = 22/7).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-sphere-f",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "title": "Volume and surface area of a sphere and hemisphere",
+      "prompt": "How do you find the volume and surface area of a sphere or hemisphere?",
+      "formula": "Sphere: Volume = 4/3πr³, Surface area = 4πr². Hemisphere: Volume = 2/3πr³, Total surface area = 3πr²",
+      "variables": [],
+      "explanation": "A hemisphere's total surface area includes both its curved half (2πr²) and its flat circular face (πr²), which together give 3πr².",
+      "example": "Sphere radius 3 cm (π = 3.14): volume = 4/3 × 3.14 × 3³ = 113.04 cm³. Hemisphere radius 21 cm (π = 22/7): total surface area = 3 × 22/7 × 21² = 4158 cm²",
+      "commonMistake": "Forgetting to add the flat circular face when finding a hemisphere's total surface area.",
+      "applicationPrompt": "A sphere has radius 3 cm. Find its volume (π = 3.14).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-sc-diagonal",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cuboid",
+      "kind": "shortcut",
+      "title": "Longest rod in a box",
+      "prompt": "What is the longest straight rod that fits in an l × b × h box?",
+      "formula": "Cuboid diagonal = √(l² + b² + h²)\nCube: a√3",
+      "variables": [],
+      "explanation": "Pythagoras twice: across the floor, then up to the far corner.",
+      "example": "12 × 4 × 3 box: √(144 + 16 + 9) = 13.",
+      "commonMistake": "Using only the floor diagonal.",
+      "applicationPrompt": "Find the longest rod that fits in a 10 × 10 × 5 room.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "td-sc-scaling",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "kind": "shortcut",
+      "title": "Scaling a solid",
+      "prompt": "Every length of a solid is multiplied by k. What happens to its area and volume?",
+      "formula": "Surface area × k²\nVolume × k³",
+      "variables": [],
+      "explanation": "Area has two length dimensions and volume has three.",
+      "example": "Double a sphere's radius: surface area × 4, volume × 8.",
+      "commonMistake": "Doubling the volume when the radius doubles.",
+      "applicationPrompt": "Two cubes have volumes in the ratio 27 : 64. Find the ratio of their surface areas.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "td-sc-hemisphere",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "kind": "shortcut",
+      "title": "Hemisphere: 3πr² in total",
+      "prompt": "What is the total surface area of a solid hemisphere?",
+      "formula": "Curved 2πr² + flat πr² = 3πr²",
+      "variables": [],
+      "explanation": "The curved part is half a sphere; the flat face is a circle.",
+      "example": "r = 7: 3 × 22/7 × 49 = 462 cm².",
+      "commonMistake": "Giving only the curved 2πr² when the solid has a flat face too.",
+      "applicationPrompt": "A hemispherical bowl of radius 14 cm is painted inside and out (ignore thickness). What area is painted?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mensuration-3d-level-0",
+      "topicId": "mensuration-3d",
+      "order": 0,
+      "title": "Volume of Cubes and Cuboids",
+      "description": "Volume of a cube = a³; volume of a cuboid = l × b × h.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "td-cube",
+        "td-cuboid"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "From flat shapes to solids",
+            "body": "Volume measures how much space a solid takes up, in cubic units. A cube and a cuboid are the simplest solids to start with — both are just built from rectangular faces."
+          },
+          {
+            "type": "formula",
+            "title": "Cube and cuboid volume",
+            "body": "Cube: a³; Cuboid: l × b × h",
+            "caption": "A cube is just a cuboid where length, breadth and height are all equal."
+          },
+          {
+            "type": "figure",
+            "title": "Reading a cuboid",
+            "body": "Length l, breadth b and height h meet at one corner. The dashed edges are the ones hidden behind the solid. The dashed diagonal d runs from a corner to the opposite corner, through the inside: d = √(l² + b² + h²).",
+            "figure": {
+              "type": "solid",
+              "caption": "A cuboid with its length, breadth, height and space diagonal",
+              "parts": [
+                {
+                  "shape": "cuboid",
+                  "l": 8,
+                  "b": 5,
+                  "h": 4,
+                  "labels": {
+                    "l": "l",
+                    "b": "b",
+                    "h": "h",
+                    "d": "d"
+                  }
+                }
+              ],
+              "ariaSummary": "A cuboid with length l along the front, breadth b going back, height h up the side, and a dashed space diagonal d from the front bottom corner to the back top corner."
+            }
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-3d-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Surface area adds up every face of the solid; volume measures the space it encloses. Keep the two apart — they use different units (squared vs. cubed) and different formulas."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "solid-volumes"
+          },
+          {
+            "type": "figure",
+            "title": "Height, radius and slant in a cone",
+            "body": "The height h runs straight up the middle; the radius r runs across the base; the slant l runs down the side. Together they make a right triangle, so l² = r² + h². Volume uses h; the curved surface uses l.",
+            "figure": {
+              "type": "solid",
+              "caption": "A cone with its radius, height and slant height",
+              "parts": [
+                {
+                  "shape": "cone",
+                  "r": 3,
+                  "h": 4,
+                  "labels": {
+                    "r": "r",
+                    "h": "h",
+                    "l": "l"
+                  }
+                }
+              ],
+              "ariaSummary": "A cone standing on its base, with the radius r drawn across the base, the height h up the dashed axis, and the slant height l along the side."
+            }
+          },
+          {
+            "type": "check",
+            "questionId": "mensuration-3d-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "mensuration-3d-level-1",
+      "topicId": "mensuration-3d",
+      "order": 1,
+      "title": "3D Mensuration Formulas",
+      "description": "Cubes, cuboids, cylinders, cones, and spheres/hemispheres.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-0"
+      ],
+      "conceptIds": [
+        "td-cube",
+        "td-cuboid",
+        "td-cylinder",
+        "td-cone",
+        "td-sphere"
+      ],
+      "formulaIds": [
+        "td-cube-f",
+        "td-cuboid-f",
+        "td-cylinder-f",
+        "td-cone-f",
+        "td-sphere-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mensuration-3d-level-2",
+      "topicId": "mensuration-3d",
+      "order": 2,
+      "title": "Volume of Basic Solids",
+      "description": "Volume of a cube, a cuboid, and a cylinder.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-1"
+      ],
+      "conceptIds": [
+        "td-cube",
+        "td-cuboid",
+        "td-cylinder",
+        "td-cone"
+      ],
+      "questionIds": [
+        "mensuration-3d-q-001",
+        "mensuration-3d-q-002",
+        "mensuration-3d-q-003",
+        "mensuration-3d-q-010",
+        "mensuration-3d-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mensuration-3d-level-3",
+      "topicId": "mensuration-3d",
+      "order": 3,
+      "title": "Surface Area of Basic Solids",
+      "description": "Surface area of a cube, a cuboid, a cylinder, and the volume of a sphere.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-2"
+      ],
+      "conceptIds": [
+        "td-cube",
+        "td-cuboid",
+        "td-cylinder",
+        "td-sphere"
+      ],
+      "questionIds": [
+        "mensuration-3d-q-004",
+        "mensuration-3d-q-005",
+        "mensuration-3d-q-006",
+        "mensuration-3d-q-007",
+        "mensuration-3d-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mensuration-3d-level-4",
+      "topicId": "mensuration-3d",
+      "order": 4,
+      "title": "Cones and Hemispheres",
+      "description": "Finding a cone's slant height before its surface area, and a hemisphere's total surface area.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-3"
+      ],
+      "conceptIds": [
+        "td-cone",
+        "td-sphere"
+      ],
+      "questionIds": [
+        "mensuration-3d-q-008",
+        "mensuration-3d-q-009",
+        "mensuration-3d-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "mensuration-3d-level-5",
+      "topicId": "mensuration-3d",
+      "order": 5,
+      "title": "Mixed 3D Mensuration Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "mensuration-3d-level-4"
+      ],
+      "conceptIds": [
+        "td-cone",
+        "td-sphere"
+      ],
+      "questionQuery": {
+        "topicId": "mensuration-3d",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "mensuration-3d-q-001",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cube",
+      "levelId": "mensuration-3d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cube has edge 5 cm. Find its volume.",
+      "figure": {
+        "type": "solid",
+        "caption": "A cube of edge 5 cm",
+        "parts": [
+          {
+            "shape": "cube",
+            "a": 5,
+            "labels": {
+              "a": "5 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A cube with one edge labelled 5 cm."
+      },
+      "answer": {
+        "value": 125,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Volume = a³ = 5³ = 125 cm³.",
+      "solutionSteps": [
+        "5 × 5 = 25.",
+        "25 × 5 = 125."
+      ],
+      "formulaIds": [
+        "td-cube-f"
+      ],
+      "method": "Cube the edge length.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Volume of a cube is edge × edge × edge."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the edge by 3 instead of cubing it."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-002",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cuboid",
+      "levelId": "mensuration-3d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cuboid has length 8 cm, breadth 5 cm and height 3 cm. Find its volume.",
+      "figure": {
+        "type": "solid",
+        "caption": "A cuboid 8 cm long, 5 cm broad and 3 cm high",
+        "parts": [
+          {
+            "shape": "cuboid",
+            "l": 8,
+            "b": 5,
+            "h": 3,
+            "labels": {
+              "l": "8 cm",
+              "b": "5 cm",
+              "h": "3 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A cuboid with length labelled 8 cm, breadth 5 cm and height 3 cm."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Volume = l × b × h = 8 × 5 × 3 = 120 cm³.",
+      "solutionSteps": [
+        "8 × 5 = 40.",
+        "40 × 3 = 120."
+      ],
+      "formulaIds": [
+        "td-cuboid-f"
+      ],
+      "method": "Multiply all three dimensions together.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Volume of a cuboid is length × breadth × height."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the three dimensions instead of multiplying them."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-003",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cylinder",
+      "levelId": "mensuration-3d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cylinder has radius 7 cm and height 10 cm. Find its volume. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cylinder of radius 7 cm and height 10 cm",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 10,
+            "labels": {
+              "r": "7 cm",
+              "h": "10 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cylinder with its radius labelled 7 cm and its height labelled 10 cm."
+      },
+      "answer": {
+        "value": 1540,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Volume = πr²h = 22/7 × 7² × 10 = 22/7 × 49 × 10 = 1540 cm³.",
+      "solutionSteps": [
+        "7² = 49.",
+        "22/7 × 49 = 154.",
+        "154 × 10 = 1540."
+      ],
+      "formulaIds": [
+        "td-cylinder-f"
+      ],
+      "method": "Square the radius, multiply by π, then multiply by the height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Choosing r = 7 makes the 22/7 cancel neatly."
+        }
+      ],
+      "commonMistakes": [
+        "Using the diameter instead of the radius."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-004",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cube",
+      "levelId": "mensuration-3d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cube has edge 6 cm. Find its total surface area.",
+      "figure": {
+        "type": "solid",
+        "caption": "A cube of edge 6 cm",
+        "parts": [
+          {
+            "shape": "cube",
+            "a": 6,
+            "labels": {
+              "a": "6 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A cube with one edge labelled 6 cm."
+      },
+      "answer": {
+        "value": 216,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Total surface area = 6a² = 6 × 6² = 6 × 36 = 216 cm².",
+      "solutionSteps": [
+        "6² = 36.",
+        "6 × 36 = 216."
+      ],
+      "formulaIds": [
+        "td-cube-f"
+      ],
+      "method": "Square the edge, then multiply by 6 for the six identical faces.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cube has 6 identical square faces."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the edge by 6 without squaring it first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-005",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cuboid",
+      "levelId": "mensuration-3d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cuboid has length 8 cm, breadth 5 cm and height 3 cm. Find its total surface area.",
+      "figure": {
+        "type": "solid",
+        "caption": "A cuboid 8 cm long, 5 cm broad and 3 cm high",
+        "parts": [
+          {
+            "shape": "cuboid",
+            "l": 8,
+            "b": 5,
+            "h": 3,
+            "labels": {
+              "l": "8 cm",
+              "b": "5 cm",
+              "h": "3 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A cuboid with length labelled 8 cm, breadth 5 cm and height 3 cm."
+      },
+      "answer": {
+        "value": 158,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Total surface area = 2(lb + bh + hl) = 2(8×5 + 5×3 + 3×8) = 2(40 + 15 + 24) = 2 × 79 = 158 cm².",
+      "solutionSteps": [
+        "8×5=40, 5×3=15, 3×8=24.",
+        "40+15+24=79.",
+        "2 × 79 = 158."
+      ],
+      "formulaIds": [
+        "td-cuboid-f"
+      ],
+      "method": "Find all three face-pair areas, add them, then double the sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are three different face shapes, each appearing twice."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to double the sum of the three face-pair areas."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-006",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cylinder",
+      "levelId": "mensuration-3d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A cylinder has radius 7 cm and height 10 cm. Find its curved surface area. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cylinder of radius 7 cm and height 10 cm",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 10,
+            "labels": {
+              "r": "7 cm",
+              "h": "10 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cylinder with its radius labelled 7 cm and its height labelled 10 cm."
+      },
+      "answer": {
+        "value": 440,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Curved surface area = 2πrh = 2 × 22/7 × 7 × 10 = 440 cm².",
+      "solutionSteps": [
+        "2 × 22/7 × 7 = 44.",
+        "44 × 10 = 440."
+      ],
+      "formulaIds": [
+        "td-cylinder-f"
+      ],
+      "method": "Multiply 2, π, the radius and the height together.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is only the curved side, not the two circular ends."
+        }
+      ],
+      "commonMistakes": [
+        "Using the volume formula (πr²h) instead of the curved surface area formula (2πrh)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-007",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "levelId": "mensuration-3d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A sphere has radius 3 cm. Find its volume. (Use π = 3.14.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A sphere of radius 3 cm",
+        "parts": [
+          {
+            "shape": "sphere",
+            "r": 3,
+            "labels": {
+              "r": "3 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A sphere with a radius drawn from its centre, labelled 3 cm."
+      },
+      "answer": {
+        "value": 113.04,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Volume = 4/3 × πr³ = 4/3 × 3.14 × 3³ = 4/3 × 3.14 × 27 = 4 × 3.14 × 9 = 113.04 cm³.",
+      "solutionSteps": [
+        "3³ = 27.",
+        "27 ÷ 3 × 4 = 36.",
+        "36 × 3.14 = 113.04."
+      ],
+      "formulaIds": [
+        "td-sphere-f"
+      ],
+      "method": "Cube the radius, then apply the 4/3π factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Dividing 27 by 3 first (giving 9) keeps the numbers manageable."
+        }
+      ],
+      "commonMistakes": [
+        "Using the surface area formula (4πr²) instead of the volume formula."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-008",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cone",
+      "levelId": "mensuration-3d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A cone has base radius 7 cm and height 24 cm. Find its total surface area. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone of base radius 7 cm and height 24 cm",
+        "parts": [
+          {
+            "shape": "cone",
+            "r": 7,
+            "h": 24,
+            "labels": {
+              "r": "7 cm",
+              "h": "24 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cone with its base radius labelled 7 cm and its vertical height labelled 24 cm. The slant side is not labelled."
+      },
+      "answer": {
+        "value": 704,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Slant height = √(r² + h²) = √(7² + 24²) = √(49 + 576) = √625 = 25 cm. Total surface area = πr(l + r) = 22/7 × 7 × (25 + 7) = 22 × 32 = 704 cm².",
+      "solutionSteps": [
+        "7² + 24² = 49 + 576 = 625.",
+        "√625 = 25.",
+        "22/7 × 7 × (25 + 7) = 22 × 32 = 704."
+      ],
+      "formulaIds": [
+        "td-cone-f"
+      ],
+      "method": "Find the slant height with the Pythagorean relationship first, then apply the total surface area formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "7-24-25 is a Pythagorean triple."
+        }
+      ],
+      "commonMistakes": [
+        "Using the vertical height 24 in place of the slant height 25."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-009",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "levelId": "mensuration-3d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A solid hemisphere has radius 21 cm. Find its total surface area. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A solid hemisphere of radius 21 cm",
+        "parts": [
+          {
+            "shape": "hemisphere",
+            "r": 21,
+            "labels": {
+              "r": "21 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A hemisphere resting on its flat circular face, with its radius labelled 21 cm."
+      },
+      "answer": {
+        "value": 4158,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Total surface area of a hemisphere = 3πr² = 3 × 22/7 × 21² = 3 × 22/7 × 441 = 3 × 22 × 63 = 4158 cm².",
+      "solutionSteps": [
+        "21² = 441.",
+        "441 ÷ 7 = 63.",
+        "3 × 22 × 63 = 4158."
+      ],
+      "formulaIds": [
+        "td-sphere-f"
+      ],
+      "method": "Use 3πr² — the curved half plus the flat circular face — for a hemisphere's total surface area.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A hemisphere's total surface area is not simply half of a sphere's, since it also has a flat face."
+        }
+      ],
+      "commonMistakes": [
+        "Using 2πr² (curved surface only) and forgetting the flat circular face."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-010",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cone",
+      "levelId": "mensuration-3d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A cone has base radius 3 cm and height 7 cm. Find its volume. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A cone of base radius 3 cm and height 7 cm",
+        "parts": [
+          {
+            "shape": "cone",
+            "r": 3,
+            "h": 7,
+            "labels": {
+              "r": "3 cm",
+              "h": "7 cm"
+            }
+          }
+        ],
+        "ariaSummary": "An upright cone with its base radius labelled 3 cm and its vertical height labelled 7 cm."
+      },
+      "answer": {
+        "value": 66,
+        "tolerance": 0,
+        "unit": "cm³"
+      },
+      "explanation": "Volume = ⅓πr²h = ⅓ × 22/7 × 3 × 3 × 7 = 66 cm³.",
+      "solutionSteps": [
+        "r² = 3 × 3 = 9.",
+        "πr²h = 22/7 × 9 × 7 = 198.",
+        "Volume = ⅓ × 198 = 66 cm³."
+      ],
+      "formulaIds": [
+        "td-cone-f"
+      ],
+      "method": "Use ⅓ × base area × height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cone holds one-third as much as a cylinder with the same base and height."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the ⅓ and giving the cylinder's volume, 198 cm³."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-011",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cylinder",
+      "levelId": "mensuration-3d-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A closed cylinder has radius 7 cm and height 5 cm. Find its total surface area. (Use π = 22/7.)",
+      "figure": {
+        "type": "solid",
+        "caption": "A closed cylinder of radius 7 cm and height 5 cm",
+        "parts": [
+          {
+            "shape": "cylinder",
+            "r": 7,
+            "h": 5,
+            "labels": {
+              "r": "7 cm",
+              "h": "5 cm"
+            }
+          }
+        ],
+        "ariaSummary": "A closed cylinder, wider than it is tall, with its radius labelled 7 cm and its height labelled 5 cm."
+      },
+      "answer": {
+        "value": 528,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Total surface area = curved surface + two circular ends = 2πrh + 2πr² = 2πr(h + r) = 2 × 22/7 × 7 × (5 + 7) = 44 × 12 = 528 cm².",
+      "solutionSteps": [
+        "2πr = 2 × 22/7 × 7 = 44.",
+        "h + r = 5 + 7 = 12.",
+        "TSA = 44 × 12 = 528 cm²."
+      ],
+      "formulaIds": [
+        "td-cylinder-f"
+      ],
+      "method": "Add the two circular ends to the curved surface: 2πr(h + r).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A closed cylinder has a top and a bottom as well as the curved side."
+        }
+      ],
+      "commonMistakes": [
+        "Giving only the curved surface area, 2πrh = 220 cm²."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-012",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-cuboid",
+      "levelId": "mensuration-3d-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the length of the longest rod that fits inside a closed box measuring 12 cm × 4 cm × 3 cm?",
+      "figure": {
+        "type": "solid",
+        "caption": "A box 12 cm × 4 cm × 3 cm, with the longest rod along its diagonal",
+        "parts": [
+          {
+            "shape": "cuboid",
+            "l": 12,
+            "b": 4,
+            "h": 3,
+            "labels": {
+              "l": "12 cm",
+              "b": "4 cm",
+              "h": "3 cm",
+              "d": "?"
+            }
+          }
+        ],
+        "ariaSummary": "A cuboid with length labelled 12 cm, breadth 4 cm and height 3 cm. A dashed space diagonal runs from a bottom corner to the opposite top corner, labelled with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "19 cm"
+        },
+        {
+          "id": "b",
+          "text": "13 cm"
+        },
+        {
+          "id": "c",
+          "text": "12 cm"
+        },
+        {
+          "id": "d",
+          "text": "169 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The longest rod runs along the space diagonal, from one corner to the opposite corner: √(l² + b² + h²) = √(144 + 16 + 9) = √169 = 13 cm.",
+      "solutionSteps": [
+        "l² + b² + h² = 144 + 16 + 9 = 169.",
+        "Diagonal = √169 = 13 cm."
+      ],
+      "formulaIds": [
+        "td-sc-diagonal"
+      ],
+      "method": "Use the space-diagonal formula for a cuboid.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The longest rod runs from one corner to the opposite corner, through the inside of the box."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the edges (12 + 4 + 3 = 19) instead of adding their squares.",
+        "Forgetting the square root and answering 169."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mensuration-3d-q-013",
+      "topicId": "mensuration-3d",
+      "conceptId": "td-sphere",
+      "levelId": "mensuration-3d-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The radius of a sphere is increased by 50%. By what percentage does its surface area increase?",
+      "options": [
+        {
+          "id": "a",
+          "text": "50%"
+        },
+        {
+          "id": "b",
+          "text": "100%"
+        },
+        {
+          "id": "c",
+          "text": "125%"
+        },
+        {
+          "id": "d",
+          "text": "237.5%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Surface area = 4πr², so it grows with the square of the radius. The new radius is 1.5r, so the area becomes 1.5² = 2.25 times the original: an increase of (2.25 − 1) × 100% = 125%.",
+      "solutionSteps": [
+        "Surface area = 4πr², so it is proportional to r².",
+        "Scale factor = 1.5² = 2.25.",
+        "Increase = (2.25 − 1) × 100% = 125%."
+      ],
+      "formulaIds": [
+        "td-sphere-f",
+        "td-sc-scaling"
+      ],
+      "method": "Square the scale factor of the radius, then turn it into a percentage increase.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If r becomes 1.5r, then r² becomes (1.5r)²."
+        },
+        {
+          "level": 2,
+          "text": "Increase = new − old, as a percentage of the old value."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 50%, as if the area grew in step with the radius.",
+        "Cubing the factor (237.5%), which is the increase in volume."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1522 @@
+{
+  "topicId": "di-bar-graphs",
+  "concepts": [
+    {
+      "id": "bg-reading",
+      "topicId": "di-bar-graphs",
+      "name": "Reading a bar chart",
+      "description": "Match the bar to its category and series (via the legend), then read its height against the axis.",
+      "sortOrder": 1
+    },
+    {
+      "id": "bg-compare",
+      "topicId": "di-bar-graphs",
+      "name": "Comparing bars",
+      "description": "Differences and ratios between two bars, and picking out the largest or smallest.",
+      "sortOrder": 2
+    },
+    {
+      "id": "bg-share",
+      "topicId": "di-bar-graphs",
+      "name": "Share of a total",
+      "description": "One bar as a percentage of the total across all bars in that category.",
+      "sortOrder": 3
+    },
+    {
+      "id": "bg-growth",
+      "topicId": "di-bar-graphs",
+      "name": "Growth between two bars",
+      "description": "Percentage change between two bars for the same series, usually across time.",
+      "sortOrder": 4
+    },
+    {
+      "id": "bg-grouped",
+      "topicId": "di-bar-graphs",
+      "name": "Reading grouped bar charts",
+      "description": "When several series share each category, match colours carefully via the legend before reading any value.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "bg-read-f",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-reading",
+      "title": "Reading a bar accurately",
+      "prompt": "How do you read the exact value of a bar?",
+      "formula": "Trace the top of the bar across to the value axis, using the gridlines to interpolate if needed",
+      "variables": [],
+      "explanation": "In a grouped chart, first match the bar's colour to its series in the legend — reading the right bar for the wrong series is the most common mistake.",
+      "example": "A bar reaching halfway between the 40 and 60 gridlines represents about 50",
+      "commonMistake": "Reading the wrong bar because its colour was not checked against the legend.",
+      "applicationPrompt": "How do you find which series a bar belongs to in a grouped bar chart?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg-share-f",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-share",
+      "title": "Share of the total",
+      "prompt": "How do you express one bar as a share of a total?",
+      "formula": "Share % = (Value ÷ Total of that category) × 100",
+      "variables": [],
+      "explanation": "Be sure the \"total\" is the right one — usually the sum of all series within the same category (e.g. the same month).",
+      "example": "Store A = 40, month total = 100: share = 40 ÷ 100 × 100 = 40%",
+      "commonMistake": "Dividing by the total across all categories instead of just the one being asked about.",
+      "applicationPrompt": "Store A sold 40 out of a monthly total of 100. What is its share?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg-growth-f",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-growth",
+      "title": "Growth between two bars",
+      "prompt": "How do you find the percentage growth between two bars of the same series?",
+      "formula": "Growth % = (Later value − Earlier value) ÷ Earlier value × 100",
+      "variables": [],
+      "explanation": "The earlier bar is always the denominator, even if the question is phrased with the later one first.",
+      "example": "50 → 65: growth = 15 ÷ 50 × 100 = 30%",
+      "commonMistake": "Dividing by the later value instead of the earlier one.",
+      "applicationPrompt": "A bar rises from 50 to 65. What is the percentage growth?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bg-sc-threshold",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-growth",
+      "kind": "shortcut",
+      "title": "\"More than x%?\" without dividing",
+      "prompt": "A question asks whether growth exceeded x%. What is the fastest test?",
+      "formula": "Compare the new value with old × (1 + x/100)",
+      "variables": [],
+      "explanation": "One multiplication answers a yes/no question; the exact percentage is not needed.",
+      "example": "Did sales rise by more than 20% from 340 to 420? 340 × 1.2 = 408 < 420, so yes.",
+      "commonMistake": "Working out the exact percentage for every bar.",
+      "applicationPrompt": "In which years did production rise by more than 15% if it went 260 → 300 → 340?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-bar-graphs-level-0",
+      "topicId": "di-bar-graphs",
+      "order": 0,
+      "title": "Reading Bars Accurately",
+      "description": "Matching a bar to its category and series before reading its value.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "bg-reading",
+        "bg-grouped"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Colour first, then height",
+            "body": "In a grouped bar chart, several bars share each category. Always match the bar's colour to the legend before reading its height — reading the right bar for the wrong series is the single most common DI mistake."
+          },
+          {
+            "type": "formula",
+            "title": "Reading a bar",
+            "body": "Trace the top of the bar across to the value axis",
+            "caption": "Use the gridlines to interpolate when a bar falls between two marked values."
+          },
+          {
+            "type": "check",
+            "questionId": "di-bar-graphs-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "When comparing totals across categories, add up every bar for that series before comparing — do not judge by eye from a single bar."
+          },
+          {
+            "type": "check",
+            "questionId": "di-bar-graphs-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "di-bar-graphs-level-1",
+      "topicId": "di-bar-graphs",
+      "order": 1,
+      "title": "Bar Graphs Formulas",
+      "description": "Reading bars, share of a total, and growth between two bars.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "di-bar-graphs-level-0"
+      ],
+      "conceptIds": [
+        "bg-reading",
+        "bg-share",
+        "bg-growth"
+      ],
+      "formulaIds": [
+        "bg-read-f",
+        "bg-share-f",
+        "bg-growth-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-bar-graphs-level-2",
+      "topicId": "di-bar-graphs",
+      "order": 2,
+      "title": "Direct Reading",
+      "description": "Reading individual bars and simple totals.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-bar-graphs-level-1"
+      ],
+      "conceptIds": [
+        "bg-reading",
+        "bg-grouped",
+        "bg-compare"
+      ],
+      "questionIds": [
+        "di-bar-graphs-q-001",
+        "di-bar-graphs-q-002",
+        "di-bar-graphs-q-003",
+        "di-bar-graphs-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-bar-graphs-level-3",
+      "topicId": "di-bar-graphs",
+      "order": 3,
+      "title": "Shares, Growth and Ratios",
+      "description": "Percentage share, growth between bars, and simple ratios.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-bar-graphs-level-2"
+      ],
+      "conceptIds": [
+        "bg-share",
+        "bg-growth",
+        "bg-compare"
+      ],
+      "questionIds": [
+        "di-bar-graphs-q-004",
+        "di-bar-graphs-q-005",
+        "di-bar-graphs-q-006",
+        "di-bar-graphs-q-007",
+        "di-bar-graphs-q-011",
+        "di-bar-graphs-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-bar-graphs-level-4",
+      "topicId": "di-bar-graphs",
+      "order": 4,
+      "title": "Multi-Step Bar Chart Questions",
+      "description": "Scanning across months and computing averages.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "di-bar-graphs-level-3"
+      ],
+      "conceptIds": [
+        "bg-grouped",
+        "bg-share"
+      ],
+      "questionIds": [
+        "di-bar-graphs-q-008",
+        "di-bar-graphs-q-009",
+        "di-bar-graphs-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-bar-graphs-level-5",
+      "topicId": "di-bar-graphs",
+      "order": 5,
+      "title": "Mixed Bar Graphs Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-bar-graphs-level-4"
+      ],
+      "conceptIds": [
+        "bg-grouped",
+        "bg-share"
+      ],
+      "questionQuery": {
+        "topicId": "di-bar-graphs",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-bar-graphs-q-001",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-reading",
+      "levelId": "di-bar-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What was Store A's sales in April (in ₹ thousand)?",
+      "context": "Study the bar chart of monthly sales for three stores and answer the question.",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 65,
+        "tolerance": 0
+      },
+      "explanation": "Reading the Store A bar for April gives 65.",
+      "solutionSteps": [
+        "Match the Store A colour in the legend.",
+        "Read the April bar: 65."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Match the series colour, then read the bar height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the legend for which colour is Store A."
+        }
+      ],
+      "commonMistakes": [
+        "Reading a different store's bar for April."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-002",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-compare",
+      "levelId": "di-bar-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which store had the highest total sales over the five months shown?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Store A"
+        },
+        {
+          "id": "b",
+          "text": "Store B"
+        },
+        {
+          "id": "c",
+          "text": "Store C"
+        },
+        {
+          "id": "d",
+          "text": "All three are equal"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Totals: Store A = 40+55+50+65+70 = 280, Store B = 35+40+45+50+60 = 230, Store C = 25+30+35+30+40 = 160. Store A has the highest total.",
+      "solutionSteps": [
+        "Store A total: 280.",
+        "Store B total: 230.",
+        "Store C total: 160."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Add each store's bars across all five months.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add up all five bars for each store before comparing."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing only one month instead of the five-month total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-003",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-grouped",
+      "levelId": "di-bar-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What were the combined sales of all three stores in March (in ₹ thousand)?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 130,
+        "tolerance": 0
+      },
+      "explanation": "March: 50 + 45 + 35 = 130.",
+      "solutionSteps": [
+        "Store A: 50, Store B: 45, Store C: 35.",
+        "50 + 45 + 35 = 130."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Read all three bars for the same month and add them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the three March bars, one per store."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the wrong month's bars."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-004",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-share",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What percentage of January's total sales came from Store A?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 40,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "January's total is 40+35+25 = 100. Store A's share = 40 ÷ 100 × 100 = 40%.",
+      "solutionSteps": [
+        "January total: 100.",
+        "Store A's share: 40 ÷ 100 × 100 = 40%."
+      ],
+      "formulaIds": [
+        "bg-share-f"
+      ],
+      "method": "Find the month's total first, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add all three stores' January bars for the total."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by a different month's total."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-005",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-growth",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By what percentage did Store A's sales grow from March to April?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "March = 50, April = 65. Growth = (65−50) ÷ 50 × 100 = 30%.",
+      "solutionSteps": [
+        "65 − 50 = 15.",
+        "15 ÷ 50 × 100 = 30%."
+      ],
+      "formulaIds": [
+        "bg-growth-f"
+      ],
+      "method": "Use March (the earlier value) as the denominator.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The earlier bar is always the denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 65 instead of 50."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-006",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-compare",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By how much did Store C's sales increase from January to May (in ₹ thousand)?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "January = 25, May = 40. Increase = 40 − 25 = 15.",
+      "solutionSteps": [
+        "40 − 25 = 15."
+      ],
+      "formulaIds": [
+        "bg-growth-f"
+      ],
+      "method": "Subtract the earlier value from the later one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This asks for an absolute increase, not a percentage."
+        }
+      ],
+      "commonMistakes": [
+        "Computing a percentage instead of the plain difference."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-007",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-compare",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the ratio of Store A's total sales to Store C's total sales over the five months?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "7 : 4"
+        },
+        {
+          "id": "b",
+          "text": "4 : 7"
+        },
+        {
+          "id": "c",
+          "text": "5 : 3"
+        },
+        {
+          "id": "d",
+          "text": "3 : 2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Store A total = 280, Store C total = 160. Ratio = 280:160 = 7:4 (dividing both by 40).",
+      "solutionSteps": [
+        "Store A total: 280.",
+        "Store C total: 160.",
+        "280:160 = 7:4."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Find both totals first, then simplify the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reduce the ratio by the highest common factor of both totals."
+        }
+      ],
+      "commonMistakes": [
+        "Not fully reducing the ratio."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-008",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-grouped",
+      "levelId": "di-bar-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In which month did Store B's sales first exceed Store C's sales by more than 15 units?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Feb"
+        },
+        {
+          "id": "b",
+          "text": "Mar"
+        },
+        {
+          "id": "c",
+          "text": "Apr"
+        },
+        {
+          "id": "d",
+          "text": "May"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Differences (B−C): Jan 10, Feb 10, Mar 10, Apr 20, May 20. The difference first exceeds 15 in April.",
+      "solutionSteps": [
+        "Jan: 35−25=10. Feb: 40−30=10. Mar: 45−35=10.",
+        "Apr: 50−30=20 — first time over 15."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Compute the difference month by month until it exceeds 15.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check each month in order, computing B minus C."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at a month where the difference exists but is not yet over 15."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-009",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-share",
+      "levelId": "di-bar-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What was the average monthly sales of Store B over the five months (in ₹ thousand)?",
+      "chart": {
+        "type": "bar",
+        "caption": "Monthly sales of three stores (₹ thousand)",
+        "unit": "₹ thousand",
+        "categories": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May"
+        ],
+        "series": [
+          {
+            "label": "Store A",
+            "data": [
+              40,
+              55,
+              50,
+              65,
+              70
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Store B",
+            "data": [
+              35,
+              40,
+              45,
+              50,
+              60
+            ],
+            "colorToken": "algebra"
+          },
+          {
+            "label": "Store C",
+            "data": [
+              25,
+              30,
+              35,
+              30,
+              40
+            ],
+            "colorToken": "geometry"
+          }
+        ],
+        "ariaSummary": "Store A monthly sales: Jan 40, Feb 55, Mar 50, Apr 65, May 70. Store B: Jan 35, Feb 40, Mar 45, Apr 50, May 60. Store C: Jan 25, Feb 30, Mar 35, Apr 30, May 40, all in rupees thousand."
+      },
+      "answer": {
+        "value": 46,
+        "tolerance": 0
+      },
+      "explanation": "Store B total = 35+40+45+50+60 = 230. Average = 230 ÷ 5 = 46.",
+      "solutionSteps": [
+        "Store B total: 230.",
+        "230 ÷ 5 = 46."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Add all five months, then divide by 5.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This needs the full total across all five months first."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging only some of the months."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-010",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-compare",
+      "levelId": "di-bar-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In which year was the gap between Dealer P's and Dealer Q's sales the largest?",
+      "context": "Study the bar chart of cars sold by two dealers and answer the question.",
+      "chart": {
+        "type": "bar",
+        "caption": "Cars sold by two dealers, 2019–2023",
+        "unit": "cars",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Dealer P",
+            "data": [
+              120,
+              150,
+              135,
+              180,
+              215
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Dealer Q",
+            "data": [
+              100,
+              125,
+              120,
+              145,
+              150
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Cars sold by Dealer P: 2019 120, 2020 150, 2021 135, 2022 180, 2023 215. Dealer Q: 2019 100, 2020 125, 2021 120, 2022 145, 2023 150."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2019"
+        },
+        {
+          "id": "b",
+          "text": "2020"
+        },
+        {
+          "id": "c",
+          "text": "2022"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Gaps (Dealer P − Dealer Q): 2019 20, 2020 25, 2021 15, 2022 35, 2023 65. The largest gap, 65 cars, is in 2023.",
+      "solutionSteps": [
+        "Subtract Dealer Q's bar from Dealer P's for each year.",
+        "Gaps: 20, 25, 15, 35, 65.",
+        "The largest is 65, in 2023."
+      ],
+      "formulaIds": [
+        "bg-read-f"
+      ],
+      "method": "Subtract the two bars year by year, then pick the largest gap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out P − Q for each year rather than judging the gap by eye."
+        }
+      ],
+      "commonMistakes": [
+        "Picking the year with the tallest single bar instead of the widest gap between the two bars."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-011",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-growth",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In which year did Dealer Q's sales grow by the highest percentage over the previous year?",
+      "chart": {
+        "type": "bar",
+        "caption": "Cars sold by two dealers, 2019–2023",
+        "unit": "cars",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Dealer P",
+            "data": [
+              120,
+              150,
+              135,
+              180,
+              215
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Dealer Q",
+            "data": [
+              100,
+              125,
+              120,
+              145,
+              150
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Cars sold by Dealer P: 2019 120, 2020 150, 2021 135, 2022 180, 2023 215. Dealer Q: 2019 100, 2020 125, 2021 120, 2022 145, 2023 150."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2020"
+        },
+        {
+          "id": "b",
+          "text": "2021"
+        },
+        {
+          "id": "c",
+          "text": "2022"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Dealer Q's growth over the previous year: 2020: 25 ÷ 100 × 100 = 25%; 2021: a fall of 5; 2022: 25 ÷ 120 × 100 ≈ 20.8%; 2023: 5 ÷ 145 × 100 ≈ 3.4%. The highest is 2020. 2020 and 2022 both rise by 25 cars, but 2020 starts from the smaller base (100).",
+      "solutionSteps": [
+        "Growth % = rise ÷ previous year × 100.",
+        "2020: 25 ÷ 100 × 100 = 25%; 2021: a fall of 5.",
+        "2022: 25 ÷ 120 × 100 ≈ 20.8%; 2023: 5 ÷ 145 × 100 ≈ 3.4%.",
+        "The highest is 2020."
+      ],
+      "formulaIds": [
+        "bg-growth-f"
+      ],
+      "method": "Divide each year's rise by the previous year's value and compare.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide each year's rise by the previous year's value, not by the current year's."
+        },
+        {
+          "level": 2,
+          "text": "2020 and 2022 both rise by 25 cars — which one starts from the smaller value?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 2022 because its rise of 25 cars equals 2020's, ignoring its larger base.",
+        "Dividing the rise by the later year's value."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-012",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-share",
+      "levelId": "di-bar-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In 2022, Dealer P's sales were approximately what percentage of the two dealers' combined sales?",
+      "chart": {
+        "type": "bar",
+        "caption": "Cars sold by two dealers, 2019–2023",
+        "unit": "cars",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Dealer P",
+            "data": [
+              120,
+              150,
+              135,
+              180,
+              215
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Dealer Q",
+            "data": [
+              100,
+              125,
+              120,
+              145,
+              150
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Cars sold by Dealer P: 2019 120, 2020 150, 2021 135, 2022 180, 2023 215. Dealer Q: 2019 100, 2020 125, 2021 120, 2022 145, 2023 150."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "50%"
+        },
+        {
+          "id": "b",
+          "text": "55%"
+        },
+        {
+          "id": "c",
+          "text": "60%"
+        },
+        {
+          "id": "d",
+          "text": "65%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Combined 2022 sales = 180 + 145 = 325. Dealer P's share = 180 ÷ 325 × 100 ≈ 55.4%, so the nearest option is 55%.",
+      "solutionSteps": [
+        "2022: Dealer P 180, Dealer Q 145.",
+        "Combined: 180 + 145 = 325.",
+        "180 ÷ 325 × 100 ≈ 55.4% ≈ 55%."
+      ],
+      "formulaIds": [
+        "bg-share-f"
+      ],
+      "method": "Add both of the year's bars for the total, then divide Dealer P's bar by it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The total is both dealers' 2022 bars added together."
+        },
+        {
+          "level": 2,
+          "text": "325 × 0.55 ≈ 178.8 — compare that with 180."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 180 by Dealer Q's 145 instead of the combined 325 (≈ 124%)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-bar-graphs-q-013",
+      "topicId": "di-bar-graphs",
+      "conceptId": "bg-grouped",
+      "levelId": "di-bar-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Over the five years, by what percentage did Dealer P's total sales exceed Dealer Q's total sales?",
+      "chart": {
+        "type": "bar",
+        "caption": "Cars sold by two dealers, 2019–2023",
+        "unit": "cars",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Dealer P",
+            "data": [
+              120,
+              150,
+              135,
+              180,
+              215
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Dealer Q",
+            "data": [
+              100,
+              125,
+              120,
+              145,
+              150
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Cars sold by Dealer P: 2019 120, 2020 150, 2021 135, 2022 180, 2023 215. Dealer Q: 2019 100, 2020 125, 2021 120, 2022 145, 2023 150."
+      },
+      "answer": {
+        "value": 25,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Dealer P's total = 120 + 150 + 135 + 180 + 215 = 800. Dealer Q's total = 100 + 125 + 120 + 145 + 150 = 640. Dealer P exceeds Dealer Q by (800 − 640) ÷ 640 × 100 = 25%.",
+      "solutionSteps": [
+        "Dealer P's total: 120 + 150 + 135 + 180 + 215 = 800.",
+        "Dealer Q's total: 100 + 125 + 120 + 145 + 150 = 640.",
+        "(800 − 640) ÷ 640 × 100 = 25%."
+      ],
+      "formulaIds": [
+        "bg-read-f",
+        "bg-growth-f"
+      ],
+      "method": "Total each dealer's five bars, then use Dealer Q's total as the base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add all five bars for each dealer first."
+        },
+        {
+          "level": 2,
+          "text": "\"More than Dealer Q\" means Dealer Q's total, 640, is the base."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the difference by Dealer P's total, which gives 20%.",
+        "Comparing a single year instead of the five-year totals."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

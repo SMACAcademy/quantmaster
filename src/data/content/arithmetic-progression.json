@@ -1,0 +1,1067 @@
+{
+  "topicId": "arithmetic-progression",
+  "concepts": [
+    {
+      "id": "ap-recognise",
+      "topicId": "arithmetic-progression",
+      "name": "Recognising an AP",
+      "description": "A sequence with a constant difference between consecutive terms.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ap-nth-term",
+      "topicId": "arithmetic-progression",
+      "name": "The nth term",
+      "description": "Jumping directly to any term without listing the sequence.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ap-sum",
+      "topicId": "arithmetic-progression",
+      "name": "Sum of an AP",
+      "description": "Adding a long evenly spaced list in one step.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ap-count",
+      "topicId": "arithmetic-progression",
+      "name": "Counting terms",
+      "description": "How many terms lie between two values in a progression.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ap-applications",
+      "topicId": "arithmetic-progression",
+      "name": "AP word problems",
+      "description": "Instalments, multiples and 'given two terms' problems.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ap-nth",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-nth-term",
+      "title": "nth term of an AP",
+      "prompt": "What is the formula for the nth term of an arithmetic progression?",
+      "formula": "aₙ = a + (n − 1)d",
+      "variables": [
+        {
+          "symbol": "a",
+          "meaning": "first term"
+        },
+        {
+          "symbol": "d",
+          "meaning": "common difference"
+        },
+        {
+          "symbol": "n",
+          "meaning": "position of the term"
+        }
+      ],
+      "explanation": "You take (n − 1) steps to get from the first term to the nth, not n steps.",
+      "example": "5, 8, 11, …\na = 5, d = 3\n10th term = 5 + 9 × 3 = 32",
+      "commonMistake": "Using n instead of (n − 1), which overshoots by one step.",
+      "applicationPrompt": "For the sequence 5, 8, 11, …, which formula gives the 10th term?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-sum-formula",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-sum",
+      "title": "Sum of n terms",
+      "prompt": "What are the two forms of the sum of an AP?",
+      "formula": "Sₙ = n/2 × [2a + (n − 1)d]\nSₙ = n/2 × (first + last)",
+      "variables": [],
+      "explanation": "Use the second form whenever you know the last term — it is much faster.",
+      "example": "2, 4, 6, …, 20 (10 terms)\nS = 10/2 × (2 + 20) = 110",
+      "commonMistake": "Using the first form when the last term is already known, which invites arithmetic slips.",
+      "applicationPrompt": "You know the first and last terms and the count. Which sum formula is quickest?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-count-formula",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-count",
+      "title": "Number of terms",
+      "prompt": "How many terms are there from a to l with common difference d?",
+      "formula": "n = (l − a) ÷ d + 1",
+      "variables": [
+        {
+          "symbol": "l",
+          "meaning": "last term"
+        }
+      ],
+      "explanation": "Count the gaps, then add one for the starting term — the classic fence-post correction.",
+      "example": "7, 11, 15, …, 99\nn = (99 − 7) ÷ 4 + 1 = 24",
+      "commonMistake": "Forgetting the +1 and reporting one term too few.",
+      "applicationPrompt": "How many terms are there in 7, 11, 15, …, 99?",
+      "tags": [
+        "core",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ap-average",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-sum",
+      "kind": "shortcut",
+      "title": "Average of an AP",
+      "prompt": "What is the average of the terms of an AP?",
+      "formula": "Average = (First + Last) ÷ 2",
+      "variables": [],
+      "explanation": "Evenly spaced terms are symmetric about their middle, so the average is the midpoint — and the sum is that average times the count.",
+      "example": "7, 11, …, 99\nAverage = (7 + 99) ÷ 2 = 53",
+      "commonMistake": "Applying this to sequences that are not evenly spaced.",
+      "applicationPrompt": "You need the average of a long evenly spaced list. What is the shortcut?",
+      "tags": [
+        "shortcut",
+        "average-link"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "arithmetic-progression-level-0",
+      "topicId": "arithmetic-progression",
+      "order": 0,
+      "title": "Constant Steps",
+      "description": "What makes a sequence an AP, and the two formulas that follow from it.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ap-recognise",
+        "ap-nth-term"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "One rule defines an AP",
+            "body": "In an arithmetic progression, each term differs from the previous one by the same amount, called the common difference d.\n\n3, 7, 11, 15 … has d = 4. 20, 17, 14 … has d = −3. A negative d simply means the sequence falls."
+          },
+          {
+            "type": "formula",
+            "title": "The two formulas",
+            "body": "aₙ = a + (n − 1)d\nSₙ = n/2 × (first + last)",
+            "caption": "Note (n − 1), not n: reaching the 10th term takes 9 steps."
+          },
+          {
+            "type": "example",
+            "title": "Both in action",
+            "body": "Sequence 5, 8, 11, …\na = 5, d = 3\n10th term = 5 + 9 × 3 = 32\nSum of the first 10 = 10/2 × (5 + 32) = 185"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "The sum formula is just 'average × count' in disguise: the average of an evenly spaced list is (first + last)/2."
+          },
+          {
+            "type": "check",
+            "questionId": "arithmetic-progression-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Counting terms needs care",
+            "body": "From 7 to 99 in steps of 4 there are (99 − 7)/4 = 23 steps — but 24 terms. Count the gaps, then add one for the first term."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ap-pairing"
+          },
+          {
+            "type": "check",
+            "questionId": "arithmetic-progression-q-020"
+          }
+        ]
+      }
+    },
+    {
+      "id": "arithmetic-progression-level-1",
+      "topicId": "arithmetic-progression",
+      "order": 1,
+      "title": "AP Formulas",
+      "description": "nth term, sum, term count and the average shortcut.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [
+        "arithmetic-progression-level-0"
+      ],
+      "conceptIds": [
+        "ap-nth-term",
+        "ap-sum",
+        "ap-count"
+      ],
+      "formulaIds": [
+        "ap-nth",
+        "ap-sum-formula",
+        "ap-count-formula",
+        "ap-average"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "arithmetic-progression-level-2",
+      "topicId": "arithmetic-progression",
+      "order": 2,
+      "title": "Direct AP Questions",
+      "description": "Common differences, specific terms and short sums.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "arithmetic-progression-level-1"
+      ],
+      "conceptIds": [
+        "ap-recognise",
+        "ap-nth-term",
+        "ap-sum"
+      ],
+      "questionIds": [
+        "arithmetic-progression-q-001",
+        "arithmetic-progression-q-002",
+        "arithmetic-progression-q-003",
+        "arithmetic-progression-q-010",
+        "arithmetic-progression-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "arithmetic-progression-level-3",
+      "topicId": "arithmetic-progression",
+      "order": 3,
+      "title": "Counting and Summing",
+      "description": "How many terms, and what they add up to.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 11,
+      "prerequisiteLevelIds": [
+        "arithmetic-progression-level-2"
+      ],
+      "conceptIds": [
+        "ap-count",
+        "ap-sum"
+      ],
+      "questionIds": [
+        "arithmetic-progression-q-020",
+        "arithmetic-progression-q-021",
+        "arithmetic-progression-q-022",
+        "arithmetic-progression-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "arithmetic-progression-level-4",
+      "topicId": "arithmetic-progression",
+      "order": 4,
+      "title": "Working Backwards in an AP",
+      "description": "Recovering a and d from two given terms, and summing a filtered list.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "arithmetic-progression-level-3"
+      ],
+      "conceptIds": [
+        "ap-applications"
+      ],
+      "questionIds": [
+        "arithmetic-progression-q-030",
+        "arithmetic-progression-q-031",
+        "arithmetic-progression-q-032",
+        "arithmetic-progression-q-033"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "arithmetic-progression-level-5",
+      "topicId": "arithmetic-progression",
+      "order": 5,
+      "title": "Mixed AP Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "arithmetic-progression-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "arithmetic-progression",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "arithmetic-progression-q-001",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-recognise",
+      "levelId": "arithmetic-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "What is the common difference of the sequence 3, 7, 11, 15, …?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "11"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each term is 4 more than the previous one: 7 − 3 = 4, 11 − 7 = 4.",
+      "solutionSteps": [
+        "Subtract any term from the one after it.",
+        "7 − 3 = 4.",
+        "Common difference d = 4."
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "Subtract consecutive terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Take any two neighbouring terms and subtract."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting the first term instead of the difference."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-002",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-nth-term",
+      "levelId": "arithmetic-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "What is the 10th term of the sequence 5, 8, 11, …?",
+      "options": [
+        {
+          "id": "a",
+          "text": "29"
+        },
+        {
+          "id": "b",
+          "text": "32"
+        },
+        {
+          "id": "c",
+          "text": "35"
+        },
+        {
+          "id": "d",
+          "text": "50"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "a = 5 and d = 3, so a₁₀ = 5 + 9 × 3 = 32.",
+      "solutionSteps": [
+        "a = 5, d = 3.",
+        "a₁₀ = a + (10 − 1)d = 5 + 27.",
+        "= 32."
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "a + (n − 1)d.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many steps of 3 lie between the 1st and 10th terms?"
+        },
+        {
+          "level": 2,
+          "text": "Nine steps, not ten."
+        }
+      ],
+      "commonMistakes": [
+        "Using 10 steps and answering 35."
+      ],
+      "tags": [
+        "nth-term"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-003",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-sum",
+      "levelId": "arithmetic-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the sum of the first 10 terms of the sequence 2, 4, 6, 8, …?",
+      "answer": {
+        "value": 110,
+        "tolerance": 0
+      },
+      "explanation": "The 10th term is 20, so the sum is 10/2 × (2 + 20) = 110.",
+      "solutionSteps": [
+        "The 10th term = 2 + 9 × 2 = 20.",
+        "Sum = 10/2 × (first + last) = 5 × 22.",
+        "= 110."
+      ],
+      "formulaIds": [
+        "ap-sum-formula"
+      ],
+      "method": "Find the last term, then use n/2 × (first + last).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the 10th term first."
+        },
+        {
+          "level": 2,
+          "text": "The average of the ten terms is (2 + 20)/2 = 11."
+        }
+      ],
+      "commonMistakes": [
+        "Summing only to the 10th even number incorrectly, e.g. answering 100."
+      ],
+      "tags": [
+        "sum",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-010",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-nth-term",
+      "levelId": "arithmetic-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which formula gives the nth term of an arithmetic progression?",
+      "options": [
+        {
+          "id": "a",
+          "text": "a + (n − 1)d"
+        },
+        {
+          "id": "b",
+          "text": "a + nd"
+        },
+        {
+          "id": "c",
+          "text": "a × d^(n − 1)"
+        },
+        {
+          "id": "d",
+          "text": "n/2 × (a + l)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Reaching the nth term takes (n − 1) steps of size d. Option c is the GP formula and option d is the AP sum.",
+      "solutionSteps": [
+        "The first term needs no steps.",
+        "The nth term needs (n − 1) steps of d.",
+        "aₙ = a + (n − 1)d."
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "Count steps, not terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the formula against the 1st term: it should return a."
+        },
+        {
+          "level": 2,
+          "text": "Only one option gives exactly a when n = 1."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing a + nd, which returns the second term when n = 1."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-011",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-recognise",
+      "levelId": "arithmetic-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "In an arithmetic progression, the ratio between consecutive terms is constant.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "It is the DIFFERENCE that is constant in an AP. A constant ratio defines a geometric progression. In 3, 7, 11 the ratios 7/3 and 11/7 are not equal.",
+      "solutionSteps": [
+        "Check 3, 7, 11: differences are 4 and 4 — constant.",
+        "Ratios are 7/3 ≈ 2.33 and 11/7 ≈ 1.57 — not constant.",
+        "So the statement is false."
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "Test the claim on a simple AP.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which is constant in an AP — the difference or the ratio?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing AP with GP."
+      ],
+      "tags": [
+        "true-false",
+        "definition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-020",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-count",
+      "levelId": "arithmetic-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "How many terms are there in the sequence 7, 11, 15, …, 99?",
+      "options": [
+        {
+          "id": "a",
+          "text": "22"
+        },
+        {
+          "id": "b",
+          "text": "23"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "n = (99 − 7)/4 + 1 = 23 + 1 = 24.",
+      "solutionSteps": [
+        "Common difference d = 4.",
+        "Number of steps = (99 − 7) ÷ 4 = 23.",
+        "Number of terms = 23 + 1 = 24."
+      ],
+      "formulaIds": [
+        "ap-count-formula"
+      ],
+      "method": "Steps plus one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the gaps between terms first."
+        },
+        {
+          "level": 2,
+          "text": "There is always one more term than there are gaps."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the +1 and answering 23."
+      ],
+      "tags": [
+        "counting",
+        "trap"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-021",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-sum",
+      "levelId": "arithmetic-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the sum of the first 20 terms of the sequence 3, 7, 11, …?",
+      "options": [
+        {
+          "id": "a",
+          "text": "760"
+        },
+        {
+          "id": "b",
+          "text": "790"
+        },
+        {
+          "id": "c",
+          "text": "820"
+        },
+        {
+          "id": "d",
+          "text": "840"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "S = 20/2 × [2 × 3 + 19 × 4] = 10 × 82 = 820.",
+      "solutionSteps": [
+        "a = 3, d = 4, n = 20.",
+        "20th term = 3 + 19 × 4 = 79.",
+        "Sum = 20/2 × (3 + 79) = 10 × 82 = 820."
+      ],
+      "formulaIds": [
+        "ap-sum-formula",
+        "ap-nth"
+      ],
+      "method": "Find the last term, then sum as average × count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the 20th term first."
+        },
+        {
+          "level": 2,
+          "text": "It is 3 + 19 × 4 = 79."
+        }
+      ],
+      "commonMistakes": [
+        "Using 20 steps instead of 19 for the last term."
+      ],
+      "tags": [
+        "sum"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-022",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-nth-term",
+      "levelId": "arithmetic-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "An AP has first term 4 and common difference 6. What is its 15th term?",
+      "answer": {
+        "value": 88,
+        "tolerance": 0
+      },
+      "explanation": "a₁₅ = 4 + 14 × 6 = 4 + 84 = 88.",
+      "solutionSteps": [
+        "a = 4, d = 6, n = 15.",
+        "a₁₅ = 4 + (15 − 1) × 6.",
+        "= 4 + 84 = 88."
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "a + (n − 1)d.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Fourteen steps of 6, added to the first term."
+        }
+      ],
+      "commonMistakes": [
+        "Using 15 steps and answering 94."
+      ],
+      "tags": [
+        "nth-term",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-023",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-count",
+      "levelId": "arithmetic-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many three-digit numbers are divisible by 6?",
+      "answer": {
+        "value": 150,
+        "tolerance": 0
+      },
+      "explanation": "The three-digit multiples of 6 run 102, 108, …, 996, an AP with d = 6. Number of terms = (996 − 102) ÷ 6 + 1 = 149 + 1 = 150.",
+      "solutionSteps": [
+        "First three-digit multiple of 6: 102.",
+        "Last three-digit multiple of 6: 996.",
+        "Steps: (996 − 102) ÷ 6 = 149.",
+        "Terms = 149 + 1 = 150."
+      ],
+      "formulaIds": [
+        "ap-count-formula"
+      ],
+      "method": "Find the first and last terms, then (l − a) ÷ d + 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The multiples of 6 form an AP with d = 6."
+        },
+        {
+          "level": 2,
+          "text": "Find the smallest and the largest three-digit multiples of 6."
+        },
+        {
+          "level": 3,
+          "text": "Number of steps plus one gives the number of terms."
+        }
+      ],
+      "commonMistakes": [
+        "Using 100 and 999 as the ends (they are not multiples of 6).",
+        "Forgetting to add 1 (149)."
+      ],
+      "tags": [
+        "counting",
+        "multiples",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-030",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-applications",
+      "levelId": "arithmetic-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The 5th term of an AP is 17 and the 9th term is 29. What is the first term?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "11"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Four steps separate the 5th and 9th terms, so 4d = 12 and d = 3. Then a = 17 − 4 × 3 = 5.",
+      "solutionSteps": [
+        "a₉ − a₅ = (29 − 17) = 12, spread over 9 − 5 = 4 steps.",
+        "d = 12 ÷ 4 = 3.",
+        "a = a₅ − 4d = 17 − 12 = 5.",
+        "Check: 5, 8, 11, 14, 17 … the 5th term is 17 ✓"
+      ],
+      "formulaIds": [
+        "ap-nth"
+      ],
+      "method": "Use the gap between two known terms to find d first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many common differences separate the 5th and 9th terms?"
+        },
+        {
+          "level": 2,
+          "text": "Four of them."
+        },
+        {
+          "level": 3,
+          "text": "Then step back four differences from the 5th term."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the difference by 5 or 9 instead of by the gap of 4."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-031",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-applications",
+      "levelId": "arithmetic-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the sum of all two-digit numbers that are divisible by 7?",
+      "answer": {
+        "value": 728,
+        "tolerance": 0
+      },
+      "explanation": "The multiples run 14, 21, …, 98 — 13 terms — and their sum is 13/2 × (14 + 98) = 728.",
+      "solutionSteps": [
+        "The first two-digit multiple of 7 is 14; the last is 98.",
+        "Number of terms = (98 − 14) ÷ 7 + 1 = 13.",
+        "Sum = 13/2 × (14 + 98) = 13 × 56 = 728."
+      ],
+      "formulaIds": [
+        "ap-count-formula",
+        "ap-sum-formula"
+      ],
+      "method": "Identify first and last terms, count them, then sum as average × count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the smallest and largest two-digit multiples of 7."
+        },
+        {
+          "level": 2,
+          "text": "14 and 98, in steps of 7."
+        },
+        {
+          "level": 3,
+          "text": "Count the terms before summing — there are 13."
+        }
+      ],
+      "commonMistakes": [
+        "Starting at 7, which is not a two-digit number."
+      ],
+      "tags": [
+        "applications",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-032",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-applications",
+      "levelId": "arithmetic-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The 3rd term of an AP is 12 and its 7th term is 28. What is the sum of its first 15 terms?",
+      "options": [
+        {
+          "id": "a",
+          "text": "480"
+        },
+        {
+          "id": "b",
+          "text": "420"
+        },
+        {
+          "id": "c",
+          "text": "600"
+        },
+        {
+          "id": "d",
+          "text": "960"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "From the 3rd term to the 7th term is 4 steps: 4d = 28 − 12 = 16, so d = 4. Then a = 12 − 2 × 4 = 4. S₁₅ = 15/2 × [2 × 4 + 14 × 4] = 15/2 × 64 = 480.",
+      "solutionSteps": [
+        "a₇ − a₃ = 4d, so 4d = 16 and d = 4.",
+        "a = a₃ − 2d = 12 − 8 = 4.",
+        "15th term = 4 + 14 × 4 = 60.",
+        "S₁₅ = 15/2 × (4 + 60) = 480."
+      ],
+      "formulaIds": [
+        "ap-nth",
+        "ap-sum-formula"
+      ],
+      "method": "Use the two known terms to find d and a, then apply the sum formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many steps of d separate the 3rd and 7th terms?"
+        },
+        {
+          "level": 2,
+          "text": "Once you know d, step back from the 3rd term to find a."
+        },
+        {
+          "level": 3,
+          "text": "Sum = number of terms × average of first and last."
+        }
+      ],
+      "commonMistakes": [
+        "Using 12 as the first term (600).",
+        "Forgetting to halve in n/2 (960)."
+      ],
+      "tags": [
+        "applications",
+        "two-terms",
+        "complex"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "arithmetic-progression-q-033",
+      "topicId": "arithmetic-progression",
+      "conceptId": "ap-sum",
+      "levelId": "arithmetic-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many terms of the AP 3, 7, 11, … must be added to get a sum of 210?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Here a = 3 and d = 4, so Sₙ = n/2 × [6 + 4(n − 1)] = n(2n + 1). Setting n(2n + 1) = 210 gives 2n² + n − 210 = 0, which factorises as (n − 10)(2n + 21) = 0. The number of terms must be positive, so n = 10. Check: 10 × 21 = 210.",
+      "solutionSteps": [
+        "a = 3, d = 4.",
+        "Sₙ = n/2 × [6 + 4(n − 1)] = n(2n + 1).",
+        "n(2n + 1) = 210 → 2n² + n − 210 = 0.",
+        "(n − 10)(2n + 21) = 0, so n = 10.",
+        "Check: 10 × 21 = 210."
+      ],
+      "formulaIds": [
+        "ap-sum-formula"
+      ],
+      "method": "Write Sₙ in terms of n, set it equal to the total and solve the quadratic.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the sum of n terms using a = 3 and d = 4."
+        },
+        {
+          "level": 2,
+          "text": "The sum simplifies to n(2n + 1)."
+        },
+        {
+          "level": 3,
+          "text": "Which positive whole number n gives n(2n + 1) = 210?"
+        }
+      ],
+      "commonMistakes": [
+        "Treating 210 as the last term instead of the sum.",
+        "Keeping the negative root of the quadratic."
+      ],
+      "tags": [
+        "sum",
+        "quadratic",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

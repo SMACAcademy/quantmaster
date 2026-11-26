@@ -1,0 +1,1027 @@
+{
+  "topicId": "races",
+  "concepts": [
+    {
+      "id": "rc-beat",
+      "topicId": "races",
+      "name": "Beating by a distance",
+      "description": "\"A beats B by d metres\" means B is d metres short of the finish when A finishes.",
+      "sortOrder": 1
+    },
+    {
+      "id": "rc-ratio",
+      "topicId": "races",
+      "name": "Speed ratios from a race",
+      "description": "In the same time, distances run are proportional to speeds.",
+      "sortOrder": 2
+    },
+    {
+      "id": "rc-start",
+      "topicId": "races",
+      "name": "Head starts and dead heats",
+      "description": "A head start shortens the distance the slower runner has to cover.",
+      "sortOrder": 3
+    },
+    {
+      "id": "rc-circular",
+      "topicId": "races",
+      "name": "Circular tracks",
+      "description": "Runners on a loop meet when the faster has gained one full lap.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "rc-beat-f",
+      "topicId": "races",
+      "conceptId": "rc-beat",
+      "title": "Beating by a distance",
+      "prompt": "In a race of L metres, A beats B by d metres. How far has B run when A finishes?",
+      "formula": "A runs L, B runs L − d\n(in the same time)",
+      "variables": [],
+      "explanation": "The race ends when A finishes; B is still d metres behind the line.",
+      "example": "100 m race, A beats B by 10 m → B has run 90 m",
+      "commonMistake": "Saying B ran d metres.",
+      "applicationPrompt": "In a 200 m race A beats B by 40 m. How far has B run when A finishes?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rc-ratio-f",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "title": "Speed ratio",
+      "prompt": "How do you get the ratio of speeds from \"A beats B by d metres in L\"?",
+      "formula": "Speed of A : Speed of B = L : (L − d)",
+      "variables": [],
+      "explanation": "They run for equal time, so the distances are in the same ratio as the speeds.",
+      "example": "200 m race, A beats B by 40 m → 200 : 160 = 5 : 4",
+      "commonMistake": "Using d : L.",
+      "applicationPrompt": "A beats B by 20 m in 100 m. What is the ratio of their speeds?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rc-start-f",
+      "topicId": "races",
+      "conceptId": "rc-start",
+      "title": "Head start",
+      "prompt": "A gives B a start of s metres in a race of L metres and they finish together. What does each run?",
+      "formula": "A runs L, B runs L − s\nSpeed ratio = L : (L − s)",
+      "variables": [],
+      "explanation": "A dead heat means equal time, so it is the same as A beating B by s in an L-metre race.",
+      "example": "100 m race, 20 m start → A : B = 100 : 80 = 5 : 4",
+      "commonMistake": "Adding the start to B's distance.",
+      "applicationPrompt": "A gives B a 20 m start in a 100 m race and they tie. What is the ratio of their speeds?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rc-circular-f",
+      "topicId": "races",
+      "conceptId": "rc-circular",
+      "title": "Meeting on a circular track",
+      "prompt": "Two runners start together on a circular track of length L. When do they next meet?",
+      "formula": "Same direction: t = L ÷ (S₁ − S₂)\nOpposite direction: t = L ÷ (S₁ + S₂)",
+      "variables": [],
+      "explanation": "Same direction they meet when the faster gains one full lap; opposite directions they meet when together they cover one lap.",
+      "example": "L = 400, speeds 5 and 3, same direction → 400 ÷ 2 = 200 s",
+      "commonMistake": "Adding the speeds for same-direction running.",
+      "applicationPrompt": "Runners at 5 and 3 m/s run the same way round a 400 m track. When do they next meet?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "rc-sc-combine",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "kind": "shortcut",
+      "title": "Combining two race results",
+      "prompt": "In an L m race A beats B by x m and B beats C by y m. By how much does A beat C?",
+      "formula": "A beats C by x + y − xy/L",
+      "variables": [],
+      "explanation": "When A finishes, C is behind B by y scaled down to B's distance, so less than x + y.",
+      "example": "100 m race, A beats B by 10 m and B beats C by 10 m: A beats C by 19 m (not 20).",
+      "commonMistake": "Adding the two margins.",
+      "applicationPrompt": "In a km race A beats B by 100 m and B beats C by 100 m. By how much does A beat C?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "rc-sc-dead-heat",
+      "topicId": "races",
+      "conceptId": "rc-start",
+      "kind": "shortcut",
+      "title": "Head start for a dead heat",
+      "prompt": "A runs faster than B in the ratio a : b. What start should A give B so they finish together?",
+      "formula": "Start = L × (1 − b/a) = L × (a − b) ÷ a",
+      "variables": [],
+      "explanation": "In the time A runs L, B runs L × b/a; the rest is the start B needs.",
+      "example": "Speeds 5 : 4, 500 m race: start = 500 × 1/5 = 100 m.",
+      "commonMistake": "Dividing by b instead of a.",
+      "applicationPrompt": "A runs 1.5 times as fast as B. On a 300 m course, what start should B get?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "races-level-0",
+      "topicId": "races",
+      "order": 0,
+      "title": "Same Time, Different Distances",
+      "description": "What \"beats by\" and \"head start\" really mean.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "rc-beat",
+        "rc-ratio",
+        "rc-start"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The race stops when the winner finishes",
+            "body": "\"A beats B by 10 m in a 100 m race\" means that at the instant A crosses the line, B is still 10 m short. So A ran 100 m and B ran 90 m — in exactly the same time."
+          },
+          {
+            "type": "formula",
+            "title": "Equal time, so distances give the ratio",
+            "body": "Speed of A : Speed of B = L : (L − d)",
+            "caption": "This one idea unlocks almost every race problem."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "tsd-meeting"
+          },
+          {
+            "type": "check",
+            "questionId": "races-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Head start = beating, seen from the other side",
+            "body": "If A gives B a 20 m start in a 100 m race and they tie, then A runs 100 m while B runs 80 m. It is the same picture as A beating B by 20 m over 100 m."
+          },
+          {
+            "type": "check",
+            "questionId": "races-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "races-level-1",
+      "topicId": "races",
+      "order": 1,
+      "title": "Races Formulas",
+      "description": "Beats-by, ratios, head starts and circular tracks.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "races-level-0"
+      ],
+      "conceptIds": [
+        "rc-beat",
+        "rc-ratio",
+        "rc-start",
+        "rc-circular"
+      ],
+      "formulaIds": [
+        "rc-beat-f",
+        "rc-ratio-f",
+        "rc-start-f",
+        "rc-circular-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "races-level-2",
+      "topicId": "races",
+      "order": 2,
+      "title": "Direct Race Questions",
+      "description": "Distances, ratios and head starts.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "races-level-1"
+      ],
+      "conceptIds": [
+        "rc-beat",
+        "rc-ratio",
+        "rc-start"
+      ],
+      "questionIds": [
+        "races-q-001",
+        "races-q-002",
+        "races-q-003",
+        "races-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "races-level-3",
+      "topicId": "races",
+      "order": 3,
+      "title": "Times, Speeds and Starts",
+      "description": "Convert between time gaps, distances and speeds.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "races-level-2"
+      ],
+      "conceptIds": [
+        "rc-ratio",
+        "rc-beat",
+        "rc-start"
+      ],
+      "questionIds": [
+        "races-q-005",
+        "races-q-006",
+        "races-q-007",
+        "races-q-008",
+        "races-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "races-level-4",
+      "topicId": "races",
+      "order": 4,
+      "title": "Chains and Circles",
+      "description": "Three runners and circular tracks.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "races-level-3"
+      ],
+      "conceptIds": [
+        "rc-ratio",
+        "rc-circular"
+      ],
+      "questionIds": [
+        "races-q-009",
+        "races-q-010",
+        "races-q-011",
+        "races-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "races-level-5",
+      "topicId": "races",
+      "order": 5,
+      "title": "Mixed Races Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "races-level-4"
+      ],
+      "conceptIds": [
+        "rc-ratio",
+        "rc-circular"
+      ],
+      "questionQuery": {
+        "topicId": "races",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "races-q-001",
+      "topicId": "races",
+      "conceptId": "rc-beat",
+      "levelId": "races-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a 100 m race, A beats B by 10 m. How far has B run when A crosses the finishing line?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10 m"
+        },
+        {
+          "id": "b",
+          "text": "90 m"
+        },
+        {
+          "id": "c",
+          "text": "100 m"
+        },
+        {
+          "id": "d",
+          "text": "110 m"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "B is 10 m short of the finish when A finishes, so B has run 100 − 10 = 90 m.",
+      "solutionSteps": [
+        "Race length = 100 m.",
+        "B is 10 m behind the line.",
+        "B ran 90 m."
+      ],
+      "formulaIds": [
+        "rc-beat-f"
+      ],
+      "method": "Distance run by the loser = L − d.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is B when A finishes?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving the beating distance (10) as the distance B ran."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-002",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a 200 m race, A beats B by 40 m. What is the ratio of the speed of A to the speed of B?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 : 5"
+        },
+        {
+          "id": "b",
+          "text": "5 : 4"
+        },
+        {
+          "id": "c",
+          "text": "5 : 1"
+        },
+        {
+          "id": "d",
+          "text": "6 : 5"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "When A has run 200 m, B has run 160 m in the same time. The ratio is 200 : 160 = 5 : 4.",
+      "solutionSteps": [
+        "A runs 200 m, B runs 160 m in equal time.",
+        "200 : 160 = 5 : 4."
+      ],
+      "formulaIds": [
+        "rc-ratio-f"
+      ],
+      "method": "Ratio of speeds = ratio of distances in equal time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far has B run when A finishes?"
+        },
+        {
+          "level": 2,
+          "text": "Same time, so speeds are in the ratio of distances."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the inverse ratio (4 : 5), or using 200 : 40."
+      ],
+      "tags": [
+        "ratio"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-003",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A runs 100 m in 20 seconds. When A finishes, B is 10 m behind. What is the speed of B, in m/s?",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0,
+        "unit": "m/s"
+      },
+      "explanation": "B ran 90 m in the same 20 seconds, so his speed is 90 ÷ 20 = 4.5 m/s.",
+      "solutionSteps": [
+        "B ran 100 − 10 = 90 m.",
+        "Time = 20 s.",
+        "Speed = 90 ÷ 20 = 4.5 m/s."
+      ],
+      "formulaIds": [
+        "rc-beat-f"
+      ],
+      "method": "Use the distance B actually ran and the time A took.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "B has run 90 m by the time A finishes."
+        },
+        {
+          "level": 2,
+          "text": "Both have run for 20 seconds."
+        }
+      ],
+      "commonMistakes": [
+        "Using 100 m for B's distance."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-004",
+      "topicId": "races",
+      "conceptId": "rc-start",
+      "levelId": "races-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A gives B a start of 20 m in a 100 m race and they finish together. Which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A runs 100 m and B runs 80 m in the same time"
+        },
+        {
+          "id": "b",
+          "text": "A runs 120 m and B runs 100 m in the same time"
+        },
+        {
+          "id": "c",
+          "text": "A and B run the same distance"
+        },
+        {
+          "id": "d",
+          "text": "A runs 80 m and B runs 100 m in the same time"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "B starts 20 m ahead, so B only has to run 80 m while A runs the full 100 m — in equal time because they tie.",
+      "solutionSteps": [
+        "A starts at 0, B starts at the 20 m mark.",
+        "A runs 100 m, B runs 80 m.",
+        "Equal time (dead heat)."
+      ],
+      "formulaIds": [
+        "rc-start-f"
+      ],
+      "method": "The start reduces the runner's distance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A head start moves B closer to the finish."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the start to B's distance."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-005",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The speeds of A and B are in the ratio 5 : 4. In a 500 m race, by how many metres does A beat B?",
+      "answer": {
+        "value": 100,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "When A runs 500 m, B runs 4/5 of that: 400 m. A wins by 500 − 400 = 100 m.",
+      "solutionSteps": [
+        "B's distance = 500 × 4/5 = 400 m.",
+        "Beaten by 500 − 400 = 100 m."
+      ],
+      "formulaIds": [
+        "rc-ratio-f"
+      ],
+      "method": "Loser's distance = L × (slower ÷ faster).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In equal time, how far does B run when A runs 500 m?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 400 m, the distance B ran."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-006",
+      "topicId": "races",
+      "conceptId": "rc-beat",
+      "levelId": "races-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a 1000 m race, A finishes in 200 seconds and beats B by 50 seconds. By how many metres does A beat B?",
+      "answer": {
+        "value": 200,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "B takes 250 s for 1000 m, so B runs at 4 m/s. In the last 50 seconds B would cover 4 × 50 = 200 m. A wins by 200 m.",
+      "solutionSteps": [
+        "B's time = 200 + 50 = 250 s.",
+        "B's speed = 1000 ÷ 250 = 4 m/s.",
+        "Distance behind = 4 × 50 = 200 m."
+      ],
+      "formulaIds": [
+        "rc-beat-f"
+      ],
+      "method": "A time gap converts to distance at the loser's speed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How long does B take for the full race?"
+        },
+        {
+          "level": 2,
+          "text": "What distance does B cover in the 50-second gap?"
+        }
+      ],
+      "commonMistakes": [
+        "Using A's speed (5 m/s) to convert the time gap."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-007",
+      "topicId": "races",
+      "conceptId": "rc-start",
+      "levelId": "races-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A runs at 8 m/s and B at 6 m/s. A gives B a start of 40 m and they reach the finish at the same moment. How long is the race?",
+      "options": [
+        {
+          "id": "a",
+          "text": "120 m"
+        },
+        {
+          "id": "b",
+          "text": "160 m"
+        },
+        {
+          "id": "c",
+          "text": "200 m"
+        },
+        {
+          "id": "d",
+          "text": "320 m"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Same time: L ÷ 8 = (L − 40) ÷ 6. So 6L = 8L − 320 and L = 160 m. Check: 160 ÷ 8 = 20 s; 120 ÷ 6 = 20 s.",
+      "solutionSteps": [
+        "Time for A = L ÷ 8; time for B = (L − 40) ÷ 6.",
+        "Set equal: 6L = 8L − 320.",
+        "L = 160 m."
+      ],
+      "formulaIds": [
+        "rc-start-f"
+      ],
+      "method": "Equal times: L ÷ S_A = (L − s) ÷ S_B.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A tie means equal times."
+        },
+        {
+          "level": 2,
+          "text": "Write both times and set them equal."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the start to B's distance (giving 320 m, or a wrong balance)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-008",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a kilometre race A beats B by 100 m. If A's speed is 5 m/s, what is B's speed, in m/s?",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0,
+        "unit": "m/s"
+      },
+      "explanation": "A runs 1000 m in 200 s. In that time B runs 900 m, so B's speed is 900 ÷ 200 = 4.5 m/s.",
+      "solutionSteps": [
+        "A's time = 1000 ÷ 5 = 200 s.",
+        "B ran 900 m in 200 s.",
+        "B's speed = 4.5 m/s."
+      ],
+      "formulaIds": [
+        "rc-ratio-f"
+      ],
+      "method": "Equal time: B's speed = 5 × 900 ÷ 1000.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How long does A take for the race?"
+        },
+        {
+          "level": 2,
+          "text": "How far has B run in that time?"
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 100 m from A's speed."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-009",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In a 100 m race A beats B by 20 m, and in a 100 m race B beats C by 10 m. By how many metres does A beat C in a 100 m race?",
+      "answer": {
+        "value": 28,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "When A runs 100 m, B runs 80 m. When B runs 100 m, C runs 90 m, so when B runs 80 m, C runs 80 × 90/100 = 72 m. A beats C by 100 − 72 = 28 m.",
+      "solutionSteps": [
+        "A : B = 100 : 80.",
+        "B : C = 100 : 90, so in 80 m B-distance C runs 72 m.",
+        "A beats C by 100 − 72 = 28 m."
+      ],
+      "formulaIds": [
+        "rc-ratio-f"
+      ],
+      "method": "Chain the ratios; the two margins do not simply add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use B as the bridge between A and C."
+        },
+        {
+          "level": 2,
+          "text": "When A finishes, B is at 80 m — how far is C then?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the margins (30 m)."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-010",
+      "topicId": "races",
+      "conceptId": "rc-ratio",
+      "levelId": "races-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a 1 km race A beats B by 100 m, and B beats C by 100 m over 1 km. By how many metres does A beat C over 1 km?",
+      "options": [
+        {
+          "id": "a",
+          "text": "200 m"
+        },
+        {
+          "id": "b",
+          "text": "190 m"
+        },
+        {
+          "id": "c",
+          "text": "180 m"
+        },
+        {
+          "id": "d",
+          "text": "100 m"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "When A has run 1000 m, B has run 900 m. When B runs 1000 m, C runs 900, so when B has run 900 m, C has run 810 m. A beats C by 1000 − 810 = 190 m.",
+      "solutionSteps": [
+        "A : B = 1000 : 900.",
+        "B : C = 1000 : 900, so C runs 900 × 0.9 = 810 m when B runs 900 m.",
+        "A beats C by 190 m."
+      ],
+      "formulaIds": [
+        "rc-ratio-f"
+      ],
+      "method": "Multiply the ratios rather than adding the margins.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second 100 m is a fraction of B's distance, not of 1000."
+        },
+        {
+          "level": 2,
+          "text": "How far has C run when B has run 900 m?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the margins to get 200 m."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-011",
+      "topicId": "races",
+      "conceptId": "rc-circular",
+      "levelId": "races-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two runners start together from the same point of a 400 m circular track and run in the same direction at 5 m/s and 3 m/s. After how many seconds do they first meet again, anywhere on the track?",
+      "answer": {
+        "value": 200,
+        "tolerance": 0,
+        "unit": "s"
+      },
+      "explanation": "The faster runner gains 2 m/s. To meet again the gain must be one full lap of 400 m: 400 ÷ 2 = 200 seconds.",
+      "solutionSteps": [
+        "Relative speed = 5 − 3 = 2 m/s.",
+        "Gain needed = 400 m (one lap).",
+        "Time = 400 ÷ 2 = 200 s."
+      ],
+      "formulaIds": [
+        "rc-circular-f"
+      ],
+      "method": "Same direction: lap length ÷ difference of speeds.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Same direction: do you use the sum or the difference of the speeds?"
+        },
+        {
+          "level": 2,
+          "text": "The faster runner must gain exactly one lap."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the speeds (50 s).",
+        "Working out when they are next together at the start (400 s), which is a different question."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-012",
+      "topicId": "races",
+      "conceptId": "rc-start",
+      "levelId": "races-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A can run 1 km in 3 min 10 s and B can run 1 km in 3 min 20 s. How many metres' start should A give B in a 1 km race so that they finish at the same moment (a dead heat)?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "A takes 3 min 10 s = 190 s for 1 km and B takes 3 min 20 s = 200 s. For a dead heat B may run only for A's 190 s. B's speed is 1000 ÷ 200 = 5 m/s, so in 190 s B covers 950 m. B must start 1000 − 950 = 50 m ahead.",
+      "solutionSteps": [
+        "A: 190 s for 1000 m. B: 200 s for 1000 m.",
+        "B's speed = 1000 ÷ 200 = 5 m/s.",
+        "In A's 190 s, B runs 5 × 190 = 950 m.",
+        "Start = 1000 − 950 = 50 m."
+      ],
+      "formulaIds": [
+        "rc-sc-dead-heat",
+        "rc-start-f"
+      ],
+      "method": "Start = distance the slower runner cannot cover in the faster runner's time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert both times to seconds."
+        },
+        {
+          "level": 2,
+          "text": "How far does B run in the 190 s that A needs?"
+        },
+        {
+          "level": 3,
+          "text": "The start makes up the rest of the 1000 m."
+        }
+      ],
+      "commonMistakes": [
+        "Using A's speed for the 10-second gap (52.6 m) instead of B's.",
+        "Answering in seconds (10) instead of metres."
+      ],
+      "tags": [
+        "two-step",
+        "dead-heat"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "races-q-013",
+      "topicId": "races",
+      "conceptId": "rc-circular",
+      "levelId": "races-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A and B start together from the same point on a 300 m circular track and run in opposite directions at 5 m/s and 3 m/s. After how many seconds are they both at the starting point together for the first time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "300 s"
+        },
+        {
+          "id": "b",
+          "text": "37.5 s"
+        },
+        {
+          "id": "c",
+          "text": "150 s"
+        },
+        {
+          "id": "d",
+          "text": "6000 s"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Being together at the starting point needs both runners to have finished a whole number of laps. A completes a lap every 300 ÷ 5 = 60 s and B every 300 ÷ 3 = 100 s. The first time both are back at the start is LCM(60, 100) = 300 s. Running in opposite directions does not change this, though it does make them pass each other much earlier, at 37.5 s.",
+      "solutionSteps": [
+        "A's lap time = 300 ÷ 5 = 60 s.",
+        "B's lap time = 300 ÷ 3 = 100 s.",
+        "Both are at the start only at multiples of both lap times.",
+        "LCM(60, 100) = 300 s."
+      ],
+      "formulaIds": [
+        "rc-circular-f"
+      ],
+      "method": "Meeting at the starting point: LCM of the lap times, whatever the directions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "When is each runner back at the starting point?"
+        },
+        {
+          "level": 2,
+          "text": "Find each runner's lap time."
+        },
+        {
+          "level": 3,
+          "text": "They are at the start together at a common multiple of the lap times."
+        }
+      ],
+      "commonMistakes": [
+        "Answering the first meeting anywhere on the track, 300 ÷ (5 + 3) = 37.5 s.",
+        "Multiplying the lap times (6000 s) instead of taking their LCM."
+      ],
+      "tags": [
+        "multi-step",
+        "trap",
+        "circular-track"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

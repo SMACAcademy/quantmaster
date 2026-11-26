@@ -1,0 +1,1705 @@
+{
+  "topicId": "approximation",
+  "concepts": [
+    {
+      "id": "ap-round",
+      "topicId": "approximation",
+      "name": "Rounding",
+      "description": "Look at the digit just after the place you keep: 5 or more rounds up, less than 5 rounds down.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ap-friendly",
+      "topicId": "approximation",
+      "name": "Compatible round numbers",
+      "description": "Replace awkward numbers with nearby round ones that multiply or divide easily.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ap-percent",
+      "topicId": "approximation",
+      "name": "Percent–fraction equivalents",
+      "description": "Common percents are simple fractions: 12.5% = 1/8, 33⅓% = 1/3, 16⅔% = 1/6.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ap-roots",
+      "topicId": "approximation",
+      "name": "Estimating roots",
+      "description": "Sandwich a root between two neighbouring perfect squares.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ap-bias",
+      "topicId": "approximation",
+      "name": "Direction and size of error",
+      "description": "Rounding all the numbers the same way biases the answer; opposite rounding partly cancels.",
+      "sortOrder": 5
+    },
+    {
+      "id": "ap-adv-compare",
+      "topicId": "approximation",
+      "name": "Comparing without full calculation",
+      "description": "You only need to know which quantity is larger. Simplify both into the same form (same base, same factor, a benchmark) and compare what is left.",
+      "sortOrder": 6
+    },
+    {
+      "id": "ap-adv-unknowns",
+      "topicId": "approximation",
+      "name": "When the answer cannot be determined",
+      "description": "If a quantity depends on an unknown, test values the condition allows: 0, 1, negatives, fractions and large numbers. If different values give different answers, the relationship cannot be determined.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ap-round-f",
+      "topicId": "approximation",
+      "conceptId": "ap-round",
+      "title": "Rounding rule",
+      "prompt": "How do you round a number to a given place?",
+      "formula": "Look one place to the right.\n≥ 5 → round up;  < 5 → round down",
+      "variables": [],
+      "explanation": "Half-way and above rounds up. Everything to the right of the kept place then becomes zero (or is dropped after the decimal point).",
+      "example": "4,567 → nearest 100: 4,600\n3.4567 → 2 decimals: 3.46",
+      "commonMistake": "Cutting the digits off instead of rounding.",
+      "applicationPrompt": "Round 4,567 to the nearest hundred.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-friendly-f",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "title": "Compatible numbers",
+      "prompt": "How do you estimate a product or quotient of awkward numbers?",
+      "formula": "Replace each number by a nearby round number, then compute",
+      "variables": [],
+      "explanation": "Choose numbers that make the operation easy: 25 × 4, 50 × 20, 5,000 ÷ 25.",
+      "example": "49.8 × 20.1 ≈ 50 × 20 = 1,000",
+      "commonMistake": "Getting the magnitude wrong by a factor of ten.",
+      "applicationPrompt": "Estimate 49.8 × 20.1.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-percent-f",
+      "topicId": "approximation",
+      "conceptId": "ap-percent",
+      "kind": "shortcut",
+      "title": "Percent as fractions",
+      "prompt": "Which percents are worth knowing as fractions?",
+      "formula": "50% = 1/2, 25% = 1/4, 12.5% = 1/8, 6.25% = 1/16\n33⅓% = 1/3, 16⅔% = 1/6, 37.5% = 3/8, 20% = 1/5",
+      "variables": [],
+      "explanation": "Turning a percent into a fraction turns a multiplication into a division you can do mentally.",
+      "example": "12.5% of 640 = 640 ÷ 8 = 80",
+      "commonMistake": "Mixing 12.5% with 1/12.",
+      "applicationPrompt": "Find 12.5% of 640.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-roots-f",
+      "topicId": "approximation",
+      "conceptId": "ap-roots",
+      "kind": "shortcut",
+      "title": "Root estimates",
+      "prompt": "How do you estimate a square root that is not a perfect square?",
+      "formula": "If k² < N < (k + 1)², then k < √N < k + 1\nIn the middle: N ≈ k² + k → √N ≈ k + ½",
+      "variables": [],
+      "explanation": "The square root lies between the roots of the two neighbouring squares, and closer to whichever is nearer.",
+      "example": "√80: 8² = 64 < 80 < 81 = 9² → between 8 and 9, close to 9",
+      "commonMistake": "Halving the number.",
+      "applicationPrompt": "Between which two whole numbers does √80 lie?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-bias-f",
+      "topicId": "approximation",
+      "conceptId": "ap-bias",
+      "title": "Error direction",
+      "prompt": "If every number in a product is rounded up, is the estimate too large or too small?",
+      "formula": "Round all up → product overestimates\nRound all down → underestimates\nMixed → errors partly cancel",
+      "variables": [],
+      "explanation": "Because all quantities are positive, a larger factor always gives a larger product. Use this to reject impossible options quickly.",
+      "example": "48 × 26: rounding 48 → 50 and 26 → 30 gives 1,500, above the true 1,248",
+      "commonMistake": "Assuming rounding errors always cancel.",
+      "applicationPrompt": "Both numbers in a product are rounded up. Is the estimate bigger or smaller than the true answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ap-adv-common-f",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-compare",
+      "title": "Compare like with like",
+      "prompt": "How do you compare two quantities quickly?",
+      "formula": "Rewrite both in the same form (same base, same power, or a common factor removed), then compare what differs",
+      "variables": [],
+      "explanation": "Comparing 3²⁰ with 2³⁰ is hard; 9¹⁰ against 8¹⁰ is easy. Removing a shared positive factor never changes which side is larger.",
+      "example": "3²⁰ = (3²)¹⁰ = 9¹⁰ and 2³⁰ = (2³)¹⁰ = 8¹⁰, so 3²⁰ is greater",
+      "commonMistake": "Comparing only the exponents (30 > 20) and ignoring the bases.",
+      "applicationPrompt": "Which is greater: 3²⁰ or 2³⁰?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ap-adv-test-f",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-unknowns",
+      "title": "Testing values for an unknown",
+      "prompt": "How do you decide whether a comparison involving an unknown can be determined?",
+      "formula": "Test the allowed values 0, 1, −1, a fraction between 0 and 1, and a large number; if the answers differ, it cannot be determined",
+      "variables": [],
+      "explanation": "Squares, reciprocals and powers behave differently for numbers between 0 and 1, and for negatives. Those are the values that change the answer.",
+      "example": "x > 0, A = x², B = x: x = 2 gives A > B, but x = ½ gives A < B, so it cannot be determined",
+      "commonMistake": "Testing only whole numbers like 2 and 3, and concluding that x² is always greater.",
+      "applicationPrompt": "x > 0. Compare x² with x.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "ap-sc-compensate",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "kind": "shortcut",
+      "title": "Round one up, the other down",
+      "prompt": "When estimating a product, how do you keep the rounding errors small?",
+      "formula": "Round the two factors in opposite directions",
+      "variables": [],
+      "explanation": "One rounding makes the product too large and the other too small, so most of the error cancels.",
+      "example": "48 × 52 ≈ 50 × 50 = 2,500 (exact value 2,496).",
+      "commonMistake": "Rounding both up (50 × 55 = 2,750 for 48 × 52 is far off).",
+      "applicationPrompt": "Estimate 39 × 62.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ap-sc-divide-friendly",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "kind": "shortcut",
+      "title": "Dividing by 5, 25 and 125",
+      "prompt": "How do you divide by 5, 25 or 125 without long division?",
+      "formula": "÷ 5 = × 2 ÷ 10\n÷ 25 = × 4 ÷ 100\n÷ 125 = × 8 ÷ 1,000",
+      "variables": [],
+      "explanation": "5, 25 and 125 are 10/2, 100/4 and 1,000/8.",
+      "example": "1,300 ÷ 25 = 1,300 × 4 ÷ 100 = 52.",
+      "commonMistake": "Dividing by 4 instead of multiplying by 4.",
+      "applicationPrompt": "Find 3,500 ÷ 125 mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "approximation-level-0",
+      "topicId": "approximation",
+      "order": 0,
+      "title": "Close Enough, Fast",
+      "description": "How to estimate quickly and know whether your estimate is too high or too low.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ap-round",
+        "ap-friendly"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Round first, then calculate",
+            "body": "To estimate 49.8 × 20.1, replace the numbers by 50 and 20 and multiply: 1,000. The exact answer is 1,000.98, so the estimate loses almost nothing and saves almost all the effort."
+          },
+          {
+            "type": "formula",
+            "title": "Choose friendly numbers",
+            "body": "49.8 ≈ 50, 24.9 ≈ 25, 4,999 ≈ 5,000",
+            "caption": "Pick round numbers that make the next step easy, such as 25 × 4 or 50 × 20."
+          },
+          {
+            "type": "check",
+            "questionId": "approximation-q-003"
+          },
+          {
+            "type": "text",
+            "title": "Percentages as fractions",
+            "body": "12.5% is 1/8, 33⅓% is 1/3, 16⅔% is 1/6. Recognising them turns a multiplication into a division you can do in your head."
+          },
+          {
+            "type": "check",
+            "questionId": "approximation-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "approximation-level-1",
+      "topicId": "approximation",
+      "order": 1,
+      "title": "Approximation Formulas",
+      "description": "Rounding, friendly numbers, percent fractions, roots and error direction.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "approximation-level-0"
+      ],
+      "conceptIds": [
+        "ap-round",
+        "ap-friendly",
+        "ap-percent",
+        "ap-roots",
+        "ap-bias"
+      ],
+      "formulaIds": [
+        "ap-round-f",
+        "ap-friendly-f",
+        "ap-percent-f",
+        "ap-roots-f",
+        "ap-bias-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "approximation-level-2",
+      "topicId": "approximation",
+      "order": 2,
+      "title": "Direct Approximations",
+      "description": "Rounding and simple estimates.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "approximation-level-1"
+      ],
+      "conceptIds": [
+        "ap-round",
+        "ap-friendly",
+        "ap-percent",
+        "ap-roots"
+      ],
+      "questionIds": [
+        "approximation-q-001",
+        "approximation-q-002",
+        "approximation-q-003",
+        "approximation-q-004",
+        "approximation-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "approximation-level-3",
+      "topicId": "approximation",
+      "order": 3,
+      "title": "Estimating Products and Percentages",
+      "description": "Friendly numbers and percent equivalents.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "approximation-level-2"
+      ],
+      "conceptIds": [
+        "ap-percent",
+        "ap-friendly",
+        "ap-roots"
+      ],
+      "questionIds": [
+        "approximation-q-006",
+        "approximation-q-007",
+        "approximation-q-008",
+        "approximation-q-009",
+        "approximation-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "approximation-level-4",
+      "topicId": "approximation",
+      "order": 4,
+      "title": "Multi-Step Estimates",
+      "description": "Combining estimates and reasoning about error.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "approximation-level-3"
+      ],
+      "conceptIds": [
+        "ap-percent",
+        "ap-friendly",
+        "ap-bias"
+      ],
+      "questionIds": [
+        "approximation-q-011",
+        "approximation-q-012",
+        "approximation-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "approximation-level-5",
+      "topicId": "approximation",
+      "order": 5,
+      "title": "Mixed Approximation Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "approximation-level-4"
+      ],
+      "conceptIds": [
+        "ap-percent",
+        "ap-friendly",
+        "ap-bias"
+      ],
+      "questionQuery": {
+        "topicId": "approximation",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "ap-round",
+          "ap-friendly",
+          "ap-percent",
+          "ap-roots",
+          "ap-bias"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "approximation-level-6",
+      "topicId": "approximation",
+      "order": 6,
+      "title": "Advanced: Quantitative Comparison",
+      "description": "Deciding which of two quantities is larger, often without working either one out in full.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "approximation-level-5"
+      ],
+      "conceptIds": [
+        "ap-adv-compare",
+        "ap-adv-unknowns"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Four possible answers",
+            "body": "Every comparison has the same four choices: A is greater, B is greater, they are equal, or the relationship cannot be determined. The last one is right only when the quantities involve an unknown and different allowed values give different answers."
+          },
+          {
+            "type": "check",
+            "questionId": "approximation-ap-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Test the awkward values",
+            "body": "Try 0, 1, −1, ½ and a large number",
+            "caption": "Fractions and negatives are where squares, cubes and reciprocals change direction."
+          },
+          {
+            "type": "check",
+            "questionId": "approximation-ap-adv-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "If both quantities are plain numbers with no unknown, the answer can never be \"cannot be determined\". Something is always bigger, or they are equal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "approximation-level-7",
+      "topicId": "approximation",
+      "order": 7,
+      "title": "Challenge: Quantitative Comparison",
+      "description": "Close values, powers, roots, and quantities that depend on an unknown.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "approximation-level-6"
+      ],
+      "conceptIds": [
+        "ap-adv-compare",
+        "ap-adv-unknowns"
+      ],
+      "questionIds": [
+        "approximation-ap-adv-q-002",
+        "approximation-ap-adv-q-003",
+        "approximation-ap-adv-q-005",
+        "approximation-ap-adv-q-006",
+        "approximation-ap-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "approximation-q-001",
+      "topicId": "approximation",
+      "conceptId": "ap-round",
+      "levelId": "approximation-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 4,567 rounded to the nearest hundred?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4,500"
+        },
+        {
+          "id": "b",
+          "text": "4,600"
+        },
+        {
+          "id": "c",
+          "text": "4,570"
+        },
+        {
+          "id": "d",
+          "text": "5,000"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The tens digit is 6, which is 5 or more, so round the hundreds digit up: 4,600.",
+      "solutionSteps": [
+        "Keep the hundreds place: 45.",
+        "Next digit 6 ≥ 5 → round up.",
+        "4,600."
+      ],
+      "formulaIds": [
+        "ap-round-f"
+      ],
+      "method": "Look at the digit to the right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which digit decides the rounding for the hundreds place?"
+        }
+      ],
+      "commonMistakes": [
+        "Cutting the digits off (4,500)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-002",
+      "topicId": "approximation",
+      "conceptId": "ap-round",
+      "levelId": "approximation-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Round 3.4567 to 2 decimal places.",
+      "answer": {
+        "value": 3.46,
+        "tolerance": 0
+      },
+      "explanation": "The third decimal is 6, which is 5 or more, so round the second decimal up: 3.46.",
+      "solutionSteps": [
+        "Keep 3.45.",
+        "Next digit is 6 → round up.",
+        "3.46."
+      ],
+      "formulaIds": [
+        "ap-round-f"
+      ],
+      "method": "The digit after the last kept one decides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the third decimal place."
+        }
+      ],
+      "commonMistakes": [
+        "Truncating to 3.45."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-003",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "levelId": "approximation-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which is the best estimate of 49.8 × 20.1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "100"
+        },
+        {
+          "id": "b",
+          "text": "1,000"
+        },
+        {
+          "id": "c",
+          "text": "10,000"
+        },
+        {
+          "id": "d",
+          "text": "500"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "49.8 ≈ 50 and 20.1 ≈ 20, so the product is about 50 × 20 = 1,000. (The exact value is 1,000.98.)",
+      "solutionSteps": [
+        "49.8 ≈ 50; 20.1 ≈ 20.",
+        "50 × 20 = 1,000."
+      ],
+      "formulaIds": [
+        "ap-friendly-f"
+      ],
+      "method": "Round to friendly numbers first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers are close to round numbers."
+        }
+      ],
+      "commonMistakes": [
+        "Losing or gaining a zero."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-004",
+      "topicId": "approximation",
+      "conceptId": "ap-percent",
+      "levelId": "approximation-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "12.5% is equal to the fraction",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/12"
+        },
+        {
+          "id": "b",
+          "text": "1/8"
+        },
+        {
+          "id": "c",
+          "text": "1/5"
+        },
+        {
+          "id": "d",
+          "text": "1/4"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "12.5% = 12.5/100 = 1/8. (It is not 1/12: that is about 8.3%.)",
+      "solutionSteps": [
+        "12.5 × 8 = 100.",
+        "So 12.5% = 1/8."
+      ],
+      "formulaIds": [
+        "ap-percent-f"
+      ],
+      "method": "100 ÷ 12.5 = 8.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many 12.5s make 100?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing 12.5% with 1/12."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-005",
+      "topicId": "approximation",
+      "conceptId": "ap-roots",
+      "levelId": "approximation-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "√80 lies between which two whole numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 and 8"
+        },
+        {
+          "id": "b",
+          "text": "8 and 9"
+        },
+        {
+          "id": "c",
+          "text": "9 and 10"
+        },
+        {
+          "id": "d",
+          "text": "6 and 7"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "8² = 64 and 9² = 81. Since 64 < 80 < 81, √80 is between 8 and 9 (very close to 9).",
+      "solutionSteps": [
+        "8² = 64.",
+        "9² = 81.",
+        "64 < 80 < 81."
+      ],
+      "formulaIds": [
+        "ap-roots-f"
+      ],
+      "method": "Sandwich between perfect squares.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which perfect squares are on either side of 80?"
+        }
+      ],
+      "commonMistakes": [
+        "Halving the number (about 40)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-006",
+      "topicId": "approximation",
+      "conceptId": "ap-percent",
+      "levelId": "approximation-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which is the best estimate of 24.9% of 799.8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "150"
+        },
+        {
+          "id": "b",
+          "text": "200"
+        },
+        {
+          "id": "c",
+          "text": "250"
+        },
+        {
+          "id": "d",
+          "text": "300"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "24.9% ≈ 25% = 1/4 and 799.8 ≈ 800. So the answer ≈ 800 ÷ 4 = 200. (Exact: 199.15.)",
+      "solutionSteps": [
+        "24.9% ≈ 1/4.",
+        "799.8 ≈ 800.",
+        "800 ÷ 4 = 200."
+      ],
+      "formulaIds": [
+        "ap-percent-f",
+        "ap-friendly-f"
+      ],
+      "method": "Use fraction equivalents and round numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "24.9% is very close to a simple fraction."
+        }
+      ],
+      "commonMistakes": [
+        "Taking a quarter of 1,000."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-007",
+      "topicId": "approximation",
+      "conceptId": "ap-percent",
+      "levelId": "approximation-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is 12.5% of 640?",
+      "answer": {
+        "value": 80,
+        "tolerance": 0
+      },
+      "explanation": "12.5% = 1/8, and 640 ÷ 8 = 80.",
+      "solutionSteps": [
+        "12.5% = 1/8.",
+        "640 ÷ 8 = 80."
+      ],
+      "formulaIds": [
+        "ap-percent-f"
+      ],
+      "method": "Convert the percent to a fraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12.5% is one eighth."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 12."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-008",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "levelId": "approximation-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which is the best estimate of 4,999 ÷ 24.8?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "100"
+        },
+        {
+          "id": "c",
+          "text": "200"
+        },
+        {
+          "id": "d",
+          "text": "400"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "4,999 ≈ 5,000 and 24.8 ≈ 25, so the quotient is about 5,000 ÷ 25 = 200. (Exact: about 201.6.)",
+      "solutionSteps": [
+        "4,999 ≈ 5,000; 24.8 ≈ 25.",
+        "5,000 ÷ 25 = 200."
+      ],
+      "formulaIds": [
+        "ap-friendly-f"
+      ],
+      "method": "Compatible numbers: 5,000 ÷ 25.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "5,000 ÷ 25 is easy: 5,000 ÷ 100 × 4."
+        }
+      ],
+      "commonMistakes": [
+        "Mis-placing a zero."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-009",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "levelId": "approximation-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which is the best estimate of 39.8² − 20.2²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "800"
+        },
+        {
+          "id": "b",
+          "text": "1,200"
+        },
+        {
+          "id": "c",
+          "text": "1,600"
+        },
+        {
+          "id": "d",
+          "text": "2,000"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "39.8 ≈ 40 and 20.2 ≈ 20, so the value is about 40² − 20² = 1,600 − 400 = 1,200. (Exact: 1,176.)",
+      "solutionSteps": [
+        "40² = 1,600; 20² = 400.",
+        "1,600 − 400 = 1,200."
+      ],
+      "formulaIds": [
+        "ap-friendly-f"
+      ],
+      "method": "Round, then use the difference of squares if helpful.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers are near multiples of 10."
+        }
+      ],
+      "commonMistakes": [
+        "Squaring the difference of the numbers."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-010",
+      "topicId": "approximation",
+      "conceptId": "ap-roots",
+      "levelId": "approximation-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "To the nearest whole number, what is √2000?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0
+      },
+      "explanation": "44² = 1,936 and 45² = 2,025. Since 2,000 is much closer to 2,025 than to 1,936, √2000 ≈ 44.7, which rounds to 45.",
+      "solutionSteps": [
+        "44² = 1,936; 45² = 2,025.",
+        "2,000 is nearer 2,025.",
+        "√2000 ≈ 44.7 → 45."
+      ],
+      "formulaIds": [
+        "ap-roots-f",
+        "ap-round-f"
+      ],
+      "method": "Compare with the nearest perfect squares.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find perfect squares just below and above 2,000."
+        }
+      ],
+      "commonMistakes": [
+        "Rounding down to 44."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-011",
+      "topicId": "approximation",
+      "conceptId": "ap-percent",
+      "levelId": "approximation-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which is the best estimate of 33.3% of 899 + 16.7% of 1,201?",
+      "options": [
+        {
+          "id": "a",
+          "text": "450"
+        },
+        {
+          "id": "b",
+          "text": "500"
+        },
+        {
+          "id": "c",
+          "text": "550"
+        },
+        {
+          "id": "d",
+          "text": "600"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "33.3% ≈ 1/3 and 16.7% ≈ 1/6. Then 899 ≈ 900 → 300 and 1,201 ≈ 1,200 → 200. Sum ≈ 500. (Exact: 499.9.)",
+      "solutionSteps": [
+        "1/3 of 900 = 300.",
+        "1/6 of 1,200 = 200.",
+        "300 + 200 = 500."
+      ],
+      "formulaIds": [
+        "ap-percent-f",
+        "ap-friendly-f"
+      ],
+      "method": "Fractions and round numbers together.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Turn each percent into a fraction and each number into a multiple of the denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Using 30% and 20%."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-012",
+      "topicId": "approximation",
+      "conceptId": "ap-friendly",
+      "levelId": "approximation-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which is the best estimate of (7.98 × 25.1) ÷ 0.4?",
+      "options": [
+        {
+          "id": "a",
+          "text": "50"
+        },
+        {
+          "id": "b",
+          "text": "250"
+        },
+        {
+          "id": "c",
+          "text": "500"
+        },
+        {
+          "id": "d",
+          "text": "800"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "7.98 ≈ 8 and 25.1 ≈ 25, so the product ≈ 200. Dividing by 0.4 is multiplying by 2.5, so ≈ 500. (Exact: 500.7.)",
+      "solutionSteps": [
+        "8 × 25 = 200.",
+        "200 ÷ 0.4 = 500."
+      ],
+      "formulaIds": [
+        "ap-friendly-f"
+      ],
+      "method": "Round, multiply, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Dividing by 0.4 makes the number bigger."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 4 instead of 0.4 (50)."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-q-013",
+      "topicId": "approximation",
+      "conceptId": "ap-bias",
+      "levelId": "approximation-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two positive numbers, neither of them a whole number, are each rounded up to the next whole number before multiplying. The estimate is",
+      "options": [
+        {
+          "id": "a",
+          "text": "always smaller than the true product"
+        },
+        {
+          "id": "b",
+          "text": "always larger than the true product"
+        },
+        {
+          "id": "c",
+          "text": "exactly equal to the true product"
+        },
+        {
+          "id": "d",
+          "text": "impossible to compare with it"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each factor is now strictly larger than the original, and all numbers are positive, so their product is larger than the true product.",
+      "solutionSteps": [
+        "Rounded factors > true factors (neither was already whole).",
+        "Positive numbers: bigger factors → bigger product."
+      ],
+      "formulaIds": [
+        "ap-bias-f"
+      ],
+      "method": "Positive factors preserve order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try 3.6 × 4.6, rounded to 4 × 5."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming rounding errors always cancel out."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-001",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-compare",
+      "levelId": "approximation-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "3/7 of 364",
+            "40% of 385"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Quantity A: 364 ÷ 7 × 3 = 52 × 3 = 156. Quantity B: 0.4 × 385 = 154. So Quantity A is greater.",
+      "solutionSteps": [
+        "A: 364 ÷ 7 = 52, × 3 = 156.",
+        "B: 385 × 0.4 = 154.",
+        "156 > 154."
+      ],
+      "formulaIds": [
+        "ap-adv-common-f"
+      ],
+      "method": "Work both out exactly when they are close; the numbers are chosen to divide cleanly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "3/7 is a little under 43%, but 364 is smaller than 385."
+        },
+        {
+          "level": 2,
+          "text": "Both divide cleanly: find 364 ÷ 7 and 385 ÷ 10."
+        }
+      ],
+      "commonMistakes": [
+        "Deciding that 3/7 (about 42.9%) beats 40% without allowing for the different totals."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-002",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-compare",
+      "levelId": "approximation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "19 × 21",
+            "20²"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "19 × 21 = (20 − 1)(20 + 1) = 20² − 1 = 399, which is less than 400. So Quantity B is greater.",
+      "solutionSteps": [
+        "19 × 21 = (20 − 1)(20 + 1).",
+        "= 20² − 1² = 399.",
+        "399 < 400."
+      ],
+      "formulaIds": [
+        "ap-adv-common-f"
+      ],
+      "method": "Use (a − b)(a + b) = a² − b².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "19 and 21 are equally spaced around 20."
+        },
+        {
+          "level": 2,
+          "text": "(20 − 1)(20 + 1) = ?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the product equals 20² because the average of 19 and 21 is 20."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-003",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-compare",
+      "levelId": "approximation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "3²⁰",
+            "2³⁰"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "3²⁰ = (3²)¹⁰ = 9¹⁰ and 2³⁰ = (2³)¹⁰ = 8¹⁰. Since 9 > 8, Quantity A is greater.",
+      "solutionSteps": [
+        "3²⁰ = 9¹⁰.",
+        "2³⁰ = 8¹⁰.",
+        "9¹⁰ > 8¹⁰."
+      ],
+      "formulaIds": [
+        "ap-adv-common-f"
+      ],
+      "method": "Rewrite both with the same exponent, then compare the bases.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "20 and 30 are both multiples of 10."
+        },
+        {
+          "level": 2,
+          "text": "Write each as something to the power 10."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing B because 30 is a bigger exponent than 20."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-004",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-unknowns",
+      "levelId": "approximation-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "context": "x > 0",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "x²",
+            "x"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "x = 2: x² = 4 > 2. x = ½: x² = ¼ < ½. x = 1: they are equal. Different allowed values give different answers, so the relationship cannot be determined.",
+      "solutionSteps": [
+        "x = 2: A > B.",
+        "x = ½: A < B.",
+        "The answer changes, so it cannot be determined."
+      ],
+      "formulaIds": [
+        "ap-adv-test-f"
+      ],
+      "method": "Test values the condition allows, including a fraction between 0 and 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try a whole number, then try a fraction."
+        },
+        {
+          "level": 2,
+          "text": "What happens to a fraction when you square it?"
+        }
+      ],
+      "commonMistakes": [
+        "Testing only whole numbers and choosing \"Quantity A is greater\"."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-005",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-unknowns",
+      "levelId": "approximation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "context": "x < 0",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "x³",
+            "x²"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "For a negative x, x³ is negative and x² is positive. A negative number is always less than a positive one, so Quantity B is greater for every allowed x.",
+      "solutionSteps": [
+        "x < 0 makes x³ negative.",
+        "x² is positive.",
+        "Negative < positive, every time."
+      ],
+      "formulaIds": [
+        "ap-adv-test-f"
+      ],
+      "method": "Decide the sign of each quantity first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Is x³ positive or negative when x is negative?"
+        },
+        {
+          "level": 2,
+          "text": "What about x²?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"cannot be determined\" out of habit when an unknown appears, even though the sign settles it."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-006",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-compare",
+      "levelId": "approximation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "√50 + √18",
+            "√128"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "√50 = 5√2 and √18 = 3√2, so Quantity A = 8√2. √128 = √(64 × 2) = 8√2. The two are equal.",
+      "solutionSteps": [
+        "√50 = 5√2; √18 = 3√2.",
+        "A = 8√2.",
+        "B = √128 = 8√2."
+      ],
+      "formulaIds": [
+        "ap-adv-common-f"
+      ],
+      "method": "Write every root as a multiple of the same surd.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "50, 18 and 128 are all 2 × a perfect square."
+        },
+        {
+          "level": 2,
+          "text": "Take the square factor out of each root."
+        }
+      ],
+      "commonMistakes": [
+        "Adding under the root: √50 + √18 = √68, and deciding B is greater."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "approximation-ap-adv-q-007",
+      "topicId": "approximation",
+      "conceptId": "ap-adv-unknowns",
+      "levelId": "approximation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which statement about Quantity A and Quantity B is true?",
+      "context": "a and b are positive numbers.",
+      "table": {
+        "caption": "Compare the two quantities",
+        "headers": [
+          "Quantity A",
+          "Quantity B"
+        ],
+        "rows": [
+          [
+            "(a + b) ÷ 2",
+            "√(ab)"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Quantity A is greater"
+        },
+        {
+          "id": "b",
+          "text": "Quantity B is greater"
+        },
+        {
+          "id": "c",
+          "text": "The two quantities are equal"
+        },
+        {
+          "id": "d",
+          "text": "The relationship cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "The average is never less than √(ab), since (a + b)/2 − √(ab) = (√a − √b)² ÷ 2 ≥ 0. But when a = b they are equal, and when a ≠ b, A is greater. Both cases are allowed, so the relationship cannot be determined.",
+      "solutionSteps": [
+        "a = b = 4: A = 4, B = 4 (equal).",
+        "a = 1, b = 9: A = 5, B = 3 (A greater).",
+        "Two different results, so it cannot be determined."
+      ],
+      "formulaIds": [
+        "ap-adv-test-f"
+      ],
+      "method": "Test equal values and unequal values for the unknowns.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try a = b first."
+        },
+        {
+          "level": 2,
+          "text": "Now try two quite different values."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing \"Quantity A is greater\" because A is never smaller, forgetting the case where they are equal."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

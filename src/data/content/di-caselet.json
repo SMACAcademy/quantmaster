@@ -1,0 +1,886 @@
+{
+  "topicId": "di-caselet",
+  "concepts": [
+    {
+      "id": "csl-extract",
+      "topicId": "di-caselet",
+      "name": "Extracting facts accurately",
+      "description": "Pull every number out of the paragraph, noting exactly what each one refers to.",
+      "sortOrder": 1
+    },
+    {
+      "id": "csl-organize",
+      "topicId": "di-caselet",
+      "name": "Organizing scattered facts",
+      "description": "Turn the paragraph into a short list or mini-table before calculating anything.",
+      "sortOrder": 2
+    },
+    {
+      "id": "csl-derived",
+      "topicId": "di-caselet",
+      "name": "Stated vs derived values",
+      "description": "Some numbers are given directly; others (\"the remaining\", \"the rest\") must be calculated first.",
+      "sortOrder": 3
+    },
+    {
+      "id": "csl-relative",
+      "topicId": "di-caselet",
+      "name": "Translating relative statements",
+      "description": "Phrases like \"half of\", \"twice as many\" or \"20 more than\" translate directly into simple equations.",
+      "sortOrder": 4
+    },
+    {
+      "id": "csl-multistep",
+      "topicId": "di-caselet",
+      "name": "Chaining facts together",
+      "description": "Most caselet questions need two or more of the paragraph's facts combined, not just one.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "csl-organize-f",
+      "topicId": "di-caselet",
+      "conceptId": "csl-organize",
+      "title": "Read once, then extract",
+      "prompt": "What is the most reliable way to work through a caselet?",
+      "formula": "Read the whole paragraph once for the story, then re-read it slowly, writing down every number and what it refers to",
+      "variables": [],
+      "explanation": "Trying to calculate while reading for the first time is the most common source of caselet mistakes — separate understanding from calculating.",
+      "example": "Jot down \"Total = 300\", \"Sales = 40% of total\", \"Marketing = half of Sales\", etc. as you find them",
+      "commonMistake": "Starting to calculate before every relevant fact has been located.",
+      "applicationPrompt": "What should you do before performing any calculation in a caselet question?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "csl-relative-f",
+      "topicId": "di-caselet",
+      "conceptId": "csl-relative",
+      "title": "Translating relative statements",
+      "prompt": "How do you turn a phrase like \"half the number in Sales\" into a number you can use?",
+      "formula": "Translate the phrase into an equation using the already-known quantity, then solve",
+      "variables": [],
+      "explanation": "Relative statements always refer back to a quantity stated earlier in the same paragraph — find that quantity first.",
+      "example": "\"Marketing is half of Sales\" and Sales = 120 → Marketing = 120 ÷ 2 = 60",
+      "commonMistake": "Applying the relative statement to the wrong base quantity.",
+      "applicationPrompt": "If Sales has 120 employees and Marketing is half that number, how many are in Marketing?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "csl-derived-f",
+      "topicId": "di-caselet",
+      "conceptId": "csl-derived",
+      "title": "Finding \"the remaining\"",
+      "prompt": "How do you handle a phrase like \"the remaining employees\"?",
+      "formula": "Remaining = Total − (sum of every group already accounted for)",
+      "variables": [],
+      "explanation": "Always subtract from the same total the other groups were defined against.",
+      "example": "Total 300, with 120 in Sales and 60 in Marketing: remaining = 300 − 120 − 60 = 120",
+      "commonMistake": "Subtracting from the wrong total, or forgetting to subtract one of the earlier groups.",
+      "applicationPrompt": "Out of 300 total, 120 are in Sales and 60 are in Marketing. How many remain?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "csl-sc-grid",
+      "topicId": "di-caselet",
+      "conceptId": "csl-organize",
+      "kind": "shortcut",
+      "title": "Turn the paragraph into a grid",
+      "prompt": "A caselet has two ways of splitting the same people. How do you keep track?",
+      "formula": "Draw a 2 × 2 (or larger) grid with totals on the edges.\nFill what is given, then complete by subtraction.",
+      "variables": [],
+      "explanation": "Every row and column must add to its total, so each new number fixes others.",
+      "example": "Of 120 staff, 70 are men; 40 men and 25 women are graduates. Non-graduate women = (120 − 70) − 25 = 25.",
+      "commonMistake": "Answering from the paragraph directly and mixing up \"of the men\" with \"of all staff\".",
+      "applicationPrompt": "Of 200 voters, 110 are women; 60% of the men and half the women voted. How many did not vote?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-caselet-level-0",
+      "topicId": "di-caselet",
+      "order": 0,
+      "title": "Reading Before Calculating",
+      "description": "A caselet hides its data in prose — the skill is extracting it accurately before doing any arithmetic.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "csl-extract",
+        "csl-organize"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "No chart, no table — just careful reading",
+            "body": "A caselet describes numbers inside a paragraph instead of a chart or table. The math is usually simple once every fact is found; almost every mistake comes from misreading or missing a fact, not from the arithmetic."
+          },
+          {
+            "type": "formula",
+            "title": "Read, then extract",
+            "body": "Read once for the story, then re-read while writing down every number and what it refers to",
+            "caption": "Never start calculating during the first read-through."
+          },
+          {
+            "type": "check",
+            "questionId": "di-caselet-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "\"The remaining\" always means the total minus everything already accounted for — check you have subtracted every earlier group."
+          },
+          {
+            "type": "check",
+            "questionId": "di-caselet-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "di-caselet-level-1",
+      "topicId": "di-caselet",
+      "order": 1,
+      "title": "Caselet DI Formulas",
+      "description": "Organizing facts, translating relative statements, and finding \"the remaining\" amount.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "di-caselet-level-0"
+      ],
+      "conceptIds": [
+        "csl-organize",
+        "csl-relative",
+        "csl-derived"
+      ],
+      "formulaIds": [
+        "csl-organize-f",
+        "csl-relative-f",
+        "csl-derived-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-caselet-level-2",
+      "topicId": "di-caselet",
+      "order": 2,
+      "title": "Direct Extraction",
+      "description": "Pulling out directly stated and simply derived facts.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-caselet-level-1"
+      ],
+      "conceptIds": [
+        "csl-extract",
+        "csl-relative",
+        "csl-derived"
+      ],
+      "questionIds": [
+        "di-caselet-q-001",
+        "di-caselet-q-002",
+        "di-caselet-q-003",
+        "di-caselet-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-caselet-level-3",
+      "topicId": "di-caselet",
+      "order": 3,
+      "title": "Chaining Multiple Facts",
+      "description": "Combining several facts to answer questions the paragraph doesn't state directly.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-caselet-level-2"
+      ],
+      "conceptIds": [
+        "csl-multistep",
+        "csl-extract"
+      ],
+      "questionIds": [
+        "di-caselet-q-004",
+        "di-caselet-q-005",
+        "di-caselet-q-006",
+        "di-caselet-q-007",
+        "di-caselet-q-011",
+        "di-caselet-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-caselet-level-4",
+      "topicId": "di-caselet",
+      "order": 4,
+      "title": "Multi-Step Caselet Problems",
+      "description": "Ratios and scaling applied on top of the paragraph's facts.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "di-caselet-level-3"
+      ],
+      "conceptIds": [
+        "csl-multistep"
+      ],
+      "questionIds": [
+        "di-caselet-q-008",
+        "di-caselet-q-009",
+        "di-caselet-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-caselet-level-5",
+      "topicId": "di-caselet",
+      "order": 5,
+      "title": "Mixed Caselet DI Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-caselet-level-4"
+      ],
+      "conceptIds": [
+        "csl-multistep"
+      ],
+      "questionQuery": {
+        "topicId": "di-caselet",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-caselet-q-001",
+      "topicId": "di-caselet",
+      "conceptId": "csl-extract",
+      "levelId": "di-caselet-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many employees work in Sales?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 120,
+        "tolerance": 0
+      },
+      "explanation": "Sales = 40% of 300 = 120.",
+      "solutionSteps": [
+        "40% of 300.",
+        "0.40 × 300 = 120."
+      ],
+      "formulaIds": [
+        "csl-organize-f"
+      ],
+      "method": "Apply the stated percentage to the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a directly stated percentage of the total."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong total to apply the percentage."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-002",
+      "topicId": "di-caselet",
+      "conceptId": "csl-relative",
+      "levelId": "di-caselet-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many employees work in Marketing?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "Marketing is half of Sales. Sales = 120, so Marketing = 120 ÷ 2 = 60.",
+      "solutionSteps": [
+        "Sales = 120.",
+        "120 ÷ 2 = 60."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Find Sales first, then halve it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Half of Sales\" needs the Sales figure first."
+        }
+      ],
+      "commonMistakes": [
+        "Halving the total (300) instead of Sales."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-003",
+      "topicId": "di-caselet",
+      "conceptId": "csl-derived",
+      "levelId": "di-caselet-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many employees work in Operations?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "Remaining = 300 − 120 (Sales) − 60 (Marketing) = 120, split equally between Operations and Finance: 120 ÷ 2 = 60 each.",
+      "solutionSteps": [
+        "Remaining = 300 − 120 − 60 = 120.",
+        "Split equally: 120 ÷ 2 = 60."
+      ],
+      "formulaIds": [
+        "csl-derived-f"
+      ],
+      "method": "Find the remaining total first, then split it equally.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Remaining\" means what is left after Sales and Marketing are removed."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract Marketing before finding the remainder."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-004",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the monthly salary bill for the Sales department (in ₹ lakh)?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "₹ lakh"
+      },
+      "explanation": "Sales has 120 employees at ₹30,000 each: 120 × 30,000 = ₹36,00,000 = ₹36 lakh.",
+      "solutionSteps": [
+        "120 × 30,000 = 36,00,000.",
+        "= ₹36 lakh."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Multiply the headcount by the per-person salary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You already found the Sales headcount in an earlier question."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong headcount for Sales."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-005",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the monthly salary bill for the Marketing department (in ₹ lakh)?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 21,
+        "tolerance": 0,
+        "unit": "₹ lakh"
+      },
+      "explanation": "Marketing has 60 employees at ₹35,000 each: 60 × 35,000 = ₹21,00,000 = ₹21 lakh.",
+      "solutionSteps": [
+        "60 × 35,000 = 21,00,000.",
+        "= ₹21 lakh."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Multiply the Marketing headcount by its per-person salary.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the Marketing headcount, not the Sales one."
+        }
+      ],
+      "commonMistakes": [
+        "Using the Sales salary rate instead of the Marketing rate."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-006",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the total monthly salary bill for the entire company (in ₹ lakh)?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 81,
+        "tolerance": 0,
+        "unit": "₹ lakh"
+      },
+      "explanation": "Sales = 36 lakh, Marketing = 21 lakh, Operations + Finance (given) = 24 lakh. Total = 36 + 21 + 24 = 81 lakh.",
+      "solutionSteps": [
+        "Sales: 36 lakh. Marketing: 21 lakh.",
+        "Operations + Finance (given): 24 lakh.",
+        "36 + 21 + 24 = 81 lakh."
+      ],
+      "formulaIds": [
+        "csl-organize-f"
+      ],
+      "method": "Add every department's bill, using the given combined figure for Operations and Finance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need to split Operations and Finance separately for this question."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to include one of the three salary components."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-007",
+      "topicId": "di-caselet",
+      "conceptId": "csl-extract",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What percentage of the total workforce works in Finance?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Finance = 60 (half of the remaining 120). Percentage = 60 ÷ 300 × 100 = 20%.",
+      "solutionSteps": [
+        "Finance = 60.",
+        "60 ÷ 300 × 100 = 20%."
+      ],
+      "formulaIds": [
+        "csl-derived-f"
+      ],
+      "method": "Find the Finance headcount first, then express it as a percentage of the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Finance and Operations are equal, both found from the remaining employees."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong denominator, such as the remaining 120 instead of the full 300."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-008",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If the ₹24 lakh combined salary bill for Operations and Finance is split between them in the ratio 5:7 respectively, what is Finance's salary bill (in ₹ lakh)?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 14,
+        "tolerance": 0,
+        "unit": "₹ lakh"
+      },
+      "explanation": "The ratio parts total 5+7=12. Finance's share = 7/12 × 24 = 14 lakh.",
+      "solutionSteps": [
+        "Total parts: 5 + 7 = 12.",
+        "Finance's share: 7/12 × 24 = 14 lakh."
+      ],
+      "formulaIds": [
+        "csl-organize-f"
+      ],
+      "method": "Split the given combined total using the ratio's fraction for Finance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Finance is the second number in the ratio, so use 7 out of the 12 total parts."
+        }
+      ],
+      "commonMistakes": [
+        "Using Operations' fraction (5/12) instead of Finance's (7/12)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-009",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If the number of Sales employees increased by 25% while their salary per head stayed the same, what would be the new Sales salary bill (in ₹ lakh)?",
+      "context": "A company has 300 employees in total. 40% of them work in Sales. The number of employees in Marketing is half the number in Sales. The remaining employees are split equally between Operations and Finance. Each Sales employee earns ₹30,000 a month and each Marketing employee earns ₹35,000 a month. The combined monthly salary bill for Operations and Finance together is ₹24 lakh.",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "unit": "₹ lakh"
+      },
+      "explanation": "New Sales headcount = 120 × 1.25 = 150. New bill = 150 × 30,000 = ₹45,00,000 = ₹45 lakh.",
+      "solutionSteps": [
+        "New headcount: 120 × 1.25 = 150.",
+        "New bill: 150 × 30,000 = 45,00,000 = 45 lakh."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Scale the headcount first, then recompute the salary bill.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The per-person salary does not change, only the headcount."
+        }
+      ],
+      "commonMistakes": [
+        "Increasing the salary bill by 25% of the wrong base figure."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-010",
+      "topicId": "di-caselet",
+      "conceptId": "csl-derived",
+      "levelId": "di-caselet-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many children's books did the shop sell in January?",
+      "context": "A bookshop sells three kinds of books: fiction, non-fiction and children's books. In January it sold 1,200 books, 45% of which were fiction. Its non-fiction sales were two-thirds of its fiction sales, and the rest were children's books. In February, the shop's total sales rose by 20% over January. Fiction sales rose by 10% and non-fiction sales by 25%, and the rest of February's sales were children's books.",
+      "answer": {
+        "value": 300,
+        "tolerance": 0
+      },
+      "explanation": "Fiction = 45% of 1,200 = 540. Non-fiction = two-thirds of 540 = 360. Children's books = 1,200 − 540 − 360 = 300.",
+      "solutionSteps": [
+        "Fiction: 45% of 1,200 = 540.",
+        "Non-fiction: two-thirds of 540 = 360.",
+        "Children's: 1,200 − 540 − 360 = 300."
+      ],
+      "formulaIds": [
+        "csl-derived-f"
+      ],
+      "method": "Find the two stated groups first; the children's books are the remainder.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find fiction and non-fiction first; children's books are the rest."
+        }
+      ],
+      "commonMistakes": [
+        "Taking non-fiction as two-thirds of the whole 1,200 rather than of fiction."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-011",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By what percentage did the shop's sales of children's books rise from January to February?",
+      "context": "A bookshop sells three kinds of books: fiction, non-fiction and children's books. In January it sold 1,200 books, 45% of which were fiction. Its non-fiction sales were two-thirds of its fiction sales, and the rest were children's books. In February, the shop's total sales rose by 20% over January. Fiction sales rose by 10% and non-fiction sales by 25%, and the rest of February's sales were children's books.",
+      "answer": {
+        "value": 32,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "January: fiction 540, non-fiction 360, children's 300. February: total = 1,200 × 1.2 = 1,440; fiction = 540 × 1.1 = 594; non-fiction = 360 × 1.25 = 450; children's = 1,440 − 594 − 450 = 396. Rise = (396 − 300) ÷ 300 × 100 = 32%.",
+      "solutionSteps": [
+        "January: fiction 540, non-fiction 360, children's 300.",
+        "February total: 1,200 × 1.2 = 1,440.",
+        "February fiction 594, non-fiction 450.",
+        "February children's: 1,440 − 594 − 450 = 396.",
+        "Rise: 96 ÷ 300 × 100 = 32%."
+      ],
+      "formulaIds": [
+        "csl-derived-f",
+        "csl-relative-f"
+      ],
+      "method": "Work out February's children's books as the remainder, then compare with January.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "February's children's sales are not given — find them as the rest of February's total."
+        },
+        {
+          "level": 2,
+          "text": "February: total 1,440, fiction 594, non-fiction 450."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming children's books also rose by 20%, like the total."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-012",
+      "topicId": "di-caselet",
+      "conceptId": "csl-extract",
+      "levelId": "di-caselet-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In February, fiction made up approximately what percentage of all the books the shop sold?",
+      "context": "A bookshop sells three kinds of books: fiction, non-fiction and children's books. In January it sold 1,200 books, 45% of which were fiction. Its non-fiction sales were two-thirds of its fiction sales, and the rest were children's books. In February, the shop's total sales rose by 20% over January. Fiction sales rose by 10% and non-fiction sales by 25%, and the rest of February's sales were children's books.",
+      "options": [
+        {
+          "id": "a",
+          "text": "37%"
+        },
+        {
+          "id": "b",
+          "text": "41%"
+        },
+        {
+          "id": "c",
+          "text": "45%"
+        },
+        {
+          "id": "d",
+          "text": "49%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "February fiction = 540 × 1.1 = 594; February total = 1,200 × 1.2 = 1,440. 594 ÷ 1,440 × 100 ≈ 41.3%, so the nearest option is 41%. Fiction grew more slowly than the total, so its share fell from January's 45%.",
+      "solutionSteps": [
+        "February fiction: 540 × 1.1 = 594.",
+        "February total: 1,200 × 1.2 = 1,440.",
+        "594 ÷ 1,440 × 100 ≈ 41.3% ≈ 41%."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Update both the fiction figure and the total to February's values, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both the fiction figure and the total changed in February."
+        },
+        {
+          "level": 2,
+          "text": "February: fiction 594, total 1,440."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 45%, which was January's share."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-caselet-q-013",
+      "topicId": "di-caselet",
+      "conceptId": "csl-multistep",
+      "levelId": "di-caselet-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Taking January and February together, what is the ratio of fiction books sold to non-fiction books sold?",
+      "context": "A bookshop sells three kinds of books: fiction, non-fiction and children's books. In January it sold 1,200 books, 45% of which were fiction. Its non-fiction sales were two-thirds of its fiction sales, and the rest were children's books. In February, the shop's total sales rose by 20% over January. Fiction sales rose by 10% and non-fiction sales by 25%, and the rest of February's sales were children's books.",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 : 5"
+        },
+        {
+          "id": "b",
+          "text": "5 : 7"
+        },
+        {
+          "id": "c",
+          "text": "3 : 2"
+        },
+        {
+          "id": "d",
+          "text": "4 : 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Fiction: 540 + 594 = 1,134. Non-fiction: 360 + 450 = 810. 1,134 : 810 — dividing both by 162 gives 7 : 5.",
+      "solutionSteps": [
+        "February: fiction 594, non-fiction 450.",
+        "Fiction over both months: 540 + 594 = 1,134.",
+        "Non-fiction over both months: 360 + 450 = 810.",
+        "1,134 : 810 = 7 : 5."
+      ],
+      "formulaIds": [
+        "csl-relative-f"
+      ],
+      "method": "Add each kind's two monthly figures, then simplify the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add each kind's January and February sales before forming the ratio."
+        },
+        {
+          "level": 2,
+          "text": "1,134 and 810 are both divisible by 162."
+        }
+      ],
+      "commonMistakes": [
+        "Using January's ratio alone (540 : 360 = 3 : 2).",
+        "Writing the ratio the wrong way round (5 : 7)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

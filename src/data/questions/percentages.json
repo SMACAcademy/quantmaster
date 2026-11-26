@@ -1,0 +1,3703 @@
+{
+  "topicId": "percentages",
+  "questions": [
+    {
+      "id": "percentages-q-001",
+      "topicId": "percentages",
+      "conceptId": "pct-meaning",
+      "levelId": "percentages-level-0",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "What does 25% mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25 out of every 100"
+        },
+        {
+          "id": "b",
+          "text": "25 out of every 25"
+        },
+        {
+          "id": "c",
+          "text": "25 times the whole"
+        },
+        {
+          "id": "d",
+          "text": "The whole divided by 25"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Per cent means \"per hundred\", so 25% is the fraction 25/100, which simplifies to 1/4.",
+      "solutionSteps": [
+        "Read the % sign as \"out of 100\".",
+        "25% = 25/100.",
+        "Simplified, that is 1/4 of the whole."
+      ],
+      "formulaIds": [
+        "pct-basic"
+      ],
+      "method": "Translate the percent sign into a fraction with denominator 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The word percent literally contains \"cent\" — think of 100."
+        },
+        {
+          "level": 2,
+          "text": "Rewrite 25% as a fraction with 100 on the bottom."
+        }
+      ],
+      "commonMistakes": [
+        "Reading % as a multiplier rather than a fraction of 100."
+      ],
+      "tags": [
+        "definition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-002",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "levelId": "percentages-level-0",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Which fraction is equal to 25%?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/25"
+        },
+        {
+          "id": "b",
+          "text": "1/4"
+        },
+        {
+          "id": "c",
+          "text": "2/5"
+        },
+        {
+          "id": "d",
+          "text": "25/10"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "25% = 25/100 = 1/4.",
+      "solutionSteps": [
+        "Write 25% as 25/100.",
+        "Divide numerator and denominator by 25.",
+        "25/100 = 1/4."
+      ],
+      "formulaIds": [
+        "pct-fractions"
+      ],
+      "method": "Convert to a fraction over 100, then simplify.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start by writing the percentage as a fraction out of 100."
+        },
+        {
+          "level": 2,
+          "text": "Simplify 25/100 by dividing both parts by 25."
+        }
+      ],
+      "commonMistakes": [
+        "Reading 25% as 1/25 because both contain 25."
+      ],
+      "tags": [
+        "conversion"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-101",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "levelId": "percentages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A value increases from 200 to 250. Which formula gives the percentage increase?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(New − Original) ÷ Original × 100"
+        },
+        {
+          "id": "b",
+          "text": "Original ÷ New × 100"
+        },
+        {
+          "id": "c",
+          "text": "(New − Original) ÷ New × 100"
+        },
+        {
+          "id": "d",
+          "text": "New − Original"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Percentage change is always measured against the value you started from, so the original value is the denominator.",
+      "solutionSteps": [
+        "Identify what changed: the increase is New − Original.",
+        "Percentage change compares that increase to the ORIGINAL value.",
+        "So the formula is (New − Original) ÷ Original × 100."
+      ],
+      "formulaIds": [
+        "pct-increase"
+      ],
+      "method": "Change ÷ starting value × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Ask yourself: increase compared to WHICH value?"
+        },
+        {
+          "level": 2,
+          "text": "A percentage increase is always relative to where you started."
+        },
+        {
+          "level": 3,
+          "text": "Numerator is the change; denominator is the original value."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the new value instead of the original.",
+        "Forgetting to multiply by 100."
+      ],
+      "tags": [
+        "formula-recognition",
+        "change"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-102",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "levelId": "percentages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression correctly finds 20% of 250?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(250 ÷ 20) × 100"
+        },
+        {
+          "id": "b",
+          "text": "(20 ÷ 100) × 250"
+        },
+        {
+          "id": "c",
+          "text": "250 × 20"
+        },
+        {
+          "id": "d",
+          "text": "250 ÷ (20 × 100)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "To take a percentage OF a number, convert the rate to a fraction of 100 and multiply: (20/100) × 250 = 50.",
+      "solutionSteps": [
+        "20% means 20/100.",
+        "\"Of\" means multiply.",
+        "(20/100) × 250 = 0.2 × 250 = 50."
+      ],
+      "formulaIds": [
+        "pct-part"
+      ],
+      "method": "Convert the rate to a fraction, then multiply by the whole.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The word \"of\" in percentage questions means multiplication."
+        },
+        {
+          "level": 2,
+          "text": "First turn 20% into a fraction over 100."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 20 rather than 0.20, giving an answer 100× too big."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-103",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A number becomes 500 after a 25% increase. Which expression gives the original number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "500 × 0.75"
+        },
+        {
+          "id": "b",
+          "text": "500 − (25% of 500)"
+        },
+        {
+          "id": "c",
+          "text": "500 ÷ 1.25"
+        },
+        {
+          "id": "d",
+          "text": "500 × 1.25"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The original was multiplied by 1.25 to reach 500, so dividing 500 by 1.25 undoes it. The 25% was of the original value, not of 500.",
+      "solutionSteps": [
+        "A 25% increase means Original × 1.25 = 500.",
+        "To undo a multiplication, divide.",
+        "Original = 500 ÷ 1.25 = 400."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Undo the multiplier by dividing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the change as a multiplication: Original × ? = 500."
+        },
+        {
+          "level": 2,
+          "text": "A 25% increase is the multiplier 1.25."
+        },
+        {
+          "level": 3,
+          "text": "If Original × 1.25 = 500, then Original = 500 ÷ 1.25."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 25% of the NEW value — the percentage was based on the original."
+      ],
+      "tags": [
+        "formula-recognition",
+        "reverse",
+        "trap"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-104",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A price rises by 20% and then falls by 20%. Which expression gives the net percentage change?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20 − 20"
+        },
+        {
+          "id": "b",
+          "text": "20 + (−20) + (20 × −20) ÷ 100"
+        },
+        {
+          "id": "c",
+          "text": "(20 × 20) ÷ 100"
+        },
+        {
+          "id": "d",
+          "text": "20 + 20 + (20 × 20) ÷ 100"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Successive changes combine as a + b + ab/100 with signs included. Here: 20 − 20 − 400/100 = −4%, a 4% net fall.",
+      "solutionSteps": [
+        "Write the first change as a = +20 and the second as b = −20.",
+        "Apply Net % = a + b + (a × b)/100.",
+        "20 + (−20) + (20 × −20)/100 = −4%."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Combine successive changes with signs, including the interaction term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two changes in a row never simply add — the second acts on a changed value."
+        },
+        {
+          "level": 2,
+          "text": "Use a + b + ab/100, and make the decrease negative."
+        }
+      ],
+      "commonMistakes": [
+        "Cancelling +20% against −20% and answering 0%."
+      ],
+      "tags": [
+        "formula-recognition",
+        "successive",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-105",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "levelId": "percentages-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each situation with the formula you would use.",
+      "pairs": [
+        {
+          "left": "45 is what percent of 60?",
+          "right": "(Part ÷ Whole) × 100"
+        },
+        {
+          "left": "Find 30% of 90",
+          "right": "(Percentage ÷ 100) × Whole"
+        },
+        {
+          "left": "12% of a number is 60. Find the number.",
+          "right": "(Part × 100) ÷ Percentage"
+        },
+        {
+          "left": "₹800 increased by 15%. Find the new price.",
+          "right": "Original × (1 + r/100)"
+        }
+      ],
+      "explanation": "Each situation names what is unknown. If the share is unknown you divide part by whole; if the part is unknown you multiply; if the whole is unknown you scale the part back up to 100%.",
+      "solutionSteps": [
+        "Ask what is missing in each situation: the share, the part, the whole, or the new value.",
+        "Missing share → (Part ÷ Whole) × 100.",
+        "Missing part → (Percentage ÷ 100) × Whole.",
+        "Missing whole → (Part × 100) ÷ Percentage.",
+        "Missing new value after a change → Original × (1 ± r/100)."
+      ],
+      "formulaIds": [
+        "pct-basic",
+        "pct-part",
+        "pct-whole",
+        "pct-multiplier"
+      ],
+      "method": "Classify by what is unknown before choosing a formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "For each row, name the quantity you are being asked to find."
+        },
+        {
+          "level": 2,
+          "text": "Only one row involves a change over time — that one needs a multiplier."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing a formula by the numbers present rather than by what is unknown."
+      ],
+      "tags": [
+        "formula-recognition",
+        "matching"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-106",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "levelId": "percentages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression converts the fraction 3/8 into a percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(3 ÷ 8) × 100"
+        },
+        {
+          "id": "b",
+          "text": "(8 ÷ 3) × 100"
+        },
+        {
+          "id": "c",
+          "text": "(3 ÷ 8) ÷ 100"
+        },
+        {
+          "id": "d",
+          "text": "(3 × 8) ÷ 100"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A fraction becomes a percentage by multiplying by 100: (3/8) × 100 = 37.5%.",
+      "solutionSteps": [
+        "A percentage is the fraction expressed per hundred.",
+        "Multiply the fraction by 100.",
+        "(3 ÷ 8) × 100 = 0.375 × 100 = 37.5%."
+      ],
+      "formulaIds": [
+        "pct-fractions",
+        "pct-basic"
+      ],
+      "method": "Fraction × 100 = percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which operation turns 0.375 into 37.5?"
+        },
+        {
+          "level": 2,
+          "text": "Multiplying by 100 shifts a decimal into percentage form."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the fraction before converting."
+      ],
+      "tags": [
+        "formula-recognition",
+        "conversion"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-111",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "levelId": "percentages-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "A shirt's price rises from ₹800 to ₹920 and you need the percentage rise. What is the correct FIRST step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Find the increase: 920 − 800"
+        },
+        {
+          "id": "b",
+          "text": "Divide 800 by 920"
+        },
+        {
+          "id": "c",
+          "text": "Take 20% of 800"
+        },
+        {
+          "id": "d",
+          "text": "Add 800 and 920, then halve the result"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Percentage change needs the actual change first. Once you know the increase is ₹120, dividing by the original ₹800 gives 15%.",
+      "solutionSteps": [
+        "Increase = 920 − 800 = 120.",
+        "Divide by the original: 120 ÷ 800 = 0.15.",
+        "× 100 → a 15% rise."
+      ],
+      "formulaIds": [
+        "pct-increase"
+      ],
+      "method": "Find the change, divide by the original, convert to a percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What quantity does the formula need in the numerator?"
+        },
+        {
+          "level": 2,
+          "text": "You cannot divide before you know how much the price actually changed."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the two prices directly, which gives a ratio, not a change."
+      ],
+      "tags": [
+        "method",
+        "first-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-112",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "assertion_reason",
+      "question": "Read the assertion and the reason, then choose the correct option.",
+      "assertion": "After a 20% discount, dividing the sale price by 0.8 gives the marked price.",
+      "reason": "A 20% discount multiplies the marked price by 0.8.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both A and R are true, and R correctly explains A"
+        },
+        {
+          "id": "b",
+          "text": "Both A and R are true, but R does not explain A"
+        },
+        {
+          "id": "c",
+          "text": "A is true, R is false"
+        },
+        {
+          "id": "d",
+          "text": "A is false, R is true"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The discount applies the multiplier 0.8 to the marked price, so dividing by 0.8 reverses exactly that operation. The reason is precisely why the assertion works.",
+      "solutionSteps": [
+        "A 20% discount leaves 80% of the marked price: MP × 0.8 = SP.",
+        "Rearranged: MP = SP ÷ 0.8.",
+        "So both statements are true and the second explains the first."
+      ],
+      "formulaIds": [
+        "pct-reverse",
+        "pct-multiplier"
+      ],
+      "method": "Express the change as a multiplier, then invert it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the discount as a single multiplication on the marked price."
+        },
+        {
+          "level": 2,
+          "text": "Dividing undoes multiplying — check whether that is what the assertion claims."
+        }
+      ],
+      "commonMistakes": [
+        "Treating the discount as being taken off the sale price."
+      ],
+      "tags": [
+        "method",
+        "assertion-reason",
+        "reverse"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-113",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "In which situation do you need a REVERSE percentage calculation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The value after a change is given and the original value is asked for"
+        },
+        {
+          "id": "b",
+          "text": "The original value and the rate are given, and the new value is asked for"
+        },
+        {
+          "id": "c",
+          "text": "Two values are given and the change between them is asked for"
+        },
+        {
+          "id": "d",
+          "text": "A part and a whole are given and the share is asked for"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Reverse percentage means undoing a change that has already been applied — you know the end value and want the start.",
+      "solutionSteps": [
+        "Ask which value is missing: start, end, or rate.",
+        "If the END value is known and the START is missing, you must divide by the multiplier.",
+        "That is a reverse percentage."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Classify by which value is missing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reverse means going from the result back to the source."
+        },
+        {
+          "level": 2,
+          "text": "Which option starts from the value after the change?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing reverse percentage with ordinary percentage decrease."
+      ],
+      "tags": [
+        "method",
+        "classification"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-114",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "A 20% increase followed by a 20% decrease returns the value to its original amount.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The decrease applies to the larger value, so it removes more than the increase added. 100 → 120 → 96, a 4% net fall.",
+      "solutionSteps": [
+        "Start with 100.",
+        "After +20%: 120.",
+        "After −20% of 120: 120 − 24 = 96.",
+        "96 is 4% below the original 100."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Test with 100, or use a + b + ab/100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try the claim with a convenient starting value such as 100."
+        },
+        {
+          "level": 2,
+          "text": "The second percentage is taken of a different, larger number."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming equal percentages cancel out."
+      ],
+      "tags": [
+        "true-false",
+        "successive",
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-115",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "levelId": "percentages-level-3",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "ordering",
+      "question": "Arrange the steps in the correct order to find the percentage increase from 200 to 250.",
+      "steps": [
+        {
+          "id": "s1",
+          "text": "Subtract to find the increase: 250 − 200 = 50"
+        },
+        {
+          "id": "s2",
+          "text": "Divide the increase by the ORIGINAL value: 50 ÷ 200"
+        },
+        {
+          "id": "s3",
+          "text": "Multiply by 100 to express it per hundred"
+        },
+        {
+          "id": "s4",
+          "text": "State the result as a 25% increase"
+        }
+      ],
+      "explanation": "Change first, then compare it to the original, then convert to a percentage, then state the answer with its direction.",
+      "solutionSteps": [
+        "The numerator of the formula is the change, so compute it first.",
+        "Divide by the original value, never the new one.",
+        "Multiply by 100 to convert the fraction into a percentage.",
+        "Report the direction (increase or decrease) alongside the number."
+      ],
+      "formulaIds": [
+        "pct-increase"
+      ],
+      "method": "Change → divide by original → × 100 → state direction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The formula needs the increase before anything can be divided."
+        },
+        {
+          "level": 2,
+          "text": "Converting to a percentage is always the last calculation step."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing before finding the change."
+      ],
+      "tags": [
+        "ordering",
+        "method"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-121",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 20% of 250?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "40"
+        },
+        {
+          "id": "c",
+          "text": "50"
+        },
+        {
+          "id": "d",
+          "text": "60"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "20% of 250 = (20/100) × 250 = 50. Faster: 20% = 1/5, and 250 ÷ 5 = 50.",
+      "solutionSteps": [
+        "Convert 20% into a fraction: 20/100 = 1/5.",
+        "Multiply by 250: 250 × 1/5.",
+        "The result is 50."
+      ],
+      "formulaIds": [
+        "pct-part",
+        "pct-fractions"
+      ],
+      "method": "Convert the percentage to a fraction and multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the percentage into a fraction first."
+        },
+        {
+          "level": 2,
+          "text": "20% = 20/100 = 1/5."
+        },
+        {
+          "level": 3,
+          "text": "Calculate 250 ÷ 5."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 20 instead of 0.20.",
+        "Confusing percentage with percentage points."
+      ],
+      "tags": [
+        "basic-percentage",
+        "direct-calculation"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-122",
+      "topicId": "percentages",
+      "conceptId": "pct-meaning",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "45 is what percent of 60?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60%"
+        },
+        {
+          "id": "b",
+          "text": "75%"
+        },
+        {
+          "id": "c",
+          "text": "80%"
+        },
+        {
+          "id": "d",
+          "text": "133%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(45 ÷ 60) × 100 = 0.75 × 100 = 75%.",
+      "solutionSteps": [
+        "Write the part over the whole: 45/60.",
+        "Simplify: 45/60 = 3/4.",
+        "3/4 × 100 = 75%."
+      ],
+      "formulaIds": [
+        "pct-basic"
+      ],
+      "method": "Part ÷ Whole × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which number is the whole here — the one after \"of\"."
+        },
+        {
+          "level": 2,
+          "text": "Form the fraction 45/60 and simplify it."
+        },
+        {
+          "level": 3,
+          "text": "3/4 as a percentage is 75%."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 60 by 45, which gives 133%."
+      ],
+      "tags": [
+        "basic-percentage"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-123",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Express 3/8 as a percentage.",
+      "options": [
+        {
+          "id": "a",
+          "text": "30%"
+        },
+        {
+          "id": "b",
+          "text": "37.5%"
+        },
+        {
+          "id": "c",
+          "text": "38.5%"
+        },
+        {
+          "id": "d",
+          "text": "62.5%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "3/8 = 0.375, and 0.375 × 100 = 37.5%.",
+      "solutionSteps": [
+        "Divide 3 by 8 to get 0.375.",
+        "Multiply by 100.",
+        "The answer is 37.5%."
+      ],
+      "formulaIds": [
+        "pct-fractions"
+      ],
+      "method": "Fraction × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "1/8 is 12.5%. How many eighths do you have?"
+        },
+        {
+          "level": 2,
+          "text": "3 × 12.5% = 37.5%."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 62.5%, which is 5/8 — the complement."
+      ],
+      "tags": [
+        "conversion"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-124",
+      "topicId": "percentages",
+      "conceptId": "pct-find-whole",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "15% of a number is 45. What is the number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "60"
+        },
+        {
+          "id": "c",
+          "text": "300"
+        },
+        {
+          "id": "d",
+          "text": "675"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "If 15% is 45, then 1% is 3, so 100% is 300. Formally: (45 × 100) ÷ 15 = 300.",
+      "solutionSteps": [
+        "15% corresponds to 45.",
+        "Divide by 15 to find 1%: 45 ÷ 15 = 3.",
+        "Multiply by 100 for the whole: 3 × 100 = 300."
+      ],
+      "formulaIds": [
+        "pct-whole"
+      ],
+      "method": "Scale down to 1%, then up to 100%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The number you want is the whole, i.e. 100%."
+        },
+        {
+          "level": 2,
+          "text": "Find what 1% is worth first."
+        },
+        {
+          "level": 3,
+          "text": "45 ÷ 15 = 3, so 100% = 3 × 100."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 15% of 45 (= 6.75) instead of working backwards."
+      ],
+      "tags": [
+        "reverse",
+        "basic-percentage"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-125",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is 35% of 640?",
+      "answer": {
+        "value": 224,
+        "tolerance": 0
+      },
+      "explanation": "35% of 640 = 0.35 × 640 = 224. Split it if that is easier: 10% is 64, so 30% is 192; 5% is 32; total 224.",
+      "solutionSteps": [
+        "10% of 640 = 64.",
+        "30% = 3 × 64 = 192.",
+        "5% = half of 64 = 32.",
+        "35% = 192 + 32 = 224."
+      ],
+      "formulaIds": [
+        "pct-part"
+      ],
+      "method": "Break the percentage into easy chunks of 10% and 5%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find 10% of 640 first — just move the decimal point."
+        },
+        {
+          "level": 2,
+          "text": "Build 35% from 10% + 10% + 10% + 5%."
+        }
+      ],
+      "commonMistakes": [
+        "Rounding mid-calculation and losing the exact value."
+      ],
+      "tags": [
+        "mental-math",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-126",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Convert 0.45 into a percentage.",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.45%"
+        },
+        {
+          "id": "b",
+          "text": "4.5%"
+        },
+        {
+          "id": "c",
+          "text": "45%"
+        },
+        {
+          "id": "d",
+          "text": "450%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Multiply a decimal by 100 to get a percentage: 0.45 × 100 = 45%.",
+      "solutionSteps": [
+        "0.45 × 100 = 45.",
+        "So 0.45 = 45%."
+      ],
+      "formulaIds": [
+        "pct-fractions"
+      ],
+      "method": "Decimal × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Move the decimal point two places to the right."
+        }
+      ],
+      "commonMistakes": [
+        "Moving the decimal the wrong way and getting 0.45%."
+      ],
+      "tags": [
+        "conversion"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-127",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 12.5% of 480?",
+      "options": [
+        {
+          "id": "a",
+          "text": "48"
+        },
+        {
+          "id": "b",
+          "text": "60"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "96"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "12.5% = 1/8, and 480 ÷ 8 = 60.",
+      "solutionSteps": [
+        "Recognise 12.5% as the fraction 1/8.",
+        "Divide 480 by 8.",
+        "The answer is 60."
+      ],
+      "formulaIds": [
+        "pct-fractions",
+        "pct-part"
+      ],
+      "method": "Use the fraction equivalent instead of decimal multiplication.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12.5% is one of the standard fraction equivalents."
+        },
+        {
+          "level": 2,
+          "text": "12.5% = 1/8."
+        }
+      ],
+      "commonMistakes": [
+        "Using 1/4 instead of 1/8 and answering 120."
+      ],
+      "tags": [
+        "speed",
+        "fractions"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-128",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "levelId": "percentages-level-4",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "multiple_choice",
+      "question": "Select ALL the values that are equal to 25%.",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/4"
+        },
+        {
+          "id": "b",
+          "text": "0.25"
+        },
+        {
+          "id": "c",
+          "text": "25/100"
+        },
+        {
+          "id": "d",
+          "text": "2.5"
+        },
+        {
+          "id": "e",
+          "text": "4/25"
+        }
+      ],
+      "correctAnswer": [
+        "a",
+        "b",
+        "c"
+      ],
+      "explanation": "25% = 25/100 = 1/4 = 0.25. The value 2.5 is 250%, and 4/25 = 16%.",
+      "solutionSteps": [
+        "Write 25% as 25/100.",
+        "Simplify to 1/4 and convert to the decimal 0.25.",
+        "Check the remaining options: 2.5 = 250% and 4/25 = 0.16 = 16%."
+      ],
+      "formulaIds": [
+        "pct-fractions"
+      ],
+      "method": "Convert every option to the same notation before comparing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each option to a decimal and compare with 0.25."
+        },
+        {
+          "level": 2,
+          "text": "Careful with 4/25 — inverting a fraction changes its value."
+        }
+      ],
+      "commonMistakes": [
+        "Selecting 4/25 because it contains the digits 4 and 25."
+      ],
+      "tags": [
+        "conversion",
+        "multi-select"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-131",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "levelId": "percentages-level-5",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A value increases from 200 to 250. What is the percentage increase?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "25%"
+        },
+        {
+          "id": "c",
+          "text": "50%"
+        },
+        {
+          "id": "d",
+          "text": "80%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Increase = 50. Percentage increase = (50 ÷ 200) × 100 = 25%.",
+      "solutionSteps": [
+        "Increase = 250 − 200 = 50.",
+        "Divide by the original value: 50 ÷ 200 = 0.25.",
+        "× 100 → 25% increase."
+      ],
+      "formulaIds": [
+        "pct-increase"
+      ],
+      "method": "Change ÷ original × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much did the value actually go up by?"
+        },
+        {
+          "level": 2,
+          "text": "Compare that increase with the starting value of 200."
+        },
+        {
+          "level": 3,
+          "text": "50 ÷ 200 = 0.25, and 0.25 × 100 = 25."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 50 by 250, which gives 20% — a common trap answer."
+      ],
+      "tags": [
+        "guided",
+        "change"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-132",
+      "topicId": "percentages",
+      "conceptId": "pct-decrease",
+      "levelId": "percentages-level-5",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A price falls from ₹1,250 to ₹1,000. What is the percentage decrease?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "25%"
+        },
+        {
+          "id": "c",
+          "text": "22.5%"
+        },
+        {
+          "id": "d",
+          "text": "80%"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Decrease = 250. Percentage decrease = (250 ÷ 1250) × 100 = 20%.",
+      "solutionSteps": [
+        "Decrease = 1250 − 1000 = 250.",
+        "Divide by the original: 250 ÷ 1250 = 0.2.",
+        "× 100 → a 20% decrease."
+      ],
+      "formulaIds": [
+        "pct-decrease"
+      ],
+      "method": "Change ÷ original × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The original value here is ₹1,250, not ₹1,000."
+        },
+        {
+          "level": 2,
+          "text": "250 ÷ 1250 simplifies to 1/5."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 1,000 and answering 25%."
+      ],
+      "tags": [
+        "guided",
+        "change"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-133",
+      "topicId": "percentages",
+      "conceptId": "pct-change",
+      "levelId": "percentages-level-5",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A salary of ₹24,000 is increased by 15%. What is the new salary?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹24,360"
+        },
+        {
+          "id": "b",
+          "text": "₹25,600"
+        },
+        {
+          "id": "c",
+          "text": "₹27,600"
+        },
+        {
+          "id": "d",
+          "text": "₹36,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "24,000 × 1.15 = 27,600. Or: 10% is 2,400 and 5% is 1,200, so the rise is 3,600.",
+      "solutionSteps": [
+        "10% of 24,000 = 2,400.",
+        "5% of 24,000 = 1,200.",
+        "Increase = 2,400 + 1,200 = 3,600.",
+        "New salary = 24,000 + 3,600 = ₹27,600."
+      ],
+      "formulaIds": [
+        "pct-multiplier"
+      ],
+      "method": "Multiply by 1.15, or build 15% from 10% + 5%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A 15% rise means the new value is 115% of the old."
+        },
+        {
+          "level": 2,
+          "text": "Multiply 24,000 by 1.15."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 15 rather than 15% (24,015)."
+      ],
+      "tags": [
+        "guided",
+        "multiplier"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-134",
+      "topicId": "percentages",
+      "conceptId": "pct-change",
+      "levelId": "percentages-level-5",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A town's population of 8,500 decreases by 8%. What is the new population?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7,820"
+        },
+        {
+          "id": "b",
+          "text": "7,480"
+        },
+        {
+          "id": "c",
+          "text": "8,420"
+        },
+        {
+          "id": "d",
+          "text": "9,180"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "8% of 8,500 = 680, so the new population is 8,500 − 680 = 7,820. Equivalently 8,500 × 0.92.",
+      "solutionSteps": [
+        "1% of 8,500 = 85.",
+        "8% = 8 × 85 = 680.",
+        "New population = 8,500 − 680 = 7,820."
+      ],
+      "formulaIds": [
+        "pct-multiplier"
+      ],
+      "method": "Find 1%, scale to 8%, subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find 1% of 8,500 first — divide by 100."
+        },
+        {
+          "level": 2,
+          "text": "Multiply that by 8 to get the fall."
+        },
+        {
+          "level": 3,
+          "text": "Subtract 680 from 8,500."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 0.08 and reporting 680 as the answer."
+      ],
+      "tags": [
+        "guided",
+        "applications"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-135",
+      "topicId": "percentages",
+      "conceptId": "pct-change",
+      "levelId": "percentages-level-5",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A machine worth ₹60,000 depreciates by 12% in a year. What is its value at the end of the year? (Answer in ₹)",
+      "answer": {
+        "value": 52800,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Depreciation of 12% leaves 88% of the value: 60,000 × 0.88 = ₹52,800.",
+      "solutionSteps": [
+        "12% of 60,000 = 7,200.",
+        "Value = 60,000 − 7,200 = 52,800.",
+        "Check with the multiplier: 60,000 × 0.88 = 52,800."
+      ],
+      "formulaIds": [
+        "pct-multiplier"
+      ],
+      "method": "Apply the decrease multiplier 0.88.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Depreciation is just a percentage decrease."
+        },
+        {
+          "level": 2,
+          "text": "If 12% is lost, what percentage remains?"
+        },
+        {
+          "level": 3,
+          "text": "Multiply 60,000 by 0.88."
+        }
+      ],
+      "commonMistakes": [
+        "Entering the depreciation amount (7,200) instead of the remaining value."
+      ],
+      "tags": [
+        "guided",
+        "numeric-entry",
+        "applications"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-136",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "levelId": "percentages-level-5",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "next_step",
+      "question": "What should the next step be?",
+      "context": "A town's population rose from 12,000 to 13,800 and you need the percentage increase.\n\nWorking so far:\nStep 1: Increase = 13,800 − 12,000 = 1,800",
+      "options": [
+        {
+          "id": "a",
+          "text": "Divide 1,800 by 12,000"
+        },
+        {
+          "id": "b",
+          "text": "Divide 1,800 by 13,800"
+        },
+        {
+          "id": "c",
+          "text": "Multiply 1,800 by 100 and stop there"
+        },
+        {
+          "id": "d",
+          "text": "Subtract 1,800 from 13,800"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The increase must be compared with the original population. 1,800 ÷ 12,000 = 0.15, so the rise is 15%.",
+      "solutionSteps": [
+        "The increase of 1,800 is already found.",
+        "Divide it by the ORIGINAL value: 1,800 ÷ 12,000 = 0.15.",
+        "Multiply by 100 → a 15% increase."
+      ],
+      "formulaIds": [
+        "pct-increase"
+      ],
+      "method": "Change ÷ original × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The denominator of a percentage change is always the starting value."
+        },
+        {
+          "level": 2,
+          "text": "Which number was the population before the change?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the new population, which gives about 13%."
+      ],
+      "tags": [
+        "guided",
+        "next-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-141",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A number becomes 500 after being increased by 25%. What was the original number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "375"
+        },
+        {
+          "id": "b",
+          "text": "400"
+        },
+        {
+          "id": "c",
+          "text": "425"
+        },
+        {
+          "id": "d",
+          "text": "625"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Original × 1.25 = 500, so the original = 500 ÷ 1.25 = 400. Check: 400 + 25% of 400 = 500. ✓",
+      "solutionSteps": [
+        "A 25% increase means the new value is 125% of the original.",
+        "125% corresponds to 500, so 1% corresponds to 4.",
+        "100% = 400."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Divide by the multiplier to undo the increase.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "500 represents 125% of the original, not 100%."
+        },
+        {
+          "level": 2,
+          "text": "Find what 1% is worth: 500 ÷ 125."
+        },
+        {
+          "level": 3,
+          "text": "Multiply that by 100."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 25% of 500 and answering 375."
+      ],
+      "tags": [
+        "reverse",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-142",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "After a 20% discount, an item sells for ₹960. What was the marked price?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,152"
+        },
+        {
+          "id": "b",
+          "text": "₹1,200"
+        },
+        {
+          "id": "c",
+          "text": "₹1,180"
+        },
+        {
+          "id": "d",
+          "text": "₹1,250"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The sale price is 80% of the marked price: MP = 960 ÷ 0.8 = ₹1,200. Check: 20% of 1,200 = 240, and 1,200 − 240 = 960. ✓",
+      "solutionSteps": [
+        "A 20% discount leaves 80% of the marked price.",
+        "80% = 960, so 1% = 12.",
+        "100% = ₹1,200."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Divide the sale price by the remaining fraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹960 is not the full price — what percentage of the marked price is it?"
+        },
+        {
+          "level": 2,
+          "text": "960 represents 80%."
+        },
+        {
+          "level": 3,
+          "text": "Divide 960 by 0.8."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 20% to 960 and answering ₹1,152 — the discount was of the marked price, not the sale price."
+      ],
+      "tags": [
+        "reverse",
+        "discount",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-143",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A number decreased by 30% becomes 154. What was the number?",
+      "options": [
+        {
+          "id": "a",
+          "text": "200"
+        },
+        {
+          "id": "b",
+          "text": "220"
+        },
+        {
+          "id": "c",
+          "text": "184"
+        },
+        {
+          "id": "d",
+          "text": "246"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "After a 30% fall, 70% remains: 154 ÷ 0.7 = 220. Check: 30% of 220 = 66, and 220 − 66 = 154. ✓",
+      "solutionSteps": [
+        "70% of the number is 154.",
+        "1% = 154 ÷ 70 = 2.2.",
+        "100% = 220."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Divide by the remaining percentage as a decimal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If 30% is gone, what fraction of the original is 154?"
+        },
+        {
+          "level": 2,
+          "text": "154 = 70% of the number."
+        },
+        {
+          "level": 3,
+          "text": "Divide 154 by 0.7."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 30% of 154 back on, giving 200.2."
+      ],
+      "tags": [
+        "reverse"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-144",
+      "topicId": "percentages",
+      "conceptId": "pct-find-whole",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "60% of a number exceeds 40% of the same number by 18. Find the number.",
+      "options": [
+        {
+          "id": "a",
+          "text": "45"
+        },
+        {
+          "id": "b",
+          "text": "72"
+        },
+        {
+          "id": "c",
+          "text": "90"
+        },
+        {
+          "id": "d",
+          "text": "180"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The difference is 20% of the number, so 20% = 18, giving the number as 90. Check: 60% of 90 = 54, 40% of 90 = 36, difference 18. ✓",
+      "solutionSteps": [
+        "60% − 40% = 20% of the number.",
+        "20% of the number = 18.",
+        "1% = 0.9, so 100% = 90."
+      ],
+      "formulaIds": [
+        "pct-whole"
+      ],
+      "method": "Subtract the percentages first, then scale to 100%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both percentages are of the SAME number, so you can subtract them directly."
+        },
+        {
+          "level": 2,
+          "text": "The gap of 18 represents 20% of the number."
+        }
+      ],
+      "commonMistakes": [
+        "Setting up two separate equations and mixing the bases."
+      ],
+      "tags": [
+        "reverse",
+        "equation"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-145",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "After spending 65% of his salary, a man is left with ₹14,000. What is his monthly salary? (Answer in ₹)",
+      "answer": {
+        "value": 40000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "He keeps 35% of his salary, so 35% = 14,000 and the salary is 14,000 ÷ 0.35 = ₹40,000.",
+      "solutionSteps": [
+        "Spent 65%, so the remainder is 100% − 65% = 35%.",
+        "35% of the salary = 14,000.",
+        "1% = 400, so the salary = ₹40,000."
+      ],
+      "formulaIds": [
+        "pct-whole",
+        "pct-reverse"
+      ],
+      "method": "Identify what percentage the known amount represents, then scale to 100%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹14,000 is what is LEFT, not what was spent."
+        },
+        {
+          "level": 2,
+          "text": "The leftover is 35% of the salary."
+        },
+        {
+          "level": 3,
+          "text": "Divide 14,000 by 0.35."
+        }
+      ],
+      "commonMistakes": [
+        "Treating ₹14,000 as 65% of the salary."
+      ],
+      "tags": [
+        "reverse",
+        "numeric-entry",
+        "applications"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-146",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "levelId": "percentages-level-6",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "identify_error",
+      "question": "In which step does this solution first go wrong?",
+      "context": "Problem: After a 20% discount, a jacket costs ₹960. Find the marked price.\n\nStep 1: A 20% discount means the marked price = 960 + 20% of 960\nStep 2: 20% of 960 = 192\nStep 3: Marked price = 960 + 192 = ₹1,152",
+      "options": [
+        {
+          "id": "a",
+          "text": "Step 1 — the 20% is a percentage of the marked price, not of the sale price"
+        },
+        {
+          "id": "b",
+          "text": "Step 2 — 20% of 960 has been calculated incorrectly"
+        },
+        {
+          "id": "c",
+          "text": "Step 3 — the addition is wrong"
+        },
+        {
+          "id": "d",
+          "text": "There is no error; ₹1,152 is correct"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The discount is always taken off the marked price, so the sale price is 80% of it. The correct marked price is 960 ÷ 0.8 = ₹1,200. Step 2's arithmetic is fine; the setup in Step 1 is what fails.",
+      "solutionSteps": [
+        "Sale price = Marked price × 0.8.",
+        "So Marked price = 960 ÷ 0.8 = 1,200.",
+        "The wrong method gives 1,152 because it takes 20% of the smaller number."
+      ],
+      "formulaIds": [
+        "pct-reverse"
+      ],
+      "method": "Check which value the percentage is based on before reversing it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Ask: 20% of WHAT was removed?"
+        },
+        {
+          "level": 2,
+          "text": "Test the answer: is 20% off ₹1,152 equal to ₹960?"
+        }
+      ],
+      "commonMistakes": [
+        "Reversing a percentage by adding the same percentage back."
+      ],
+      "tags": [
+        "reverse",
+        "error-spotting",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-151",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A price is increased by 20% and then decreased by 20%. What is the net change?",
+      "options": [
+        {
+          "id": "a",
+          "text": "No change"
+        },
+        {
+          "id": "b",
+          "text": "4% decrease"
+        },
+        {
+          "id": "c",
+          "text": "4% increase"
+        },
+        {
+          "id": "d",
+          "text": "2% decrease"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Take 100: after +20% it is 120; 20% of 120 is 24, leaving 96. That is a 4% fall. Formula: 20 − 20 − 400/100 = −4%.",
+      "solutionSteps": [
+        "Assume the starting price is 100.",
+        "After a 20% rise: 120.",
+        "After a 20% fall on 120: 120 − 24 = 96.",
+        "96 is 4 below 100, so a 4% net decrease."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Assume 100, or apply a + b + ab/100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The two 20% changes are taken of different amounts."
+        },
+        {
+          "level": 2,
+          "text": "Work with a starting value of 100 to see it clearly."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming equal rises and falls cancel."
+      ],
+      "tags": [
+        "successive",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-152",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A salary is increased by 10% and then by a further 20%. What is the overall percentage increase?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30%"
+        },
+        {
+          "id": "b",
+          "text": "32%"
+        },
+        {
+          "id": "c",
+          "text": "28%"
+        },
+        {
+          "id": "d",
+          "text": "22%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1.10 × 1.20 = 1.32, so the salary is 132% of the original — a 32% increase.",
+      "solutionSteps": [
+        "Multiply the multipliers: 1.10 × 1.20 = 1.32.",
+        "1.32 means 132% of the original.",
+        "The increase is 32%."
+      ],
+      "formulaIds": [
+        "pct-successive",
+        "pct-multiplier"
+      ],
+      "method": "Multiply multipliers rather than adding percentages.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second rise is applied to the already-increased salary."
+        },
+        {
+          "level": 2,
+          "text": "Use a + b + ab/100 = 10 + 20 + 200/100."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 10% and 20% to get 30%."
+      ],
+      "tags": [
+        "successive"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-153",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A price rises by 25% and then falls by 20%. What is the net effect?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5% increase"
+        },
+        {
+          "id": "b",
+          "text": "No change"
+        },
+        {
+          "id": "c",
+          "text": "5% decrease"
+        },
+        {
+          "id": "d",
+          "text": "1% increase"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1.25 × 0.80 = 1.00 exactly, so the price returns to its original value. This is the classic pair: a 25% rise is undone by a 20% fall.",
+      "solutionSteps": [
+        "Start at 100 → after +25% → 125.",
+        "20% of 125 = 25.",
+        "125 − 25 = 100, the original value."
+      ],
+      "formulaIds": [
+        "pct-successive",
+        "pct-restore"
+      ],
+      "method": "Multiply the multipliers and compare with 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try starting at 100 — the arithmetic stays clean."
+        },
+        {
+          "level": 2,
+          "text": "What is 20% of 125?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 5% increase by subtracting the percentages."
+      ],
+      "tags": [
+        "successive",
+        "restore"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-154",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A quantity decreases by 10% and then decreases by a further 10%. What is the total percentage decrease?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "19%"
+        },
+        {
+          "id": "c",
+          "text": "18%"
+        },
+        {
+          "id": "d",
+          "text": "21%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "0.9 × 0.9 = 0.81, so 81% remains and 19% has been lost.",
+      "solutionSteps": [
+        "Start at 100 → after −10% → 90.",
+        "10% of 90 = 9, so the value becomes 81.",
+        "The total fall from 100 is 19%."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Chain the decrease multipliers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second 10% is taken of 90, not of 100."
+        },
+        {
+          "level": 2,
+          "text": "a + b + ab/100 with a = b = −10."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the falls to get 20%."
+      ],
+      "tags": [
+        "successive"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-155",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "₹5,000 is increased by 10% and then decreased by 10%. What is the final amount? (Answer in ₹)",
+      "answer": {
+        "value": 4950,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "5,000 × 1.1 = 5,500; 5,500 × 0.9 = 4,950 — a net 1% fall, exactly as a + b + ab/100 predicts.",
+      "solutionSteps": [
+        "After +10%: 5,000 × 1.1 = 5,500.",
+        "After −10%: 5,500 × 0.9 = 4,950.",
+        "Net change = −1% of 5,000 = −50."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Apply the multipliers in order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Apply the changes one at a time, in order."
+        },
+        {
+          "level": 2,
+          "text": "The 10% fall is taken of ₹5,500."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹5,000 by assuming the changes cancel."
+      ],
+      "tags": [
+        "successive",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-156",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-7",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The price of an item is reduced by 20%. By what percentage must the new price be increased to restore the original price?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "22%"
+        },
+        {
+          "id": "c",
+          "text": "25%"
+        },
+        {
+          "id": "d",
+          "text": "30%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "100 falls to 80; to return to 100 you must add 20 to 80, which is 20/80 = 25%.",
+      "solutionSteps": [
+        "Let the price be 100. After a 20% cut it is 80.",
+        "To get back to 100 you need to add 20.",
+        "20 ÷ 80 × 100 = 25%."
+      ],
+      "formulaIds": [
+        "pct-restore"
+      ],
+      "method": "The restoring increase is measured against the reduced value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The increase is applied to the smaller price, so it must exceed 20%."
+        },
+        {
+          "level": 2,
+          "text": "Use 100r/(100 − r) with r = 20."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 20% by symmetry."
+      ],
+      "tags": [
+        "restore",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-161",
+      "topicId": "percentages",
+      "conceptId": "pct-marks",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A student scores 30% of the total marks and fails by 50 marks. If the pass mark is 200, what are the total marks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "400"
+        },
+        {
+          "id": "b",
+          "text": "500"
+        },
+        {
+          "id": "c",
+          "text": "600"
+        },
+        {
+          "id": "d",
+          "text": "750"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The student's score is 200 − 50 = 150 marks, and that is 30% of the total. Total = 150 × 100 ÷ 30 = 500.",
+      "solutionSteps": [
+        "Score = pass mark − shortfall = 200 − 50 = 150.",
+        "150 is 30% of the total.",
+        "Total = (150 × 100) ÷ 30 = 500."
+      ],
+      "formulaIds": [
+        "pct-whole"
+      ],
+      "method": "Convert the word problem into 'this amount is this percentage of the total'.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Fails by 50\" means the score is 50 marks BELOW the pass mark."
+        },
+        {
+          "level": 2,
+          "text": "Find the actual score first, then treat it as 30% of the total."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 200 itself as 30% of the total."
+      ],
+      "tags": [
+        "applications",
+        "marks"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-162",
+      "topicId": "percentages",
+      "conceptId": "pct-marks",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In an election between two candidates, the losing candidate secures 40% of the votes and loses by 300 votes. How many votes were cast in total? (All votes are valid.)",
+      "options": [
+        {
+          "id": "a",
+          "text": "750"
+        },
+        {
+          "id": "b",
+          "text": "1,200"
+        },
+        {
+          "id": "c",
+          "text": "1,500"
+        },
+        {
+          "id": "d",
+          "text": "3,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The winner gets 60%, so the margin is 60% − 40% = 20% of the total. 20% = 300 votes, so the total is 1,500.",
+      "solutionSteps": [
+        "Winner's share = 100% − 40% = 60%.",
+        "Margin = 60% − 40% = 20% of total votes.",
+        "20% = 300 → total = 300 × 5 = 1,500."
+      ],
+      "formulaIds": [
+        "pct-whole"
+      ],
+      "method": "Express the margin as a percentage of the total, then scale up.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "With two candidates, the shares add up to 100%."
+        },
+        {
+          "level": 2,
+          "text": "The 300-vote margin corresponds to the difference in shares."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 300 as 40% or as 60% of the total."
+      ],
+      "tags": [
+        "applications",
+        "elections"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-163",
+      "topicId": "percentages",
+      "conceptId": "pct-comparison",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A's salary is 25% more than B's. By what percentage is B's salary less than A's?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "25%"
+        },
+        {
+          "id": "c",
+          "text": "30%"
+        },
+        {
+          "id": "d",
+          "text": "33⅓%"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Let B = 100, so A = 125. B is 25 less than A, and 25 ÷ 125 = 20%. The base changed from B to A, so the percentage changes too.",
+      "solutionSteps": [
+        "Set B = 100 → A = 125.",
+        "Difference = 25.",
+        "As a percentage of A: 25 ÷ 125 × 100 = 20%."
+      ],
+      "formulaIds": [
+        "pct-comparison-more"
+      ],
+      "method": "Assume the smaller quantity is 100, then compare against the correct base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"More than B\" is measured against B; \"less than A\" is measured against A."
+        },
+        {
+          "level": 2,
+          "text": "Put B = 100 and compute A, then compare the gap to A."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 25% by assuming the comparison is symmetric."
+      ],
+      "tags": [
+        "comparison",
+        "trap"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-164",
+      "topicId": "percentages",
+      "conceptId": "pct-applications",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A town's population grows by 10% each year. If it is 12,100 now, what was it two years ago?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9,680"
+        },
+        {
+          "id": "b",
+          "text": "10,000"
+        },
+        {
+          "id": "c",
+          "text": "10,890"
+        },
+        {
+          "id": "d",
+          "text": "11,000"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Two years of 10% growth multiplies by 1.1 × 1.1 = 1.21, so the population two years ago was 12,100 ÷ 1.21 = 10,000.",
+      "solutionSteps": [
+        "Growth factor over two years = 1.1² = 1.21.",
+        "Original × 1.21 = 12,100.",
+        "Original = 12,100 ÷ 1.21 = 10,000."
+      ],
+      "formulaIds": [
+        "pct-reverse",
+        "pct-successive"
+      ],
+      "method": "Chain the multipliers, then divide to reverse them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each year multiplies the population by 1.1."
+        },
+        {
+          "level": 2,
+          "text": "Over two years the factor is 1.21, not 1.2."
+        },
+        {
+          "level": 3,
+          "text": "Divide 12,100 by 1.21."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 20% and answering 9,680."
+      ],
+      "tags": [
+        "applications",
+        "growth",
+        "reverse"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-165",
+      "topicId": "percentages",
+      "conceptId": "pct-applications",
+      "levelId": "percentages-level-8",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A man spends 75% of his income. His income rises by 20% and his expenditure rises by 10%. By what percentage do his savings increase?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10%"
+        },
+        {
+          "id": "b",
+          "text": "30%"
+        },
+        {
+          "id": "c",
+          "text": "50%"
+        },
+        {
+          "id": "d",
+          "text": "60%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Take income 100: expenditure 75, savings 25. New income 120, new expenditure 82.5, so new savings 37.5. The rise is 12.5/25 = 50%.",
+      "solutionSteps": [
+        "Let income = 100, so expenditure = 75 and savings = 25.",
+        "New income = 120; new expenditure = 75 × 1.1 = 82.5.",
+        "New savings = 120 − 82.5 = 37.5.",
+        "Increase = (37.5 − 25) ÷ 25 × 100 = 50%."
+      ],
+      "formulaIds": [
+        "pct-multiplier",
+        "pct-increase"
+      ],
+      "method": "Assume income 100, track all three quantities, compare savings at the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Savings = income − expenditure. Track all three separately."
+        },
+        {
+          "level": 2,
+          "text": "Start from income = 100 so the percentages become amounts."
+        },
+        {
+          "level": 3,
+          "text": "Compare the new savings with the ORIGINAL savings of 25."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 10% from 20% and answering 10%.",
+        "Comparing the savings increase against income instead of savings."
+      ],
+      "tags": [
+        "applications",
+        "multi-step"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-166",
+      "topicId": "percentages",
+      "conceptId": "pct-marks",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A student who scores 60% of the total marks gets 300 marks. If the pass mark is 40% of the total, how many marks are needed to pass?",
+      "answer": {
+        "value": 200,
+        "tolerance": 0
+      },
+      "explanation": "60% = 300, so the total is 500. The pass mark is 40% of 500 = 200.",
+      "solutionSteps": [
+        "60% of the total = 300, so 1% = 5.",
+        "Total marks = 500.",
+        "Pass mark = 40% of 500 = 200."
+      ],
+      "formulaIds": [
+        "pct-whole",
+        "pct-part"
+      ],
+      "method": "Find the total first, then take the required percentage of it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot find 40% until you know the total."
+        },
+        {
+          "level": 2,
+          "text": "Use the 60% = 300 relationship to get the total."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 40% of 300 instead of 40% of the total."
+      ],
+      "tags": [
+        "applications",
+        "marks",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-167",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-8",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "An item with a marked price of ₹2,000 is sold at a 15% discount, and then 10% tax is added to the discounted price. What does the customer pay?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,700"
+        },
+        {
+          "id": "b",
+          "text": "₹1,870"
+        },
+        {
+          "id": "c",
+          "text": "₹1,900"
+        },
+        {
+          "id": "d",
+          "text": "₹2,090"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "2,000 × 0.85 = 1,700 after discount; 1,700 × 1.10 = ₹1,870 after tax.",
+      "solutionSteps": [
+        "Discounted price = 2,000 × 0.85 = 1,700.",
+        "Tax = 10% of 1,700 = 170.",
+        "Final price = 1,700 + 170 = ₹1,870."
+      ],
+      "formulaIds": [
+        "pct-successive",
+        "pct-multiplier"
+      ],
+      "method": "Apply the multipliers in the order stated.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Apply the discount first, then the tax on the reduced amount."
+        },
+        {
+          "level": 2,
+          "text": "Multipliers: × 0.85 then × 1.10."
+        }
+      ],
+      "commonMistakes": [
+        "Taxing the marked price instead of the discounted price."
+      ],
+      "tags": [
+        "applications",
+        "discount",
+        "successive"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-171",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Three successive discounts of 20%, 10% and 5% are given on an article. What is the single equivalent discount?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35%"
+        },
+        {
+          "id": "b",
+          "text": "32.4%"
+        },
+        {
+          "id": "c",
+          "text": "31.6%"
+        },
+        {
+          "id": "d",
+          "text": "30%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "0.80 × 0.90 × 0.95 = 0.684, so 68.4% of the price remains and the equivalent discount is 31.6%.",
+      "solutionSteps": [
+        "Remaining fractions: 0.80, 0.90, 0.95.",
+        "Multiply: 0.80 × 0.90 = 0.72; 0.72 × 0.95 = 0.684.",
+        "Discount = 100% − 68.4% = 31.6%."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Multiply the remaining fractions, then subtract from 100%.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Successive discounts never add to 35%."
+        },
+        {
+          "level": 2,
+          "text": "Work with what REMAINS after each discount: 0.8, 0.9, 0.95."
+        },
+        {
+          "level": 3,
+          "text": "Multiply them, then subtract the product from 1."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 20 + 10 + 5 = 35%."
+      ],
+      "tags": [
+        "successive",
+        "discount",
+        "complex"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-172",
+      "topicId": "percentages",
+      "conceptId": "pct-applications",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a town, 60% of the people are male. If 40% of the males and 30% of the females are literate, what percentage of the town's population is literate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "32%"
+        },
+        {
+          "id": "b",
+          "text": "35%"
+        },
+        {
+          "id": "c",
+          "text": "36%"
+        },
+        {
+          "id": "d",
+          "text": "38%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Take 100 people: 60 male, 40 female. Literate males = 24, literate females = 12, so 36 of 100 are literate — 36%.",
+      "solutionSteps": [
+        "Assume a population of 100: 60 males, 40 females.",
+        "Literate males = 40% of 60 = 24.",
+        "Literate females = 30% of 40 = 12.",
+        "Total literate = 36 out of 100 = 36%."
+      ],
+      "formulaIds": [
+        "pct-part"
+      ],
+      "method": "Assume 100 people and compute each group separately — a weighted average in disguise.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Assume the town has 100 people so percentages become counts."
+        },
+        {
+          "level": 2,
+          "text": "Work out literate males and literate females separately, then add."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 40% and 30% to get 35%, ignoring the different group sizes."
+      ],
+      "tags": [
+        "applications",
+        "weighted",
+        "complex"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-173",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The price of sugar rises by 25%. By what percentage must a family reduce its consumption so that its spending on sugar is unchanged?",
+      "options": [
+        {
+          "id": "a",
+          "text": "16⅔%"
+        },
+        {
+          "id": "b",
+          "text": "20%"
+        },
+        {
+          "id": "c",
+          "text": "25%"
+        },
+        {
+          "id": "d",
+          "text": "30%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Spending = price × quantity. If the price is multiplied by 1.25, the quantity must be multiplied by 1/1.25 = 0.8, a 20% reduction.",
+      "solutionSteps": [
+        "Let price = 100 and consumption = 100, so spending = 10,000.",
+        "New price = 125. To keep spending at 10,000, consumption = 10,000 ÷ 125 = 80.",
+        "Consumption falls from 100 to 80 — a 20% reduction."
+      ],
+      "formulaIds": [
+        "pct-restore"
+      ],
+      "method": "Spending is a product; if one factor is multiplied by k, the other must be divided by k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Expenditure = price × quantity, and it must stay constant."
+        },
+        {
+          "level": 2,
+          "text": "If the price factor is 1.25, the quantity factor must be 1/1.25."
+        },
+        {
+          "level": 3,
+          "text": "Use 100r/(100 + r) with r = 25."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 25% by mirroring the price rise."
+      ],
+      "tags": [
+        "restore",
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-174",
+      "topicId": "percentages",
+      "conceptId": "pct-comparison",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A's income is 20% less than B's income, and B's income is 25% more than C's. How does A's income compare with C's?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A is 5% more than C"
+        },
+        {
+          "id": "b",
+          "text": "A and C are equal"
+        },
+        {
+          "id": "c",
+          "text": "A is 5% less than C"
+        },
+        {
+          "id": "d",
+          "text": "A is 10% less than C"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Let C = 100. Then B = 125 and A = 80% of 125 = 100. A and C are equal.",
+      "solutionSteps": [
+        "Set C = 100 (the quantity mentioned last is the cleanest base).",
+        "B is 25% more than C → B = 125.",
+        "A is 20% less than B → A = 0.8 × 125 = 100.",
+        "A = C, so they are equal."
+      ],
+      "formulaIds": [
+        "pct-comparison-less",
+        "pct-multiplier"
+      ],
+      "method": "Anchor the chain at the quantity everything else is defined against.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from C, since B is defined in terms of C."
+        },
+        {
+          "level": 2,
+          "text": "Find B first, then apply the 20% reduction to reach A."
+        }
+      ],
+      "commonMistakes": [
+        "Adding and subtracting the percentages (−20 + 25 = +5%)."
+      ],
+      "tags": [
+        "comparison",
+        "chain",
+        "complex"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-175",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A number is increased by 20%, then decreased by 25%, then increased by 10%. What is the net percentage change?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5% increase"
+        },
+        {
+          "id": "b",
+          "text": "1% increase"
+        },
+        {
+          "id": "c",
+          "text": "1% decrease"
+        },
+        {
+          "id": "d",
+          "text": "No change"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "1.20 × 0.75 × 1.10 = 0.99, so 99% of the original remains — a 1% decrease.",
+      "solutionSteps": [
+        "Multipliers: 1.20, 0.75, 1.10.",
+        "1.20 × 0.75 = 0.90.",
+        "0.90 × 1.10 = 0.99.",
+        "0.99 means a 1% net decrease."
+      ],
+      "formulaIds": [
+        "pct-successive"
+      ],
+      "method": "Chain all three multipliers in one calculation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each change into a multiplier before doing anything else."
+        },
+        {
+          "level": 2,
+          "text": "Multiply the first two: 1.2 × 0.75."
+        },
+        {
+          "level": 3,
+          "text": "Compare the final product with 1."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the changes: +20 − 25 + 10 = +5%."
+      ],
+      "tags": [
+        "successive",
+        "complex"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-176",
+      "topicId": "percentages",
+      "conceptId": "pct-applications",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In an examination, 70% of candidates passed in Mathematics, 65% passed in English, and 25% failed in both subjects. What percentage passed in both subjects?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35%"
+        },
+        {
+          "id": "b",
+          "text": "40%"
+        },
+        {
+          "id": "c",
+          "text": "55%"
+        },
+        {
+          "id": "d",
+          "text": "60%"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Failed Maths = 30%, failed English = 35%, failed both = 25%. Failed at least one = 30 + 35 − 25 = 40%. So 60% passed both.",
+      "solutionSteps": [
+        "Failed Maths = 100 − 70 = 30%.",
+        "Failed English = 100 − 65 = 35%.",
+        "Failed at least one = 30 + 35 − 25 = 40%.",
+        "Passed both = 100 − 40 = 60%."
+      ],
+      "formulaIds": [
+        "pct-basic"
+      ],
+      "method": "Work with failures and the inclusion–exclusion principle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The 25% is a failure figure — switch everything to failures."
+        },
+        {
+          "level": 2,
+          "text": "Failed at least one = failed Maths + failed English − failed both."
+        },
+        {
+          "level": 3,
+          "text": "Passing both is the complement of failing at least one."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 70 + 65 − 100 = 35% without accounting for the double failures."
+      ],
+      "tags": [
+        "applications",
+        "sets",
+        "complex"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-q-177",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "levelId": "percentages-level-9",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A shopkeeper marks his goods 40% above cost price and then offers a 25% discount. What is his profit percentage? (Enter the number only.)",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "Take cost = 100. Marked price = 140, and after a 25% discount the selling price is 105. Profit = 5 on a cost of 100, so 5%.",
+      "solutionSteps": [
+        "Let cost price = 100.",
+        "Marked price = 140.",
+        "Selling price = 140 × 0.75 = 105.",
+        "Profit = 105 − 100 = 5, so profit % = 5%."
+      ],
+      "formulaIds": [
+        "pct-successive",
+        "pct-multiplier"
+      ],
+      "method": "Assume cost = 100 and track the price through both changes.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set the cost price to 100 — it makes every percentage an amount."
+        },
+        {
+          "level": 2,
+          "text": "The discount applies to the marked price, not the cost."
+        },
+        {
+          "level": 3,
+          "text": "Profit % is measured against the COST price."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 25 from 40 and answering 15%.",
+        "Measuring profit against the marked price."
+      ],
+      "tags": [
+        "profit-loss-link",
+        "successive",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-001",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "levelId": "percentages-level-12",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Ramesh invests ₹9,600 in 8% stock at ₹120. What is his annual income from it?",
+      "answer": {
+        "value": 640,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "At ₹120 for each ₹100 of stock, ₹9,600 buys 9,600 ÷ 120 = 80 units, which is ₹8,000 of stock. The dividend is 8% of that face value: 80 × ₹8 = ₹640.",
+      "solutionSteps": [
+        "Units of ₹100 stock = 9,600 ÷ 120 = 80.",
+        "Face value bought = 80 × ₹100 = ₹8,000.",
+        "Income = 8% of ₹8,000 = ₹640."
+      ],
+      "formulaIds": [
+        "pct-adv-income-f",
+        "pct-adv-sc-units"
+      ],
+      "method": "Count the ₹100 units bought, then multiply by the dividend per unit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"8% stock at ₹120\" means each ₹100 of stock costs ₹120 and pays ₹8 a year."
+        },
+        {
+          "level": 2,
+          "text": "How many lots of ₹120 does ₹9,600 buy?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking 8% of the ₹9,600 invested (₹768): the dividend is paid on the face value, not on the money invested."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-002",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "levelId": "percentages-level-12",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What rate of return (yield) does an investor get on 15% stock bought at ₹120?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8%"
+        },
+        {
+          "id": "b",
+          "text": "12.5%"
+        },
+        {
+          "id": "c",
+          "text": "15%"
+        },
+        {
+          "id": "d",
+          "text": "18%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each ₹120 invested buys ₹100 of stock, which pays ₹15 a year. Return = 15 ÷ 120 × 100 = 12.5%. The stock is at a premium, so the yield is below the 15% printed on it.",
+      "solutionSteps": [
+        "Price paid for ₹100 stock = ₹120.",
+        "Dividend on it = ₹15 a year.",
+        "Yield = 15 ÷ 120 × 100 = 12.5%."
+      ],
+      "formulaIds": [
+        "pct-adv-yield-f"
+      ],
+      "method": "Yield = dividend ÷ market price × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The 15% is paid on the ₹100 face value, but you paid ₹120."
+        },
+        {
+          "level": 2,
+          "text": "Work out 15 ÷ 120 × 100."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 15%: that is the dividend on the face value, not the return on the ₹120 paid.",
+        "Dividing the price by the dividend (120 ÷ 15 = 8)."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-003",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "levelId": "percentages-level-13",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How much must be invested in 7% stock at ₹84 to earn an annual income of ₹2,100?",
+      "answer": {
+        "value": 25200,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Each ₹100 of stock pays ₹7, so ₹2,100 needs 2,100 ÷ 7 = 300 units. Each unit costs ₹84, so the investment is 300 × 84 = ₹25,200. (Check: the yield is 7 ÷ 84 = 1/12, and ₹2,100 × 12 = ₹25,200.)",
+      "solutionSteps": [
+        "Units needed = 2,100 ÷ 7 = 300.",
+        "Cost per unit = ₹84.",
+        "Investment = 300 × 84 = ₹25,200."
+      ],
+      "formulaIds": [
+        "pct-adv-income-f",
+        "pct-adv-yield-f"
+      ],
+      "method": "Units from the income, then units × market price.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many ₹100 units of stock pay ₹2,100 a year at ₹7 each?"
+        },
+        {
+          "level": 2,
+          "text": "Each of those units costs ₹84."
+        }
+      ],
+      "commonMistakes": [
+        "Answering ₹30,000: that is the face value of the stock needed, not the money to invest."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-004",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "levelId": "percentages-level-13",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Meena invests ₹6,000 in 8% stock quoted at a discount of ₹20. What is her annual income?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹400"
+        },
+        {
+          "id": "b",
+          "text": "₹480"
+        },
+        {
+          "id": "c",
+          "text": "₹600"
+        },
+        {
+          "id": "d",
+          "text": "₹2,400"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A discount of ₹20 means ₹100 of stock costs ₹80. ₹6,000 ÷ 80 = 75 units, and each pays ₹8: 75 × 8 = ₹600.",
+      "solutionSteps": [
+        "Market price = 100 − 20 = ₹80.",
+        "Units = 6,000 ÷ 80 = 75.",
+        "Income = 75 × ₹8 = ₹600."
+      ],
+      "formulaIds": [
+        "pct-adv-income-f"
+      ],
+      "method": "Turn the discount into a price, count units, multiply by the dividend.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "At a discount, the market price is below ₹100: here ₹80."
+        },
+        {
+          "level": 2,
+          "text": "How many units of ₹80 does ₹6,000 buy?"
+        }
+      ],
+      "commonMistakes": [
+        "Using ₹120 (a premium) instead of ₹80, which gives ₹400.",
+        "Taking 8% of ₹6,000 (₹480), as if the stock were at par."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-005",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-invest",
+      "levelId": "percentages-level-13",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which is the better investment: 9% stock at ₹108 or 12% stock at ₹150?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9% stock at ₹108"
+        },
+        {
+          "id": "b",
+          "text": "12% stock at ₹150"
+        },
+        {
+          "id": "c",
+          "text": "Both give the same return"
+        },
+        {
+          "id": "d",
+          "text": "It depends on the amount invested"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Compare the return on the price paid. 9 ÷ 108 × 100 = 8⅓% and 12 ÷ 150 × 100 = 8%. The 9% stock earns more on every rupee, even though its printed rate is lower. The amount invested does not change which is better.",
+      "solutionSteps": [
+        "Yield of 9% at ₹108 = 9 ÷ 108 × 100 = 8⅓%.",
+        "Yield of 12% at ₹150 = 12 ÷ 150 × 100 = 8%.",
+        "Cross-check: 9 × 150 = 1,350 > 12 × 108 = 1,296."
+      ],
+      "formulaIds": [
+        "pct-adv-yield-f",
+        "pct-adv-sc-compare"
+      ],
+      "method": "Compare dividend ÷ price, or cross-multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The better stock gives more per rupee invested: compare dividend ÷ price."
+        },
+        {
+          "level": 2,
+          "text": "Cross-multiply: 9 × 150 against 12 × 108."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the 12% stock for its higher printed rate, ignoring its higher price."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-006",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-invest",
+      "levelId": "percentages-level-13",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "How much must be invested in 8% stock at ₹95 to earn ₹1,200 a year, if brokerage is ₹1 for every ₹100 of stock?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹14,100"
+        },
+        {
+          "id": "b",
+          "text": "₹14,250"
+        },
+        {
+          "id": "c",
+          "text": "₹14,400"
+        },
+        {
+          "id": "d",
+          "text": "₹15,000"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "₹1,200 at ₹8 per unit needs 150 units of ₹100 stock. When buying, brokerage is added, so each unit costs ₹95 + ₹1 = ₹96. Investment = 150 × 96 = ₹14,400.",
+      "solutionSteps": [
+        "Units needed = 1,200 ÷ 8 = 150.",
+        "Cost per unit = 95 + 1 = ₹96.",
+        "Investment = 150 × 96 = ₹14,400."
+      ],
+      "formulaIds": [
+        "pct-adv-brokerage-f",
+        "pct-adv-income-f"
+      ],
+      "method": "Units from the income; buying price = market price + brokerage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find how many ₹100 units pay ₹1,200 a year."
+        },
+        {
+          "level": 2,
+          "text": "When you buy, brokerage is added to the price."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring brokerage (₹14,250), or subtracting it as if selling (₹14,100).",
+        "Giving the face value of the stock (₹15,000)."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "percentages-pct-adv-q-007",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-invest",
+      "levelId": "percentages-level-13",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Arun holds ₹8,000 (face value) of 9% stock. He sells it at ₹121 and invests all the money in 12% stock at ₹127. Brokerage is ₹1 for every ₹100 of stock on each deal. By how many rupees does his annual income rise?",
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Old income = 80 units × ₹9 = ₹720. Selling, brokerage comes off: 80 × (121 − 1) = ₹9,600. Buying, brokerage is added: 9,600 ÷ (127 + 1) = 75 units, so the new income = 75 × ₹12 = ₹900. Rise = ₹900 − ₹720 = ₹180.",
+      "solutionSteps": [
+        "Old: 80 units × ₹9 = ₹720.",
+        "Sale money = 80 × ₹120 = ₹9,600.",
+        "New units = 9,600 ÷ 128 = 75; new income = 75 × ₹12 = ₹900.",
+        "Rise = ₹900 − ₹720 = ₹180."
+      ],
+      "formulaIds": [
+        "pct-adv-brokerage-f",
+        "pct-adv-income-f",
+        "pct-adv-sc-units"
+      ],
+      "method": "Old income, sale money, new units, new income: subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹8,000 of stock is 80 units of ₹100."
+        },
+        {
+          "level": 2,
+          "text": "Selling at ₹121 with ₹1 brokerage gives ₹120 a unit; buying at ₹127 costs ₹128 a unit."
+        },
+        {
+          "level": 3,
+          "text": "Compare the new income with the old."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring brokerage, or adding it on the sale and subtracting it on the purchase: either way the units no longer come out whole.",
+        "Giving the new income (₹900) instead of the rise."
+      ],
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

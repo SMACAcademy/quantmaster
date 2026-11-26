@@ -1,0 +1,1067 @@
+{
+  "topicId": "clocks",
+  "concepts": [
+    {
+      "id": "clk-speed",
+      "topicId": "clocks",
+      "name": "How fast the hands move",
+      "description": "The minute hand turns 6° a minute, the hour hand 0.5° a minute, so the minute hand gains 5.5° a minute.",
+      "sortOrder": 1
+    },
+    {
+      "id": "clk-angle",
+      "topicId": "clocks",
+      "name": "Angle between the hands",
+      "description": "Measure each hand from 12 and subtract; take the smaller of the angle and 360° minus it.",
+      "sortOrder": 2
+    },
+    {
+      "id": "clk-coincide",
+      "topicId": "clocks",
+      "name": "Overlaps, opposites and right angles",
+      "description": "Work out the angle gap to close, then divide by 5.5° a minute.",
+      "sortOrder": 3
+    },
+    {
+      "id": "clk-mirror",
+      "topicId": "clocks",
+      "name": "Mirror-image times",
+      "description": "The time seen in a mirror is 12:00 minus the actual time.",
+      "sortOrder": 4
+    },
+    {
+      "id": "clk-faulty",
+      "topicId": "clocks",
+      "name": "Fast and slow clocks",
+      "description": "A faulty clock shows a different amount of time to the true time elapsed; compare the two rates.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "clk-speed-f",
+      "topicId": "clocks",
+      "conceptId": "clk-speed",
+      "title": "Hand speeds",
+      "prompt": "How many degrees per minute does each hand move?",
+      "formula": "Minute hand: 360° ÷ 60 = 6° per minute\nHour hand: 360° ÷ 720 = 0.5° per minute\nRelative: 5.5° per minute",
+      "variables": [],
+      "explanation": "The minute hand goes round in 60 minutes and the hour hand in 12 hours (720 minutes).",
+      "example": "In 10 minutes the minute hand moves 60°.",
+      "commonMistake": "Forgetting that the hour hand also moves.",
+      "applicationPrompt": "How far does the minute hand move in 10 minutes?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "clk-angle-f",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "title": "Angle at h : m",
+      "prompt": "What is the angle between the hands at h hours and m minutes?",
+      "formula": "θ = | 30h − 5.5m |  (if more than 180°, use 360° − θ)",
+      "variables": [],
+      "explanation": "The hour hand is at 30h + 0.5m degrees and the minute hand at 6m degrees. Subtract.",
+      "example": "3:30 → |90 − 165| = 75°\n8:20 → |240 − 110| = 130°",
+      "commonMistake": "Using 5m instead of 5.5m (forgetting the hour hand's drift).",
+      "applicationPrompt": "Find the angle between the hands at 3:30.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "clk-coincide-f",
+      "topicId": "clocks",
+      "conceptId": "clk-coincide",
+      "title": "Overlaps and gaps",
+      "prompt": "How do you find when the hands overlap or are at a given angle?",
+      "formula": "Time (minutes) = angle gap to close ÷ 5.5\nHands overlap every 65 5/11 minutes → 11 times in 12 hours",
+      "variables": [],
+      "explanation": "The minute hand gains 5.5° on the hour hand each minute. Compute the initial gap and the gap you want, then divide the difference by 5.5.",
+      "example": "Overlap after 4:00: gap 120° → 120 ÷ 5.5 = 21 9/11 minutes",
+      "commonMistake": "Dividing by 6 instead of 5.5.",
+      "applicationPrompt": "When do the hands first overlap after 4:00?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "clk-mirror-f",
+      "topicId": "clocks",
+      "conceptId": "clk-mirror",
+      "kind": "shortcut",
+      "title": "Mirror image",
+      "prompt": "What time does a mirror show when a clock actually reads h : m?",
+      "formula": "Mirror time = 12:00 − (h : m)\n(equivalently 11 : 60 − h : m)",
+      "variables": [],
+      "explanation": "A mirror reflects positions left to right, so a hand at angle θ appears at 360° − θ.",
+      "example": "4:20 → 12:00 − 4:20 = 7:40",
+      "commonMistake": "Subtracting from 12 hours but leaving the minutes unchanged.",
+      "applicationPrompt": "What time does a mirror show when the clock reads 4:20?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "clk-faulty-f",
+      "topicId": "clocks",
+      "conceptId": "clk-faulty",
+      "title": "Gaining and losing clocks",
+      "prompt": "A clock gains or loses g minutes each hour. How do you relate its reading to the true time?",
+      "formula": "Fast clock: shows 60 + g minutes for each true hour\nSlow clock: shows 60 − g minutes for each true hour\nTrue elapsed = shown elapsed × 60 ÷ (60 ± g)",
+      "variables": [],
+      "explanation": "Compare how many minutes the faulty clock advances in one true hour.",
+      "example": "A clock that loses 5 min/hr shows 55 min per true hour. When it shows 11 h, 660 ÷ 55 = 12 true hours have passed.",
+      "commonMistake": "Using the shown time as if it were the true time.",
+      "applicationPrompt": "A clock loses 5 minutes per hour. How many true hours pass while it shows 11 hours?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "clk-sc-time-for-angle",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "kind": "shortcut",
+      "title": "When the hands make a given angle",
+      "prompt": "At what time between h and h + 1 o'clock do the hands make an angle θ?",
+      "formula": "Minutes past h = (2/11) × (30h ± θ)",
+      "variables": [],
+      "explanation": "The minute hand gains 5.5° a minute and starts 30h° behind. Both signs usually give a valid time.",
+      "example": "Right angle between 4 and 5: (2/11)(120 − 90) = 5 5/11 minutes and (2/11)(120 + 90) = 38 2/11 minutes past 4.",
+      "commonMistake": "Giving only one of the two times.",
+      "applicationPrompt": "At what times between 7 and 8 are the hands at right angles?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "clk-sc-counts",
+      "topicId": "clocks",
+      "conceptId": "clk-coincide",
+      "kind": "shortcut",
+      "title": "How often the hands meet",
+      "prompt": "How many times do the hands coincide, point opposite ways, or stand at right angles?",
+      "formula": "In 12 hours: coincide 11 times, opposite 11 times, at right angles 22 times\nIn a day: 22, 22 and 44",
+      "variables": [],
+      "explanation": "The minute hand laps the hour hand 11 times in 12 hours, not 12, because the hour hand moves too.",
+      "example": "Between noon and midnight the hands overlap 11 times (noon counted once).",
+      "commonMistake": "Answering 12 and 24 for the overlaps.",
+      "applicationPrompt": "How many times are the hands of a clock at right angles in a day?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "clocks-level-0",
+      "topicId": "clocks",
+      "order": 0,
+      "title": "Two Hands, Two Speeds",
+      "description": "Everything about clocks follows from how fast each hand turns.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "clk-speed",
+        "clk-angle"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Degrees per minute",
+            "body": "The minute hand goes round (360°) in 60 minutes: 6° every minute. The hour hand takes 12 hours (720 minutes): 0.5° every minute. So the minute hand gains 5.5° on the hour hand every minute."
+          },
+          {
+            "type": "formula",
+            "title": "The angle formula",
+            "body": "θ = | 30h − 5.5m |\n(use 360° − θ if θ > 180°)",
+            "caption": "The 5.5 accounts for the hour hand drifting as the minutes pass."
+          },
+          {
+            "type": "check",
+            "questionId": "clocks-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Catching up",
+            "body": "To find when the hands overlap, or make a given angle, work out the gap to close and divide by 5.5° per minute."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "clock-angle"
+          },
+          {
+            "type": "check",
+            "questionId": "clocks-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "clocks-level-1",
+      "topicId": "clocks",
+      "order": 1,
+      "title": "Clocks Formulas",
+      "description": "Hand speeds, angles, overlaps, mirrors and faulty clocks.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "clocks-level-0"
+      ],
+      "conceptIds": [
+        "clk-speed",
+        "clk-angle",
+        "clk-coincide",
+        "clk-mirror",
+        "clk-faulty"
+      ],
+      "formulaIds": [
+        "clk-speed-f",
+        "clk-angle-f",
+        "clk-coincide-f",
+        "clk-mirror-f",
+        "clk-faulty-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "clocks-level-2",
+      "topicId": "clocks",
+      "order": 2,
+      "title": "Direct Clock Questions",
+      "description": "Angles on the hour and hand speeds.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "clocks-level-1"
+      ],
+      "conceptIds": [
+        "clk-speed",
+        "clk-angle"
+      ],
+      "questionIds": [
+        "clocks-q-001",
+        "clocks-q-002",
+        "clocks-q-003",
+        "clocks-q-004",
+        "clocks-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "clocks-level-3",
+      "topicId": "clocks",
+      "order": 3,
+      "title": "Angles, Mirrors and Overlaps",
+      "description": "Angles off the hour, mirror times, first overlap.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "clocks-level-2"
+      ],
+      "conceptIds": [
+        "clk-angle",
+        "clk-mirror",
+        "clk-coincide",
+        "clk-faulty"
+      ],
+      "questionIds": [
+        "clocks-q-006",
+        "clocks-q-007",
+        "clocks-q-008",
+        "clocks-q-009",
+        "clocks-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "clocks-level-4",
+      "topicId": "clocks",
+      "order": 4,
+      "title": "Coincidences and Faulty Clocks",
+      "description": "Counting overlaps, true elapsed time and right angles.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "clocks-level-3"
+      ],
+      "conceptIds": [
+        "clk-coincide",
+        "clk-faulty"
+      ],
+      "questionIds": [
+        "clocks-q-011",
+        "clocks-q-012",
+        "clocks-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "clocks-level-5",
+      "topicId": "clocks",
+      "order": 5,
+      "title": "Mixed Clocks Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "clocks-level-4"
+      ],
+      "conceptIds": [
+        "clk-coincide",
+        "clk-faulty"
+      ],
+      "questionQuery": {
+        "topicId": "clocks",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "clocks-q-001",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "levelId": "clocks-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the angle between the hands of a clock at 3 o'clock?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 3:00",
+        "hour": 3,
+        "minute": 0,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 3:00: the hour hand is on 3 and the minute hand is on 12."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "60°"
+        },
+        {
+          "id": "b",
+          "text": "90°"
+        },
+        {
+          "id": "c",
+          "text": "120°"
+        },
+        {
+          "id": "d",
+          "text": "180°"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "At 3:00 the minute hand points to 12 and the hour hand to 3. Each hour mark is 30°, so the angle is 3 × 30° = 90°.",
+      "solutionSteps": [
+        "Each hour mark = 30°.",
+        "3 hour marks = 90°."
+      ],
+      "formulaIds": [
+        "clk-angle-f"
+      ],
+      "method": "30° per hour mark.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many hour marks separate 12 and 3?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 60° per hour mark."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-002",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "levelId": "clocks-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the angle, in degrees, between the hands of a clock at 6 o'clock?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 6:00",
+        "hour": 6,
+        "minute": 0,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 6:00: the hour hand is on 6 and the minute hand is on 12."
+      },
+      "answer": {
+        "value": 180,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "At 6:00 the hands point in opposite directions, so the angle is 6 × 30° = 180°.",
+      "solutionSteps": [
+        "6 × 30° = 180°."
+      ],
+      "formulaIds": [
+        "clk-angle-f"
+      ],
+      "method": "30° per hour mark.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12 and 6 are opposite on the dial."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 360°."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-003",
+      "topicId": "clocks",
+      "conceptId": "clk-speed",
+      "levelId": "clocks-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Through how many degrees does the minute hand turn in 10 minutes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°"
+        },
+        {
+          "id": "b",
+          "text": "60°"
+        },
+        {
+          "id": "c",
+          "text": "5°"
+        },
+        {
+          "id": "d",
+          "text": "120°"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The minute hand turns 360° in 60 minutes, which is 6° per minute. So in 10 minutes it turns 60°.",
+      "solutionSteps": [
+        "360° ÷ 60 = 6° per minute.",
+        "6 × 10 = 60°."
+      ],
+      "formulaIds": [
+        "clk-speed-f"
+      ],
+      "method": "6° per minute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many degrees in a full turn, and how many minutes?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the hour hand's 0.5° per minute (5°)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-004",
+      "topicId": "clocks",
+      "conceptId": "clk-speed",
+      "levelId": "clocks-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "How many degrees does the hour hand move in one minute?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6°"
+        },
+        {
+          "id": "b",
+          "text": "5.5°"
+        },
+        {
+          "id": "c",
+          "text": "0.5°"
+        },
+        {
+          "id": "d",
+          "text": "30°"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The hour hand makes a full turn (360°) in 12 hours = 720 minutes, so it moves 360 ÷ 720 = 0.5° per minute.",
+      "solutionSteps": [
+        "360° ÷ 720 = 0.5°."
+      ],
+      "formulaIds": [
+        "clk-speed-f"
+      ],
+      "method": "0.5° per minute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How long does the hour hand take to go once round?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 6° (the minute hand) or 30° (per hour)."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-005",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "levelId": "clocks-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the angle, in degrees, between the hands of a clock at 4 o'clock?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 4:00",
+        "hour": 4,
+        "minute": 0,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 4:00: the hour hand is on 4 and the minute hand is on 12."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "At 4:00 the hour hand is at 4 × 30° = 120° from 12, and the minute hand is at 0°. The angle is 120°.",
+      "solutionSteps": [
+        "4 × 30° = 120°."
+      ],
+      "formulaIds": [
+        "clk-angle-f"
+      ],
+      "method": "30° per hour mark.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the hour marks between 12 and 4."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 240° (the reflex angle)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-006",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "levelId": "clocks-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the angle, in degrees, between the hands of a clock at 3:30?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 3:30",
+        "hour": 3,
+        "minute": 30,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 3:30: the hour hand is halfway between 3 and 4 and the minute hand is on 6."
+      },
+      "answer": {
+        "value": 75,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The hour hand is at 3 × 30 + 30 × 0.5 = 105°. The minute hand is at 30 × 6 = 180°. The angle is 180 − 105 = 75°.",
+      "solutionSteps": [
+        "Hour hand: 90 + 15 = 105°.",
+        "Minute hand: 180°.",
+        "180 − 105 = 75°."
+      ],
+      "formulaIds": [
+        "clk-angle-f",
+        "clk-speed-f"
+      ],
+      "method": "|30h − 5.5m|.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The hour hand has moved past the 3."
+        },
+        {
+          "level": 2,
+          "text": "Half an hour is 15° for the hour hand."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the hour hand stays exactly on the 3 (giving 90°)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-007",
+      "topicId": "clocks",
+      "conceptId": "clk-angle",
+      "levelId": "clocks-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the angle between the hands of a clock at 8:20?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 8:20",
+        "hour": 8,
+        "minute": 20,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 8:20: the hour hand is between 8 and 9 and the minute hand is on 4."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "120°"
+        },
+        {
+          "id": "b",
+          "text": "140°"
+        },
+        {
+          "id": "c",
+          "text": "130°"
+        },
+        {
+          "id": "d",
+          "text": "110°"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Hour hand: 8 × 30 + 20 × 0.5 = 250°. Minute hand: 20 × 6 = 120°. The angle is 250 − 120 = 130°.",
+      "solutionSteps": [
+        "Hour hand: 240 + 10 = 250°.",
+        "Minute hand: 120°.",
+        "250 − 120 = 130°."
+      ],
+      "formulaIds": [
+        "clk-angle-f"
+      ],
+      "method": "|30h − 5.5m|.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Where is the hour hand at 8:20?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 240 − 120 = 120° and forgetting the hour hand's drift."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-008",
+      "topicId": "clocks",
+      "conceptId": "clk-mirror",
+      "levelId": "clocks-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A clock reads 4:20. What time would you see in a mirror?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 4:20",
+        "hour": 4,
+        "minute": 20,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 4:20: the hour hand is between 4 and 5 and the minute hand is on 4."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "8:40"
+        },
+        {
+          "id": "b",
+          "text": "7:40"
+        },
+        {
+          "id": "c",
+          "text": "7:20"
+        },
+        {
+          "id": "d",
+          "text": "8:20"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Mirror time = 12:00 − 4:20 = 7:40.",
+      "solutionSteps": [
+        "12:00 − 4:20 = 7:40."
+      ],
+      "formulaIds": [
+        "clk-mirror-f"
+      ],
+      "method": "12:00 minus the time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reflect: the hour hand at 4 appears where 8 would be, minus the minutes effect."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the hour from 12 but leaving the minutes."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-009",
+      "topicId": "clocks",
+      "conceptId": "clk-coincide",
+      "levelId": "clocks-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "At what time between 4 and 5 o'clock do the hands of a clock coincide?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4:20"
+        },
+        {
+          "id": "b",
+          "text": "4:24"
+        },
+        {
+          "id": "c",
+          "text": "4:21 9/11"
+        },
+        {
+          "id": "d",
+          "text": "4:22 1/2"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "At 4:00 the hour hand is 120° ahead. The minute hand gains 5.5° per minute, so it needs 120 ÷ 5.5 = 240/11 = 21 9/11 minutes.",
+      "solutionSteps": [
+        "Gap at 4:00 = 120°.",
+        "Gain = 5.5° per minute.",
+        "120 ÷ 5.5 = 21 9/11 minutes."
+      ],
+      "formulaIds": [
+        "clk-coincide-f"
+      ],
+      "method": "Gap ÷ 5.5.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far ahead is the hour hand at 4:00?"
+        },
+        {
+          "level": 2,
+          "text": "How fast does the minute hand catch up?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 6 (giving 20 minutes)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-010",
+      "topicId": "clocks",
+      "conceptId": "clk-faulty",
+      "levelId": "clocks-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A clock gains 3 minutes every hour. It is set right at 6 a.m. How many minutes fast is it at 6 p.m. the same day, in true time?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "From 6 a.m. to 6 p.m. is 12 true hours, during which the clock gains 3 minutes each hour: 12 × 3 = 36 minutes.",
+      "solutionSteps": [
+        "12 hours × 3 minutes = 36 minutes."
+      ],
+      "formulaIds": [
+        "clk-faulty-f"
+      ],
+      "method": "Total error = hours × gain per hour.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many hours pass between 6 a.m. and 6 p.m.?"
+        }
+      ],
+      "commonMistakes": [
+        "Counting only 6 hours."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-011",
+      "topicId": "clocks",
+      "conceptId": "clk-coincide",
+      "levelId": "clocks-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many times do the hands of a clock coincide in a full day (24 hours)?",
+      "answer": {
+        "value": 22,
+        "tolerance": 0
+      },
+      "explanation": "The hands coincide 11 times in every 12 hours (not 12, since the overlap at 11 to 12 merges with the one at 12:00). In 24 hours that is 22.",
+      "solutionSteps": [
+        "Overlaps happen every 65 5/11 minutes.",
+        "12 hours = 720 minutes → 11 overlaps.",
+        "2 × 11 = 22."
+      ],
+      "formulaIds": [
+        "clk-coincide-f"
+      ],
+      "method": "11 overlaps per 12 hours.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The gap between overlaps is 720/11 minutes."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 24."
+      ],
+      "tags": [
+        "numeric-entry",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-012",
+      "topicId": "clocks",
+      "conceptId": "clk-faulty",
+      "levelId": "clocks-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A clock loses 5 minutes every hour and is set right at 6 a.m. When the clock shows 5 p.m. (11 hours later), how many true hours have passed?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "unit": "hours"
+      },
+      "explanation": "The clock advances only 55 minutes for each true hour. It has advanced 11 × 60 = 660 minutes, so 660 ÷ 55 = 12 true hours have passed (the true time is 6 p.m.).",
+      "solutionSteps": [
+        "Clock shows 660 minutes elapsed.",
+        "It advances 55 minutes per true hour.",
+        "660 ÷ 55 = 12."
+      ],
+      "formulaIds": [
+        "clk-faulty-f"
+      ],
+      "method": "True time = shown time × 60 ÷ (60 − loss).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many minutes does the clock show per true hour?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 11 hours as the true time."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "clocks-q-013",
+      "topicId": "clocks",
+      "conceptId": "clk-coincide",
+      "levelId": "clocks-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The hands of a clock are at right angles at 3:00. At what time after that are they next at right angles?",
+      "figure": {
+        "type": "clock",
+        "caption": "The clock at 3:00",
+        "hour": 3,
+        "minute": 0,
+        "hands": "both",
+        "ariaSummary": "A clock face showing 3:00: the hour hand is on 3 and the minute hand is on 12."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "3:16 4/11"
+        },
+        {
+          "id": "b",
+          "text": "3:32 8/11"
+        },
+        {
+          "id": "c",
+          "text": "3:30"
+        },
+        {
+          "id": "d",
+          "text": "3:45"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "At 3:00 the minute hand is 90° behind the hour hand. It must catch up by 90° and then get 90° ahead, a total gain of 180°. 180 ÷ 5.5 = 32 8/11 minutes, so 3:32 8/11. (3:16 4/11 is when they overlap.)",
+      "solutionSteps": [
+        "Total gain needed = 90° + 90° = 180°.",
+        "180 ÷ 5.5 = 32 8/11 minutes."
+      ],
+      "formulaIds": [
+        "clk-coincide-f"
+      ],
+      "method": "Gain the angle you need at 5.5° per minute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Right angle again means the minute hand is 90° on the other side."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the overlap (3:16 4/11)."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

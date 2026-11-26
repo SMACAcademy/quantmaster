@@ -1,0 +1,1289 @@
+{
+  "topicId": "quadratic-comparison",
+  "concepts": [
+    {
+      "id": "qc-format",
+      "topicId": "quadratic-comparison",
+      "name": "The five answers",
+      "description": "What each of the standard bank-paper choices means, and when to pick \"cannot be established\".",
+      "sortOrder": 1
+    },
+    {
+      "id": "qc-sign-rule",
+      "topicId": "quadratic-comparison",
+      "name": "Signs of the roots at a glance",
+      "description": "Read whether roots are positive or negative straight from the coefficients.",
+      "sortOrder": 2
+    },
+    {
+      "id": "qc-factorise",
+      "topicId": "quadratic-comparison",
+      "name": "Factorising quickly",
+      "description": "Split the middle term to get both roots in seconds, including fractional ones.",
+      "sortOrder": 3
+    },
+    {
+      "id": "qc-compare",
+      "topicId": "quadratic-comparison",
+      "name": "Comparing two sets of roots",
+      "description": "Every x against every y: the answer depends on all four pairs.",
+      "sortOrder": 4
+    },
+    {
+      "id": "qc-special",
+      "topicId": "quadratic-comparison",
+      "name": "Squares, square roots and linear pairs",
+      "description": "Statements like x² = 81, y = √81, x³ = 729, or two linear equations.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "qc-options-f",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-format",
+      "title": "The five answers",
+      "prompt": "What are the five standard answers in a bank-paper \"compare x and y\" question?",
+      "formula": "x > y   x < y   x ≥ y   x ≤ y\nx = y or the relationship cannot be established",
+      "variables": [],
+      "explanation": "Pick the one that holds for every pair of an x value and a y value.",
+      "example": "x = 3 or 4 and y = −4 or −5: every x beats every y, so x > y.",
+      "commonMistake": "Choosing x > y when only the larger roots are compared.",
+      "applicationPrompt": "x = 2 or 5, y = 3 or 4. Which answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qc-factor-f",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "title": "Split the middle term",
+      "prompt": "How do you factorise a·v² + b·v + c quickly?",
+      "formula": "Find p and q with p × q = a × c and p + q = b,\nthen v = −p/a and v = −q/a",
+      "variables": [],
+      "explanation": "Writing b·v as p·v + q·v lets the expression factor in pairs.",
+      "example": "2x² − 7x + 6: product 12, sum −7 → −3 and −4, so x = 3/2 and 2.",
+      "commonMistake": "Forgetting to divide by a, so 3/2 becomes 3.",
+      "applicationPrompt": "Find the roots of 3x² − 10x + 8 = 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qc-compare-f",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-compare",
+      "title": "Compare every pair",
+      "prompt": "With two x values and two y values, how do you decide the answer?",
+      "formula": "Put all the roots on a number line:\nall x right of all y → x > y; all x left of all y → x < y\ntouching at one point → ≥ or ≤; overlapping → cannot be established",
+      "variables": [],
+      "explanation": "The relation must hold whichever root x and y actually take.",
+      "example": "x = 3 or 5, y = 3 or 4: x = 5 > 4 but x = 3 < 4, so the relationship cannot be established.",
+      "commonMistake": "Comparing the larger roots only.",
+      "applicationPrompt": "x = −2 or 4, y = −2: which answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qc-square-f",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-special",
+      "title": "v² = k and v = √k",
+      "prompt": "How many values does x² = 81 give, and how many does y = √81 give?",
+      "formula": "v² = k → v = +√k or −√k (two values)\nv = √k → v = +√k only (one value)",
+      "variables": [],
+      "explanation": "The square-root sign always means the positive root.",
+      "example": "x² = 64 gives ±8; y = √64 gives 8. So x ≤ y.",
+      "commonMistake": "Giving √64 the value −8 as well.",
+      "applicationPrompt": "x³ = 729 and y² = 81: which answer?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qc-sc-signs",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-sign-rule",
+      "kind": "shortcut",
+      "title": "Root signs from the coefficients",
+      "prompt": "In x² + bx + c = 0, how can you tell the signs of the roots without solving?",
+      "formula": "c positive, b positive → both roots negative\nc positive, b negative → both roots positive\nc negative → one positive, one negative",
+      "variables": [],
+      "explanation": "The roots multiply to c and add to −b.",
+      "example": "x² − 7x + 12: both positive. y² + 9y + 20: both negative. So x > y without solving fully.",
+      "commonMistake": "Reading the root signs as the same as the signs in the equation.",
+      "applicationPrompt": "x² − 11x + 30 = 0 and y² + 6y + 8 = 0: which answer?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qc-sc-flip",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "kind": "shortcut",
+      "title": "Roots are the bracket numbers, sign flipped",
+      "prompt": "Once x² − 7x + 12 is written as (x − 3)(x − 4), what are the roots?",
+      "formula": "Roots = the numbers in the brackets with their signs changed",
+      "variables": [],
+      "explanation": "(x − 3) is zero when x = +3.",
+      "example": "(y + 4)(y + 5) = 0 gives y = −4 and y = −5.",
+      "commonMistake": "Taking the roots as −3 and −4.",
+      "applicationPrompt": "Write the roots of (x + 2)(x − 7) = 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "quadratic-comparison-level-0",
+      "topicId": "quadratic-comparison",
+      "order": 0,
+      "title": "Comparing x and y",
+      "description": "The bank-paper question type: solve two equations and choose from five fixed answers.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "qc-format",
+        "qc-sign-rule",
+        "qc-compare"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The question type",
+            "body": "Bank prelims (IBPS, SBI) set about five of these in every paper. Statement I gives values of x, statement II gives values of y, and you choose one of five fixed answers. Most take under a minute once you know the routine."
+          },
+          {
+            "type": "formula",
+            "title": "The five answers",
+            "body": "x > y   x < y   x ≥ y   x ≤ y\nx = y or the relationship cannot be established",
+            "caption": "Choose the one that is true for every pair of an x value and a y value."
+          },
+          {
+            "type": "example",
+            "title": "The routine",
+            "body": "x² − 7x + 12 = 0 gives x = 3 or 4. y² + 9y + 20 = 0 gives y = −4 or −5. Every x is above every y, so x > y."
+          },
+          {
+            "type": "check",
+            "questionId": "quadratic-comparison-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Signs first: a positive constant with a negative x term means both roots are positive; with a positive x term, both negative. Often that settles the answer before you finish factorising."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "quadratic-roots"
+          },
+          {
+            "type": "check",
+            "questionId": "quadratic-comparison-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "quadratic-comparison-level-1",
+      "topicId": "quadratic-comparison",
+      "order": 1,
+      "title": "Quadratic Comparison Formulas",
+      "description": "The five answers, splitting the middle term, comparing pairs, squares and roots.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "quadratic-comparison-level-0"
+      ],
+      "conceptIds": [
+        "qc-format",
+        "qc-factorise",
+        "qc-compare",
+        "qc-special"
+      ],
+      "formulaIds": [
+        "qc-options-f",
+        "qc-factor-f",
+        "qc-compare-f",
+        "qc-square-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "quadratic-comparison-level-2",
+      "topicId": "quadratic-comparison",
+      "order": 2,
+      "title": "Clear-cut Comparisons",
+      "description": "Sign patterns, simple factorising, squares and roots.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "quadratic-comparison-level-1"
+      ],
+      "conceptIds": [
+        "qc-sign-rule",
+        "qc-compare",
+        "qc-special",
+        "qc-format",
+        "qc-factorise"
+      ],
+      "questionIds": [
+        "quadratic-comparison-q-001",
+        "quadratic-comparison-q-002",
+        "quadratic-comparison-q-003",
+        "quadratic-comparison-q-004",
+        "quadratic-comparison-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "quadratic-comparison-level-3",
+      "topicId": "quadratic-comparison",
+      "order": 3,
+      "title": "Overlaps and Equal Roots",
+      "description": "When the roots overlap, touch, or come from a linear pair.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "quadratic-comparison-level-2"
+      ],
+      "conceptIds": [
+        "qc-compare",
+        "qc-sign-rule",
+        "qc-factorise",
+        "qc-special"
+      ],
+      "questionIds": [
+        "quadratic-comparison-q-006",
+        "quadratic-comparison-q-007",
+        "quadratic-comparison-q-008",
+        "quadratic-comparison-q-009",
+        "quadratic-comparison-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "quadratic-comparison-level-4",
+      "topicId": "quadratic-comparison",
+      "order": 4,
+      "title": "Fractional Roots and Cubes",
+      "description": "Leading coefficients other than 1, shared roots, and cube roots.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "quadratic-comparison-level-3"
+      ],
+      "conceptIds": [
+        "qc-factorise",
+        "qc-special"
+      ],
+      "questionIds": [
+        "quadratic-comparison-q-011",
+        "quadratic-comparison-q-012",
+        "quadratic-comparison-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "quadratic-comparison-level-5",
+      "topicId": "quadratic-comparison",
+      "order": 5,
+      "title": "Mixed Comparison Practice",
+      "description": "A mix from the whole topic, including fresh generated questions.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "quadratic-comparison-level-4"
+      ],
+      "conceptIds": [
+        "qc-format",
+        "qc-sign-rule",
+        "qc-factorise",
+        "qc-compare",
+        "qc-special"
+      ],
+      "questionQuery": {
+        "topicId": "quadratic-comparison",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "quadratic-comparison-q-001",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-sign-rule",
+      "levelId": "quadratic-comparison-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² − 7x + 12 = 0",
+            "y² + 9y + 20 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "I: (x − 3)(x − 4) = 0, so x = 3 or 4. II: (y + 4)(y + 5) = 0, so y = −4 or −5. Every x is greater than every y: x > y. The signs alone tell you: both x roots positive, both y roots negative.",
+      "solutionSteps": [
+        "x = 3 or 4.",
+        "y = −4 or −5.",
+        "Every x > every y."
+      ],
+      "formulaIds": [
+        "qc-sc-signs",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the signs: what do they say about each pair of roots?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking the roots of II as +4 and +5."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-002",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-compare",
+      "levelId": "quadratic-comparison-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² + 5x + 6 = 0",
+            "y² − 3y + 2 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "I: x = −2 or −3. II: y = 1 or 2. Every x is less than every y: x < y.",
+      "solutionSteps": [
+        "(x + 2)(x + 3) = 0: x = −2, −3.",
+        "(y − 1)(y − 2) = 0: y = 1, 2.",
+        "Every x < every y."
+      ],
+      "formulaIds": [
+        "qc-factor-f",
+        "qc-sc-flip"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both x roots are negative; both y roots are positive."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the x roots as +2 and +3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-003",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-special",
+      "levelId": "quadratic-comparison-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² = 64",
+            "y = √64"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "x² = 64 gives x = 8 or −8. y = √64 means only the positive root, 8. x is either equal to y or below it: x ≤ y.",
+      "solutionSteps": [
+        "x = ±8.",
+        "y = 8.",
+        "x = 8 = y or x = −8 < y, so x ≤ y."
+      ],
+      "formulaIds": [
+        "qc-square-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many values does each statement give?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving y the value −8 too, which would make the answer \"cannot be established\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-004",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-format",
+      "levelId": "quadratic-comparison-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a \"compare x and y\" question, when is the answer \"x = y or the relationship cannot be established\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "When some x value is above some y value and another is below, or when x and y are equal"
+        },
+        {
+          "id": "b",
+          "text": "Whenever one of the equations has two roots"
+        },
+        {
+          "id": "c",
+          "text": "Whenever any root is negative"
+        },
+        {
+          "id": "d",
+          "text": "When every x is greater than every y"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The answer must hold for every pair of an x and a y. If the pairs disagree, no single relation holds; if x and y are simply equal, this choice also covers it.",
+      "solutionSteps": [
+        "Compare each x with each y.",
+        "Mixed results, or exact equality, → this choice."
+      ],
+      "formulaIds": [
+        "qc-options-f",
+        "qc-compare-f"
+      ],
+      "method": "The chosen relation must be true for every pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think about x = 3 or 5 against y = 4."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing it whenever the question looks hard."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-005",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "levelId": "quadratic-comparison-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "2x² − 7x + 6 = 0",
+            "y² − 4y + 4 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "I: 2x² − 7x + 6 = (2x − 3)(x − 2), so x = 3/2 or 2. II: (y − 2)² = 0, so y = 2. x is 2 (equal) or 1.5 (smaller): x ≤ y.",
+      "solutionSteps": [
+        "x = 3/2 or 2.",
+        "y = 2 (repeated).",
+        "x ≤ y."
+      ],
+      "formulaIds": [
+        "qc-factor-f",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split −7x as −3x − 4x in I."
+        },
+        {
+          "level": 2,
+          "text": "II is a perfect square."
+        }
+      ],
+      "commonMistakes": [
+        "Answering x < y and missing that x can equal 2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-006",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-compare",
+      "levelId": "quadratic-comparison-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² − 8x + 15 = 0",
+            "y² − 7y + 12 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "I: x = 3 or 5. II: y = 3 or 4. x = 5 is above both y values, but x = 3 equals one and is below the other. The pairs disagree, so the relationship cannot be established.",
+      "solutionSteps": [
+        "x = 3, 5; y = 3, 4.",
+        "5 > 4 but 3 < 4.",
+        "Cannot be established."
+      ],
+      "formulaIds": [
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Put all four roots on a number line."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing only the larger roots (5 > 4) and answering x > y."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-007",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-sign-rule",
+      "levelId": "quadratic-comparison-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² + 11x + 30 = 0",
+            "y² + 7y + 12 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "I: x = −5 or −6. II: y = −3 or −4. All four are negative, so the signs alone do not decide it; but every x is below every y: x < y.",
+      "solutionSteps": [
+        "x = −5, −6.",
+        "y = −3, −4.",
+        "Every x < every y."
+      ],
+      "formulaIds": [
+        "qc-sc-signs",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both sets are negative: compare the actual values."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking −6 is greater than −4 because 6 > 4."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-008",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "levelId": "quadratic-comparison-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "3x² − 10x + 8 = 0",
+            "y² − 4y + 3 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "e"
+      ],
+      "explanation": "I: 3x² − 10x + 8 = (3x − 4)(x − 2), so x = 4/3 or 2. II: y = 1 or 3. x = 2 is above y = 1 but below y = 3: cannot be established.",
+      "solutionSteps": [
+        "x = 4/3, 2.",
+        "y = 1, 3.",
+        "The pairs disagree."
+      ],
+      "formulaIds": [
+        "qc-factor-f",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Product 24, sum −10: −4 and −6."
+        }
+      ],
+      "commonMistakes": [
+        "Writing x = 4 instead of 4/3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-009",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-compare",
+      "levelId": "quadratic-comparison-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x² − x − 12 = 0",
+            "y² + 6y + 9 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "I: (x − 4)(x + 3) = 0, so x = 4 or −3. II: (y + 3)² = 0, so y = −3. x is either above y (4) or equal to it (−3): x ≥ y.",
+      "solutionSteps": [
+        "x = 4, −3.",
+        "y = −3.",
+        "x ≥ y."
+      ],
+      "formulaIds": [
+        "qc-compare-f",
+        "qc-sc-flip"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "II is a perfect square, so y has one value."
+        }
+      ],
+      "commonMistakes": [
+        "Answering x > y and missing the equal pair."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-010",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-special",
+      "levelId": "quadratic-comparison-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "2x + 3y = 14",
+            "4x + 2y = 16"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Solve the pair together. Doubling the first gives 4x + 6y = 28; subtracting the second gives 4y = 12, so y = 3 and x = (14 − 9) ÷ 2 = 2.5. So x < y.",
+      "solutionSteps": [
+        "4x + 6y = 28 minus 4x + 2y = 16.",
+        "4y = 12, y = 3.",
+        "x = 2.5 < 3."
+      ],
+      "formulaIds": [
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "These are two linear equations in the same x and y: solve them together."
+        }
+      ],
+      "commonMistakes": [
+        "Treating each equation as if it gave x or y alone."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-011",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "levelId": "quadratic-comparison-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "6x² − 7x + 2 = 0",
+            "12y² − 7y + 1 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "I: (2x − 1)(3x − 2) = 0, so x = 1/2 or 2/3. II: (3y − 1)(4y − 1) = 0, so y = 1/3 or 1/4. Every x is above every y: x > y.",
+      "solutionSteps": [
+        "x = 1/2, 2/3.",
+        "y = 1/3, 1/4.",
+        "Smallest x (0.5) > largest y (0.33)."
+      ],
+      "formulaIds": [
+        "qc-factor-f",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare fractions as decimals."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the fractions when dividing by the leading coefficient."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-012",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-special",
+      "levelId": "quadratic-comparison-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "x³ = 729",
+            "y² = 81"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "x³ = 729 has one real value, x = 9. y² = 81 gives y = 9 or −9. x equals y or is above it: x ≥ y.",
+      "solutionSteps": [
+        "x = 9 (a cube has one real root).",
+        "y = ±9.",
+        "x ≥ y."
+      ],
+      "formulaIds": [
+        "qc-square-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A cube root has one real value; a square root has two."
+        }
+      ],
+      "commonMistakes": [
+        "Giving x two values, ±9, which would make it \"cannot be established\"."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-comparison-q-013",
+      "topicId": "quadratic-comparison",
+      "conceptId": "qc-factorise",
+      "levelId": "quadratic-comparison-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which relation between x and y is true?",
+      "table": {
+        "caption": "Solve both equations, then compare x and y",
+        "headers": [
+          "Statement I",
+          "Statement II"
+        ],
+        "rows": [
+          [
+            "2x² + 11x + 14 = 0",
+            "2y² + 15y + 28 = 0"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "x > y"
+        },
+        {
+          "id": "b",
+          "text": "x < y"
+        },
+        {
+          "id": "c",
+          "text": "x ≥ y"
+        },
+        {
+          "id": "d",
+          "text": "x ≤ y"
+        },
+        {
+          "id": "e",
+          "text": "x = y or the relationship cannot be established"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "I: (2x + 7)(x + 2) = 0, so x = −7/2 or −2. II: (2y + 7)(y + 4) = 0, so y = −7/2 or −4. The smallest x (−3.5) equals the largest y, and every other pair has x above: x ≥ y.",
+      "solutionSteps": [
+        "x = −3.5, −2.",
+        "y = −3.5, −4.",
+        "Smallest x = largest y, so x ≥ y."
+      ],
+      "formulaIds": [
+        "qc-factor-f",
+        "qc-compare-f"
+      ],
+      "method": "Find every value of x and of y, then compare each pair.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both equations share the factor (2v + 7)."
+        }
+      ],
+      "commonMistakes": [
+        "Missing the shared root and answering x > y."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "achievements": [
+    {
+      "id": "first-steps",
+      "name": "First Steps",
+      "description": "Complete your first learning session.",
+      "glyph": "🌱",
+      "tier": "bronze",
+      "criteria": { "type": "sessionsCompleted", "threshold": 1 }
+    },
+    {
+      "id": "concept-first",
+      "name": "Concept First",
+      "description": "Finish a concept lesson before practising it.",
+      "glyph": "📘",
+      "tier": "bronze",
+      "criteria": { "type": "conceptLessonsCompleted", "threshold": 1 }
+    },
+    {
+      "id": "formula-starter",
+      "name": "Formula Starter",
+      "description": "Review 10 formula cards.",
+      "glyph": "🃏",
+      "tier": "bronze",
+      "criteria": { "type": "formulasReviewed", "threshold": 10 }
+    },
+    {
+      "id": "formula-keeper",
+      "name": "Formula Keeper",
+      "description": "Recall 25 formulas correctly from memory.",
+      "glyph": "🧠",
+      "tier": "silver",
+      "criteria": { "type": "formulaRecallCorrect", "threshold": 25 }
+    },
+    {
+      "id": "error-hunter",
+      "name": "Error Hunter",
+      "description": "Correctly solve 10 questions you previously got wrong.",
+      "glyph": "🎯",
+      "tier": "silver",
+      "criteria": { "type": "mistakesCorrected", "threshold": 10 }
+    },
+    {
+      "id": "first-fix",
+      "name": "Second Time Right",
+      "description": "Correct your first previously missed question.",
+      "glyph": "✅",
+      "tier": "bronze",
+      "criteria": { "type": "mistakesCorrected", "threshold": 1 }
+    },
+    {
+      "id": "consistent-learner",
+      "name": "Consistent Learner",
+      "description": "Practise on 7 different days.",
+      "glyph": "📅",
+      "tier": "silver",
+      "criteria": { "type": "practiceDays", "threshold": 7 }
+    },
+    {
+      "id": "streak-7",
+      "name": "Week Streak",
+      "description": "Keep a 7-day practice streak.",
+      "glyph": "🔥",
+      "tier": "silver",
+      "criteria": { "type": "streakDays", "threshold": 7 }
+    },
+    {
+      "id": "streak-30",
+      "name": "Month of Maths",
+      "description": "Keep a 30-day practice streak.",
+      "glyph": "🏅",
+      "tier": "gold",
+      "criteria": { "type": "streakDays", "threshold": 30 }
+    },
+    {
+      "id": "streak-100",
+      "name": "Hundred-Day Habit",
+      "description": "Keep a 100-day practice streak.",
+      "glyph": "💯",
+      "tier": "gold",
+      "criteria": { "type": "streakDays", "threshold": 100 }
+    },
+    {
+      "id": "topic-explorer",
+      "name": "Topic Explorer",
+      "description": "Start practising in 5 different topics.",
+      "glyph": "🧭",
+      "tier": "bronze",
+      "criteria": { "type": "topicsStarted", "threshold": 5 }
+    },
+    {
+      "id": "percentage-pro",
+      "name": "Percentage Pro",
+      "description": "Reach strong mastery in Percentages.",
+      "glyph": "💯",
+      "tier": "gold",
+      "criteria": { "type": "topicMastery", "topicId": "percentages", "threshold": 85 }
+    },
+    {
+      "id": "level-five",
+      "name": "Ladder Climber",
+      "description": "Complete 5 levels.",
+      "glyph": "🪜",
+      "tier": "bronze",
+      "criteria": { "type": "levelsCompleted", "threshold": 5 }
+    },
+    {
+      "id": "level-twenty",
+      "name": "Steady Ascent",
+      "description": "Complete 20 levels.",
+      "glyph": "⛰️",
+      "tier": "gold",
+      "criteria": { "type": "levelsCompleted", "threshold": 20 }
+    },
+    {
+      "id": "hint-to-independent",
+      "name": "Hint to Independent",
+      "description": "Solve 5 questions without hints after previously needing them.",
+      "glyph": "🕊️",
+      "tier": "silver",
+      "criteria": { "type": "independentAfterGuided", "threshold": 5 }
+    },
+    {
+      "id": "perfect-session",
+      "name": "Clean Sheet",
+      "description": "Finish a session of 8+ questions with full accuracy.",
+      "glyph": "✨",
+      "tier": "silver",
+      "criteria": { "type": "perfectSession", "threshold": 8 }
+    },
+    {
+      "id": "speed-builder",
+      "name": "Speed Builder",
+      "description": "Complete a timed challenge level.",
+      "glyph": "⚡",
+      "tier": "silver",
+      "criteria": { "type": "timedChallengesCompleted", "threshold": 1 }
+    },
+    {
+      "id": "century",
+      "name": "Century",
+      "description": "Answer 100 questions.",
+      "glyph": "💪",
+      "tier": "silver",
+      "criteria": { "type": "questionsAnswered", "threshold": 100 }
+    },
+    {
+      "id": "five-hundred",
+      "name": "Five Hundred Club",
+      "description": "Answer 500 questions.",
+      "glyph": "🏆",
+      "tier": "gold",
+      "criteria": { "type": "questionsAnswered", "threshold": 500 }
+    },
+    {
+      "id": "comeback",
+      "name": "Comeback",
+      "description": "Return after a break of 3 days or more and finish a session.",
+      "glyph": "🌅",
+      "tier": "bronze",
+      "criteria": { "type": "comeback", "threshold": 3 }
+    },
+    {
+      "id": "deep-work",
+      "name": "Deep Work",
+      "description": "Complete a 20+ question session in one sitting.",
+      "glyph": "🧗",
+      "tier": "silver",
+      "criteria": { "type": "longSession", "threshold": 20 }
+    }
+  ]
+}

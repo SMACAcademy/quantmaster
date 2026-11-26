@@ -1,0 +1,1053 @@
+{
+  "topicId": "hcf-lcm",
+  "concepts": [
+    {
+      "id": "hl-basic",
+      "topicId": "hcf-lcm",
+      "name": "HCF and LCM by prime powers",
+      "description": "HCF takes the lowest power of each common prime; LCM takes the highest power of every prime.",
+      "sortOrder": 1
+    },
+    {
+      "id": "hl-product",
+      "topicId": "hcf-lcm",
+      "name": "The product relation",
+      "description": "For two numbers, HCF × LCM equals the product of the numbers.",
+      "sortOrder": 2
+    },
+    {
+      "id": "hl-lcm-apps",
+      "topicId": "hcf-lcm",
+      "name": "Events that repeat (LCM)",
+      "description": "When will repeating events coincide again? After the LCM of their periods.",
+      "sortOrder": 3
+    },
+    {
+      "id": "hl-hcf-apps",
+      "topicId": "hcf-lcm",
+      "name": "Equal groups and tiles (HCF)",
+      "description": "The largest equal group size that divides everything evenly is the HCF.",
+      "sortOrder": 4
+    },
+    {
+      "id": "hl-remainder",
+      "topicId": "hcf-lcm",
+      "name": "Remainder problems",
+      "description": "Subtract the remainders first: divisors come from HCF, smallest dividends from LCM plus the remainder.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "hl-factor-f",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-basic",
+      "title": "Factor method",
+      "prompt": "How do you find HCF and LCM from prime factorisations?",
+      "formula": "HCF = product of common primes, lowest powers\nLCM = product of all primes, highest powers",
+      "variables": [],
+      "explanation": "A common factor cannot use more of a prime than the number with the least of it; a common multiple must have at least as much as the number with the most.",
+      "example": "12 = 2² × 3 and 18 = 2 × 3²\nHCF = 2 × 3 = 6, LCM = 2² × 3² = 36",
+      "commonMistake": "Mixing up lowest and highest powers.",
+      "applicationPrompt": "Find the HCF and LCM of 12 and 18.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hl-product-f",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "title": "Product relation",
+      "prompt": "How are the HCF and LCM of two numbers related to the numbers?",
+      "formula": "HCF × LCM = a × b",
+      "variables": [],
+      "explanation": "Each prime appears in a × b with total exponent = lowest + highest, which is exactly what HCF × LCM collects. It works only for two numbers.",
+      "example": "8 and 12: HCF 4, LCM 24 → 4 × 24 = 96 = 8 × 12",
+      "commonMistake": "Using it for three numbers.",
+      "applicationPrompt": "Two numbers have HCF 12 and LCM 180. One is 36. What is the other?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hl-lcm-f",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-lcm-apps",
+      "title": "Coinciding events",
+      "prompt": "Events repeat every a, b and c minutes. When do they next coincide?",
+      "formula": "Next time together = LCM(a, b, c)",
+      "variables": [],
+      "explanation": "It must be a whole number of periods for every event, so it is a common multiple, and the first such time is the least.",
+      "example": "Bells every 4, 6, 8 min → LCM = 24 min",
+      "commonMistake": "Multiplying the periods.",
+      "applicationPrompt": "Bells ring every 4, 6 and 8 minutes. They ring together now. When do they next ring together?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hl-hcf-f",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-hcf-apps",
+      "title": "Largest equal size",
+      "prompt": "You must cut or group lengths without leftovers. What is the largest possible size?",
+      "formula": "Largest equal piece / tile / group = HCF",
+      "variables": [],
+      "explanation": "The piece must divide every length exactly, so it is a common factor; the largest one is the HCF.",
+      "example": "Tiles for 480 cm × 360 cm: HCF = 120 cm",
+      "commonMistake": "Using the LCM.",
+      "applicationPrompt": "What is the largest square tile that exactly covers a 480 cm by 360 cm floor?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hl-remainder-f",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-remainder",
+      "title": "Remainder problems",
+      "prompt": "How do you handle \"leaves the same remainder\" problems?",
+      "formula": "Largest divisor leaving remainder r each time: HCF(a − r, b − r, …)\nSame unknown remainder: HCF of the differences\nSmallest number leaving r: LCM + r",
+      "variables": [],
+      "explanation": "Subtracting the remainder makes each number an exact multiple of the divisor. Differences cancel an unknown remainder.",
+      "example": "43, 91, 183 leave the same remainder\nDifferences 48, 92 → HCF 4",
+      "commonMistake": "Using the numbers themselves instead of the differences.",
+      "applicationPrompt": "Find the largest number that leaves the same remainder when dividing 43, 91 and 183.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "hl-sc-fractions",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-basic",
+      "kind": "shortcut",
+      "title": "HCF and LCM of fractions",
+      "prompt": "How do you find the HCF and LCM of fractions?",
+      "formula": "HCF = HCF of numerators ÷ LCM of denominators\nLCM = LCM of numerators ÷ HCF of denominators",
+      "variables": [],
+      "explanation": "Put the fractions in lowest terms first. The HCF must divide every fraction a whole number of times; the LCM must be a whole multiple of each.",
+      "example": "2/3, 4/9, 8/15: HCF = 2/45, LCM = 8/3.",
+      "commonMistake": "Using HCF over HCF or LCM over LCM.",
+      "applicationPrompt": "Find the LCM of 1/2, 3/4 and 5/6.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "hl-sc-remainders",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-remainder",
+      "kind": "shortcut",
+      "title": "Smallest number with given remainders",
+      "prompt": "What is the smallest number that leaves known remainders when divided by a, b and c?",
+      "formula": "Same remainder r each time: LCM + r\nSame shortfall k each time (divisor − remainder = k): LCM − k",
+      "variables": [],
+      "explanation": "A number r more than a common multiple leaves r every time; a number k short of one leaves divisor − k.",
+      "example": "Divisors 5, 6, 8 with remainders 3, 4, 6: each is 2 short, so 120 − 2 = 118.",
+      "commonMistake": "Adding the remainders or adding k instead of subtracting it.",
+      "applicationPrompt": "Find the least number that leaves 3 when divided by each of 4, 6 and 8.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "hl-sc-ratio",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "kind": "shortcut",
+      "title": "Numbers from a ratio and their HCF",
+      "prompt": "Two numbers are in the ratio a : b (in lowest terms) and their HCF is h. What are the numbers and their LCM?",
+      "formula": "Numbers = a × h and b × h\nLCM = a × b × h",
+      "variables": [],
+      "explanation": "With a and b sharing no factor, h is everything the two numbers have in common.",
+      "example": "Ratio 3 : 4, HCF 5: the numbers are 15 and 20, and the LCM is 60.",
+      "commonMistake": "Giving the LCM as a × b and leaving out h.",
+      "applicationPrompt": "Two numbers are in the ratio 5 : 7 and their LCM is 315. Find their HCF.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "hcf-lcm-level-0",
+      "topicId": "hcf-lcm",
+      "order": 0,
+      "title": "Common Factors and Common Multiples",
+      "description": "Two ideas with two prime-power rules, and where each one shows up.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "hl-basic",
+        "hl-product"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Lowest power or highest power",
+            "body": "Write each number in prime powers. The HCF keeps only primes that every number has, at the lowest power. The LCM keeps every prime that any number has, at the highest power.\n\n12 = 2² × 3 and 18 = 2 × 3²\nHCF = 2 × 3 = 6 and LCM = 2² × 3² = 36."
+          },
+          {
+            "type": "formula",
+            "title": "The product relation",
+            "body": "HCF × LCM = a × b",
+            "caption": "True for exactly two numbers. It never works for three."
+          },
+          {
+            "type": "check",
+            "questionId": "hcf-lcm-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Which one do I need?",
+            "body": "Cutting, tiling and grouping problems ask for the largest size that fits every length — that is the HCF. Repeating-event problems ask when things line up again — that is the LCM."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "hcf-tiles"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "lcm-bells"
+          },
+          {
+            "type": "check",
+            "questionId": "hcf-lcm-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "hcf-lcm-level-1",
+      "topicId": "hcf-lcm",
+      "order": 1,
+      "title": "HCF & LCM Formulas",
+      "description": "Factor method, product relation, applications and remainder problems.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "hcf-lcm-level-0"
+      ],
+      "conceptIds": [
+        "hl-basic",
+        "hl-product",
+        "hl-lcm-apps",
+        "hl-hcf-apps",
+        "hl-remainder"
+      ],
+      "formulaIds": [
+        "hl-factor-f",
+        "hl-product-f",
+        "hl-lcm-f",
+        "hl-hcf-f",
+        "hl-remainder-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "hcf-lcm-level-2",
+      "topicId": "hcf-lcm",
+      "order": 2,
+      "title": "Direct HCF and LCM",
+      "description": "One-step HCF, LCM and the product relation.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "hcf-lcm-level-1"
+      ],
+      "conceptIds": [
+        "hl-basic",
+        "hl-product",
+        "hl-lcm-apps"
+      ],
+      "questionIds": [
+        "hcf-lcm-q-001",
+        "hcf-lcm-q-002",
+        "hcf-lcm-q-003",
+        "hcf-lcm-q-004",
+        "hcf-lcm-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "hcf-lcm-level-3",
+      "topicId": "hcf-lcm",
+      "order": 3,
+      "title": "Choosing HCF or LCM",
+      "description": "Tiles, missing numbers and simple remainders.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "hcf-lcm-level-2"
+      ],
+      "conceptIds": [
+        "hl-product",
+        "hl-hcf-apps",
+        "hl-remainder",
+        "hl-basic"
+      ],
+      "questionIds": [
+        "hcf-lcm-q-006",
+        "hcf-lcm-q-007",
+        "hcf-lcm-q-008",
+        "hcf-lcm-q-009",
+        "hcf-lcm-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "hcf-lcm-level-4",
+      "topicId": "hcf-lcm",
+      "order": 4,
+      "title": "Remainders and Restrictions",
+      "description": "Same-remainder problems and digit limits.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "hcf-lcm-level-3"
+      ],
+      "conceptIds": [
+        "hl-remainder",
+        "hl-lcm-apps"
+      ],
+      "questionIds": [
+        "hcf-lcm-q-011",
+        "hcf-lcm-q-012",
+        "hcf-lcm-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "hcf-lcm-level-5",
+      "topicId": "hcf-lcm",
+      "order": 5,
+      "title": "Mixed HCF & LCM Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "hcf-lcm-level-4"
+      ],
+      "conceptIds": [
+        "hl-remainder",
+        "hl-lcm-apps"
+      ],
+      "questionQuery": {
+        "topicId": "hcf-lcm",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "hcf-lcm-q-001",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-basic",
+      "levelId": "hcf-lcm-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the HCF of 12 and 18?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "36"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "12 = 2² × 3 and 18 = 2 × 3². Common primes at their lowest powers: 2 × 3 = 6.",
+      "solutionSteps": [
+        "12 = 2² × 3, 18 = 2 × 3².",
+        "Lowest common powers: 2¹ × 3¹.",
+        "HCF = 6."
+      ],
+      "formulaIds": [
+        "hl-factor-f"
+      ],
+      "method": "Common primes, lowest powers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List the factors of each number."
+        },
+        {
+          "level": 2,
+          "text": "Which is the largest one they share?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 36, the LCM."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-002",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-basic",
+      "levelId": "hcf-lcm-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the LCM of 12 and 18?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "12 = 2² × 3 and 18 = 2 × 3². Highest powers: 2² × 3² = 36.",
+      "solutionSteps": [
+        "12 = 2² × 3, 18 = 2 × 3².",
+        "Highest powers: 2² and 3².",
+        "LCM = 4 × 9 = 36."
+      ],
+      "formulaIds": [
+        "hl-factor-f"
+      ],
+      "method": "All primes, highest powers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the multiples of 18 and find the first that 12 divides."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 216, the product."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-003",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "levelId": "hcf-lcm-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The HCF of 8 and 12 is 4 and their LCM is 24. What is HCF × LCM?",
+      "options": [
+        {
+          "id": "a",
+          "text": "96"
+        },
+        {
+          "id": "b",
+          "text": "24"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "HCF × LCM = 4 × 24 = 96, which is also 8 × 12.",
+      "solutionSteps": [
+        "4 × 24 = 96.",
+        "Check: 8 × 12 = 96 ✓."
+      ],
+      "formulaIds": [
+        "hl-product-f"
+      ],
+      "method": "HCF × LCM = product of the two numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is 8 × 12?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving the LCM alone."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-004",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "levelId": "hcf-lcm-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "For two positive numbers a and b, HCF × LCM equals",
+      "options": [
+        {
+          "id": "a",
+          "text": "a + b"
+        },
+        {
+          "id": "b",
+          "text": "a ÷ b"
+        },
+        {
+          "id": "c",
+          "text": "(a + b) ÷ 2"
+        },
+        {
+          "id": "d",
+          "text": "a × b"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "For two numbers HCF × LCM = a × b. Each prime's lowest and highest exponents add up to its exponent in a plus its exponent in b.",
+      "solutionSteps": [
+        "Lowest + highest exponent = exponent in a + exponent in b.",
+        "So HCF × LCM = a × b."
+      ],
+      "formulaIds": [
+        "hl-product-f"
+      ],
+      "method": "HCF × LCM = a × b (two numbers only).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Test it on 4 and 6: HCF 2, LCM 12."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming it also works for three numbers."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-005",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-lcm-apps",
+      "levelId": "hcf-lcm-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Three bells toll every 4, 6 and 8 minutes and toll together now. After how many minutes will they next toll together?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "18"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "192"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The next common time is the LCM of 4, 6 and 8: 24 minutes.",
+      "solutionSteps": [
+        "4 = 2², 6 = 2 × 3, 8 = 2³.",
+        "LCM = 2³ × 3 = 24."
+      ],
+      "formulaIds": [
+        "hl-lcm-f"
+      ],
+      "method": "Repeating events coincide at the LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need a time that is a multiple of all three periods."
+        },
+        {
+          "level": 2,
+          "text": "The first such time is the least common multiple."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying all three periods (192)."
+      ],
+      "tags": [
+        "application"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-006",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "levelId": "hcf-lcm-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The HCF of two numbers is 12 and their LCM is 180. If one number is 36, what is the other?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "HCF × LCM = product: 12 × 180 = 2160. The other number = 2160 ÷ 36 = 60.",
+      "solutionSteps": [
+        "12 × 180 = 2160.",
+        "2160 ÷ 36 = 60."
+      ],
+      "formulaIds": [
+        "hl-product-f"
+      ],
+      "method": "Other number = HCF × LCM ÷ known number.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use HCF × LCM = a × b."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the LCM by the known number."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-007",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-hcf-apps",
+      "levelId": "hcf-lcm-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A floor 480 cm long and 360 cm wide is to be covered with square tiles of the same size, with no cutting. What is the largest possible side of a tile?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60 cm"
+        },
+        {
+          "id": "b",
+          "text": "120 cm"
+        },
+        {
+          "id": "c",
+          "text": "240 cm"
+        },
+        {
+          "id": "d",
+          "text": "1,440 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The tile side must divide both 480 and 360, so the largest is HCF(480, 360) = 120 cm.",
+      "solutionSteps": [
+        "480 = 2⁵ × 3 × 5; 360 = 2³ × 3² × 5.",
+        "HCF = 2³ × 3 × 5 = 120."
+      ],
+      "formulaIds": [
+        "hl-hcf-f"
+      ],
+      "method": "Largest equal piece: the HCF.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The tile side must divide both dimensions exactly."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 1,440, the LCM."
+      ],
+      "tags": [
+        "application"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-008",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-remainder",
+      "levelId": "hcf-lcm-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Find the smallest number greater than 20 that leaves a remainder of 5 when divided by 6, 8 and 12.",
+      "answer": {
+        "value": 29,
+        "tolerance": 0
+      },
+      "explanation": "LCM(6, 8, 12) = 24. Numbers leaving remainder 5 are 24k + 5: 5, 29, 53, … The first one above 20 is 29.",
+      "solutionSteps": [
+        "LCM(6, 8, 12) = 24.",
+        "Numbers are 24k + 5.",
+        "Above 20: 24 + 5 = 29."
+      ],
+      "formulaIds": [
+        "hl-remainder-f"
+      ],
+      "method": "LCM plus the common remainder.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Numbers that leave the same remainder differ by a multiple of the LCM."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 24, the LCM alone."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-009",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-basic",
+      "levelId": "hcf-lcm-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the largest number that divides 60, 84 and 108 exactly?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "36"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "60 = 2² × 3 × 5, 84 = 2² × 3 × 7, 108 = 2² × 3³. Common: 2² × 3 = 12.",
+      "solutionSteps": [
+        "60 = 2² × 3 × 5.",
+        "84 = 2² × 3 × 7.",
+        "108 = 2² × 3³.",
+        "HCF = 2² × 3 = 12."
+      ],
+      "formulaIds": [
+        "hl-factor-f"
+      ],
+      "method": "HCF: common primes, lowest powers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise all three numbers."
+        },
+        {
+          "level": 2,
+          "text": "Keep only primes present in every one."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 6 after checking only one prime."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-010",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-product",
+      "levelId": "hcf-lcm-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Two numbers are in the ratio 3 : 4 and their LCM is 48. What is the sum of the two numbers?",
+      "answer": {
+        "value": 28,
+        "tolerance": 0
+      },
+      "explanation": "Write the numbers as 3k and 4k. Their HCF is k, so their LCM is 12k = 48 and k = 4. The numbers are 12 and 16, and 12 + 16 = 28.",
+      "solutionSteps": [
+        "Numbers are 3k and 4k, with HCF k.",
+        "LCM = 3 × 4 × k = 12k = 48.",
+        "k = 4 → 12 and 16.",
+        "Sum = 28."
+      ],
+      "formulaIds": [
+        "hl-product-f",
+        "hl-factor-f"
+      ],
+      "method": "Write ratio numbers as multiples of their HCF.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Let the numbers be 3k and 4k. What is their HCF?"
+        },
+        {
+          "level": 2,
+          "text": "Then find the LCM in terms of k."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 48 as one of the numbers."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-011",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-remainder",
+      "levelId": "hcf-lcm-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the largest number that divides 43, 91 and 183 leaving the same remainder each time?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Differences: 91 − 43 = 48 and 183 − 91 = 92. The largest number dividing both is HCF(48, 92) = 4. Check: each of 43, 91, 183 leaves remainder 3 on division by 4.",
+      "solutionSteps": [
+        "Differences: 48 and 92.",
+        "HCF(48, 92) = 4.",
+        "Check remainders: 43, 91, 183 all give 3."
+      ],
+      "formulaIds": [
+        "hl-remainder-f"
+      ],
+      "method": "Same remainder: HCF of the differences.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If two numbers leave the same remainder, what do you know about their difference?"
+        },
+        {
+          "level": 2,
+          "text": "Take the HCF of the differences."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the HCF of the numbers themselves."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-012",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-remainder",
+      "levelId": "hcf-lcm-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the largest number that divides 1657 and 2037, leaving remainders 6 and 5 respectively?",
+      "options": [
+        {
+          "id": "a",
+          "text": "13"
+        },
+        {
+          "id": "b",
+          "text": "254"
+        },
+        {
+          "id": "c",
+          "text": "127"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Subtract the remainders: 1657 − 6 = 1651 and 2037 − 5 = 2032. The largest divisor is HCF(1651, 2032) = 127 (1651 = 13 × 127, 2032 = 16 × 127).",
+      "solutionSteps": [
+        "1657 − 6 = 1651; 2037 − 5 = 2032.",
+        "1651 = 13 × 127; 2032 = 16 × 127.",
+        "HCF = 127."
+      ],
+      "formulaIds": [
+        "hl-remainder-f"
+      ],
+      "method": "Subtract the remainders, then take the HCF.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Remove the remainders so each number is an exact multiple."
+        },
+        {
+          "level": 2,
+          "text": "Then find the HCF of what is left."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the HCF of 1657 and 2037."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "hcf-lcm-q-013",
+      "topicId": "hcf-lcm",
+      "conceptId": "hl-lcm-apps",
+      "levelId": "hcf-lcm-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the smallest 3-digit number that is exactly divisible by 12, 15 and 20?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0
+      },
+      "explanation": "LCM(12, 15, 20) = 60. Multiples of 60: 60, 120, 180, … The smallest 3-digit one is 120.",
+      "solutionSteps": [
+        "12 = 2² × 3, 15 = 3 × 5, 20 = 2² × 5.",
+        "LCM = 2² × 3 × 5 = 60.",
+        "Smallest multiple ≥ 100: 120."
+      ],
+      "formulaIds": [
+        "hl-factor-f"
+      ],
+      "method": "Divisible by all ⇔ multiple of the LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the LCM first."
+        },
+        {
+          "level": 2,
+          "text": "60 itself has only two digits."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 60, which is not 3 digits."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1050 @@
+{
+  "topicId": "pipes-cisterns",
+  "concepts": [
+    {
+      "id": "pc-rate",
+      "topicId": "pipes-cisterns",
+      "name": "Fill and empty rates",
+      "description": "A pipe that fills a tank in n hours adds 1/n of it per hour; an outlet removes 1/n per hour.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pc-combined",
+      "topicId": "pipes-cisterns",
+      "name": "Pipes working together",
+      "description": "Add the rates of inlets, subtract the rates of outlets, then invert.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pc-leak",
+      "topicId": "pipes-cisterns",
+      "name": "Leaks",
+      "description": "A leak is just an outlet you did not ask for: compare fill times with and without it.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pc-apps",
+      "topicId": "pipes-cisterns",
+      "name": "Changing the setup part-way",
+      "description": "Work out the fraction done first, then the rate for the remaining stage.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pc-rate-f",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-rate",
+      "title": "Pipe rate",
+      "prompt": "A pipe fills a tank in n hours. What fraction does it fill per hour?",
+      "formula": "Inlet rate = +1/n\nOutlet rate = −1/n",
+      "variables": [],
+      "explanation": "Same idea as work rates: convert time into a fraction per hour so that rates can be added.",
+      "example": "Fills in 12 hr → 1/12 per hr",
+      "commonMistake": "Adding times instead of rates.",
+      "applicationPrompt": "A pipe fills a tank in 12 hours. What fraction of the tank does it fill in one hour?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pc-net-f",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "title": "Net rate",
+      "prompt": "With several pipes open, how do you find the time to fill?",
+      "formula": "Net rate = (sum of inlet rates) − (sum of outlet rates)\nTime = 1 ÷ Net rate",
+      "variables": [],
+      "explanation": "Inlets add water, outlets remove it. A positive net rate fills the tank; a negative one empties it.",
+      "example": "Inlet 1/4, outlet 1/12\nNet = 1/6 → 6 hr",
+      "commonMistake": "Adding the outlet's rate instead of subtracting it.",
+      "applicationPrompt": "An inlet fills a tank in 4 hours and an outlet empties it in 12. With both open, how long to fill?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pc-leak-f",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-leak",
+      "title": "The leak",
+      "prompt": "A tank fills in a hours normally but takes b hours with a leak (b > a). How long does the leak take to empty a full tank?",
+      "formula": "Leak rate = 1/a − 1/b\nEmptying time = ab ÷ (b − a)",
+      "variables": [],
+      "explanation": "The leak's rate is the difference between the rate without it and the rate with it.",
+      "example": "a = 5, b = 6 → 1/5 − 1/6 = 1/30 → 30 hr",
+      "commonMistake": "Answering b − a.",
+      "applicationPrompt": "A tank normally fills in 5 hours but takes 6 with a leak. How long would the leak take to empty it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pc-stage-f",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "title": "Staged problems",
+      "prompt": "A setup changes part-way. How do you find the total time?",
+      "formula": "Fraction done = rate₁ × t₁\nRemaining ÷ rate₂ = t₂",
+      "variables": [],
+      "explanation": "Treat each stage as its own problem with the whole tank as 1.",
+      "example": "Rate 1/6 for 4 hr → 2/3 done\nRemaining 1/3 at 1/15 → 5 hr",
+      "commonMistake": "Using the first rate for the whole job.",
+      "applicationPrompt": "Two pipes fill in 10 and 15 hours. Both open for 4 hours, then the first is closed. How many more hours does the second need?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pc-sc-lcm",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "kind": "shortcut",
+      "title": "Tank capacity as the LCM",
+      "prompt": "How do you combine filling and emptying pipes without fractions?",
+      "formula": "Capacity = LCM of the times\nInlet: + Capacity ÷ time   Outlet: − Capacity ÷ time\nTime = Capacity ÷ net units per minute",
+      "variables": [],
+      "explanation": "With the LCM as the capacity, every pipe moves a whole number of units per minute.",
+      "example": "Pipes fill in 20 and 30 minutes, an outlet empties in 15: capacity 60, net 3 + 2 − 4 = 1 a minute, so 60 minutes.",
+      "commonMistake": "Adding the outlet's units instead of subtracting them.",
+      "applicationPrompt": "Two inlets take 12 and 15 hours; a drain empties the tank in 20 hours. All are open.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pc-sc-close-early",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "kind": "shortcut",
+      "title": "When to close the second pipe",
+      "prompt": "Pipes A and B fill a tank in a and b minutes. Both are opened; when must B be closed for the tank to fill in exactly T minutes?",
+      "formula": "Close B after b × (1 − T/a) minutes",
+      "variables": [],
+      "explanation": "A runs for all T minutes and fills T/a of the tank; B only has to supply the rest.",
+      "example": "a = 24, b = 32, T = 18: close B after 32 × (1 − 18/24) = 8 minutes.",
+      "commonMistake": "Giving B the full T minutes as well.",
+      "applicationPrompt": "Pipes fill in 12 and 16 minutes. Both start; the tank must be full in exactly 9 minutes.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "pipes-cisterns-level-0",
+      "topicId": "pipes-cisterns",
+      "order": 0,
+      "title": "A Tank Is a Job",
+      "description": "Pipes are workers: inlets add, outlets subtract.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pc-rate",
+        "pc-combined"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Same as time and work",
+            "body": "A pipe that fills a tank in 12 hours fills 1/12 of it every hour. An outlet that empties it in 12 hours removes 1/12 every hour. Because they are rates, you can add and subtract them — you can never add the times."
+          },
+          {
+            "type": "formula",
+            "title": "Net rate",
+            "body": "Net = (inlets) − (outlets)\nTime = 1 ÷ Net",
+            "caption": "A positive net rate fills the tank; a negative one drains it."
+          },
+          {
+            "type": "check",
+            "questionId": "pipes-cisterns-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Outlets slow you down",
+            "body": "With an inlet of 1/4 and an outlet of 1/12, the tank gains 1/6 per hour, so it fills in 6 hours — longer than the inlet alone would take."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "tank-filling"
+          },
+          {
+            "type": "check",
+            "questionId": "pipes-cisterns-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "pipes-cisterns-level-1",
+      "topicId": "pipes-cisterns",
+      "order": 1,
+      "title": "Pipes Formulas",
+      "description": "Rates, net rates, leaks and staged problems.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "pipes-cisterns-level-0"
+      ],
+      "conceptIds": [
+        "pc-rate",
+        "pc-combined",
+        "pc-leak",
+        "pc-apps"
+      ],
+      "formulaIds": [
+        "pc-rate-f",
+        "pc-net-f",
+        "pc-leak-f",
+        "pc-stage-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "pipes-cisterns-level-2",
+      "topicId": "pipes-cisterns",
+      "order": 2,
+      "title": "Direct Pipe Questions",
+      "description": "Single-step rates and net rates.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "pipes-cisterns-level-1"
+      ],
+      "conceptIds": [
+        "pc-rate",
+        "pc-combined"
+      ],
+      "questionIds": [
+        "pipes-cisterns-q-001",
+        "pipes-cisterns-q-002",
+        "pipes-cisterns-q-003",
+        "pipes-cisterns-q-004",
+        "pipes-cisterns-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "pipes-cisterns-level-3",
+      "topicId": "pipes-cisterns",
+      "order": 3,
+      "title": "Leaks, Missing Pipes and Part-Full Tanks",
+      "description": "Subtracting rates to find the unknown.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "pipes-cisterns-level-2"
+      ],
+      "conceptIds": [
+        "pc-combined",
+        "pc-leak",
+        "pc-apps"
+      ],
+      "questionIds": [
+        "pipes-cisterns-q-005",
+        "pipes-cisterns-q-006",
+        "pipes-cisterns-q-007",
+        "pipes-cisterns-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "pipes-cisterns-level-4",
+      "topicId": "pipes-cisterns",
+      "order": 4,
+      "title": "Pipes That Change Mid-Way",
+      "description": "Multi-stage fill problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "pipes-cisterns-level-3"
+      ],
+      "conceptIds": [
+        "pc-apps"
+      ],
+      "questionIds": [
+        "pipes-cisterns-q-009",
+        "pipes-cisterns-q-010",
+        "pipes-cisterns-q-012",
+        "pipes-cisterns-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "pipes-cisterns-level-5",
+      "topicId": "pipes-cisterns",
+      "order": 5,
+      "title": "Mixed Pipes Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "pipes-cisterns-level-4"
+      ],
+      "conceptIds": [
+        "pc-apps"
+      ],
+      "questionQuery": {
+        "topicId": "pipes-cisterns",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "pipes-cisterns-q-001",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-rate",
+      "levelId": "pipes-cisterns-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A pipe fills a tank in 12 hours. What fraction of the tank does it fill in one hour?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "1/12"
+        },
+        {
+          "id": "c",
+          "text": "1/6"
+        },
+        {
+          "id": "d",
+          "text": "12%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Twelve equal hours fill the whole tank, so one hour fills 1/12.",
+      "solutionSteps": [
+        "Whole tank = 1.",
+        "It is filled evenly over 12 hours.",
+        "One hour = 1/12."
+      ],
+      "formulaIds": [
+        "pc-rate-f"
+      ],
+      "method": "Rate = 1 ÷ time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If the whole tank is 1, how much does one hour add?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 12, or halving to 1/6."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-002",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "levelId": "pipes-cisterns-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Pipe A fills a tank in 6 hours and pipe B fills it in 3 hours. How many hours will they take to fill it together?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0,
+        "unit": "hours"
+      },
+      "explanation": "1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2 per hour, so together they take 2 hours.",
+      "solutionSteps": [
+        "Rates: 1/6 and 1/3.",
+        "Together: 1/2 per hour.",
+        "Time = 2 hours."
+      ],
+      "formulaIds": [
+        "pc-net-f"
+      ],
+      "method": "Add rates, then invert.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each time into a rate."
+        },
+        {
+          "level": 2,
+          "text": "Use 6 as the common denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the times (4.5 hours)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-003",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "levelId": "pipes-cisterns-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "An inlet fills a tank in 4 hours and an outlet empties it in 12 hours. If both are open, how long does it take to fill the empty tank?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 hours"
+        },
+        {
+          "id": "b",
+          "text": "6 hours"
+        },
+        {
+          "id": "c",
+          "text": "8 hours"
+        },
+        {
+          "id": "d",
+          "text": "16 hours"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Net rate = 1/4 − 1/12 = 3/12 − 1/12 = 2/12 = 1/6, so the tank fills in 6 hours.",
+      "solutionSteps": [
+        "Inlet +1/4, outlet −1/12.",
+        "Net = 2/12 = 1/6.",
+        "Time = 6 hours."
+      ],
+      "formulaIds": [
+        "pc-net-f"
+      ],
+      "method": "Subtract the outlet's rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "An outlet works against the inlet."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 1/12 from 1/4."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the rates (3 hours), averaging the times (8), or adding the times (16)."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-004",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "levelId": "pipes-cisterns-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "An inlet fills a tank in a hours and an outlet empties it in b hours (b > a). With both open, the fraction filled per hour is",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/a + 1/b"
+        },
+        {
+          "id": "b",
+          "text": "1/a − 1/b"
+        },
+        {
+          "id": "c",
+          "text": "1/b − 1/a"
+        },
+        {
+          "id": "d",
+          "text": "(a + b) ÷ 2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The inlet adds 1/a per hour and the outlet removes 1/b, so the net is 1/a − 1/b. It is positive because b > a means the outlet is slower.",
+      "solutionSteps": [
+        "Inlet: +1/a.",
+        "Outlet: −1/b.",
+        "Net = 1/a − 1/b."
+      ],
+      "formulaIds": [
+        "pc-net-f"
+      ],
+      "method": "Inlets add, outlets subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Does the outlet add water or remove it?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the outlet's rate."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-005",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "levelId": "pipes-cisterns-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Pipes A and B can fill a tank in 20 and 30 minutes. A third pipe C can empty the full tank in 15 minutes. If all three are opened together, how many minutes does it take to fill the empty tank?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "Net = 1/20 + 1/30 − 1/15 = 3/60 + 2/60 − 4/60 = 1/60 per minute, so 60 minutes.",
+      "solutionSteps": [
+        "Use 60 as the common denominator.",
+        "Net = 3 + 2 − 4 = 1 part in 60.",
+        "Time = 60 minutes."
+      ],
+      "formulaIds": [
+        "pc-net-f"
+      ],
+      "method": "Add inlets, subtract outlets.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each pipe into a rate over 60."
+        },
+        {
+          "level": 2,
+          "text": "C works against A and B."
+        }
+      ],
+      "commonMistakes": [
+        "Adding C's rate too (giving 60/9 minutes)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-006",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-leak",
+      "levelId": "pipes-cisterns-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A pipe fills a tank in 5 hours. Because of a leak, it takes 6 hours to fill. How long would the leak alone take to empty the full tank?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 hour"
+        },
+        {
+          "id": "b",
+          "text": "30 hours"
+        },
+        {
+          "id": "c",
+          "text": "11 hours"
+        },
+        {
+          "id": "d",
+          "text": "15 hours"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Leak rate = 1/5 − 1/6 = 6/30 − 5/30 = 1/30, so it empties a full tank in 30 hours.",
+      "solutionSteps": [
+        "Without leak: 1/5 per hour.",
+        "With leak: 1/6 per hour.",
+        "Leak = 1/5 − 1/6 = 1/30 → 30 hours."
+      ],
+      "formulaIds": [
+        "pc-leak-f"
+      ],
+      "method": "Leak rate = normal rate − actual rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The extra hour is not the emptying time."
+        },
+        {
+          "level": 2,
+          "text": "Subtract the two rates."
+        }
+      ],
+      "commonMistakes": [
+        "Answering the extra hour (1) or adding 5 + 6 (11)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-007",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-combined",
+      "levelId": "pipes-cisterns-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Pipe A alone fills a tank in 15 minutes. A and B together fill it in 10 minutes. How many minutes would B alone take?",
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "B's rate = 1/10 − 1/15 = 3/30 − 2/30 = 1/30, so B alone takes 30 minutes.",
+      "solutionSteps": [
+        "Together: 1/10; A: 1/15.",
+        "B = 1/10 − 1/15 = 1/30.",
+        "B takes 30 minutes."
+      ],
+      "formulaIds": [
+        "pc-net-f"
+      ],
+      "method": "Subtract rates to isolate the missing pipe.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rates subtract as well as add."
+        },
+        {
+          "level": 2,
+          "text": "Invert B's rate."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the times (10 − 15 → negative) or getting 5."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-008",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "levelId": "pipes-cisterns-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A tank is half full. A pipe can fill a full tank in 8 hours and a waste pipe can empty a full tank in 24 hours. With both open, how long does it take to fill the rest of the tank?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6 hours"
+        },
+        {
+          "id": "b",
+          "text": "12 hours"
+        },
+        {
+          "id": "c",
+          "text": "3 hours"
+        },
+        {
+          "id": "d",
+          "text": "4 hours"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Net rate = 1/8 − 1/24 = 3/24 − 1/24 = 1/12 per hour. Only half a tank remains, so 1/2 ÷ 1/12 = 6 hours.",
+      "solutionSteps": [
+        "Net rate = 1/12 per hour.",
+        "Remaining = 1/2.",
+        "Time = (1/2) × 12 = 6 hours."
+      ],
+      "formulaIds": [
+        "pc-net-f",
+        "pc-stage-f"
+      ],
+      "method": "Time = remaining fraction ÷ net rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much of the tank still needs filling?"
+        },
+        {
+          "level": 2,
+          "text": "Do not use a full tank in your calculation."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the tank is half full (12 hours)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-009",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "levelId": "pipes-cisterns-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Pipe A fills a tank in 10 hours and pipe B in 15 hours. Both are opened together, and after 4 hours A is closed. How many more hours does B need to fill the rest of the tank?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0,
+        "unit": "hours"
+      },
+      "explanation": "Together: 1/10 + 1/15 = 1/6 per hour, so in 4 hours they fill 4/6 = 2/3. The remaining 1/3 at B's rate of 1/15 takes 5 hours.",
+      "solutionSteps": [
+        "Combined rate = 1/6; in 4 hr fill 2/3.",
+        "Remaining = 1/3.",
+        "B alone: (1/3) ÷ (1/15) = 5 hours."
+      ],
+      "formulaIds": [
+        "pc-net-f",
+        "pc-stage-f"
+      ],
+      "method": "Stage 1: rate × time. Stage 2: remaining ÷ new rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find how much is filled in the first 4 hours."
+        },
+        {
+          "level": 2,
+          "text": "Then only B is working."
+        }
+      ],
+      "commonMistakes": [
+        "Using B's rate for the first stage too."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-010",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "levelId": "pipes-cisterns-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Pipes A and B can fill a tank in 12 and 15 minutes, and a pipe C can empty it in 20 minutes. All three are opened together; after 4 minutes C is closed. In how many minutes from the start is the tank full?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "unit": "minutes"
+      },
+      "explanation": "Call the tank 60 units: A adds 5, B adds 4, C removes 3 per minute. With all open the net is 6 per minute, so 4 minutes give 24 units. Then C is closed: 9 per minute for the remaining 36 units takes 4 minutes. Total = 8 minutes.",
+      "solutionSteps": [
+        "Tank = 60 units; A = 5, B = 4, C = −3 per minute.",
+        "Stage 1: 6 × 4 = 24 units.",
+        "Stage 2: remaining 36 ÷ 9 = 4 minutes.",
+        "Total = 4 + 4 = 8 minutes."
+      ],
+      "formulaIds": [
+        "pc-net-f",
+        "pc-stage-f"
+      ],
+      "method": "Use the LCM as the tank size and run the stages one after another.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Pick 60 units as the capacity so every pipe has a whole rate."
+        },
+        {
+          "level": 2,
+          "text": "Find the net rate for each stage separately."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to include the first 4 minutes in the total."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-011",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-rate",
+      "levelId": "pipes-cisterns-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A pipe fills 3/8 of an empty tank in 6 hours. At the same rate, how long does it take to fill the whole tank?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.25 hours"
+        },
+        {
+          "id": "b",
+          "text": "48 hours"
+        },
+        {
+          "id": "c",
+          "text": "16 hours"
+        },
+        {
+          "id": "d",
+          "text": "18 hours"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The pipe fills 3/8 of the tank in 6 hours, so 1/8 takes 6 ÷ 3 = 2 hours. The whole tank is 8 eighths: 8 × 2 = 16 hours.",
+      "solutionSteps": [
+        "3/8 of the tank takes 6 hours.",
+        "1/8 of the tank takes 6 ÷ 3 = 2 hours.",
+        "The full tank takes 8 × 2 = 16 hours."
+      ],
+      "formulaIds": [
+        "pc-rate-f"
+      ],
+      "method": "Time for the whole = time for the part ÷ fraction filled.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How long does 1/8 of the tank take?"
+        },
+        {
+          "level": 2,
+          "text": "A full tank is 8/8."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 6 by 3/8 instead of dividing (2.25 hours).",
+        "Multiplying 6 by 8 and forgetting the 3 (48 hours)."
+      ],
+      "tags": [
+        "basic",
+        "fraction"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-012",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-leak",
+      "levelId": "pipes-cisterns-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A full tank has a leak that can empty it in 8 hours. If an inlet pipe that adds 6 litres per minute is also kept open, the full tank empties in 12 hours. What is the capacity of the tank, in litres?",
+      "answer": {
+        "value": 8640,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "Let the capacity be C litres. The leak alone removes C/8 litres an hour. The inlet adds 6 × 60 = 360 litres an hour. With both open the full tank empties in 12 hours, so C/8 − 360 = C/12. Then C/8 − C/12 = C/24 = 360, giving C = 8640 litres.",
+      "solutionSteps": [
+        "Inlet: 6 litres/min = 360 litres/hour.",
+        "Leak: C/8 litres/hour; net emptying with both: C/12 litres/hour.",
+        "C/8 − 360 = C/12.",
+        "C/24 = 360, so C = 8640 litres."
+      ],
+      "formulaIds": [
+        "pc-leak-f",
+        "pc-net-f"
+      ],
+      "method": "Leak rate − inlet rate = net emptying rate; the gap between the two fractions equals the inlet's litres per hour.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Change 6 litres a minute into litres an hour."
+        },
+        {
+          "level": 2,
+          "text": "Write the leak's hourly rate and the net hourly rate as fractions of C."
+        },
+        {
+          "level": 3,
+          "text": "The difference between those two rates is exactly what the inlet supplies."
+        }
+      ],
+      "commonMistakes": [
+        "Mixing minutes and hours (getting 144).",
+        "Adding the inlet to the leak instead of subtracting it."
+      ],
+      "tags": [
+        "multi-step",
+        "capacity"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "pipes-cisterns-q-013",
+      "topicId": "pipes-cisterns",
+      "conceptId": "pc-apps",
+      "levelId": "pipes-cisterns-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Pipes A and B can fill an empty tank in 6 hours and 9 hours respectively. They are opened alternately for one hour each, starting with A, and only one pipe is open at a time. How long does it take to fill the tank?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 hours 36 minutes"
+        },
+        {
+          "id": "b",
+          "text": "7 hours"
+        },
+        {
+          "id": "c",
+          "text": "7 hours 12 minutes"
+        },
+        {
+          "id": "d",
+          "text": "7 hours 20 minutes"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "In each 2-hour cycle A then B fill 1/6 + 1/9 = 5/18 of the tank. After 3 cycles (6 hours) 15/18 is full and 3/18 = 1/6 remains. It is A's turn, and A fills exactly 1/6 in the next hour. Total = 7 hours.",
+      "solutionSteps": [
+        "One cycle (A for 1 hour, then B for 1 hour) fills 1/6 + 1/9 = 5/18.",
+        "After 3 cycles (6 hours): 15/18 filled.",
+        "Remaining: 3/18 = 1/6.",
+        "A works in hour 7 and fills 1/6 exactly.",
+        "Total time = 7 hours."
+      ],
+      "formulaIds": [
+        "pc-stage-f",
+        "pc-rate-f"
+      ],
+      "method": "Fill cycle by cycle, then finish the last part with whichever pipe is on duty.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much do A and B fill in one 2-hour cycle?"
+        },
+        {
+          "level": 2,
+          "text": "Stop the whole cycles before the tank would overflow."
+        },
+        {
+          "level": 3,
+          "text": "Whose turn is it when the last part is left?"
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the together-time (7 hours 12 minutes).",
+        "Letting B take the first hour (7 hours 20 minutes)."
+      ],
+      "tags": [
+        "multi-step",
+        "alternate-pipes"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1402 @@
+{
+  "topicId": "di-mixed-radar",
+  "concepts": [
+    {
+      "id": "dmr-radar",
+      "topicId": "di-mixed-radar",
+      "name": "Reading a radar chart",
+      "description": "Each spoke is a category; how far a point sits from the centre is its value.",
+      "sortOrder": 1
+    },
+    {
+      "id": "dmr-combo",
+      "topicId": "di-mixed-radar",
+      "name": "Bars and a line together",
+      "description": "Two measures over the same years on one axis: compare them year by year.",
+      "sortOrder": 2
+    },
+    {
+      "id": "dmr-missing",
+      "topicId": "di-mixed-radar",
+      "name": "Tables with missing values",
+      "description": "Recover the blanks from row and column totals before answering.",
+      "sortOrder": 3
+    },
+    {
+      "id": "dmr-two-charts",
+      "topicId": "di-mixed-radar",
+      "name": "Multi-step questions",
+      "description": "Turn percentages into amounts, then apply a change: two or three steps in a row.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "dmr-radar-f",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "title": "Reading a radar chart",
+      "prompt": "How do you read a value off a radar chart?",
+      "formula": "One spoke per category\nValue = distance from the centre (read the printed number)\nGap between two shapes on a spoke = difference",
+      "variables": [],
+      "explanation": "A radar chart is a bar chart wrapped round a circle: each spoke is a bar.",
+      "example": "Asha 90 and Ravi 60 on the History spoke: a gap of 30.",
+      "commonMistake": "Reading a value from the neighbouring spoke.",
+      "applicationPrompt": "On which spoke are the two shapes furthest apart?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dmr-combo-f",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-combo",
+      "title": "Bars and a line on one chart",
+      "prompt": "A chart shows production as bars and sales as a line. What does the gap between them mean?",
+      "formula": "Same axis: bar − line = the difference for that year\nLine above the bar → the second measure exceeds the first",
+      "variables": [],
+      "explanation": "Both measures use the same scale, so their difference is read straight off.",
+      "example": "Production 70, sales 72: sales exceeded production by 2 that year.",
+      "commonMistake": "Treating the line as a separate scale.",
+      "applicationPrompt": "In which year does the line rise above the bar?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dmr-missing-f",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-missing",
+      "title": "Filling a missing value",
+      "prompt": "A table has blanks but its totals are complete. How do you fill a blank?",
+      "formula": "Missing = row total − the known parts\n(or column total − the known parts)",
+      "variables": [],
+      "explanation": "Every row and column must add up, so one unknown in a line is fixed by the others.",
+      "example": "Total 90, boys 48: girls = 42.",
+      "commonMistake": "Adding a column that still has a \"?\" in it.",
+      "applicationPrompt": "Find the missing girls when the class total is 85 and boys are 45.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dmr-steps-f",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-two-charts",
+      "title": "Percentages into amounts, then the change",
+      "prompt": "A pie gives shares of an income. How do you answer \"if X rises by p%, what happens to Y\"?",
+      "formula": "Amount = Total × share%\nExtra = Amount × p%\nNew Y = old Y − extra (if Y pays for it)",
+      "variables": [],
+      "explanation": "Work in rupees, not percentages, once the change starts.",
+      "example": "₹60,000 income, rent 25% = ₹15,000; a 20% rise adds ₹3,000, so savings of ₹12,000 fall to ₹9,000.",
+      "commonMistake": "Taking p% of the whole income instead of the item.",
+      "applicationPrompt": "Food is 30% of ₹50,000. It rises by 10%. How much more is spent?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dmr-sc-scan",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "kind": "shortcut",
+      "title": "Scan for the extreme first",
+      "prompt": "A question asks which category is highest, lowest or most different. What do you do before calculating?",
+      "formula": "Look at the picture first: the furthest point, the tallest bar,\nthe widest gap. Then check only the two or three candidates.",
+      "variables": [],
+      "explanation": "Most \"which is largest\" questions are decided by eye; arithmetic is only needed to separate close candidates.",
+      "example": "Five subjects: the widest gap is visibly History; confirm 90 − 60 = 30 against the next widest.",
+      "commonMistake": "Calculating every value when two are clearly in the lead.",
+      "applicationPrompt": "Which year shows the largest gap between the bar and the line?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dmr-sc-ratio-direct",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-two-charts",
+      "kind": "shortcut",
+      "title": "Ratios straight from shares",
+      "prompt": "Two items are 30% and 20% of the same total. What is the ratio of their amounts?",
+      "formula": "Ratio of amounts = ratio of shares\n(the total cancels)",
+      "variables": [],
+      "explanation": "Both amounts are the same total times their share.",
+      "example": "Food 30% and education 15%: food is twice education, whatever the income.",
+      "commonMistake": "Working out both amounts first.",
+      "applicationPrompt": "Rent is 25% and transport 10%. What is rent : transport?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-mixed-radar-level-0",
+      "topicId": "di-mixed-radar",
+      "order": 0,
+      "title": "Radar Charts, Combos and Missing Data",
+      "description": "The chart types bank mains papers add on top of the basics.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "dmr-radar",
+        "dmr-combo",
+        "dmr-missing"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A radar chart is a bar chart in a circle",
+            "body": "Each spoke is one category and the distance from the centre is the value. Two series make two shapes; where they are furthest apart is where the difference is largest."
+          },
+          {
+            "type": "check",
+            "questionId": "di-mixed-radar-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Bars and a line on one axis",
+            "body": "A combo chart shows two measures over the same years, often production as bars and sales as a line. They share one scale, so the gap between the bar and the line is the difference for that year."
+          },
+          {
+            "type": "check",
+            "questionId": "di-mixed-radar-q-003"
+          },
+          {
+            "type": "formula",
+            "title": "Missing values",
+            "body": "Missing = row total − the known parts",
+            "caption": "Fill every blank before you add a column or compare rows."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Look before you calculate: the largest gap or the tallest bar is usually visible at once. Do arithmetic only to separate close candidates."
+          },
+          {
+            "type": "check",
+            "questionId": "di-mixed-radar-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "di-mixed-radar-level-1",
+      "topicId": "di-mixed-radar",
+      "order": 1,
+      "title": "Mixed and Radar Chart Formulas",
+      "description": "Reading radar and combo charts, filling blanks, and multi-step changes.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [
+        "di-mixed-radar-level-0"
+      ],
+      "conceptIds": [
+        "dmr-radar",
+        "dmr-combo",
+        "dmr-missing",
+        "dmr-two-charts"
+      ],
+      "formulaIds": [
+        "dmr-radar-f",
+        "dmr-combo-f",
+        "dmr-missing-f",
+        "dmr-steps-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-mixed-radar-level-2",
+      "topicId": "di-mixed-radar",
+      "order": 2,
+      "title": "Reading the New Charts",
+      "description": "Totals, gaps and blanks.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-mixed-radar-level-1"
+      ],
+      "conceptIds": [
+        "dmr-radar",
+        "dmr-combo",
+        "dmr-missing"
+      ],
+      "questionIds": [
+        "di-mixed-radar-q-001",
+        "di-mixed-radar-q-002",
+        "di-mixed-radar-q-003",
+        "di-mixed-radar-q-004",
+        "di-mixed-radar-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-mixed-radar-level-3",
+      "topicId": "di-mixed-radar",
+      "order": 3,
+      "title": "Two Measures and Full Columns",
+      "description": "Differences, percentages and totals once the blanks are filled.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-mixed-radar-level-2"
+      ],
+      "conceptIds": [
+        "dmr-combo",
+        "dmr-missing",
+        "dmr-radar"
+      ],
+      "questionIds": [
+        "di-mixed-radar-q-006",
+        "di-mixed-radar-q-007",
+        "di-mixed-radar-q-008",
+        "di-mixed-radar-q-009",
+        "di-mixed-radar-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-mixed-radar-level-4",
+      "topicId": "di-mixed-radar",
+      "order": 4,
+      "title": "Multi-step Questions",
+      "description": "Changes on top of a budget, growth over years, and proportions after filling blanks.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "di-mixed-radar-level-3"
+      ],
+      "conceptIds": [
+        "dmr-two-charts",
+        "dmr-combo",
+        "dmr-missing"
+      ],
+      "questionIds": [
+        "di-mixed-radar-q-011",
+        "di-mixed-radar-q-012",
+        "di-mixed-radar-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-mixed-radar-level-5",
+      "topicId": "di-mixed-radar",
+      "order": 5,
+      "title": "Mixed Chart Practice",
+      "description": "A mix from the whole topic, including fresh generated charts.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-mixed-radar-level-4"
+      ],
+      "conceptIds": [
+        "dmr-radar",
+        "dmr-combo",
+        "dmr-missing",
+        "dmr-two-charts"
+      ],
+      "questionQuery": {
+        "topicId": "di-mixed-radar",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-mixed-radar-q-001",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "levelId": "di-mixed-radar-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is Asha's total score across the five subjects?",
+      "chart": {
+        "type": "radar",
+        "caption": "Scores of Asha and Ravi out of 100",
+        "unit": "marks",
+        "categories": [
+          "Maths",
+          "Science",
+          "English",
+          "History",
+          "Geography"
+        ],
+        "series": [
+          {
+            "label": "Asha",
+            "data": [
+              80,
+              70,
+              60,
+              90,
+              75
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Ravi",
+            "data": [
+              65,
+              85,
+              70,
+              60,
+              80
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Scores of Asha and Ravi out of 100. Asha: Maths 80, Science 70, English 60, History 90, Geography 75. Ravi: Maths 65, Science 85, English 70, History 60, Geography 80."
+      },
+      "answer": {
+        "value": 375,
+        "tolerance": 0
+      },
+      "explanation": "80 + 70 + 60 + 90 + 75 = 375.",
+      "solutionSteps": [
+        "Read Asha's five values.",
+        "80 + 70 + 60 + 90 + 75 = 375."
+      ],
+      "formulaIds": [
+        "dmr-radar-f"
+      ],
+      "method": "Read each spoke, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Asha is the first series in the legend."
+        }
+      ],
+      "commonMistakes": [
+        "Mixing in one of Ravi's values."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-002",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "levelId": "di-mixed-radar-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In which subject is the gap between Asha's and Ravi's scores the largest?",
+      "chart": {
+        "type": "radar",
+        "caption": "Scores of Asha and Ravi out of 100",
+        "unit": "marks",
+        "categories": [
+          "Maths",
+          "Science",
+          "English",
+          "History",
+          "Geography"
+        ],
+        "series": [
+          {
+            "label": "Asha",
+            "data": [
+              80,
+              70,
+              60,
+              90,
+              75
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Ravi",
+            "data": [
+              65,
+              85,
+              70,
+              60,
+              80
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Scores of Asha and Ravi out of 100. Asha: Maths 80, Science 70, English 60, History 90, Geography 75. Ravi: Maths 65, Science 85, English 70, History 60, Geography 80."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "History"
+        },
+        {
+          "id": "b",
+          "text": "Science"
+        },
+        {
+          "id": "c",
+          "text": "Maths"
+        },
+        {
+          "id": "d",
+          "text": "English"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Gaps: Maths 15, Science 15, English 10, History 30, Geography 5. History is the largest.",
+      "solutionSteps": [
+        "Find each gap.",
+        "History: 90 − 60 = 30 is the largest."
+      ],
+      "formulaIds": [
+        "dmr-radar-f",
+        "dmr-sc-scan"
+      ],
+      "method": "Find the spoke where the two shapes are furthest apart.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look first, then check the printed numbers."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Science, Ravi's best subject, rather than the biggest gap."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-003",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-combo",
+      "levelId": "di-mixed-radar-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In which year were sales higher than production?",
+      "chart": {
+        "type": "combo",
+        "caption": "Production (bars) and sales (line) of a factory, thousand units",
+        "unit": "thousand units",
+        "categories": [
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "series": [
+          {
+            "label": "Production",
+            "data": [
+              50,
+              60,
+              55,
+              70,
+              80
+            ],
+            "kind": "bar",
+            "colorToken": "data"
+          },
+          {
+            "label": "Sales",
+            "data": [
+              45,
+              58,
+              50,
+              72,
+              75
+            ],
+            "kind": "line",
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Production (bars) and sales (line) of a factory, thousand units. Production: 2020 50, 2021 60, 2022 55, 2023 70, 2024 80. Sales: 2020 45, 2021 58, 2022 50, 2023 72, 2024 75."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2023"
+        },
+        {
+          "id": "b",
+          "text": "2021"
+        },
+        {
+          "id": "c",
+          "text": "2024"
+        },
+        {
+          "id": "d",
+          "text": "2020"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Only in 2023 does the line (sales 72) sit above the bar (production 70).",
+      "solutionSteps": [
+        "Compare the line with the bar each year.",
+        "2023: 72 > 70."
+      ],
+      "formulaIds": [
+        "dmr-combo-f"
+      ],
+      "method": "The line above the bar means sales exceeded production.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look for the year where the line rises above the top of the bar."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 2024, the year with the highest sales."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-004",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-missing",
+      "levelId": "di-mixed-radar-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many girls are there in class IX?",
+      "table": {
+        "caption": "Students in a school (some values missing)",
+        "headers": [
+          "Class",
+          "Boys",
+          "Girls",
+          "Total"
+        ],
+        "rows": [
+          [
+            "VI",
+            "45",
+            "?",
+            "85"
+          ],
+          [
+            "VII",
+            "?",
+            "38",
+            "80"
+          ],
+          [
+            "VIII",
+            "50",
+            "45",
+            "?"
+          ],
+          [
+            "IX",
+            "48",
+            "?",
+            "90"
+          ],
+          [
+            "X",
+            "40",
+            "44",
+            "84"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 42,
+        "tolerance": 0
+      },
+      "explanation": "Girls = total − boys = 90 − 48 = 42.",
+      "solutionSteps": [
+        "Total in IX: 90.",
+        "Boys: 48.",
+        "Girls: 42."
+      ],
+      "formulaIds": [
+        "dmr-missing-f"
+      ],
+      "method": "Missing value = row total − the known part.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the total for class IX."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting from the wrong row."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-005",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "levelId": "di-mixed-radar-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In how many subjects did Ravi score more than Asha?",
+      "chart": {
+        "type": "radar",
+        "caption": "Scores of Asha and Ravi out of 100",
+        "unit": "marks",
+        "categories": [
+          "Maths",
+          "Science",
+          "English",
+          "History",
+          "Geography"
+        ],
+        "series": [
+          {
+            "label": "Asha",
+            "data": [
+              80,
+              70,
+              60,
+              90,
+              75
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Ravi",
+            "data": [
+              65,
+              85,
+              70,
+              60,
+              80
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Scores of Asha and Ravi out of 100. Asha: Maths 80, Science 70, English 60, History 90, Geography 75. Ravi: Maths 65, Science 85, English 70, History 60, Geography 80."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Ravi is ahead in Science (85 > 70), English (70 > 60) and Geography (80 > 75): 3 subjects.",
+      "solutionSteps": [
+        "Compare spoke by spoke.",
+        "Science, English, Geography."
+      ],
+      "formulaIds": [
+        "dmr-radar-f"
+      ],
+      "method": "Count the spokes where Ravi's point is further out.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Go round the chart one spoke at a time."
+        }
+      ],
+      "commonMistakes": [
+        "Counting a tie as a win."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-006",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-combo",
+      "levelId": "di-mixed-radar-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Over the five years, how many units (in thousands) were produced but not sold? (A year in which sales exceeded production counts as negative.)",
+      "chart": {
+        "type": "combo",
+        "caption": "Production (bars) and sales (line) of a factory, thousand units",
+        "unit": "thousand units",
+        "categories": [
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "series": [
+          {
+            "label": "Production",
+            "data": [
+              50,
+              60,
+              55,
+              70,
+              80
+            ],
+            "kind": "bar",
+            "colorToken": "data"
+          },
+          {
+            "label": "Sales",
+            "data": [
+              45,
+              58,
+              50,
+              72,
+              75
+            ],
+            "kind": "line",
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Production (bars) and sales (line) of a factory, thousand units. Production: 2020 50, 2021 60, 2022 55, 2023 70, 2024 80. Sales: 2020 45, 2021 58, 2022 50, 2023 72, 2024 75."
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0,
+        "unit": "thousand"
+      },
+      "explanation": "Production minus sales each year: 5 + 2 + 5 − 2 + 5 = 15 thousand.",
+      "solutionSteps": [
+        "2020: 5. 2021: 2. 2022: 5.",
+        "2023: −2. 2024: 5.",
+        "Total: 15."
+      ],
+      "formulaIds": [
+        "dmr-combo-f"
+      ],
+      "method": "Subtract year by year, or subtract the two totals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Total production 315; total sales 300."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the year when sales were higher."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-007",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-combo",
+      "levelId": "di-mixed-radar-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What percentage of the 2022 production was sold? (to 2 decimal places)",
+      "chart": {
+        "type": "combo",
+        "caption": "Production (bars) and sales (line) of a factory, thousand units",
+        "unit": "thousand units",
+        "categories": [
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "series": [
+          {
+            "label": "Production",
+            "data": [
+              50,
+              60,
+              55,
+              70,
+              80
+            ],
+            "kind": "bar",
+            "colorToken": "data"
+          },
+          {
+            "label": "Sales",
+            "data": [
+              45,
+              58,
+              50,
+              72,
+              75
+            ],
+            "kind": "line",
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Production (bars) and sales (line) of a factory, thousand units. Production: 2020 50, 2021 60, 2022 55, 2023 70, 2024 80. Sales: 2020 45, 2021 58, 2022 50, 2023 72, 2024 75."
+      },
+      "answer": {
+        "value": 90.91,
+        "tolerance": 0.01,
+        "unit": "%"
+      },
+      "explanation": "50 ÷ 55 × 100 = 90.91%.",
+      "solutionSteps": [
+        "2022: production 55, sales 50.",
+        "50 ÷ 55 × 100 = 90.91%."
+      ],
+      "formulaIds": [
+        "dmr-combo-f"
+      ],
+      "method": "Sold ÷ produced × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide the line's value by the bar's value."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing production by sales (110%)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-008",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-missing",
+      "levelId": "di-mixed-radar-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many girls are there in the school altogether?",
+      "table": {
+        "caption": "Students in a school (some values missing)",
+        "headers": [
+          "Class",
+          "Boys",
+          "Girls",
+          "Total"
+        ],
+        "rows": [
+          [
+            "VI",
+            "45",
+            "?",
+            "85"
+          ],
+          [
+            "VII",
+            "?",
+            "38",
+            "80"
+          ],
+          [
+            "VIII",
+            "50",
+            "45",
+            "?"
+          ],
+          [
+            "IX",
+            "48",
+            "?",
+            "90"
+          ],
+          [
+            "X",
+            "40",
+            "44",
+            "84"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 209,
+        "tolerance": 0
+      },
+      "explanation": "Fill the blanks first: VI 85 − 45 = 40 and IX 90 − 48 = 42. Then 40 + 38 + 45 + 42 + 44 = 209.",
+      "solutionSteps": [
+        "VI: 40 girls; IX: 42 girls.",
+        "40 + 38 + 45 + 42 + 44 = 209."
+      ],
+      "formulaIds": [
+        "dmr-missing-f"
+      ],
+      "method": "Fill every blank in the column, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two girls' cells are missing."
+        }
+      ],
+      "commonMistakes": [
+        "Adding only the visible cells (127)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-009",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-missing",
+      "levelId": "di-mixed-radar-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the ratio of boys to girls in class VII?",
+      "table": {
+        "caption": "Students in a school (some values missing)",
+        "headers": [
+          "Class",
+          "Boys",
+          "Girls",
+          "Total"
+        ],
+        "rows": [
+          [
+            "VI",
+            "45",
+            "?",
+            "85"
+          ],
+          [
+            "VII",
+            "?",
+            "38",
+            "80"
+          ],
+          [
+            "VIII",
+            "50",
+            "45",
+            "?"
+          ],
+          [
+            "IX",
+            "48",
+            "?",
+            "90"
+          ],
+          [
+            "X",
+            "40",
+            "44",
+            "84"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "21 : 19"
+        },
+        {
+          "id": "b",
+          "text": "19 : 21"
+        },
+        {
+          "id": "c",
+          "text": "42 : 80"
+        },
+        {
+          "id": "d",
+          "text": "1 : 1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Boys in VII = 80 − 38 = 42, so boys : girls = 42 : 38 = 21 : 19.",
+      "solutionSteps": [
+        "Boys = 80 − 38 = 42.",
+        "42 : 38 = 21 : 19."
+      ],
+      "formulaIds": [
+        "dmr-missing-f"
+      ],
+      "method": "Fill the blank, then simplify the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The boys' cell for VII is the blank."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the ratio the other way round."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-010",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-radar",
+      "levelId": "di-mixed-radar-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By how many marks does Asha's average per subject exceed Ravi's?",
+      "chart": {
+        "type": "radar",
+        "caption": "Scores of Asha and Ravi out of 100",
+        "unit": "marks",
+        "categories": [
+          "Maths",
+          "Science",
+          "English",
+          "History",
+          "Geography"
+        ],
+        "series": [
+          {
+            "label": "Asha",
+            "data": [
+              80,
+              70,
+              60,
+              90,
+              75
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Ravi",
+            "data": [
+              65,
+              85,
+              70,
+              60,
+              80
+            ],
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Scores of Asha and Ravi out of 100. Asha: Maths 80, Science 70, English 60, History 90, Geography 75. Ravi: Maths 65, Science 85, English 70, History 60, Geography 80."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Asha 375 ÷ 5 = 75; Ravi 360 ÷ 5 = 72. Difference: 3.",
+      "solutionSteps": [
+        "Asha: 375, average 75.",
+        "Ravi: 360, average 72.",
+        "75 − 72 = 3."
+      ],
+      "formulaIds": [
+        "dmr-radar-f"
+      ],
+      "method": "Average = total ÷ 5 for each, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Difference of averages = difference of totals ÷ 5."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the difference of totals (15)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-011",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-two-charts",
+      "levelId": "di-mixed-radar-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Rent rises by 20% and the extra comes out of savings. How much will the family save each month?",
+      "chart": {
+        "type": "pie",
+        "caption": "Monthly budget of ₹60,000",
+        "unit": "%",
+        "categories": [
+          "Food",
+          "Rent",
+          "Education",
+          "Transport",
+          "Savings"
+        ],
+        "series": [
+          {
+            "label": "Share of income",
+            "data": [
+              30,
+              25,
+              15,
+              10,
+              20
+            ]
+          }
+        ],
+        "ariaSummary": "Monthly budget of ₹60,000. Food 30%, Rent 25%, Education 15%, Transport 10%, Savings 20%."
+      },
+      "answer": {
+        "value": 9000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Rent = 25% of ₹60,000 = ₹15,000; a 20% rise adds ₹3,000. Savings = 20% = ₹12,000, so ₹12,000 − ₹3,000 = ₹9,000.",
+      "solutionSteps": [
+        "Rent: ₹15,000.",
+        "Extra: ₹3,000.",
+        "Savings: ₹12,000 − ₹3,000 = ₹9,000."
+      ],
+      "formulaIds": [
+        "dmr-steps-f"
+      ],
+      "method": "Percentages into rupees, then the change.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out rent and savings in rupees first."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 20% of the income (₹12,000) as the extra."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-012",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-combo",
+      "levelId": "di-mixed-radar-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "By what percentage did sales grow from 2020 to 2024? (to 2 decimal places)",
+      "chart": {
+        "type": "combo",
+        "caption": "Production (bars) and sales (line) of a factory, thousand units",
+        "unit": "thousand units",
+        "categories": [
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "series": [
+          {
+            "label": "Production",
+            "data": [
+              50,
+              60,
+              55,
+              70,
+              80
+            ],
+            "kind": "bar",
+            "colorToken": "data"
+          },
+          {
+            "label": "Sales",
+            "data": [
+              45,
+              58,
+              50,
+              72,
+              75
+            ],
+            "kind": "line",
+            "colorToken": "algebra"
+          }
+        ],
+        "ariaSummary": "Production (bars) and sales (line) of a factory, thousand units. Production: 2020 50, 2021 60, 2022 55, 2023 70, 2024 80. Sales: 2020 45, 2021 58, 2022 50, 2023 72, 2024 75."
+      },
+      "answer": {
+        "value": 66.67,
+        "tolerance": 0.01,
+        "unit": "%"
+      },
+      "explanation": "(75 − 45) ÷ 45 × 100 = 66.67%.",
+      "solutionSteps": [
+        "Sales 2020: 45; 2024: 75.",
+        "Rise: 30.",
+        "30 ÷ 45 × 100 = 66.67%."
+      ],
+      "formulaIds": [
+        "dmr-combo-f"
+      ],
+      "method": "Change ÷ the starting value × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the line, not the bars."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 75, the later value (40%)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-mixed-radar-q-013",
+      "topicId": "di-mixed-radar",
+      "conceptId": "dmr-missing",
+      "levelId": "di-mixed-radar-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which class has the highest proportion of girls?",
+      "table": {
+        "caption": "Students in a school (some values missing)",
+        "headers": [
+          "Class",
+          "Boys",
+          "Girls",
+          "Total"
+        ],
+        "rows": [
+          [
+            "VI",
+            "45",
+            "?",
+            "85"
+          ],
+          [
+            "VII",
+            "?",
+            "38",
+            "80"
+          ],
+          [
+            "VIII",
+            "50",
+            "45",
+            "?"
+          ],
+          [
+            "IX",
+            "48",
+            "?",
+            "90"
+          ],
+          [
+            "X",
+            "40",
+            "44",
+            "84"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "X"
+        },
+        {
+          "id": "b",
+          "text": "VII"
+        },
+        {
+          "id": "c",
+          "text": "VI"
+        },
+        {
+          "id": "d",
+          "text": "VIII"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Girls ÷ total: VI 40/85 ≈ 47.1%, VII 38/80 = 47.5%, VIII 45/95 ≈ 47.4%, IX 42/90 ≈ 46.7%, X 44/84 ≈ 52.4%. Class X is highest.",
+      "solutionSteps": [
+        "Fill the blanks.",
+        "Compute girls ÷ total for each class.",
+        "X: 52.4% is the highest."
+      ],
+      "formulaIds": [
+        "dmr-missing-f",
+        "dmr-sc-scan"
+      ],
+      "method": "Fill the blanks, then compare girls ÷ total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only class X has more girls than boys."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing VIII because it has the most girls (45), ignoring its larger total."
+      ],
+      "tags": [],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

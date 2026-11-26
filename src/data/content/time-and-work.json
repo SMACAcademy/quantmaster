@@ -1,0 +1,1475 @@
+{
+  "topicId": "time-and-work",
+  "concepts": [
+    {
+      "id": "tw-rate",
+      "topicId": "time-and-work",
+      "name": "Work as a rate",
+      "description": "Someone who finishes a job in n days completes 1/n of it each day.",
+      "sortOrder": 1
+    },
+    {
+      "id": "tw-combined",
+      "topicId": "time-and-work",
+      "name": "Working together",
+      "description": "Rates add; times do not.",
+      "sortOrder": 2
+    },
+    {
+      "id": "tw-mandays",
+      "topicId": "time-and-work",
+      "name": "Man-days",
+      "description": "Treating total work as a fixed number of person-days.",
+      "sortOrder": 3
+    },
+    {
+      "id": "tw-efficiency",
+      "topicId": "time-and-work",
+      "name": "Efficiency",
+      "description": "Comparing workers by how much they do per day, not how long they take.",
+      "sortOrder": 4
+    },
+    {
+      "id": "tw-applications",
+      "topicId": "time-and-work",
+      "name": "Partial and shared work",
+      "description": "People joining or leaving part-way through a job.",
+      "sortOrder": 5
+    },
+    {
+      "id": "tw-adv-alternate",
+      "topicId": "time-and-work",
+      "name": "Alternating work",
+      "description": "When workers take turns, find the work done in one full cycle, count the whole cycles, then let the next worker in turn finish the remainder.",
+      "sortOrder": 6
+    },
+    {
+      "id": "tw-adv-efficiency",
+      "topicId": "time-and-work",
+      "name": "Efficiency chains",
+      "description": "Efficiency is the inverse of time: if A is k times as efficient as B, A needs 1/k of B's time. Chain comparisons to link every worker.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "tw-rate-formula",
+      "topicId": "time-and-work",
+      "conceptId": "tw-rate",
+      "title": "Work rate",
+      "prompt": "Someone finishes a job in n days. How much do they do per day?",
+      "formula": "Rate = 1 ÷ n  (of the job per day)",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "days to finish the whole job alone"
+        }
+      ],
+      "explanation": "Switching from 'days to finish' into 'fraction done per day' is what makes work problems addable.",
+      "example": "A finishes in 10 days\nA's rate = 1/10 of the job per day",
+      "commonMistake": "Adding or averaging the times directly instead of converting to rates.",
+      "applicationPrompt": "A painter takes 10 days to paint a house. What fraction does he paint per day?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tw-combined-formula",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "title": "Working together",
+      "prompt": "A takes a days and B takes b days. How long do they take together?",
+      "formula": "1/T = 1/a + 1/b   ⟹   T = ab ÷ (a + b)",
+      "variables": [
+        {
+          "symbol": "T",
+          "meaning": "days to finish together"
+        }
+      ],
+      "explanation": "Add what each does in a day to get the joint daily output, then invert it.",
+      "example": "A: 12 days, B: 6 days\n1/12 + 1/6 = 3/12 = 1/4\nTogether: 4 days",
+      "commonMistake": "Averaging 12 and 6 to get 9 days — working together must be faster than either alone.",
+      "applicationPrompt": "A takes 12 days and B takes 6 days. Which expression gives the time together?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tw-mandays-formula",
+      "topicId": "time-and-work",
+      "conceptId": "tw-mandays",
+      "title": "Man-days",
+      "prompt": "How do you relate the number of workers to the days needed?",
+      "formula": "M₁ × D₁ = M₂ × D₂   (for the same total work)",
+      "variables": [
+        {
+          "symbol": "M",
+          "meaning": "number of workers"
+        },
+        {
+          "symbol": "D",
+          "meaning": "days taken"
+        }
+      ],
+      "explanation": "The total work is a fixed number of person-days, so more workers means proportionally fewer days.",
+      "example": "10 men take 12 days → 120 man-days\n15 men → 120 ÷ 15 = 8 days",
+      "commonMistake": "Scaling days up when workers increase — the relationship is inverse.",
+      "applicationPrompt": "10 men finish a job in 12 days. How long would 15 men take?",
+      "tags": [
+        "core",
+        "proportion"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tw-efficiency-formula",
+      "topicId": "time-and-work",
+      "conceptId": "tw-efficiency",
+      "title": "Efficiency and time",
+      "prompt": "A is twice as efficient as B. How do their times compare?",
+      "formula": "Efficiency ratio a : b  ⟹  Time ratio b : a",
+      "variables": [],
+      "explanation": "Efficiency and time are inversely proportional: doing twice as much per day means taking half as long.",
+      "example": "A is twice as efficient as B\nIf B takes 24 days, A takes 12 days",
+      "commonMistake": "Applying the efficiency ratio directly to the times.",
+      "applicationPrompt": "A works twice as fast as B, who takes 24 days. How long does A take?",
+      "tags": [
+        "efficiency"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tw-remaining",
+      "topicId": "time-and-work",
+      "conceptId": "tw-applications",
+      "title": "Remaining work",
+      "prompt": "Some work has already been done. How do you handle the rest?",
+      "formula": "Remaining work = 1 − (work already done)\nDays left = Remaining work ÷ (rate of whoever continues)",
+      "variables": [],
+      "explanation": "Treat the whole job as 1. Track the fraction completed, then divide what is left by the rate of the people still working.",
+      "example": "A (1/20) and B (1/30) work 6 days together\nDone = 6 × (1/12) = 1/2\nB alone finishes the rest: (1/2) ÷ (1/30) = 15 days",
+      "commonMistake": "Using the joint rate for the remaining work after one person has left.",
+      "applicationPrompt": "A and B work together for 6 days, then A leaves. How do you find B's remaining time?",
+      "tags": [
+        "applications"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tw-adv-cycle-f",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-alternate",
+      "title": "Alternating work (cycle method)",
+      "prompt": "How do you time a job when workers take turns, one day each?",
+      "formula": "Work per cycle = sum of each worker's daily work; time = (full cycles × cycle length) + time to finish the remainder",
+      "variables": [],
+      "explanation": "Measure the job in units (the LCM of the times), so every day's work is a whole number.",
+      "example": "A 10 days, B 15 days, alternating from A: 30 units; A does 3, B does 2 → 5 units per 2-day cycle → 6 cycles = 12 days",
+      "commonMistake": "Using the \"together\" time, 1 ÷ (1/10 + 1/15) = 6 days, as if both worked every day.",
+      "applicationPrompt": "A takes 10 days and B 15 days. Working on alternate days, starting with A, how long does the job take?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tw-adv-chain-f",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-efficiency",
+      "title": "Percentage efficiency and time",
+      "prompt": "If A is p% more efficient than B, how do their times compare?",
+      "formula": "Efficiency ∝ 1 ÷ time, so A's time = B's time ÷ (1 + p/100)",
+      "variables": [],
+      "explanation": "More efficient means more work per day, so fewer days for the same job.",
+      "example": "A is 25% more efficient than B; B takes 20 days → A takes 20 ÷ 1.25 = 16 days",
+      "commonMistake": "Cutting the time by the same 25%, giving 15 days.",
+      "applicationPrompt": "A is 25% more efficient than B, who takes 20 days. How long does A take?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tw-sc-lcm",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "kind": "shortcut",
+      "title": "LCM method",
+      "prompt": "How do you add work rates without fractions?",
+      "formula": "Total work = LCM of the days\nEach worker's units per day = Total work ÷ their days\nTime = Total work ÷ combined units per day",
+      "variables": [],
+      "explanation": "Choosing the LCM as the size of the job makes every daily rate a whole number.",
+      "example": "A takes 12 days, B takes 18: work = 36 units, rates 3 and 2, together 5 a day, so 36 ÷ 5 = 7.2 days.",
+      "commonMistake": "Adding the days (12 + 18) instead of the daily units.",
+      "applicationPrompt": "A, B and C finish a job in 10, 15 and 30 days. How long together?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tw-sc-other-worker",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "kind": "shortcut",
+      "title": "Together and one alone",
+      "prompt": "A and B together take T days and A alone takes a days. How long does B take alone?",
+      "formula": "B alone = a × T ÷ (a − T)",
+      "variables": [],
+      "explanation": "B's rate is 1/T − 1/a, and the reciprocal of that simplifies to aT ÷ (a − T).",
+      "example": "Together 6 days, A alone 10 days: B = 60 ÷ 4 = 15 days.",
+      "commonMistake": "Subtracting the days (10 − 6 = 4) and stopping there.",
+      "applicationPrompt": "Two pipes fill a tank in 12 minutes; one alone takes 20 minutes.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tw-sc-three-pairs",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "kind": "shortcut",
+      "title": "Three pairs given",
+      "prompt": "A + B take x days, B + C take y days and C + A take z days. How long do all three take together?",
+      "formula": "All three = 2xyz ÷ (xy + yz + zx)",
+      "variables": [],
+      "explanation": "Adding the three pair rates counts every worker twice, so the combined rate is half that sum.",
+      "example": "Pairs take 12, 15 and 20 days: 2 × 3,600 ÷ 720 = 10 days.",
+      "commonMistake": "Forgetting to halve: adding the three pair rates gives twice the combined rate.",
+      "applicationPrompt": "A and B take 8 days, B and C take 12 days, C and A take 24 days.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tw-sc-times-as-fast",
+      "topicId": "time-and-work",
+      "conceptId": "tw-efficiency",
+      "kind": "shortcut",
+      "title": "k times as fast and D days sooner",
+      "prompt": "A is k times as efficient as B and finishes a job D days sooner. How long does each take?",
+      "formula": "A takes D ÷ (k − 1) days\nB takes k × D ÷ (k − 1) days",
+      "variables": [],
+      "explanation": "Times are in the ratio 1 : k, so the gap of k − 1 parts equals D days.",
+      "example": "A is 3 times as fast and takes 40 days less: A takes 20 days, B takes 60.",
+      "commonMistake": "Taking the gap as k parts instead of k − 1.",
+      "applicationPrompt": "A works twice as fast as B and finishes 15 days earlier.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "time-and-work-level-0",
+      "topicId": "time-and-work",
+      "order": 0,
+      "title": "Think in Rates, Not Days",
+      "description": "The one conversion that makes every work problem tractable.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "tw-rate",
+        "tw-combined"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Days cannot be added; rates can",
+            "body": "If A takes 12 days and B takes 6 days, working together does not take 18 days or 9 days. Those numbers mean nothing when combined.\n\nConvert to rates instead: A does 1/12 of the job per day, B does 1/6. Together they do 1/12 + 1/6 = 1/4 per day, so the job takes 4 days."
+          },
+          {
+            "type": "formula",
+            "title": "The conversion",
+            "body": "n days to finish  ⟷  1/n of the job per day",
+            "caption": "Go into rates, do the arithmetic, then invert back into days."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Sanity check: working together must always be faster than the fastest person alone. If your answer is slower than that, you have added times instead of rates."
+          },
+          {
+            "type": "check",
+            "questionId": "time-and-work-q-002"
+          },
+          {
+            "type": "text",
+            "title": "The LCM trick",
+            "body": "Instead of fractions, set the total work to the LCM of the times. If A takes 12 days and B takes 6, call the job 12 units: A does 1 unit/day, B does 2 units/day, together 3 units/day, so 12 ÷ 3 = 4 days.\n\nSame answer, no fractions — faster under exam pressure."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "work-together"
+          },
+          {
+            "type": "check",
+            "questionId": "time-and-work-q-010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "time-and-work-level-1",
+      "topicId": "time-and-work",
+      "order": 1,
+      "title": "Work Formulas",
+      "description": "Rates, combined time, man-days and efficiency.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-0"
+      ],
+      "conceptIds": [
+        "tw-rate",
+        "tw-combined",
+        "tw-mandays",
+        "tw-efficiency"
+      ],
+      "formulaIds": [
+        "tw-rate-formula",
+        "tw-combined-formula",
+        "tw-mandays-formula",
+        "tw-efficiency-formula",
+        "tw-remaining"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "time-and-work-level-2",
+      "topicId": "time-and-work",
+      "order": 2,
+      "title": "Direct Work Questions",
+      "description": "Single-step rate and combined-time calculations.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-1"
+      ],
+      "conceptIds": [
+        "tw-rate",
+        "tw-combined"
+      ],
+      "questionIds": [
+        "time-and-work-q-001",
+        "time-and-work-q-002",
+        "time-and-work-q-003",
+        "time-and-work-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "time-and-work-level-3",
+      "topicId": "time-and-work",
+      "order": 3,
+      "title": "Workers, Efficiency and Missing Rates",
+      "description": "Man-days, efficiency ratios and finding an unknown worker's time.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-2"
+      ],
+      "conceptIds": [
+        "tw-mandays",
+        "tw-efficiency",
+        "tw-combined"
+      ],
+      "questionIds": [
+        "time-and-work-q-020",
+        "time-and-work-q-021",
+        "time-and-work-q-022",
+        "time-and-work-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "time-and-work-level-4",
+      "topicId": "time-and-work",
+      "order": 4,
+      "title": "Joining and Leaving",
+      "description": "Work already done, people leaving part-way, and three-way systems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-3"
+      ],
+      "conceptIds": [
+        "tw-applications"
+      ],
+      "questionIds": [
+        "time-and-work-q-030",
+        "time-and-work-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "time-and-work-level-5",
+      "topicId": "time-and-work",
+      "order": 5,
+      "title": "Mixed Work Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "time-and-work",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "tw-rate",
+          "tw-combined",
+          "tw-mandays",
+          "tw-efficiency",
+          "tw-applications"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "time-and-work-level-6",
+      "topicId": "time-and-work",
+      "order": 6,
+      "title": "Advanced: Alternating Work and Efficiency",
+      "description": "Workers taking turns, and chains of efficiency comparisons.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-5"
+      ],
+      "conceptIds": [
+        "tw-adv-alternate",
+        "tw-adv-efficiency"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Taking turns",
+            "body": "When people work on alternate days, nobody works every day, so the \"together\" formula does not apply. Instead, measure the job in units, find the work in one full cycle of turns, and count the cycles."
+          },
+          {
+            "type": "check",
+            "questionId": "time-and-work-tw-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Efficiency is the inverse of time",
+            "body": "A's time = B's time ÷ (1 + p/100)",
+            "caption": "25% more efficient means 1.25 times the work per day, not 25% fewer days."
+          },
+          {
+            "type": "check",
+            "questionId": "time-and-work-tw-adv-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Near the end of a cycle method, check whose turn it is. The last worker may need only part of a day."
+          }
+        ]
+      }
+    },
+    {
+      "id": "time-and-work-level-7",
+      "topicId": "time-and-work",
+      "order": 7,
+      "title": "Challenge: Alternating Work and Efficiency",
+      "description": "Alternating days, rotating teams, and linking workers through efficiency.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "time-and-work-level-6"
+      ],
+      "conceptIds": [
+        "tw-adv-alternate",
+        "tw-adv-efficiency"
+      ],
+      "questionIds": [
+        "time-and-work-tw-adv-q-003",
+        "time-and-work-tw-adv-q-004",
+        "time-and-work-tw-adv-q-005",
+        "time-and-work-tw-adv-q-006",
+        "time-and-work-tw-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "time-and-work-q-001",
+      "topicId": "time-and-work",
+      "conceptId": "tw-rate",
+      "levelId": "time-and-work-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A worker can complete a job in 10 days. What fraction of the job does he complete in one day?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/10"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "1/5"
+        },
+        {
+          "id": "d",
+          "text": "10%"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Ten equal days make one whole job, so each day is 1/10 of it. (That is also 10%, but the fraction is the form used in calculations.)",
+      "solutionSteps": [
+        "The whole job = 1.",
+        "It is spread evenly over 10 days.",
+        "One day's work = 1/10."
+      ],
+      "formulaIds": [
+        "tw-rate-formula"
+      ],
+      "method": "Rate = 1 ÷ time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If the whole job is 1, how much is done each day?"
+        }
+      ],
+      "commonMistakes": [
+        "Writing the rate as 10 instead of 1/10."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-002",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "levelId": "time-and-work-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A can finish a job in 12 days and B can finish it in 6 days. How long will they take working together?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 days"
+        },
+        {
+          "id": "b",
+          "text": "4 days"
+        },
+        {
+          "id": "c",
+          "text": "9 days"
+        },
+        {
+          "id": "d",
+          "text": "18 days"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Together they do 1/12 + 1/6 = 1/4 of the job per day, so the job takes 4 days.",
+      "solutionSteps": [
+        "A's rate = 1/12, B's rate = 1/6.",
+        "Combined rate = 1/12 + 2/12 = 3/12 = 1/4.",
+        "Time = 1 ÷ (1/4) = 4 days."
+      ],
+      "formulaIds": [
+        "tw-combined-formula"
+      ],
+      "method": "Add the rates, then invert.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert both times into daily rates first."
+        },
+        {
+          "level": 2,
+          "text": "1/12 + 1/6 needs a common denominator of 12."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two times to get 9 days."
+      ],
+      "tags": [
+        "combined"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-003",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "levelId": "time-and-work-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A can do a piece of work in 15 days and B in 10 days. How many days will they take together?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "1/15 + 1/10 = 2/30 + 3/30 = 5/30 = 1/6, so together they take 6 days.",
+      "solutionSteps": [
+        "A's rate = 1/15, B's rate = 1/10.",
+        "Combined = 2/30 + 3/30 = 5/30 = 1/6.",
+        "Time together = 6 days."
+      ],
+      "formulaIds": [
+        "tw-combined-formula"
+      ],
+      "method": "Add rates over a common denominator.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use 30 as the common denominator — or call the job 30 units."
+        },
+        {
+          "level": 2,
+          "text": "A does 2 units/day and B does 3 units/day."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 12.5, the average of the times."
+      ],
+      "tags": [
+        "combined",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-010",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "levelId": "time-and-work-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A takes a days and B takes b days to complete a job alone. Which expression gives the days they need together?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ab ÷ (a + b)"
+        },
+        {
+          "id": "b",
+          "text": "(a + b) ÷ 2"
+        },
+        {
+          "id": "c",
+          "text": "a + b"
+        },
+        {
+          "id": "d",
+          "text": "(a + b) ÷ ab"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Adding rates gives 1/T = 1/a + 1/b = (a + b)/ab, so T = ab/(a + b).",
+      "solutionSteps": [
+        "Combined rate = 1/a + 1/b = (b + a)/ab.",
+        "Time is the reciprocal of the rate.",
+        "T = ab/(a + b)."
+      ],
+      "formulaIds": [
+        "tw-combined-formula"
+      ],
+      "method": "Add rates, then invert.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Working together must give a time SMALLER than both a and b."
+        },
+        {
+          "level": 2,
+          "text": "Only one option is guaranteed to be smaller than both."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the average of the two times."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-011",
+      "topicId": "time-and-work",
+      "conceptId": "tw-mandays",
+      "levelId": "time-and-work-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "If 10 workers finish a job in 12 days, then 20 workers will finish it in 6 days (assuming equal efficiency).",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The work is 120 man-days. With 20 workers that is 120 ÷ 20 = 6 days. Workers and days are inversely proportional.",
+      "solutionSteps": [
+        "Total work = 10 × 12 = 120 man-days.",
+        "With 20 workers: 120 ÷ 20 = 6 days."
+      ],
+      "formulaIds": [
+        "tw-mandays-formula"
+      ],
+      "method": "Man-days stay constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Double the workforce, halve the time — provided everyone works at the same rate."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the relationship is direct rather than inverse."
+      ],
+      "tags": [
+        "true-false",
+        "mandays"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-020",
+      "topicId": "time-and-work",
+      "conceptId": "tw-combined",
+      "levelId": "time-and-work-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A and B together finish a job in 8 days. A alone takes 12 days. How long would B alone take?",
+      "options": [
+        {
+          "id": "a",
+          "text": "16 days"
+        },
+        {
+          "id": "b",
+          "text": "20 days"
+        },
+        {
+          "id": "c",
+          "text": "24 days"
+        },
+        {
+          "id": "d",
+          "text": "30 days"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "B's rate = 1/8 − 1/12 = 3/24 − 2/24 = 1/24, so B alone needs 24 days.",
+      "solutionSteps": [
+        "Combined rate = 1/8; A's rate = 1/12.",
+        "B's rate = 1/8 − 1/12 = 1/24.",
+        "B alone = 24 days."
+      ],
+      "formulaIds": [
+        "tw-combined-formula"
+      ],
+      "method": "Subtract rates, not times.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Rates subtract just as cleanly as they add."
+        },
+        {
+          "level": 2,
+          "text": "Use 24 as the common denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the times: 12 − 8 = 4 days."
+      ],
+      "tags": [
+        "combined"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-021",
+      "topicId": "time-and-work",
+      "conceptId": "tw-mandays",
+      "levelId": "time-and-work-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "10 men complete a piece of work in 12 days. How many days would 15 men take, working at the same rate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6 days"
+        },
+        {
+          "id": "b",
+          "text": "8 days"
+        },
+        {
+          "id": "c",
+          "text": "9 days"
+        },
+        {
+          "id": "d",
+          "text": "18 days"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Total work = 120 man-days, so 15 men need 120 ÷ 15 = 8 days.",
+      "solutionSteps": [
+        "Work = 10 × 12 = 120 man-days.",
+        "Days = 120 ÷ 15.",
+        "= 8 days."
+      ],
+      "formulaIds": [
+        "tw-mandays-formula"
+      ],
+      "method": "M₁D₁ = M₂D₂.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many man-days does the job need in total?"
+        },
+        {
+          "level": 2,
+          "text": "More men must mean fewer days."
+        }
+      ],
+      "commonMistakes": [
+        "Scaling in the wrong direction and answering 18 days."
+      ],
+      "tags": [
+        "mandays"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-022",
+      "topicId": "time-and-work",
+      "conceptId": "tw-efficiency",
+      "levelId": "time-and-work-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A is twice as efficient as B, and together they finish a job in 8 days. How many days would A alone take?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "If B takes x days, A takes x/2. Then 1/x + 2/x = 3/x = 1/8, so x = 24 and A alone takes 12 days.",
+      "solutionSteps": [
+        "Let B take x days, so A takes x/2 days.",
+        "Rates: B = 1/x, A = 2/x. Combined = 3/x.",
+        "3/x = 1/8 → x = 24, so A alone takes 12 days."
+      ],
+      "formulaIds": [
+        "tw-efficiency-formula",
+        "tw-combined-formula"
+      ],
+      "method": "Turn efficiency into rates, then use the combined-rate equation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Twice as efficient means twice the work per day, so half the time."
+        },
+        {
+          "level": 2,
+          "text": "Let B take x days and write both rates in terms of x."
+        },
+        {
+          "level": 3,
+          "text": "1/x + 2/x = 1/8."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 16 by halving 8 incorrectly."
+      ],
+      "tags": [
+        "efficiency",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-030",
+      "topicId": "time-and-work",
+      "conceptId": "tw-applications",
+      "levelId": "time-and-work-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A can do a job in 20 days and B in 30 days. They work together for 6 days, then A leaves. How many more days does B need to finish?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9 days"
+        },
+        {
+          "id": "b",
+          "text": "12 days"
+        },
+        {
+          "id": "c",
+          "text": "15 days"
+        },
+        {
+          "id": "d",
+          "text": "20 days"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Together they do 1/12 per day, so 6 days completes half the job. B finishes the remaining half at 1/30 per day, needing 15 days.",
+      "solutionSteps": [
+        "Combined rate = 1/20 + 1/30 = 5/60 = 1/12.",
+        "In 6 days they complete 6 × 1/12 = 1/2 of the job.",
+        "Remaining = 1/2, done by B at 1/30 per day.",
+        "Days = (1/2) ÷ (1/30) = 15 days."
+      ],
+      "formulaIds": [
+        "tw-remaining",
+        "tw-combined-formula"
+      ],
+      "method": "Track the fraction completed, then divide the remainder by the continuing rate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find how much of the job is done in the 6 shared days."
+        },
+        {
+          "level": 2,
+          "text": "Their combined rate is 1/12 per day."
+        },
+        {
+          "level": 3,
+          "text": "Half the job remains, and B does 1/30 per day."
+        }
+      ],
+      "commonMistakes": [
+        "Using the combined rate for the remaining work after A has left."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-q-031",
+      "topicId": "time-and-work",
+      "conceptId": "tw-applications",
+      "levelId": "time-and-work-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A and B together can do a job in 12 days, B and C in 15 days, and A and C in 20 days. How long will all three take working together?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 days"
+        },
+        {
+          "id": "b",
+          "text": "10 days"
+        },
+        {
+          "id": "c",
+          "text": "12 days"
+        },
+        {
+          "id": "d",
+          "text": "15 days"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Adding the three pair-rates counts each person twice: 1/12 + 1/15 + 1/20 = 1/5 = 2(A + B + C), so the trio's rate is 1/10 and they take 10 days.",
+      "solutionSteps": [
+        "Sum the pair rates: 1/12 + 1/15 + 1/20 = 5/60 + 4/60 + 3/60 = 12/60 = 1/5.",
+        "That sum equals 2 × (combined rate of all three).",
+        "Combined rate = 1/10, so all three take 10 days."
+      ],
+      "formulaIds": [
+        "tw-combined-formula"
+      ],
+      "method": "Add the pair rates and halve — each worker appears in exactly two pairs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each pair as a rate and add them."
+        },
+        {
+          "level": 2,
+          "text": "How many times does A appear across the three pairs?"
+        },
+        {
+          "level": 3,
+          "text": "The sum equals twice the combined rate."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to halve, and answering 5 days."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-001",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-alternate",
+      "levelId": "time-and-work-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A can finish a job in 10 days and B in 15 days. They work on alternate days, with A starting. In how many days is the job finished?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "Take the job as 30 units. A does 3 a day and B does 2, so each 2-day cycle does 5 units. 30 ÷ 5 = 6 cycles = 12 days.",
+      "solutionSteps": [
+        "Job = LCM(10, 15) = 30 units.",
+        "A: 3/day, B: 2/day → 5 units per 2 days.",
+        "6 cycles × 2 days = 12 days."
+      ],
+      "formulaIds": [
+        "tw-adv-cycle-f"
+      ],
+      "method": "Cycle method: units per cycle, then count cycles.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Measure the job in units that both times divide."
+        },
+        {
+          "level": 2,
+          "text": "How much gets done in one A-day plus one B-day?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 6 days, the time if both worked every day."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-002",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-efficiency",
+      "levelId": "time-and-work-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A is 25% more efficient than B. If B alone takes 20 days to finish a job, how many days does A take alone?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "A does 1.25 times B's daily work, so A needs 20 ÷ 1.25 = 16 days.",
+      "solutionSteps": [
+        "Efficiency ratio A : B = 1.25 : 1.",
+        "Time ratio A : B = 1 : 1.25.",
+        "20 ÷ 1.25 = 16."
+      ],
+      "formulaIds": [
+        "tw-adv-chain-f"
+      ],
+      "method": "Divide the time by the efficiency factor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More efficient means fewer days, but not 25% fewer."
+        },
+        {
+          "level": 2,
+          "text": "Divide by 1.25."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 25% off 20 days, giving 15."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-003",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-alternate",
+      "levelId": "time-and-work-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A can finish a job in 6 days and B in 9 days. They work on alternate days, with A starting. On which day is the job completed?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Take 18 units: A does 3 a day and B 2. After 3 full cycles (6 days), 15 units are done and 3 remain. Day 7 is A's turn, and A does exactly 3, so the job is done on day 7.",
+      "solutionSteps": [
+        "18 units; A 3/day, B 2/day.",
+        "3 cycles = 6 days → 15 units.",
+        "Day 7 (A): 3 units → done."
+      ],
+      "formulaIds": [
+        "tw-adv-cycle-f"
+      ],
+      "method": "Count whole cycles, then check whose turn finishes the rest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many full cycles fit before the job is nearly done?"
+        },
+        {
+          "level": 2,
+          "text": "Whose turn is day 7?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 8 days by assuming the remainder needs a full extra cycle."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-004",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-alternate",
+      "levelId": "time-and-work-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A can finish a job in 6 days and B in 9 days. They work on alternate days, but this time B starts. How long does the job take?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7⅓ days"
+        },
+        {
+          "id": "b",
+          "text": "7 days"
+        },
+        {
+          "id": "c",
+          "text": "8 days"
+        },
+        {
+          "id": "d",
+          "text": "3.6 days"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Take 18 units: B does 2 a day and A 3. After 3 cycles (6 days), 15 units are done. Day 7 is B's: 2 more units, leaving 1. On day 8, A needs only 1 of his 3 units, a third of a day. Total 7⅓ days.",
+      "solutionSteps": [
+        "3 cycles (6 days) → 15 units.",
+        "Day 7 (B): 2 units → 1 left.",
+        "Day 8 (A): 1/3 of a day. Total 7⅓."
+      ],
+      "formulaIds": [
+        "tw-adv-cycle-f"
+      ],
+      "method": "The starter matters: track the remainder turn by turn.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After 6 days, how much is left?"
+        },
+        {
+          "level": 2,
+          "text": "On day 8, how much of A's day is needed?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the answer is the same as when A starts (7 days).",
+        "Giving 3.6 days, the \"together\" time."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-005",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-efficiency",
+      "levelId": "time-and-work-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A is twice as efficient as B, and B is 50% more efficient than C. C alone takes 30 days to do a job. How long do A and B take working together?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6⅔ days"
+        },
+        {
+          "id": "b",
+          "text": "10 days"
+        },
+        {
+          "id": "c",
+          "text": "5 days"
+        },
+        {
+          "id": "d",
+          "text": "7½ days"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "C does 1/30 a day. B does 1.5 × 1/30 = 1/20, and A does 2 × 1/20 = 1/10. Together: 1/10 + 1/20 = 3/20 a day, so 20/3 = 6⅔ days.",
+      "solutionSteps": [
+        "C: 1/30 per day.",
+        "B: 1/20; A: 1/10.",
+        "A + B: 3/20 per day → 6⅔ days."
+      ],
+      "formulaIds": [
+        "tw-adv-chain-f",
+        "tw-combined-formula"
+      ],
+      "method": "Link every worker to one base rate, then add rates.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from C's daily rate."
+        },
+        {
+          "level": 2,
+          "text": "Convert each comparison into a daily rate."
+        }
+      ],
+      "commonMistakes": [
+        "Giving A's time alone (10 days)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-006",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-alternate",
+      "levelId": "time-and-work-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A, B and C can finish a job in 12, 18 and 36 days respectively. They work in turn, one day each, in the order A, B, C, A, B, C, … How many days does the job take?",
+      "answer": {
+        "value": 18,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "Take 36 units: A does 3, B 2, C 1, so each 3-day round does 6 units. 36 ÷ 6 = 6 rounds = 18 days.",
+      "solutionSteps": [
+        "36 units; A 3, B 2, C 1 per day.",
+        "6 units per 3-day round.",
+        "6 rounds × 3 = 18 days."
+      ],
+      "formulaIds": [
+        "tw-adv-cycle-f"
+      ],
+      "method": "The cycle method works for any number of workers in rotation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use the LCM of 12, 18 and 36."
+        },
+        {
+          "level": 2,
+          "text": "How much does one full round do?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the three-together time of 6 days."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-and-work-tw-adv-q-007",
+      "topicId": "time-and-work",
+      "conceptId": "tw-adv-efficiency",
+      "levelId": "time-and-work-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A is 3 times as efficient as B, and together they finish a job in 15 days. How many days would B take alone?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "Let B's rate be r; then A's is 3r. Together 4r = 1/15, so r = 1/60 and B takes 60 days.",
+      "solutionSteps": [
+        "A + B = 3r + r = 4r.",
+        "4r = 1/15 → r = 1/60.",
+        "B takes 60 days."
+      ],
+      "formulaIds": [
+        "tw-adv-chain-f",
+        "tw-combined-formula"
+      ],
+      "method": "Write both rates in terms of one unknown.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "B is one part and A three parts of the combined rate."
+        },
+        {
+          "level": 2,
+          "text": "B does a quarter of the work done each day together."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 20 days, A's time, instead of B's."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

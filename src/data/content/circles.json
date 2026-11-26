@@ -1,0 +1,3344 @@
+{
+  "topicId": "circles",
+  "concepts": [
+    {
+      "id": "cir-parts",
+      "topicId": "circles",
+      "name": "Parts of a circle",
+      "description": "A circle is described by its center, radius, diameter, chord, arc, sector, segment and tangent.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cir-chord",
+      "topicId": "circles",
+      "name": "Chords",
+      "description": "A perpendicular drawn from the center of a circle to a chord always bisects that chord.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cir-tangent",
+      "topicId": "circles",
+      "name": "Tangents",
+      "description": "A tangent is perpendicular to the radius at the point of contact, and two tangents drawn from the same external point are always equal in length.",
+      "sortOrder": 3
+    },
+    {
+      "id": "cir-central",
+      "topicId": "circles",
+      "name": "Central and inscribed angles",
+      "description": "The angle at the center is twice the angle at the circumference subtending the same arc; an angle in a semicircle is always 90°.",
+      "sortOrder": 4
+    },
+    {
+      "id": "cir-cyclic",
+      "topicId": "circles",
+      "name": "Cyclic quadrilaterals",
+      "description": "In a quadrilateral inscribed in a circle, each pair of opposite angles sums to 180°.",
+      "sortOrder": 5
+    },
+    {
+      "id": "cir-adv-sectors",
+      "topicId": "circles",
+      "name": "Sectors and arcs",
+      "description": "A sector with angle θ at the centre is θ/360 of the circle: arc = (θ/360) × 2πr, area = (θ/360) × πr² = ½ × arc × r, and perimeter = 2r + arc.",
+      "sortOrder": 6
+    },
+    {
+      "id": "cir-adv-segments",
+      "topicId": "circles",
+      "name": "Segments",
+      "description": "A chord cuts a circle into a minor and a major segment. Minor segment = sector − triangle (½r² sin θ); major segment = circle − minor segment.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "cir-chord-f",
+      "topicId": "circles",
+      "conceptId": "cir-chord",
+      "title": "Chord and perpendicular distance",
+      "prompt": "How are a chord, the radius and the perpendicular distance from the center related?",
+      "formula": "radius² = (half-chord)² + (distance from center)²",
+      "variables": [],
+      "explanation": "The perpendicular from the center bisects the chord, forming a right triangle with the radius as the hypotenuse.",
+      "example": "Radius 5, distance from center 3: half-chord = √(5² − 3²) = 4, so the chord is 8.",
+      "commonMistake": "Using the full chord length instead of the half-chord in the Pythagorean relationship.",
+      "applicationPrompt": "A chord is at a distance of 3 cm from the center of a circle of radius 5 cm. Find the chord length.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-tangent-f",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "title": "Tangent properties",
+      "prompt": "What are the two key tangent properties?",
+      "formula": "Tangent ⊥ radius at the point of contact; tangent lengths from one external point are equal",
+      "variables": [],
+      "explanation": "These two facts are the basis for almost every tangent problem.",
+      "example": "If PA and PB are tangents from P and PA = 7 cm, then PB = 7 cm too.",
+      "commonMistake": "Assuming tangent segments from two different external points are also equal.",
+      "applicationPrompt": "PA and PB are tangents from external point P, with PA = 7 cm. Find PB.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-central-f",
+      "topicId": "circles",
+      "conceptId": "cir-central",
+      "title": "Central angle theorem",
+      "prompt": "How does the central angle relate to the inscribed angle on the same arc?",
+      "formula": "Central angle = 2 × inscribed angle (same arc); angle in a semicircle = 90°",
+      "variables": [],
+      "explanation": "The semicircle case is just the central-angle theorem applied when the central angle is a straight 180°, giving an inscribed angle of 90°.",
+      "example": "Central angle 100°: inscribed angle on the same arc = 100 ÷ 2 = 50°",
+      "commonMistake": "Doubling the inscribed angle to get the central angle when they are on different arcs.",
+      "applicationPrompt": "The central angle AOB is 100°. Find the inscribed angle ACB on the major arc.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-cyclic-f",
+      "topicId": "circles",
+      "conceptId": "cir-cyclic",
+      "title": "Cyclic quadrilateral angles",
+      "prompt": "How do opposite angles of a cyclic quadrilateral relate?",
+      "formula": "Opposite angles sum to 180°: A + C = 180°, B + D = 180°",
+      "variables": [],
+      "explanation": "This holds for any quadrilateral whose four vertices all lie on a single circle.",
+      "example": "If angle A = 85°, angle C = 180 − 85 = 95°",
+      "commonMistake": "Applying the supplementary rule to adjacent angles instead of opposite ones.",
+      "applicationPrompt": "Cyclic quadrilateral ABCD has angle A = 85°. Find angle C.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-sc-tangent-length",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "kind": "shortcut",
+      "title": "Tangent from an outside point",
+      "prompt": "A point is d from the centre of a circle of radius r. How long is the tangent from it?",
+      "formula": "Tangent length = √(d² − r²)",
+      "variables": [],
+      "explanation": "The radius meets the tangent at a right angle, so d is the hypotenuse.",
+      "example": "d = 13, r = 5: tangent = 12.",
+      "commonMistake": "Adding the squares instead of subtracting.",
+      "applicationPrompt": "A tangent of 24 cm is drawn from a point 25 cm from the centre. Find the radius.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cir-sc-chords",
+      "topicId": "circles",
+      "conceptId": "cir-chord",
+      "kind": "shortcut",
+      "title": "Crossing chords",
+      "prompt": "Two chords AB and CD cross at P inside a circle. How are the pieces related?",
+      "formula": "PA × PB = PC × PD",
+      "variables": [],
+      "explanation": "The two triangles formed are similar, so the products of the pieces are equal.",
+      "example": "PA = 4, PB = 6, PC = 3: PD = 24 ÷ 3 = 8.",
+      "commonMistake": "Adding the pieces instead of multiplying.",
+      "applicationPrompt": "Chords cross with pieces 5 and 8 on one chord and 4 on the other. Find the last piece.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-adv-sector-f",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "title": "Arc, sector area and perimeter",
+      "prompt": "A sector has radius r and angle θ at the centre. What are its arc length, area and perimeter?",
+      "formula": "Arc l = (θ/360) × 2πr\nArea = (θ/360) × πr² = ½ × l × r\nPerimeter = 2r + l",
+      "variables": [],
+      "explanation": "θ/360 is the fraction of the full turn, so the sector gets that fraction of the circumference and of the area. Its boundary is the arc plus the two radii.",
+      "example": "r = 21 cm, θ = 60° (π = 22/7): l = (1/6) × 132 = 22 cm, area = ½ × 22 × 21 = 231 cm², perimeter = 42 + 22 = 64 cm.",
+      "commonMistake": "Giving the arc alone as the perimeter, leaving out the two radii.",
+      "applicationPrompt": "A sector of radius 14 cm has an angle of 45°. Find its area (π = 22/7).",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-adv-segment-f",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "title": "Segment area",
+      "prompt": "Chord AB subtends θ at the centre O of a circle of radius r. What are the areas of the minor and major segments?",
+      "formula": "Minor segment = sector − triangle OAB\n= (θ/360) × πr² − ½ r² sin θ\nMajor segment = πr² − minor segment",
+      "variables": [],
+      "explanation": "The sector OAB is the segment plus the triangle OAB, so take the triangle away. Its two sides are radii with θ between them, so its area is ½ r² sin θ. The major segment is the rest of the circle.",
+      "example": "r = 14 cm, θ = 90° (π = 22/7): sector 154 cm², triangle ½ × 14 × 14 = 98 cm², minor segment 56 cm², major segment 616 − 56 = 560 cm².",
+      "commonMistake": "Forgetting to subtract the triangle, which gives the sector, not the segment.",
+      "applicationPrompt": "A chord of a circle of radius 7 cm subtends 90° at the centre. Find the minor segment (π = 22/7).",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "cir-sc-sector-half-arc",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "kind": "shortcut",
+      "title": "Sector area from the arc",
+      "prompt": "You know a sector's arc and radius but not its angle. What is its area?",
+      "formula": "Area = ½ × arc × r\nr = 2 × area ÷ arc",
+      "variables": [],
+      "explanation": "A sector is like a triangle whose base is the arc and whose height is the radius. No π and no angle needed.",
+      "example": "Arc 22 cm, radius 21 cm: area = ½ × 22 × 21 = 231 cm².",
+      "commonMistake": "Forgetting the ½, which doubles the area (or halves the radius).",
+      "applicationPrompt": "A sector has an arc of 33 cm and a radius of 14 cm. Find its area.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cir-sc-segment-angles",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "kind": "shortcut",
+      "title": "Segments at 60°, 90° and 120°",
+      "prompt": "What is the minor segment for the three angles exams use most?",
+      "formula": "θ = 60°: r²(π/6 − √3/4)\nθ = 90°: r²(π/4 − 1/2)\nθ = 120°: r²(π/3 − √3/4)",
+      "variables": [],
+      "explanation": "The triangle is ½ r² sin θ: sin 90° = 1 gives ½ r², and sin 60° = sin 120° = √3/2 gives (√3/4) r². At 60° the triangle is equilateral, so its side is r.",
+      "example": "r = 7, θ = 90° (π = 22/7): 49 × (11/14 − 1/2) = 49 × 2/7 = 14 cm².",
+      "commonMistake": "Using (√3/2) r² for the triangle: that is sin θ without the ½.",
+      "applicationPrompt": "A chord subtends 120° at the centre of a circle of radius 7 cm. Find the minor segment (π = 22/7).",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "circles-level-0",
+      "topicId": "circles",
+      "order": 0,
+      "title": "The Semicircle Angle Rule",
+      "description": "A tangent is perpendicular to the radius, and an angle inscribed in a semicircle is always 90°.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "cir-parts",
+        "cir-central"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The vocabulary of a circle",
+            "body": "Center, radius, diameter, chord, arc, sector, segment and tangent — these terms describe every part of a circle you will work with."
+          },
+          {
+            "type": "formula",
+            "title": "Semicircle angle",
+            "body": "Angle in a semicircle = 90°",
+            "caption": "Any triangle formed by a diameter and a point on the circle is always right-angled."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-q-003"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "A tangent always meets the radius at a right angle at the point where it touches the circle."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "circle-angles"
+          },
+          {
+            "type": "check",
+            "questionId": "circles-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "circles-level-1",
+      "topicId": "circles",
+      "order": 1,
+      "title": "Circles Formulas",
+      "description": "Chords and perpendicular bisectors, tangent properties, central and inscribed angles, and cyclic quadrilaterals.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "circles-level-0"
+      ],
+      "conceptIds": [
+        "cir-chord",
+        "cir-tangent",
+        "cir-central",
+        "cir-cyclic"
+      ],
+      "formulaIds": [
+        "cir-chord-f",
+        "cir-tangent-f",
+        "cir-central-f",
+        "cir-cyclic-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "circles-level-2",
+      "topicId": "circles",
+      "order": 2,
+      "title": "Circle Vocabulary and the Semicircle Rule",
+      "description": "Naming circle parts, tangents, and the semicircle angle rule.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "circles-level-1"
+      ],
+      "conceptIds": [
+        "cir-parts",
+        "cir-tangent",
+        "cir-central"
+      ],
+      "questionIds": [
+        "circles-q-001",
+        "circles-q-002",
+        "circles-q-003",
+        "circles-q-010",
+        "circles-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "circles-level-3",
+      "topicId": "circles",
+      "order": 3,
+      "title": "Chords, Tangents and Inscribed Angles",
+      "description": "Chord-distance relationships, equal tangent lengths, central/inscribed angles, and cyclic quadrilaterals.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "circles-level-2"
+      ],
+      "conceptIds": [
+        "cir-chord",
+        "cir-tangent",
+        "cir-central",
+        "cir-cyclic"
+      ],
+      "questionIds": [
+        "circles-q-004",
+        "circles-q-005",
+        "circles-q-006",
+        "circles-q-007",
+        "circles-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "circles-level-4",
+      "topicId": "circles",
+      "order": 4,
+      "title": "Multi-Step Circle Problems",
+      "description": "Finding a radius from a chord, and solving for an unknown angle in a cyclic quadrilateral.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "circles-level-3"
+      ],
+      "conceptIds": [
+        "cir-chord",
+        "cir-cyclic",
+        "cir-tangent"
+      ],
+      "questionIds": [
+        "circles-q-008",
+        "circles-q-009",
+        "circles-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "circles-level-5",
+      "topicId": "circles",
+      "order": 5,
+      "title": "Mixed Circles Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "circles-level-4"
+      ],
+      "conceptIds": [
+        "cir-chord",
+        "cir-cyclic"
+      ],
+      "questionQuery": {
+        "topicId": "circles",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "cir-parts",
+          "cir-chord",
+          "cir-tangent",
+          "cir-central",
+          "cir-cyclic"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "circles-level-6",
+      "topicId": "circles",
+      "order": 6,
+      "title": "Advanced: Sectors, Arcs and Segments",
+      "description": "Arc length, sector area and perimeter, and the segment a chord cuts off.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "circles-level-5"
+      ],
+      "conceptIds": [
+        "cir-adv-sectors",
+        "cir-adv-segments"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A sector is a slice of the circle",
+            "body": "Two radii OA and OB cut a slice out of a circle, like a slice of pizza. That slice is a sector, and the curved edge AB is its arc. If the angle at the centre is θ, the sector is θ/360 of the whole circle, so everything about it is θ/360 of the circle's value."
+          },
+          {
+            "type": "figure",
+            "title": "Reading a sector",
+            "body": "The radius r runs from the centre O to the circle. The angle θ sits at O, between the two radii. The arc l is the curved edge from A to B. The shaded slice is the sector.",
+            "figure": {
+              "type": "diagram",
+              "caption": "A sector OAB with radius r, angle θ and arc l; the sector is shaded",
+              "points": [
+                {
+                  "id": "O",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "A",
+                  "x": -4.91,
+                  "y": 3.44,
+                  "labelOffset": [
+                    -16,
+                    -4
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 4.91,
+                  "y": 3.44,
+                  "labelOffset": [
+                    9,
+                    -4
+                  ]
+                },
+                {
+                  "id": "M",
+                  "x": 0,
+                  "y": 6,
+                  "label": "arc l",
+                  "labelOffset": [
+                    -17,
+                    -12
+                  ]
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "sector",
+                  "center": "O",
+                  "radius": 6,
+                  "startAngle": -55,
+                  "endAngle": 55
+                },
+                {
+                  "type": "segment",
+                  "from": "O",
+                  "to": "A",
+                  "label": "r",
+                  "labelOffset": [
+                    -8,
+                    11
+                  ]
+                }
+              ],
+              "shaded": [
+                {
+                  "parts": [
+                    {
+                      "type": "sector",
+                      "center": "O",
+                      "radius": 6,
+                      "startAngle": -55,
+                      "endAngle": 55
+                    }
+                  ]
+                }
+              ],
+              "angles": [
+                {
+                  "at": "O",
+                  "from": "A",
+                  "to": "B",
+                  "label": "θ",
+                  "radius": 16,
+                  "labelRadius": 30
+                }
+              ],
+              "ariaSummary": "Sector OAB with centre O. The radius OA is labelled r, the angle AOB is labelled θ, and the arc AB is labelled l. The sector is shaded."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Arc, area and perimeter",
+            "body": "Arc l = (θ/360) × 2πr\nArea = (θ/360) × πr² = ½ × l × r\nPerimeter = 2r + l",
+            "caption": "Use the π the question gives. With π = 22/7, radii that are multiples of 7 keep the numbers whole."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-cir-adv-q-001"
+          },
+          {
+            "type": "example",
+            "title": "The minute hand",
+            "body": "A minute hand turns 360° in 60 minutes, which is 6° a minute. A 14 cm hand in 15 minutes turns 90°, a quarter of a turn. It sweeps (1/4) × 22/7 × 14² = 154 cm², and its tip travels (1/4) × 2 × 22/7 × 14 = 22 cm."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Area = ½ × arc × r needs no angle and no π. Given the area and the arc, the radius is 2 × area ÷ arc."
+          },
+          {
+            "type": "text",
+            "title": "Segments: sector minus triangle",
+            "body": "A chord AB cuts the circle into two segments. The smaller one, between the chord and the short arc, is the minor segment. The sector OAB is the minor segment plus the triangle OAB, so the segment is the sector with the triangle taken away. The major segment is everything else."
+          },
+          {
+            "type": "figure",
+            "title": "Segment = sector − triangle",
+            "body": "The shaded minor segment sits between chord AB and the arc. Below it is the triangle OAB, with two sides equal to r and the angle θ between them, so its area is ½ r² sin θ.",
+            "figure": {
+              "type": "diagram",
+              "caption": "Chord AB cuts off the minor segment, which is shaded; the triangle OAB sits between the segment and the centre",
+              "points": [
+                {
+                  "id": "O",
+                  "x": 0,
+                  "y": 0,
+                  "labelOffset": [
+                    -4,
+                    18
+                  ]
+                },
+                {
+                  "id": "A",
+                  "x": -5.2,
+                  "y": 3,
+                  "labelOffset": [
+                    -17,
+                    -3
+                  ]
+                },
+                {
+                  "id": "B",
+                  "x": 5.2,
+                  "y": 3,
+                  "labelOffset": [
+                    10,
+                    -3
+                  ]
+                }
+              ],
+              "shapes": [
+                {
+                  "type": "circle",
+                  "center": "O",
+                  "radius": 6
+                },
+                {
+                  "type": "segment",
+                  "from": "O",
+                  "to": "A",
+                  "style": "dashed",
+                  "label": "r",
+                  "labelOffset": [
+                    -7,
+                    12
+                  ]
+                },
+                {
+                  "type": "segment",
+                  "from": "O",
+                  "to": "B",
+                  "style": "dashed"
+                },
+                {
+                  "type": "segment",
+                  "from": "B",
+                  "to": "A"
+                }
+              ],
+              "shaded": [
+                {
+                  "parts": [
+                    {
+                      "type": "segment",
+                      "center": "O",
+                      "radius": 6,
+                      "startAngle": -60,
+                      "endAngle": 60
+                    }
+                  ]
+                }
+              ],
+              "angles": [
+                {
+                  "at": "O",
+                  "from": "A",
+                  "to": "B",
+                  "radius": 16,
+                  "label": "θ",
+                  "labelRadius": 30
+                }
+              ],
+              "ariaSummary": "A circle with centre O and radius r. Chord AB subtends angle θ at O, with radii OA and OB dashed. The minor segment, between chord AB and the shorter arc, is shaded; the unshaded triangle OAB lies below it."
+            }
+          },
+          {
+            "type": "formula",
+            "title": "Segment area",
+            "body": "Minor segment = (θ/360) × πr² − ½ r² sin θ\nθ = 90°: triangle = ½ r²\nθ = 60° or 120°: triangle = (√3/4) r²\nMajor segment = πr² − minor segment",
+            "caption": "sin 90° = 1, and sin 60° = sin 120° = √3/2."
+          },
+          {
+            "type": "check",
+            "questionId": "circles-cir-adv-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Read which segment is asked. The sector alone, the minor segment and the major segment are all among the options, so check whether the triangle is to be subtracted (minor) or added back (major)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "circles-level-7",
+      "topicId": "circles",
+      "order": 7,
+      "title": "Challenge: Sectors, Arcs and Segments",
+      "description": "Perimeters, minute hands, radii from arcs, and minor and major segments.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "circles-level-6"
+      ],
+      "conceptIds": [
+        "cir-adv-sectors",
+        "cir-adv-segments"
+      ],
+      "questionIds": [
+        "circles-cir-adv-q-003",
+        "circles-cir-adv-q-004",
+        "circles-cir-adv-q-005",
+        "circles-cir-adv-q-006",
+        "circles-cir-adv-q-007",
+        "circles-cir-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "circles-q-001",
+      "topicId": "circles",
+      "conceptId": "cir-parts",
+      "levelId": "circles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The line segment from the center of a circle to any point on the circle is called the",
+      "options": [
+        {
+          "id": "a",
+          "text": "radius"
+        },
+        {
+          "id": "b",
+          "text": "diameter"
+        },
+        {
+          "id": "c",
+          "text": "chord"
+        },
+        {
+          "id": "d",
+          "text": "tangent"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The radius connects the center to any point on the circle; a diameter is twice the radius, spanning the full circle through the center.",
+      "solutionSteps": [
+        "Center to circle → radius."
+      ],
+      "formulaIds": [],
+      "method": "Match the definition to the correct part of the circle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A diameter passes all the way through the center to the opposite side."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the radius with the diameter, which is twice as long."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-002",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "levelId": "circles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A line that touches a circle at exactly one point is called a",
+      "options": [
+        {
+          "id": "a",
+          "text": "tangent"
+        },
+        {
+          "id": "b",
+          "text": "chord"
+        },
+        {
+          "id": "c",
+          "text": "secant"
+        },
+        {
+          "id": "d",
+          "text": "diameter"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A tangent touches the circle at exactly one point; a chord or secant crosses through two points on the circle.",
+      "solutionSteps": [
+        "Touches at exactly one point → tangent."
+      ],
+      "formulaIds": [],
+      "method": "Match the number of contact points to the correct term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A secant is a line that cuts through the circle at two points."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing a tangent with a chord, which meets the circle at two points."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-003",
+      "topicId": "circles",
+      "conceptId": "cir-central",
+      "levelId": "circles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "AB is a diameter of a circle, and C is a point on the circle. What is the measure of angle ACB?",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with diameter AB and point C on the circle",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "A",
+            "x": -5,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              8,
+              10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C"
+          }
+        ],
+        "angles": [
+          {
+            "at": "C",
+            "from": "A",
+            "to": "B",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "A circle with diameter AB and a point C on the circle; angle ACB is marked ?."
+      },
+      "answer": {
+        "value": 90,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "An angle inscribed in a semicircle (subtending a diameter) is always 90°.",
+      "solutionSteps": [
+        "AB is a diameter → angle ACB = 90°."
+      ],
+      "formulaIds": [
+        "cir-central-f"
+      ],
+      "method": "Recall the semicircle angle rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a special case of the central angle theorem, where the central angle is a straight 180°."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the angle depends on where C is placed on the circle."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-004",
+      "topicId": "circles",
+      "conceptId": "cir-chord",
+      "levelId": "circles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, O is the center and OM is drawn perpendicular to chord AB, meeting it at M. If the radius OA = 5 cm and OM = 3 cm, find the length of chord AB.",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with center O and chord AB",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": -4,
+            "y": 3,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 3,
+            "labelOffset": [
+              10,
+              6
+            ]
+          },
+          {
+            "id": "M",
+            "x": 0,
+            "y": 3,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "M",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "M",
+            "from": "A",
+            "to": "O"
+          }
+        ],
+        "ariaSummary": "A circle centered at O with chord AB. A perpendicular from O meets AB at its midpoint M, marked at right angles."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "AM = √(OA² − OM²) = √(5² − 3²) = √16 = 4. Since M bisects AB, AB = 2 × 4 = 8 cm.",
+      "solutionSteps": [
+        "5² − 3² = 25 − 9 = 16.",
+        "√16 = 4.",
+        "2 × 4 = 8."
+      ],
+      "formulaIds": [
+        "cir-chord-f"
+      ],
+      "method": "Find the half-chord with the Pythagorean relationship, then double it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "OM is perpendicular to AB, so triangle OMA is right-angled at M."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to double the half-chord to get the full chord AB."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-005",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "levelId": "circles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "PA and PB are tangents drawn from an external point P, touching the circle at A and B. If PA = 7 cm, what is the length of PB?",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two tangents from an external point P",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": -4,
+            "y": 3,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": -4,
+            "y": -3,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "P",
+            "x": -10,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "B"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "P",
+              "A"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "P",
+              "B"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "A circle with center O and an external point P, from which two tangent segments PA and PB are drawn, tick-marked as equal in length."
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Two tangents drawn from the same external point are always equal in length, so PB = PA = 7 cm.",
+      "solutionSteps": [
+        "Tangents from the same external point are equal.",
+        "PB = PA = 7 cm."
+      ],
+      "formulaIds": [
+        "cir-tangent-f"
+      ],
+      "method": "Use the equal-tangent-lengths property.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This property holds regardless of the circle's radius."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to compute PB from the radius, which was never needed."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-006",
+      "topicId": "circles",
+      "conceptId": "cir-central",
+      "levelId": "circles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, O is the center. The central angle AOB = 100°, and C lies on the major arc. What is the inscribed angle ACB?",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with central angle AOB and inscribed angle ACB",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              6,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": -3,
+            "y": 4,
+            "labelOffset": [
+              -12,
+              8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              -4,
+              -14
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "A"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "B"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "label": "100°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "A",
+            "to": "B",
+            "label": "?",
+            "radius": 18
+          }
+        ],
+        "ariaSummary": "A circle with central angle AOB marked 100° and inscribed angle ACB (on the major arc) marked ?, both subtending the same arc AB."
+      },
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The central angle is twice the inscribed angle on the same arc: inscribed angle = 100 ÷ 2 = 50°.",
+      "solutionSteps": [
+        "100 ÷ 2 = 50."
+      ],
+      "formulaIds": [
+        "cir-central-f"
+      ],
+      "method": "Halve the central angle to get the inscribed angle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This only works when both angles subtend the same arc AB."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling instead of halving the central angle."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-007",
+      "topicId": "circles",
+      "conceptId": "cir-cyclic",
+      "levelId": "circles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "ABCD is a cyclic quadrilateral with angle A = 85°. What is angle C, the angle opposite to A?",
+      "context": "Study the cyclic quadrilateral and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Cyclic quadrilateral ABCD",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "A",
+            "x": -4,
+            "y": 3,
+            "labelOffset": [
+              -14,
+              6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4,
+            "y": -3,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "B",
+            "label": "85°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "A cyclic quadrilateral ABCD inscribed in a circle, with opposite angle A marked 85° and opposite angle C marked ?."
+      },
+      "answer": {
+        "value": 95,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Opposite angles of a cyclic quadrilateral sum to 180°: angle C = 180 − 85 = 95°.",
+      "solutionSteps": [
+        "180 − 85 = 95."
+      ],
+      "formulaIds": [
+        "cir-cyclic-f"
+      ],
+      "method": "Subtract the given angle from 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This only applies to the opposite pair of angles, not adjacent ones."
+        }
+      ],
+      "commonMistakes": [
+        "Applying the supplementary rule to an adjacent angle instead of the opposite one."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-008",
+      "topicId": "circles",
+      "conceptId": "cir-chord",
+      "levelId": "circles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A chord of a circle is 16 cm long and lies 6 cm from the center. Find the radius of the circle.",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle with center O and chord AB",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              8,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": -8,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 6,
+            "labelOffset": [
+              10,
+              6
+            ]
+          },
+          {
+            "id": "M",
+            "x": 0,
+            "y": 6,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 10
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "M",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "M",
+            "from": "A",
+            "to": "O"
+          }
+        ],
+        "ariaSummary": "A circle centered at O with chord AB. A perpendicular from O meets AB at its midpoint M, marked at right angles."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Half-chord = 16 ÷ 2 = 8 cm. Radius = √(8² + 6²) = √(64 + 36) = √100 = 10 cm.",
+      "solutionSteps": [
+        "16 ÷ 2 = 8.",
+        "8² + 6² = 64 + 36 = 100.",
+        "√100 = 10."
+      ],
+      "formulaIds": [
+        "cir-chord-f"
+      ],
+      "method": "Halve the chord first, then apply the Pythagorean relationship to find the radius.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This time you are solving for the hypotenuse (the radius), not a leg."
+        }
+      ],
+      "commonMistakes": [
+        "Using the full chord length instead of the half-chord in the Pythagorean step."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-009",
+      "topicId": "circles",
+      "conceptId": "cir-cyclic",
+      "levelId": "circles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In cyclic quadrilateral ABCD, angle B = (2x + 10)° and angle D = (x + 50)° are opposite angles. Find angle B.",
+      "context": "Study the cyclic quadrilateral and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Cyclic quadrilateral ABCD",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "A",
+            "x": -4,
+            "y": 3,
+            "labelOffset": [
+              -14,
+              6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4,
+            "y": -3,
+            "labelOffset": [
+              10,
+              -8
+            ]
+          },
+          {
+            "id": "D",
+            "x": -3,
+            "y": -4,
+            "labelOffset": [
+              -14,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "(2x + 10)°",
+            "radius": 16
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "A",
+            "label": "(x + 50)°",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "A cyclic quadrilateral ABCD inscribed in a circle, with opposite angle B marked (2x + 10)° and opposite angle D marked (x + 50)°."
+      },
+      "answer": {
+        "value": 90,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Opposite angles sum to 180°: (2x + 10) + (x + 50) = 180, so 3x + 60 = 180, giving x = 40. Angle B = 2(40) + 10 = 90°.",
+      "solutionSteps": [
+        "(2x + 10) + (x + 50) = 180.",
+        "3x + 60 = 180 → x = 40.",
+        "Angle B = 2(40) + 10 = 90°."
+      ],
+      "formulaIds": [
+        "cir-cyclic-f"
+      ],
+      "method": "Set the two opposite angles equal to 180°, solve for x, then substitute back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set up the supplementary-angle equation before solving for x."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to substitute x back in to find the actual angle."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-010",
+      "topicId": "circles",
+      "conceptId": "cir-parts",
+      "levelId": "circles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A circle has radius 6.5 cm. What is the length of its longest chord?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The longest chord of a circle is the diameter, the chord through the center. Diameter = 2 × 6.5 = 13 cm.",
+      "solutionSteps": [
+        "The longest chord passes through the center, so it is the diameter.",
+        "Diameter = 2 × 6.5 = 13 cm."
+      ],
+      "formulaIds": [],
+      "method": "Recognise the longest chord as the diameter, then double the radius.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every chord through the center is a diameter, and no chord is longer than that."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the radius, 6.5 cm, as the longest chord."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-011",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "levelId": "circles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In the figure, O is the center and PA is a tangent touching the circle at A. If angle APO = 30°, what is angle AOP?",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Tangent PA from an external point P, with radius OA",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "A",
+            "x": 2.5,
+            "y": 4.33,
+            "labelOffset": [
+              2,
+              -10
+            ]
+          },
+          {
+            "id": "P",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 5
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "P",
+            "style": "dashed"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "O",
+            "to": "P"
+          }
+        ],
+        "angles": [
+          {
+            "at": "P",
+            "from": "A",
+            "to": "O",
+            "label": "30°",
+            "radius": 26
+          },
+          {
+            "at": "O",
+            "from": "A",
+            "to": "P",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "A circle with center O. A tangent from the external point P touches the circle at A, where a right angle is marked between radius OA and PA. Angle APO is marked 30° and angle AOP is marked ?."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "60°"
+        },
+        {
+          "id": "b",
+          "text": "30°"
+        },
+        {
+          "id": "c",
+          "text": "90°"
+        },
+        {
+          "id": "d",
+          "text": "150°"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "A tangent is perpendicular to the radius at the point of contact, so angle OAP = 90°. In triangle OAP, angle AOP = 180° − 90° − 30° = 60°.",
+      "solutionSteps": [
+        "Tangent ⊥ radius, so angle OAP = 90°.",
+        "Angle AOP = 180° − 90° − 30° = 60°."
+      ],
+      "formulaIds": [
+        "cir-tangent-f"
+      ],
+      "method": "Use the right angle between the tangent and the radius, then the angle sum of triangle OAP.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Radius OA meets the tangent PA at 90°."
+        }
+      ],
+      "commonMistakes": [
+        "Missing the 90° at A, the point where the tangent touches the circle."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-012",
+      "topicId": "circles",
+      "conceptId": "cir-chord",
+      "levelId": "circles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, chords AB and CD of a circle cross at P, inside the circle. If PA = 6 cm, PB = 4 cm and PC = 3 cm, find PD.",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Chords AB and CD crossing at P",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "A",
+            "x": 1.73,
+            "y": 5.74,
+            "labelOffset": [
+              4,
+              -9
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.62,
+            "y": -3.83,
+            "labelOffset": [
+              11,
+              13
+            ]
+          },
+          {
+            "id": "C",
+            "x": 5.63,
+            "y": -2.08,
+            "labelOffset": [
+              13,
+              9
+            ]
+          },
+          {
+            "id": "D",
+            "x": -2.31,
+            "y": 5.54,
+            "labelOffset": [
+              -5,
+              -9
+            ]
+          },
+          {
+            "id": "P",
+            "x": 3.46,
+            "y": 0,
+            "labelOffset": [
+              12,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 6
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A",
+            "label": "6 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "B",
+            "label": "4 cm",
+            "labelOffset": [
+              -20,
+              2
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "C",
+            "label": "3 cm"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "D",
+            "label": "?"
+          }
+        ],
+        "ariaSummary": "A circle with chords AB and CD crossing at P. PA is 6 cm, PB is 4 cm, PC is 3 cm and PD is marked ?."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "When two chords cross inside a circle, the products of their parts are equal: PA × PB = PC × PD. So 6 × 4 = 3 × PD, giving PD = 24 ÷ 3 = 8 cm.",
+      "solutionSteps": [
+        "PA × PB = PC × PD.",
+        "6 × 4 = 24, so 3 × PD = 24.",
+        "PD = 24 ÷ 3 = 8 cm."
+      ],
+      "formulaIds": [
+        "cir-sc-chords"
+      ],
+      "method": "Use the crossing-chords rule: the two products of parts are equal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply the two parts of chord AB: PA × PB."
+        },
+        {
+          "level": 2,
+          "text": "The two parts of chord CD must give the same product."
+        }
+      ],
+      "commonMistakes": [
+        "Matching PA ÷ PB with PC ÷ PD, which gives 2 cm instead of 8 cm."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-q-013",
+      "topicId": "circles",
+      "conceptId": "cir-tangent",
+      "levelId": "circles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "From a point P that is 17 cm from the center O of a circle of radius 8 cm, tangents PA and PB are drawn, touching the circle at A and B. Find the area of quadrilateral OAPB.",
+      "context": "Study the circle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two tangents PA and PB from an external point P, with quadrilateral OAPB shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -16,
+              4
+            ]
+          },
+          {
+            "id": "A",
+            "x": 3.76,
+            "y": 7.06,
+            "labelOffset": [
+              -2,
+              -10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3.76,
+            "y": -7.06,
+            "labelOffset": [
+              -2,
+              18
+            ]
+          },
+          {
+            "id": "P",
+            "x": 17,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 8
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "label": "8 cm",
+            "labelOffset": [
+              -16,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "A"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "P",
+            "style": "dashed",
+            "label": "17 cm",
+            "labelOffset": [
+              30,
+              -10
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "polygon",
+                "points": [
+                  "O",
+                  "A",
+                  "P",
+                  "B"
+                ]
+              }
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "O",
+            "to": "P"
+          },
+          {
+            "at": "B",
+            "from": "O",
+            "to": "P"
+          }
+        ],
+        "ariaSummary": "A circle with center O and radius 8 cm. Tangents from P, 17 cm from O, touch the circle at A and B, with right angles marked at A and B. The quadrilateral OAPB is shaded."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "Each tangent meets its radius at 90°, so triangle OAP is right-angled at A. PA = √(17² − 8²) = √225 = 15 cm. OAPB is two such triangles: area = 2 × ½ × 8 × 15 = 120 cm².",
+      "solutionSteps": [
+        "Angle OAP = 90°, because a tangent is perpendicular to the radius.",
+        "PA = √(17² − 8²) = √(289 − 64) = √225 = 15 cm.",
+        "Area of triangle OAP = ½ × 8 × 15 = 60 cm².",
+        "OAPB = 2 × 60 = 120 cm²."
+      ],
+      "formulaIds": [
+        "cir-tangent-f",
+        "cir-sc-tangent-length"
+      ],
+      "method": "Find the tangent length with Pythagoras, then add the two matching right triangles.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Triangles OAP and OBP are congruent right triangles."
+        },
+        {
+          "level": 2,
+          "text": "The tangent length is √(OP² − OA²)."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at one triangle's area, 60 cm².",
+        "Using ½ × OP × OA = 68 cm² for a triangle; OP is the hypotenuse, not a leg."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-001",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "levelId": "circles-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A sector of a circle of radius 21 cm has a central angle of 60°. Find the length of its arc AB. (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Sector OAB of radius 21 cm and angle 60°; the sector is shaded and its arc is asked",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -10.5,
+            "y": 18.19,
+            "labelOffset": [
+              -12,
+              -8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10.5,
+            "y": 18.19,
+            "labelOffset": [
+              5,
+              -8
+            ]
+          },
+          {
+            "id": "M",
+            "x": 0,
+            "y": 21,
+            "label": "arc = ?",
+            "labelOffset": [
+              -24,
+              -12
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "sector",
+            "center": "O",
+            "radius": 21,
+            "startAngle": -30,
+            "endAngle": 30
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "label": "21 cm",
+            "labelOffset": [
+              -23,
+              13
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "sector",
+                "center": "O",
+                "radius": 21,
+                "startAngle": -30,
+                "endAngle": 30
+              }
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "label": "60°",
+            "radius": 16,
+            "labelRadius": 32
+          }
+        ],
+        "ariaSummary": "Sector OAB with centre O, radius OA = 21 cm and ∠AOB = 60°. The sector is shaded, and its arc AB is marked with a question mark."
+      },
+      "answer": {
+        "value": 22,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "60° is 60/360 = 1/6 of a full turn, so the arc is 1/6 of the circumference. Circumference = 2 × 22/7 × 21 = 132 cm, so the arc is 132 ÷ 6 = 22 cm.",
+      "solutionSteps": [
+        "Arc = (θ/360) × 2πr.",
+        "2πr = 2 × 22/7 × 21 = 132 cm.",
+        "(60/360) × 132 = 22 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-sector-f"
+      ],
+      "method": "Arc length = (θ/360) × 2πr.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What fraction of a full turn is 60°?"
+        },
+        {
+          "level": 2,
+          "text": "Take that fraction of the circumference, 2πr."
+        }
+      ],
+      "commonMistakes": [
+        "Using πr² instead of 2πr, which gives the sector area, 231.",
+        "Using θ/180 instead of θ/360, which gives 44 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-002",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "levelId": "circles-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A chord AB of a circle of radius 14 cm subtends a right angle at the centre O. Find the area of the minor segment. (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle of radius 14 cm with chord AB subtending 90° at O; the minor segment is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -9.9,
+            "y": 9.9,
+            "labelOffset": [
+              -15,
+              -6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 9.9,
+            "y": 9.9,
+            "labelOffset": [
+              8,
+              -6
+            ]
+          },
+          {
+            "id": "X",
+            "x": 0,
+            "y": 11.95,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 14
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed",
+            "label": "14 cm",
+            "labelOffset": [
+              -19,
+              19
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "A"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "segment",
+                "center": "O",
+                "radius": 14,
+                "startAngle": -45,
+                "endAngle": 45
+              }
+            ],
+            "label": "?",
+            "labelAt": "X"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "radius": 16,
+            "label": "90°",
+            "labelRadius": 30
+          }
+        ],
+        "ariaSummary": "A circle with centre O and radius OA = 14 cm. Chord AB subtends ∠AOB = 90° at the centre, with radii OA and OB dashed. The minor segment, between chord AB and the shorter arc, is shaded and marked with a question mark."
+      },
+      "answer": {
+        "value": 56,
+        "tolerance": 0,
+        "unit": "cm²"
+      },
+      "explanation": "The minor segment is the sector OAB with the triangle OAB taken away. Sector = (90/360) × 22/7 × 14² = 154 cm². The triangle has a right angle at O: ½ × 14 × 14 = 98 cm². Segment = 154 − 98 = 56 cm².",
+      "solutionSteps": [
+        "Sector = (1/4) × 22/7 × 196 = 154 cm².",
+        "Triangle OAB = ½ × 14 × 14 = 98 cm².",
+        "Segment = 154 − 98 = 56 cm²."
+      ],
+      "formulaIds": [
+        "cir-adv-segment-f"
+      ],
+      "method": "Minor segment = sector − triangle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The segment is what is left of the sector after the triangle OAB is removed."
+        },
+        {
+          "level": 2,
+          "text": "OA and OB are perpendicular, so the triangle is ½ × r × r."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the sector, 154 cm².",
+        "Giving the major segment, 560 cm²."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-003",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "levelId": "circles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A sector of a circle of radius 10 cm has a central angle of 72°. What is the perimeter of the sector? (Use π = 3.14.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Sector OAB of radius 10 cm and angle 72°; the perimeter of the shaded sector is asked",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -5.88,
+            "y": 8.09,
+            "labelOffset": [
+              -13,
+              -7
+            ]
+          },
+          {
+            "id": "B",
+            "x": 5.88,
+            "y": 8.09,
+            "labelOffset": [
+              6,
+              -7
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "sector",
+            "center": "O",
+            "radius": 10,
+            "startAngle": -36,
+            "endAngle": 36
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "label": "10 cm",
+            "labelOffset": [
+              -21,
+              16
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "sector",
+                "center": "O",
+                "radius": 10,
+                "startAngle": -36,
+                "endAngle": 36
+              }
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "label": "72°",
+            "radius": 16,
+            "labelRadius": 30
+          }
+        ],
+        "ariaSummary": "Sector OAB with centre O, radius OA = 10 cm and ∠AOB = 72°. The sector is shaded; its perimeter is the two radii OA and OB plus the arc AB."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "12.56 cm"
+        },
+        {
+          "id": "b",
+          "text": "32.56 cm"
+        },
+        {
+          "id": "c",
+          "text": "45.12 cm"
+        },
+        {
+          "id": "d",
+          "text": "22.56 cm"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The perimeter is the arc plus the two radii. 72° is 1/5 of a full turn, so the arc is 1/5 of 2 × 3.14 × 10 = 62.8 cm, which is 12.56 cm. Perimeter = 20 + 12.56 = 32.56 cm.",
+      "solutionSteps": [
+        "Circumference = 2 × 3.14 × 10 = 62.8 cm.",
+        "Arc = (72/360) × 62.8 = 12.56 cm.",
+        "Perimeter = 2 × 10 + 12.56 = 32.56 cm."
+      ],
+      "formulaIds": [
+        "cir-adv-sector-f"
+      ],
+      "method": "Perimeter of a sector = 2r + arc.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Trace round the sector: which lines and curves make up its boundary?"
+        },
+        {
+          "level": 2,
+          "text": "Find the arc first: 72/360 of 2πr."
+        },
+        {
+          "level": 3,
+          "text": "Then add both radii."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the arc alone, 12.56 cm.",
+        "Adding only one radius, 22.56 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-004",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "levelId": "circles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A sector of a circle has an area of 462 cm² and an arc of length 44 cm. What is the radius of the circle?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Sector OAB with an area of 462 cm² and an arc of 44 cm; the sector is shaded and its radius is asked",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -18.19,
+            "y": 10.5,
+            "labelOffset": [
+              -17,
+              -3
+            ]
+          },
+          {
+            "id": "B",
+            "x": 18.19,
+            "y": 10.5,
+            "labelOffset": [
+              10,
+              -3
+            ]
+          },
+          {
+            "id": "M",
+            "x": 0,
+            "y": 21,
+            "label": "arc = 44 cm",
+            "labelOffset": [
+              -37,
+              -12
+            ]
+          },
+          {
+            "id": "X",
+            "x": 0,
+            "y": 12.6,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "sector",
+            "center": "O",
+            "radius": 21,
+            "startAngle": -60,
+            "endAngle": 60
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "label": "r = ?",
+            "labelOffset": [
+              -13,
+              23
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "sector",
+                "center": "O",
+                "radius": 21,
+                "startAngle": -60,
+                "endAngle": 60
+              }
+            ],
+            "label": "462 cm²",
+            "labelAt": "X"
+          }
+        ],
+        "ariaSummary": "Sector OAB with centre O. The sector is shaded and marked 462 cm², and its arc AB is marked 44 cm. The radius OA is marked r = ?."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "42 cm"
+        },
+        {
+          "id": "b",
+          "text": "10.5 cm"
+        },
+        {
+          "id": "c",
+          "text": "21 cm"
+        },
+        {
+          "id": "d",
+          "text": "7 cm"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A sector is like a triangle with the arc as its base and the radius as its height, so area = ½ × arc × r. Then r = 2 × 462 ÷ 44 = 21 cm. You need neither π nor the angle.",
+      "solutionSteps": [
+        "Area = ½ × arc × r.",
+        "462 = ½ × 44 × r.",
+        "r = 924 ÷ 44 = 21 cm."
+      ],
+      "formulaIds": [
+        "cir-sc-sector-half-arc"
+      ],
+      "method": "Sector area = ½ × arc × r, solved for r.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There is a sector formula with no angle and no π in it."
+        },
+        {
+          "level": 2,
+          "text": "Area = ½ × arc × r."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the ½: 462 ÷ 44 = 10.5 cm.",
+        "Treating the arc as the whole circumference: 44 ÷ (2 × 22/7) = 7 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-005",
+      "topicId": "circles",
+      "conceptId": "cir-adv-sectors",
+      "levelId": "circles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The minute hand of a clock is 21 cm long. What area does it sweep out in 25 minutes? (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "The minute hand sweeps a sector of radius 21 cm in 25 minutes; the sector is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              14
+            ]
+          },
+          {
+            "id": "A",
+            "x": 0,
+            "y": 21,
+            "label": "12",
+            "labelOffset": [
+              -7,
+              -10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 10.5,
+            "y": -18.19,
+            "labelOffset": [
+              5,
+              16
+            ]
+          },
+          {
+            "id": "X",
+            "x": 12.17,
+            "y": 3.26,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 21,
+            "style": "dashed"
+          },
+          {
+            "type": "sector",
+            "center": "O",
+            "radius": 21,
+            "startAngle": 0,
+            "endAngle": 150
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "label": "21 cm",
+            "labelOffset": [
+              -26,
+              0
+            ]
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "sector",
+                "center": "O",
+                "radius": 21,
+                "startAngle": 0,
+                "endAngle": 150
+              }
+            ],
+            "label": "?",
+            "labelAt": "X"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "label": "25 min",
+            "radius": 16,
+            "labelRadius": 32
+          }
+        ],
+        "ariaSummary": "A clock face with centre O. The minute hand, 21 cm long, turns from 12 at A to B, sweeping a shaded sector marked 25 min. The shaded sector is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "96.25 cm²"
+        },
+        {
+          "id": "b",
+          "text": "55 cm²"
+        },
+        {
+          "id": "c",
+          "text": "577.5 cm²"
+        },
+        {
+          "id": "d",
+          "text": "1,155 cm²"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The minute hand turns 360° in 60 minutes, 6° a minute, so in 25 minutes it turns 150°. Area swept = (150/360) × 22/7 × 21² = (5/12) × 1,386 = 577.5 cm².",
+      "solutionSteps": [
+        "Angle = 25 × 6° = 150°.",
+        "Whole circle = 22/7 × 21² = 1,386 cm².",
+        "Area = (150/360) × 1,386 = 577.5 cm²."
+      ],
+      "formulaIds": [
+        "cir-adv-sector-f"
+      ],
+      "method": "Turn the minutes into an angle (6° a minute), then sector area = (θ/360) × πr².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many degrees does the minute hand turn in one minute?"
+        },
+        {
+          "level": 2,
+          "text": "25 minutes is 25/60 of a full turn."
+        },
+        {
+          "level": 3,
+          "text": "The hand is the radius of the sector it sweeps."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 25 minutes as 25°, which gives 96.25 cm².",
+        "Using 2πr, which gives the distance the tip travels, 55 cm."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-006",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "levelId": "circles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A chord AB of a circle of radius 7 cm subtends an angle of 60° at the centre O. What is the area of the minor segment? (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle of radius 7 cm with chord AB subtending 60° at O; the minor segment is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -3.5,
+            "y": 6.06,
+            "labelOffset": [
+              -12,
+              -8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3.5,
+            "y": 6.06,
+            "labelOffset": [
+              5,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 7
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed",
+            "label": "7 cm",
+            "labelOffset": [
+              -20,
+              12
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "A"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "segment",
+                "center": "O",
+                "radius": 7,
+                "startAngle": -30,
+                "endAngle": 30
+              }
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "radius": 16,
+            "label": "60°",
+            "labelRadius": 32
+          }
+        ],
+        "ariaSummary": "A circle with centre O and radius OA = 7 cm. Chord AB subtends ∠AOB = 60° at the centre, with radii OA and OB dashed. The thin minor segment between chord AB and the shorter arc is shaded."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "77/3 cm²"
+        },
+        {
+          "id": "b",
+          "text": "(77/3 − 49√3/4) cm²"
+        },
+        {
+          "id": "c",
+          "text": "(385/3 + 49√3/4) cm²"
+        },
+        {
+          "id": "d",
+          "text": "(77/3 − 49/2) cm²"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Minor segment = sector − triangle OAB. Sector = (60/360) × 22/7 × 49 = 77/3 cm². OA = OB and ∠AOB = 60°, so triangle OAB is equilateral with side 7: area (√3/4) × 7² = 49√3/4 cm². Segment = (77/3 − 49√3/4) cm², about 4.45 cm².",
+      "solutionSteps": [
+        "Sector = (1/6) × 22/7 × 49 = 77/3 cm².",
+        "Triangle OAB is equilateral: (√3/4) × 7² = 49√3/4 cm².",
+        "Segment = (77/3 − 49√3/4) cm²."
+      ],
+      "formulaIds": [
+        "cir-adv-segment-f",
+        "cir-sc-segment-angles"
+      ],
+      "method": "Minor segment = sector − equilateral triangle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split the sector into the segment and the triangle OAB."
+        },
+        {
+          "level": 2,
+          "text": "With 60° between two equal radii, what kind of triangle is OAB?"
+        },
+        {
+          "level": 3,
+          "text": "An equilateral triangle of side a has area (√3/4)a²."
+        }
+      ],
+      "commonMistakes": [
+        "Treating the triangle as right-angled: ½ × 7 × 7 = 49/2.",
+        "Giving the sector, 77/3 cm², without subtracting the triangle."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-007",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "levelId": "circles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A chord AB of a circle of radius 21 cm subtends an angle of 120° at the centre O. What is the area of the major segment? (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle of radius 21 cm with chord AB subtending 120° at O; the major segment is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -18.19,
+            "y": 10.5,
+            "labelOffset": [
+              -17,
+              -3
+            ]
+          },
+          {
+            "id": "B",
+            "x": 18.19,
+            "y": 10.5,
+            "labelOffset": [
+              10,
+              -3
+            ]
+          },
+          {
+            "id": "X",
+            "x": 0,
+            "y": -11.55,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 21
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed",
+            "label": "21 cm",
+            "labelOffset": [
+              -13,
+              23
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "A"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 21
+              },
+              {
+                "type": "segment",
+                "center": "O",
+                "radius": 21,
+                "startAngle": -60,
+                "endAngle": 60
+              }
+            ],
+            "label": "?",
+            "labelAt": "X"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "radius": 16,
+            "label": "120°",
+            "labelRadius": 30
+          }
+        ],
+        "ariaSummary": "A circle with centre O and radius OA = 21 cm. Chord AB subtends ∠AOB = 120° at the centre, with radii OA and OB dashed. The major segment, everything on the far side of chord AB from the short arc, is shaded and marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "924 cm²"
+        },
+        {
+          "id": "b",
+          "text": "(924 − 441√3/4) cm²"
+        },
+        {
+          "id": "c",
+          "text": "(924 + 441√3/4) cm²"
+        },
+        {
+          "id": "d",
+          "text": "(462 − 441√3/4) cm²"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Circle = 22/7 × 21² = 1,386 cm². Sector OAB = (120/360) × 1,386 = 462 cm². Triangle OAB = ½ × 21² × sin 120° = 441√3/4 cm². Minor segment = (462 − 441√3/4) cm², so the major segment = 1,386 − (462 − 441√3/4) = (924 + 441√3/4) cm².",
+      "solutionSteps": [
+        "Circle = 22/7 × 441 = 1,386 cm².",
+        "Sector = (1/3) × 1,386 = 462 cm².",
+        "Triangle = ½ × 21² × (√3/2) = 441√3/4 cm².",
+        "Minor segment = (462 − 441√3/4) cm².",
+        "Major segment = 1386 − minor = (924 + 441√3/4) cm²."
+      ],
+      "formulaIds": [
+        "cir-adv-segment-f",
+        "cir-sc-segment-angles"
+      ],
+      "method": "Major segment = circle − (sector − triangle).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the minor segment first: sector − triangle."
+        },
+        {
+          "level": 2,
+          "text": "sin 120° = √3/2, so the triangle is (√3/4) × 21²."
+        },
+        {
+          "level": 3,
+          "text": "Take the minor segment away from the whole circle."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 924 cm², the major sector, without adding back the triangle.",
+        "Subtracting the triangle from the major sector instead of adding it."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "circles-cir-adv-q-008",
+      "topicId": "circles",
+      "conceptId": "cir-adv-segments",
+      "levelId": "circles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In a circle of radius 7 cm with centre O, the chord AB is 7√2 cm long. What is the area of the major segment? (Use π = 22/7.)",
+      "figure": {
+        "type": "diagram",
+        "caption": "Circle of radius 7 cm with a chord AB of 7√2 cm; the major segment is shaded",
+        "points": [
+          {
+            "id": "O",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              18
+            ]
+          },
+          {
+            "id": "A",
+            "x": -4.95,
+            "y": 4.95,
+            "labelOffset": [
+              -15,
+              -6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.95,
+            "y": 4.95,
+            "labelOffset": [
+              8,
+              -6
+            ]
+          },
+          {
+            "id": "X",
+            "x": 0,
+            "y": -3.85,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "circle",
+            "center": "O",
+            "radius": 7
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "A",
+            "style": "dashed",
+            "label": "7 cm",
+            "labelOffset": [
+              -16,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "A",
+            "label": "7√2 cm"
+          }
+        ],
+        "shaded": [
+          {
+            "parts": [
+              {
+                "type": "circle",
+                "center": "O",
+                "radius": 7
+              },
+              {
+                "type": "segment",
+                "center": "O",
+                "radius": 7,
+                "startAngle": -45,
+                "endAngle": 45
+              }
+            ],
+            "label": "?",
+            "labelAt": "X"
+          }
+        ],
+        "angles": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "A circle with centre O and radius OA = 7 cm. Chord AB is 7√2 cm long, with radii OA and OB dashed and the angle AOB marked. The major segment, everything on the far side of chord AB from the short arc, is shaded and marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "14 cm²"
+        },
+        {
+          "id": "b",
+          "text": "91 cm²"
+        },
+        {
+          "id": "c",
+          "text": "115.5 cm²"
+        },
+        {
+          "id": "d",
+          "text": "140 cm²"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "AB² = 98 = 7² + 7² = OA² + OB², so ∠AOB = 90° (converse of Pythagoras). Sector = (1/4) × 154 = 38.5 cm² and triangle = ½ × 7 × 7 = 24.5 cm², so the minor segment is 14 cm². Major segment = 154 − 14 = 140 cm².",
+      "solutionSteps": [
+        "AB² = 98 = OA² + OB², so ∠AOB = 90°.",
+        "Sector = (1/4) × 154 = 38.5 cm².",
+        "Triangle = ½ × 7 × 7 = 24.5 cm².",
+        "Minor segment = 38.5 − 24.5 = 14 cm².",
+        "Major segment = 154 − 14 = 140 cm²."
+      ],
+      "formulaIds": [
+        "cir-adv-segment-f"
+      ],
+      "method": "Find the angle from the chord, then major segment = circle − (sector − triangle).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare AB² with OA² + OB²."
+        },
+        {
+          "level": 2,
+          "text": "The chord subtends 90° at O."
+        },
+        {
+          "level": 3,
+          "text": "Major segment = circle − minor segment."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the minor segment, 14 cm².",
+        "Giving the major sector, 115.5 cm², without adding back the triangle."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

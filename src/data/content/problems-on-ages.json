@@ -1,0 +1,1075 @@
+{
+  "topicId": "problems-on-ages",
+  "concepts": [
+    {
+      "id": "age-translate",
+      "topicId": "problems-on-ages",
+      "name": "Translating age statements",
+      "description": "Turning 'years ago' and 'years hence' into algebra.",
+      "sortOrder": 1
+    },
+    {
+      "id": "age-difference",
+      "topicId": "problems-on-ages",
+      "name": "Constant difference",
+      "description": "The gap between two people's ages never changes.",
+      "sortOrder": 2
+    },
+    {
+      "id": "age-ratio",
+      "topicId": "problems-on-ages",
+      "name": "Age ratios over time",
+      "description": "Ratios of ages change even though differences do not.",
+      "sortOrder": 3
+    },
+    {
+      "id": "age-applications",
+      "topicId": "problems-on-ages",
+      "name": "Family and group ages",
+      "description": "Sums, averages and multi-person age problems.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "age-shift",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-translate",
+      "title": "Past and future ages",
+      "prompt": "If someone is x years old now, how do you write their age n years ago and n years from now?",
+      "formula": "n years ago: x − n\nn years hence: x + n",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "present age"
+        }
+      ],
+      "explanation": "Always anchor the unknown at the present age. Every other time in the question is then a shift from it.",
+      "example": "A is 25 now\n5 years ago: 20\n5 years hence: 30",
+      "commonMistake": "Setting the unknown at a past age, which makes every other statement harder to write.",
+      "applicationPrompt": "A is x years old today. How do you write his age 5 years ago?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "age-gap",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-difference",
+      "title": "The difference never changes",
+      "prompt": "What stays constant between two people's ages?",
+      "formula": "Age difference is the same at every point in time",
+      "variables": [],
+      "explanation": "Both people age at the same rate, so the gap is fixed forever. Ratios, however, change constantly.",
+      "example": "Father 40, son 12 → gap 28\nIn 5 years: 45 and 17 → still 28",
+      "commonMistake": "Assuming a ratio stays fixed over time the way a difference does.",
+      "applicationPrompt": "A father is 40 and his son 12. What will their age difference be in 5 years?",
+      "tags": [
+        "core",
+        "insight"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "age-ratio-setup",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "title": "Setting up an age ratio",
+      "prompt": "Two present ages are in the ratio a : b. How do you write them?",
+      "formula": "Present ages = ax and bx, then apply the time shift to both",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "the common multiplier to solve for"
+        }
+      ],
+      "explanation": "Writing both ages with a single unknown keeps the problem to one equation.",
+      "example": "Ratio 4 : 3 now, 6 : 5 in 6 years\n(4x + 6)/(3x + 6) = 6/5 → x = 3\nAges: 12 and 9",
+      "commonMistake": "Adding the years to only one of the two ages.",
+      "applicationPrompt": "Two ages are in the ratio 4 : 3 today. How do you represent them?",
+      "tags": [
+        "core",
+        "ratio"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "age-sum",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-applications",
+      "title": "Sum of ages over time",
+      "prompt": "How does the sum of several people's ages change over n years?",
+      "formula": "New sum = Old sum + (number of people × n)",
+      "variables": [],
+      "explanation": "Everyone ages by n, so a group of k people adds kn years in total.",
+      "example": "Three people total 60 now\nIn 5 years: 60 + 3 × 5 = 75",
+      "commonMistake": "Adding n only once rather than once per person.",
+      "applicationPrompt": "Three people's ages total 60. What will the total be in 5 years?",
+      "tags": [
+        "applications"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "age-sc-equal-gap",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "kind": "shortcut",
+      "title": "Make the gap in both ratios equal",
+      "prompt": "The ratio of two ages is given now and again some years later. How do you avoid algebra?",
+      "formula": "Scale the ratios until both have the same difference.\nOne part = years passed ÷ change in either term",
+      "variables": [],
+      "explanation": "The real age gap never changes, so the two ratios must show the same number of parts between the ages.",
+      "example": "Now 3 : 5, in 6 years 2 : 3. Rewrite 2 : 3 as 4 : 6 (gap 2, like 3 : 5). Each term rose by 1 part = 6 years, so the ages are 18 and 30.",
+      "commonMistake": "Comparing 3 : 5 with 2 : 3 directly, although their parts are different sizes.",
+      "applicationPrompt": "Ages are in the ratio 4 : 7 now and will be 5 : 8 in 5 years.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "problems-on-ages-level-0",
+      "topicId": "problems-on-ages",
+      "order": 0,
+      "title": "Turning Sentences into Equations",
+      "description": "Age problems are translation exercises. Get the translation right and the algebra is easy.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "age-translate",
+        "age-difference"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Anchor at the present",
+            "body": "Let the unknown be a present age. Then '5 years ago' is x − 5 and 'in 5 years' is x + 5. If you anchor at a past age instead, every other statement needs extra care.\n\nWrite the present ages first, then shift them."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "The age difference between two people is fixed for life. A ratio is not. If a question gives a ratio at two different times, the difference is the quantity you can trust."
+          },
+          {
+            "type": "example",
+            "title": "A worked translation",
+            "body": "\"A father is three times as old as his son. In 10 years he will be twice as old.\"\n\nSon now = x, father now = 3x\nIn 10 years: 3x + 10 = 2(x + 10)\n3x + 10 = 2x + 20 → x = 10\n\nSon is 10, father is 30. Check: in 10 years, 40 is twice 20 ✓"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ages-timeline"
+          },
+          {
+            "type": "check",
+            "questionId": "problems-on-ages-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Always check your answer",
+            "body": "Age problems are self-checking: substitute your answer back into the original sentence. It takes ten seconds and catches nearly every translation slip."
+          },
+          {
+            "type": "check",
+            "questionId": "problems-on-ages-q-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "problems-on-ages-level-1",
+      "topicId": "problems-on-ages",
+      "order": 1,
+      "title": "Age Relationships",
+      "description": "The four relationships behind every age question.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [
+        "problems-on-ages-level-0"
+      ],
+      "conceptIds": [
+        "age-translate",
+        "age-difference",
+        "age-ratio"
+      ],
+      "formulaIds": [
+        "age-shift",
+        "age-gap",
+        "age-ratio-setup",
+        "age-sum"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "problems-on-ages-level-2",
+      "topicId": "problems-on-ages",
+      "order": 2,
+      "title": "Direct Age Questions",
+      "description": "Single-step shifts, differences and sums.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "problems-on-ages-level-1"
+      ],
+      "conceptIds": [
+        "age-translate",
+        "age-difference"
+      ],
+      "questionIds": [
+        "problems-on-ages-q-001",
+        "problems-on-ages-q-002",
+        "problems-on-ages-q-003",
+        "problems-on-ages-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "problems-on-ages-level-3",
+      "topicId": "problems-on-ages",
+      "order": 3,
+      "title": "Ratios Across Time",
+      "description": "Two-time-point problems solved with a single unknown.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "problems-on-ages-level-2"
+      ],
+      "conceptIds": [
+        "age-ratio",
+        "age-translate"
+      ],
+      "questionIds": [
+        "problems-on-ages-q-011",
+        "problems-on-ages-q-020",
+        "problems-on-ages-q-021",
+        "problems-on-ages-q-022",
+        "problems-on-ages-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "problems-on-ages-level-4",
+      "topicId": "problems-on-ages",
+      "order": 4,
+      "title": "Family Age Problems",
+      "description": "Sums, averages and multi-person relationships.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "problems-on-ages-level-3"
+      ],
+      "conceptIds": [
+        "age-applications"
+      ],
+      "questionIds": [
+        "problems-on-ages-q-030",
+        "problems-on-ages-q-031",
+        "problems-on-ages-q-032",
+        "problems-on-ages-q-033"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "problems-on-ages-level-5",
+      "topicId": "problems-on-ages",
+      "order": 5,
+      "title": "Mixed Age Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "problems-on-ages-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "problems-on-ages",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "problems-on-ages-q-001",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-translate",
+      "levelId": "problems-on-ages-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A is 25 years old today. How old was she 8 years ago?",
+      "options": [
+        {
+          "id": "a",
+          "text": "17"
+        },
+        {
+          "id": "b",
+          "text": "18"
+        },
+        {
+          "id": "c",
+          "text": "23"
+        },
+        {
+          "id": "d",
+          "text": "33"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "8 years ago her age was 25 − 8 = 17.",
+      "solutionSteps": [
+        "Present age = 25.",
+        "Subtract 8 for 8 years ago.",
+        "Age then = 17."
+      ],
+      "formulaIds": [
+        "age-shift"
+      ],
+      "method": "Past age = present − years.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Going back in time means subtracting."
+        }
+      ],
+      "commonMistakes": [
+        "Adding instead of subtracting."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-002",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-difference",
+      "levelId": "problems-on-ages-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A father is 40 and his son is 12. What will the difference between their ages be in 5 years?",
+      "options": [
+        {
+          "id": "a",
+          "text": "23 years"
+        },
+        {
+          "id": "b",
+          "text": "28 years"
+        },
+        {
+          "id": "c",
+          "text": "33 years"
+        },
+        {
+          "id": "d",
+          "text": "It cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Both age by 5 years, so the difference stays 28 — as it always will.",
+      "solutionSteps": [
+        "Current difference = 40 − 12 = 28.",
+        "In 5 years: 45 and 17.",
+        "Difference = 28, unchanged."
+      ],
+      "formulaIds": [
+        "age-gap"
+      ],
+      "method": "Age differences are constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both people age at exactly the same rate."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 5 to the difference."
+      ],
+      "tags": [
+        "difference"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-003",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-applications",
+      "levelId": "problems-on-ages-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The ages of three friends add up to 60 years today. What will their total age be in 5 years?",
+      "answer": {
+        "value": 75,
+        "tolerance": 0
+      },
+      "explanation": "Each of the three gains 5 years, so the total rises by 15 to 75.",
+      "solutionSteps": [
+        "Each person gains 5 years.",
+        "Three people gain 3 × 5 = 15 years in total.",
+        "New total = 60 + 15 = 75."
+      ],
+      "formulaIds": [
+        "age-sum"
+      ],
+      "method": "Add (people × years) to the total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many people are ageing?"
+        },
+        {
+          "level": 2,
+          "text": "Each adds 5 years to the total."
+        }
+      ],
+      "commonMistakes": [
+        "Adding only 5 years to the total."
+      ],
+      "tags": [
+        "sum",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-010",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "levelId": "problems-on-ages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "The present ages of two people are in the ratio 3 : 4. What is the best way to represent them?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3x and 4x"
+        },
+        {
+          "id": "b",
+          "text": "3 and 4"
+        },
+        {
+          "id": "c",
+          "text": "x + 3 and x + 4"
+        },
+        {
+          "id": "d",
+          "text": "x/3 and x/4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Writing them as 3x and 4x builds the ratio in and leaves just one unknown to solve for.",
+      "solutionSteps": [
+        "A ratio fixes the proportion but not the size.",
+        "3x and 4x are in the ratio 3 : 4 for any x.",
+        "One unknown means one equation is enough."
+      ],
+      "formulaIds": [
+        "age-ratio-setup"
+      ],
+      "method": "Introduce a common multiplier.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need a representation that works for any actual pair of ages."
+        }
+      ],
+      "commonMistakes": [
+        "Treating the ratio numbers as the actual ages."
+      ],
+      "tags": [
+        "method",
+        "ratio"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-011",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "levelId": "problems-on-ages-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "The ratio between two people's ages stays the same as the years pass.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A 10-year-old and a 20-year-old are in the ratio 1 : 2, but ten years later they are 20 and 30 — a ratio of 2 : 3. Only the difference is constant.",
+      "solutionSteps": [
+        "Take ages 10 and 20, a ratio of 1 : 2.",
+        "After 10 years: 20 and 30, a ratio of 2 : 3.",
+        "The ratio changed, so the statement is false."
+      ],
+      "formulaIds": [
+        "age-gap"
+      ],
+      "method": "Test with concrete numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try a simple pair of ages and move forward ten years."
+        },
+        {
+          "level": 2,
+          "text": "Ratios drift towards 1 : 1 as people get older."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the constant difference with a constant ratio."
+      ],
+      "tags": [
+        "true-false",
+        "trap"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-020",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "levelId": "problems-on-ages-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The present ages of A and B are in the ratio 4 : 3. In 6 years the ratio will be 6 : 5. What is A's present age?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9 years"
+        },
+        {
+          "id": "b",
+          "text": "12 years"
+        },
+        {
+          "id": "c",
+          "text": "16 years"
+        },
+        {
+          "id": "d",
+          "text": "24 years"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "With ages 4x and 3x, (4x + 6)/(3x + 6) = 6/5 gives 20x + 30 = 18x + 36, so x = 3 and A is 12.",
+      "solutionSteps": [
+        "Let the ages be 4x and 3x.",
+        "(4x + 6)/(3x + 6) = 6/5.",
+        "Cross multiply: 20x + 30 = 18x + 36 → x = 3.",
+        "A = 4 × 3 = 12. Check: 18 : 15 = 6 : 5 ✓"
+      ],
+      "formulaIds": [
+        "age-ratio-setup"
+      ],
+      "method": "One unknown, cross multiply, verify.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write both ages using a single unknown x."
+        },
+        {
+          "level": 2,
+          "text": "Add 6 to BOTH ages before forming the new ratio."
+        },
+        {
+          "level": 3,
+          "text": "Cross multiply (4x + 6) × 5 = (3x + 6) × 6."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 6 to only one age."
+      ],
+      "tags": [
+        "ratio"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-021",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-translate",
+      "levelId": "problems-on-ages-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A father is three times as old as his son. In 10 years he will be twice as old as his son. How old is the son now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 years"
+        },
+        {
+          "id": "b",
+          "text": "10 years"
+        },
+        {
+          "id": "c",
+          "text": "12 years"
+        },
+        {
+          "id": "d",
+          "text": "15 years"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "With son = x and father = 3x, 3x + 10 = 2(x + 10) gives x = 10.",
+      "solutionSteps": [
+        "Son = x, father = 3x.",
+        "In 10 years: 3x + 10 = 2(x + 10).",
+        "3x + 10 = 2x + 20 → x = 10.",
+        "Check: father 30, son 10; in 10 years 40 and 20 ✓"
+      ],
+      "formulaIds": [
+        "age-shift"
+      ],
+      "method": "Translate both time points, then solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Call the son's present age x and write the father's in terms of it."
+        },
+        {
+          "level": 2,
+          "text": "Add 10 to both ages for the future statement."
+        },
+        {
+          "level": 3,
+          "text": "3x + 10 = 2(x + 10)."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the future condition as 3x + 10 = 2x + 10."
+      ],
+      "tags": [
+        "translation"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-022",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-translate",
+      "levelId": "problems-on-ages-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A is twice as old as B today. Five years ago, A was three times as old as B. How old is B now?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "With B = x and A = 2x, 2x − 5 = 3(x − 5) gives x = 10.",
+      "solutionSteps": [
+        "Let B = x now, so A = 2x.",
+        "Five years ago: 2x − 5 = 3(x − 5).",
+        "2x − 5 = 3x − 15 → x = 10.",
+        "Check: A was 15 and B was 5 five years ago ✓"
+      ],
+      "formulaIds": [
+        "age-shift"
+      ],
+      "method": "Subtract 5 from both ages for the past statement.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Let B's present age be x."
+        },
+        {
+          "level": 2,
+          "text": "Five years ago both were 5 years younger."
+        },
+        {
+          "level": 3,
+          "text": "2x − 5 = 3(x − 5)."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 5 from only one side."
+      ],
+      "tags": [
+        "translation",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-023",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-difference",
+      "levelId": "problems-on-ages-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A is 6 years older than B. In 4 years' time, the sum of their ages will be 50 years. How old is A now? (Answer in years)",
+      "answer": {
+        "value": 24,
+        "tolerance": 0
+      },
+      "explanation": "In 4 years both are 4 years older, so their present ages add up to 50 − 8 = 42. A is 6 years older than B, so A = (42 + 6) ÷ 2 = 24 and B = 18. Check: in 4 years they will be 28 and 22, which add up to 50.",
+      "solutionSteps": [
+        "In 4 years the sum grows by 2 × 4 = 8.",
+        "Present sum = 50 − 8 = 42.",
+        "A − B = 6 now and always.",
+        "A = (42 + 6) ÷ 2 = 24."
+      ],
+      "formulaIds": [
+        "age-sum",
+        "age-gap"
+      ],
+      "method": "Sum and difference: the larger age = (sum + difference) ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Bring the future sum back to the present: each person loses 4 years."
+        },
+        {
+          "level": 2,
+          "text": "Now you know the sum and the difference of the present ages."
+        },
+        {
+          "level": 3,
+          "text": "Larger = (sum + difference) ÷ 2."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting only 4 from the sum instead of 8 (getting 26).",
+        "Giving B's age (18) instead of A's."
+      ],
+      "tags": [
+        "difference",
+        "sum",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-030",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-applications",
+      "levelId": "problems-on-ages-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The sum of the ages of a father and son is 45 years. Five years ago, the father was six times as old as his son. How old is the son now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8 years"
+        },
+        {
+          "id": "b",
+          "text": "10 years"
+        },
+        {
+          "id": "c",
+          "text": "12 years"
+        },
+        {
+          "id": "d",
+          "text": "15 years"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "With son = s and father = 45 − s, (45 − s − 5) = 6(s − 5) gives 40 − s = 6s − 30, so s = 10.",
+      "solutionSteps": [
+        "Son = s, father = 45 − s.",
+        "Five years ago: 40 − s = 6(s − 5).",
+        "40 − s = 6s − 30 → 70 = 7s → s = 10.",
+        "Check: father 35, son 10; five years ago 30 = 6 × 5 ✓"
+      ],
+      "formulaIds": [
+        "age-shift",
+        "age-sum"
+      ],
+      "method": "Use the sum to express both ages with one unknown.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The sum lets you write the father's age as 45 − s."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 5 from both ages for the past statement."
+        },
+        {
+          "level": 3,
+          "text": "40 − s = 6(s − 5)."
+        }
+      ],
+      "commonMistakes": [
+        "Applying the 'six times' condition to present ages."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-031",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-applications",
+      "levelId": "problems-on-ages-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The average age of a family of 4 is 28 years. A baby aged 3 joins the family. What is the new average age? (Answer in years)",
+      "answer": {
+        "value": 23,
+        "tolerance": 0
+      },
+      "explanation": "Total = 112; adding the baby gives 115 across 5 people, so the average is 23.",
+      "solutionSteps": [
+        "Total age = 4 × 28 = 112 years.",
+        "After the baby joins: 112 + 3 = 115, across 5 people.",
+        "New average = 115 ÷ 5 = 23 years."
+      ],
+      "formulaIds": [
+        "age-sum"
+      ],
+      "method": "Convert averages to totals before changing the group.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the family's total age first."
+        },
+        {
+          "level": 2,
+          "text": "Remember the count rises to 5."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 28 and 3 to get 15.5."
+      ],
+      "tags": [
+        "applications",
+        "average-link",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-032",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-ratio",
+      "levelId": "problems-on-ages-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The present ages of A and B are in the ratio 3 : 5. Four years ago, their ages were in the ratio 1 : 2. What will be the ratio of A's age to B's age 8 years from now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 5"
+        },
+        {
+          "id": "b",
+          "text": "2 : 3"
+        },
+        {
+          "id": "c",
+          "text": "5 : 7"
+        },
+        {
+          "id": "d",
+          "text": "3 : 4"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Let the present ages be 3x and 5x. Four years ago: (3x − 4) : (5x − 4) = 1 : 2, so 6x − 8 = 5x − 4 and x = 4. The ages are 12 and 20. In 8 years they will be 20 and 28, and 20 : 28 = 5 : 7.",
+      "solutionSteps": [
+        "Present ages: 3x and 5x.",
+        "Four years ago: 2(3x − 4) = 5x − 4.",
+        "6x − 8 = 5x − 4, so x = 4: ages 12 and 20.",
+        "In 8 years: 20 and 28.",
+        "Ratio = 20 : 28 = 5 : 7."
+      ],
+      "formulaIds": [
+        "age-ratio-setup",
+        "age-shift"
+      ],
+      "method": "Find the actual ages from the two ratios, then move them to the asked time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write the present ages as 3x and 5x."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 4 from both and set the ratio equal to 1 : 2."
+        },
+        {
+          "level": 3,
+          "text": "Add 8 to both actual ages before forming the new ratio."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the ratio stays 3 : 5.",
+        "Moving only 4 years ahead (2 : 3)."
+      ],
+      "tags": [
+        "ratio",
+        "ratio-after-n-years",
+        "complex"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "problems-on-ages-q-033",
+      "topicId": "problems-on-ages",
+      "conceptId": "age-applications",
+      "levelId": "problems-on-ages-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The present ages of A, B and C add up to 90 years. Six years ago, their ages were in the ratio 1 : 2 : 3. What is C's present age? (Answer in years)",
+      "answer": {
+        "value": 42,
+        "tolerance": 0
+      },
+      "explanation": "Six years ago each of the three was 6 years younger, so their ages then added up to 90 − 3 × 6 = 72. Split 72 in the ratio 1 : 2 : 3: the ages were 12, 24 and 36. Add 6 to each: today they are 18, 30 and 42. C is 42.",
+      "solutionSteps": [
+        "Six years ago the total was 90 − 3 × 6 = 72.",
+        "72 in the ratio 1 : 2 : 3 is 12, 24, 36.",
+        "Present ages: 18, 30, 42.",
+        "C = 42 years."
+      ],
+      "formulaIds": [
+        "age-sum",
+        "age-ratio-setup"
+      ],
+      "method": "Move the total to the time of the ratio, split it, then move each age back.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What was the total of the three ages six years ago?"
+        },
+        {
+          "level": 2,
+          "text": "Split that old total in the ratio 1 : 2 : 3."
+        },
+        {
+          "level": 3,
+          "text": "Add 6 years back to C's old age."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting 90 in the ratio 1 : 2 : 3 (giving 45).",
+        "Subtracting only 6, not 18, from the total."
+      ],
+      "tags": [
+        "applications",
+        "three-people",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

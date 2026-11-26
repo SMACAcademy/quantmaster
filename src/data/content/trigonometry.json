@@ -1,0 +1,1276 @@
+{
+  "topicId": "trigonometry",
+  "concepts": [
+    {
+      "id": "trig-ratios",
+      "topicId": "trigonometry",
+      "name": "Sine, cosine and tangent",
+      "description": "The three ratios of the sides of a right triangle, named from one acute angle.",
+      "sortOrder": 1
+    },
+    {
+      "id": "trig-standard",
+      "topicId": "trigonometry",
+      "name": "Standard angles",
+      "description": "Exact values at 0°, 30°, 45°, 60° and 90°.",
+      "sortOrder": 2
+    },
+    {
+      "id": "trig-complementary",
+      "topicId": "trigonometry",
+      "name": "Reciprocals and complementary angles",
+      "description": "cosec, sec and cot, and why sin(90° − θ) = cos θ.",
+      "sortOrder": 3
+    },
+    {
+      "id": "trig-identities",
+      "topicId": "trigonometry",
+      "name": "The Pythagorean identities",
+      "description": "sin²θ + cos²θ = 1 and the two identities that follow from it.",
+      "sortOrder": 4
+    },
+    {
+      "id": "trig-one-ratio",
+      "topicId": "trigonometry",
+      "name": "From one ratio to all the others",
+      "description": "Draw the right triangle a single ratio describes and read off every other ratio.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "trig-ratios-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-ratios",
+      "title": "The three ratios",
+      "prompt": "In a right triangle, how are sin θ, cos θ and tan θ defined?",
+      "formula": "sin θ = Opposite ÷ Hypotenuse\ncos θ = Adjacent ÷ Hypotenuse\ntan θ = Opposite ÷ Adjacent = sin θ ÷ cos θ",
+      "variables": [
+        {
+          "symbol": "Opposite",
+          "meaning": "the side facing θ"
+        },
+        {
+          "symbol": "Adjacent",
+          "meaning": "the side next to θ (not the hypotenuse)"
+        },
+        {
+          "symbol": "Hypotenuse",
+          "meaning": "the side facing the right angle"
+        }
+      ],
+      "explanation": "Each ratio compares two sides as seen from the angle θ. They depend only on the angle, not on the size of the triangle.",
+      "example": "Sides 3, 4, 5 with θ opposite 3: sin θ = 3/5, cos θ = 4/5, tan θ = 3/4.",
+      "commonMistake": "Measuring \"opposite\" and \"adjacent\" from the wrong angle.",
+      "applicationPrompt": "A ladder makes angle θ with the ground. Which ratio links its length to the height it reaches?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "trig-reciprocal-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-complementary",
+      "title": "The reciprocal ratios",
+      "prompt": "What are cosec θ, sec θ and cot θ?",
+      "formula": "cosec θ = 1 ÷ sin θ\nsec θ = 1 ÷ cos θ\ncot θ = 1 ÷ tan θ",
+      "variables": [],
+      "explanation": "Each is the first three ratios turned upside down.",
+      "example": "sin θ = 3/5 gives cosec θ = 5/3.",
+      "commonMistake": "Pairing sec with sin and cosec with cos: the \"co\" ratios pair with each other.",
+      "applicationPrompt": "If cos θ = 0.8, what is sec θ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "trig-standard-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-standard",
+      "title": "Values at the standard angles",
+      "prompt": "What are sin θ and cos θ at 0°, 30°, 45°, 60° and 90°?",
+      "formula": "θ:     0°   30°   45°    60°    90°\nsin θ: 0    1/2   1/√2   √3/2   1\ncos θ: 1    √3/2  1/√2   1/2    0\ntan θ: 0    1/√3  1      √3     not defined",
+      "variables": [],
+      "explanation": "The sines are √0/2, √1/2, √2/2, √3/2, √4/2. The cosines are the same list backwards. tan θ = sin θ ÷ cos θ.",
+      "example": "sin 30° + cos 60° = 1/2 + 1/2 = 1.",
+      "commonMistake": "Swapping the sine and cosine of 30° and 60°.",
+      "applicationPrompt": "Find 2 sin 30° × tan 60° × cos 30°.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "trig-complementary-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-complementary",
+      "title": "Complementary angles",
+      "prompt": "How does a ratio of (90° − θ) relate to a ratio of θ?",
+      "formula": "sin(90° − θ) = cos θ   cos(90° − θ) = sin θ\ntan(90° − θ) = cot θ   sec(90° − θ) = cosec θ",
+      "variables": [],
+      "explanation": "The two acute angles of a right triangle add to 90°, and the side opposite one is adjacent to the other.",
+      "example": "tan 20° × tan 70° = tan 20° × cot 20° = 1.",
+      "commonMistake": "Using it when the angles add to 180°, not 90°.",
+      "applicationPrompt": "Simplify sin² 25° + sin² 65°.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-pythag-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "title": "The Pythagorean identities",
+      "prompt": "Which identities hold for every angle θ?",
+      "formula": "sin²θ + cos²θ = 1\n1 + tan²θ = sec²θ\n1 + cot²θ = cosec²θ",
+      "variables": [],
+      "explanation": "The first is Pythagoras in a triangle with hypotenuse 1; divide it by cos²θ or sin²θ to get the other two.",
+      "example": "sec²θ − tan²θ = 1 for every θ, so 7(sec²θ − tan²θ) = 7.",
+      "commonMistake": "Writing sin θ + cos θ = 1: it is the squares that add to 1.",
+      "applicationPrompt": "If sin θ = 0.6, find cos θ without knowing θ.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-one-ratio-f",
+      "topicId": "trigonometry",
+      "conceptId": "trig-one-ratio",
+      "title": "From one ratio to the rest",
+      "prompt": "You are told tan θ = 3/4. How do you find sin θ and cos θ?",
+      "formula": "Draw a right triangle with those two sides,\nfind the third side by Pythagoras,\nthen read off any ratio",
+      "variables": [],
+      "explanation": "A ratio fixes the shape of the triangle; Pythagoras completes it.",
+      "example": "tan θ = 3/4: sides 3 and 4, hypotenuse 5, so sin θ = 3/5 and cos θ = 4/5.",
+      "commonMistake": "Taking the hypotenuse as one of the two given sides when the ratio is a tangent.",
+      "applicationPrompt": "If sec θ = 13/12, find tan θ.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "trig-sc-max",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "kind": "shortcut",
+      "title": "Largest value of a sin θ + b cos θ",
+      "prompt": "What are the largest and smallest values of a sin θ + b cos θ?",
+      "formula": "Largest: √(a² + b²)\nSmallest: −√(a² + b²)",
+      "variables": [],
+      "explanation": "a sin θ + b cos θ can be rewritten as √(a² + b²) × sin(θ + α), and a sine never goes beyond ±1.",
+      "example": "3 sin θ + 4 cos θ is at most √(9 + 16) = 5.",
+      "commonMistake": "Answering a + b = 7, which the expression never reaches.",
+      "applicationPrompt": "Find the maximum of 5 sin θ + 12 cos θ.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "trig-sc-sec-tan",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "kind": "shortcut",
+      "title": "sec θ + tan θ given",
+      "prompt": "sec θ + tan θ = k. What is sec θ − tan θ?",
+      "formula": "sec θ − tan θ = 1 ÷ k\n(because sec²θ − tan²θ = 1)",
+      "variables": [],
+      "explanation": "Factorise sec²θ − tan²θ = 1 as (sec θ + tan θ)(sec θ − tan θ) = 1.",
+      "example": "sec θ + tan θ = 2 gives sec θ − tan θ = 1/2, so sec θ = 5/4 and tan θ = 3/4.",
+      "commonMistake": "Trying to find θ first.",
+      "applicationPrompt": "If sec θ + tan θ = 3, find tan θ.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "trigonometry-level-0",
+      "topicId": "trigonometry",
+      "order": 0,
+      "title": "Ratios of a Right Triangle",
+      "description": "Three ratios, five standard angles and one identity that holds everything together.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "trig-ratios",
+        "trig-standard",
+        "trig-identities"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Name the sides from the angle",
+            "body": "In a right triangle, pick one of the acute angles and call it θ. The side facing θ is the opposite side, the side next to θ (other than the longest) is the adjacent side, and the side facing the right angle is the hypotenuse."
+          },
+          {
+            "type": "formula",
+            "title": "SOH CAH TOA",
+            "body": "sin θ = Opposite ÷ Hypotenuse\ncos θ = Adjacent ÷ Hypotenuse\ntan θ = Opposite ÷ Adjacent",
+            "caption": "The ratios depend only on the angle, not on how big the triangle is."
+          },
+          {
+            "type": "example",
+            "title": "A 3-4-5 triangle",
+            "body": "With θ opposite the side of 3: sin θ = 3/5, cos θ = 4/5, tan θ = 3/4."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-q-001"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "trig-triangle"
+          },
+          {
+            "type": "text",
+            "title": "The standard angles",
+            "body": "For 0°, 30°, 45°, 60° and 90°, the sines are √0/2, √1/2, √2/2, √3/2 and √4/2: that is 0, 1/2, 1/√2, √3/2 and 1. The cosines are the same list read backwards, and tan θ = sin θ ÷ cos θ."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "sin²θ + cos²θ = 1 for every angle: it is Pythagoras in a triangle whose hypotenuse is 1. Questions that look like hard calculations often collapse to this."
+          },
+          {
+            "type": "check",
+            "questionId": "trigonometry-q-004"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "trigonometry-level-1",
+      "topicId": "trigonometry",
+      "order": 1,
+      "title": "Trigonometry Formulas",
+      "description": "The ratios, the standard values, complementary angles and the identities.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-0"
+      ],
+      "conceptIds": [
+        "trig-ratios",
+        "trig-standard",
+        "trig-complementary",
+        "trig-identities",
+        "trig-one-ratio"
+      ],
+      "formulaIds": [
+        "trig-ratios-f",
+        "trig-reciprocal-f",
+        "trig-standard-f",
+        "trig-complementary-f",
+        "trig-pythag-f",
+        "trig-one-ratio-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "trigonometry-level-2",
+      "topicId": "trigonometry",
+      "order": 2,
+      "title": "Ratios and Standard Values",
+      "description": "Read ratios off a triangle and use the standard-angle table.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-1"
+      ],
+      "conceptIds": [
+        "trig-ratios",
+        "trig-standard",
+        "trig-complementary",
+        "trig-identities"
+      ],
+      "questionIds": [
+        "trigonometry-q-001",
+        "trigonometry-q-002",
+        "trigonometry-q-003",
+        "trigonometry-q-004",
+        "trigonometry-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "trigonometry-level-3",
+      "topicId": "trigonometry",
+      "order": 3,
+      "title": "Complementary Angles and One-Ratio Problems",
+      "description": "Pair angles that add to 90°, and build a triangle from a single ratio.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-2"
+      ],
+      "conceptIds": [
+        "trig-one-ratio",
+        "trig-complementary",
+        "trig-standard"
+      ],
+      "questionIds": [
+        "trigonometry-q-006",
+        "trigonometry-q-007",
+        "trigonometry-q-008",
+        "trigonometry-q-009",
+        "trigonometry-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "trigonometry-level-4",
+      "topicId": "trigonometry",
+      "order": 4,
+      "title": "Identities in Action",
+      "description": "sec θ + tan θ, largest values, and expressions built from one ratio.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-3"
+      ],
+      "conceptIds": [
+        "trig-identities",
+        "trig-one-ratio"
+      ],
+      "questionIds": [
+        "trigonometry-q-011",
+        "trigonometry-q-012",
+        "trigonometry-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "trigonometry-level-5",
+      "topicId": "trigonometry",
+      "order": 5,
+      "title": "Mixed Trigonometry Practice",
+      "description": "A mix from the whole topic, including fresh generated questions.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "trigonometry-level-4"
+      ],
+      "conceptIds": [
+        "trig-ratios",
+        "trig-standard",
+        "trig-complementary",
+        "trig-identities",
+        "trig-one-ratio"
+      ],
+      "questionQuery": {
+        "topicId": "trigonometry",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "trigonometry-q-001",
+      "topicId": "trigonometry",
+      "conceptId": "trig-ratios",
+      "levelId": "trigonometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In a right triangle, the side opposite θ is 5 and the hypotenuse is 13. What is sin θ?",
+      "figure": {
+        "type": "diagram",
+        "caption": "A right triangle: opposite θ is 5, the hypotenuse 13",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "B",
+            "x": 12,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "C",
+            "x": 12,
+            "y": 5,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "5",
+            "labelOffset": [
+              12,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "label": "13",
+            "labelOffset": [
+              -10,
+              -15
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "θ",
+            "radius": 26,
+            "labelRadius": 44
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A right triangle with the right angle marked and the angle θ marked. The side opposite θ is 5 and the hypotenuse is 13."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "5/13"
+        },
+        {
+          "id": "b",
+          "text": "12/13"
+        },
+        {
+          "id": "c",
+          "text": "5/12"
+        },
+        {
+          "id": "d",
+          "text": "13/5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "sin θ = Opposite ÷ Hypotenuse = 5/13.",
+      "solutionSteps": [
+        "Opposite = 5, hypotenuse = 13.",
+        "sin θ = 5/13."
+      ],
+      "formulaIds": [
+        "trig-ratios-f"
+      ],
+      "method": "sin θ = Opposite ÷ Hypotenuse.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which two sides does the sine compare?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the adjacent side (12) instead of the opposite one."
+      ],
+      "tags": [],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-002",
+      "topicId": "trigonometry",
+      "conceptId": "trig-standard",
+      "levelId": "trigonometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is sin 30° + cos 60°?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "sin 30° = 1/2 and cos 60° = 1/2, so the sum is 1.",
+      "solutionSteps": [
+        "sin 30° = 1/2.",
+        "cos 60° = 1/2.",
+        "1/2 + 1/2 = 1."
+      ],
+      "formulaIds": [
+        "trig-standard-f"
+      ],
+      "method": "Use the standard-angle values.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both terms are equal to the same simple fraction."
+        }
+      ],
+      "commonMistakes": [
+        "Taking cos 60° as √3/2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-003",
+      "topicId": "trigonometry",
+      "conceptId": "trig-complementary",
+      "levelId": "trigonometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these is equal to cos 60°?",
+      "options": [
+        {
+          "id": "a",
+          "text": "sin 30°"
+        },
+        {
+          "id": "b",
+          "text": "sin 60°"
+        },
+        {
+          "id": "c",
+          "text": "tan 45°"
+        },
+        {
+          "id": "d",
+          "text": "cos 30°"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "cos 60° = sin(90° − 60°) = sin 30° = 1/2.",
+      "solutionSteps": [
+        "cos θ = sin(90° − θ).",
+        "cos 60° = sin 30°."
+      ],
+      "formulaIds": [
+        "trig-complementary-f"
+      ],
+      "method": "Complementary angles: cos θ = sin(90° − θ).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "60° and which angle add up to 90°?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing sin 60°, which is √3/2."
+      ],
+      "tags": [],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-004",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "levelId": "trigonometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "formula_recognition",
+      "question": "Which statement is true for every angle θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "sin²θ + cos²θ = 1"
+        },
+        {
+          "id": "b",
+          "text": "sin θ + cos θ = 1"
+        },
+        {
+          "id": "c",
+          "text": "tan²θ − sec²θ = 1"
+        },
+        {
+          "id": "d",
+          "text": "sec²θ + tan²θ = 1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "sin²θ + cos²θ = 1 is Pythagoras in a triangle with hypotenuse 1. The others fail: at θ = 30°, sin θ + cos θ ≈ 1.37, and tan²θ − sec²θ is always −1.",
+      "solutionSteps": [
+        "Test θ = 30°: sin²30° + cos²30° = 1/4 + 3/4 = 1.",
+        "sin 30° + cos 30° ≈ 1.37, not 1."
+      ],
+      "formulaIds": [
+        "trig-pythag-f"
+      ],
+      "method": "Test a standard angle in each option.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try θ = 30° in each statement."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the squares: sin θ + cos θ is not 1."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-005",
+      "topicId": "trigonometry",
+      "conceptId": "trig-ratios",
+      "levelId": "trigonometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A right triangle has legs 6 and 8. θ is the angle opposite the leg of 6. What is tan θ?",
+      "figure": {
+        "type": "diagram",
+        "caption": "A right triangle with legs 6 and 8",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 6,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "8",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "6",
+            "labelOffset": [
+              12,
+              0
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "θ",
+            "radius": 26
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A right triangle with legs 6 and 8, the right angle between them marked, and the angle θ marked opposite the leg of 6."
+      },
+      "answer": {
+        "value": 0.75,
+        "tolerance": 0
+      },
+      "explanation": "tan θ = Opposite ÷ Adjacent = 6 ÷ 8 = 0.75.",
+      "solutionSteps": [
+        "Opposite = 6, adjacent = 8.",
+        "tan θ = 6/8 = 0.75."
+      ],
+      "formulaIds": [
+        "trig-ratios-f"
+      ],
+      "method": "tan θ = Opposite ÷ Adjacent.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The tangent does not use the hypotenuse."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the hypotenuse (10)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-006",
+      "topicId": "trigonometry",
+      "conceptId": "trig-one-ratio",
+      "levelId": "trigonometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If sin θ = 3/5 and θ is acute, what is tan θ?",
+      "figure": {
+        "type": "diagram",
+        "caption": "The right triangle sin θ = 3/5 describes",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "C",
+            "x": 4,
+            "y": 3,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "3",
+            "labelOffset": [
+              12,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "label": "5",
+            "labelOffset": [
+              -14,
+              -13
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "θ",
+            "radius": 26
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A right triangle with the right angle marked and the acute angle θ marked. The side opposite θ is 3 and the hypotenuse is 5."
+      },
+      "answer": {
+        "value": 0.75,
+        "tolerance": 0
+      },
+      "explanation": "Opposite 3, hypotenuse 5, so the adjacent side is 4 (a 3-4-5 triangle). tan θ = 3/4 = 0.75.",
+      "solutionSteps": [
+        "Opposite = 3, hypotenuse = 5.",
+        "Adjacent = √(25 − 9) = 4.",
+        "tan θ = 3/4 = 0.75."
+      ],
+      "formulaIds": [
+        "trig-one-ratio-f",
+        "trig-ratios-f"
+      ],
+      "method": "Draw the triangle the ratio describes and complete it with Pythagoras.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Draw a right triangle with opposite 3 and hypotenuse 5."
+        },
+        {
+          "level": 2,
+          "text": "The missing side is 4."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 3/5 again, or 4/3 (the cotangent)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-007",
+      "topicId": "trigonometry",
+      "conceptId": "trig-complementary",
+      "levelId": "trigonometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is sin² 35° + sin² 55°?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "sin 55° = cos 35°, so the sum is sin² 35° + cos² 35° = 1.",
+      "solutionSteps": [
+        "55° = 90° − 35°, so sin 55° = cos 35°.",
+        "sin² 35° + cos² 35° = 1."
+      ],
+      "formulaIds": [
+        "trig-complementary-f",
+        "trig-pythag-f"
+      ],
+      "method": "Turn one term into the complementary ratio, then use sin²θ + cos²θ = 1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "35° + 55° = 90°."
+        },
+        {
+          "level": 2,
+          "text": "Write sin 55° as a cosine."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to work out sin 35° and sin 55° on their own."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-008",
+      "topicId": "trigonometry",
+      "conceptId": "trig-standard",
+      "levelId": "trigonometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is 2 sin 30° × cos 30° × tan 60°?",
+      "answer": {
+        "value": 1.5,
+        "tolerance": 0
+      },
+      "explanation": "2 × 1/2 × √3/2 × √3 = 3/2 = 1.5.",
+      "solutionSteps": [
+        "2 sin 30° = 1.",
+        "cos 30° × tan 60° = √3/2 × √3 = 3/2.",
+        "1 × 3/2 = 1.5."
+      ],
+      "formulaIds": [
+        "trig-standard-f"
+      ],
+      "method": "Substitute the standard values and multiply; the roots cancel.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "√3 × √3 = 3."
+        }
+      ],
+      "commonMistakes": [
+        "Taking tan 60° as 1/√3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-009",
+      "topicId": "trigonometry",
+      "conceptId": "trig-standard",
+      "levelId": "trigonometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "If tan θ = 1/√3 and θ is acute, what is θ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°"
+        },
+        {
+          "id": "b",
+          "text": "45°"
+        },
+        {
+          "id": "c",
+          "text": "60°"
+        },
+        {
+          "id": "d",
+          "text": "90°"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "tan 30° = 1/√3, so θ = 30°.",
+      "solutionSteps": [
+        "tan 30° = 1/√3, tan 45° = 1, tan 60° = √3.",
+        "θ = 30°."
+      ],
+      "formulaIds": [
+        "trig-standard-f"
+      ],
+      "method": "Match the value against the standard-angle table.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "tan 60° = √3; this value is its reciprocal."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 60°, whose tangent is √3."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-010",
+      "topicId": "trigonometry",
+      "conceptId": "trig-complementary",
+      "levelId": "trigonometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is tan 10° × tan 20° × tan 70° × tan 80°?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "tan 80° = cot 10° and tan 70° = cot 20°. Each tangent times its cotangent is 1, so the product is 1.",
+      "solutionSteps": [
+        "tan 80° = cot 10°, tan 70° = cot 20°.",
+        "tan 10° × cot 10° = 1 and tan 20° × cot 20° = 1.",
+        "Product = 1."
+      ],
+      "formulaIds": [
+        "trig-complementary-f",
+        "trig-reciprocal-f"
+      ],
+      "method": "Pair angles that add to 90°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which pairs of these angles add up to 90°?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the angles inside the tangent."
+      ],
+      "tags": [],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-011",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "levelId": "trigonometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If sec θ + tan θ = 3, what is tan θ? (to 2 decimal places)",
+      "answer": {
+        "value": 1.33,
+        "tolerance": 0.01
+      },
+      "explanation": "sec²θ − tan²θ = 1, so sec θ − tan θ = 1/3. Subtracting from sec θ + tan θ = 3 gives 2 tan θ = 8/3, so tan θ = 4/3 ≈ 1.33.",
+      "solutionSteps": [
+        "(sec θ + tan θ)(sec θ − tan θ) = 1, so sec θ − tan θ = 1/3.",
+        "2 tan θ = 3 − 1/3 = 8/3.",
+        "tan θ = 4/3 ≈ 1.33."
+      ],
+      "formulaIds": [
+        "trig-sc-sec-tan",
+        "trig-pythag-f"
+      ],
+      "method": "Use sec²θ − tan²θ = 1 to get sec θ − tan θ, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "sec²θ − tan²θ factorises."
+        },
+        {
+          "level": 2,
+          "text": "sec θ − tan θ = 1/3."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the two equations instead of subtracting, which gives sec θ."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-012",
+      "topicId": "trigonometry",
+      "conceptId": "trig-identities",
+      "levelId": "trigonometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the largest value 5 sin θ + 12 cos θ can take?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "a sin θ + b cos θ is at most √(a² + b²) = √(25 + 144) = 13.",
+      "solutionSteps": [
+        "Maximum = √(a² + b²).",
+        "√(5² + 12²) = √169 = 13."
+      ],
+      "formulaIds": [
+        "trig-sc-max"
+      ],
+      "method": "Largest value of a sin θ + b cos θ = √(a² + b²).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "It is not 5 + 12: the sine and cosine cannot both be 1 at once."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 17 = 5 + 12."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "trigonometry-q-013",
+      "topicId": "trigonometry",
+      "conceptId": "trig-one-ratio",
+      "levelId": "trigonometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If 5 cos θ = 4 and θ is acute, what is (sin θ + cos θ) ÷ (cos θ − sin θ)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "The right triangle cos θ = 4/5 describes",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 0,
+            "hidden": true
+          },
+          {
+            "id": "C",
+            "x": 4,
+            "y": 3,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "4",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "label": "5",
+            "labelOffset": [
+              -14,
+              -13
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "θ",
+            "radius": 26
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A right triangle with the right angle marked and the acute angle θ marked. The side next to θ is 4 and the hypotenuse is 5."
+      },
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "cos θ = 4/5, so sin θ = 3/5. Then (3/5 + 4/5) ÷ (4/5 − 3/5) = (7/5) ÷ (1/5) = 7.",
+      "solutionSteps": [
+        "cos θ = 4/5, so sin θ = 3/5.",
+        "Top: 7/5. Bottom: 1/5.",
+        "7/5 ÷ 1/5 = 7."
+      ],
+      "formulaIds": [
+        "trig-one-ratio-f",
+        "trig-pythag-f"
+      ],
+      "method": "Find both ratios from the 3-4-5 triangle, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "cos θ = 4/5 describes a 3-4-5 triangle."
+        },
+        {
+          "level": 2,
+          "text": "The fifths cancel."
+        }
+      ],
+      "commonMistakes": [
+        "Computing (cos θ − sin θ) as 3/5 − 4/5."
+      ],
+      "tags": [],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

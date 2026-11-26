@@ -1,0 +1,960 @@
+{
+  "topicId": "weighted-mean",
+  "concepts": [
+    {
+      "id": "wm-def",
+      "topicId": "weighted-mean",
+      "name": "Weights express importance",
+      "description": "A weighted mean multiplies each value by its weight, adds, and divides by the total weight.",
+      "sortOrder": 1
+    },
+    {
+      "id": "wm-target",
+      "topicId": "weighted-mean",
+      "name": "Reaching a target",
+      "description": "To hit a target mean, work out the total needed and subtract what is already banked.",
+      "sortOrder": 2
+    },
+    {
+      "id": "wm-compare",
+      "topicId": "weighted-mean",
+      "name": "Weighted versus simple mean",
+      "description": "The weighted mean stays between the smallest and largest values and leans towards the heavier weights.",
+      "sortOrder": 3
+    },
+    {
+      "id": "wm-derived",
+      "topicId": "weighted-mean",
+      "name": "Prices, speeds and derived averages",
+      "description": "Average price is total cost over total quantity; average speed is total distance over total time.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "wm-def-f",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "title": "Weighted mean",
+      "prompt": "Values x₁, x₂, … have weights w₁, w₂, …. What is the weighted mean?",
+      "formula": "Mean = Σ(w·x) ÷ Σw",
+      "variables": [],
+      "explanation": "Each value is counted w times. Dividing by the total weight keeps the result on the same scale as the values.",
+      "example": "Scores 80 (30%) and 90 (70%)\n0.3 × 80 + 0.7 × 90 = 87",
+      "commonMistake": "Dividing Σ(w·x) by the number of values instead of the total weight.",
+      "applicationPrompt": "An assignment worth 30% scores 80 and an exam worth 70% scores 90. What is the final mark?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wm-target-f",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-target",
+      "title": "Target score",
+      "prompt": "How do you find the score needed to reach a target weighted mean?",
+      "formula": "Needed = (Target × Σw − Σ(known w·x)) ÷ (unknown weight)",
+      "variables": [],
+      "explanation": "The target fixes the total weighted points needed; subtract what is already earned and divide by the remaining weight.",
+      "example": "Coursework 40% at 70; target 76\nExam needs (76 − 28) ÷ 0.6 = 80",
+      "commonMistake": "Assuming the needed score equals the target.",
+      "applicationPrompt": "Coursework (40%) scored 70. What must the exam (60%) score to reach 76 overall?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wm-compare-f",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-compare",
+      "title": "Where the mean lies",
+      "prompt": "Where does a weighted mean lie compared with the values?",
+      "formula": "min ≤ weighted mean ≤ max\nLeans towards the value with the larger weight",
+      "variables": [],
+      "explanation": "The weighted mean is a blend of the values, so it can never leave their range. Equal weights give the simple mean.",
+      "example": "Values 40 and 60, weights 1 : 3 → 55, closer to 60",
+      "commonMistake": "Assuming the weighted mean is the midpoint.",
+      "applicationPrompt": "Where does the weighted mean of 40 and 60 lie if 60 has three times the weight of 40?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wm-price-f",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-derived",
+      "title": "Average price and speed",
+      "prompt": "How do you find an average price paid or an average speed over several legs?",
+      "formula": "Average price = Total cost ÷ Total quantity\nAverage speed = Total distance ÷ Total time",
+      "variables": [],
+      "explanation": "These are weighted means: price is weighted by quantity, speed by time.",
+      "example": "2 kg at ₹40 + 3 kg at ₹50\n(80 + 150) ÷ 5 = ₹46 per kg",
+      "commonMistake": "Averaging the prices or the speeds directly.",
+      "applicationPrompt": "You buy 2 kg at ₹40 per kg and 3 kg at ₹50 per kg. What is the average price per kg?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wm-sc-deviation",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "kind": "shortcut",
+      "title": "Weighted average by deviations",
+      "prompt": "How do you compute a weighted average quickly?",
+      "formula": "Average = Base + Σ(weight × deviation from base) ÷ Σweights",
+      "variables": [],
+      "explanation": "Pick one value as the base; only the differences need weighting.",
+      "example": "3 kg at ₹40 and 2 kg at ₹50, base 40: 40 + (2 × 10) ÷ 5 = ₹44.",
+      "commonMistake": "Averaging the two prices without the weights (₹45).",
+      "applicationPrompt": "5 litres at ₹60 mixed with 3 litres at ₹68. Find the average price.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "weighted-mean-level-0",
+      "topicId": "weighted-mean",
+      "order": 0,
+      "title": "Not All Values Are Equal",
+      "description": "Give each value a weight, and the average finally reflects what matters.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "wm-def",
+        "wm-compare"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Weights show importance",
+            "body": "A final exam that counts 70% should matter more than an assignment that counts 30%. A weighted mean multiplies each value by its weight, adds the results, and divides by the total weight."
+          },
+          {
+            "type": "formula",
+            "title": "Weighted mean",
+            "body": "Mean = Σ(w · x) ÷ Σw",
+            "caption": "When the weights are percentages that add to 100, the division is already done."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "alligation-seesaw"
+          },
+          {
+            "type": "check",
+            "questionId": "weighted-mean-q-001"
+          },
+          {
+            "type": "text",
+            "title": "It leans, but never leaves",
+            "body": "The weighted mean always lies between the smallest and the largest value, and it leans towards whichever value has the most weight. With equal weights it becomes the ordinary mean."
+          },
+          {
+            "type": "check",
+            "questionId": "weighted-mean-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "weighted-mean-level-1",
+      "topicId": "weighted-mean",
+      "order": 1,
+      "title": "Weighted Mean Formulas",
+      "description": "Weighted mean, targets, position and derived averages.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "weighted-mean-level-0"
+      ],
+      "conceptIds": [
+        "wm-def",
+        "wm-target",
+        "wm-compare",
+        "wm-derived"
+      ],
+      "formulaIds": [
+        "wm-def-f",
+        "wm-target-f",
+        "wm-compare-f",
+        "wm-price-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "weighted-mean-level-2",
+      "topicId": "weighted-mean",
+      "order": 2,
+      "title": "Direct Weighted Means",
+      "description": "Apply the formula.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "weighted-mean-level-1"
+      ],
+      "conceptIds": [
+        "wm-def",
+        "wm-derived",
+        "wm-compare"
+      ],
+      "questionIds": [
+        "weighted-mean-q-001",
+        "weighted-mean-q-002",
+        "weighted-mean-q-003",
+        "weighted-mean-q-004",
+        "weighted-mean-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "weighted-mean-level-3",
+      "topicId": "weighted-mean",
+      "order": 3,
+      "title": "Targets and Averages",
+      "description": "Work back from a target and average speed.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "weighted-mean-level-2"
+      ],
+      "conceptIds": [
+        "wm-def",
+        "wm-target",
+        "wm-derived",
+        "wm-compare"
+      ],
+      "questionIds": [
+        "weighted-mean-q-006",
+        "weighted-mean-q-007",
+        "weighted-mean-q-008",
+        "weighted-mean-q-009",
+        "weighted-mean-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "weighted-mean-level-4",
+      "topicId": "weighted-mean",
+      "order": 4,
+      "title": "Unknown Weights and Values",
+      "description": "Missing values and new groups.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "weighted-mean-level-3"
+      ],
+      "conceptIds": [
+        "wm-target",
+        "wm-derived"
+      ],
+      "questionIds": [
+        "weighted-mean-q-011",
+        "weighted-mean-q-012",
+        "weighted-mean-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "weighted-mean-level-5",
+      "topicId": "weighted-mean",
+      "order": 5,
+      "title": "Mixed Weighted Mean Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "weighted-mean-level-4"
+      ],
+      "conceptIds": [
+        "wm-target",
+        "wm-derived"
+      ],
+      "questionQuery": {
+        "topicId": "weighted-mean",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "weighted-mean-q-001",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "levelId": "weighted-mean-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A course grade is 30% assignments and 70% exam. A student scores 80 on the assignments and 90 on the exam. What is the final mark?",
+      "answer": {
+        "value": 87,
+        "tolerance": 0
+      },
+      "explanation": "0.3 × 80 + 0.7 × 90 = 24 + 63 = 87.",
+      "solutionSteps": [
+        "0.3 × 80 = 24.",
+        "0.7 × 90 = 63.",
+        "24 + 63 = 87."
+      ],
+      "formulaIds": [
+        "wm-def-f"
+      ],
+      "method": "Multiply each score by its weight and add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The weights already sum to 100%, so no further division is needed."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 80 and 90 to get 85."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-002",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "levelId": "weighted-mean-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Three marks 60, 80 and 100 have weights 3, 1 and 1. What is their weighted mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "80"
+        },
+        {
+          "id": "b",
+          "text": "76"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "240"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "(3 × 60 + 1 × 80 + 1 × 100) ÷ 5 = 360 ÷ 5 = 72. The heaviest weight is on the lowest mark, so the mean falls below the simple mean of 80.",
+      "solutionSteps": [
+        "3 × 60 = 180; plus 80 and 100 = 360.",
+        "Total weight = 5.",
+        "360 ÷ 5 = 72."
+      ],
+      "formulaIds": [
+        "wm-def-f"
+      ],
+      "method": "Σ(w·x) ÷ Σw.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which mark has the largest weight?"
+        }
+      ],
+      "commonMistakes": [
+        "Using the simple mean of 80."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-003",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-derived",
+      "levelId": "weighted-mean-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "You buy 2 kg of an item at ₹40 per kg and 3 kg at ₹50 per kg. What is the average price per kg, in rupees?",
+      "answer": {
+        "value": 46,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Total cost = 80 + 150 = ₹230 for 5 kg, so the average price is 230 ÷ 5 = ₹46 per kg.",
+      "solutionSteps": [
+        "Cost: 2 × 40 = 80 and 3 × 50 = 150.",
+        "Total 230 for 5 kg.",
+        "230 ÷ 5 = 46."
+      ],
+      "formulaIds": [
+        "wm-price-f"
+      ],
+      "method": "Total cost ÷ total quantity.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You bought more of the dearer item, so the average is above 45."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the prices to get 45."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-004",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "levelId": "weighted-mean-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The weighted mean of values x with weights w is",
+      "options": [
+        {
+          "id": "a",
+          "text": "Σx ÷ n"
+        },
+        {
+          "id": "b",
+          "text": "Σx ÷ Σw"
+        },
+        {
+          "id": "c",
+          "text": "Σ(w·x)"
+        },
+        {
+          "id": "d",
+          "text": "Σ(w·x) ÷ Σw"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Multiply each value by its weight, add them, then divide by the total weight.",
+      "solutionSteps": [
+        "Σ(w·x) is the weighted total.",
+        "Σw is the total weight."
+      ],
+      "formulaIds": [
+        "wm-def-f"
+      ],
+      "method": "Weighted total ÷ total weight.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The total weight plays the role that \"n\" plays in a simple mean."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving out the division."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-005",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-compare",
+      "levelId": "weighted-mean-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The weighted mean of 40 and 60, where 60 has three times the weight of 40, is",
+      "options": [
+        {
+          "id": "a",
+          "text": "50"
+        },
+        {
+          "id": "b",
+          "text": "55"
+        },
+        {
+          "id": "c",
+          "text": "45"
+        },
+        {
+          "id": "d",
+          "text": "60"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(1 × 40 + 3 × 60) ÷ 4 = 220 ÷ 4 = 55. It lies between 40 and 60 but leans towards 60.",
+      "solutionSteps": [
+        "Weights 1 and 3, total 4.",
+        "(40 + 180) ÷ 4 = 55."
+      ],
+      "formulaIds": [
+        "wm-def-f",
+        "wm-compare-f"
+      ],
+      "method": "The mean leans towards the heavier weight.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Should the answer be above or below 50?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving the simple mean 50."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-006",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-def",
+      "levelId": "weighted-mean-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A course counts quizzes 20%, midterm 30% and final 50%. A student scores 90 on the quizzes, 70 on the midterm and 80 on the final. What is the overall mark?",
+      "answer": {
+        "value": 79,
+        "tolerance": 0
+      },
+      "explanation": "0.2 × 90 + 0.3 × 70 + 0.5 × 80 = 18 + 21 + 40 = 79.",
+      "solutionSteps": [
+        "18 + 21 + 40 = 79."
+      ],
+      "formulaIds": [
+        "wm-def-f"
+      ],
+      "method": "Weighted total (weights sum to 100%).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the percentages to decimals."
+        }
+      ],
+      "commonMistakes": [
+        "Using the simple mean (80)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-007",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-target",
+      "levelId": "weighted-mean-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Coursework counts 40% and the final exam 60% of the grade. The coursework mark is 70. What exam mark is needed for an overall mark of 76?",
+      "answer": {
+        "value": 80,
+        "tolerance": 0
+      },
+      "explanation": "Needed points = 76. Coursework gives 0.4 × 70 = 28. The exam must contribute 48, and 48 ÷ 0.6 = 80.",
+      "solutionSteps": [
+        "Coursework contributes 28.",
+        "Exam must contribute 76 − 28 = 48.",
+        "48 ÷ 0.6 = 80."
+      ],
+      "formulaIds": [
+        "wm-target-f"
+      ],
+      "method": "Target total − banked points, divided by the remaining weight.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many points does the coursework already contribute?"
+        },
+        {
+          "level": 2,
+          "text": "Divide the remainder by the exam weight."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 82 by doubling the gap as if weights were equal."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-008",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-target",
+      "levelId": "weighted-mean-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The weighted mean of 60 (weight w) and 90 (weight 2) is 80. What is w?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.5"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(60w + 180) ÷ (w + 2) = 80 → 60w + 180 = 80w + 160 → 20 = 20w → w = 1.",
+      "solutionSteps": [
+        "60w + 180 = 80(w + 2).",
+        "60w + 180 = 80w + 160.",
+        "w = 1."
+      ],
+      "formulaIds": [
+        "wm-def-f"
+      ],
+      "method": "Set up Σ(w·x) = mean × Σw.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "80 is twice as far from 60 as from 90."
+        },
+        {
+          "level": 2,
+          "text": "So 90 must carry twice the weight of 60."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming equal weights."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-009",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-derived",
+      "levelId": "weighted-mean-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A car covers 120 km at 40 km/hr and another 120 km at 60 km/hr. What is its average speed for the whole trip, in km/hr?",
+      "answer": {
+        "value": 48,
+        "tolerance": 0,
+        "unit": "km/hr"
+      },
+      "explanation": "Times: 120 ÷ 40 = 3 hr and 120 ÷ 60 = 2 hr. Total 240 km in 5 hr = 48 km/hr. This is below the simple mean of 50 because more time is spent at the slower speed.",
+      "solutionSteps": [
+        "3 hr + 2 hr = 5 hr.",
+        "240 ÷ 5 = 48."
+      ],
+      "formulaIds": [
+        "wm-price-f"
+      ],
+      "method": "Total distance ÷ total time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More time is spent at the slower speed, so expect less than 50."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the speeds to get 50."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-010",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-compare",
+      "levelId": "weighted-mean-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which statement is always true about any weighted mean of the values 12, 18 and 30?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It equals 20"
+        },
+        {
+          "id": "b",
+          "text": "It lies between 12 and 30"
+        },
+        {
+          "id": "c",
+          "text": "It is closer to 30 than to 12"
+        },
+        {
+          "id": "d",
+          "text": "It equals the median, 18"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A weighted mean is a blend of the values, so it can never fall outside their range. Its exact position depends on the weights, so the other statements can all fail.",
+      "solutionSteps": [
+        "With all weight on 12 it would be 12; with all weight on 30 it would be 30.",
+        "Any blend lies in between."
+      ],
+      "formulaIds": [
+        "wm-compare-f"
+      ],
+      "method": "Weighted mean ∈ [min, max].",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try extreme weights: which statements survive?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the weighted mean equals the simple mean or the median."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-011",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-target",
+      "levelId": "weighted-mean-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Three scores 60, 80 and x have weights 2, 3 and 5, and their weighted mean is 76. What is x?",
+      "answer": {
+        "value": 80,
+        "tolerance": 0
+      },
+      "explanation": "Total weight = 10, so the weighted total is 760. Known parts: 2 × 60 + 3 × 80 = 360. So 5x = 400 and x = 80.",
+      "solutionSteps": [
+        "76 × 10 = 760.",
+        "760 − 120 − 240 = 400.",
+        "x = 400 ÷ 5 = 80."
+      ],
+      "formulaIds": [
+        "wm-target-f"
+      ],
+      "method": "Weighted total = mean × total weight.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the total weight and the required weighted total."
+        },
+        {
+          "level": 2,
+          "text": "Subtract the known contributions."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the known scores."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-012",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-derived",
+      "levelId": "weighted-mean-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "20 kg of rice at ₹30 per kg is mixed with 30 kg of rice at ₹40 per kg. At what price per kg must the mixture be sold to make a profit of 25% on its average cost, in rupees?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Total cost = 600 + 1,200 = ₹1,800 for 50 kg, so the average cost is ₹36 per kg. A 25% profit gives 36 × 1.25 = ₹45 per kg.",
+      "solutionSteps": [
+        "Average cost = 1,800 ÷ 50 = 36.",
+        "Selling price = 36 × 1.25 = 45."
+      ],
+      "formulaIds": [
+        "wm-price-f"
+      ],
+      "method": "Find the weighted average cost, then apply the profit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Average cost first, using quantity as the weight."
+        }
+      ],
+      "commonMistakes": [
+        "Using the simple average cost of ₹35 (giving ₹43.75)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-mean-q-013",
+      "topicId": "weighted-mean",
+      "conceptId": "wm-target",
+      "levelId": "weighted-mean-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A class of 20 students has an average mark of 60. Five new students join and the class average rises to 62. What is the average mark of the five new students?",
+      "options": [
+        {
+          "id": "a",
+          "text": "65"
+        },
+        {
+          "id": "b",
+          "text": "70"
+        },
+        {
+          "id": "c",
+          "text": "62"
+        },
+        {
+          "id": "d",
+          "text": "75"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "New total = 25 × 62 = 1,550. Old total = 20 × 60 = 1,200. The five new students add 350, an average of 70.",
+      "solutionSteps": [
+        "25 × 62 = 1,550.",
+        "20 × 60 = 1,200.",
+        "350 ÷ 5 = 70."
+      ],
+      "formulaIds": [
+        "wm-target-f",
+        "wm-def-f"
+      ],
+      "method": "Totals before and after give the new group's total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work with totals."
+        },
+        {
+          "level": 2,
+          "text": "Divide the difference by the number of new students."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 62 because that is the new class average."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

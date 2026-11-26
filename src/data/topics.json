@@ -1,0 +1,1171 @@
+{
+  "version": "1.0.0",
+  "topics": [
+    {
+      "id": "number-system",
+      "name": "Number System",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Types of numbers, place value, integers, rationals and the properties that everything else in arithmetic is built on.",
+      "whyItMatters": "Number system is the vocabulary of the whole subject. Remainders, factors and properties recur in every other topic.",
+      "glyph": "ℕ",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 1,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "divisibility",
+      "name": "Divisibility",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Divisibility rules, remainders and quick tests that save calculation time.",
+      "whyItMatters": null,
+      "glyph": "∣",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "number-system"
+      ],
+      "sortOrder": 2,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "factors-multiples",
+      "name": "Factors and Multiples",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Prime factorisation, counting factors, and how multiples behave.",
+      "whyItMatters": null,
+      "glyph": "×",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "number-system"
+      ],
+      "sortOrder": 3,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "hcf-lcm",
+      "name": "HCF and LCM",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Highest common factor, lowest common multiple, and the problems that hide them.",
+      "whyItMatters": null,
+      "glyph": "⊓",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "factors-multiples"
+      ],
+      "sortOrder": 4,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "simplification",
+      "name": "Simplification",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "BODMAS, fraction handling and structured ways to reduce messy expressions.",
+      "whyItMatters": null,
+      "glyph": "≡",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 5,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "approximation",
+      "name": "Approximation",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Estimating answers fast enough to beat the clock without losing accuracy.",
+      "whyItMatters": null,
+      "glyph": "≈",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "percentages"
+      ],
+      "sortOrder": 6,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "fractions",
+      "name": "Fractions",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Comparing, converting and operating on fractions with confidence.",
+      "whyItMatters": null,
+      "glyph": "½",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "number-system"
+      ],
+      "sortOrder": 7,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "decimals",
+      "name": "Decimals",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Decimal arithmetic, recurring decimals and conversions.",
+      "whyItMatters": null,
+      "glyph": "·",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "fractions"
+      ],
+      "sortOrder": 8,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "surds-indices",
+      "name": "Surds and Indices",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Laws of exponents, roots, and simplifying surd expressions.",
+      "whyItMatters": null,
+      "glyph": "√",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "number-system"
+      ],
+      "sortOrder": 9,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "percentages",
+      "name": "Percentages",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "The single most reused idea in aptitude: parts of a whole, increases, decreases and reverse calculations.",
+      "whyItMatters": "Percentages sit underneath profit and loss, interest, data interpretation and most comparison questions. Every hour here pays off in five other topics.",
+      "glyph": "%",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 10,
+      "contentStatus": "reference",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "ratio-proportion",
+      "name": "Ratio and Proportion",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Comparing quantities, splitting amounts and working with proportional relationships.",
+      "whyItMatters": "Ratios are how exam setters hide numbers. Once you can read a ratio as a set of parts, mixtures, partnerships and work problems become routine.",
+      "glyph": ":",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "fractions"
+      ],
+      "sortOrder": 11,
+      "contentStatus": "core",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "direct-inverse-proportion",
+      "name": "Direct and Inverse Proportion",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Recognising when quantities rise together and when one falls as the other rises.",
+      "whyItMatters": null,
+      "glyph": "∝",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion"
+      ],
+      "sortOrder": 12,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "averages",
+      "name": "Averages",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Arithmetic mean, how averages shift, and the classic replacement problems.",
+      "whyItMatters": "Averages appear directly in questions and indirectly whenever a total has to be redistributed. The replacement pattern alone shows up every year.",
+      "glyph": "x̄",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 13,
+      "contentStatus": "core",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "weighted-average",
+      "name": "Weighted Average",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Combining groups of different sizes into one representative value.",
+      "whyItMatters": null,
+      "glyph": "Σw",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "averages"
+      ],
+      "sortOrder": 14,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "mixtures-alligation",
+      "name": "Mixtures and Alligation",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Blending quantities at different rates, and the alligation shortcut.",
+      "whyItMatters": "Alligation turns a two-equation problem into a one-line ratio. It is the highest speed-gain shortcut in arithmetic.",
+      "glyph": "⚗",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion",
+        "weighted-average"
+      ],
+      "sortOrder": 15,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "profit-loss-discount",
+      "name": "Profit, Loss and Discount",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Cost price, selling price, markup and discount chains as they appear in real trade problems.",
+      "whyItMatters": "Trade problems are the most common application of percentages, and successive discount chains are a favourite trap.",
+      "glyph": "₹",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "percentages"
+      ],
+      "sortOrder": 16,
+      "contentStatus": "core",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "simple-interest",
+      "name": "Simple Interest",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Interest on the original principal only — the entry point to all lending problems.",
+      "whyItMatters": "Simple interest is the cleanest way to practise substituting into a formula with unit conversion — and it is the base case for compound interest.",
+      "glyph": "SI",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "percentages"
+      ],
+      "sortOrder": 17,
+      "contentStatus": "core",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "compound-interest",
+      "name": "Compound Interest",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Interest on interest, compounding frequency, and growth-rate problems.",
+      "whyItMatters": "Compounding is the difference between a small rate and a large outcome, and it powers population, depreciation and growth questions too.",
+      "glyph": "CI",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "simple-interest"
+      ],
+      "sortOrder": 18,
+      "contentStatus": "core",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "partnership",
+      "name": "Partnership",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Splitting profit by capital and time invested.",
+      "whyItMatters": null,
+      "glyph": "⚖",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion"
+      ],
+      "sortOrder": 19,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "time-and-work",
+      "name": "Time and Work",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Work rates, combined effort, and efficiency comparisons.",
+      "whyItMatters": "Work-rate thinking transfers straight to pipes, wages and speed. Learning to work in units of work per day removes most of the difficulty.",
+      "glyph": "⏱",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion"
+      ],
+      "sortOrder": 20,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "pipes-cisterns",
+      "name": "Pipes and Cisterns",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Filling and emptying rates — time and work in a tank.",
+      "whyItMatters": null,
+      "glyph": "🚰",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "time-and-work"
+      ],
+      "sortOrder": 21,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "time-speed-distance",
+      "name": "Time, Speed and Distance",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "The relationship behind every motion problem, plus average speed and relative speed.",
+      "whyItMatters": "Motion problems reward a single relationship used carefully. Average speed and relative speed are where most marks are lost.",
+      "glyph": "→",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion"
+      ],
+      "sortOrder": 22,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "trains",
+      "name": "Trains",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Relative speed with length: crossing poles, platforms and other trains.",
+      "whyItMatters": null,
+      "glyph": "🚆",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "time-speed-distance"
+      ],
+      "sortOrder": 23,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "boats-streams",
+      "name": "Boats and Streams",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Upstream and downstream speeds and the still-water relationship.",
+      "whyItMatters": null,
+      "glyph": "⛵",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "time-speed-distance"
+      ],
+      "sortOrder": 24,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "races",
+      "name": "Races",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Head starts, beats-by distances and dead heats.",
+      "whyItMatters": null,
+      "glyph": "🏁",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "time-speed-distance"
+      ],
+      "sortOrder": 25,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "problems-on-ages",
+      "name": "Problems on Ages",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Turning \"years ago\" and \"years hence\" statements into equations.",
+      "whyItMatters": "Age questions are equation-forming practice in disguise: translate the sentence correctly and the algebra is easy.",
+      "glyph": "🎂",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "ratio-proportion"
+      ],
+      "sortOrder": 26,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "work-and-wages",
+      "name": "Work and Wages",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Paying people in proportion to the work they actually do.",
+      "whyItMatters": null,
+      "glyph": "💼",
+      "colorToken": "arithmetic",
+      "prerequisites": [
+        "time-and-work"
+      ],
+      "sortOrder": 27,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "calendars",
+      "name": "Calendars",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Odd days, leap years and finding the day of the week.",
+      "whyItMatters": null,
+      "glyph": "📅",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 28,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "clocks",
+      "name": "Clocks",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Angles between hands, coincidences and gaining/losing clocks.",
+      "whyItMatters": null,
+      "glyph": "🕐",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 29,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "unit-conversions",
+      "name": "Unit Conversions",
+      "category": "arithmetic",
+      "categoryName": "Arithmetic",
+      "description": "Moving between units without losing a factor of ten.",
+      "whyItMatters": null,
+      "glyph": "⇄",
+      "colorToken": "arithmetic",
+      "prerequisites": [],
+      "sortOrder": 30,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "algebraic-expressions",
+      "name": "Algebraic Expressions",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Terms, coefficients and manipulating expressions safely.",
+      "whyItMatters": null,
+      "glyph": "ax",
+      "colorToken": "algebra",
+      "prerequisites": [],
+      "sortOrder": 31,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "linear-equations",
+      "name": "Linear Equations",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Forming and solving one-variable equations from word problems.",
+      "whyItMatters": null,
+      "glyph": "=",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "algebraic-expressions"
+      ],
+      "sortOrder": 32,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "simultaneous-equations",
+      "name": "Simultaneous Linear Equations",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Two unknowns, two equations, and the fastest route to both.",
+      "whyItMatters": null,
+      "glyph": "⎰",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "sortOrder": 33,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "quadratic-equations",
+      "name": "Quadratic Equations",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Factorisation, the formula, and the meaning of the discriminant.",
+      "whyItMatters": null,
+      "glyph": "x²",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "sortOrder": 34,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "quadratic-comparison",
+      "name": "Quadratic Comparison (x vs y)",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "The bank-paper favourite: solve two equations and decide how x and y compare, from five fixed answers.",
+      "whyItMatters": "IBPS and SBI prelims set about five of these in every paper; with the routine they take under a minute each.",
+      "glyph": "⋚",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "quadratic-equations"
+      ],
+      "sortOrder": 35,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "algebraic-identities",
+      "name": "Algebraic Identities",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "The standard identities that turn long expansions into one line.",
+      "whyItMatters": null,
+      "glyph": "(a+b)²",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "algebraic-expressions"
+      ],
+      "sortOrder": 36,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "inequalities",
+      "name": "Inequalities",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Solving and reasoning with inequality statements.",
+      "whyItMatters": null,
+      "glyph": "<",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "sortOrder": 37,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "sequences",
+      "name": "Sequences",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Spotting the rule behind a list of numbers: differences, ratios, special and interleaved patterns, and wrong terms.",
+      "whyItMatters": null,
+      "glyph": "…",
+      "colorToken": "algebra",
+      "prerequisites": [],
+      "sortOrder": 38,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "arithmetic-progression",
+      "name": "Arithmetic Progression",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Common difference, nth term and sum of a series with constant steps.",
+      "whyItMatters": "APs formalise \"constant change\", which is exactly what instalments, salaries and seating problems describe.",
+      "glyph": "AP",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "sequences"
+      ],
+      "sortOrder": 39,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "geometric-progression",
+      "name": "Geometric Progression",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Common ratio, nth term and sums including infinite series.",
+      "whyItMatters": null,
+      "glyph": "GP",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "arithmetic-progression"
+      ],
+      "sortOrder": 40,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "logarithms",
+      "name": "Logarithms",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Log laws and using them to unwind exponents.",
+      "whyItMatters": null,
+      "glyph": "log",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "surds-indices"
+      ],
+      "sortOrder": 41,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "functions-graphs",
+      "name": "Functions and Basic Graphs",
+      "category": "algebra",
+      "categoryName": "Algebra",
+      "description": "Reading, evaluating and sketching simple functions.",
+      "whyItMatters": null,
+      "glyph": "f(x)",
+      "colorToken": "algebra",
+      "prerequisites": [
+        "algebraic-expressions"
+      ],
+      "sortOrder": 42,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "lines-angles",
+      "name": "Lines and Angles",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Angle relationships formed by intersecting and parallel lines.",
+      "whyItMatters": null,
+      "glyph": "∠",
+      "colorToken": "geometry",
+      "prerequisites": [],
+      "sortOrder": 43,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "triangles",
+      "name": "Triangles",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Properties, congruence, similarity and the Pythagorean relationship.",
+      "whyItMatters": null,
+      "glyph": "△",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "lines-angles"
+      ],
+      "sortOrder": 44,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "quadrilaterals",
+      "name": "Quadrilaterals",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Squares, rectangles, parallelograms, trapezia and their properties.",
+      "whyItMatters": null,
+      "glyph": "▱",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "triangles"
+      ],
+      "sortOrder": 45,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "polygons",
+      "name": "Polygons",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Interior and exterior angles, diagonals and regular polygons.",
+      "whyItMatters": null,
+      "glyph": "⬠",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "lines-angles"
+      ],
+      "sortOrder": 46,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "circles",
+      "name": "Circles",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Chords, tangents, arcs, sectors and circle theorems.",
+      "whyItMatters": null,
+      "glyph": "○",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "lines-angles"
+      ],
+      "sortOrder": 47,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "coordinate-geometry",
+      "name": "Coordinate Geometry",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Distance, midpoint, slope and the equation of a line.",
+      "whyItMatters": null,
+      "glyph": "(x,y)",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "sortOrder": 48,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "perimeter-area",
+      "name": "Perimeter and Area",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Boundary length and area for the standard plane figures.",
+      "whyItMatters": null,
+      "glyph": "▭",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "triangles"
+      ],
+      "sortOrder": 49,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "mensuration-2d",
+      "name": "2D Mensuration",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Composite plane figures and shaded-region problems.",
+      "whyItMatters": null,
+      "glyph": "⬜",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "perimeter-area"
+      ],
+      "sortOrder": 50,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "mensuration-3d",
+      "name": "3D Mensuration",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Cubes, cuboids, cylinders, cones and spheres.",
+      "whyItMatters": null,
+      "glyph": "⬢",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "mensuration-2d"
+      ],
+      "sortOrder": 51,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "volume-surface-area",
+      "name": "Volume and Surface Area",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Capacity and surface problems, including melting and recasting.",
+      "whyItMatters": null,
+      "glyph": "∛",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "mensuration-3d"
+      ],
+      "sortOrder": 52,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "trigonometry",
+      "name": "Trigonometry",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Sine, cosine and tangent, the standard angles, complementary angles and the Pythagorean identities.",
+      "whyItMatters": "SSC, CDS, NDA and AFCAT papers ask several trigonometry questions, and most reduce to the standard-angle table and sin²θ + cos²θ = 1.",
+      "glyph": "θ",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "triangles"
+      ],
+      "sortOrder": 53,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "heights-distances",
+      "name": "Heights and Distances",
+      "category": "geometry",
+      "categoryName": "Geometry and Mensuration",
+      "description": "Angles of elevation and depression, towers, shadows and ladders: trigonometry on real objects.",
+      "whyItMatters": "A favourite of SSC and defence papers: one right triangle and tan 30°, 45° or 60° settle almost every question.",
+      "glyph": "△",
+      "colorToken": "geometry",
+      "prerequisites": [
+        "trigonometry"
+      ],
+      "sortOrder": 54,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "counting-principle",
+      "name": "Fundamental Principle of Counting",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Multiplying and adding choices — the base of all counting.",
+      "whyItMatters": null,
+      "glyph": "∙",
+      "colorToken": "combinatorics",
+      "prerequisites": [],
+      "sortOrder": 55,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "permutations",
+      "name": "Permutations",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Arrangements where order matters, including restrictions and repetition.",
+      "whyItMatters": "Counting arrangements correctly is a skill of classification: decide whether order matters before you touch a formula.",
+      "glyph": "nPr",
+      "colorToken": "combinatorics",
+      "prerequisites": [
+        "counting-principle"
+      ],
+      "sortOrder": 56,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "combinations",
+      "name": "Combinations",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Selections where order does not matter.",
+      "whyItMatters": "Selection problems appear in probability, geometry and data questions. Getting nCr right unlocks all three.",
+      "glyph": "nCr",
+      "colorToken": "combinatorics",
+      "prerequisites": [
+        "permutations"
+      ],
+      "sortOrder": 57,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "probability",
+      "name": "Probability",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Favourable over total, independent and mutually exclusive events.",
+      "whyItMatters": "Probability is where careful counting meets careful reading. Most errors are counting errors, not probability errors.",
+      "glyph": "P",
+      "colorToken": "combinatorics",
+      "prerequisites": [
+        "combinations"
+      ],
+      "sortOrder": 58,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "set-theory",
+      "name": "Set Theory",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Unions, intersections, complements and cardinality.",
+      "whyItMatters": null,
+      "glyph": "∪",
+      "colorToken": "combinatorics",
+      "prerequisites": [],
+      "sortOrder": 59,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "venn-diagrams",
+      "name": "Venn Diagrams",
+      "category": "combinatorics",
+      "categoryName": "Counting and Probability",
+      "description": "Two- and three-set problems solved visually.",
+      "whyItMatters": null,
+      "glyph": "⊛",
+      "colorToken": "combinatorics",
+      "prerequisites": [
+        "set-theory"
+      ],
+      "sortOrder": 60,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-tables",
+      "name": "Tables",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Reading tabular data accurately and answering multi-step questions from it.",
+      "whyItMatters": "Data interpretation is mostly percentage and ratio work under time pressure. Accurate reading beats fast calculation.",
+      "glyph": "▦",
+      "colorToken": "data",
+      "prerequisites": [
+        "percentages"
+      ],
+      "sortOrder": 61,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-bar-graphs",
+      "name": "Bar Graphs",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Comparing categories and reading values off bars.",
+      "whyItMatters": null,
+      "glyph": "▊",
+      "colorToken": "data",
+      "prerequisites": [
+        "di-tables"
+      ],
+      "sortOrder": 62,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-line-graphs",
+      "name": "Line Graphs",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Trends, growth and change over time.",
+      "whyItMatters": null,
+      "glyph": "📈",
+      "colorToken": "data",
+      "prerequisites": [
+        "di-tables"
+      ],
+      "sortOrder": 63,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-pie-charts",
+      "name": "Pie Charts",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Turning angles and shares into quantities.",
+      "whyItMatters": null,
+      "glyph": "◔",
+      "colorToken": "data",
+      "prerequisites": [
+        "percentages"
+      ],
+      "sortOrder": 64,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-caselet",
+      "name": "Caselet DI",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Extracting structured data from a paragraph of text.",
+      "whyItMatters": null,
+      "glyph": "¶",
+      "colorToken": "data",
+      "prerequisites": [
+        "di-tables"
+      ],
+      "sortOrder": 65,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "di-mixed-radar",
+      "name": "Mixed and Radar Charts",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Radar charts, bar-and-line combinations, tables with missing values, and multi-step questions across charts.",
+      "whyItMatters": "Bank PO mains papers build their hardest data sets from these chart types; the reading rules are simple once seen.",
+      "glyph": "✶",
+      "colorToken": "data",
+      "prerequisites": [
+        "di-bar-graphs",
+        "di-line-graphs"
+      ],
+      "sortOrder": 66,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "data-sufficiency",
+      "name": "Data Sufficiency",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Deciding whether the given statements are enough to answer.",
+      "whyItMatters": null,
+      "glyph": "?",
+      "colorToken": "data",
+      "prerequisites": [],
+      "sortOrder": 67,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "mean-median-mode",
+      "name": "Mean, Median and Mode",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Three centres of a dataset and when each one matters.",
+      "whyItMatters": null,
+      "glyph": "μ",
+      "colorToken": "data",
+      "prerequisites": [
+        "averages"
+      ],
+      "sortOrder": 68,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "weighted-mean",
+      "name": "Weighted Mean",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Averaging when the pieces carry different weight.",
+      "whyItMatters": null,
+      "glyph": "Σ",
+      "colorToken": "data",
+      "prerequisites": [
+        "weighted-average"
+      ],
+      "sortOrder": 69,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    },
+    {
+      "id": "dispersion",
+      "name": "Measures of Dispersion",
+      "category": "data",
+      "categoryName": "Data Interpretation and Statistics",
+      "description": "Range, deviation and spread at aptitude level.",
+      "whyItMatters": null,
+      "glyph": "σ",
+      "colorToken": "data",
+      "prerequisites": [
+        "mean-median-mode"
+      ],
+      "sortOrder": 70,
+      "contentStatus": "seeded",
+      "active": true,
+      "tags": []
+    }
+  ]
+}

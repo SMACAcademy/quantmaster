@@ -1,0 +1,1008 @@
+{
+  "topicId": "divisibility",
+  "concepts": [
+    {
+      "id": "dv-rules",
+      "topicId": "divisibility",
+      "name": "Divisibility rules",
+      "description": "Quick digit tests for 2, 3, 4, 5, 8, 9, 10 and 11 that avoid long division.",
+      "sortOrder": 1
+    },
+    {
+      "id": "dv-missing",
+      "topicId": "divisibility",
+      "name": "Missing digits",
+      "description": "Turn a divisibility rule into an equation for the unknown digit.",
+      "sortOrder": 2
+    },
+    {
+      "id": "dv-composite",
+      "topicId": "divisibility",
+      "name": "Composite divisors",
+      "description": "To test 12, 24 or 88, test coprime pieces, never overlapping ones.",
+      "sortOrder": 3
+    },
+    {
+      "id": "dv-counting",
+      "topicId": "divisibility",
+      "name": "Counting and remainders",
+      "description": "Use rules to find remainders and to count or locate multiples in a range.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "dv-rules-f",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "title": "The core rules",
+      "prompt": "What are the divisibility tests for 3, 4, 8 and 9?",
+      "formula": "3, 9: digit sum divisible by 3 or 9\n4: last two digits divisible by 4\n8: last three digits divisible by 8\n2, 5, 10: last digit",
+      "variables": [],
+      "explanation": "10 leaves remainder 1 when divided by 3 or 9, so a number and its digit sum have the same remainder. 100 is a multiple of 4 and 1000 of 8, so only the last digits matter.",
+      "example": "7,324 → last two digits 24 ÷ 4 ✓\n2,346 → digit sum 15 → divisible by 3",
+      "commonMistake": "Checking the last digit only for 4 or 8.",
+      "applicationPrompt": "Is 5,346 divisible by 9?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dv-eleven-f",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "title": "Divisibility by 11",
+      "prompt": "How do you test for divisibility by 11?",
+      "formula": "(sum of digits in odd places) − (sum of digits in even places) = 0 or a multiple of 11",
+      "variables": [],
+      "explanation": "Because 10 ≡ −1 (mod 11), place values alternate between +1 and −1.",
+      "example": "2728 → (2 + 2) − (7 + 8) = −11 ✓",
+      "commonMistake": "Adding all the digits, which is the rule for 3 and 9.",
+      "applicationPrompt": "Is 4,132 divisible by 11?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dv-composite-f",
+      "topicId": "divisibility",
+      "conceptId": "dv-composite",
+      "title": "Composite divisors",
+      "prompt": "How do you test for divisibility by 6, 12 or 24?",
+      "formula": "Split into coprime parts: 6 = 2 × 3, 12 = 3 × 4, 24 = 3 × 8, 88 = 8 × 11",
+      "variables": [],
+      "explanation": "A number divisible by two coprime numbers is divisible by their product. Non-coprime pairs such as 2 and 6 prove nothing extra.",
+      "example": "24: divisible by 3 and 8 ✓ (but 4 and 6 is not enough)",
+      "commonMistake": "Using 4 and 6 to test for 24.",
+      "applicationPrompt": "How would you test a number for divisibility by 88?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dv-missing-f",
+      "topicId": "divisibility",
+      "conceptId": "dv-missing",
+      "title": "Missing digit",
+      "prompt": "A digit is missing from a number that must be divisible by 9. How do you find it?",
+      "formula": "Digit sum must reach the next multiple of 9\nMissing digit = (9 − sum of known digits mod 9) mod 9",
+      "variables": [],
+      "explanation": "The known digits leave a remainder r; the missing digit must top the sum up to the next multiple of 9.",
+      "example": "73x4: 7 + 3 + 4 = 14 → next multiple is 18 → x = 4",
+      "commonMistake": "Answering 0 and 9 as if both worked, or forgetting the known digits.",
+      "applicationPrompt": "Find the digit x so that 73x4 is divisible by 9.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dv-count-f",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "title": "Smallest and counting",
+      "prompt": "How do you find the smallest k-digit multiple of m, or count multiples of a or b?",
+      "formula": "Smallest k-digit multiple = ⌈10^(k−1) ÷ m⌉ × m\nA or B: ⌊n/a⌋ + ⌊n/b⌋ − ⌊n/LCM⌋",
+      "variables": [],
+      "explanation": "Round the first k-digit number up to a multiple of m. For counting, subtract the overlap once.",
+      "example": "Smallest 5-digit multiple of 88: ⌈10000 ÷ 88⌉ × 88 = 114 × 88 = 10032",
+      "commonMistake": "Starting with the smallest k-digit number without rounding up.",
+      "applicationPrompt": "Find the smallest 4-digit number divisible by 9.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dv-sc-seven",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "kind": "shortcut",
+      "title": "Test for 7",
+      "prompt": "How do you test a number for divisibility by 7 without dividing?",
+      "formula": "Double the last digit and subtract it from the rest.\nRepeat; the number is divisible by 7 if the result is.",
+      "variables": [],
+      "explanation": "The operation changes the number by a multiple of 7, so divisibility is preserved.",
+      "example": "343: 34 − 2 × 3 = 28, a multiple of 7, so 343 is divisible by 7.",
+      "commonMistake": "Adding the doubled digit instead of subtracting it.",
+      "applicationPrompt": "Is 1,001 divisible by 7?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dv-sc-count-range",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "kind": "shortcut",
+      "title": "Multiples in a range",
+      "prompt": "How many multiples of k lie from a to b inclusive?",
+      "formula": "Count = ⌊b/k⌋ − ⌊(a − 1)/k⌋",
+      "variables": [],
+      "explanation": "Count the multiples up to b and remove those below a.",
+      "example": "Multiples of 7 from 50 to 150: ⌊150/7⌋ − ⌊49/7⌋ = 21 − 7 = 14.",
+      "commonMistake": "Using ⌊a/k⌋, which drops a itself when a is a multiple of k.",
+      "applicationPrompt": "How many numbers from 100 to 300 are divisible by 6?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "divisibility-level-0",
+      "topicId": "divisibility",
+      "order": 0,
+      "title": "Tests That Beat Long Division",
+      "description": "Read the divisibility off the digits instead of dividing.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "dv-rules",
+        "dv-composite"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Why digit tests work",
+            "body": "A place value like 100 or 1000 is already a multiple of 4 or 8, so only the last digits can matter. And since 10 leaves remainder 1 when divided by 3 or 9, every place value behaves like 1: a number and its digit sum have the same remainder."
+          },
+          {
+            "type": "formula",
+            "title": "The core tests",
+            "body": "3, 9: digit sum\n4: last two digits\n8: last three digits\n11: alternating digit sum",
+            "caption": "2, 5 and 10 look only at the last digit."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "divisibility-checker"
+          },
+          {
+            "type": "check",
+            "questionId": "divisibility-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Composite divisors",
+            "body": "To test divisibility by 24, test 3 and 8. Only split into coprime parts: passing the tests for 4 and 6 says nothing extra, since both share a factor of 2."
+          },
+          {
+            "type": "check",
+            "questionId": "divisibility-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "divisibility-level-1",
+      "topicId": "divisibility",
+      "order": 1,
+      "title": "Divisibility Formulas",
+      "description": "Digit tests, the 11 rule, composites, missing digits and counting.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "divisibility-level-0"
+      ],
+      "conceptIds": [
+        "dv-rules",
+        "dv-missing",
+        "dv-composite",
+        "dv-counting"
+      ],
+      "formulaIds": [
+        "dv-rules-f",
+        "dv-eleven-f",
+        "dv-composite-f",
+        "dv-missing-f",
+        "dv-count-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "divisibility-level-2",
+      "topicId": "divisibility",
+      "order": 2,
+      "title": "Direct Divisibility Tests",
+      "description": "Apply a single rule.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "divisibility-level-1"
+      ],
+      "conceptIds": [
+        "dv-rules",
+        "dv-counting",
+        "dv-composite"
+      ],
+      "questionIds": [
+        "divisibility-q-001",
+        "divisibility-q-002",
+        "divisibility-q-003",
+        "divisibility-q-004",
+        "divisibility-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "divisibility-level-3",
+      "topicId": "divisibility",
+      "order": 3,
+      "title": "Digits, Remainders and Composites",
+      "description": "Missing digits, the 11 rule and composite tests.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "divisibility-level-2"
+      ],
+      "conceptIds": [
+        "dv-missing",
+        "dv-rules",
+        "dv-composite",
+        "dv-counting"
+      ],
+      "questionIds": [
+        "divisibility-q-006",
+        "divisibility-q-007",
+        "divisibility-q-008",
+        "divisibility-q-009",
+        "divisibility-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "divisibility-level-4",
+      "topicId": "divisibility",
+      "order": 4,
+      "title": "Locating and Counting Multiples",
+      "description": "Smallest k-digit multiples, overlaps and remainders.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "divisibility-level-3"
+      ],
+      "conceptIds": [
+        "dv-composite",
+        "dv-counting"
+      ],
+      "questionIds": [
+        "divisibility-q-011",
+        "divisibility-q-012",
+        "divisibility-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "divisibility-level-5",
+      "topicId": "divisibility",
+      "order": 5,
+      "title": "Mixed Divisibility Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "divisibility-level-4"
+      ],
+      "conceptIds": [
+        "dv-composite",
+        "dv-counting"
+      ],
+      "questionQuery": {
+        "topicId": "divisibility",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "divisibility-q-001",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "levelId": "divisibility-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these numbers is divisible by 3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1234"
+        },
+        {
+          "id": "b",
+          "text": "2346"
+        },
+        {
+          "id": "c",
+          "text": "4510"
+        },
+        {
+          "id": "d",
+          "text": "5221"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Digit sums: 1234 → 10, 2346 → 15, 4510 → 10, 5221 → 10. Only 15 is a multiple of 3.",
+      "solutionSteps": [
+        "Add the digits of each number.",
+        "2 + 3 + 4 + 6 = 15.",
+        "15 is divisible by 3."
+      ],
+      "formulaIds": [
+        "dv-rules-f"
+      ],
+      "method": "Digit sum divisible by 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the digits."
+        }
+      ],
+      "commonMistakes": [
+        "Looking at the last digit only."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-002",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "levelId": "divisibility-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these numbers is divisible by 4?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3214"
+        },
+        {
+          "id": "b",
+          "text": "5618"
+        },
+        {
+          "id": "c",
+          "text": "7324"
+        },
+        {
+          "id": "d",
+          "text": "9110"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Only the last two digits matter: 14, 18, 24 and 10. Only 24 is divisible by 4.",
+      "solutionSteps": [
+        "Take the last two digits of each.",
+        "24 ÷ 4 = 6 ✓."
+      ],
+      "formulaIds": [
+        "dv-rules-f"
+      ],
+      "method": "Last two digits divisible by 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "100 is a multiple of 4, so hundreds and above never matter."
+        }
+      ],
+      "commonMistakes": [
+        "Testing only the last digit (even ⇒ divisible by 4)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-003",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "levelId": "divisibility-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the remainder when 1,234 is divided by 9?",
+      "answer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "explanation": "A number has the same remainder as its digit sum when divided by 9. 1 + 2 + 3 + 4 = 10, and 10 ÷ 9 leaves 1.",
+      "solutionSteps": [
+        "Digit sum = 10.",
+        "10 ÷ 9 leaves remainder 1."
+      ],
+      "formulaIds": [
+        "dv-rules-f"
+      ],
+      "method": "Remainder mod 9 = remainder of the digit sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the digits."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 10, the digit sum itself."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-004",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "levelId": "divisibility-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A number is divisible by 11 if",
+      "options": [
+        {
+          "id": "a",
+          "text": "its digit sum is divisible by 11"
+        },
+        {
+          "id": "b",
+          "text": "its last two digits are divisible by 11"
+        },
+        {
+          "id": "c",
+          "text": "the difference between the sums of digits in odd and even places is 0 or a multiple of 11"
+        },
+        {
+          "id": "d",
+          "text": "its last digit is 1"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "For 11 the digits alternate between +1 and −1 place value, so the alternating sum decides.",
+      "solutionSteps": [
+        "10 ≡ −1 (mod 11).",
+        "Place values alternate +1, −1, +1, …"
+      ],
+      "formulaIds": [
+        "dv-eleven-f"
+      ],
+      "method": "Alternating digit sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The digit-sum rule is the one for 3 and 9."
+        }
+      ],
+      "commonMistakes": [
+        "Using the digit sum, which is the rule for 3 and 9."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-005",
+      "topicId": "divisibility",
+      "conceptId": "dv-composite",
+      "levelId": "divisibility-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these numbers is divisible by both 2 and 9?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1135"
+        },
+        {
+          "id": "b",
+          "text": "1134"
+        },
+        {
+          "id": "c",
+          "text": "1244"
+        },
+        {
+          "id": "d",
+          "text": "2345"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1134 is even and its digit sum 1 + 1 + 3 + 4 = 9 is a multiple of 9. 1135 and 2345 are odd; 1244 has digit sum 11.",
+      "solutionSteps": [
+        "Even numbers only: 1134 and 1244.",
+        "Digit sums: 9 and 11.",
+        "1134 works."
+      ],
+      "formulaIds": [
+        "dv-rules-f",
+        "dv-composite-f"
+      ],
+      "method": "Test each prime power separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Eliminate the odd numbers first."
+        }
+      ],
+      "commonMistakes": [
+        "Checking only one of the two conditions."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-006",
+      "topicId": "divisibility",
+      "conceptId": "dv-missing",
+      "levelId": "divisibility-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If the number 73x4 (x is a single digit) is divisible by 9, what is x?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "The digit sum 7 + 3 + x + 4 = 14 + x must be a multiple of 9. The next multiple of 9 after 14 is 18, so x = 4. Check: 7344 = 9 × 816.",
+      "solutionSteps": [
+        "7 + 3 + 4 = 14.",
+        "Next multiple of 9: 18.",
+        "x = 18 − 14 = 4."
+      ],
+      "formulaIds": [
+        "dv-missing-f"
+      ],
+      "method": "Top the digit sum up to the next multiple of 9.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add the known digits."
+        },
+        {
+          "level": 2,
+          "text": "What is the next multiple of 9 above that sum?"
+        }
+      ],
+      "commonMistakes": [
+        "Making the digit sum 9 instead of 18."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-007",
+      "topicId": "divisibility",
+      "conceptId": "dv-rules",
+      "levelId": "divisibility-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of these numbers is divisible by 11?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4132"
+        },
+        {
+          "id": "b",
+          "text": "6513"
+        },
+        {
+          "id": "c",
+          "text": "2728"
+        },
+        {
+          "id": "d",
+          "text": "8241"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Alternating sum for 2728: (2 + 2) − (7 + 8) = −11, a multiple of 11. The others give 4, −1 and 9.",
+      "solutionSteps": [
+        "Odd places: 2 and 2 → 4.",
+        "Even places: 7 and 8 → 15.",
+        "4 − 15 = −11 ✓."
+      ],
+      "formulaIds": [
+        "dv-eleven-f"
+      ],
+      "method": "Alternating digit sum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add digits in alternate positions separately."
+        }
+      ],
+      "commonMistakes": [
+        "Using the digit sum."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-008",
+      "topicId": "divisibility",
+      "conceptId": "dv-composite",
+      "levelId": "divisibility-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which pair of tests correctly proves that a number is divisible by 24?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Divisible by 4 and 6"
+        },
+        {
+          "id": "b",
+          "text": "Divisible by 2 and 12"
+        },
+        {
+          "id": "c",
+          "text": "Divisible by 3 and 8"
+        },
+        {
+          "id": "d",
+          "text": "Divisible by 6 and 12"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "24 = 3 × 8 with 3 and 8 coprime. Pairs such as 4 and 6 share the factor 2, so a number like 12 passes both tests without being divisible by 24.",
+      "solutionSteps": [
+        "Split 24 into coprime factors: 3 and 8.",
+        "Counter-example for the others: 12 is divisible by 4, 6, 2, 12 but not by 24."
+      ],
+      "formulaIds": [
+        "dv-composite-f"
+      ],
+      "method": "Test coprime pieces.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try 12 against each pair."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 4 and 6 because they multiply to 24."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-009",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "levelId": "divisibility-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the smallest 4-digit number divisible by 9?",
+      "answer": {
+        "value": 1008,
+        "tolerance": 0
+      },
+      "explanation": "The smallest 4-digit number is 1000, with digit sum 1. Adding 8 makes the digit sum 9. So 1008 is the smallest. Check: 1008 = 9 × 112.",
+      "solutionSteps": [
+        "1000 leaves remainder 1 when divided by 9.",
+        "Add 9 − 1 = 8.",
+        "1008."
+      ],
+      "formulaIds": [
+        "dv-count-f"
+      ],
+      "method": "Round the smallest k-digit number up to a multiple.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the remainder of 1000 ÷ 9."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1000 or 999."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-010",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "levelId": "divisibility-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the remainder when 6,573 is divided by 8?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "1000 is divisible by 8, so only the last three digits matter: 573 ÷ 8 = 71 remainder 5.",
+      "solutionSteps": [
+        "Take the last three digits: 573.",
+        "8 × 71 = 568.",
+        "573 − 568 = 5."
+      ],
+      "formulaIds": [
+        "dv-rules-f"
+      ],
+      "method": "Only the last three digits affect divisibility by 8.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which part of the number is always a multiple of 8?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the whole number."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-011",
+      "topicId": "divisibility",
+      "conceptId": "dv-composite",
+      "levelId": "divisibility-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the smallest 5-digit number divisible by 88?",
+      "answer": {
+        "value": 10032,
+        "tolerance": 0
+      },
+      "explanation": "10000 ÷ 88 ≈ 113.6, so the next whole multiple is 114 × 88 = 10032. (Check: 113 × 88 = 9944, which has only 4 digits.)",
+      "solutionSteps": [
+        "10000 ÷ 88 = 113.63…",
+        "Round up to 114.",
+        "114 × 88 = 10032."
+      ],
+      "formulaIds": [
+        "dv-count-f",
+        "dv-composite-f"
+      ],
+      "method": "Round the smallest k-digit number up to the next multiple.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide 10000 by 88."
+        },
+        {
+          "level": 2,
+          "text": "Round up, never down."
+        }
+      ],
+      "commonMistakes": [
+        "Rounding down to 113 × 88 = 9,944."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-012",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "levelId": "divisibility-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many numbers from 1 to 200 are divisible by 3 or 5?",
+      "answer": {
+        "value": 93,
+        "tolerance": 0
+      },
+      "explanation": "⌊200 ÷ 3⌋ = 66, ⌊200 ÷ 5⌋ = 40, and multiples of both (of 15) number ⌊200 ÷ 15⌋ = 13. Total = 66 + 40 − 13 = 93.",
+      "solutionSteps": [
+        "Multiples of 3: 66.",
+        "Multiples of 5: 40.",
+        "Multiples of 15: 13.",
+        "66 + 40 − 13 = 93."
+      ],
+      "formulaIds": [
+        "dv-count-f"
+      ],
+      "method": "Inclusion–exclusion with the LCM.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Some numbers are counted in both lists."
+        }
+      ],
+      "commonMistakes": [
+        "Not subtracting the overlap (106)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "divisibility-q-013",
+      "topicId": "divisibility",
+      "conceptId": "dv-counting",
+      "levelId": "divisibility-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the remainder when 987,654 is divided by 11?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Alternating sum from the right: 4 − 5 + 6 − 7 + 8 − 9 = −3. Add 11 to bring it into range: −3 + 11 = 8. Check: 11 × 89,786 = 987,646, and 987,654 − 987,646 = 8.",
+      "solutionSteps": [
+        "Alternate signs from the right: 4 − 5 + 6 − 7 + 8 − 9 = −3.",
+        "A remainder cannot be negative: −3 + 11 = 8."
+      ],
+      "formulaIds": [
+        "dv-eleven-f"
+      ],
+      "method": "The alternating sum is congruent to the remainder mod 11.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compute the alternating digit sum."
+        },
+        {
+          "level": 2,
+          "text": "What do you do with a negative result?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 3, ignoring the sign."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

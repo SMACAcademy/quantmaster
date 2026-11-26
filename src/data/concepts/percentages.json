@@ -1,0 +1,110 @@
+{
+  "topicId": "percentages",
+  "concepts": [
+    {
+      "id": "pct-meaning",
+      "topicId": "percentages",
+      "name": "Meaning of percentage",
+      "description": "A percentage is a part expressed out of one hundred. Always tied to a specific whole.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pct-conversion",
+      "topicId": "percentages",
+      "name": "Fraction and decimal conversions",
+      "description": "Moving between fractions, decimals and percentages, and knowing the common equivalents by heart.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pct-of-number",
+      "topicId": "percentages",
+      "name": "Percentage of a number",
+      "description": "Finding the part when the percentage and the whole are known.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pct-find-whole",
+      "topicId": "percentages",
+      "name": "Finding the whole",
+      "description": "Recovering the whole when a part and its percentage are known.",
+      "sortOrder": 4
+    },
+    {
+      "id": "pct-increase",
+      "topicId": "percentages",
+      "name": "Percentage increase",
+      "description": "Measuring growth relative to the original value.",
+      "sortOrder": 5
+    },
+    {
+      "id": "pct-decrease",
+      "topicId": "percentages",
+      "name": "Percentage decrease",
+      "description": "Measuring reduction relative to the original value.",
+      "sortOrder": 6
+    },
+    {
+      "id": "pct-change",
+      "topicId": "percentages",
+      "name": "Percentage change and multipliers",
+      "description": "Using multipliers such as 1.15 and 0.85 instead of separate add/subtract steps.",
+      "sortOrder": 7
+    },
+    {
+      "id": "pct-successive",
+      "topicId": "percentages",
+      "name": "Successive percentage changes",
+      "description": "Chaining two or more changes, where percentages never simply add.",
+      "sortOrder": 8
+    },
+    {
+      "id": "pct-reverse",
+      "topicId": "percentages",
+      "name": "Reverse percentage",
+      "description": "Working backwards from the changed value to the original.",
+      "sortOrder": 9
+    },
+    {
+      "id": "pct-comparison",
+      "topicId": "percentages",
+      "name": "Percentage comparison",
+      "description": "\"A is x% more than B\" is not the same as \"B is x% less than A\".",
+      "sortOrder": 10
+    },
+    {
+      "id": "pct-applications",
+      "topicId": "percentages",
+      "name": "Population, salary and price problems",
+      "description": "Applying percentage change to real quantities, including multi-year growth.",
+      "sortOrder": 11
+    },
+    {
+      "id": "pct-marks",
+      "topicId": "percentages",
+      "name": "Exam marks and elections",
+      "description": "Pass marks, failing by a margin, and vote-share problems.",
+      "sortOrder": 12
+    },
+    {
+      "id": "pct-points",
+      "topicId": "percentages",
+      "name": "Percentage points vs percentage change",
+      "description": "The difference between moving from 40% to 50% (10 points) and a 25% increase.",
+      "sortOrder": 13
+    },
+    {
+      "id": "pct-adv-stocks",
+      "topicId": "percentages",
+      "name": "Stock, income and yield",
+      "description": "Stock has a face value (₹100) and a market value that may be at a premium, at a discount or at par. The dividend is paid on the face value, so income = (investment ÷ market price) × dividend, and the yield is dividend ÷ market price × 100.",
+      "sortOrder": 14
+    },
+    {
+      "id": "pct-adv-invest",
+      "topicId": "percentages",
+      "name": "Comparing investments and brokerage",
+      "description": "The better stock is the one with the higher yield, not the higher printed rate. Brokerage is added to the price when buying and taken off when selling, which matters when switching from one stock to another.",
+      "sortOrder": 15
+    }
+  ]
+}

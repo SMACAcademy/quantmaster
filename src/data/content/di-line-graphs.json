@@ -1,0 +1,1451 @@
+{
+  "topicId": "di-line-graphs",
+  "concepts": [
+    {
+      "id": "lng-reading",
+      "topicId": "di-line-graphs",
+      "name": "Reading a line graph",
+      "description": "Find the category on the x-axis, then read the point's height against the value axis.",
+      "sortOrder": 1
+    },
+    {
+      "id": "lng-trend",
+      "topicId": "di-line-graphs",
+      "name": "Trend and turning points",
+      "description": "Whether a line rises, falls, or changes direction, and exactly where.",
+      "sortOrder": 2
+    },
+    {
+      "id": "lng-growth",
+      "topicId": "di-line-graphs",
+      "name": "Growth between two points",
+      "description": "Percentage change between any two points on the same line.",
+      "sortOrder": 3
+    },
+    {
+      "id": "lng-compare",
+      "topicId": "di-line-graphs",
+      "name": "Comparing two lines",
+      "description": "Which line is higher at a given point, and where the two lines cross or come closest.",
+      "sortOrder": 4
+    },
+    {
+      "id": "lng-average",
+      "topicId": "di-line-graphs",
+      "name": "Average over a period",
+      "description": "The average of every value on a line across the years or categories shown.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "lng-read-f",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-reading",
+      "title": "Reading a line graph",
+      "prompt": "How do you read the value of a line at a given category?",
+      "formula": "Find the category on the x-axis, move up to the line, then across to the value axis",
+      "variables": [],
+      "explanation": "Each marked point represents an exact value; do not estimate between labelled categories unless the question asks for a trend, not a value.",
+      "example": "The point above 2021 at height 30 means the value in 2021 is 30",
+      "commonMistake": "Reading the wrong series when two lines are close together.",
+      "applicationPrompt": "How do you find the exact value at a labelled point on a line graph?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lng-growth-f",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-growth",
+      "title": "Growth between two points",
+      "prompt": "How do you find the percentage change between two points on a line?",
+      "formula": "Growth % = (Later value − Earlier value) ÷ Earlier value × 100",
+      "variables": [],
+      "explanation": "A negative result means a decline; state it as a fall of that percentage rather than a negative growth.",
+      "example": "30 → 27: change = (27−30) ÷ 30 × 100 = −10%, a 10% decline",
+      "commonMistake": "Dividing by the later value instead of the earlier one.",
+      "applicationPrompt": "A line falls from 30 to 27. What is the percentage change?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lng-compare-f",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-compare",
+      "title": "Comparing two lines",
+      "prompt": "How do you find where two lines are closest, or where one overtakes the other?",
+      "formula": "Compute the difference between the two lines at every point; the smallest |difference| is where they are closest, and a sign change marks where one overtakes the other",
+      "variables": [],
+      "explanation": "Two lines \"crossing\" between two labelled points means the sign of the difference flips between those two points.",
+      "example": "If X−Y is negative in 2020 and positive in 2021, the lines crossed somewhere between those years",
+      "commonMistake": "Judging distance visually rather than computing the actual differences.",
+      "applicationPrompt": "How do you find the year where two lines on a graph are closest together?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "lng-sc-steep-vs-percent",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-growth",
+      "kind": "shortcut",
+      "title": "Steepest line is not the biggest percentage",
+      "prompt": "Which segment of a line graph has the greatest percentage growth?",
+      "formula": "Steepest segment = largest change in value\nLargest % change = change ÷ starting value: check low starting points",
+      "variables": [],
+      "explanation": "The same rise is a bigger percentage on a smaller base.",
+      "example": "50 → 75 is +25 but +50%; 200 → 240 is +40 but only +20%.",
+      "commonMistake": "Picking the steepest segment when the question asks for percentage growth.",
+      "applicationPrompt": "Which grew faster in percentage terms: 80 → 100 or 300 → 360?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-line-graphs-level-0",
+      "topicId": "di-line-graphs",
+      "order": 0,
+      "title": "Reading Trends",
+      "description": "A line graph shows how a quantity changes across categories, usually time.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "lng-reading",
+        "lng-trend"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Points, not just slopes",
+            "body": "Each labelled point on a line graph is an exact value. Before reasoning about trends or growth, make sure you can read any single point correctly first — including matching the right line when two are shown together."
+          },
+          {
+            "type": "formula",
+            "title": "Reading a point",
+            "body": "Find the category, move up to the line, then across to the value axis",
+            "caption": "Match the line's colour to the legend before reading it."
+          },
+          {
+            "type": "check",
+            "questionId": "di-line-graphs-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "To compare two lines properly, compute the actual difference at each point — do not just judge visually which looks higher."
+          },
+          {
+            "type": "check",
+            "questionId": "di-line-graphs-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "di-line-graphs-level-1",
+      "topicId": "di-line-graphs",
+      "order": 1,
+      "title": "Line Graphs Formulas",
+      "description": "Reading points, growth between points, comparing two lines, and averages.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "di-line-graphs-level-0"
+      ],
+      "conceptIds": [
+        "lng-reading",
+        "lng-growth",
+        "lng-compare"
+      ],
+      "formulaIds": [
+        "lng-read-f",
+        "lng-growth-f",
+        "lng-compare-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-line-graphs-level-2",
+      "topicId": "di-line-graphs",
+      "order": 2,
+      "title": "Direct Reading",
+      "description": "Reading individual points and simple totals.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-line-graphs-level-1"
+      ],
+      "conceptIds": [
+        "lng-reading",
+        "lng-trend"
+      ],
+      "questionIds": [
+        "di-line-graphs-q-001",
+        "di-line-graphs-q-002",
+        "di-line-graphs-q-003",
+        "di-line-graphs-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-line-graphs-level-3",
+      "topicId": "di-line-graphs",
+      "order": 3,
+      "title": "Growth, Comparison and Averages",
+      "description": "Percentage growth, comparing two lines, and averages over time.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-line-graphs-level-2"
+      ],
+      "conceptIds": [
+        "lng-growth",
+        "lng-compare",
+        "lng-average"
+      ],
+      "questionIds": [
+        "di-line-graphs-q-004",
+        "di-line-graphs-q-005",
+        "di-line-graphs-q-006",
+        "di-line-graphs-q-007",
+        "di-line-graphs-q-011",
+        "di-line-graphs-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-line-graphs-level-4",
+      "topicId": "di-line-graphs",
+      "order": 4,
+      "title": "Multi-Step Line Graph Questions",
+      "description": "Tracking crossovers and ratios across the whole period.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "di-line-graphs-level-3"
+      ],
+      "conceptIds": [
+        "lng-compare",
+        "lng-average"
+      ],
+      "questionIds": [
+        "di-line-graphs-q-008",
+        "di-line-graphs-q-009",
+        "di-line-graphs-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-line-graphs-level-5",
+      "topicId": "di-line-graphs",
+      "order": 5,
+      "title": "Mixed Line Graphs Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-line-graphs-level-4"
+      ],
+      "conceptIds": [
+        "lng-compare",
+        "lng-average"
+      ],
+      "questionQuery": {
+        "topicId": "di-line-graphs",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-line-graphs-q-001",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-reading",
+      "levelId": "di-line-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What was Company X's profit in 2021 (in ₹ crore)?",
+      "context": "Study the line graph of annual profit for two companies and answer the question.",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "answer": {
+        "value": 30,
+        "tolerance": 0
+      },
+      "explanation": "Reading the Company X line at 2021 gives 30.",
+      "solutionSteps": [
+        "Find 2021 on the x-axis.",
+        "Read the Company X point: 30."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Match the line colour, then read its height at that year.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the legend for which colour is Company X."
+        }
+      ],
+      "commonMistakes": [
+        "Reading Company Y's line instead."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-002",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-trend",
+      "levelId": "di-line-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In which year was Company Y's profit at its lowest?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2019"
+        },
+        {
+          "id": "b",
+          "text": "2020"
+        },
+        {
+          "id": "c",
+          "text": "2021"
+        },
+        {
+          "id": "d",
+          "text": "2022"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Company Y's values are 30, 27, 24, 32, 36. The lowest, 24, occurs in 2021.",
+      "solutionSteps": [
+        "Company Y: 30, 27, 24, 32, 36.",
+        "Lowest value 24 is in 2021."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Scan every point on the line to find the minimum.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check every year, not just the first few."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping early and missing a lower later value."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-003",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-reading",
+      "levelId": "di-line-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What was the combined profit of both companies in 2022 (in ₹ crore)?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "answer": {
+        "value": 59,
+        "tolerance": 0
+      },
+      "explanation": "2022: Company X = 27, Company Y = 32. Combined = 27 + 32 = 59.",
+      "solutionSteps": [
+        "Company X 2022: 27.",
+        "Company Y 2022: 32.",
+        "27 + 32 = 59."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Read both lines at the same year and add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Read the same year for both companies."
+        }
+      ],
+      "commonMistakes": [
+        "Adding values from two different years."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-004",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-growth",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By what percentage did Company X's profit grow from 2019 to 2023?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "answer": {
+        "value": 100,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "2019 = 20, 2023 = 40. Growth = (40−20) ÷ 20 × 100 = 100%.",
+      "solutionSteps": [
+        "40 − 20 = 20.",
+        "20 ÷ 20 × 100 = 100%."
+      ],
+      "formulaIds": [
+        "lng-growth-f"
+      ],
+      "method": "Use the earlier year as the denominator.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "2019 is the earlier, and therefore the denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 40 instead of 20."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-005",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-growth",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "By what percentage did Company X's profit fall from 2021 to 2022?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "%"
+      },
+      "explanation": "2021 = 30, 2022 = 27. Fall = (30−27) ÷ 30 × 100 = 10%.",
+      "solutionSteps": [
+        "30 − 27 = 3.",
+        "3 ÷ 30 × 100 = 10%."
+      ],
+      "formulaIds": [
+        "lng-growth-f"
+      ],
+      "method": "Use the earlier value, 2021, as the denominator.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a decline, so express it as a positive percentage fall."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the 2022 value instead of the 2021 value."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-006",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-compare",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In which year were the two companies' profits closest to each other?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2019"
+        },
+        {
+          "id": "b",
+          "text": "2020"
+        },
+        {
+          "id": "c",
+          "text": "2021"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Differences: 2019: 10, 2020: 2, 2021: 6, 2022: 5, 2023: 4. The smallest difference, 2, is in 2020.",
+      "solutionSteps": [
+        "Compute |X−Y| for every year.",
+        "2020 has the smallest difference: |25−27| = 2."
+      ],
+      "formulaIds": [
+        "lng-compare-f"
+      ],
+      "method": "Compute the difference at every point, then find the smallest.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not judge distance by eye — compute each difference."
+        }
+      ],
+      "commonMistakes": [
+        "Picking a year that looks close on the graph without checking the numbers."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-007",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-average",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What was the average annual profit of Company X over the five years shown (in ₹ crore)?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "answer": {
+        "value": 28.4,
+        "tolerance": 0
+      },
+      "explanation": "Sum = 20+25+30+27+40 = 142. Average = 142 ÷ 5 = 28.4.",
+      "solutionSteps": [
+        "Sum of all five years: 142.",
+        "142 ÷ 5 = 28.4."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Add every year's value, then divide by the number of years.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget any of the five years."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging only some of the years."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-008",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-compare",
+      "levelId": "di-line-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In which year did Company X's profit first exceed Company Y's profit?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2019"
+        },
+        {
+          "id": "b",
+          "text": "2020"
+        },
+        {
+          "id": "c",
+          "text": "2021"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "X vs Y: 2019 (20<30), 2020 (25<27), 2021 (30>24) — first year X is ahead, 2022 (27<32), 2023 (40>36). The first crossover is 2021.",
+      "solutionSteps": [
+        "2019: X<Y. 2020: X<Y.",
+        "2021: X=30 > Y=24 — first time X leads."
+      ],
+      "formulaIds": [
+        "lng-compare-f"
+      ],
+      "method": "Compare the two lines year by year in order.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check every year in sequence until X overtakes Y."
+        }
+      ],
+      "commonMistakes": [
+        "Missing that X falls behind again in 2022 after leading in 2021."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-009",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-average",
+      "levelId": "di-line-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the ratio of Company X's profit to Company Y's profit in 2023?",
+      "chart": {
+        "type": "line",
+        "caption": "Annual profit of two companies (₹ crore)",
+        "unit": "₹ crore",
+        "categories": [
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Company X",
+            "data": [
+              20,
+              25,
+              30,
+              27,
+              40
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "Company Y",
+            "data": [
+              30,
+              27,
+              24,
+              32,
+              36
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "Company X profit by year: 2019 20, 2020 25, 2021 30, 2022 27, 2023 40. Company Y: 2019 30, 2020 27, 2021 24, 2022 32, 2023 36, all in rupees crore."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "10 : 9"
+        },
+        {
+          "id": "b",
+          "text": "9 : 10"
+        },
+        {
+          "id": "c",
+          "text": "4 : 3"
+        },
+        {
+          "id": "d",
+          "text": "5 : 4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2023: Company X = 40, Company Y = 36. Ratio = 40:36 = 10:9 (dividing both by 4).",
+      "solutionSteps": [
+        "X = 40, Y = 36.",
+        "40:36 = 10:9."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Read both values at the same year, then simplify the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reduce the ratio by the highest common factor."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the ratio unreduced, or reducing it incorrectly."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-010",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-trend",
+      "levelId": "di-line-graphs-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In which year did College M's admissions fall compared with the previous year?",
+      "context": "Study the line graph of admissions to two colleges and answer the question.",
+      "chart": {
+        "type": "line",
+        "caption": "Admissions to two colleges, 2018–2023 (students)",
+        "unit": "students",
+        "categories": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "College M",
+            "data": [
+              400,
+              500,
+              520,
+              480,
+              590,
+              630
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "College N",
+            "data": [
+              510,
+              530,
+              455,
+              540,
+              560,
+              615
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "College M admissions by year: 2018 400, 2019 500, 2020 520, 2021 480, 2022 590, 2023 630. College N: 2018 510, 2019 530, 2020 455, 2021 540, 2022 560, 2023 615, all in students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2020"
+        },
+        {
+          "id": "b",
+          "text": "2021"
+        },
+        {
+          "id": "c",
+          "text": "2022"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "College M's line rises every year except 2021, when it drops from 520 to 480.",
+      "solutionSteps": [
+        "Follow College M's line from left to right.",
+        "It rises every year except 2020 → 2021: 520 to 480.",
+        "So the fall is in 2021."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Trace the right line and look for the one segment that slopes down.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Match College M's colour in the legend — the other line falls in a different year."
+        }
+      ],
+      "commonMistakes": [
+        "Reading College N's line, which falls in 2020."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-011",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-growth",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In which year did College M's admissions grow by the highest percentage over the previous year?",
+      "chart": {
+        "type": "line",
+        "caption": "Admissions to two colleges, 2018–2023 (students)",
+        "unit": "students",
+        "categories": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "College M",
+            "data": [
+              400,
+              500,
+              520,
+              480,
+              590,
+              630
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "College N",
+            "data": [
+              510,
+              530,
+              455,
+              540,
+              560,
+              615
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "College M admissions by year: 2018 400, 2019 500, 2020 520, 2021 480, 2022 590, 2023 630. College N: 2018 510, 2019 530, 2020 455, 2021 540, 2022 560, 2023 615, all in students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2019"
+        },
+        {
+          "id": "b",
+          "text": "2020"
+        },
+        {
+          "id": "c",
+          "text": "2022"
+        },
+        {
+          "id": "d",
+          "text": "2023"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Growth over the previous year: 2019: 100 ÷ 400 × 100 = 25%; 2020: 20 ÷ 500 × 100 = 4%; 2021: a fall; 2022: 110 ÷ 480 × 100 ≈ 22.9%; 2023: 40 ÷ 590 × 100 ≈ 6.8%. The highest is 2019, even though 2022 has the steepest rise (110 students).",
+      "solutionSteps": [
+        "Growth % = rise ÷ previous year × 100.",
+        "2019: 100 ÷ 400 × 100 = 25%; 2020: 20 ÷ 500 × 100 = 4%.",
+        "2021: a fall; 2022: 110 ÷ 480 × 100 ≈ 22.9%; 2023: 40 ÷ 590 × 100 ≈ 6.8%.",
+        "The highest is 2019."
+      ],
+      "formulaIds": [
+        "lng-growth-f",
+        "lng-sc-steep-vs-percent"
+      ],
+      "method": "Divide each rise by the previous year's value; the steepest segment is not necessarily the largest percentage.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide each year's rise by the previous year's value."
+        },
+        {
+          "level": 2,
+          "text": "The steepest segment (2021 → 2022) starts from a higher value than 2018 → 2019."
+        }
+      ],
+      "commonMistakes": [
+        "Picking 2022 because it has the steepest rise on the graph.",
+        "Dividing the rise by the later year's value."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-012",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-compare",
+      "levelId": "di-line-graphs-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In 2022, College N's admissions were approximately what percentage of College M's?",
+      "chart": {
+        "type": "line",
+        "caption": "Admissions to two colleges, 2018–2023 (students)",
+        "unit": "students",
+        "categories": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "College M",
+            "data": [
+              400,
+              500,
+              520,
+              480,
+              590,
+              630
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "College N",
+            "data": [
+              510,
+              530,
+              455,
+              540,
+              560,
+              615
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "College M admissions by year: 2018 400, 2019 500, 2020 520, 2021 480, 2022 590, 2023 630. College N: 2018 510, 2019 530, 2020 455, 2021 540, 2022 560, 2023 615, all in students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "88%"
+        },
+        {
+          "id": "b",
+          "text": "91%"
+        },
+        {
+          "id": "c",
+          "text": "95%"
+        },
+        {
+          "id": "d",
+          "text": "99%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "In 2022, College N = 560 and College M = 590. 560 ÷ 590 × 100 ≈ 94.9%, so the nearest option is 95%.",
+      "solutionSteps": [
+        "2022: College N 560, College M 590.",
+        "560 ÷ 590 × 100 ≈ 94.9%.",
+        "Nearest option: 95%."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "College M's value is the base: divide College N's value by it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Percentage of College M's\" makes College M's value the denominator."
+        },
+        {
+          "level": 2,
+          "text": "590 × 0.95 = 560.5, very close to 560."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 590 by 560 instead (≈ 105.4%)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-line-graphs-q-013",
+      "topicId": "di-line-graphs",
+      "conceptId": "lng-average",
+      "levelId": "di-line-graphs-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "By how many students did College N's average annual admissions over the six years exceed College M's?",
+      "chart": {
+        "type": "line",
+        "caption": "Admissions to two colleges, 2018–2023 (students)",
+        "unit": "students",
+        "categories": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "College M",
+            "data": [
+              400,
+              500,
+              520,
+              480,
+              590,
+              630
+            ],
+            "colorToken": "data"
+          },
+          {
+            "label": "College N",
+            "data": [
+              510,
+              530,
+              455,
+              540,
+              560,
+              615
+            ],
+            "colorToken": "advanced"
+          }
+        ],
+        "ariaSummary": "College M admissions by year: 2018 400, 2019 500, 2020 520, 2021 480, 2022 590, 2023 630. College N: 2018 510, 2019 530, 2020 455, 2021 540, 2022 560, 2023 615, all in students."
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "College M's total = 400 + 500 + 520 + 480 + 590 + 630 = 3,120, so its average = 3,120 ÷ 6 = 520. College N's total = 510 + 530 + 455 + 540 + 560 + 615 = 3,210, so its average = 3,210 ÷ 6 = 535. Difference = 535 − 520 = 15.",
+      "solutionSteps": [
+        "College M's total: 3,120; average 3,120 ÷ 6 = 520.",
+        "College N's total: 3,210; average 3,210 ÷ 6 = 535.",
+        "Difference: 535 − 520 = 15.",
+        "Shortcut: (3,210 − 3,120) ÷ 6 = 90 ÷ 6 = 15."
+      ],
+      "formulaIds": [
+        "lng-read-f"
+      ],
+      "method": "Average = total of all six points ÷ 6; the difference of averages is the difference of totals ÷ 6.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Average = total of all six points ÷ 6."
+        },
+        {
+          "level": 2,
+          "text": "Shortcut: find the difference of the two totals, then divide by 6."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 5 instead of 6 — there are six years from 2018 to 2023.",
+        "Comparing only the last year instead of the six-year averages."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

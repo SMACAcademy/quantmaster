@@ -1,0 +1,1130 @@
+{
+  "topicId": "sequences",
+  "concepts": [
+    {
+      "id": "sq-arithmetic",
+      "topicId": "sequences",
+      "name": "Arithmetic patterns",
+      "description": "Each term is the previous term plus a fixed difference. Spotting that is the pattern skill; formulas for distant terms and sums belong to Arithmetic Progression.",
+      "sortOrder": 1
+    },
+    {
+      "id": "sq-geometric",
+      "topicId": "sequences",
+      "name": "Geometric patterns",
+      "description": "Each term is the previous term times a fixed ratio.",
+      "sortOrder": 2
+    },
+    {
+      "id": "sq-other",
+      "topicId": "sequences",
+      "name": "Difference patterns and special sequences",
+      "description": "When the differences are not constant, their differences may be. Also know the famous lists: squares, cubes, primes and Fibonacci-style sums.",
+      "sortOrder": 3
+    },
+    {
+      "id": "sq-missing",
+      "topicId": "sequences",
+      "name": "Finding a missing term",
+      "description": "Work out the rule from the terms you have, then apply it to fill the gap.",
+      "sortOrder": 4
+    },
+    {
+      "id": "sq-interleaved",
+      "topicId": "sequences",
+      "name": "Alternating and interleaved patterns",
+      "description": "Two rules can take turns (+2 then ×2), or the odd-position and even-position terms can form two separate sequences woven together.",
+      "sortOrder": 5
+    },
+    {
+      "id": "sq-wrong",
+      "topicId": "sequences",
+      "name": "Spotting the wrong term",
+      "description": "Find the rule that fits almost every term; the one term that breaks it is the wrong number.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "sq-arith-f",
+      "topicId": "sequences",
+      "conceptId": "sq-arithmetic",
+      "title": "Arithmetic pattern",
+      "prompt": "How do you spot and continue an arithmetic pattern?",
+      "formula": "Each term = previous term + constant difference d",
+      "variables": [],
+      "explanation": "Check that the difference between consecutive terms is the same throughout before assuming the pattern is arithmetic.",
+      "example": "5, 9, 13, 17 → d = 4 → next term = 21",
+      "commonMistake": "Assuming the difference stays constant without checking more than one gap.",
+      "applicationPrompt": "Find the next term of 5, 9, 13, 17, …",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sq-geo-f",
+      "topicId": "sequences",
+      "conceptId": "sq-geometric",
+      "title": "Geometric pattern",
+      "prompt": "How do you spot and continue a geometric pattern?",
+      "formula": "Each term = previous term × constant ratio r",
+      "variables": [],
+      "explanation": "Check that consecutive terms share the same ratio, not just the same difference.",
+      "example": "3, 6, 12, 24 → r = 2 → next term = 48",
+      "commonMistake": "Confusing a geometric pattern with an arithmetic one because the numbers are growing.",
+      "applicationPrompt": "Find the next term of 3, 6, 12, 24, …",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sq-other-f",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "title": "Patterns beyond the basics",
+      "prompt": "What do you do when a sequence is neither arithmetic nor geometric?",
+      "formula": "Look at the differences between terms; if those differences form their own pattern, use it to extend the sequence",
+      "variables": [],
+      "explanation": "A constant second difference signals a quadratic-style pattern; the differences themselves grow by a fixed amount each time.",
+      "example": "2, 6, 12, 20, 30: differences are 4, 6, 8, 10, increasing by 2 → next difference 12 → next term 42",
+      "commonMistake": "Giving up after checking only whether the sequence is arithmetic or geometric.",
+      "applicationPrompt": "Find the next term of 2, 6, 12, 20, 30, …",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sq-missing-f",
+      "topicId": "sequences",
+      "conceptId": "sq-missing",
+      "title": "Finding a missing term",
+      "prompt": "How do you find a term missing from the middle of a sequence?",
+      "formula": "Identify the rule from the terms you do have, then apply it forwards (or backwards) to fill the gap",
+      "variables": [],
+      "explanation": "Use the surrounding terms on both sides of the gap to confirm the rule before filling it in.",
+      "example": "2, 5, 8, __, 14: difference is 3, so the missing term is 11",
+      "commonMistake": "Guessing the missing term without confirming the rule from both directions.",
+      "applicationPrompt": "Find the missing term in 2, 5, 8, __, 14.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sq-interleaved-f",
+      "topicId": "sequences",
+      "conceptId": "sq-interleaved",
+      "title": "Interleaved sequences",
+      "prompt": "What do you check when neither the differences nor the ratios follow a pattern?",
+      "formula": "Split the terms into odd positions (1st, 3rd, 5th, …) and even positions (2nd, 4th, …); each half may follow its own rule",
+      "variables": [],
+      "explanation": "Two simple sequences woven together look irregular as a whole. Separating them usually reveals two easy patterns.",
+      "example": "1, 10, 3, 20, 5, 30, 7, ?: odd positions 1, 3, 5, 7 and even positions 10, 20, 30, so the next term is 40",
+      "commonMistake": "Looking only at consecutive differences (9, −7, 17, −15, …), which hide the two patterns.",
+      "applicationPrompt": "What comes next: 1, 10, 3, 20, 5, 30, 7, ?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sq-wrong-f",
+      "topicId": "sequences",
+      "conceptId": "sq-wrong",
+      "title": "Finding the wrong term",
+      "prompt": "How do you find the one wrong number in a series?",
+      "formula": "Find a rule that fits most consecutive pairs, rebuild the series from the first term, and see which term disagrees",
+      "variables": [],
+      "explanation": "One wrong term spoils two differences (the one before it and the one after it), so look for the rule in the pairs that are not affected.",
+      "example": "3, 7, 15, 31, 64, 127: the rule is × 2 + 1, giving 3, 7, 15, 31, 63, 127, so 64 is wrong",
+      "commonMistake": "Blaming the term after the break: 127 looks odd next to 64, but it is 64 that breaks the rule.",
+      "applicationPrompt": "Find the wrong number: 3, 7, 15, 31, 64, 127",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sq-sc-second-difference",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "kind": "shortcut",
+      "title": "Differences of differences",
+      "prompt": "The gaps between terms are not equal. What do you try next?",
+      "formula": "Take the differences again.\nA constant second difference means a squares pattern.",
+      "variables": [],
+      "explanation": "A pattern built on n² grows by steadily increasing steps, so its second differences are constant.",
+      "example": "2, 5, 10, 17, 26: gaps 3, 5, 7, 9 rise by 2, so the next gap is 11 and the next term 37 (n² + 1).",
+      "commonMistake": "Guessing a ratio because the numbers grow quickly.",
+      "applicationPrompt": "Find the next term: 4, 11, 22, 37, 56, ?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sq-sc-near-powers",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "kind": "shortcut",
+      "title": "Look next to squares and cubes",
+      "prompt": "Terms seem irregular but close to familiar numbers. What do you check?",
+      "formula": "Compare each term with n², n³ or n² ± n:\n0, 7, 26, 63 = n³ − 1\n2, 9, 28, 65 = n³ + 1\n3, 8, 15, 24 = n² − 1",
+      "variables": [],
+      "explanation": "Many series are perfect squares or cubes shifted by a small constant.",
+      "example": "3, 8, 15, 24, 35 are 2² − 1 to 6² − 1, so the next is 7² − 1 = 48.",
+      "commonMistake": "Starting n at 1 when the pattern starts at 2.",
+      "applicationPrompt": "Find the next term: 2, 10, 30, 68, 130, ?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "sequences-level-0",
+      "topicId": "sequences",
+      "order": 0,
+      "title": "Finding the Rule",
+      "description": "Spotting whether a sequence adds, multiplies, or follows a more complex pattern.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "sq-arithmetic",
+        "sq-geometric"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Two basic patterns",
+            "body": "A sequence like 5, 9, 13, 17 adds the same amount each time (arithmetic). A sequence like 3, 6, 12, 24 multiplies by the same amount each time (geometric). Checking a difference and a ratio quickly tells you which one you have."
+          },
+          {
+            "type": "formula",
+            "title": "Arithmetic vs geometric",
+            "body": "Arithmetic: term + d\nGeometric: term × r",
+            "caption": "Check whether consecutive terms share a constant difference or a constant ratio."
+          },
+          {
+            "type": "check",
+            "questionId": "sequences-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "If the differences are not constant, check the ratios next — and if neither works, look at the differences of the differences."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "sequence-differences"
+          },
+          {
+            "type": "check",
+            "questionId": "sequences-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Later levels add two more tricks: series where two patterns take turns or are woven together, and series with one wrong number to find."
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "sequences-level-1",
+      "topicId": "sequences",
+      "order": 1,
+      "title": "Sequences Formulas",
+      "description": "Differences, ratios, special sequences, interleaved patterns, missing terms and wrong terms.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "sequences-level-0"
+      ],
+      "conceptIds": [
+        "sq-arithmetic",
+        "sq-geometric",
+        "sq-other",
+        "sq-missing",
+        "sq-interleaved",
+        "sq-wrong"
+      ],
+      "formulaIds": [
+        "sq-arith-f",
+        "sq-geo-f",
+        "sq-other-f",
+        "sq-missing-f",
+        "sq-interleaved-f",
+        "sq-wrong-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "sequences-level-2",
+      "topicId": "sequences",
+      "order": 2,
+      "title": "Direct Patterns",
+      "description": "Continuing arithmetic and geometric sequences, and filling simple gaps.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "sequences-level-1"
+      ],
+      "conceptIds": [
+        "sq-arithmetic",
+        "sq-geometric",
+        "sq-missing",
+        "sq-other"
+      ],
+      "questionIds": [
+        "sequences-q-001",
+        "sequences-q-002",
+        "sequences-q-003",
+        "sequences-q-004",
+        "sequences-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "sequences-level-3",
+      "topicId": "sequences",
+      "order": 3,
+      "title": "Beyond the Basics",
+      "description": "Second differences, famous sequences, alternating rules and a first wrong-term hunt.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "sequences-level-2"
+      ],
+      "conceptIds": [
+        "sq-other",
+        "sq-missing",
+        "sq-interleaved",
+        "sq-wrong"
+      ],
+      "questionIds": [
+        "sequences-q-006",
+        "sequences-q-007",
+        "sequences-q-008",
+        "sequences-q-009",
+        "sequences-q-014",
+        "sequences-q-015"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "sequences-level-4",
+      "topicId": "sequences",
+      "order": 4,
+      "title": "Multi-Layer Patterns",
+      "description": "Layered differences, interleaved sequences and wrong terms that hide their neighbours.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "sequences-level-3"
+      ],
+      "conceptIds": [
+        "sq-other",
+        "sq-interleaved",
+        "sq-wrong"
+      ],
+      "questionIds": [
+        "sequences-q-012",
+        "sequences-q-013",
+        "sequences-q-016",
+        "sequences-q-017",
+        "sequences-q-018"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "sequences-level-5",
+      "topicId": "sequences",
+      "order": 5,
+      "title": "Mixed Sequences Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "sequences-level-4"
+      ],
+      "conceptIds": [
+        "sq-other",
+        "sq-interleaved",
+        "sq-wrong"
+      ],
+      "questionQuery": {
+        "topicId": "sequences",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "sequences-q-001",
+      "topicId": "sequences",
+      "conceptId": "sq-arithmetic",
+      "levelId": "sequences-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What comes next: 5, 9, 13, 17, ?",
+      "answer": {
+        "value": 21,
+        "tolerance": 0
+      },
+      "explanation": "The difference between consecutive terms is 4, so the next term is 17 + 4 = 21.",
+      "solutionSteps": [
+        "Difference = 4.",
+        "17 + 4 = 21."
+      ],
+      "formulaIds": [
+        "sq-arith-f"
+      ],
+      "method": "Find the constant difference, then add it once more.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the gap between each pair of consecutive terms."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong difference by checking only one gap."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-002",
+      "topicId": "sequences",
+      "conceptId": "sq-geometric",
+      "levelId": "sequences-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What comes next: 3, 6, 12, 24, ?",
+      "answer": {
+        "value": 48,
+        "tolerance": 0
+      },
+      "explanation": "Each term doubles, so the next term is 24 × 2 = 48.",
+      "solutionSteps": [
+        "Ratio = 2.",
+        "24 × 2 = 48."
+      ],
+      "formulaIds": [
+        "sq-geo-f"
+      ],
+      "method": "Find the constant ratio, then multiply once more.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check what each term is multiplied by to get the next."
+        }
+      ],
+      "commonMistakes": [
+        "Treating this as an arithmetic pattern and adding a fixed amount."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-003",
+      "topicId": "sequences",
+      "conceptId": "sq-missing",
+      "levelId": "sequences-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the missing term: 2, 5, 8, __, 14?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "The pattern adds 3 each time: 2, 5, 8, 11, 14.",
+      "solutionSteps": [
+        "Difference = 3.",
+        "8 + 3 = 11."
+      ],
+      "formulaIds": [
+        "sq-missing-f"
+      ],
+      "method": "Confirm the rule using the terms before and after the gap.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the difference between 8 and 14 spans two steps."
+        }
+      ],
+      "commonMistakes": [
+        "Guessing a value without checking it against both neighbours."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-004",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "levelId": "sequences-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The sequence 2, 4, 8, 16, 32 is best described as",
+      "options": [
+        {
+          "id": "a",
+          "text": "arithmetic, with common difference 2"
+        },
+        {
+          "id": "b",
+          "text": "geometric, with common ratio 2"
+        },
+        {
+          "id": "c",
+          "text": "arithmetic, with common difference 4"
+        },
+        {
+          "id": "d",
+          "text": "neither arithmetic nor geometric"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each term is double the one before it (a constant ratio of 2), which makes it geometric, not arithmetic.",
+      "solutionSteps": [
+        "4 ÷ 2 = 2; 8 ÷ 4 = 2; 16 ÷ 8 = 2.",
+        "Constant ratio → geometric."
+      ],
+      "formulaIds": [
+        "sq-geo-f"
+      ],
+      "method": "Check ratios, not just differences.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The differences (2, 4, 8, 16) are not constant, but the ratios are."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming a growing sequence must be arithmetic."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-005",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "levelId": "sequences-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What comes next: 1, 4, 9, 16, 25, ?",
+      "answer": {
+        "value": 36,
+        "tolerance": 0
+      },
+      "explanation": "These are perfect squares: 1², 2², 3², 4², 5², so the next term is 6² = 36.",
+      "solutionSteps": [
+        "Terms are 1², 2², 3², 4², 5².",
+        "Next: 6² = 36."
+      ],
+      "formulaIds": [
+        "sq-other-f"
+      ],
+      "method": "Recognise the perfect-square pattern.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare each term to the square of its position."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to find a constant difference, which does not exist here."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-006",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What comes next: 2, 6, 12, 20, 30, ?",
+      "answer": {
+        "value": 42,
+        "tolerance": 0
+      },
+      "explanation": "The differences are 4, 6, 8, 10, increasing by 2 each time. The next difference is 12, so the next term is 30 + 12 = 42.",
+      "solutionSteps": [
+        "Differences: 4, 6, 8, 10.",
+        "Next difference: 12.",
+        "30 + 12 = 42."
+      ],
+      "formulaIds": [
+        "sq-other-f"
+      ],
+      "method": "Look at the differences between terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The differences themselves form an arithmetic pattern."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the sequence itself is arithmetic."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-007",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What comes next: 2, 3, 5, 8, 13, ?",
+      "answer": {
+        "value": 21,
+        "tolerance": 0
+      },
+      "explanation": "Each term is the sum of the two before it: 8 + 13 = 21.",
+      "solutionSteps": [
+        "5 = 2 + 3.",
+        "8 = 3 + 5.",
+        "13 = 5 + 8.",
+        "21 = 8 + 13."
+      ],
+      "formulaIds": [
+        "sq-other-f"
+      ],
+      "method": "Check whether each term is built from the two before it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try adding the two previous terms."
+        }
+      ],
+      "commonMistakes": [
+        "Looking only for a constant difference or ratio."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-008",
+      "topicId": "sequences",
+      "conceptId": "sq-interleaved",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The sequence alternates +2 and ×2: 3, 5, 10, 12, 24, 26, ?. What comes next?",
+      "answer": {
+        "value": 52,
+        "tolerance": 0
+      },
+      "explanation": "After 26, the pattern repeats with ×2: 26 × 2 = 52.",
+      "solutionSteps": [
+        "3 (+2) 5 (×2) 10 (+2) 12 (×2) 24 (+2) 26 (×2) 52."
+      ],
+      "formulaIds": [
+        "sq-interleaved-f"
+      ],
+      "method": "Track which operation applies at each step.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The operations alternate: +2, then ×2, then +2, then ×2, …"
+        }
+      ],
+      "commonMistakes": [
+        "Applying +2 instead of ×2 at this step."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-009",
+      "topicId": "sequences",
+      "conceptId": "sq-missing",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the missing term: 4, __, 36, 108?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "Each term is 3 times the one before it (ratio 3), so the missing term is 4 × 3 = 12. Check: 12 × 3 = 36. ✓",
+      "solutionSteps": [
+        "108 ÷ 36 = 3, so each term is 3 times the one before.",
+        "4 × 3 = 12.",
+        "Check: 12 × 3 = 36."
+      ],
+      "formulaIds": [
+        "sq-missing-f",
+        "sq-geo-f"
+      ],
+      "method": "Find the ratio using the terms you know, then apply it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a geometric pattern, not arithmetic."
+        }
+      ],
+      "commonMistakes": [
+        "Trying a constant-difference rule instead of a constant ratio."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-012",
+      "topicId": "sequences",
+      "conceptId": "sq-other",
+      "levelId": "sequences-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What comes next: 1, 2, 4, 7, 11, 16, ?",
+      "answer": {
+        "value": 22,
+        "tolerance": 0
+      },
+      "explanation": "The differences are 1, 2, 3, 4, 5, increasing by 1 each time. The next difference is 6, so the next term is 16 + 6 = 22.",
+      "solutionSteps": [
+        "Differences: 1, 2, 3, 4, 5.",
+        "Next difference: 6.",
+        "16 + 6 = 22."
+      ],
+      "formulaIds": [
+        "sq-other-f"
+      ],
+      "method": "The differences themselves increase by a constant amount.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the differences of the differences."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the differences stop growing."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-013",
+      "topicId": "sequences",
+      "conceptId": "sq-interleaved",
+      "levelId": "sequences-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Continuing the alternating +2, ×2 pattern 3, 5, 10, 12, 24, 26, 52, 54, …, what is the 9th term?",
+      "answer": {
+        "value": 108,
+        "tolerance": 0
+      },
+      "explanation": "The steps alternate +2, ×2: 3, 5, 10, 12, 24, 26, 52, 54. The 8th term came from a +2 step, so the 9th uses ×2: 54 × 2 = 108.",
+      "solutionSteps": [
+        "Terms: 3, 5, 10, 12, 24, 26, 52, 54, …",
+        "8th term = 54.",
+        "9th term = 54 × 2 = 108."
+      ],
+      "formulaIds": [
+        "sq-interleaved-f"
+      ],
+      "method": "Track the operation for each step carefully, especially near the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "List enough terms to be sure which operation comes next."
+        }
+      ],
+      "commonMistakes": [
+        "Applying +2 instead of ×2 at the 9th step."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-014",
+      "topicId": "sequences",
+      "conceptId": "sq-interleaved",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What comes next: 1, 10, 3, 20, 5, 30, 7, ?",
+      "answer": {
+        "value": 40,
+        "tolerance": 0
+      },
+      "explanation": "Two sequences are woven together. Odd positions: 1, 3, 5, 7 (adding 2). Even positions: 10, 20, 30 (adding 10). The next term is in an even position, so it is 30 + 10 = 40.",
+      "solutionSteps": [
+        "Odd positions: 1, 3, 5, 7.",
+        "Even positions: 10, 20, 30.",
+        "The 8th term is an even position: 40."
+      ],
+      "formulaIds": [
+        "sq-interleaved-f"
+      ],
+      "method": "Split the series into odd and even positions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The terms jump up and down. Try reading every other term."
+        },
+        {
+          "level": 2,
+          "text": "Which of the two sequences does the next term belong to?"
+        }
+      ],
+      "commonMistakes": [
+        "Continuing the odd-position sequence and giving 9."
+      ],
+      "tags": [
+        "interleaved"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-015",
+      "topicId": "sequences",
+      "conceptId": "sq-wrong",
+      "levelId": "sequences-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which number is wrong in the series 1, 8, 27, 64, 124, 216?",
+      "options": [
+        {
+          "id": "a",
+          "text": "124"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "216"
+        },
+        {
+          "id": "d",
+          "text": "27"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The terms are cubes: 1³, 2³, 3³, 4³, 5³, 6³. But 5³ = 125, not 124, so 124 is the wrong number.",
+      "solutionSteps": [
+        "1 = 1³, 8 = 2³, 27 = 3³, 64 = 4³.",
+        "5³ = 125, but the series shows 124.",
+        "216 = 6³ fits."
+      ],
+      "formulaIds": [
+        "sq-wrong-f",
+        "sq-other-f"
+      ],
+      "method": "Recognise the special sequence, then check each term against it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "These numbers grow fast. Are they powers of something?"
+        },
+        {
+          "level": 2,
+          "text": "What is 5 × 5 × 5?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 216 because the jump from 124 to 216 looks large."
+      ],
+      "tags": [
+        "wrong-term"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-016",
+      "topicId": "sequences",
+      "conceptId": "sq-interleaved",
+      "levelId": "sequences-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What comes next: 2, 3, 4, 9, 8, 27, 16, ?",
+      "answer": {
+        "value": 81,
+        "tolerance": 0
+      },
+      "explanation": "Odd positions: 2, 4, 8, 16 (doubling). Even positions: 3, 9, 27 (multiplying by 3). The next term is in an even position: 27 × 3 = 81.",
+      "solutionSteps": [
+        "Odd positions: 2, 4, 8, 16 (× 2).",
+        "Even positions: 3, 9, 27 (× 3).",
+        "Next (even position): 27 × 3 = 81."
+      ],
+      "formulaIds": [
+        "sq-interleaved-f"
+      ],
+      "method": "Split into two sequences and find each one's rule.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Read every other term, starting from 2."
+        },
+        {
+          "level": 2,
+          "text": "Now read every other term starting from 3."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 32 by continuing the doubling sequence, which is not next."
+      ],
+      "tags": [
+        "interleaved"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-017",
+      "topicId": "sequences",
+      "conceptId": "sq-wrong",
+      "levelId": "sequences-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which number is wrong in the series 3, 7, 15, 31, 64, 127?",
+      "options": [
+        {
+          "id": "a",
+          "text": "64"
+        },
+        {
+          "id": "b",
+          "text": "127"
+        },
+        {
+          "id": "c",
+          "text": "31"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Each term is double the previous term plus 1: 3 → 7 → 15 → 31 → 63 → 127. The series shows 64 instead of 63, so 64 is wrong. With 63, the last step 63 × 2 + 1 = 127 also fits.",
+      "solutionSteps": [
+        "Rule from the first terms: × 2 + 1.",
+        "31 × 2 + 1 = 63, but the series shows 64.",
+        "63 × 2 + 1 = 127, so 127 is correct."
+      ],
+      "formulaIds": [
+        "sq-wrong-f"
+      ],
+      "method": "Find the rule from the unaffected pairs, then rebuild the series.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare each term with double the previous one."
+        },
+        {
+          "level": 2,
+          "text": "Which term is not 1 more than double the one before?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 127, which only looks wrong because it follows the wrong term."
+      ],
+      "tags": [
+        "wrong-term",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "sequences-q-018",
+      "topicId": "sequences",
+      "conceptId": "sq-wrong",
+      "levelId": "sequences-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which number is wrong in the series 2, 6, 12, 20, 30, 44, 56?",
+      "options": [
+        {
+          "id": "a",
+          "text": "44"
+        },
+        {
+          "id": "b",
+          "text": "56"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The differences should be 4, 6, 8, 10, 12, 14: each term is n(n + 1). So the sixth term is 30 + 12 = 42 = 6 × 7, not 44. Then 42 + 14 = 56 fits.",
+      "solutionSteps": [
+        "Differences so far: 4, 6, 8, 10 (up by 2).",
+        "Next: 30 + 12 = 42, but the series shows 44.",
+        "42 + 14 = 56, so 56 is correct."
+      ],
+      "formulaIds": [
+        "sq-wrong-f",
+        "sq-other-f"
+      ],
+      "method": "Use the difference pattern from the unaffected terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write down the differences between terms."
+        },
+        {
+          "level": 2,
+          "text": "The differences should rise by 2 each time. Where does that break?"
+        }
+      ],
+      "commonMistakes": [
+        "Choosing 56, whose difference from 44 (12) looks out of place only because 44 is wrong."
+      ],
+      "tags": [
+        "wrong-term"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

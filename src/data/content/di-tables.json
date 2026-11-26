@@ -1,0 +1,1791 @@
+{
+  "topicId": "di-tables",
+  "concepts": [
+    {
+      "id": "di-read",
+      "topicId": "di-tables",
+      "name": "Reading a table accurately",
+      "description": "Finding the right cell, and checking the units in the heading.",
+      "sortOrder": 1
+    },
+    {
+      "id": "di-totals",
+      "topicId": "di-tables",
+      "name": "Totals and shares",
+      "description": "Row and column totals, and each entry's share of them.",
+      "sortOrder": 2
+    },
+    {
+      "id": "di-change",
+      "topicId": "di-tables",
+      "name": "Change over time",
+      "description": "Growth between periods, expressed correctly.",
+      "sortOrder": 3
+    },
+    {
+      "id": "di-comparison",
+      "topicId": "di-tables",
+      "name": "Comparing entries",
+      "description": "Ratios and rankings across rows and columns.",
+      "sortOrder": 4
+    },
+    {
+      "id": "di-points",
+      "topicId": "di-tables",
+      "name": "Percentage points vs percentage change",
+      "description": "The distinction that DI questions test most often.",
+      "sortOrder": 5
+    },
+    {
+      "id": "dt-adv-ratio-compare",
+      "topicId": "di-tables",
+      "name": "Comparing rates and fractions",
+      "description": "To find which of two fractions is larger, cross-multiply instead of dividing. Estimating each rate as a rough percentage is often enough to rank a whole column.",
+      "sortOrder": 6
+    },
+    {
+      "id": "dt-adv-growth-compare",
+      "topicId": "di-tables",
+      "name": "Absolute versus relative change",
+      "description": "The biggest increase in amount is not always the biggest percentage increase. Compare new ÷ old across rows to rank growth rates.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "di-share",
+      "topicId": "di-tables",
+      "conceptId": "di-totals",
+      "title": "Share of the total",
+      "prompt": "How do you express one entry as a share of its total?",
+      "formula": "Share % = (Entry ÷ Total) × 100",
+      "variables": [],
+      "explanation": "Be precise about which total: the row, the column, or the grand total. DI questions deliberately offer all three.",
+      "example": "Product A 2023 = 180, total 2023 = 450\nShare = 180 ÷ 450 = 40%",
+      "commonMistake": "Dividing by the wrong total — usually the grand total instead of the year's total.",
+      "applicationPrompt": "Product A sold 180 of a 450 total. What is its share?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "di-growth",
+      "topicId": "di-tables",
+      "conceptId": "di-change",
+      "title": "Growth between periods",
+      "prompt": "How do you express the change between two years in a table?",
+      "formula": "Growth % = (Later − Earlier) ÷ Earlier × 100",
+      "variables": [],
+      "explanation": "The EARLIER value is always the denominator. This is percentage change applied to table data.",
+      "example": "300 → 360\nGrowth = 60 ÷ 300 = 20%",
+      "commonMistake": "Dividing by the later value, which understates the growth.",
+      "applicationPrompt": "Sales rose from 300 to 360. What is the growth percentage?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "di-points-rule",
+      "topicId": "di-tables",
+      "conceptId": "di-points",
+      "title": "Points vs percentage",
+      "prompt": "A share moves from 26.7% to 33.3%. Is that a rise of 6.6 or of 25?",
+      "formula": "Percentage points = new% − old%\nPercentage change = (new% − old%) ÷ old% × 100",
+      "variables": [],
+      "explanation": "Both are correct answers to different questions. Read whether the question says 'percentage points' or 'percent increase'.",
+      "example": "26.7% → 33.3%\n= 6.6 percentage points\n= a 25% increase in the share",
+      "commonMistake": "Reporting a points change as a percentage increase.",
+      "applicationPrompt": "A share rose from 26.7% to 33.3%. How many percentage points is that?",
+      "tags": [
+        "trap",
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dt-adv-cross-f",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-ratio-compare",
+      "title": "Cross-multiplying fractions",
+      "prompt": "How can you tell which of a/b and c/d is larger without dividing?",
+      "formula": "a/b > c/d exactly when a × d > b × c (b and d positive)",
+      "variables": [],
+      "explanation": "Multiplying both fractions by b × d keeps the order and removes the division.",
+      "example": "1260/3600 vs 1560/4800: 1260 × 4800 = 6,048,000 > 1560 × 3600 = 5,616,000, so 1260/3600 is larger",
+      "commonMistake": "Comparing only the numerators (1560 > 1260) and ignoring the different totals.",
+      "applicationPrompt": "Which qualifying rate is higher: 1260 of 3600, or 1560 of 4800?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "dt-adv-growth-f",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-growth-compare",
+      "title": "Ranking growth rates",
+      "prompt": "How do you rank rows by percentage growth?",
+      "formula": "Growth factor = new ÷ old; the largest factor has the largest percentage growth",
+      "variables": [],
+      "explanation": "Percentage growth = (new ÷ old − 1) × 100, so ranking the factors ranks the percentages. The absolute change (new − old) can rank differently.",
+      "example": "X: 300 ÷ 240 = 1.25; Y: 480 ÷ 400 = 1.20; Z: 195 ÷ 150 = 1.30, so Z grew fastest though Y rose most in amount",
+      "commonMistake": "Picking the row with the largest difference as the fastest-growing.",
+      "applicationPrompt": "Revenue rose from 240 to 300, 400 to 480, and 150 to 195. Which grew fastest in percentage terms?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "di-sc-assumed-average",
+      "topicId": "di-tables",
+      "conceptId": "di-totals",
+      "kind": "shortcut",
+      "title": "Averaging a column fast",
+      "prompt": "How do you average a column of close numbers quickly?",
+      "formula": "Pick a round value near the middle,\nadd the differences, divide, adjust",
+      "variables": [],
+      "explanation": "The differences are small, so the arithmetic stays in your head.",
+      "example": "412, 398, 405, 395: assume 400; differences +12, −2, +5, −5 sum to +10, so the average is 400 + 2.5 = 402.5.",
+      "commonMistake": "Dividing the total of the differences by 1 instead of by the number of values.",
+      "applicationPrompt": "Average 1,206, 1,189, 1,215 and 1,198.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "di-tables-level-0",
+      "topicId": "di-tables",
+      "order": 0,
+      "title": "Reading Before Calculating",
+      "description": "DI rewards accurate reading far more than fast arithmetic.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "di-read",
+        "di-totals"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three checks before any arithmetic",
+            "body": "1. What are the units? '₹ lakh' and '₹' are not the same answer.\n2. Which row and which column does the question actually ask about?\n3. Which total does it want — the row, the column, or everything?\n\nMost lost DI marks come from failing one of these, not from the calculation."
+          },
+          {
+            "type": "formula",
+            "title": "The two workhorses",
+            "body": "Share % = Entry ÷ Total × 100\nGrowth % = (Later − Earlier) ÷ Earlier × 100",
+            "caption": "DI is almost entirely percentages and ratios applied under time pressure."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "'Percentage points' and 'percent increase' are different questions. A share moving from 26.7% to 33.3% is up 6.6 percentage points, which is a 25% increase in the share itself."
+          },
+          {
+            "type": "check",
+            "questionId": "di-tables-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Approximate deliberately",
+            "body": "When options are far apart, round: 180/450 is 'a bit under half' — 40%. Reserve exact arithmetic for questions where two options are close together."
+          },
+          {
+            "type": "check",
+            "questionId": "di-tables-q-020"
+          }
+        ]
+      }
+    },
+    {
+      "id": "di-tables-level-1",
+      "topicId": "di-tables",
+      "order": 1,
+      "title": "DI Calculations",
+      "description": "Shares, growth, and the points-versus-percent distinction.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 4,
+      "prerequisiteLevelIds": [
+        "di-tables-level-0"
+      ],
+      "conceptIds": [
+        "di-totals",
+        "di-change",
+        "di-points"
+      ],
+      "formulaIds": [
+        "di-share",
+        "di-growth",
+        "di-points-rule"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 2
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "di-tables-level-2",
+      "topicId": "di-tables",
+      "order": 2,
+      "title": "Reading the Table",
+      "description": "Totals, comparisons and shares read straight from the data.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "di-tables-level-1"
+      ],
+      "conceptIds": [
+        "di-read",
+        "di-totals"
+      ],
+      "questionIds": [
+        "di-tables-q-001",
+        "di-tables-q-002",
+        "di-tables-q-003"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "di-tables-level-3",
+      "topicId": "di-tables",
+      "order": 3,
+      "title": "Growth and Ratios",
+      "description": "Comparing years and products.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-tables-level-2"
+      ],
+      "conceptIds": [
+        "di-change",
+        "di-comparison"
+      ],
+      "questionIds": [
+        "di-tables-q-010",
+        "di-tables-q-020",
+        "di-tables-q-021",
+        "di-tables-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "di-tables-level-4",
+      "topicId": "di-tables",
+      "order": 4,
+      "title": "Projections and Share Shifts",
+      "description": "Extending a trend, and the percentage-points trap.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "di-tables-level-3"
+      ],
+      "conceptIds": [
+        "di-points",
+        "di-change"
+      ],
+      "questionIds": [
+        "di-tables-q-030",
+        "di-tables-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "di-tables-level-5",
+      "topicId": "di-tables",
+      "order": 5,
+      "title": "Mixed DI Practice",
+      "description": "All question types from the same dataset.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "di-tables-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "di-tables",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 7,
+        "preferUnseen": true,
+        "conceptIds": [
+          "di-read",
+          "di-totals",
+          "di-change",
+          "di-comparison",
+          "di-points"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "di-tables-level-6",
+      "topicId": "di-tables",
+      "order": 6,
+      "title": "Advanced: Comparing Data Efficiently",
+      "description": "Comparing rates and growth across rows quickly, without dividing everything out.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "di-tables-level-5"
+      ],
+      "conceptIds": [
+        "dt-adv-ratio-compare",
+        "dt-adv-growth-compare"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Rank without dividing",
+            "body": "DI questions often ask which row has the highest rate. You rarely need exact percentages: estimate each one roughly, and cross-multiply only for the close calls."
+          },
+          {
+            "type": "check",
+            "questionId": "di-tables-dt-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Amount versus rate",
+            "body": "Growth factor = new ÷ old",
+            "caption": "The biggest rise in amount is not always the biggest percentage rise. A small base can grow fastest."
+          },
+          {
+            "type": "check",
+            "questionId": "di-tables-dt-adv-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Read the question twice: \"increased the most\" (amount) and \"grew the fastest\" (percentage) usually have different answers."
+          }
+        ]
+      }
+    },
+    {
+      "id": "di-tables-level-7",
+      "topicId": "di-tables",
+      "order": 7,
+      "title": "Challenge: Comparing Data Efficiently",
+      "description": "Ranking rates, cross-multiplying, and telling absolute change from relative change.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "di-tables-level-6"
+      ],
+      "conceptIds": [
+        "dt-adv-ratio-compare",
+        "dt-adv-growth-compare"
+      ],
+      "questionIds": [
+        "di-tables-dt-adv-q-002",
+        "di-tables-dt-adv-q-003",
+        "di-tables-dt-adv-q-005",
+        "di-tables-dt-adv-q-006",
+        "di-tables-dt-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "di-tables-q-001",
+      "topicId": "di-tables",
+      "conceptId": "di-totals",
+      "levelId": "di-tables-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "What were the company's total sales in 2022?",
+      "context": "Study the table of annual sales and answer the question.",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "₹300 lakh"
+        },
+        {
+          "id": "b",
+          "text": "₹340 lakh"
+        },
+        {
+          "id": "c",
+          "text": "₹360 lakh"
+        },
+        {
+          "id": "d",
+          "text": "₹450 lakh"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Reading across the 2022 row: 150 + 120 + 90 = ₹360 lakh.",
+      "solutionSteps": [
+        "Find the 2022 row.",
+        "Add the three products: 150 + 120 + 90.",
+        "Total = ₹360 lakh."
+      ],
+      "formulaIds": [],
+      "method": "Row total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need one row, not one column."
+        },
+        {
+          "level": 2,
+          "text": "Add all three product values for 2022."
+        }
+      ],
+      "commonMistakes": [
+        "Adding a column (one product across years) instead of a row."
+      ],
+      "tags": [
+        "reading",
+        "table"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-002",
+      "topicId": "di-tables",
+      "conceptId": "di-change",
+      "levelId": "di-tables-level-2",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which product grew the most, in percentage terms, between 2021 and 2023?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Product A"
+        },
+        {
+          "id": "b",
+          "text": "Product B"
+        },
+        {
+          "id": "c",
+          "text": "Product C"
+        },
+        {
+          "id": "d",
+          "text": "A and B grew equally"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "A: 120 → 180 is +50%. B: 80 → 150 is +87.5%. C: 100 → 120 is +20%. B grew most in percentage terms, even though A grew more in absolute value.",
+      "solutionSteps": [
+        "Product A: (180 − 120) ÷ 120 = 50%.",
+        "Product B: (150 − 80) ÷ 80 = 87.5%.",
+        "Product C: (120 − 100) ÷ 100 = 20%.",
+        "Product B has the largest percentage growth."
+      ],
+      "formulaIds": [
+        "di-growth"
+      ],
+      "method": "Compute each growth against its own 2021 base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Percentage growth compares each product with its own starting value."
+        },
+        {
+          "level": 2,
+          "text": "B rose 70 from a base of only 80."
+        }
+      ],
+      "commonMistakes": [
+        "Picking A because its absolute increase (60) looks large."
+      ],
+      "tags": [
+        "growth",
+        "table",
+        "comparison"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-003",
+      "topicId": "di-tables",
+      "conceptId": "di-totals",
+      "levelId": "di-tables-level-2",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What percentage of total 2023 sales came from Product A? (Enter the number only.)",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 40,
+        "tolerance": 0.5,
+        "unit": "%"
+      },
+      "explanation": "2023 total = 180 + 150 + 120 = 450, and 180 ÷ 450 = 40%.",
+      "solutionSteps": [
+        "2023 total = 180 + 150 + 120 = 450.",
+        "Product A's share = 180 ÷ 450.",
+        "= 0.4 = 40%."
+      ],
+      "formulaIds": [
+        "di-share"
+      ],
+      "method": "Entry ÷ row total × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the 2023 total first."
+        },
+        {
+          "level": 2,
+          "text": "180 out of 450 — simplify to 2/5."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the three-year grand total instead of the 2023 total."
+      ],
+      "tags": [
+        "share",
+        "table",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-010",
+      "topicId": "di-tables",
+      "conceptId": "di-change",
+      "levelId": "di-tables-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "To find the percentage growth in total sales from 2021 to 2022, which value goes in the denominator?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The 2021 total"
+        },
+        {
+          "id": "b",
+          "text": "The 2022 total"
+        },
+        {
+          "id": "c",
+          "text": "The sum of both totals"
+        },
+        {
+          "id": "d",
+          "text": "The difference between them"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Growth is always measured against the earlier value, so the 2021 total is the base.",
+      "solutionSteps": [
+        "Growth % = (later − earlier) ÷ earlier.",
+        "The earlier year here is 2021.",
+        "So the 2021 total is the denominator."
+      ],
+      "formulaIds": [
+        "di-growth"
+      ],
+      "method": "Change is always relative to the starting value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Growth is measured from where you started."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the later value, which understates growth."
+      ],
+      "tags": [
+        "method",
+        "growth"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-020",
+      "topicId": "di-tables",
+      "conceptId": "di-change",
+      "levelId": "di-tables-level-3",
+      "difficulty": "medium",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "By what percentage did total sales grow from 2021 to 2022?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "16.7%"
+        },
+        {
+          "id": "b",
+          "text": "20%"
+        },
+        {
+          "id": "c",
+          "text": "25%"
+        },
+        {
+          "id": "d",
+          "text": "60%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Totals are 300 and 360, so growth = 60 ÷ 300 = 20%.",
+      "solutionSteps": [
+        "2021 total = 120 + 80 + 100 = 300.",
+        "2022 total = 150 + 120 + 90 = 360.",
+        "Growth = 60 ÷ 300 × 100 = 20%."
+      ],
+      "formulaIds": [
+        "di-growth"
+      ],
+      "method": "Row totals, then percentage change on the earlier base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add each year's row before comparing."
+        },
+        {
+          "level": 2,
+          "text": "The increase is 60 on a base of 300."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 60 by 360 and answering 16.7%."
+      ],
+      "tags": [
+        "growth",
+        "table"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-021",
+      "topicId": "di-tables",
+      "conceptId": "di-totals",
+      "levelId": "di-tables-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What were Product B's average annual sales over the three years?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "₹110 lakh"
+        },
+        {
+          "id": "b",
+          "text": "₹116.67 lakh"
+        },
+        {
+          "id": "c",
+          "text": "₹120 lakh"
+        },
+        {
+          "id": "d",
+          "text": "₹350 lakh"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "(80 + 120 + 150) ÷ 3 = 350 ÷ 3 ≈ ₹116.67 lakh.",
+      "solutionSteps": [
+        "Read down the Product B column: 80, 120, 150.",
+        "Total = 350.",
+        "Average = 350 ÷ 3 ≈ ₹116.67 lakh."
+      ],
+      "formulaIds": [
+        "di-share"
+      ],
+      "method": "Column total ÷ number of years.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This one reads down a column, not across a row."
+        },
+        {
+          "level": 2,
+          "text": "Divide the three-year total by 3."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the total ₹350 lakh instead of the average."
+      ],
+      "tags": [
+        "average",
+        "table"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-022",
+      "topicId": "di-tables",
+      "conceptId": "di-comparison",
+      "levelId": "di-tables-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In 2022, what is the ratio of Product A's sales to Product C's sales?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 2"
+        },
+        {
+          "id": "b",
+          "text": "5 : 3"
+        },
+        {
+          "id": "c",
+          "text": "5 : 4"
+        },
+        {
+          "id": "d",
+          "text": "3 : 5"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "150 : 90 simplifies by 30 to 5 : 3.",
+      "solutionSteps": [
+        "Read the 2022 row: A = 150, C = 90.",
+        "Ratio = 150 : 90.",
+        "Divide both by 30 → 5 : 3."
+      ],
+      "formulaIds": [],
+      "method": "Read both cells, then simplify the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers share a factor of 30."
+        },
+        {
+          "level": 2,
+          "text": "Keep the order of the question: A first, then C."
+        }
+      ],
+      "commonMistakes": [
+        "Writing the ratio the wrong way round (C : A = 3 : 5)."
+      ],
+      "tags": [
+        "ratio",
+        "table"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-030",
+      "topicId": "di-tables",
+      "conceptId": "di-change",
+      "levelId": "di-tables-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "If Product C grows in 2024 by the same percentage as it did from 2022 to 2023, what will its 2024 sales be?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "₹150 lakh"
+        },
+        {
+          "id": "b",
+          "text": "₹160 lakh"
+        },
+        {
+          "id": "c",
+          "text": "₹165 lakh"
+        },
+        {
+          "id": "d",
+          "text": "₹180 lakh"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "C grew from 90 to 120, which is 33⅓%. Applying that to 120 gives 120 × 4/3 = ₹160 lakh.",
+      "solutionSteps": [
+        "2022 → 2023: 90 → 120, an increase of 30 on 90 = 33⅓%.",
+        "Apply the same rate to 2023: 120 × 4/3.",
+        "= ₹160 lakh."
+      ],
+      "formulaIds": [
+        "di-growth"
+      ],
+      "method": "Find the growth rate, then apply it as a multiplier.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First work out C's growth rate from 2022 to 2023."
+        },
+        {
+          "level": 2,
+          "text": "30 on a base of 90 is one third."
+        },
+        {
+          "level": 3,
+          "text": "Add a third of 120 to 120."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the same absolute increase (30) instead of the same percentage."
+      ],
+      "tags": [
+        "projection",
+        "table",
+        "complex"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-q-031",
+      "topicId": "di-tables",
+      "conceptId": "di-points",
+      "levelId": "di-tables-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "By how many percentage points did Product B's share of total sales change from 2021 to 2023?",
+      "table": {
+        "caption": "Annual sales by product (₹ lakh)",
+        "headers": [
+          "Year",
+          "Product A",
+          "Product B",
+          "Product C"
+        ],
+        "rows": [
+          [
+            "2021",
+            "120",
+            "80",
+            "100"
+          ],
+          [
+            "2022",
+            "150",
+            "120",
+            "90"
+          ],
+          [
+            "2023",
+            "180",
+            "150",
+            "120"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "About 6.7 percentage points"
+        },
+        {
+          "id": "b",
+          "text": "25 percentage points"
+        },
+        {
+          "id": "c",
+          "text": "About 87.5 percentage points"
+        },
+        {
+          "id": "d",
+          "text": "70 percentage points"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "B's share was 80/300 = 26.7% and became 150/450 = 33.3% — a rise of about 6.7 percentage points. (That is also a 25% increase in the share, but the question asked for points.)",
+      "solutionSteps": [
+        "2021 share: 80 ÷ 300 = 26.7%.",
+        "2023 share: 150 ÷ 450 = 33.3%.",
+        "Change in points = 33.3 − 26.7 ≈ 6.7 percentage points."
+      ],
+      "formulaIds": [
+        "di-points-rule",
+        "di-share"
+      ],
+      "method": "Compute both shares, then subtract them directly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out B's share in each year first."
+        },
+        {
+          "level": 2,
+          "text": "Percentage POINTS is a straight subtraction of the two shares."
+        },
+        {
+          "level": 3,
+          "text": "33.3 − 26.7."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 25, which is the percentage increase in the share, not the points change.",
+        "Answering 87.5, which is B's own sales growth."
+      ],
+      "tags": [
+        "points",
+        "table",
+        "trap",
+        "complex"
+      ],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-001",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-ratio-compare",
+      "levelId": "di-tables-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which state had the highest qualifying rate (qualified as a share of appeared)?",
+      "context": "Study the table of exam candidates by state and answer the question.",
+      "table": {
+        "caption": "Candidates who appeared and qualified in an exam, 2023",
+        "headers": [
+          "State",
+          "Appeared",
+          "Qualified"
+        ],
+        "rows": [
+          [
+            "P",
+            "4800",
+            "1560"
+          ],
+          [
+            "Q",
+            "3600",
+            "1260"
+          ],
+          [
+            "R",
+            "5500",
+            "1870"
+          ],
+          [
+            "S",
+            "2400",
+            "900"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "R"
+        },
+        {
+          "id": "c",
+          "text": "Q"
+        },
+        {
+          "id": "d",
+          "text": "P"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Rates: P 1560 ÷ 4800 = 32.5%, Q 1260 ÷ 3600 = 35%, R 1870 ÷ 5500 = 34%, S 900 ÷ 2400 = 37.5%. S is highest.",
+      "solutionSteps": [
+        "P: 32.5%.",
+        "Q: 35%. R: 34%.",
+        "S: 37.5%, the highest."
+      ],
+      "formulaIds": [
+        "dt-adv-cross-f"
+      ],
+      "method": "Compare qualified ÷ appeared for each row.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The most candidates qualified in R, but R also had the most appear."
+        },
+        {
+          "level": 2,
+          "text": "Work out each rate roughly, then compare the close ones."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing R because it has the most qualified candidates."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-002",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-ratio-compare",
+      "levelId": "di-tables-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In how many of the four states was the qualifying rate above 33%?",
+      "context": "Study the table of exam candidates by state and answer the question.",
+      "table": {
+        "caption": "Candidates who appeared and qualified in an exam, 2023",
+        "headers": [
+          "State",
+          "Appeared",
+          "Qualified"
+        ],
+        "rows": [
+          [
+            "P",
+            "4800",
+            "1560"
+          ],
+          [
+            "Q",
+            "3600",
+            "1260"
+          ],
+          [
+            "R",
+            "5500",
+            "1870"
+          ],
+          [
+            "S",
+            "2400",
+            "900"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0,
+        "unit": "states"
+      },
+      "explanation": "Rates: P 32.5%, Q 35%, R 34%, S 37.5%. Three states (Q, R and S) are above 33%.",
+      "solutionSteps": [
+        "P: 1560 ÷ 4800 = 32.5%.",
+        "Q: 35%, R: 34%, S: 37.5%.",
+        "Above 33%: Q, R, S."
+      ],
+      "formulaIds": [
+        "dt-adv-cross-f"
+      ],
+      "method": "Compare each rate with 33%: is qualified more than 0.33 × appeared?",
+      "hints": [
+        {
+          "level": 1,
+          "text": "33% of 4800 is 1584. Did P qualify more than that?"
+        },
+        {
+          "level": 2,
+          "text": "Check each state the same way."
+        }
+      ],
+      "commonMistakes": [
+        "Counting P, whose rate of 32.5% is just below the line."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-003",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-ratio-compare",
+      "levelId": "di-tables-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which comparison shows, without dividing, that Q's qualifying rate (1260 of 3600) is higher than P's (1560 of 4800)?",
+      "context": "Study the table of exam candidates by state and answer the question.",
+      "table": {
+        "caption": "Candidates who appeared and qualified in an exam, 2023",
+        "headers": [
+          "State",
+          "Appeared",
+          "Qualified"
+        ],
+        "rows": [
+          [
+            "P",
+            "4800",
+            "1560"
+          ],
+          [
+            "Q",
+            "3600",
+            "1260"
+          ],
+          [
+            "R",
+            "5500",
+            "1870"
+          ],
+          [
+            "S",
+            "2400",
+            "900"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "1260 × 4800 > 1560 × 3600"
+        },
+        {
+          "id": "b",
+          "text": "1260 × 3600 > 1560 × 4800"
+        },
+        {
+          "id": "c",
+          "text": "1260 + 4800 > 1560 + 3600"
+        },
+        {
+          "id": "d",
+          "text": "4800 − 1560 > 3600 − 1260"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "1260/3600 > 1560/4800 exactly when 1260 × 4800 > 1560 × 3600, that is 6,048,000 > 5,616,000, which is true.",
+      "solutionSteps": [
+        "a/b > c/d ⇔ a × d > b × c.",
+        "1260 × 4800 = 6,048,000.",
+        "1560 × 3600 = 5,616,000."
+      ],
+      "formulaIds": [
+        "dt-adv-cross-f"
+      ],
+      "method": "Cross-multiply: each numerator times the other fraction's denominator.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply both fractions by 3600 × 4800."
+        },
+        {
+          "level": 2,
+          "text": "Each numerator gets multiplied by the other denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying each numerator by its own denominator."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-004",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-growth-compare",
+      "levelId": "di-tables-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which company had the largest percentage growth in revenue from 2022 to 2023?",
+      "context": "Study the table of company revenue and answer the question.",
+      "table": {
+        "caption": "Revenue of three companies (₹ crore)",
+        "headers": [
+          "Company",
+          "2022",
+          "2023"
+        ],
+        "rows": [
+          [
+            "X",
+            "240",
+            "300"
+          ],
+          [
+            "Y",
+            "400",
+            "480"
+          ],
+          [
+            "Z",
+            "150",
+            "195"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Z"
+        },
+        {
+          "id": "b",
+          "text": "Y"
+        },
+        {
+          "id": "c",
+          "text": "X"
+        },
+        {
+          "id": "d",
+          "text": "X and Y equally"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Growth: X 60 ÷ 240 = 25%, Y 80 ÷ 400 = 20%, Z 45 ÷ 150 = 30%. Z grew fastest.",
+      "solutionSteps": [
+        "X: 300 ÷ 240 = 1.25, so 25%.",
+        "Y: 480 ÷ 400 = 1.20, so 20%.",
+        "Z: 195 ÷ 150 = 1.30, so 30%."
+      ],
+      "formulaIds": [
+        "dt-adv-growth-f"
+      ],
+      "method": "Rank the growth factors new ÷ old.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Y had the biggest rise in crore, but from the biggest base."
+        },
+        {
+          "level": 2,
+          "text": "Divide each 2023 figure by its 2022 figure."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Y, which had the largest increase in amount."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-005",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-growth-compare",
+      "levelId": "di-tables-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which company had the largest increase in revenue, in ₹ crore, from 2022 to 2023?",
+      "context": "Study the table of company revenue and answer the question.",
+      "table": {
+        "caption": "Revenue of three companies (₹ crore)",
+        "headers": [
+          "Company",
+          "2022",
+          "2023"
+        ],
+        "rows": [
+          [
+            "X",
+            "240",
+            "300"
+          ],
+          [
+            "Y",
+            "400",
+            "480"
+          ],
+          [
+            "Z",
+            "150",
+            "195"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Y"
+        },
+        {
+          "id": "b",
+          "text": "Z"
+        },
+        {
+          "id": "c",
+          "text": "X"
+        },
+        {
+          "id": "d",
+          "text": "All three equally"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Increases: X 300 − 240 = 60, Y 480 − 400 = 80, Z 195 − 150 = 45. Y rose the most in amount.",
+      "solutionSteps": [
+        "X: +60.",
+        "Y: +80.",
+        "Z: +45."
+      ],
+      "formulaIds": [
+        "dt-adv-growth-f"
+      ],
+      "method": "Absolute change = new − old; no division needed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This asks about amount, not percentage."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 2022 from 2023 for each company."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing Z, which had the largest percentage growth."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-006",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-growth-compare",
+      "levelId": "di-tables-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "By how many percentage points did Company Z's growth rate exceed Company Y's?",
+      "context": "Study the table of company revenue and answer the question.",
+      "table": {
+        "caption": "Revenue of three companies (₹ crore)",
+        "headers": [
+          "Company",
+          "2022",
+          "2023"
+        ],
+        "rows": [
+          [
+            "X",
+            "240",
+            "300"
+          ],
+          [
+            "Y",
+            "400",
+            "480"
+          ],
+          [
+            "Z",
+            "150",
+            "195"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0,
+        "unit": "percentage points"
+      },
+      "explanation": "Z grew 45 ÷ 150 = 30%; Y grew 80 ÷ 400 = 20%. The difference is 10 percentage points.",
+      "solutionSteps": [
+        "Z: 30%.",
+        "Y: 20%.",
+        "30 − 20 = 10 percentage points."
+      ],
+      "formulaIds": [
+        "dt-adv-growth-f"
+      ],
+      "method": "Find both growth rates, then subtract them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out each company's percentage growth first."
+        },
+        {
+          "level": 2,
+          "text": "Percentage points are a plain difference of the two percentages."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 50%, the relative difference (10 ÷ 20).",
+        "Subtracting the amounts, 80 − 45 = 35."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "di-tables-dt-adv-q-007",
+      "topicId": "di-tables",
+      "conceptId": "dt-adv-ratio-compare",
+      "levelId": "di-tables-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In 2023, Company X's revenue was what percentage of Company Y's? (Enter the number only.)",
+      "context": "Study the table of company revenue and answer the question.",
+      "table": {
+        "caption": "Revenue of three companies (₹ crore)",
+        "headers": [
+          "Company",
+          "2022",
+          "2023"
+        ],
+        "rows": [
+          [
+            "X",
+            "240",
+            "300"
+          ],
+          [
+            "Y",
+            "400",
+            "480"
+          ],
+          [
+            "Z",
+            "150",
+            "195"
+          ]
+        ]
+      },
+      "answer": {
+        "value": 62.5,
+        "tolerance": 0
+      },
+      "explanation": "300 ÷ 480 × 100 = 62.5%.",
+      "solutionSteps": [
+        "X in 2023: 300. Y in 2023: 480.",
+        "300 ÷ 480 = 0.625.",
+        "62.5%."
+      ],
+      "formulaIds": [
+        "dt-adv-cross-f"
+      ],
+      "method": "\"A as a percentage of B\" = A ÷ B × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which value goes in the denominator?"
+        },
+        {
+          "level": 2,
+          "text": "Simplify 300/480 before dividing."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the other way round: 480 ÷ 300 = 160%."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

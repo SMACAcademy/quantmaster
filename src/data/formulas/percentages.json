@@ -1,0 +1,521 @@
+{
+  "topicId": "percentages",
+  "formulas": [
+    {
+      "id": "pct-basic",
+      "topicId": "percentages",
+      "conceptId": "pct-meaning",
+      "title": "Part as a percentage",
+      "prompt": "How do you express a part as a percentage of a whole?",
+      "formula": "Percentage = (Part ÷ Whole) × 100",
+      "variables": [
+        {
+          "symbol": "Part",
+          "meaning": "the amount being measured"
+        },
+        {
+          "symbol": "Whole",
+          "meaning": "the total it is measured against"
+        }
+      ],
+      "explanation": "Divide to get the fraction, then multiply by 100 to rewrite that fraction out of a hundred.",
+      "example": "45 marks out of 60\n= (45 ÷ 60) × 100\n= 75%",
+      "commonMistake": "Dividing by the part instead of the whole. The whole always goes on the bottom.",
+      "applicationPrompt": "A student scores 45 out of 60. Which formula gives the percentage scored?",
+      "tags": [
+        "core",
+        "conversion"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-part",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "title": "Percentage of a number",
+      "prompt": "How do you find a given percentage of a number?",
+      "formula": "Part = (Percentage ÷ 100) × Whole",
+      "variables": [
+        {
+          "symbol": "Percentage",
+          "meaning": "the rate, e.g. 20 for 20%"
+        },
+        {
+          "symbol": "Whole",
+          "meaning": "the quantity you are taking the percentage of"
+        }
+      ],
+      "explanation": "Convert the percentage to a fraction of 100, then multiply. Converting to a known fraction first is usually faster: 20% = 1/5.",
+      "example": "20% of 250\n= (20 ÷ 100) × 250\n= 0.2 × 250\n= 50",
+      "commonMistake": "Multiplying by 20 instead of 0.20 — that is 100 times too large.",
+      "applicationPrompt": "A shop offers 20% off ₹250. Which formula gives the discount amount?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-whole",
+      "topicId": "percentages",
+      "conceptId": "pct-find-whole",
+      "title": "Finding the whole from a part",
+      "prompt": "If you know a part and what percentage it represents, how do you find the whole?",
+      "formula": "Whole = (Part × 100) ÷ Percentage",
+      "variables": [
+        {
+          "symbol": "Part",
+          "meaning": "the known amount"
+        },
+        {
+          "symbol": "Percentage",
+          "meaning": "what share of the whole that amount is"
+        }
+      ],
+      "explanation": "This is the basic formula rearranged. If 15% is 45, then 1% is 3, so 100% is 300.",
+      "example": "15% of a number is 45\nNumber = (45 × 100) ÷ 15\n= 300",
+      "commonMistake": "Taking 15% of 45 instead of working backwards — that answers a different question.",
+      "applicationPrompt": "15% of a number is 45. Which formula finds the number?",
+      "tags": [
+        "core",
+        "reverse"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-fractions",
+      "topicId": "percentages",
+      "conceptId": "pct-conversion",
+      "kind": "shortcut",
+      "title": "Common fraction equivalents",
+      "prompt": "Which fractions should you recognise instantly as percentages?",
+      "formula": "1/2 = 50%   1/3 = 33⅓%   1/4 = 25%   1/5 = 20%\n1/6 = 16⅔%   1/8 = 12.5%   1/10 = 10%   1/16 = 6.25%",
+      "variables": [],
+      "explanation": "Recognising these converts slow multiplication into instant division. 37.5% of 800 is slow; 3/8 of 800 is one step.",
+      "example": "37.5% of 800\n= 3/8 × 800\n= 300",
+      "commonMistake": "Rounding 33⅓% to 33% mid-calculation and losing accuracy in the final answer.",
+      "applicationPrompt": "You need 12.5% of 640 quickly. Which equivalent is most useful?",
+      "tags": [
+        "speed",
+        "conversion"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-increase",
+      "topicId": "percentages",
+      "conceptId": "pct-increase",
+      "title": "Percentage increase",
+      "prompt": "How do you calculate a percentage increase?",
+      "formula": "% increase = (Increase ÷ Original) × 100",
+      "variables": [
+        {
+          "symbol": "Increase",
+          "meaning": "New value − Original value"
+        },
+        {
+          "symbol": "Original",
+          "meaning": "the value you started from"
+        }
+      ],
+      "explanation": "Change is always measured against where you started, never against where you ended.",
+      "example": "200 rises to 250\nIncrease = 50\n% increase = (50 ÷ 200) × 100 = 25%",
+      "commonMistake": "Dividing by the new value. 50/250 = 20% answers a different question.",
+      "applicationPrompt": "A salary rises from ₹200 to ₹250. Which formula gives the percentage rise?",
+      "tags": [
+        "core",
+        "change"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-decrease",
+      "topicId": "percentages",
+      "conceptId": "pct-decrease",
+      "title": "Percentage decrease",
+      "prompt": "How do you calculate a percentage decrease?",
+      "formula": "% decrease = (Decrease ÷ Original) × 100",
+      "variables": [
+        {
+          "symbol": "Decrease",
+          "meaning": "Original value − New value"
+        },
+        {
+          "symbol": "Original",
+          "meaning": "the value you started from"
+        }
+      ],
+      "explanation": "Same structure as an increase — the denominator is still the original value.",
+      "example": "1,250 falls to 1,000\nDecrease = 250\n% decrease = (250 ÷ 1250) × 100 = 20%",
+      "commonMistake": "Using the smaller number as the denominator, which overstates the fall.",
+      "applicationPrompt": "A price falls from ₹1,250 to ₹1,000. Which formula gives the percentage fall?",
+      "tags": [
+        "core",
+        "change"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-multiplier",
+      "topicId": "percentages",
+      "conceptId": "pct-change",
+      "title": "New value after a change",
+      "prompt": "What is the fastest way to apply a percentage change to a value?",
+      "formula": "New = Original × (1 ± r/100)",
+      "variables": [
+        {
+          "symbol": "r",
+          "meaning": "the percentage change"
+        },
+        {
+          "symbol": "+",
+          "meaning": "use for an increase"
+        },
+        {
+          "symbol": "−",
+          "meaning": "use for a decrease"
+        }
+      ],
+      "explanation": "One multiplication instead of two steps. A 15% rise is × 1.15; a 15% fall is × 0.85. Multipliers also chain, which makes successive changes trivial.",
+      "example": "₹24,000 increased by 15%\n= 24,000 × 1.15\n= ₹27,600",
+      "commonMistake": "Using 1.15 for a 15% decrease. A decrease multiplier is always below 1.",
+      "applicationPrompt": "A ₹24,000 salary rises 15%. Which expression gives the new salary?",
+      "tags": [
+        "core",
+        "speed"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-reverse",
+      "topicId": "percentages",
+      "conceptId": "pct-reverse",
+      "title": "Reverse percentage",
+      "prompt": "A value is known AFTER a percentage change. How do you find the original?",
+      "formula": "Original = New ÷ (1 ± r/100)",
+      "variables": [
+        {
+          "symbol": "New",
+          "meaning": "the value after the change"
+        },
+        {
+          "symbol": "r",
+          "meaning": "the percentage change already applied"
+        }
+      ],
+      "explanation": "Undo a multiplication by dividing. After a 25% increase you divide by 1.25; after a 20% discount you divide by 0.80.",
+      "example": "After a 25% rise a number is 500\nOriginal = 500 ÷ 1.25\n= 400",
+      "commonMistake": "Taking 25% off the new value. 500 − 125 = 375 is wrong; the 25% was of the original, not the new value.",
+      "applicationPrompt": "After a 20% discount an item costs ₹960. Which formula gives the marked price?",
+      "tags": [
+        "core",
+        "reverse",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-successive",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "kind": "shortcut",
+      "title": "Successive percentage changes",
+      "prompt": "Two percentage changes are applied one after the other. What is the net change?",
+      "formula": "Net % = a + b + (a × b)/100",
+      "variables": [
+        {
+          "symbol": "a",
+          "meaning": "first change (negative if a decrease)"
+        },
+        {
+          "symbol": "b",
+          "meaning": "second change (negative if a decrease)"
+        }
+      ],
+      "explanation": "The third term is the change acting on the change. Equivalently, multiply the multipliers: 1.20 × 0.80 = 0.96, a 4% fall.",
+      "example": "+20% then −20%\nNet = 20 − 20 + (20 × −20)/100\n= −4%  (a 4% net fall)",
+      "commonMistake": "Adding the two percentages. +20% then −20% is not 0%.",
+      "applicationPrompt": "A price rises 20% then falls 20%. Which expression gives the net change?",
+      "tags": [
+        "core",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-restore",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "kind": "shortcut",
+      "title": "Restoring the original value",
+      "prompt": "After an r% decrease, what increase restores the original value?",
+      "formula": "Required % increase = (100 × r) ÷ (100 − r)",
+      "variables": [
+        {
+          "symbol": "r",
+          "meaning": "the percentage already removed"
+        }
+      ],
+      "explanation": "The increase is applied to the smaller value, so it must be larger than the decrease. The mirror case: after an r% increase, the decrease needed is 100r/(100 + r).",
+      "example": "A price falls 20%\nRequired rise = (100 × 20) ÷ 80\n= 25%",
+      "commonMistake": "Assuming a 20% fall needs a 20% rise to recover.",
+      "applicationPrompt": "Sugar's price rises 25%. By what % must consumption fall to keep spending the same?",
+      "tags": [
+        "trap",
+        "applications"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-comparison-more",
+      "topicId": "percentages",
+      "conceptId": "pct-comparison",
+      "kind": "shortcut",
+      "title": "\"A is x% more than B\"",
+      "prompt": "If A is x% more than B, by what percentage is B less than A?",
+      "formula": "B is less than A by (100 × x) ÷ (100 + x) %",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "how much more A is than B, in percent"
+        }
+      ],
+      "explanation": "The two comparisons use different bases: 'more than B' is measured against B, 'less than A' against A. Setting B = 100 makes it concrete.",
+      "example": "A is 25% more than B\nB = 100 → A = 125\nB is less than A by 25/125 × 100 = 20%",
+      "commonMistake": "Answering 25%. The base changed, so the percentage must change too.",
+      "applicationPrompt": "A's salary is 25% more than B's. By what % is B's salary less than A's?",
+      "tags": [
+        "comparison",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-comparison-less",
+      "topicId": "percentages",
+      "conceptId": "pct-comparison",
+      "kind": "shortcut",
+      "title": "\"A is x% less than B\"",
+      "prompt": "If A is x% less than B, by what percentage is B more than A?",
+      "formula": "B is more than A by (100 × x) ÷ (100 − x) %",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "how much less A is than B, in percent"
+        }
+      ],
+      "explanation": "Same base-switch as the previous card, in the other direction. Setting B = 100 and computing A is always safe.",
+      "example": "A is 20% less than B\nB = 100 → A = 80\nB is more than A by 20/80 × 100 = 25%",
+      "commonMistake": "Answering 20% out of symmetry. The denominator moved from 100 to 80.",
+      "applicationPrompt": "A's income is 20% less than B's. By what % is B's income more than A's?",
+      "tags": [
+        "comparison",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-points",
+      "topicId": "percentages",
+      "conceptId": "pct-points",
+      "title": "Percentage points vs percentage change",
+      "prompt": "A rate moves from 40% to 50%. Is that a 10% rise or a 25% rise?",
+      "formula": "Percentage points = new% − old%\nPercentage change = ((new% − old%) ÷ old%) × 100",
+      "variables": [],
+      "explanation": "Both are correct answers to different questions. 40% → 50% is a rise of 10 percentage points, which is a 25% increase in the rate itself.",
+      "example": "Interest rate 40% → 50%\nPoints: 50 − 40 = 10 percentage points\nChange: (10 ÷ 40) × 100 = 25% increase",
+      "commonMistake": "Reporting a 10-point move as a 10% increase in data interpretation questions.",
+      "applicationPrompt": "Market share went from 40% to 50%. Which calculation gives the percentage increase in share?",
+      "tags": [
+        "data-interpretation",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-sc-swap",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "kind": "shortcut",
+      "title": "Swap the two numbers",
+      "prompt": "x% of y looks awkward. What equal calculation might be easier?",
+      "formula": "x% of y = y% of x",
+      "variables": [],
+      "explanation": "Both are x × y ÷ 100, so the order does not matter. Pick whichever side has the friendlier percentage.",
+      "example": "16% of 25 = 25% of 16 = 4.",
+      "commonMistake": "Working out the hard side with long multiplication when the other side is a known fraction.",
+      "applicationPrompt": "You need 36% of 50 in your head.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-sc-build",
+      "topicId": "percentages",
+      "conceptId": "pct-of-number",
+      "kind": "shortcut",
+      "title": "Build from 10% and 1%",
+      "prompt": "How do you find an awkward percentage such as 15% or 21% without multiplying it out?",
+      "formula": "10% = move the decimal one place\n1% = move it two places\nthen add or subtract pieces",
+      "variables": [],
+      "explanation": "Every percentage is a sum of easy pieces: 15% = 10% + 5%, 21% = 20% + 1%, 9% = 10% − 1%.",
+      "example": "15% of 240: 10% is 24, 5% is half of that, 12. Total 36.",
+      "commonMistake": "Halving the wrong piece: 5% is half of 10%, not half of the number.",
+      "applicationPrompt": "Find 21% of 350 mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pct-sc-up-down",
+      "topicId": "percentages",
+      "conceptId": "pct-successive",
+      "kind": "shortcut",
+      "title": "Up x% then down x%",
+      "prompt": "A value rises by x% and then falls by x%. What is the net change?",
+      "formula": "Net change = a loss of x²/100 %",
+      "variables": [],
+      "explanation": "The fall is taken on the larger, raised value, so it removes more than the rise added. From a + b + ab/100 with b = −a.",
+      "example": "Up 10%, then down 10%: a loss of 10²/100 = 1%.",
+      "commonMistake": "Saying the two changes cancel and the value is back where it started.",
+      "applicationPrompt": "A price is raised 20% and then cut 20%. Is it back to the original?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-sc-fraction-pairs",
+      "topicId": "percentages",
+      "conceptId": "pct-comparison",
+      "kind": "shortcut",
+      "title": "Fraction pairs: up 1/n, down 1/(n + 1)",
+      "prompt": "A value rises by 1/n. By what fraction must it fall to return to the start?",
+      "formula": "Up by 1/n  ⟷  down by 1/(n + 1)\n+25% ⟷ −20%   +20% ⟷ −16⅔%   +50% ⟷ −33⅓%",
+      "variables": [],
+      "explanation": "Rising by 1/n makes n parts into n + 1 parts; removing one of those n + 1 parts brings it back.",
+      "example": "Price up 25% (1/4): consumption must fall by 1/5 = 20% to keep the spending the same.",
+      "commonMistake": "Reducing by the same 25% that the price rose.",
+      "applicationPrompt": "Sugar becomes 20% dearer. By what percentage must a family cut its use to spend the same?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-adv-income-f",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "title": "Income from stock",
+      "prompt": "A sum is invested in x% stock at ₹P. What is the yearly income?",
+      "formula": "Income = (Investment ÷ Market price) × Dividend per ₹100 stock",
+      "variables": [
+        {
+          "symbol": "Market price",
+          "meaning": "what ₹100 of stock costs: ₹100 plus a premium, or minus a discount"
+        },
+        {
+          "symbol": "Dividend",
+          "meaning": "x, the rupees paid each year on ₹100 of stock"
+        }
+      ],
+      "explanation": "Investment ÷ market price counts the ₹100 units of stock you own. The dividend is paid on the face value of each unit, whatever you paid for it.",
+      "example": "₹6,250 in 10% stock at ₹125\n= 6,250 ÷ 125 = 50 units\nIncome = 50 × ₹10 = ₹500",
+      "commonMistake": "Taking x% of the money invested. The dividend is paid on the face value (₹5,000 of stock here), not on the ₹6,250 paid.",
+      "applicationPrompt": "₹13,500 is invested in 6% stock at ₹90. What is the yearly income?",
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-adv-yield-f",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "title": "Rate of return (yield)",
+      "prompt": "What percentage return does x% stock bought at ₹P give?",
+      "formula": "Yield = Dividend per ₹100 stock ÷ Market price × 100",
+      "variables": [
+        {
+          "symbol": "Dividend",
+          "meaning": "x, the rupees paid each year on ₹100 of stock"
+        },
+        {
+          "symbol": "Market price",
+          "meaning": "the price actually paid for ₹100 of stock"
+        }
+      ],
+      "explanation": "You pay the market price but receive the dividend on the face value, so the return is dividend over price. At a premium the yield is below x%; at a discount it is above x%.",
+      "example": "12% stock at ₹96\nYield = 12 ÷ 96 × 100\n= 12.5%",
+      "commonMistake": "Quoting the printed rate (12%) as the return. That is the return only when the stock is at par.",
+      "applicationPrompt": "What rate of return does 10% stock at ₹80 give?",
+      "tags": [
+        "advanced",
+        "stocks"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-adv-brokerage-f",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-invest",
+      "title": "Brokerage on stock",
+      "prompt": "Brokerage is ₹b per ₹100 of stock. What does a unit cost when buying, and what does it fetch when selling?",
+      "formula": "Buying: cost of ₹100 stock = Market price + b\nSelling: money for ₹100 stock = Market price − b",
+      "variables": [
+        {
+          "symbol": "b",
+          "meaning": "brokerage in rupees on every ₹100 of stock"
+        }
+      ],
+      "explanation": "The broker is paid on both deals, so you pay more when you buy and receive less when you sell.",
+      "example": "Stock at ₹95, brokerage ₹1\nBuy at ₹96\nSell at ₹94",
+      "commonMistake": "Ignoring brokerage, or adding it on a sale as if buying.",
+      "applicationPrompt": "₹9,600 is invested in 10% stock at ₹119, brokerage ₹1. How much stock is bought?",
+      "tags": [
+        "advanced",
+        "stocks",
+        "brokerage"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "pct-adv-sc-units",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-stocks",
+      "kind": "shortcut",
+      "title": "Work in ₹100 units",
+      "prompt": "How do you set up any stock problem without memorising formulas?",
+      "formula": "Units = Money ÷ Price per ₹100 stock\nFace value = Units × 100\nIncome = Units × Dividend per unit",
+      "variables": [],
+      "explanation": "Every stock question is about how many ₹100 units change hands. Count them once and the income, face value and sale money all follow.",
+      "example": "₹11,000 in 5% stock at ₹110: 100 units, ₹10,000 of stock, income ₹500.",
+      "commonMistake": "₹10,000 of stock is not ₹10,000 invested unless the stock is at par.",
+      "applicationPrompt": "How much money does selling ₹5,000 of stock at ₹112 bring?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pct-adv-sc-compare",
+      "topicId": "percentages",
+      "conceptId": "pct-adv-invest",
+      "kind": "shortcut",
+      "title": "Better of two stocks",
+      "prompt": "Which is better: x₁% stock at ₹P₁ or x₂% stock at ₹P₂?",
+      "formula": "Compare x₁ × P₂ with x₂ × P₁\nThe larger product marks the better stock",
+      "variables": [],
+      "explanation": "This compares x₁/P₁ with x₂/P₂ by cross-multiplying, so there is no division to do.",
+      "example": "8% at ₹96 vs 10% at ₹125: 8 × 125 = 1,000 and 10 × 96 = 960, so the 8% stock is better.",
+      "commonMistake": "Picking the stock with the higher printed rate. Its price can more than cancel the extra dividend.",
+      "applicationPrompt": "Which is better: 6% stock at ₹75 or 9% stock at ₹120?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ]
+}

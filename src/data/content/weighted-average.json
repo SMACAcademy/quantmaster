@@ -1,0 +1,962 @@
+{
+  "topicId": "weighted-average",
+  "concepts": [
+    {
+      "id": "wa-combine",
+      "topicId": "weighted-average",
+      "name": "Combining groups",
+      "description": "The combined average is the total of all values divided by the total count, so each group counts by its size.",
+      "sortOrder": 1
+    },
+    {
+      "id": "wa-seesaw",
+      "topicId": "weighted-average",
+      "name": "The seesaw: sizes from averages",
+      "description": "The combined average sits between the group averages, closer to the larger group; the distances give the size ratio.",
+      "sortOrder": 2
+    },
+    {
+      "id": "wa-change",
+      "topicId": "weighted-average",
+      "name": "Members joining or leaving",
+      "description": "Track totals, not averages: a change in one value shifts the total by exactly that amount.",
+      "sortOrder": 3
+    },
+    {
+      "id": "wa-weights",
+      "topicId": "weighted-average",
+      "name": "Time and other weights",
+      "description": "Averages of rates such as speed are weighted by time (or by distance for the reciprocal).",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "wa-combine-f",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "title": "Combined average",
+      "prompt": "Group 1 has n₁ members with average a₁ and group 2 has n₂ with average a₂. What is the combined average?",
+      "formula": "Combined = (n₁a₁ + n₂a₂) ÷ (n₁ + n₂)",
+      "variables": [],
+      "explanation": "Each group's total is its size times its average. Add the totals, then divide by the total number.",
+      "example": "20 at 60 and 30 at 70\n(1,200 + 2,100) ÷ 50 = 66",
+      "commonMistake": "Averaging the two averages.",
+      "applicationPrompt": "10 boys average 40 kg and 15 girls average 30 kg. What is the average weight of all 25?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wa-seesaw-f",
+      "topicId": "weighted-average",
+      "conceptId": "wa-seesaw",
+      "title": "Seesaw (alligation) rule",
+      "prompt": "A mixed group has average C and its two parts have averages a₁ < C < a₂. What is the ratio of their sizes?",
+      "formula": "n₁ : n₂ = (a₂ − C) : (C − a₁)",
+      "variables": [],
+      "explanation": "The group with the smaller distance to C has more members, because it pulls the average harder.",
+      "example": "C = 68, a₁ = 65, a₂ = 72\nn₁ : n₂ = (72 − 68) : (68 − 65) = 4 : 3",
+      "commonMistake": "Putting the distances the wrong way round.",
+      "applicationPrompt": "A class averages 68. Boys average 65 and girls average 72. What is the ratio of boys to girls?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wa-total-f",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "title": "Totals track changes",
+      "prompt": "One member joins or leaves a group. How do you find that member's value?",
+      "formula": "Total = Average × Count\nJoiner = New total − Old total\nLeaver = Old total − New total",
+      "variables": [],
+      "explanation": "Averages cannot be added or subtracted, but totals can. Always convert to totals first.",
+      "example": "8 numbers average 15 → total 120\nA 9th number 24 → total 144 → new average 16",
+      "commonMistake": "Adding or subtracting the averages themselves.",
+      "applicationPrompt": "The average of 30 students is 14. With the teacher included it is 15. How old is the teacher?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "wa-weights-f",
+      "topicId": "weighted-average",
+      "conceptId": "wa-weights",
+      "title": "Weighted by time",
+      "prompt": "A trip has legs at different speeds. How do you find the average speed?",
+      "formula": "Average speed = Total distance ÷ Total time",
+      "variables": [],
+      "explanation": "Speed is distance per unit time, so the average is weighted by time. Equal times give the simple mean; equal distances give the harmonic form.",
+      "example": "60 km at 40 km/hr (1.5 hr) and 90 km at 60 km/hr (1.5 hr)\n150 ÷ 3 = 50 km/hr",
+      "commonMistake": "Averaging the two speeds when the times are not equal.",
+      "applicationPrompt": "A train covers 60 km at 40 km/hr and 90 km at 60 km/hr. What is its average speed?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "wa-sc-leaver",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "kind": "shortcut",
+      "title": "Value of the one who leaves",
+      "prompt": "One of n members leaves and the average changes from A to B. What was the leaver's value?",
+      "formula": "Leaver = n × A − (n − 1) × B",
+      "variables": [],
+      "explanation": "The old total minus the new total is exactly what left.",
+      "example": "10 members average 30; one leaves and the average falls to 29: 300 − 261 = 39.",
+      "commonMistake": "Using n for the new group as well.",
+      "applicationPrompt": "The average age of 25 students is 15; when the teacher is included it rises by 1. Find the teacher's age.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "weighted-average-level-0",
+      "topicId": "weighted-average",
+      "order": 0,
+      "title": "Bigger Groups Pull Harder",
+      "description": "Why the average of two averages is usually wrong, and what to do instead.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "wa-combine",
+        "wa-seesaw"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Do not average the averages",
+            "body": "If 20 students average 60 and 30 average 70, the class average is not 65. The bigger group pulls the combined average towards itself. The right answer comes from totals: (1,200 + 2,100) ÷ 50 = 66."
+          },
+          {
+            "type": "formula",
+            "title": "Combined average",
+            "body": "(n₁a₁ + n₂a₂) ÷ (n₁ + n₂)",
+            "caption": "Each average counts as many times as its group has members."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "alligation-seesaw"
+          },
+          {
+            "type": "check",
+            "questionId": "weighted-average-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The seesaw",
+            "body": "The combined average always sits between the two group averages, and closer to the larger group. The distances tell you the size ratio: the group nearer the mean is the bigger one, in the inverse ratio of the distances."
+          },
+          {
+            "type": "check",
+            "questionId": "weighted-average-q-007"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "weighted-average-level-1",
+      "topicId": "weighted-average",
+      "order": 1,
+      "title": "Weighted Average Formulas",
+      "description": "Combined averages, the seesaw rule, totals and weights.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "weighted-average-level-0"
+      ],
+      "conceptIds": [
+        "wa-combine",
+        "wa-seesaw",
+        "wa-change",
+        "wa-weights"
+      ],
+      "formulaIds": [
+        "wa-combine-f",
+        "wa-seesaw-f",
+        "wa-total-f",
+        "wa-weights-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "weighted-average-level-2",
+      "topicId": "weighted-average",
+      "order": 2,
+      "title": "Direct Weighted Averages",
+      "description": "Combine two groups and add one member.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "weighted-average-level-1"
+      ],
+      "conceptIds": [
+        "wa-combine",
+        "wa-change"
+      ],
+      "questionIds": [
+        "weighted-average-q-001",
+        "weighted-average-q-002",
+        "weighted-average-q-003",
+        "weighted-average-q-004",
+        "weighted-average-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "weighted-average-level-3",
+      "topicId": "weighted-average",
+      "order": 3,
+      "title": "Totals and the Seesaw",
+      "description": "Joiners, leavers and size ratios.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "weighted-average-level-2"
+      ],
+      "conceptIds": [
+        "wa-change",
+        "wa-seesaw"
+      ],
+      "questionIds": [
+        "weighted-average-q-006",
+        "weighted-average-q-007",
+        "weighted-average-q-008",
+        "weighted-average-q-009",
+        "weighted-average-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "weighted-average-level-4",
+      "topicId": "weighted-average",
+      "order": 4,
+      "title": "Three Groups and Time Weights",
+      "description": "Multi-group averages and average speed.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "weighted-average-level-3"
+      ],
+      "conceptIds": [
+        "wa-weights",
+        "wa-combine",
+        "wa-seesaw"
+      ],
+      "questionIds": [
+        "weighted-average-q-011",
+        "weighted-average-q-012",
+        "weighted-average-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "weighted-average-level-5",
+      "topicId": "weighted-average",
+      "order": 5,
+      "title": "Mixed Weighted Average Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "weighted-average-level-4"
+      ],
+      "conceptIds": [
+        "wa-weights",
+        "wa-combine",
+        "wa-seesaw"
+      ],
+      "questionQuery": {
+        "topicId": "weighted-average",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "weighted-average-q-001",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "levelId": "weighted-average-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "20 students score an average of 60 and another 30 students score an average of 70. What is the average score of all 50?",
+      "options": [
+        {
+          "id": "a",
+          "text": "65"
+        },
+        {
+          "id": "b",
+          "text": "66"
+        },
+        {
+          "id": "c",
+          "text": "67"
+        },
+        {
+          "id": "d",
+          "text": "130"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Totals: 20 × 60 = 1,200 and 30 × 70 = 2,100. Combined = 3,300 ÷ 50 = 66. It is closer to 70 because the larger group scored 70.",
+      "solutionSteps": [
+        "Total of group 1 = 1,200.",
+        "Total of group 2 = 2,100.",
+        "3,300 ÷ 50 = 66."
+      ],
+      "formulaIds": [
+        "wa-combine-f"
+      ],
+      "method": "Weight each average by its group size.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The groups are different sizes, so the simple average 65 is not right."
+        },
+        {
+          "level": 2,
+          "text": "Find each group's total first."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 60 and 70 to get 65."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-002",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "levelId": "weighted-average-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "10 boys have an average weight of 40 kg and 15 girls have an average weight of 30 kg. What is the average weight of all 25 children, in kg?",
+      "answer": {
+        "value": 34,
+        "tolerance": 0,
+        "unit": "kg"
+      },
+      "explanation": "Total = 10 × 40 + 15 × 30 = 400 + 450 = 850 kg. Average = 850 ÷ 25 = 34 kg.",
+      "solutionSteps": [
+        "Boys: 400 kg.",
+        "Girls: 450 kg.",
+        "850 ÷ 25 = 34."
+      ],
+      "formulaIds": [
+        "wa-combine-f"
+      ],
+      "method": "Total of all ÷ number of all.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each group into a total weight."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 40 and 30 to get 35."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-003",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "levelId": "weighted-average-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "25 men have an average score of 80 and 25 women have an average score of 60. What is the average of all 50?",
+      "options": [
+        {
+          "id": "a",
+          "text": "65"
+        },
+        {
+          "id": "b",
+          "text": "75"
+        },
+        {
+          "id": "c",
+          "text": "70"
+        },
+        {
+          "id": "d",
+          "text": "140"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The groups are the same size, so the combined average is exactly halfway: (80 + 60) ÷ 2 = 70. Check with totals: (2,000 + 1,500) ÷ 50 = 70.",
+      "solutionSteps": [
+        "Equal group sizes → the simple average works.",
+        "(80 + 60) ÷ 2 = 70."
+      ],
+      "formulaIds": [
+        "wa-combine-f"
+      ],
+      "method": "Equal sizes make the weighted average equal the simple one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How do the two group sizes compare?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the averages (140)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-004",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "levelId": "weighted-average-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A group of n₁ items has average a₁ and another group of n₂ items has average a₂. The average of all the items together is",
+      "options": [
+        {
+          "id": "a",
+          "text": "(a₁ + a₂) ÷ 2"
+        },
+        {
+          "id": "b",
+          "text": "(n₁ + n₂) ÷ (a₁ + a₂)"
+        },
+        {
+          "id": "c",
+          "text": "(n₁a₁ + n₂a₂) ÷ (n₁ + n₂)"
+        },
+        {
+          "id": "d",
+          "text": "n₁a₁ + n₂a₂"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "n₁a₁ and n₂a₂ are the two totals. Divide the grand total by the total number of items.",
+      "solutionSteps": [
+        "Group totals: n₁a₁ and n₂a₂.",
+        "Grand total ÷ grand count."
+      ],
+      "formulaIds": [
+        "wa-combine-f"
+      ],
+      "method": "Weight each average by its size.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which option gives more influence to the bigger group?"
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two averages."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-005",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "levelId": "weighted-average-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The average of 8 numbers is 15. A 9th number, 24, is added. What is the new average?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Old total = 8 × 15 = 120. New total = 120 + 24 = 144. New average = 144 ÷ 9 = 16.",
+      "solutionSteps": [
+        "Old total = 120.",
+        "New total = 144.",
+        "144 ÷ 9 = 16."
+      ],
+      "formulaIds": [
+        "wa-total-f"
+      ],
+      "method": "Work with totals and count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the old total first."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 15 and 24."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-006",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "levelId": "weighted-average-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The average age of 30 students is 14 years. When the teacher's age is included, the average becomes 15. How old is the teacher, in years?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0,
+        "unit": "years"
+      },
+      "explanation": "Total with teacher = 31 × 15 = 465. Total of students = 30 × 14 = 420. Teacher = 465 − 420 = 45.",
+      "solutionSteps": [
+        "31 × 15 = 465.",
+        "30 × 14 = 420.",
+        "465 − 420 = 45."
+      ],
+      "formulaIds": [
+        "wa-total-f"
+      ],
+      "method": "New total − old total = the joiner.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the teacher when finding the new total."
+        }
+      ],
+      "commonMistakes": [
+        "Using 30 members for the new total."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-007",
+      "topicId": "weighted-average",
+      "conceptId": "wa-seesaw",
+      "levelId": "weighted-average-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The average mark of a class is 68. The girls average 72 and the boys average 65. What is the ratio of girls to boys?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4 : 3"
+        },
+        {
+          "id": "b",
+          "text": "3 : 4"
+        },
+        {
+          "id": "c",
+          "text": "7 : 4"
+        },
+        {
+          "id": "d",
+          "text": "65 : 72"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Distances from 68: girls are 4 away, boys are 3 away. The ratio of girls : boys is the distance of the OTHER group over this one's: (68 − 65) : (72 − 68) = 3 : 4. The boys, being closer to 68, are the larger group.",
+      "solutionSteps": [
+        "Boys are 3 below the average; girls are 4 above.",
+        "Girls : boys = 3 : 4.",
+        "Check: (3 × 72 + 4 × 65) ÷ 7 = 476 ÷ 7 = 68 ✓."
+      ],
+      "formulaIds": [
+        "wa-seesaw-f"
+      ],
+      "method": "The closer group has more members.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which group is nearer to 68?"
+        },
+        {
+          "level": 2,
+          "text": "The nearer group is the bigger one."
+        }
+      ],
+      "commonMistakes": [
+        "Putting the distances the wrong way round (4 : 3)."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-008",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "levelId": "weighted-average-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The average of 6 numbers is 20. When one number is removed, the average of the remaining 5 is 18. What is the number removed?",
+      "answer": {
+        "value": 30,
+        "tolerance": 0
+      },
+      "explanation": "Total of 6 = 120. Total of remaining 5 = 90. Removed number = 120 − 90 = 30.",
+      "solutionSteps": [
+        "6 × 20 = 120.",
+        "5 × 18 = 90.",
+        "120 − 90 = 30."
+      ],
+      "formulaIds": [
+        "wa-total-f"
+      ],
+      "method": "Old total − new total = the leaver.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert both averages into totals."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the averages (20 − 18)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-009",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "levelId": "weighted-average-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The average of 50 numbers is 38. Two numbers, 45 and 55, are discarded. What is the average of the remaining numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "38"
+        },
+        {
+          "id": "b",
+          "text": "36.5"
+        },
+        {
+          "id": "c",
+          "text": "37.5"
+        },
+        {
+          "id": "d",
+          "text": "39"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Total = 50 × 38 = 1,900. After removing 45 + 55 = 100, the total is 1,800 for 48 numbers. 1,800 ÷ 48 = 37.5.",
+      "solutionSteps": [
+        "1,900 − 100 = 1,800.",
+        "1,800 ÷ 48 = 37.5."
+      ],
+      "formulaIds": [
+        "wa-total-f"
+      ],
+      "method": "Adjust the total and the count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What are the new total and the new count?"
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the average at 38 because 45 and 55 average 50."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-010",
+      "topicId": "weighted-average",
+      "conceptId": "wa-change",
+      "levelId": "weighted-average-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A batsman's average after his 12th innings is 48, which is 2 more than his average after 11 innings. How many runs did he score in the 12th innings?",
+      "answer": {
+        "value": 70,
+        "tolerance": 0,
+        "unit": "runs"
+      },
+      "explanation": "Before: 11 × 46 = 506 runs. After: 12 × 48 = 576 runs. The 12th innings = 576 − 506 = 70.",
+      "solutionSteps": [
+        "Old average = 46 → 506 runs.",
+        "New average = 48 → 576 runs.",
+        "576 − 506 = 70."
+      ],
+      "formulaIds": [
+        "wa-total-f"
+      ],
+      "method": "Difference of totals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What was the average before the 12th innings?"
+        }
+      ],
+      "commonMistakes": [
+        "Using 48 + 2 = 50."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-011",
+      "topicId": "weighted-average",
+      "conceptId": "wa-weights",
+      "levelId": "weighted-average-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A train travels the first 60 km at 40 km/hr and the next 90 km at 60 km/hr. What is its average speed for the whole journey, in km/hr?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "km/hr"
+      },
+      "explanation": "Time for the first part = 60 ÷ 40 = 1.5 hr, for the second = 90 ÷ 60 = 1.5 hr. Total time = 3 hr for 150 km, so the average is 50 km/hr.",
+      "solutionSteps": [
+        "Times: 1.5 hr and 1.5 hr.",
+        "Total distance 150 km, total time 3 hr.",
+        "150 ÷ 3 = 50."
+      ],
+      "formulaIds": [
+        "wa-weights-f"
+      ],
+      "method": "Average speed = total distance ÷ total time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find how long each part takes."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 40 and 60 by the distances: (60 × 40 + 90 × 60) ÷ 150 = 52."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-012",
+      "topicId": "weighted-average",
+      "conceptId": "wa-combine",
+      "levelId": "weighted-average-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Three groups of 10, 20 and 30 people have averages of 30, 45 and x respectively. The average of all 60 people is 50. What is x?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "Total of all = 60 × 50 = 3,000. Groups 1 and 2 contribute 300 + 900 = 1,200. So group 3's total is 1,800 and x = 1,800 ÷ 30 = 60.",
+      "solutionSteps": [
+        "3,000 − 300 − 900 = 1,800.",
+        "x = 1,800 ÷ 30 = 60."
+      ],
+      "formulaIds": [
+        "wa-combine-f"
+      ],
+      "method": "Subtract known totals from the grand total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work in totals."
+        },
+        {
+          "level": 2,
+          "text": "What does group 3 have to add up to?"
+        }
+      ],
+      "commonMistakes": [
+        "Solving with averages instead of totals."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "weighted-average-q-013",
+      "topicId": "weighted-average",
+      "conceptId": "wa-seesaw",
+      "levelId": "weighted-average-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "The average salary of all 90 employees of a firm is ₹8,000. Officers average ₹12,000 and other staff average ₹6,000. How many officers are there?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60"
+        },
+        {
+          "id": "b",
+          "text": "30"
+        },
+        {
+          "id": "c",
+          "text": "45"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Distances from 8,000: officers 4,000 above, others 2,000 below. Officers : others = 2,000 : 4,000 = 1 : 2, so officers are 1/3 of 90 = 30.",
+      "solutionSteps": [
+        "Others are 2,000 from the mean; officers are 4,000 from it.",
+        "Officers : others = 2,000 : 4,000 = 1 : 2.",
+        "Officers = 90 ÷ 3 = 30."
+      ],
+      "formulaIds": [
+        "wa-seesaw-f"
+      ],
+      "method": "Ratio of sizes = opposite distances.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which group is closer to 8,000?"
+        },
+        {
+          "level": 2,
+          "text": "The closer group is larger."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the ratio to get 60 officers."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

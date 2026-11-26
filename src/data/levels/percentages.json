@@ -1,0 +1,534 @@
+{
+  "topicId": "percentages",
+  "levels": [
+    {
+      "id": "percentages-level-0",
+      "topicId": "percentages",
+      "order": 0,
+      "title": "What Does Percentage Mean?",
+      "description": "Build the mental model before any formula: a percentage is a part out of one hundred.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pct-meaning",
+        "pct-conversion"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Per cent means \"per hundred\"",
+            "body": "The word percent comes from per centum — out of a hundred. When you write 37%, you are writing the fraction 37/100. Nothing more.\n\nThat single idea is the whole topic. Everything else is what happens when the whole is not conveniently 100."
+          },
+          {
+            "type": "formula",
+            "title": "The one relationship",
+            "body": "Percentage = (Part ÷ Whole) × 100",
+            "caption": "Read it as: what fraction is the part of the whole, expressed per hundred."
+          },
+          {
+            "type": "example",
+            "title": "Reading it in both directions",
+            "body": "45 marks out of 60\n= 45/60\n= 0.75\n= 75%\n\nAnd backwards: 75% of 60\n= (75/100) × 60\n= 45"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "A percentage on its own means nothing — it is always a percentage OF something. Before you calculate, ask: percent of what? Most errors in this topic are answers taken as a percentage of the wrong whole."
+          },
+          {
+            "type": "check",
+            "questionId": "percentages-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Percentages, fractions and decimals are one idea",
+            "body": "These are three notations for the same number. Fluent students switch between them without thinking, because the easiest notation depends on the question.\n\n1/4 = 0.25 = 25%\n1/8 = 0.125 = 12.5%\n1/3 = 0.333… = 33⅓%"
+          },
+          {
+            "type": "callout",
+            "tone": "success",
+            "body": "Learning the common fraction equivalents (1/8 through 1/12) is the highest-value memorisation in arithmetic. 37.5% of 800 is slow; 3/8 of 800 is instant."
+          },
+          {
+            "type": "check",
+            "questionId": "percentages-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Where this shows up",
+            "body": "Profit and loss, discounts, simple and compound interest, data interpretation, population growth and exam marks are all percentage questions wearing different clothes. Getting fluent here is the cheapest way to get better at half the syllabus."
+          }
+        ]
+      }
+    },
+    {
+      "id": "percentages-level-1",
+      "topicId": "percentages",
+      "order": 1,
+      "title": "Core Formulas and Conversions",
+      "description": "Recall the percentage formula family with active-recall cards before you use them.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "percentages-level-0"
+      ],
+      "conceptIds": [
+        "pct-conversion",
+        "pct-of-number",
+        "pct-find-whole"
+      ],
+      "formulaIds": [
+        "pct-basic",
+        "pct-part",
+        "pct-whole",
+        "pct-fractions",
+        "pct-increase",
+        "pct-decrease"
+      ],
+      "xpReward": 25,
+      "passCriteria": {
+        "minimumRecalled": 4
+      }
+    },
+    {
+      "id": "percentages-level-2",
+      "topicId": "percentages",
+      "order": 2,
+      "title": "Formula Recognition",
+      "description": "Given a situation, pick the formula that applies — before doing any arithmetic.",
+      "type": "formula_recognition",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "percentages-level-1"
+      ],
+      "conceptIds": [
+        "pct-of-number",
+        "pct-increase",
+        "pct-reverse",
+        "pct-successive"
+      ],
+      "questionIds": [
+        "percentages-q-101",
+        "percentages-q-102",
+        "percentages-q-103",
+        "percentages-q-104",
+        "percentages-q-105",
+        "percentages-q-106"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "percentages-level-3",
+      "topicId": "percentages",
+      "order": 3,
+      "title": "Method Recognition",
+      "description": "Decide how to attack a problem: which concept, which first step, which trap to avoid.",
+      "type": "method_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "percentages-level-2"
+      ],
+      "conceptIds": [
+        "pct-change",
+        "pct-reverse",
+        "pct-successive",
+        "pct-points"
+      ],
+      "questionIds": [
+        "percentages-q-111",
+        "percentages-q-112",
+        "percentages-q-113",
+        "percentages-q-114",
+        "percentages-q-115"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 4
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "percentages-level-4",
+      "topicId": "percentages",
+      "order": 4,
+      "title": "Easy Direct Questions",
+      "description": "One-step calculations: percentage of a number, part as a percentage, and conversions.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "percentages-level-2"
+      ],
+      "conceptIds": [
+        "pct-of-number",
+        "pct-find-whole",
+        "pct-conversion"
+      ],
+      "questionIds": [
+        "percentages-q-121",
+        "percentages-q-122",
+        "percentages-q-123",
+        "percentages-q-124",
+        "percentages-q-125",
+        "percentages-q-126",
+        "percentages-q-127",
+        "percentages-q-128"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "percentages-level-5",
+      "topicId": "percentages",
+      "order": 5,
+      "title": "Increase and Decrease (Guided)",
+      "description": "Work through change problems with the method laid out step by step.",
+      "type": "guided_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "percentages-level-4"
+      ],
+      "conceptIds": [
+        "pct-increase",
+        "pct-decrease",
+        "pct-change"
+      ],
+      "questionIds": [
+        "percentages-q-131",
+        "percentages-q-132",
+        "percentages-q-133",
+        "percentages-q-134",
+        "percentages-q-135",
+        "percentages-q-136"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 40
+    },
+    {
+      "id": "percentages-level-6",
+      "topicId": "percentages",
+      "order": 6,
+      "title": "Reverse Percentages",
+      "description": "Work backwards from the result to the original value — the most commonly botched pattern.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "percentages-level-5"
+      ],
+      "conceptIds": [
+        "pct-reverse",
+        "pct-find-whole"
+      ],
+      "questionIds": [
+        "percentages-q-141",
+        "percentages-q-142",
+        "percentages-q-143",
+        "percentages-q-144",
+        "percentages-q-145",
+        "percentages-q-146"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "percentages-level-7",
+      "topicId": "percentages",
+      "order": 7,
+      "title": "Successive Changes",
+      "description": "Two changes in a row never simply add. Learn the multiplier method and the net-change formula.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "percentages-level-6"
+      ],
+      "conceptIds": [
+        "pct-successive",
+        "pct-change"
+      ],
+      "questionIds": [
+        "percentages-q-151",
+        "percentages-q-152",
+        "percentages-q-153",
+        "percentages-q-154",
+        "percentages-q-155",
+        "percentages-q-156"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "percentages-level-8",
+      "topicId": "percentages",
+      "order": 8,
+      "title": "Application Problems",
+      "description": "Exam marks, elections, salaries, populations and prices — percentages as they actually appear.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "percentages-level-7"
+      ],
+      "conceptIds": [
+        "pct-applications",
+        "pct-marks",
+        "pct-comparison"
+      ],
+      "questionIds": [
+        "percentages-q-161",
+        "percentages-q-162",
+        "percentages-q-163",
+        "percentages-q-164",
+        "percentages-q-165",
+        "percentages-q-166",
+        "percentages-q-167"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "percentages-level-9",
+      "topicId": "percentages",
+      "order": 9,
+      "title": "Complex Multi-Step Problems",
+      "description": "Several percentage ideas combined, with indirect information and deliberate distractors.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 16,
+      "prerequisiteLevelIds": [
+        "percentages-level-8"
+      ],
+      "conceptIds": [
+        "pct-successive",
+        "pct-comparison",
+        "pct-applications",
+        "pct-points"
+      ],
+      "questionIds": [
+        "percentages-q-171",
+        "percentages-q-172",
+        "percentages-q-173",
+        "percentages-q-174",
+        "percentages-q-175",
+        "percentages-q-176",
+        "percentages-q-177"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "percentages-level-10",
+      "topicId": "percentages",
+      "order": 10,
+      "title": "Mixed Practice",
+      "description": "Questions drawn from everything above, shuffled — the way an exam serves them.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "percentages-level-9"
+      ],
+      "questionQuery": {
+        "topicId": "percentages",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 10,
+        "preferUnseen": true,
+        "conceptIds": [
+          "pct-meaning",
+          "pct-conversion",
+          "pct-of-number",
+          "pct-find-whole",
+          "pct-increase",
+          "pct-decrease",
+          "pct-change",
+          "pct-successive",
+          "pct-reverse",
+          "pct-comparison",
+          "pct-applications",
+          "pct-marks",
+          "pct-points"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 8
+      },
+      "xpReward": 60
+    },
+    {
+      "id": "percentages-level-11",
+      "topicId": "percentages",
+      "order": 11,
+      "title": "Challenge: Percentage Mastery",
+      "description": "The hardest questions in the topic, timed if you want the pressure.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "percentages-level-10"
+      ],
+      "questionQuery": {
+        "topicId": "percentages",
+        "difficulties": [
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": false,
+        "conceptIds": [
+          "pct-meaning",
+          "pct-conversion",
+          "pct-of-number",
+          "pct-find-whole",
+          "pct-increase",
+          "pct-decrease",
+          "pct-change",
+          "pct-successive",
+          "pct-reverse",
+          "pct-comparison",
+          "pct-applications",
+          "pct-marks",
+          "pct-points"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 75,
+        "minimumQuestionsAttempted": 6
+      },
+      "timerSecondsPerQuestion": 75,
+      "xpReward": 80
+    },
+    {
+      "id": "percentages-level-12",
+      "topicId": "percentages",
+      "order": 12,
+      "title": "Advanced: Stocks and Shares",
+      "description": "Income and yield from stock, choosing the better stock, and brokerage when buying, selling and switching.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "percentages-level-11"
+      ],
+      "conceptIds": [
+        "pct-adv-stocks",
+        "pct-adv-invest"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Face value and market value",
+            "body": "Stock has a face value, usually ₹100, and a market value: the price it trades at today. It is at a premium when the market value is above ₹100 (₹120 is a premium of ₹20), at a discount when below (₹90 is a discount of ₹10), and at par at exactly ₹100.\n\nThe dividend is always paid on the face value, whatever you paid for the stock."
+          },
+          {
+            "type": "example",
+            "title": "Reading \"10% stock at ₹125\"",
+            "body": "₹100 of stock costs ₹125\nand pays ₹10 every year.\n\n₹5,000 invested\n= 5,000 ÷ 125 = 40 units\n= ₹4,000 of stock\nIncome = 40 × ₹10 = ₹400"
+          },
+          {
+            "type": "formula",
+            "title": "Income from stock",
+            "body": "Income = (Investment ÷ Market price) × Dividend per ₹100 stock",
+            "caption": "Investment ÷ market price counts the ₹100 units you own; each unit pays the dividend."
+          },
+          {
+            "type": "check",
+            "questionId": "percentages-pct-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Rate of return (yield)",
+            "body": "Yield = Dividend ÷ Market price × 100",
+            "caption": "Bought at a premium, the yield is below the printed rate; at a discount, above it."
+          },
+          {
+            "type": "check",
+            "questionId": "percentages-pct-adv-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Which stock is better?",
+            "body": "Compare yields, not printed rates. 8% stock at ₹96 yields 8⅓%, while 10% stock at ₹125 yields only 8%, so the 8% stock is the better buy.\n\nTo skip the division, cross-multiply: 8 × 125 = 1,000 beats 10 × 96 = 960."
+          },
+          {
+            "type": "text",
+            "title": "Brokerage",
+            "body": "Brokerage is charged on every ₹100 of stock. When you buy, add it to the price; when you sell, take it off. With stock at ₹120 and ₹1 brokerage, a unit costs ₹121 to buy and fetches ₹119 on sale."
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For a switch from one stock to another, work in ₹100 units throughout: old units → sale money → new units → new income. Compare the two incomes at the end."
+          }
+        ]
+      }
+    },
+    {
+      "id": "percentages-level-13",
+      "topicId": "percentages",
+      "order": 13,
+      "title": "Challenge: Stocks and Shares",
+      "description": "Required investments, premium and discount quotes, comparing stocks, brokerage and switching.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "percentages-level-12"
+      ],
+      "conceptIds": [
+        "pct-adv-stocks",
+        "pct-adv-invest"
+      ],
+      "questionIds": [
+        "percentages-pct-adv-q-003",
+        "percentages-pct-adv-q-004",
+        "percentages-pct-adv-q-005",
+        "percentages-pct-adv-q-006",
+        "percentages-pct-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ]
+}

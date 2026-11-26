@@ -1,0 +1,1006 @@
+{
+  "topicId": "quadratic-equations",
+  "concepts": [
+    {
+      "id": "qe-factorise",
+      "topicId": "quadratic-equations",
+      "name": "Solving by factorisation",
+      "description": "Write the quadratic as a product of two brackets, then set each bracket to zero.",
+      "sortOrder": 1
+    },
+    {
+      "id": "qe-formula",
+      "topicId": "quadratic-equations",
+      "name": "The quadratic formula",
+      "description": "A general method that solves any quadratic ax² + bx + c = 0 directly from its coefficients.",
+      "sortOrder": 2
+    },
+    {
+      "id": "qe-discriminant",
+      "topicId": "quadratic-equations",
+      "name": "The discriminant",
+      "description": "The value b² − 4ac tells you whether the roots are real and distinct, real and equal, or not real.",
+      "sortOrder": 3
+    },
+    {
+      "id": "qe-sumproduct",
+      "topicId": "quadratic-equations",
+      "name": "Sum and product of roots",
+      "description": "For ax² + bx + c = 0, the roots sum to −b/a and multiply to c/a, without needing to solve for them.",
+      "sortOrder": 4
+    },
+    {
+      "id": "qe-word",
+      "topicId": "quadratic-equations",
+      "name": "Quadratic word problems",
+      "description": "Translate a problem about area, consecutive numbers or products into a quadratic equation, then discard any root that does not fit the context.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "qe-factorise-f",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-factorise",
+      "title": "Solving by factorisation",
+      "prompt": "How do you solve a quadratic by factorising?",
+      "formula": "If (x − p)(x − q) = 0, then x = p or x = q",
+      "variables": [],
+      "explanation": "A product is zero only when at least one factor is zero, so each bracket gives one root.",
+      "example": "x² − 5x + 6 = 0 → (x − 2)(x − 3) = 0 → x = 2 or x = 3",
+      "commonMistake": "Forgetting one of the two roots.",
+      "applicationPrompt": "Solve x² − 5x + 6 = 0 by factorising.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qe-formula-f",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-formula",
+      "title": "Quadratic formula",
+      "prompt": "What is the general formula for solving ax² + bx + c = 0?",
+      "formula": "x = [−b ± √(b² − 4ac)] / 2a",
+      "variables": [],
+      "explanation": "This formula works for every quadratic, even ones that do not factorise neatly.",
+      "example": "For 2x² − 3x − 5 = 0: x = [3 ± √(9 + 40)] / 4 = [3 ± 7] / 4 → x = 2.5 or −1",
+      "commonMistake": "Forgetting the ± sign, or misplacing the 2a in the denominator.",
+      "applicationPrompt": "Solve 2x² − 3x − 5 = 0 using the formula.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qe-disc-f",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-discriminant",
+      "title": "The discriminant",
+      "prompt": "What does the discriminant b² − 4ac tell you?",
+      "formula": "b² − 4ac > 0 → two distinct real roots\nb² − 4ac = 0 → one repeated real root\nb² − 4ac < 0 → no real roots",
+      "variables": [],
+      "explanation": "The discriminant is the part under the square root in the quadratic formula, so its sign decides whether real roots exist.",
+      "example": "For x² − 4x + 4 = 0: discriminant = 16 − 16 = 0, so there is one repeated root, x = 2",
+      "commonMistake": "Computing b² − 4ac as (b − 4ac) or forgetting to square b.",
+      "applicationPrompt": "What does the discriminant of x² − 4x + 4 = 0 tell you?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qe-sumprod-f",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "title": "Sum and product of roots",
+      "prompt": "How do the roots of ax² + bx + c = 0 relate to a, b and c?",
+      "formula": "Sum of roots = −b/a\nProduct of roots = c/a",
+      "variables": [],
+      "explanation": "These relationships let you find facts about the roots, or build an equation from given roots, without solving fully.",
+      "example": "For 2x² − 7x + 3 = 0: sum = 7/2, product = 3/2",
+      "commonMistake": "Forgetting the negative sign in the sum formula.",
+      "applicationPrompt": "Find the sum and product of the roots of 2x² − 7x + 3 = 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "qe-word-f",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-word",
+      "title": "Setting up quadratic word problems",
+      "prompt": "How do you translate an area or product problem into a quadratic?",
+      "formula": "Assign a variable to the unknown; write the given relationship (area, product) as an equation; discard roots that do not fit the context",
+      "variables": [],
+      "explanation": "A negative length or a non-integer count, for instance, is usually not a valid answer even if it solves the equation.",
+      "example": "A rectangle’s length is 3 more than its width, and its area is 40: w(w + 3) = 40 → w = 5 (rejecting w = −8)",
+      "commonMistake": "Accepting a negative root for a physical quantity like length.",
+      "applicationPrompt": "A rectangle’s length is 3 more than its width and its area is 40. Find the width.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qe-sc-from-roots",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "kind": "shortcut",
+      "title": "Equation from its roots",
+      "prompt": "How do you write a quadratic that has two given roots?",
+      "formula": "x² − (sum of roots)x + (product of roots) = 0",
+      "variables": [],
+      "explanation": "Expanding (x − p)(x − q) gives x² − (p + q)x + pq.",
+      "example": "Roots 3 and −5: sum −2, product −15, so x² + 2x − 15 = 0.",
+      "commonMistake": "Writing + (sum)x: the sum goes in with a minus sign.",
+      "applicationPrompt": "Form the equation whose roots are 2 + √3 and 2 − √3.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qe-sc-sign-pattern",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-factorise",
+      "kind": "shortcut",
+      "title": "Signs of the roots at a glance",
+      "prompt": "Looking only at the signs in x² + bx + c = 0, what can you say about the roots?",
+      "formula": "+b, +c: both roots negative\n−b, +c: both roots positive\nc negative: one positive, one negative",
+      "variables": [],
+      "explanation": "The product of the roots is c and their sum is −b. This settles bank-style \"compare x and y\" questions without solving fully.",
+      "example": "x² − 7x + 12 = 0: signs −, + so both roots are positive (3 and 4). y² + 9y + 20 = 0: both negative (−4, −5). So x > y.",
+      "commonMistake": "Reading the root signs as the same as the signs in the equation.",
+      "applicationPrompt": "Compare x and y: x² − 11x + 30 = 0 and y² + 6y + 8 = 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qe-sc-reciprocal",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "kind": "shortcut",
+      "title": "Reversed coefficients, reciprocal roots",
+      "prompt": "How are the roots of cx² + bx + a = 0 related to those of ax² + bx + c = 0?",
+      "formula": "Reverse the coefficients and the roots become reciprocals",
+      "variables": [],
+      "explanation": "Dividing ax² + bx + c = 0 by x² and putting y = 1/x gives cy² + by + a = 0.",
+      "example": "2x² − 7x + 3 = 0 has roots 3 and 1/2, so 3x² − 7x + 2 = 0 has roots 1/3 and 2.",
+      "commonMistake": "Changing the sign of the middle term as well.",
+      "applicationPrompt": "The roots of 6x² − 5x + 1 = 0 are 1/2 and 1/3. Find the roots of x² − 5x + 6 = 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "quadratic-equations-level-0",
+      "topicId": "quadratic-equations",
+      "order": 0,
+      "title": "Equations With x²",
+      "description": "Solving equations of the form ax² + bx + c = 0 by factorising.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "qe-factorise",
+        "qe-word"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A product equal to zero",
+            "body": "x² − 5x + 6 = 0 factorises to (x − 2)(x − 3) = 0. Since a product is zero only when one of its factors is zero, x = 2 or x = 3 — a quadratic usually has two roots."
+          },
+          {
+            "type": "formula",
+            "title": "Solving by factorisation",
+            "body": "(x − p)(x − q) = 0 → x = p or x = q",
+            "caption": "Find two numbers whose sum and product match the middle and constant terms."
+          },
+          {
+            "type": "check",
+            "questionId": "quadratic-equations-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "If there is a common factor like x in x² − 3x = 0, factor it out instead of dividing it away — dividing loses the root x = 0."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "quadratic-roots"
+          },
+          {
+            "type": "check",
+            "questionId": "quadratic-equations-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "quadratic-equations-level-1",
+      "topicId": "quadratic-equations",
+      "order": 1,
+      "title": "Quadratic Equations Formulas",
+      "description": "Factorisation, the quadratic formula, the discriminant, sum and product of roots, word problems.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "quadratic-equations-level-0"
+      ],
+      "conceptIds": [
+        "qe-factorise",
+        "qe-formula",
+        "qe-discriminant",
+        "qe-sumproduct"
+      ],
+      "formulaIds": [
+        "qe-factorise-f",
+        "qe-formula-f",
+        "qe-disc-f",
+        "qe-sumprod-f",
+        "qe-word-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "quadratic-equations-level-2",
+      "topicId": "quadratic-equations",
+      "order": 2,
+      "title": "Direct Factorisation and Formula",
+      "description": "Solving quadratics that are already given.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "quadratic-equations-level-1"
+      ],
+      "conceptIds": [
+        "qe-factorise",
+        "qe-formula",
+        "qe-discriminant",
+        "qe-sumproduct"
+      ],
+      "questionIds": [
+        "quadratic-equations-q-001",
+        "quadratic-equations-q-002",
+        "quadratic-equations-q-003",
+        "quadratic-equations-q-004",
+        "quadratic-equations-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "quadratic-equations-level-3",
+      "topicId": "quadratic-equations",
+      "order": 3,
+      "title": "Discriminant, Roots and Word Setup",
+      "description": "Reasoning about roots and building your first quadratic word problems.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "quadratic-equations-level-2"
+      ],
+      "conceptIds": [
+        "qe-formula",
+        "qe-discriminant",
+        "qe-sumproduct",
+        "qe-factorise",
+        "qe-word"
+      ],
+      "questionIds": [
+        "quadratic-equations-q-006",
+        "quadratic-equations-q-007",
+        "quadratic-equations-q-008",
+        "quadratic-equations-q-009",
+        "quadratic-equations-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "quadratic-equations-level-4",
+      "topicId": "quadratic-equations",
+      "order": 4,
+      "title": "Applied Quadratics",
+      "description": "Area, product and equal-roots problems that need care in setup.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "quadratic-equations-level-3"
+      ],
+      "conceptIds": [
+        "qe-word",
+        "qe-sumproduct"
+      ],
+      "questionIds": [
+        "quadratic-equations-q-011",
+        "quadratic-equations-q-012",
+        "quadratic-equations-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "quadratic-equations-level-5",
+      "topicId": "quadratic-equations",
+      "order": 5,
+      "title": "Mixed Quadratic Equations Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "quadratic-equations-level-4"
+      ],
+      "conceptIds": [
+        "qe-word",
+        "qe-sumproduct"
+      ],
+      "questionQuery": {
+        "topicId": "quadratic-equations",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "quadratic-equations-q-001",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-factorise",
+      "levelId": "quadratic-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve x² − 5x + 6 = 0. What are the roots?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 and 3"
+        },
+        {
+          "id": "b",
+          "text": "1 and 6"
+        },
+        {
+          "id": "c",
+          "text": "−2 and −3"
+        },
+        {
+          "id": "d",
+          "text": "2 and −3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Factorise: x² − 5x + 6 = (x − 2)(x − 3) = 0, so x = 2 or x = 3.",
+      "solutionSteps": [
+        "Find two numbers multiplying to 6 and adding to −5: −2 and −3.",
+        "(x − 2)(x − 3) = 0.",
+        "x = 2 or x = 3."
+      ],
+      "formulaIds": [
+        "qe-factorise-f"
+      ],
+      "method": "Find two numbers with the right sum and product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which two numbers multiply to 6 and add to 5?"
+        }
+      ],
+      "commonMistakes": [
+        "Mixing up the signs of the roots."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-002",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-formula",
+      "levelId": "quadratic-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Using the quadratic formula, what are the roots of x² − 7x + 12 = 0?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 and 4"
+        },
+        {
+          "id": "b",
+          "text": "2 and 6"
+        },
+        {
+          "id": "c",
+          "text": "1 and 12"
+        },
+        {
+          "id": "d",
+          "text": "−3 and −4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "a=1, b=−7, c=12: x = [7 ± √(49 − 48)] / 2 = [7 ± 1] / 2, giving x = 4 or x = 3.",
+      "solutionSteps": [
+        "Discriminant = 49 − 48 = 1.",
+        "x = (7 ± 1)/2.",
+        "x = 4 or 3."
+      ],
+      "formulaIds": [
+        "qe-formula-f"
+      ],
+      "method": "Substitute a, b, c into the formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The square root of the discriminant, 1, is just 1."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error on b, using −7 instead of 7 in the formula."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-003",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-discriminant",
+      "levelId": "quadratic-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "If the discriminant of a quadratic is negative, the equation has",
+      "options": [
+        {
+          "id": "a",
+          "text": "two distinct real roots"
+        },
+        {
+          "id": "b",
+          "text": "one repeated real root"
+        },
+        {
+          "id": "c",
+          "text": "no real roots"
+        },
+        {
+          "id": "d",
+          "text": "three real roots"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A negative discriminant means the square root of a negative number, which is not real, so there are no real roots.",
+      "solutionSteps": [
+        "b² − 4ac < 0 → no real roots."
+      ],
+      "formulaIds": [
+        "qe-disc-f"
+      ],
+      "method": "Discriminant sign decides root type.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot take the square root of a negative number here."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming every quadratic has two real roots."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-004",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "levelId": "quadratic-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the sum of the roots of x² − 9x + 20 = 0?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "Sum of roots = −b/a = −(−9)/1 = 9.",
+      "solutionSteps": [
+        "a = 1, b = −9.",
+        "Sum = −b/a = 9."
+      ],
+      "formulaIds": [
+        "qe-sumprod-f"
+      ],
+      "method": "Sum = −b/a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget the negative sign in the formula."
+        }
+      ],
+      "commonMistakes": [
+        "Giving −9 instead of 9."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-005",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-factorise",
+      "levelId": "quadratic-equations-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve x² − 3x = 0. What are the roots?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0 and 3"
+        },
+        {
+          "id": "b",
+          "text": "0 and −3"
+        },
+        {
+          "id": "c",
+          "text": "3 and −3"
+        },
+        {
+          "id": "d",
+          "text": "1 and 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Factor out x: x(x − 3) = 0, so x = 0 or x = 3.",
+      "solutionSteps": [
+        "x(x − 3) = 0.",
+        "x = 0 or x = 3."
+      ],
+      "formulaIds": [
+        "qe-factorise-f"
+      ],
+      "method": "Factor out the common x first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There is no constant term to worry about."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing both sides by x and losing the root x = 0."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-006",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-formula",
+      "levelId": "quadratic-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve 2x² − 3x − 5 = 0 using the quadratic formula. What is the larger root?",
+      "answer": {
+        "value": 2.5,
+        "tolerance": 0
+      },
+      "explanation": "a=2, b=−3, c=−5: discriminant = 9 + 40 = 49. x = (3 ± 7)/4, giving x = 2.5 or x = −1. The larger root is 2.5.",
+      "solutionSteps": [
+        "Discriminant = 9 + 40 = 49.",
+        "x = (3 ± 7)/4.",
+        "Roots: 2.5 and −1."
+      ],
+      "formulaIds": [
+        "qe-formula-f"
+      ],
+      "method": "Compute the discriminant, then apply the formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The square root of the discriminant, 49, is exactly 7."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error turning −5 into +5 inside the discriminant."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-007",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-discriminant",
+      "levelId": "quadratic-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the discriminant of x² − 4x + 4 = 0, and what does it tell you?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0, one repeated root"
+        },
+        {
+          "id": "b",
+          "text": "16, two distinct roots"
+        },
+        {
+          "id": "c",
+          "text": "−16, no real roots"
+        },
+        {
+          "id": "d",
+          "text": "8, two distinct roots"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Discriminant = (−4)² − 4(1)(4) = 16 − 16 = 0, meaning there is exactly one repeated real root (x = 2).",
+      "solutionSteps": [
+        "b² = 16.",
+        "4ac = 16.",
+        "16 − 16 = 0 → repeated root."
+      ],
+      "formulaIds": [
+        "qe-disc-f"
+      ],
+      "method": "Substitute a, b, c into b² − 4ac.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compute b² and 4ac separately."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to square b."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-008",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "levelId": "quadratic-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The roots of a quadratic are 3 and −5. What is the equation in the form x² + bx + c = 0?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x² + 2x − 15 = 0"
+        },
+        {
+          "id": "b",
+          "text": "x² − 2x − 15 = 0"
+        },
+        {
+          "id": "c",
+          "text": "x² + 2x + 15 = 0"
+        },
+        {
+          "id": "d",
+          "text": "x² − 8x − 15 = 0"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Sum = 3 + (−5) = −2, so b = 2 (since sum = −b). Product = 3 × (−5) = −15, so c = −15. Equation: x² + 2x − 15 = 0.",
+      "solutionSteps": [
+        "Sum = −2 → b = 2.",
+        "Product = −15 → c = −15.",
+        "x² + 2x − 15 = 0."
+      ],
+      "formulaIds": [
+        "qe-sumprod-f"
+      ],
+      "method": "Build the equation from the sum and product of roots.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "b is the negative of the sum."
+        }
+      ],
+      "commonMistakes": [
+        "Using the sum directly as b without negating it."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-009",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-factorise",
+      "levelId": "quadratic-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve 2x² + 5x − 3 = 0. What is the positive root?",
+      "answer": {
+        "value": 0.5,
+        "tolerance": 0
+      },
+      "explanation": "Factorise: 2x² + 5x − 3 = (2x − 1)(x + 3) = 0, so x = 0.5 or x = −3. The positive root is 0.5.",
+      "solutionSteps": [
+        "(2x − 1)(x + 3) = 0.",
+        "x = 0.5 or x = −3."
+      ],
+      "formulaIds": [
+        "qe-factorise-f"
+      ],
+      "method": "Split the middle term to factorise with a leading coefficient.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look for factors of 2 × (−3) = −6 that add to 5."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by the leading coefficient inside the bracket."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-010",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-word",
+      "levelId": "quadratic-equations-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The product of two consecutive positive integers is 132. What is the smaller integer?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "Let the integers be x and x+1: x(x+1) = 132, so x² + x − 132 = 0. Factorise: (x − 11)(x + 12) = 0, so x = 11 (rejecting −12).",
+      "solutionSteps": [
+        "x² + x − 132 = 0.",
+        "(x − 11)(x + 12) = 0.",
+        "x = 11 (positive integer)."
+      ],
+      "formulaIds": [
+        "qe-word-f",
+        "qe-factorise-f"
+      ],
+      "method": "Set up the equation, factorise, then reject the invalid root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reject any negative root since the integers are positive."
+        }
+      ],
+      "commonMistakes": [
+        "Accepting x = −12 as a valid answer."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-011",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-word",
+      "levelId": "quadratic-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A rectangle’s length is 3 m more than its width, and its area is 40 m². What is the width?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Let width = w: w(w + 3) = 40, so w² + 3w − 40 = 0. Factorise: (w − 5)(w + 8) = 0, so w = 5 (rejecting −8, a negative width).",
+      "solutionSteps": [
+        "w² + 3w − 40 = 0.",
+        "(w − 5)(w + 8) = 0.",
+        "w = 5 (width must be positive)."
+      ],
+      "formulaIds": [
+        "qe-word-f",
+        "qe-factorise-f"
+      ],
+      "method": "Set up the area equation, then reject the invalid root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A width cannot be negative."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting both roots as valid widths."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-012",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-sumproduct",
+      "levelId": "quadratic-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If the roots of 3x² − kx + 12 = 0 are equal, what is the positive value of k?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "Equal roots means the discriminant is 0: k² − 4(3)(12) = 0, so k² = 144, k = 12 (taking the positive value).",
+      "solutionSteps": [
+        "Discriminant: k² − 144 = 0.",
+        "k² = 144.",
+        "k = 12 (positive value)."
+      ],
+      "formulaIds": [
+        "qe-disc-f"
+      ],
+      "method": "Set the discriminant to zero for equal roots.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Equal roots\" is a discriminant condition, not a sum/product one."
+        }
+      ],
+      "commonMistakes": [
+        "Using the sum-of-roots formula instead of the discriminant."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "quadratic-equations-q-013",
+      "topicId": "quadratic-equations",
+      "conceptId": "qe-word",
+      "levelId": "quadratic-equations-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A positive number is 8 more than another positive number. If their product is 105, what is the larger number?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "Let the smaller number be x: x(x + 8) = 105, so x² + 8x − 105 = 0. Factorise: (x − 7)(x + 15) = 0, so x = 7 (−15 is rejected because the numbers are positive). The larger number is x + 8 = 15.",
+      "solutionSteps": [
+        "x² + 8x − 105 = 0.",
+        "(x − 7)(x + 15) = 0.",
+        "x = 7, larger number = 15."
+      ],
+      "formulaIds": [
+        "qe-word-f",
+        "qe-factorise-f"
+      ],
+      "method": "Solve for the smaller number first, then add the difference.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The question asks for the larger number, not the one you solve for directly."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting x = 7 as the final answer instead of x + 8."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1023 @@
+{
+  "topicId": "simplification",
+  "concepts": [
+    {
+      "id": "sp-bodmas",
+      "topicId": "simplification",
+      "name": "Order of operations",
+      "description": "Brackets, of, division and multiplication, then addition and subtraction; ties go left to right.",
+      "sortOrder": 1
+    },
+    {
+      "id": "sp-brackets",
+      "topicId": "simplification",
+      "name": "Nested brackets",
+      "description": "Work from the innermost bracket outwards, applying the order inside each one.",
+      "sortOrder": 2
+    },
+    {
+      "id": "sp-fractions",
+      "topicId": "simplification",
+      "name": "Fractions inside expressions",
+      "description": "\"Of\" means multiply; dividing by a fraction means multiplying by its reciprocal.",
+      "sortOrder": 3
+    },
+    {
+      "id": "sp-shortcuts",
+      "topicId": "simplification",
+      "name": "Shortcuts and identities",
+      "description": "Difference of squares and friendly multipliers replace heavy arithmetic.",
+      "sortOrder": 4
+    },
+    {
+      "id": "sp-powers",
+      "topicId": "simplification",
+      "name": "Powers and roots in expressions",
+      "description": "Evaluate squares, cubes and roots before the surrounding operations.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "sp-bodmas-f",
+      "topicId": "simplification",
+      "conceptId": "sp-bodmas",
+      "title": "BODMAS",
+      "prompt": "In what order are the operations in an expression carried out?",
+      "formula": "Brackets → Of → Division and Multiplication → Addition and Subtraction\n(D and M left to right; A and S left to right)",
+      "variables": [],
+      "explanation": "Multiplication and division bind more tightly than addition and subtraction. Within a level, work left to right.",
+      "example": "8 + 6 × 3 = 8 + 18 = 26\n48 ÷ 6 × 2 = 8 × 2 = 16",
+      "commonMistake": "Working strictly left to right, or doing multiplication before division.",
+      "applicationPrompt": "Evaluate 48 ÷ 6 × 2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-identity-f",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "title": "Algebraic identities",
+      "prompt": "Which identities turn squares into easy arithmetic?",
+      "formula": "(a + b)² = a² + 2ab + b²\n(a − b)² = a² − 2ab + b²\na² − b² = (a − b)(a + b)",
+      "variables": [],
+      "explanation": "The difference of squares replaces two big squares with one easy product.",
+      "example": "105² − 95² = (105 − 95)(105 + 95) = 10 × 200 = 2,000",
+      "commonMistake": "Forgetting the middle term 2ab when expanding a square.",
+      "applicationPrompt": "Find 105² − 95² without squaring.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-multiply-f",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "kind": "shortcut",
+      "title": "Friendly multipliers",
+      "prompt": "How can you multiply quickly by 5, 25, 125 or 99?",
+      "formula": "× 5 = × 10 ÷ 2\n× 25 = × 100 ÷ 4\n× 125 = × 1000 ÷ 8\n× 99 = × 100 − × 1",
+      "variables": [],
+      "explanation": "Each of these is a power of ten divided by a small number, or a round number minus one.",
+      "example": "125 × 88 = 88,000 ÷ 8 = 11,000",
+      "commonMistake": "Shifting the decimal point the wrong way.",
+      "applicationPrompt": "Compute 125 × 88 using the shortcut.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-fraction-f",
+      "topicId": "simplification",
+      "conceptId": "sp-fractions",
+      "title": "Fractions in expressions",
+      "prompt": "How do you handle \"of\" and division by a fraction?",
+      "formula": "a/b of N = N × a/b\nx ÷ (a/b) = x × (b/a)",
+      "variables": [],
+      "explanation": "\"Of\" is multiplication. Dividing by a fraction is multiplying by the reciprocal.",
+      "example": "3/4 ÷ 9/16 = 3/4 × 16/9 = 4/3",
+      "commonMistake": "Flipping the wrong fraction when dividing.",
+      "applicationPrompt": "Simplify 3/4 ÷ 9/16.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-powers-f",
+      "topicId": "simplification",
+      "conceptId": "sp-powers",
+      "title": "Powers and roots",
+      "prompt": "When are squares and roots evaluated in an expression?",
+      "formula": "Powers and roots are evaluated first, like brackets\n√a × √a = a;  (√a)² = a",
+      "variables": [],
+      "explanation": "A power or root belongs to its base, so resolve it before the operations around it.",
+      "example": "√64 + 3² − 2³ × √16 ÷ 4 = 8 + 9 − 8 × 4 ÷ 4 = 9",
+      "commonMistake": "Applying the power to the whole expression.",
+      "applicationPrompt": "Evaluate √64 + 3² − 2³ × √16 ÷ 4.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sp-sc-square-ending-5",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "kind": "shortcut",
+      "title": "Squaring a number ending in 5",
+      "prompt": "How do you square a number that ends in 5 at sight?",
+      "formula": "(n5)² = n × (n + 1), followed by 25",
+      "variables": [],
+      "explanation": "(10n + 5)² = 100n(n + 1) + 25.",
+      "example": "65²: 6 × 7 = 42, then 25, giving 4,225.",
+      "commonMistake": "Squaring the leading digit (6 × 6) instead of multiplying it by the next number.",
+      "applicationPrompt": "Find 85² mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-sc-times-11",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "kind": "shortcut",
+      "title": "Multiplying a two-digit number by 11",
+      "prompt": "What is the quick way to multiply a two-digit number by 11?",
+      "formula": "ab × 11 = a | (a + b) | b\n(carry into a when a + b is 10 or more)",
+      "variables": [],
+      "explanation": "11 × N = 10N + N, so the middle digit is the sum of the two digits.",
+      "example": "53 × 11 = 5 | 8 | 3 = 583. 78 × 11: 7 | 15 | 8 becomes 858.",
+      "commonMistake": "Writing 7158 for 78 × 11 by not carrying the 1.",
+      "applicationPrompt": "Find 64 × 11 mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "sp-sc-near-100",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "kind": "shortcut",
+      "title": "Multiplying numbers just under 100",
+      "prompt": "How do you multiply two numbers that are both a little less than 100?",
+      "formula": "(100 − a)(100 − b) = (100 − a − b) | (a × b)\n(write a × b as two digits)",
+      "variables": [],
+      "explanation": "Expanding gives 100(100 − a − b) + ab.",
+      "example": "97 × 94: deficits 3 and 6. 100 − 9 = 91, then 3 × 6 = 18, giving 9,118.",
+      "commonMistake": "Writing a single digit for the product: 98 × 97 is 95 | 06 = 9,506, not 956.",
+      "applicationPrompt": "Find 96 × 92 mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "sp-sc-square-near-50",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "kind": "shortcut",
+      "title": "Squares near 50",
+      "prompt": "How do you square a number close to 50?",
+      "formula": "(50 ± a)² = (25 ± a) | a²\n(write a² as two digits)",
+      "variables": [],
+      "explanation": "(50 + a)² = 2,500 + 100a + a² = 100(25 + a) + a².",
+      "example": "53² = 28 | 09 = 2,809. 47² = 22 | 09 = 2,209.",
+      "commonMistake": "Adding a to 50 rather than to 25.",
+      "applicationPrompt": "Find 56² mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "simplification-level-0",
+      "topicId": "simplification",
+      "order": 0,
+      "title": "The Order That Everyone Agrees On",
+      "description": "One fixed order of operations, and a few shortcuts that save heavy arithmetic.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "sp-bodmas",
+        "sp-brackets"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Why order matters",
+            "body": "8 + 6 × 3 has one correct value, 26, not 42. Mathematicians agreed a fixed order so every expression means the same thing to everyone: brackets, of, division and multiplication, then addition and subtraction."
+          },
+          {
+            "type": "formula",
+            "title": "BODMAS",
+            "body": "Brackets → Of → Division / Multiplication → Addition / Subtraction",
+            "caption": "Division and multiplication are one level, as are addition and subtraction: work left to right within a level."
+          },
+          {
+            "type": "check",
+            "questionId": "simplification-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Never assume multiplication comes before division. 48 ÷ 6 × 2 is 16, not 4: within a level you always go left to right."
+          },
+          {
+            "type": "check",
+            "questionId": "simplification-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "simplification-level-1",
+      "topicId": "simplification",
+      "order": 1,
+      "title": "Simplification Formulas",
+      "description": "BODMAS, identities, friendly multipliers, fractions and powers.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "simplification-level-0"
+      ],
+      "conceptIds": [
+        "sp-bodmas",
+        "sp-shortcuts",
+        "sp-fractions",
+        "sp-powers"
+      ],
+      "formulaIds": [
+        "sp-bodmas-f",
+        "sp-identity-f",
+        "sp-multiply-f",
+        "sp-fraction-f",
+        "sp-powers-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "simplification-level-2",
+      "topicId": "simplification",
+      "order": 2,
+      "title": "Direct Simplification",
+      "description": "One or two operations in the right order.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "simplification-level-1"
+      ],
+      "conceptIds": [
+        "sp-bodmas",
+        "sp-brackets"
+      ],
+      "questionIds": [
+        "simplification-q-001",
+        "simplification-q-002",
+        "simplification-q-003",
+        "simplification-q-004",
+        "simplification-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "simplification-level-3",
+      "topicId": "simplification",
+      "order": 3,
+      "title": "Fractions and Shortcuts",
+      "description": "Of, reciprocals, identities and friendly multipliers.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "simplification-level-2"
+      ],
+      "conceptIds": [
+        "sp-fractions",
+        "sp-shortcuts"
+      ],
+      "questionIds": [
+        "simplification-q-006",
+        "simplification-q-007",
+        "simplification-q-008",
+        "simplification-q-009",
+        "simplification-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "simplification-level-4",
+      "topicId": "simplification",
+      "order": 4,
+      "title": "Nested Expressions",
+      "description": "Layers of brackets, fractions and powers.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "simplification-level-3"
+      ],
+      "conceptIds": [
+        "sp-brackets",
+        "sp-fractions",
+        "sp-powers"
+      ],
+      "questionIds": [
+        "simplification-q-011",
+        "simplification-q-012",
+        "simplification-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "simplification-level-5",
+      "topicId": "simplification",
+      "order": 5,
+      "title": "Mixed Simplification Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "simplification-level-4"
+      ],
+      "conceptIds": [
+        "sp-brackets",
+        "sp-fractions",
+        "sp-powers"
+      ],
+      "questionQuery": {
+        "topicId": "simplification",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "simplification-q-001",
+      "topicId": "simplification",
+      "conceptId": "sp-bodmas",
+      "levelId": "simplification-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of 8 + 6 × 3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "42"
+        },
+        {
+          "id": "b",
+          "text": "26"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "18"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Multiplication comes before addition: 6 × 3 = 18, and 8 + 18 = 26. Working left to right would wrongly give 14 × 3 = 42.",
+      "solutionSteps": [
+        "6 × 3 = 18.",
+        "8 + 18 = 26."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f"
+      ],
+      "method": "Multiply before adding.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which operation has priority?"
+        }
+      ],
+      "commonMistakes": [
+        "Going left to right and getting 42."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-002",
+      "topicId": "simplification",
+      "conceptId": "sp-bodmas",
+      "levelId": "simplification-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the value of 48 ÷ 6 × 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Division and multiplication share a level, so work left to right: 48 ÷ 6 = 8, then 8 × 2 = 16. Doing the multiplication first would wrongly give 48 ÷ 12 = 4.",
+      "solutionSteps": [
+        "48 ÷ 6 = 8.",
+        "8 × 2 = 16."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f"
+      ],
+      "method": "Same level: left to right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Division and multiplication have equal priority."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 6 × 2 first (giving 4)."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-003",
+      "topicId": "simplification",
+      "conceptId": "sp-brackets",
+      "levelId": "simplification-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the value of 20 − (8 − 3) × 2?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Bracket first: 8 − 3 = 5. Then multiply: 5 × 2 = 10. Finally 20 − 10 = 10.",
+      "solutionSteps": [
+        "(8 − 3) = 5.",
+        "5 × 2 = 10.",
+        "20 − 10 = 10."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f"
+      ],
+      "method": "Brackets, then multiplication, then subtraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with the bracket."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 20 − 5 first and getting 30."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-004",
+      "topicId": "simplification",
+      "conceptId": "sp-bodmas",
+      "levelId": "simplification-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "In BODMAS, \"of\" (as in \"3/4 of 80\") is worked out",
+      "options": [
+        {
+          "id": "a",
+          "text": "last, after subtraction"
+        },
+        {
+          "id": "b",
+          "text": "first, before the brackets"
+        },
+        {
+          "id": "c",
+          "text": "right after brackets, before division and multiplication"
+        },
+        {
+          "id": "d",
+          "text": "together with addition"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "\"Of\" is a form of multiplication that binds tightly to the number after it, so it is done straight after brackets and before division and multiplication.",
+      "solutionSteps": [
+        "B → O → D/M → A/S."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f"
+      ],
+      "method": "B, O, D, M, A, S.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "It is the O in BODMAS."
+        }
+      ],
+      "commonMistakes": [
+        "Treating \"of\" as ordinary multiplication that can wait its turn."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-005",
+      "topicId": "simplification",
+      "conceptId": "sp-bodmas",
+      "levelId": "simplification-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the value of 12 + 18 ÷ 3 − 4?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0
+      },
+      "explanation": "Division first: 18 ÷ 3 = 6. Then 12 + 6 − 4 = 14.",
+      "solutionSteps": [
+        "18 ÷ 3 = 6.",
+        "12 + 6 = 18.",
+        "18 − 4 = 14."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f"
+      ],
+      "method": "Divide, then add and subtract left to right.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Division has priority over addition."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 12 + 18 first (giving 26/3)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-006",
+      "topicId": "simplification",
+      "conceptId": "sp-fractions",
+      "levelId": "simplification-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the value of 3/4 of 80 + 2/5 of 50?",
+      "answer": {
+        "value": 80,
+        "tolerance": 0
+      },
+      "explanation": "3/4 of 80 = 60 and 2/5 of 50 = 20. So 60 + 20 = 80.",
+      "solutionSteps": [
+        "80 × 3/4 = 60.",
+        "50 × 2/5 = 20.",
+        "60 + 20 = 80."
+      ],
+      "formulaIds": [
+        "sp-fraction-f"
+      ],
+      "method": "\"Of\" means multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Evaluate each \"of\" before adding."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the fractions first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-007",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "levelId": "simplification-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the value of 105² − 95²?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1,000"
+        },
+        {
+          "id": "b",
+          "text": "2,000"
+        },
+        {
+          "id": "c",
+          "text": "200"
+        },
+        {
+          "id": "d",
+          "text": "20,000"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Using a² − b² = (a − b)(a + b): (105 − 95)(105 + 95) = 10 × 200 = 2,000.",
+      "solutionSteps": [
+        "a − b = 10.",
+        "a + b = 200.",
+        "10 × 200 = 2,000."
+      ],
+      "formulaIds": [
+        "sp-identity-f"
+      ],
+      "method": "Difference of squares.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Factorise instead of squaring."
+        }
+      ],
+      "commonMistakes": [
+        "Computing (105 − 95)² = 100."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-008",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "levelId": "simplification-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the value of 125 × 88?",
+      "answer": {
+        "value": 11000,
+        "tolerance": 0
+      },
+      "explanation": "125 = 1000 ÷ 8, so 125 × 88 = 88,000 ÷ 8 = 11,000 (or 88 ÷ 8 = 11, then × 1,000).",
+      "solutionSteps": [
+        "88 ÷ 8 = 11.",
+        "11 × 1,000 = 11,000."
+      ],
+      "formulaIds": [
+        "sp-multiply-f"
+      ],
+      "method": "× 125 = × 1000 ÷ 8.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "125 × 8 = 1,000. Is 88 a multiple of 8?"
+        }
+      ],
+      "commonMistakes": [
+        "Losing a zero in the shift."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-009",
+      "topicId": "simplification",
+      "conceptId": "sp-fractions",
+      "levelId": "simplification-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the value of 3/4 ÷ 9/16?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27/64"
+        },
+        {
+          "id": "b",
+          "text": "3/4"
+        },
+        {
+          "id": "c",
+          "text": "4/3"
+        },
+        {
+          "id": "d",
+          "text": "16/27"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Dividing by 9/16 is multiplying by 16/9: 3/4 × 16/9 = 48/36 = 4/3.",
+      "solutionSteps": [
+        "3/4 × 16/9.",
+        "= 48/36 = 4/3."
+      ],
+      "formulaIds": [
+        "sp-fraction-f"
+      ],
+      "method": "Multiply by the reciprocal of the divisor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Flip the second fraction and multiply."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying straight across (27/64) or flipping the wrong fraction (16/27)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-010",
+      "topicId": "simplification",
+      "conceptId": "sp-shortcuts",
+      "levelId": "simplification-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the value of 7.5² − 2.5²?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0
+      },
+      "explanation": "(7.5 − 2.5)(7.5 + 2.5) = 5 × 10 = 50. (Squaring gives 56.25 − 6.25 = 50 as a check.)",
+      "solutionSteps": [
+        "a − b = 5.",
+        "a + b = 10.",
+        "5 × 10 = 50."
+      ],
+      "formulaIds": [
+        "sp-identity-f"
+      ],
+      "method": "Difference of squares, even with decimals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use (a − b)(a + b)."
+        }
+      ],
+      "commonMistakes": [
+        "Computing (7.5 − 2.5)² = 25."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-011",
+      "topicId": "simplification",
+      "conceptId": "sp-brackets",
+      "levelId": "simplification-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the value of [(12 + 8 ÷ 4) × 3 − 2²] ÷ 2?",
+      "answer": {
+        "value": 19,
+        "tolerance": 0
+      },
+      "explanation": "Inside: 8 ÷ 4 = 2, so 12 + 2 = 14. Then 14 × 3 = 42. 2² = 4, so 42 − 4 = 38. Finally 38 ÷ 2 = 19.",
+      "solutionSteps": [
+        "8 ÷ 4 = 2; 12 + 2 = 14.",
+        "14 × 3 = 42.",
+        "42 − 2² = 38.",
+        "38 ÷ 2 = 19."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f",
+        "sp-powers-f"
+      ],
+      "method": "Innermost bracket outwards, applying BODMAS in each.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start with the division inside the round bracket."
+        },
+        {
+          "level": 2,
+          "text": "Do the square before the subtraction."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 12 + 8 before dividing."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-012",
+      "topicId": "simplification",
+      "conceptId": "sp-fractions",
+      "levelId": "simplification-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the value of 1/2 + 1/3 × 3/4 ÷ 1/2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/4"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "3/4"
+        },
+        {
+          "id": "d",
+          "text": "1/2"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Multiplication and division first, left to right: 1/3 × 3/4 = 1/4, and 1/4 ÷ 1/2 = 1/2. Then 1/2 + 1/2 = 1. (Adding first would wrongly give 5/4.)",
+      "solutionSteps": [
+        "1/3 × 3/4 = 1/4.",
+        "1/4 ÷ 1/2 = 1/2.",
+        "1/2 + 1/2 = 1."
+      ],
+      "formulaIds": [
+        "sp-bodmas-f",
+        "sp-fraction-f"
+      ],
+      "method": "Multiply and divide before adding.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "BODMAS applies to fractions too."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 1/2 + 1/3 first."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "simplification-q-013",
+      "topicId": "simplification",
+      "conceptId": "sp-powers",
+      "levelId": "simplification-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the value of √64 + 3² − 2³ × √16 ÷ 4?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "Evaluate the powers and roots: 8 + 9 − 8 × 4 ÷ 4. Then 8 × 4 ÷ 4 = 8. So 8 + 9 − 8 = 9.",
+      "solutionSteps": [
+        "√64 = 8, 3² = 9, 2³ = 8, √16 = 4.",
+        "8 × 4 ÷ 4 = 8.",
+        "8 + 9 − 8 = 9."
+      ],
+      "formulaIds": [
+        "sp-powers-f",
+        "sp-bodmas-f"
+      ],
+      "method": "Powers and roots first, then BODMAS.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Replace every power and root by its value."
+        }
+      ],
+      "commonMistakes": [
+        "Doing the subtraction before the multiplication."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

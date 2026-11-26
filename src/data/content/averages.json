@@ -1,0 +1,1303 @@
+{
+  "topicId": "averages",
+  "concepts": [
+    {
+      "id": "avg-meaning",
+      "topicId": "averages",
+      "name": "What an average represents",
+      "description": "The value every member would have if the total were shared out equally.",
+      "sortOrder": 1
+    },
+    {
+      "id": "avg-total",
+      "topicId": "averages",
+      "name": "Working with totals",
+      "description": "Most average problems are solved by converting averages back into totals.",
+      "sortOrder": 2
+    },
+    {
+      "id": "avg-combined",
+      "topicId": "averages",
+      "name": "Combining groups",
+      "description": "Merging two groups of different sizes — a weighted average in disguise.",
+      "sortOrder": 3
+    },
+    {
+      "id": "avg-replacement",
+      "topicId": "averages",
+      "name": "Replacement and inclusion",
+      "description": "What happens to the average when a member joins, leaves or is swapped.",
+      "sortOrder": 4
+    },
+    {
+      "id": "avg-sequences",
+      "topicId": "averages",
+      "name": "Averages of sequences",
+      "description": "Evenly spaced numbers average to their middle value.",
+      "sortOrder": 5
+    },
+    {
+      "id": "avg-applications",
+      "topicId": "averages",
+      "name": "Average word problems",
+      "description": "Innings, marks and overlapping groups.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "avg-basic",
+      "topicId": "averages",
+      "conceptId": "avg-meaning",
+      "title": "Average",
+      "prompt": "What is the formula for the average of a set of values?",
+      "formula": "Average = Sum of values ÷ Number of values",
+      "variables": [
+        {
+          "symbol": "Sum",
+          "meaning": "the total of all the values"
+        },
+        {
+          "symbol": "n",
+          "meaning": "how many values there are"
+        }
+      ],
+      "explanation": "The average redistributes the total equally among all members.",
+      "example": "12, 18, 24, 30\nSum = 84, n = 4\nAverage = 84 ÷ 4 = 21",
+      "commonMistake": "Dividing by the wrong count — recount the values before dividing.",
+      "applicationPrompt": "You have five test scores and want the average. Which formula applies?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-sum",
+      "topicId": "averages",
+      "conceptId": "avg-total",
+      "title": "Total from an average",
+      "prompt": "You know the average and the count. How do you get the total?",
+      "formula": "Sum = Average × Number of values",
+      "variables": [],
+      "explanation": "This is the single most useful rearrangement in the topic. Convert every average in a question into a total, and the problem becomes arithmetic.",
+      "example": "Average of 5 numbers is 18\nSum = 18 × 5 = 90",
+      "commonMistake": "Trying to work with averages directly instead of converting to totals first.",
+      "applicationPrompt": "The average of 5 numbers is 18. Which formula gives their sum?",
+      "tags": [
+        "core",
+        "method"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-combined-formula",
+      "topicId": "averages",
+      "conceptId": "avg-combined",
+      "title": "Combined average of two groups",
+      "prompt": "Two groups of different sizes are merged. What is the combined average?",
+      "formula": "Combined average = (n₁a₁ + n₂a₂) ÷ (n₁ + n₂)",
+      "variables": [
+        {
+          "symbol": "n₁, n₂",
+          "meaning": "sizes of the two groups"
+        },
+        {
+          "symbol": "a₁, a₂",
+          "meaning": "averages of the two groups"
+        }
+      ],
+      "explanation": "Add the totals, then divide by the combined count. The bigger group pulls the result towards its own average.",
+      "example": "20 students average 60, 30 students average 70\n= (1200 + 2100) ÷ 50\n= 66",
+      "commonMistake": "Averaging the two averages (65 here), which ignores the different group sizes.",
+      "applicationPrompt": "Two classes of different sizes have different averages. Which formula gives the overall average?",
+      "tags": [
+        "core",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "avg-replacement-formula",
+      "topicId": "averages",
+      "conceptId": "avg-replacement",
+      "title": "Replacing a member",
+      "prompt": "One member of a group is replaced and the average changes. How much did the total change?",
+      "formula": "Change in total = n × change in average",
+      "variables": [
+        {
+          "symbol": "n",
+          "meaning": "number of members (unchanged by a swap)"
+        }
+      ],
+      "explanation": "Because the count stays the same, the whole change in average comes from the difference between the person leaving and the person arriving.",
+      "example": "8 people, average rises 2.5 kg when a 65 kg person is replaced\nTotal rose by 8 × 2.5 = 20 kg\nNew person = 65 + 20 = 85 kg",
+      "commonMistake": "Adding only the change in average (2.5) to the departing value.",
+      "applicationPrompt": "A 65 kg member of an 8-person group is replaced and the average rises 2.5 kg. Which relationship finds the new member's weight?",
+      "tags": [
+        "replacement",
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "avg-consecutive",
+      "topicId": "averages",
+      "conceptId": "avg-sequences",
+      "kind": "shortcut",
+      "title": "Average of evenly spaced numbers",
+      "prompt": "What is the average of a list of consecutive or evenly spaced numbers?",
+      "formula": "Average = (First + Last) ÷ 2",
+      "variables": [],
+      "explanation": "Evenly spaced values are symmetric about their middle, so the middle value is the average. No addition needed.",
+      "example": "18, 20, 22, 24, 26\nAverage = (18 + 26) ÷ 2 = 22",
+      "commonMistake": "Using this on numbers that are not evenly spaced.",
+      "applicationPrompt": "You need the average of five consecutive even numbers. What is the quickest route?",
+      "tags": [
+        "speed",
+        "sequences"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-shift",
+      "topicId": "averages",
+      "conceptId": "avg-meaning",
+      "kind": "shortcut",
+      "title": "Shifting every value",
+      "prompt": "Every value in a set increases by k. What happens to the average?",
+      "formula": "New average = Old average + k",
+      "variables": [],
+      "explanation": "Adding the same amount to every member adds it to the average too. Multiplying every value by k multiplies the average by k.",
+      "example": "Average of a set is 40\nAdd 5 to every value → new average 45",
+      "commonMistake": "Dividing the shift by the number of values — the shift carries over directly.",
+      "applicationPrompt": "Every score in a class is raised by 5 marks. What happens to the class average?",
+      "tags": [
+        "properties"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-sc-deviation",
+      "topicId": "averages",
+      "conceptId": "avg-meaning",
+      "kind": "shortcut",
+      "title": "Average by deviations",
+      "prompt": "How do you average several close numbers without adding them all up?",
+      "formula": "Average = Assumed value + (sum of deviations ÷ n)",
+      "variables": [],
+      "explanation": "Guess a convenient middle value; only the small differences from it need adding.",
+      "example": "48, 52, 55, 45 with assumed value 50: deviations −2, +2, +5, −5 sum to 0, so the average is 50.",
+      "commonMistake": "Dropping the signs of the deviations.",
+      "applicationPrompt": "Find the average of 97, 102, 105, 99 and 107 mentally.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-sc-joiner",
+      "topicId": "averages",
+      "conceptId": "avg-replacement",
+      "kind": "shortcut",
+      "title": "Value of the one who joins",
+      "prompt": "One more member joins a group of n and the average rises by k. What is the newcomer's value?",
+      "formula": "Newcomer = New average + n × k",
+      "variables": [],
+      "explanation": "The newcomer must bring the new average for themselves, plus k extra for each of the n existing members.",
+      "example": "10 people average 40; one joins and the average becomes 41: newcomer = 41 + 10 × 1 = 51.",
+      "commonMistake": "Multiplying the rise by n + 1 and adding it to the old average.",
+      "applicationPrompt": "The average weight of 8 people rises by 2 kg when a ninth joins; the old average was 60 kg.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "avg-sc-first-n",
+      "topicId": "averages",
+      "conceptId": "avg-sequences",
+      "kind": "shortcut",
+      "title": "Averages of the first n numbers",
+      "prompt": "What is the average of the first n natural, even and odd numbers?",
+      "formula": "First n natural numbers: (n + 1) ÷ 2\nFirst n even numbers: n + 1\nFirst n odd numbers: n",
+      "variables": [],
+      "explanation": "Each list is evenly spaced, so its average is (first + last) ÷ 2.",
+      "example": "First 20 odd numbers (1 to 39): average 20. First 20 even numbers (2 to 40): average 21.",
+      "commonMistake": "Using n ÷ 2 for the natural numbers and losing the half.",
+      "applicationPrompt": "Find the average of the first 50 even numbers.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "avg-sc-wrong-entry",
+      "topicId": "averages",
+      "conceptId": "avg-applications",
+      "kind": "shortcut",
+      "title": "Correcting a misread value",
+      "prompt": "One value was copied wrongly when an average of n values was found. What is the correct average?",
+      "formula": "Correct average = Old average + (Correct value − Wrong value) ÷ n",
+      "variables": [],
+      "explanation": "The total is off by exactly the error, and that error is shared among all n values.",
+      "example": "20 values average 50, but a 65 was read as 45: 50 + 20 ÷ 20 = 51.",
+      "commonMistake": "Adding the whole error to the average without dividing by n.",
+      "applicationPrompt": "The mean of 25 marks was 60, but one mark of 84 had been entered as 48.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "averages-level-0",
+      "topicId": "averages",
+      "order": 0,
+      "title": "Averages as Shared Totals",
+      "description": "One idea unlocks the topic: every average is a total waiting to be recovered.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "avg-meaning",
+        "avg-total"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "An average is a fair share",
+            "body": "If five people have ₹90 between them, the average is ₹18 — the amount each would hold if the money were shared equally. The average does not say anyone actually has ₹18."
+          },
+          {
+            "type": "formula",
+            "title": "Both directions matter",
+            "body": "Average = Sum ÷ n        Sum = Average × n",
+            "caption": "The second form is the one that solves exam questions."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "mean-median-mode"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Rule of thumb: the moment a question mentions an average, convert it into a total. Totals can be added, subtracted and compared; averages cannot."
+          },
+          {
+            "type": "check",
+            "questionId": "averages-q-003"
+          },
+          {
+            "type": "example",
+            "title": "Why totals win",
+            "body": "Average of 10 numbers is 25 → total = 250\nRemove the number 34 → total = 216, count = 9\nNew average = 216 ÷ 9 = 24\n\nTrying to do that in 'average language' alone is guesswork."
+          },
+          {
+            "type": "text",
+            "title": "Averages sit between the extremes",
+            "body": "An average is always between the smallest and largest value. If your answer falls outside that range, it is wrong — a two-second check worth doing every time."
+          },
+          {
+            "type": "check",
+            "questionId": "averages-q-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "averages-level-1",
+      "topicId": "averages",
+      "order": 1,
+      "title": "Average Formulas",
+      "description": "Six relationships, including the two shortcuts worth memorising.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "averages-level-0"
+      ],
+      "conceptIds": [
+        "avg-total",
+        "avg-combined",
+        "avg-replacement"
+      ],
+      "formulaIds": [
+        "avg-basic",
+        "avg-sum",
+        "avg-combined-formula",
+        "avg-replacement-formula",
+        "avg-consecutive",
+        "avg-shift"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 4
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "averages-level-2",
+      "topicId": "averages",
+      "order": 2,
+      "title": "Identify the Pattern",
+      "description": "Decide whether a question is a total, a combination or a replacement.",
+      "type": "method_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "averages-level-1"
+      ],
+      "conceptIds": [
+        "avg-replacement",
+        "avg-combined"
+      ],
+      "questionIds": [
+        "averages-q-010",
+        "averages-q-011",
+        "averages-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "averages-level-3",
+      "topicId": "averages",
+      "order": 3,
+      "title": "Direct Average Questions",
+      "description": "Finding averages and totals in a single step.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "averages-level-2"
+      ],
+      "conceptIds": [
+        "avg-meaning",
+        "avg-total",
+        "avg-sequences"
+      ],
+      "questionIds": [
+        "averages-q-001",
+        "averages-q-002",
+        "averages-q-003",
+        "averages-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "averages-level-4",
+      "topicId": "averages",
+      "order": 4,
+      "title": "Joining, Leaving, Replacing",
+      "description": "Group changes and combined averages.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "averages-level-3"
+      ],
+      "conceptIds": [
+        "avg-replacement",
+        "avg-combined",
+        "avg-sequences"
+      ],
+      "questionIds": [
+        "averages-q-020",
+        "averages-q-021",
+        "averages-q-022",
+        "averages-q-023"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "averages-level-5",
+      "topicId": "averages",
+      "order": 5,
+      "title": "Overlapping Groups",
+      "description": "The classic hard patterns: shared members, innings averages and hidden totals.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "averages-level-4"
+      ],
+      "conceptIds": [
+        "avg-applications"
+      ],
+      "questionIds": [
+        "averages-q-030",
+        "averages-q-031",
+        "averages-q-032"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "averages-level-6",
+      "topicId": "averages",
+      "order": 6,
+      "title": "Mixed Average Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "averages-level-5"
+      ],
+      "questionQuery": {
+        "topicId": "averages",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 55
+    }
+  ],
+  "questions": [
+    {
+      "id": "averages-q-001",
+      "topicId": "averages",
+      "conceptId": "avg-meaning",
+      "levelId": "averages-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "What is the average of 12, 18, 24 and 30?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18"
+        },
+        {
+          "id": "b",
+          "text": "21"
+        },
+        {
+          "id": "c",
+          "text": "22"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Sum = 84 and there are 4 values, so the average is 84 ÷ 4 = 21.",
+      "solutionSteps": [
+        "Add: 12 + 18 + 24 + 30 = 84.",
+        "Divide by 4.",
+        "Average = 21."
+      ],
+      "formulaIds": [
+        "avg-basic",
+        "avg-consecutive"
+      ],
+      "method": "Sum ÷ count — or note the values are evenly spaced and take (12 + 30) ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add all four values first."
+        },
+        {
+          "level": 2,
+          "text": "These numbers are evenly spaced, so (first + last) ÷ 2 also works."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 3 instead of 4."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-002",
+      "topicId": "averages",
+      "conceptId": "avg-sequences",
+      "levelId": "averages-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the average of the first 10 natural numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "5.5"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "55"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1 to 10 sums to 55, and 55 ÷ 10 = 5.5. Or use (1 + 10) ÷ 2 = 5.5 since the numbers are evenly spaced.",
+      "solutionSteps": [
+        "Sum of 1 to 10 = 55.",
+        "Divide by 10.",
+        "Average = 5.5."
+      ],
+      "formulaIds": [
+        "avg-consecutive"
+      ],
+      "method": "(First + Last) ÷ 2 for evenly spaced numbers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Consecutive numbers are evenly spaced."
+        },
+        {
+          "level": 2,
+          "text": "(1 + 10) ÷ 2."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 55, the sum rather than the average."
+      ],
+      "tags": [
+        "sequences"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-003",
+      "topicId": "averages",
+      "conceptId": "avg-total",
+      "levelId": "averages-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "numerical_input",
+      "question": "The average of 5 numbers is 18. What is their sum?",
+      "answer": {
+        "value": 90,
+        "tolerance": 0
+      },
+      "explanation": "Sum = Average × count = 18 × 5 = 90.",
+      "solutionSteps": [
+        "Sum = Average × number of values.",
+        "18 × 5 = 90."
+      ],
+      "formulaIds": [
+        "avg-sum"
+      ],
+      "method": "Convert the average into a total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Reverse the averaging: multiply instead of divide."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 18 by 5."
+      ],
+      "tags": [
+        "core",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-004",
+      "topicId": "averages",
+      "conceptId": "avg-total",
+      "levelId": "averages-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The average of 4 numbers is 25. If one of the numbers is 40, what is the average of the other three?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "22.5"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Total = 100. Removing 40 leaves 60 across three numbers, so their average is 20.",
+      "solutionSteps": [
+        "Total of all four = 25 × 4 = 100.",
+        "Remaining total = 100 − 40 = 60.",
+        "Average of the other three = 60 ÷ 3 = 20."
+      ],
+      "formulaIds": [
+        "avg-sum",
+        "avg-basic"
+      ],
+      "method": "Total, subtract, re-average.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start by finding the total of all four numbers."
+        },
+        {
+          "level": 2,
+          "text": "Subtract 40, then divide by 3."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 40 from the average rather than from the total."
+      ],
+      "tags": [
+        "core"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-010",
+      "topicId": "averages",
+      "conceptId": "avg-total",
+      "levelId": "averages-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The average of 8 numbers is 21. A ninth number, 30, is added. Which expression gives the new average?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(8 × 21 + 30) ÷ 9"
+        },
+        {
+          "id": "b",
+          "text": "(21 + 30) ÷ 2"
+        },
+        {
+          "id": "c",
+          "text": "(8 × 21 + 30) ÷ 8"
+        },
+        {
+          "id": "d",
+          "text": "21 + 30 ÷ 9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Rebuild the total (8 × 21 = 168), add the new value, then divide by the new count of 9. The answer is 198 ÷ 9 = 22.",
+      "solutionSteps": [
+        "Old total = 8 × 21 = 168.",
+        "New total = 168 + 30 = 198.",
+        "New average = 198 ÷ 9 = 22."
+      ],
+      "formulaIds": [
+        "avg-sum",
+        "avg-basic"
+      ],
+      "method": "Total, add, divide by the new count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot average an average with a single value."
+        },
+        {
+          "level": 2,
+          "text": "Rebuild the total first, then divide by 9."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 21 and 30 to get 25.5."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-011",
+      "topicId": "averages",
+      "conceptId": "avg-replacement",
+      "levelId": "averages-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "method_recognition",
+      "question": "The average weight of 8 people rises by 1.5 kg when one member is replaced. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The group's total weight rose by 8 × 1.5 = 12 kg"
+        },
+        {
+          "id": "b",
+          "text": "The new member weighs 1.5 kg more than the old one"
+        },
+        {
+          "id": "c",
+          "text": "The total weight rose by 1.5 kg"
+        },
+        {
+          "id": "d",
+          "text": "Everyone gained 1.5 kg"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The count is unchanged, so a 1.5 kg rise in the average means the total rose by 8 × 1.5 = 12 kg — and that entire gain is the difference between the two individuals.",
+      "solutionSteps": [
+        "Replacement keeps the number of people at 8.",
+        "Change in total = number × change in average = 8 × 1.5 = 12 kg.",
+        "So the new member is 12 kg heavier than the one who left."
+      ],
+      "formulaIds": [
+        "avg-replacement-formula"
+      ],
+      "method": "Change in total = n × change in average.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every one of the 8 'slots' went up by 1.5 kg on paper."
+        },
+        {
+          "level": 2,
+          "text": "Multiply the change in average by the group size."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the difference between the two people is just 1.5 kg."
+      ],
+      "tags": [
+        "method",
+        "replacement"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-012",
+      "topicId": "averages",
+      "conceptId": "avg-meaning",
+      "levelId": "averages-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "If every number in a set is increased by 5, the average also increases by 5.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "With n values, the total rises by 5n, so the average rises by 5n ÷ n = 5.",
+      "solutionSteps": [
+        "Each of the n values gains 5, so the total gains 5n.",
+        "New average = (old total + 5n) ÷ n.",
+        "= old average + 5."
+      ],
+      "formulaIds": [
+        "avg-shift"
+      ],
+      "method": "Track the change in total, then divide by n.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much does the TOTAL change by?"
+        },
+        {
+          "level": 2,
+          "text": "Try it with 10, 20, 30 — average 20 becomes 25."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the shift must be divided by the number of values."
+      ],
+      "tags": [
+        "true-false",
+        "properties"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-020",
+      "topicId": "averages",
+      "conceptId": "avg-total",
+      "levelId": "averages-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The average of 10 numbers is 25. If the number 34 is removed, what is the average of the remaining numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "23"
+        },
+        {
+          "id": "b",
+          "text": "24"
+        },
+        {
+          "id": "c",
+          "text": "24.5"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Total = 250. After removing 34, the total is 216 across 9 numbers, giving 24.",
+      "solutionSteps": [
+        "Total = 25 × 10 = 250.",
+        "Remaining total = 250 − 34 = 216.",
+        "New average = 216 ÷ 9 = 24."
+      ],
+      "formulaIds": [
+        "avg-sum"
+      ],
+      "method": "Total, subtract, re-divide by the new count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert the average into a total first."
+        },
+        {
+          "level": 2,
+          "text": "Remember the count drops to 9."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 10 after removing a number."
+      ],
+      "tags": [
+        "core"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-021",
+      "topicId": "averages",
+      "conceptId": "avg-replacement",
+      "levelId": "averages-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The average weight of 8 people increases by 2.5 kg when a new person replaces one weighing 65 kg. What is the new person's weight?",
+      "options": [
+        {
+          "id": "a",
+          "text": "67.5 kg"
+        },
+        {
+          "id": "b",
+          "text": "75 kg"
+        },
+        {
+          "id": "c",
+          "text": "85 kg"
+        },
+        {
+          "id": "d",
+          "text": "90 kg"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The total rises by 8 × 2.5 = 20 kg, so the new person weighs 65 + 20 = 85 kg.",
+      "solutionSteps": [
+        "Change in total = 8 × 2.5 = 20 kg.",
+        "That entire increase is the difference between the two people.",
+        "New weight = 65 + 20 = 85 kg."
+      ],
+      "formulaIds": [
+        "avg-replacement-formula"
+      ],
+      "method": "Change in total = n × change in average.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The group size does not change, so only one weight differs."
+        },
+        {
+          "level": 2,
+          "text": "Total change = 8 × 2.5."
+        },
+        {
+          "level": 3,
+          "text": "Add that change to 65."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 67.5 by adding only the change in average."
+      ],
+      "tags": [
+        "replacement"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-022",
+      "topicId": "averages",
+      "conceptId": "avg-combined",
+      "levelId": "averages-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A class of 20 students averages 60 marks and another class of 30 students averages 70 marks. What is the average of all 50 students?",
+      "options": [
+        {
+          "id": "a",
+          "text": "64"
+        },
+        {
+          "id": "b",
+          "text": "65"
+        },
+        {
+          "id": "c",
+          "text": "66"
+        },
+        {
+          "id": "d",
+          "text": "68"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "(20 × 60 + 30 × 70) ÷ 50 = (1200 + 2100) ÷ 50 = 66. The larger class pulls the average above the midpoint of 65.",
+      "solutionSteps": [
+        "First class total = 20 × 60 = 1,200.",
+        "Second class total = 30 × 70 = 2,100.",
+        "Combined average = 3,300 ÷ 50 = 66."
+      ],
+      "formulaIds": [
+        "avg-combined-formula"
+      ],
+      "method": "Weighted average: totals first, then divide by the combined count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The two classes are different sizes, so the plain midpoint is wrong."
+        },
+        {
+          "level": 2,
+          "text": "Add the two totals, then divide by 50."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 60 and 70 to get 65."
+      ],
+      "tags": [
+        "combined",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-023",
+      "topicId": "averages",
+      "conceptId": "avg-sequences",
+      "levelId": "averages-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The average of 5 consecutive even numbers is 22. What is the largest of them?",
+      "answer": {
+        "value": 26,
+        "tolerance": 0
+      },
+      "explanation": "For evenly spaced numbers the average is the middle value, so the numbers are 18, 20, 22, 24, 26 and the largest is 26.",
+      "solutionSteps": [
+        "With an odd count of evenly spaced numbers, the average is the middle one: 22.",
+        "Step out by 2 either side: 18, 20, 22, 24, 26.",
+        "Largest = 26."
+      ],
+      "formulaIds": [
+        "avg-consecutive"
+      ],
+      "method": "Middle value = average for evenly spaced sets.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which of the five numbers must equal the average?"
+        },
+        {
+          "level": 2,
+          "text": "The middle number is 22 — build outwards in steps of 2."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 22 as the first number."
+      ],
+      "tags": [
+        "sequences",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-030",
+      "topicId": "averages",
+      "conceptId": "avg-applications",
+      "levelId": "averages-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The average of 11 results is 50. The average of the first six is 49 and the average of the last six is 52. What is the sixth result?",
+      "options": [
+        {
+          "id": "a",
+          "text": "48"
+        },
+        {
+          "id": "b",
+          "text": "52"
+        },
+        {
+          "id": "c",
+          "text": "56"
+        },
+        {
+          "id": "d",
+          "text": "60"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The sixth result is counted in both groups of six, so it equals (6 × 49) + (6 × 52) − (11 × 50) = 294 + 312 − 550 = 56.",
+      "solutionSteps": [
+        "Total of all 11 = 11 × 50 = 550.",
+        "First six total = 294; last six total = 312; their sum is 606.",
+        "606 counts the sixth result twice, so the sixth result = 606 − 550 = 56."
+      ],
+      "formulaIds": [
+        "avg-sum"
+      ],
+      "method": "When two groups overlap, the overlap equals the sum of group totals minus the overall total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Six plus six is twelve, but there are only eleven results."
+        },
+        {
+          "level": 2,
+          "text": "One result is included in both groups."
+        },
+        {
+          "level": 3,
+          "text": "Overlap = (sum of the two group totals) − (overall total)."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 49 and 52 to get 50.5."
+      ],
+      "tags": [
+        "overlap",
+        "complex"
+      ],
+      "estimatedSeconds": 105,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-031",
+      "topicId": "averages",
+      "conceptId": "avg-applications",
+      "levelId": "averages-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A batsman scores 80 runs in his 17th innings, which raises his average by 3. What is his average after the 17th innings?",
+      "options": [
+        {
+          "id": "a",
+          "text": "29"
+        },
+        {
+          "id": "b",
+          "text": "32"
+        },
+        {
+          "id": "c",
+          "text": "35"
+        },
+        {
+          "id": "d",
+          "text": "38"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Let the new average be x. Then 17x = 16(x − 3) + 80, giving x = 32.",
+      "solutionSteps": [
+        "Let the average after 17 innings be x, so the average after 16 was x − 3.",
+        "Total after 17 = 17x and also 16(x − 3) + 80.",
+        "17x = 16x − 48 + 80 → x = 32.",
+        "Check: after 16 innings the average was 29 (total 464); 464 + 80 = 544 = 17 × 32 ✓"
+      ],
+      "formulaIds": [
+        "avg-sum"
+      ],
+      "method": "Write the same total two ways and equate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Name the new average x and write the old one in terms of it."
+        },
+        {
+          "level": 2,
+          "text": "Express the total after 17 innings in two different ways."
+        },
+        {
+          "level": 3,
+          "text": "17x = 16(x − 3) + 80."
+        }
+      ],
+      "commonMistakes": [
+        "Solving for the old average and reporting that instead."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "averages-q-032",
+      "topicId": "averages",
+      "conceptId": "avg-applications",
+      "levelId": "averages-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The average of 6 numbers is 30. The average of the first four is 25 and the average of the last three is 35. What is the fourth number?",
+      "answer": {
+        "value": 25,
+        "tolerance": 0
+      },
+      "explanation": "Total = 180. First four total 100 and last three total 105, summing to 205. The fourth number is counted twice, so it is 205 − 180 = 25.",
+      "solutionSteps": [
+        "Overall total = 6 × 30 = 180.",
+        "First four total = 4 × 25 = 100; last three total = 3 × 35 = 105.",
+        "100 + 105 = 205 counts the fourth number twice.",
+        "Fourth number = 205 − 180 = 25."
+      ],
+      "formulaIds": [
+        "avg-sum"
+      ],
+      "method": "Overlap = sum of group totals − overall total.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Four plus three is seven, but there are only six numbers."
+        },
+        {
+          "level": 2,
+          "text": "Which position belongs to both groups?"
+        },
+        {
+          "level": 3,
+          "text": "Overlap = 205 − 180."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the fourth number equals the overall average."
+      ],
+      "tags": [
+        "overlap",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 105,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

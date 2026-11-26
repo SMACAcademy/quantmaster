@@ -1,0 +1,1608 @@
+{
+  "topicId": "polygons",
+  "concepts": [
+    {
+      "id": "poly-interiorsum",
+      "topicId": "polygons",
+      "name": "Interior angle sum",
+      "description": "The sum of the interior angles of an n-sided polygon is (n − 2) × 180°.",
+      "sortOrder": 1
+    },
+    {
+      "id": "poly-exteriorsum",
+      "topicId": "polygons",
+      "name": "Exterior angle sum",
+      "description": "The exterior angles of any convex polygon, one at each vertex, always add up to 360° — no matter how many sides it has.",
+      "sortOrder": 2
+    },
+    {
+      "id": "poly-regular",
+      "topicId": "polygons",
+      "name": "Regular polygons",
+      "description": "A regular polygon has all sides equal and all interior angles equal.",
+      "sortOrder": 3
+    },
+    {
+      "id": "poly-diagonals",
+      "topicId": "polygons",
+      "name": "Diagonals of a polygon",
+      "description": "A diagonal connects two non-adjacent vertices; an n-sided polygon has n(n − 3)/2 diagonals in total.",
+      "sortOrder": 4
+    },
+    {
+      "id": "poly-extangle",
+      "topicId": "polygons",
+      "name": "Exterior angle of a regular polygon",
+      "description": "Each exterior angle of a regular n-sided polygon measures 360°/n.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "poly-interiorsum-f",
+      "topicId": "polygons",
+      "conceptId": "poly-interiorsum",
+      "title": "Interior angle sum",
+      "prompt": "What do the interior angles of an n-sided polygon add up to?",
+      "formula": "Sum of interior angles = (n − 2) × 180°",
+      "variables": [],
+      "explanation": "A polygon with n sides can be split into (n − 2) triangles from one vertex, and each triangle contributes 180°.",
+      "example": "A hexagon (n = 6): sum = (6 − 2) × 180 = 720°",
+      "commonMistake": "Forgetting to subtract 2 from n before multiplying by 180°.",
+      "applicationPrompt": "Find the sum of the interior angles of a hexagon.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "poly-regular-f",
+      "topicId": "polygons",
+      "conceptId": "poly-regular",
+      "title": "Interior angle of a regular polygon",
+      "prompt": "How do you find one interior angle of a regular polygon?",
+      "formula": "Each interior angle = (n − 2) × 180° ÷ n",
+      "variables": [],
+      "explanation": "Divide the total interior angle sum equally among all n vertices, since a regular polygon's angles are all equal.",
+      "example": "A regular hexagon: (6 − 2) × 180 ÷ 6 = 720 ÷ 6 = 120°",
+      "commonMistake": "Using the total angle sum as the answer instead of dividing by n.",
+      "applicationPrompt": "Find one interior angle of a regular hexagon.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "poly-diagonals-f",
+      "topicId": "polygons",
+      "conceptId": "poly-diagonals",
+      "title": "Number of diagonals",
+      "prompt": "How many diagonals does an n-sided polygon have?",
+      "formula": "Number of diagonals = n(n − 3) ÷ 2",
+      "variables": [],
+      "explanation": "From each vertex you can draw a diagonal to every vertex except itself and its two neighbours, giving (n − 3) diagonals per vertex; dividing by 2 avoids double-counting.",
+      "example": "A pentagon (n = 5): 5(5 − 3) ÷ 2 = 10 ÷ 2 = 5",
+      "commonMistake": "Forgetting to divide by 2, which double-counts every diagonal.",
+      "applicationPrompt": "Find the number of diagonals in a pentagon.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "poly-extangle-f",
+      "topicId": "polygons",
+      "conceptId": "poly-extangle",
+      "title": "Exterior angle of a regular polygon",
+      "prompt": "How do you find one exterior angle of a regular polygon?",
+      "formula": "Each exterior angle = 360° ÷ n",
+      "variables": [],
+      "explanation": "The exterior angles always sum to 360° in total, and a regular polygon splits that total equally among its n vertices.",
+      "example": "A regular pentagon: 360 ÷ 5 = 72°",
+      "commonMistake": "Using the interior angle formula by mistake when the question asks for the exterior angle.",
+      "applicationPrompt": "Find one exterior angle of a regular pentagon.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "poly-sc-sides",
+      "topicId": "polygons",
+      "conceptId": "poly-regular",
+      "kind": "shortcut",
+      "title": "Number of sides from an angle",
+      "prompt": "A regular polygon has interior angles of 150°. How many sides?",
+      "formula": "n = 360 ÷ exterior angle\n= 360 ÷ (180 − interior angle)",
+      "variables": [],
+      "explanation": "The exterior angles of any polygon add to 360°, and in a regular one they are equal.",
+      "example": "Interior 150°: exterior 30°, so n = 12.",
+      "commonMistake": "Dividing 360 by the interior angle.",
+      "applicationPrompt": "Each interior angle is 4 times each exterior angle. How many sides?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "polygons-level-0",
+      "topicId": "polygons",
+      "order": 0,
+      "title": "Interior and Exterior Angle Sums",
+      "description": "Interior angles sum to (n − 2) × 180°; exterior angles always sum to 360°.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "poly-interiorsum",
+        "poly-exteriorsum"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Splitting a polygon into triangles",
+            "body": "Any n-sided polygon can be split into (n − 2) triangles by drawing diagonals from one vertex, and each triangle contributes 180° to the total interior angle sum."
+          },
+          {
+            "type": "formula",
+            "title": "Interior angle sum",
+            "body": "(n − 2) × 180°",
+            "caption": "A triangle (n = 3) gives (3 − 2) × 180 = 180°, matching the familiar triangle angle sum."
+          },
+          {
+            "type": "check",
+            "questionId": "polygons-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Unlike the interior angle sum, the exterior angle sum never changes — it is always 360°, for a triangle or a 20-sided polygon alike."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "polygon-angles"
+          },
+          {
+            "type": "check",
+            "questionId": "polygons-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "polygons-level-1",
+      "topicId": "polygons",
+      "order": 1,
+      "title": "Polygons Formulas",
+      "description": "Interior angle sum, the regular-polygon interior angle, the diagonal count, and the regular-polygon exterior angle.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "polygons-level-0"
+      ],
+      "conceptIds": [
+        "poly-interiorsum",
+        "poly-regular",
+        "poly-diagonals",
+        "poly-extangle"
+      ],
+      "formulaIds": [
+        "poly-interiorsum-f",
+        "poly-regular-f",
+        "poly-diagonals-f",
+        "poly-extangle-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "polygons-level-2",
+      "topicId": "polygons",
+      "order": 2,
+      "title": "Direct Polygon Facts",
+      "description": "Interior angle sum, the exterior angle sum, and counting diagonals.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "polygons-level-1"
+      ],
+      "conceptIds": [
+        "poly-interiorsum",
+        "poly-exteriorsum",
+        "poly-diagonals"
+      ],
+      "questionIds": [
+        "polygons-q-001",
+        "polygons-q-002",
+        "polygons-q-003",
+        "polygons-q-010",
+        "polygons-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "polygons-level-3",
+      "topicId": "polygons",
+      "order": 3,
+      "title": "Regular Polygon Angles and Diagonals",
+      "description": "Interior and exterior angles of regular polygons, and diagonals from a single vertex.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "polygons-level-2"
+      ],
+      "conceptIds": [
+        "poly-regular",
+        "poly-extangle",
+        "poly-interiorsum",
+        "poly-diagonals"
+      ],
+      "questionIds": [
+        "polygons-q-004",
+        "polygons-q-005",
+        "polygons-q-006",
+        "polygons-q-007",
+        "polygons-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "polygons-level-4",
+      "topicId": "polygons",
+      "order": 4,
+      "title": "Working Backwards from an Angle",
+      "description": "Finding the number of sides from a given interior or exterior angle.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "polygons-level-3"
+      ],
+      "conceptIds": [
+        "poly-regular",
+        "poly-extangle",
+        "poly-diagonals"
+      ],
+      "questionIds": [
+        "polygons-q-008",
+        "polygons-q-009",
+        "polygons-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "polygons-level-5",
+      "topicId": "polygons",
+      "order": 5,
+      "title": "Mixed Polygons Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "polygons-level-4"
+      ],
+      "conceptIds": [
+        "poly-regular",
+        "poly-extangle"
+      ],
+      "questionQuery": {
+        "topicId": "polygons",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "polygons-q-001",
+      "topicId": "polygons",
+      "conceptId": "poly-interiorsum",
+      "levelId": "polygons-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the sum of the interior angles of a hexagon (6-sided polygon)?",
+      "context": "Study the hexagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Regular hexagon ABCDEF",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.3,
+            "y": 2.5,
+            "labelOffset": [
+              12,
+              -7
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.3,
+            "y": -2.5,
+            "labelOffset": [
+              12,
+              7
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "id": "E",
+            "x": -4.3,
+            "y": -2.5,
+            "labelOffset": [
+              -12,
+              7
+            ]
+          },
+          {
+            "id": "F",
+            "x": -4.3,
+            "y": 2.5,
+            "labelOffset": [
+              -12,
+              -7
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          }
+        ],
+        "ariaSummary": "A regular 6-sided polygon, labeled ABCDEF."
+      },
+      "answer": {
+        "value": 720,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Sum = (n − 2) × 180° = (6 − 2) × 180 = 720°.",
+      "solutionSteps": [
+        "6 − 2 = 4.",
+        "4 × 180 = 720."
+      ],
+      "formulaIds": [
+        "poly-interiorsum-f"
+      ],
+      "method": "Subtract 2 from the number of sides, then multiply by 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A hexagon can be split into 4 triangles from one vertex."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying n by 180° without first subtracting 2."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-002",
+      "topicId": "polygons",
+      "conceptId": "poly-exteriorsum",
+      "levelId": "polygons-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The exterior angles of any convex polygon, taken one at each vertex, always add up to",
+      "options": [
+        {
+          "id": "a",
+          "text": "360°"
+        },
+        {
+          "id": "b",
+          "text": "180°"
+        },
+        {
+          "id": "c",
+          "text": "720°"
+        },
+        {
+          "id": "d",
+          "text": "it depends on the number of sides"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "No matter how many sides a convex polygon has, its exterior angles always sum to exactly 360° — one full turn around the shape.",
+      "solutionSteps": [
+        "Exterior angle sum is always 360°, for any convex polygon."
+      ],
+      "formulaIds": [],
+      "method": "Recall that walking around any convex polygon completes one full 360° turn.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is true for a triangle, a hexagon, or a 20-sided polygon alike."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the total grows with more sides, like the interior angle sum does."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-003",
+      "topicId": "polygons",
+      "conceptId": "poly-diagonals",
+      "levelId": "polygons-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many diagonals does a pentagon (5-sided polygon) have in total? (A diagonal connects two non-adjacent vertices.)",
+      "context": "Study the pentagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Pentagon ABCDE",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.8,
+            "y": 1.5,
+            "labelOffset": [
+              13,
+              -4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 2.9,
+            "y": -4,
+            "labelOffset": [
+              8,
+              11
+            ]
+          },
+          {
+            "id": "D",
+            "x": -2.9,
+            "y": -4,
+            "labelOffset": [
+              -8,
+              11
+            ]
+          },
+          {
+            "id": "E",
+            "x": -4.8,
+            "y": 1.5,
+            "labelOffset": [
+              -13,
+              -4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          }
+        ],
+        "ariaSummary": "A regular 5-sided polygon, labeled ABCDE."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Number of diagonals = n(n − 3) ÷ 2 = 5(5 − 3) ÷ 2 = 10 ÷ 2 = 5.",
+      "solutionSteps": [
+        "5 × (5 − 3) = 10.",
+        "10 ÷ 2 = 5."
+      ],
+      "formulaIds": [
+        "poly-diagonals-f"
+      ],
+      "method": "Apply the diagonal-count formula directly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each vertex connects to 2 non-adjacent vertices in a pentagon."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by 2, which double-counts each diagonal."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-004",
+      "topicId": "polygons",
+      "conceptId": "poly-regular",
+      "levelId": "polygons-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Each interior angle of a regular hexagon measures",
+      "context": "Study the regular hexagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Regular hexagon ABCDEF",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.3,
+            "y": 2.5,
+            "labelOffset": [
+              12,
+              -7
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.3,
+            "y": -2.5,
+            "labelOffset": [
+              12,
+              7
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "id": "E",
+            "x": -4.3,
+            "y": -2.5,
+            "labelOffset": [
+              -12,
+              7
+            ]
+          },
+          {
+            "id": "F",
+            "x": -4.3,
+            "y": 2.5,
+            "labelOffset": [
+              -12,
+              -7
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          }
+        ],
+        "ariaSummary": "A regular 6-sided polygon, labeled ABCDEF."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Interior angle = (n − 2) × 180 ÷ n = (6 − 2) × 180 ÷ 6 = 720 ÷ 6 = 120°.",
+      "solutionSteps": [
+        "(6 − 2) × 180 = 720.",
+        "720 ÷ 6 = 120."
+      ],
+      "formulaIds": [
+        "poly-regular-f"
+      ],
+      "method": "Find the total interior angle sum first, then divide by the number of vertices.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A regular hexagon's interior angle sum is 720°, split equally among 6 vertices."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at the total sum (720°) instead of dividing by n."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-005",
+      "topicId": "polygons",
+      "conceptId": "poly-extangle",
+      "levelId": "polygons-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "ABCDE is a regular pentagon with side EA extended to F. What is the measure of the exterior angle FAB?",
+      "context": "ABCDE is a regular pentagon with side EA extended to F.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Regular 5-gon with side EA extended to F",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.8,
+            "y": 1.5,
+            "labelOffset": [
+              13,
+              -4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 2.9,
+            "y": -4,
+            "labelOffset": [
+              8,
+              11
+            ]
+          },
+          {
+            "id": "D",
+            "x": -2.9,
+            "y": -4,
+            "labelOffset": [
+              -8,
+              11
+            ]
+          },
+          {
+            "id": "E",
+            "x": -4.8,
+            "y": 1.5,
+            "labelOffset": [
+              -13,
+              -4
+            ]
+          },
+          {
+            "id": "F",
+            "x": 2.9,
+            "y": 7.1,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "F",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "F",
+            "to": "B",
+            "label": "?",
+            "radius": 18
+          }
+        ],
+        "ariaSummary": "A regular 5-sided polygon with one side extended beyond vertex A; the exterior angle there is marked ?."
+      },
+      "answer": {
+        "value": 72,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Each exterior angle of a regular pentagon = 360 ÷ 5 = 72°.",
+      "solutionSteps": [
+        "360 ÷ 5 = 72."
+      ],
+      "formulaIds": [
+        "poly-extangle-f"
+      ],
+      "method": "Divide 360° by the number of sides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exterior angles of any convex polygon sum to 360°."
+        }
+      ],
+      "commonMistakes": [
+        "Using the interior angle formula instead of the exterior one."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-006",
+      "topicId": "polygons",
+      "conceptId": "poly-interiorsum",
+      "levelId": "polygons-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the sum of the interior angles of an octagon (8-sided polygon)?",
+      "context": "Study the octagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Octagon ABCDEFGH",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3.5,
+            "y": 3.5,
+            "labelOffset": [
+              10,
+              -10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              14,
+              0
+            ]
+          },
+          {
+            "id": "D",
+            "x": 3.5,
+            "y": -3.5,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "E",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "id": "F",
+            "x": -3.5,
+            "y": -3.5,
+            "labelOffset": [
+              -10,
+              10
+            ]
+          },
+          {
+            "id": "G",
+            "x": -5,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              0
+            ]
+          },
+          {
+            "id": "H",
+            "x": -3.5,
+            "y": 3.5,
+            "labelOffset": [
+              -10,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H"
+            ]
+          }
+        ],
+        "ariaSummary": "A regular 8-sided polygon, labeled ABCDEFGH."
+      },
+      "answer": {
+        "value": 1080,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "Sum = (n − 2) × 180° = (8 − 2) × 180 = 1080°.",
+      "solutionSteps": [
+        "8 − 2 = 6.",
+        "6 × 180 = 1080."
+      ],
+      "formulaIds": [
+        "poly-interiorsum-f"
+      ],
+      "method": "Subtract 2 from the number of sides, then multiply by 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "An octagon can be split into 6 triangles from one vertex."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong number of triangles for an 8-sided shape."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-007",
+      "topicId": "polygons",
+      "conceptId": "poly-diagonals",
+      "levelId": "polygons-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In a hexagon, how many diagonals can be drawn from a single vertex?",
+      "context": "Study the hexagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Diagonals from one vertex of a hexagon",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4.3,
+            "y": 2.5,
+            "labelOffset": [
+              12,
+              -7
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.3,
+            "y": -2.5,
+            "labelOffset": [
+              12,
+              7
+            ]
+          },
+          {
+            "id": "D",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "id": "E",
+            "x": -4.3,
+            "y": -2.5,
+            "labelOffset": [
+              -12,
+              7
+            ]
+          },
+          {
+            "id": "F",
+            "x": -4.3,
+            "y": 2.5,
+            "labelOffset": [
+              -12,
+              -7
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "D",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "E",
+            "style": "dashed"
+          }
+        ],
+        "ariaSummary": "A regular 6-sided polygon with the diagonals from vertex A drawn as dashed lines, connecting it to every non-adjacent vertex."
+      },
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "From any vertex, diagonals go to every vertex except itself and its two neighbours: n − 3 = 6 − 3 = 3.",
+      "solutionSteps": [
+        "6 − 3 = 3."
+      ],
+      "formulaIds": [
+        "poly-diagonals-f"
+      ],
+      "method": "Subtract the vertex itself and its two neighbours from the total number of vertices.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A vertex cannot form a diagonal with itself or either of its two adjacent vertices."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to exclude the two adjacent vertices."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-008",
+      "topicId": "polygons",
+      "conceptId": "poly-regular",
+      "levelId": "polygons-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A regular polygon has each interior angle equal to 150°. How many sides does it have?",
+      "context": "Study the 12-sided polygon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "A regular polygon with each interior angle 150°",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              0,
+              -14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 2.5,
+            "y": 4.3,
+            "labelOffset": [
+              7,
+              -12
+            ]
+          },
+          {
+            "id": "C",
+            "x": 4.3,
+            "y": 2.5,
+            "labelOffset": [
+              12,
+              -7
+            ]
+          },
+          {
+            "id": "D",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              14,
+              0
+            ]
+          },
+          {
+            "id": "E",
+            "x": 4.3,
+            "y": -2.5,
+            "labelOffset": [
+              12,
+              7
+            ]
+          },
+          {
+            "id": "F",
+            "x": 2.5,
+            "y": -4.3,
+            "labelOffset": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "G",
+            "x": 0,
+            "y": -5,
+            "labelOffset": [
+              0,
+              14
+            ]
+          },
+          {
+            "id": "H",
+            "x": -2.5,
+            "y": -4.3,
+            "labelOffset": [
+              -7,
+              12
+            ]
+          },
+          {
+            "id": "I",
+            "x": -4.3,
+            "y": -2.5,
+            "labelOffset": [
+              -12,
+              7
+            ]
+          },
+          {
+            "id": "J",
+            "x": -5,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              0
+            ]
+          },
+          {
+            "id": "K",
+            "x": -4.3,
+            "y": 2.5,
+            "labelOffset": [
+              -12,
+              -7
+            ]
+          },
+          {
+            "id": "L",
+            "x": -2.5,
+            "y": 4.3,
+            "labelOffset": [
+              -7,
+              -12
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H",
+              "I",
+              "J",
+              "K",
+              "L"
+            ]
+          }
+        ],
+        "ariaSummary": "A regular 12-sided polygon, labeled ABCDEFGHIJKL."
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "Set up (n − 2) × 180 ÷ n = 150. Then 180n − 360 = 150n, so 30n = 360, giving n = 12.",
+      "solutionSteps": [
+        "(n − 2) × 180 ÷ n = 150.",
+        "180n − 360 = 150n.",
+        "30n = 360 → n = 12."
+      ],
+      "formulaIds": [
+        "poly-regular-f"
+      ],
+      "method": "Set the interior angle formula equal to 150° and solve for n.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply both sides by n to clear the fraction before solving."
+        }
+      ],
+      "commonMistakes": [
+        "Solving for n incorrectly by dividing 150 into 180 directly."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-009",
+      "topicId": "polygons",
+      "conceptId": "poly-extangle",
+      "levelId": "polygons-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Each exterior angle of a regular polygon measures 24°. How many sides does the polygon have?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "Since exterior angle = 360 ÷ n, we get n = 360 ÷ 24 = 15.",
+      "solutionSteps": [
+        "n = 360 ÷ 24.",
+        "360 ÷ 24 = 15."
+      ],
+      "formulaIds": [
+        "poly-extangle-f"
+      ],
+      "method": "Divide 360° by the given exterior angle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exterior angles of any convex polygon always sum to 360°."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 24 into 180 instead of 360."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-010",
+      "topicId": "polygons",
+      "conceptId": "poly-exteriorsum",
+      "levelId": "polygons-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The exterior angles of a convex pentagon, one at each vertex, are 60°, 85°, 70°, 65° and x°. Find x.",
+      "answer": {
+        "value": 80,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The exterior angles of any convex polygon add up to 360°. 60 + 85 + 70 + 65 = 280, so x = 360 − 280 = 80.",
+      "solutionSteps": [
+        "Sum of exterior angles = 360°.",
+        "60 + 85 + 70 + 65 = 280.",
+        "x = 360 − 280 = 80."
+      ],
+      "formulaIds": [],
+      "method": "Subtract the known exterior angles from 360°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exterior angles total 360° for every convex polygon, whatever the number of sides."
+        }
+      ],
+      "commonMistakes": [
+        "Using the interior angle sum, 540°, which gives 260°."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-011",
+      "topicId": "polygons",
+      "conceptId": "poly-interiorsum",
+      "levelId": "polygons-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In pentagon ABCDE, angle A = 100°, angle B = 110°, angle C = 120° and angle D = 95°. Find angle E.",
+      "context": "Study the pentagon and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Pentagon ABCDE",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              8,
+              15
+            ]
+          },
+          {
+            "id": "C",
+            "x": 7.71,
+            "y": 4.7,
+            "labelOffset": [
+              14,
+              0
+            ]
+          },
+          {
+            "id": "D",
+            "x": 4.5,
+            "y": 8.53,
+            "labelOffset": [
+              3,
+              -10
+            ]
+          },
+          {
+            "id": "E",
+            "x": -0.84,
+            "y": 4.79,
+            "labelOffset": [
+              -13,
+              0
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "E",
+            "to": "B",
+            "label": "100°",
+            "radius": 16
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "110°",
+            "radius": 16
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "D",
+            "label": "120°",
+            "radius": 16
+          },
+          {
+            "at": "D",
+            "from": "C",
+            "to": "E",
+            "label": "95°",
+            "radius": 16
+          },
+          {
+            "at": "E",
+            "from": "D",
+            "to": "A",
+            "label": "?",
+            "radius": 16
+          }
+        ],
+        "ariaSummary": "Pentagon ABCDE with interior angles marked A: 100°, B: 110°, C: 120°, D: 95°, E: ?."
+      },
+      "answer": {
+        "value": 115,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The interior angles of a pentagon add up to (5 − 2) × 180° = 540°. 100 + 110 + 120 + 95 = 425, so angle E = 540 − 425 = 115°.",
+      "solutionSteps": [
+        "Sum = (5 − 2) × 180° = 540°.",
+        "Known angles: 100 + 110 + 120 + 95 = 425°.",
+        "Angle E = 540° − 425° = 115°."
+      ],
+      "formulaIds": [
+        "poly-interiorsum-f"
+      ],
+      "method": "Find the interior angle sum, then subtract the four known angles.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "First find the interior angle sum of a 5-sided polygon."
+        }
+      ],
+      "commonMistakes": [
+        "Using 360° as the total, which is only right for a quadrilateral."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-012",
+      "topicId": "polygons",
+      "conceptId": "poly-regular",
+      "levelId": "polygons-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which of these cannot be the size of each interior angle of a regular polygon?",
+      "options": [
+        {
+          "id": "a",
+          "text": "150°"
+        },
+        {
+          "id": "b",
+          "text": "140°"
+        },
+        {
+          "id": "c",
+          "text": "130°"
+        },
+        {
+          "id": "d",
+          "text": "135°"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "For a regular polygon, each exterior angle = 180° − interior angle, and the number of sides is 360° ÷ exterior angle, which must be a whole number. 150° → 360 ÷ 30 = 12; 140° → 360 ÷ 40 = 9; 135° → 360 ÷ 45 = 8; 130° → 360 ÷ 50 = 7.2, not a whole number.",
+      "solutionSteps": [
+        "Exterior angle = 180° − interior angle.",
+        "Number of sides n = 360° ÷ exterior angle.",
+        "150° → 12, 140° → 9, 135° → 8 sides.",
+        "130° → 360 ÷ 50 = 7.2, not a whole number."
+      ],
+      "formulaIds": [
+        "poly-sc-sides",
+        "poly-extangle-f"
+      ],
+      "method": "Turn each interior angle into an exterior angle and test whether it divides 360° exactly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A regular polygon's exterior angle must divide 360° a whole number of times."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing 360 by the interior angle instead of the exterior angle."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "polygons-q-013",
+      "topicId": "polygons",
+      "conceptId": "poly-diagonals",
+      "levelId": "polygons-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A polygon has 35 diagonals. How many sides does it have?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "The number of diagonals is n(n − 3) ÷ 2. So n(n − 3) ÷ 2 = 35, n² − 3n − 70 = 0, and (n − 10)(n + 7) = 0. A polygon cannot have a negative number of sides, so n = 10.",
+      "solutionSteps": [
+        "n(n − 3) ÷ 2 = 35.",
+        "n(n − 3) = 70, so n² − 3n − 70 = 0.",
+        "(n − 10)(n + 7) = 0.",
+        "n = 10 (n = −7 is impossible)."
+      ],
+      "formulaIds": [
+        "poly-diagonals-f"
+      ],
+      "method": "Set the diagonal formula equal to the given number and solve the quadratic.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply both sides by 2: n(n − 3) = 70."
+        },
+        {
+          "level": 2,
+          "text": "Look for two whole numbers 3 apart whose product is 70."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by 2, which gives n(n − 3) = 35 with no whole-number answer."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

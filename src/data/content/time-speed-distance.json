@@ -1,0 +1,1447 @@
+{
+  "topicId": "time-speed-distance",
+  "concepts": [
+    {
+      "id": "tsd-relation",
+      "topicId": "time-speed-distance",
+      "name": "The speed relationship",
+      "description": "Distance, speed and time are locked together by one equation.",
+      "sortOrder": 1
+    },
+    {
+      "id": "tsd-units",
+      "topicId": "time-speed-distance",
+      "name": "Unit conversion",
+      "description": "Moving between km/hr and m/s without losing a factor.",
+      "sortOrder": 2
+    },
+    {
+      "id": "tsd-average",
+      "topicId": "time-speed-distance",
+      "name": "Average speed",
+      "description": "Total distance over total time — never the average of the speeds.",
+      "sortOrder": 3
+    },
+    {
+      "id": "tsd-relative",
+      "topicId": "time-speed-distance",
+      "name": "Relative speed",
+      "description": "Speeds add when approaching and subtract when chasing.",
+      "sortOrder": 4
+    },
+    {
+      "id": "tsd-applications",
+      "topicId": "time-speed-distance",
+      "name": "Late and early problems",
+      "description": "Journeys compared at two different speeds.",
+      "sortOrder": 5
+    },
+    {
+      "id": "tsd-adv-circular",
+      "topicId": "time-speed-distance",
+      "name": "Circular tracks",
+      "description": "Runners going opposite ways close the gap at the sum of their speeds; going the same way, at the difference. They are all at the start together after the LCM of their lap times.",
+      "sortOrder": 6
+    },
+    {
+      "id": "tsd-adv-meeting",
+      "topicId": "time-speed-distance",
+      "name": "Meeting points and multi-stage journeys",
+      "description": "Two movers heading towards each other close the gap at the sum of their speeds. For journeys in stages, add up the distances and the times (including stops) before dividing.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "tsd-basic",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relation",
+      "title": "Speed, distance and time",
+      "prompt": "What is the relationship between speed, distance and time?",
+      "formula": "Speed = Distance ÷ Time\nDistance = Speed × Time\nTime = Distance ÷ Speed",
+      "variables": [
+        {
+          "symbol": "Speed",
+          "meaning": "distance covered per unit time"
+        },
+        {
+          "symbol": "Time",
+          "meaning": "duration of travel"
+        }
+      ],
+      "explanation": "One relationship in three arrangements. Keep all three units consistent before substituting.",
+      "example": "120 km in 2 hours\nSpeed = 120 ÷ 2 = 60 km/hr",
+      "commonMistake": "Mixing units — minutes with km/hr, or metres with hours.",
+      "applicationPrompt": "A car covers 120 km in 2 hours. Which formula gives its speed?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tsd-conversion",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-units",
+      "title": "km/hr to m/s",
+      "prompt": "How do you convert between km/hr and m/s?",
+      "formula": "km/hr → m/s : multiply by 5/18\nm/s → km/hr : multiply by 18/5",
+      "variables": [],
+      "explanation": "1 km/hr = 1000 m per 3600 s = 5/18 m/s. Train and short-distance questions almost always need this.",
+      "example": "72 km/hr = 72 × 5/18 = 20 m/s",
+      "commonMistake": "Using 18/5 when converting into m/s, which makes the speed far too large.",
+      "applicationPrompt": "A train travels at 72 km/hr and you need its speed in m/s. What do you multiply by?",
+      "tags": [
+        "units",
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tsd-average-speed",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-average",
+      "title": "Average speed",
+      "prompt": "How do you find average speed over a journey?",
+      "formula": "Average speed = Total distance ÷ Total time\nFor equal distances at x and y: 2xy ÷ (x + y)",
+      "variables": [],
+      "explanation": "More time is spent at the slower speed, so the average always sits below the midpoint of the two speeds.",
+      "example": "40 km/hr out, 60 km/hr back\n= (2 × 40 × 60) ÷ 100\n= 48 km/hr, not 50",
+      "commonMistake": "Averaging the two speeds directly.",
+      "applicationPrompt": "A car goes at 40 km/hr and returns at 60 km/hr. Which formula gives the average speed?",
+      "tags": [
+        "core",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tsd-relative-speed",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relative",
+      "title": "Relative speed",
+      "prompt": "Two objects move. How fast does the gap between them change?",
+      "formula": "Opposite directions: add the speeds\nSame direction: subtract the speeds",
+      "variables": [],
+      "explanation": "Convert a two-object problem into a one-object problem by working with the gap and the relative speed.",
+      "example": "Two trains 100 km apart approach at 60 and 40 km/hr\nRelative speed = 100 km/hr\nThey meet after 100 ÷ 100 = 1 hour",
+      "commonMistake": "Adding speeds for a chase, which should subtract.",
+      "applicationPrompt": "Two cars approach each other at 60 and 40 km/hr. What speed closes the gap?",
+      "tags": [
+        "relative"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tsd-late-early",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-applications",
+      "title": "Late and early journeys",
+      "prompt": "The same journey at two speeds arrives late and early. How do you find the distance?",
+      "formula": "d/s₁ − d/s₂ = total time difference",
+      "variables": [
+        {
+          "symbol": "s₁",
+          "meaning": "the slower speed (arrives late)"
+        },
+        {
+          "symbol": "s₂",
+          "meaning": "the faster speed (arrives early)"
+        }
+      ],
+      "explanation": "The time difference is the late minutes plus the early minutes, converted into hours.",
+      "example": "At 5 km/hr 10 min late, at 6 km/hr 5 min early\nDifference = 15 min = 1/4 hr\nd/5 − d/6 = 1/4 → d = 7.5 km",
+      "commonMistake": "Using only the late time or only the early time as the difference.",
+      "applicationPrompt": "Walking at 5 km/hr you are 10 minutes late; at 6 km/hr you are 5 minutes early. How do you find the distance?",
+      "tags": [
+        "applications"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tsd-adv-circular-f",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-circular",
+      "title": "Meeting on a circular track",
+      "prompt": "When do two runners on a circular track meet?",
+      "formula": "Opposite directions: L ÷ (a + b); same direction: L ÷ (a − b); all at the start again: LCM of the lap times",
+      "variables": [],
+      "explanation": "L is the track length. Meeting means together they have covered one lap more (same direction) or one lap between them (opposite).",
+      "example": "L = 600 m at 5 and 7 m/s: opposite → 600 ÷ 12 = 50 s; same → 600 ÷ 2 = 300 s",
+      "commonMistake": "Using the sum of the speeds when they run the same way.",
+      "applicationPrompt": "Two runners on a 600 m track run at 5 m/s and 7 m/s in opposite directions. When do they first meet?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tsd-adv-meeting-f",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-meeting",
+      "title": "Meeting point",
+      "prompt": "Where do two movers heading towards each other meet?",
+      "formula": "Time to meet = D ÷ (a + b); A covers a × that time. After meeting: (a ÷ b)² = B's time after meeting ÷ A's time after meeting",
+      "variables": [],
+      "explanation": "The second relation uses the times each takes, after meeting, to reach the other's starting point.",
+      "example": "D = 300 km at 60 and 90 km/h: they meet after 2 h, 120 km from A",
+      "commonMistake": "Splitting the distance equally instead of in the ratio of the speeds.",
+      "applicationPrompt": "Two trains 300 km apart travel towards each other at 60 and 90 km/h. How far from the first train's start do they meet?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tsd-sc-speed-fraction",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relation",
+      "kind": "shortcut",
+      "title": "A fraction of the usual speed",
+      "prompt": "Travelling at a/b of the usual speed makes someone late (or early) by t. What is the usual time?",
+      "formula": "New time = b/a of the usual time\nUsual time = t ÷ |b/a − 1|",
+      "variables": [],
+      "explanation": "For a fixed distance, time is inversely proportional to speed.",
+      "example": "At 3/4 of the usual speed, 20 minutes late: the time becomes 4/3, so 1/3 of the usual time is 20 minutes and the usual time is 60 minutes.",
+      "commonMistake": "Taking 3/4 of the time instead of 4/3.",
+      "applicationPrompt": "Walking at 5/6 of his usual speed, a man is 10 minutes late.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tsd-sc-late-early",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-applications",
+      "kind": "shortcut",
+      "title": "Late at one speed, early at another",
+      "prompt": "At speed s₁ you arrive late and at s₂ you arrive early. What is the distance?",
+      "formula": "Distance = s₁ × s₂ × (total time gap) ÷ (s₂ − s₁)",
+      "variables": [],
+      "explanation": "It is d/s₁ − d/s₂ = gap, already solved for d. Add the late and early times to get the gap, in hours.",
+      "example": "4 km/h is 10 minutes late, 5 km/h is 5 minutes early: gap 15 minutes = 1/4 hour, so d = 4 × 5 × 1/4 ÷ 1 = 5 km.",
+      "commonMistake": "Subtracting the late and early minutes instead of adding them, or leaving the gap in minutes.",
+      "applicationPrompt": "At 30 km/h a rider is 6 minutes late; at 40 km/h, 3 minutes early.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tsd-sc-convert-table",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-units",
+      "kind": "shortcut",
+      "title": "Speeds worth knowing by heart",
+      "prompt": "Which km/h speeds convert to whole metres per second?",
+      "formula": "18 km/h = 5 m/s   36 = 10   54 = 15\n72 = 20   90 = 25   108 = 30",
+      "variables": [],
+      "explanation": "Each 18 km/h is 5 m/s, so multiples of 18 convert cleanly.",
+      "example": "72 km/h = 4 × 18 km/h = 4 × 5 = 20 m/s.",
+      "commonMistake": "Multiplying by 18/5 when going from km/h to m/s. The m/s number is always the smaller one.",
+      "applicationPrompt": "A train runs at 54 km/h. How many metres does it cover in 12 seconds?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tsd-sc-stoppage",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-average",
+      "kind": "shortcut",
+      "title": "Stoppage time per hour",
+      "prompt": "A bus averages one speed without stops and a lower one with stops. How long does it stop each hour?",
+      "formula": "Stoppage per hour = (Speed without stops − Speed with stops) ÷ Speed without stops × 60 minutes",
+      "variables": [],
+      "explanation": "The distance lost in an hour would have taken that long to cover at the running speed.",
+      "example": "60 km/h without stops, 45 km/h with: 15 ÷ 60 × 60 = 15 minutes per hour.",
+      "commonMistake": "Dividing by the speed with stops.",
+      "applicationPrompt": "A train does 80 km/h excluding halts and 64 km/h including them.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "time-speed-distance-level-0",
+      "topicId": "time-speed-distance",
+      "order": 0,
+      "title": "One Relationship, Three Forms",
+      "description": "The speed equation, and the unit discipline that makes it reliable.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "tsd-relation",
+        "tsd-units"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Everything comes from one equation",
+            "body": "Distance = Speed × Time. Rearranged, it gives speed and time as well. There is no second formula to learn in this topic — only situations to translate."
+          },
+          {
+            "type": "formula",
+            "title": "The unit rule",
+            "body": "km/hr → m/s : × 5/18        m/s → km/hr : × 18/5",
+            "caption": "Check units before substituting, every single time."
+          },
+          {
+            "type": "callout",
+            "tone": "warning",
+            "body": "Most lost marks here are unit errors, not method errors. If the distance is in metres and the speed in km/hr, the answer is wrong before you start."
+          },
+          {
+            "type": "check",
+            "questionId": "time-speed-distance-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Average speed is not the average of speeds",
+            "body": "Travel out at 40 km/hr and back at 60 km/hr, and the average is 48 km/hr — not 50. You spend more time at the slower speed, so it carries more weight.\n\nAlways go back to total distance ÷ total time."
+          },
+          {
+            "type": "check",
+            "questionId": "time-speed-distance-q-011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "time-speed-distance-level-1",
+      "topicId": "time-speed-distance",
+      "order": 1,
+      "title": "Motion Formulas",
+      "description": "The speed relationship, conversions, average speed and relative speed.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-0"
+      ],
+      "conceptIds": [
+        "tsd-relation",
+        "tsd-units",
+        "tsd-average",
+        "tsd-relative"
+      ],
+      "formulaIds": [
+        "tsd-basic",
+        "tsd-conversion",
+        "tsd-average-speed",
+        "tsd-relative-speed",
+        "tsd-late-early"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "time-speed-distance-level-2",
+      "topicId": "time-speed-distance",
+      "order": 2,
+      "title": "Direct Motion Questions",
+      "description": "Single-step speed, time and conversion problems.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-1"
+      ],
+      "conceptIds": [
+        "tsd-relation",
+        "tsd-units"
+      ],
+      "questionIds": [
+        "time-speed-distance-q-001",
+        "time-speed-distance-q-002",
+        "time-speed-distance-q-003",
+        "time-speed-distance-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "time-speed-distance-level-3",
+      "topicId": "time-speed-distance",
+      "order": 3,
+      "title": "Average and Relative Speed",
+      "description": "Round trips, approaching objects and trains crossing poles.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-2"
+      ],
+      "conceptIds": [
+        "tsd-average",
+        "tsd-relative"
+      ],
+      "questionIds": [
+        "time-speed-distance-q-011",
+        "time-speed-distance-q-020",
+        "time-speed-distance-q-021",
+        "time-speed-distance-q-022"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "time-speed-distance-level-4",
+      "topicId": "time-speed-distance",
+      "order": 4,
+      "title": "Two-Speed Journeys",
+      "description": "Late-and-early problems and multi-stage journeys.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 13,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-3"
+      ],
+      "conceptIds": [
+        "tsd-applications"
+      ],
+      "questionIds": [
+        "time-speed-distance-q-030",
+        "time-speed-distance-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "time-speed-distance-level-5",
+      "topicId": "time-speed-distance",
+      "order": 5,
+      "title": "Mixed Motion Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "time-speed-distance",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "tsd-relation",
+          "tsd-units",
+          "tsd-average",
+          "tsd-relative",
+          "tsd-applications"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "time-speed-distance-level-6",
+      "topicId": "time-speed-distance",
+      "order": 6,
+      "title": "Advanced: Circular Tracks and Meeting Points",
+      "description": "Runners on circular tracks, meeting points, and journeys in stages.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-5"
+      ],
+      "conceptIds": [
+        "tsd-adv-circular",
+        "tsd-adv-meeting"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Round and round",
+            "body": "On a circular track the gap between two runners is at most one lap. Running opposite ways, they close it at the sum of their speeds; running the same way, only at the difference."
+          },
+          {
+            "type": "check",
+            "questionId": "time-speed-distance-tsd-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Heading towards each other",
+            "body": "Time to meet = D ÷ (a + b)",
+            "caption": "The meeting point splits the distance in the ratio of the speeds."
+          },
+          {
+            "type": "check",
+            "questionId": "time-speed-distance-tsd-adv-q-002"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "tsd-meeting"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "For an average over several stages, never average the speeds. Add the total distance and the total time, including any stops."
+          }
+        ]
+      }
+    },
+    {
+      "id": "time-speed-distance-level-7",
+      "topicId": "time-speed-distance",
+      "order": 7,
+      "title": "Challenge: Circular Tracks and Meeting Points",
+      "description": "Laps and overtaking, meeting points, speed ratios and multi-stage averages.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "time-speed-distance-level-6"
+      ],
+      "conceptIds": [
+        "tsd-adv-circular",
+        "tsd-adv-meeting"
+      ],
+      "questionIds": [
+        "time-speed-distance-tsd-adv-q-003",
+        "time-speed-distance-tsd-adv-q-004",
+        "time-speed-distance-tsd-adv-q-005",
+        "time-speed-distance-tsd-adv-q-006",
+        "time-speed-distance-tsd-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "time-speed-distance-q-001",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relation",
+      "levelId": "time-speed-distance-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A car covers 120 km in 2 hours. What is its speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30 km/hr"
+        },
+        {
+          "id": "b",
+          "text": "60 km/hr"
+        },
+        {
+          "id": "c",
+          "text": "120 km/hr"
+        },
+        {
+          "id": "d",
+          "text": "240 km/hr"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Speed = Distance ÷ Time = 120 ÷ 2 = 60 km/hr.",
+      "solutionSteps": [
+        "Speed = Distance ÷ Time.",
+        "= 120 ÷ 2.",
+        "= 60 km/hr."
+      ],
+      "formulaIds": [
+        "tsd-basic"
+      ],
+      "method": "Divide distance by time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How far does the car travel in one hour?"
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying instead of dividing."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-002",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-units",
+      "levelId": "time-speed-distance-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "Convert 72 km/hr into metres per second.",
+      "options": [
+        {
+          "id": "a",
+          "text": "20 m/s"
+        },
+        {
+          "id": "b",
+          "text": "25 m/s"
+        },
+        {
+          "id": "c",
+          "text": "72 m/s"
+        },
+        {
+          "id": "d",
+          "text": "259.2 m/s"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "72 × 5/18 = 20 m/s.",
+      "solutionSteps": [
+        "To go from km/hr to m/s, multiply by 5/18.",
+        "72 × 5/18 = 360/18.",
+        "= 20 m/s."
+      ],
+      "formulaIds": [
+        "tsd-conversion"
+      ],
+      "method": "Multiply by 5/18.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "m/s values are smaller than the km/hr value."
+        },
+        {
+          "level": 2,
+          "text": "Multiply by 5 and divide by 18."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by 18/5 and getting 259.2."
+      ],
+      "tags": [
+        "units"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-003",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relation",
+      "levelId": "time-speed-distance-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "How many hours does a cyclist take to cover 45 km at 15 km/hr?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Time = Distance ÷ Speed = 45 ÷ 15 = 3 hours.",
+      "solutionSteps": [
+        "Time = Distance ÷ Speed.",
+        "= 45 ÷ 15.",
+        "= 3 hours."
+      ],
+      "formulaIds": [
+        "tsd-basic"
+      ],
+      "method": "Distance ÷ speed.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The cyclist covers 15 km each hour."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the two values."
+      ],
+      "tags": [
+        "basic",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-010",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relation",
+      "levelId": "time-speed-distance-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A train covers a distance d in time t. Which expression gives its speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "d ÷ t"
+        },
+        {
+          "id": "b",
+          "text": "t ÷ d"
+        },
+        {
+          "id": "c",
+          "text": "d × t"
+        },
+        {
+          "id": "d",
+          "text": "d + t"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Speed measures distance covered per unit of time, so the distance is divided by the time.",
+      "solutionSteps": [
+        "Speed is 'distance per time'.",
+        "'Per' means divide.",
+        "Speed = d ÷ t."
+      ],
+      "formulaIds": [
+        "tsd-basic"
+      ],
+      "method": "Read the unit: km per hour means km ÷ hours.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look at the units: km/hr literally means km divided by hours."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the ratio."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-011",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-average",
+      "levelId": "time-speed-distance-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "A car travels to a town at 40 km/hr and returns along the same road at 60 km/hr. Its average speed for the whole trip is 50 km/hr.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The average is 2 × 40 × 60 ÷ 100 = 48 km/hr. More time is spent at the slower speed, so the average is pulled below 50.",
+      "solutionSteps": [
+        "Take the one-way distance as 120 km.",
+        "Out: 3 hours. Back: 2 hours. Total 240 km in 5 hours.",
+        "Average = 240 ÷ 5 = 48 km/hr."
+      ],
+      "formulaIds": [
+        "tsd-average-speed"
+      ],
+      "method": "Total distance ÷ total time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which leg of the journey takes longer?"
+        },
+        {
+          "level": 2,
+          "text": "Pick a convenient distance such as 120 km and compute both times."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two speeds."
+      ],
+      "tags": [
+        "true-false",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-020",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-average",
+      "levelId": "time-speed-distance-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A man walks to work at 40 km/hr and returns by the same route at 60 km/hr. What is his average speed for the round trip?",
+      "options": [
+        {
+          "id": "a",
+          "text": "45 km/hr"
+        },
+        {
+          "id": "b",
+          "text": "48 km/hr"
+        },
+        {
+          "id": "c",
+          "text": "50 km/hr"
+        },
+        {
+          "id": "d",
+          "text": "52 km/hr"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "For equal distances, average = 2xy/(x + y) = (2 × 40 × 60) ÷ 100 = 48 km/hr.",
+      "solutionSteps": [
+        "The distances are equal, so use 2xy ÷ (x + y).",
+        "= (2 × 40 × 60) ÷ (40 + 60).",
+        "= 4800 ÷ 100 = 48 km/hr."
+      ],
+      "formulaIds": [
+        "tsd-average-speed"
+      ],
+      "method": "Harmonic mean for equal distances.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The answer must be below 50 — more time is spent at 40 km/hr."
+        },
+        {
+          "level": 2,
+          "text": "Use 2xy ÷ (x + y)."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 50 km/hr."
+      ],
+      "tags": [
+        "average-speed"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-021",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-relative",
+      "levelId": "time-speed-distance-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Two trains 100 km apart move towards each other at 60 km/hr and 40 km/hr. After how long do they meet?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30 minutes"
+        },
+        {
+          "id": "b",
+          "text": "1 hour"
+        },
+        {
+          "id": "c",
+          "text": "1 hour 15 minutes"
+        },
+        {
+          "id": "d",
+          "text": "2 hours"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Approaching trains close the gap at 60 + 40 = 100 km/hr, so 100 km takes 1 hour.",
+      "solutionSteps": [
+        "Relative speed = 60 + 40 = 100 km/hr.",
+        "Time = gap ÷ relative speed = 100 ÷ 100.",
+        "= 1 hour."
+      ],
+      "formulaIds": [
+        "tsd-relative-speed"
+      ],
+      "method": "Add speeds when moving towards each other.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How fast is the gap between them shrinking?"
+        },
+        {
+          "level": 2,
+          "text": "Both trains contribute, so the speeds add."
+        }
+      ],
+      "commonMistakes": [
+        "Using only one train's speed."
+      ],
+      "tags": [
+        "relative"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-022",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-units",
+      "levelId": "time-speed-distance-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A train 150 metres long crosses a pole in 9 seconds. What is its speed in km/hr?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0.5
+      },
+      "explanation": "Crossing a pole means covering its own length: 150 ÷ 9 = 16.67 m/s, and 16.67 × 18/5 = 60 km/hr.",
+      "solutionSteps": [
+        "Crossing a pole means travelling the train's own length: 150 m.",
+        "Speed = 150 ÷ 9 = 50/3 m/s.",
+        "Convert: (50/3) × 18/5 = 60 km/hr."
+      ],
+      "formulaIds": [
+        "tsd-basic",
+        "tsd-conversion"
+      ],
+      "method": "Distance is the train's length; convert m/s to km/hr at the end.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What distance does the train actually cover to pass a pole?"
+        },
+        {
+          "level": 2,
+          "text": "Its own length, 150 m."
+        },
+        {
+          "level": 3,
+          "text": "Convert m/s to km/hr by multiplying by 18/5."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the answer in m/s."
+      ],
+      "tags": [
+        "units",
+        "trains",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-030",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-applications",
+      "levelId": "time-speed-distance-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Walking at 5 km/hr a man reaches his office 10 minutes late; at 6 km/hr he arrives 5 minutes early. How far is his office?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 km"
+        },
+        {
+          "id": "b",
+          "text": "6 km"
+        },
+        {
+          "id": "c",
+          "text": "7.5 km"
+        },
+        {
+          "id": "d",
+          "text": "9 km"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "The time difference is 15 minutes = 1/4 hour, so d/5 − d/6 = 1/4, giving d/30 = 1/4 and d = 7.5 km.",
+      "solutionSteps": [
+        "Total time difference = 10 late + 5 early = 15 minutes = 1/4 hour.",
+        "d/5 − d/6 = 1/4.",
+        "(6d − 5d)/30 = 1/4 → d/30 = 1/4.",
+        "d = 7.5 km."
+      ],
+      "formulaIds": [
+        "tsd-late-early"
+      ],
+      "method": "The gap between the two journey times equals late + early.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much sooner does the faster walk arrive, in total?"
+        },
+        {
+          "level": 2,
+          "text": "10 minutes late to 5 minutes early is a 15-minute swing."
+        },
+        {
+          "level": 3,
+          "text": "Write both times as d/5 and d/6 and subtract."
+        }
+      ],
+      "commonMistakes": [
+        "Using 10 or 5 minutes alone as the time difference."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 130,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-q-031",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-average",
+      "levelId": "time-speed-distance-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A car covers the first 60 km of a journey at 30 km/hr and the next 60 km at 60 km/hr. What is its average speed for the whole journey?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35 km/hr"
+        },
+        {
+          "id": "b",
+          "text": "40 km/hr"
+        },
+        {
+          "id": "c",
+          "text": "45 km/hr"
+        },
+        {
+          "id": "d",
+          "text": "50 km/hr"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Times are 2 hours and 1 hour, so 120 km in 3 hours gives 40 km/hr.",
+      "solutionSteps": [
+        "First leg: 60 ÷ 30 = 2 hours.",
+        "Second leg: 60 ÷ 60 = 1 hour.",
+        "Average = 120 km ÷ 3 hours = 40 km/hr."
+      ],
+      "formulaIds": [
+        "tsd-average-speed"
+      ],
+      "method": "Total distance ÷ total time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the time for each leg separately."
+        },
+        {
+          "level": 2,
+          "text": "The slow leg takes twice as long, so it dominates."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 30 and 60 to get 45."
+      ],
+      "tags": [
+        "average-speed",
+        "complex"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-001",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-circular",
+      "levelId": "time-speed-distance-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two runners start together from the same point on a 600 m circular track and run in opposite directions at 5 m/s and 7 m/s. After how many seconds do they first meet?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "seconds"
+      },
+      "explanation": "Running opposite ways, they close the lap at 5 + 7 = 12 m/s, so they meet after 600 ÷ 12 = 50 s.",
+      "solutionSteps": [
+        "Closing speed = 5 + 7 = 12 m/s.",
+        "600 ÷ 12 = 50."
+      ],
+      "formulaIds": [
+        "tsd-adv-circular-f"
+      ],
+      "method": "Opposite directions: add the speeds.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Together they need to cover one full lap."
+        },
+        {
+          "level": 2,
+          "text": "Add the two speeds."
+        }
+      ],
+      "commonMistakes": [
+        "Using the difference of the speeds, giving 300 s."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-002",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-meeting",
+      "levelId": "time-speed-distance-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two towns are 300 km apart. A train leaves each town at the same time, heading towards the other, at 60 km/h and 90 km/h. How far from the slower train's town do they meet?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "km"
+      },
+      "explanation": "They close the gap at 150 km/h and meet after 300 ÷ 150 = 2 h. The slower train has gone 60 × 2 = 120 km.",
+      "solutionSteps": [
+        "Closing speed = 150 km/h.",
+        "Time = 2 h.",
+        "Slower train: 60 × 2 = 120 km."
+      ],
+      "formulaIds": [
+        "tsd-adv-meeting-f"
+      ],
+      "method": "Find the meeting time first, then one train's distance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How fast is the gap closing?"
+        },
+        {
+          "level": 2,
+          "text": "Multiply that time by the slower speed."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting the distance equally, giving 150 km."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-003",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-circular",
+      "levelId": "time-speed-distance-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two runners start together from the same point on a 600 m circular track and run in the same direction at 5 m/s and 7 m/s. After how many seconds does the faster runner first lap the slower one?",
+      "answer": {
+        "value": 300,
+        "tolerance": 0,
+        "unit": "seconds"
+      },
+      "explanation": "Running the same way, the gap grows at 7 − 5 = 2 m/s. Lapping means gaining a full 600 m: 600 ÷ 2 = 300 s.",
+      "solutionSteps": [
+        "Relative speed = 2 m/s.",
+        "600 ÷ 2 = 300."
+      ],
+      "formulaIds": [
+        "tsd-adv-circular-f"
+      ],
+      "method": "Same direction: subtract the speeds.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "To lap someone you must gain one full lap on them."
+        },
+        {
+          "level": 2,
+          "text": "Use the difference of the speeds."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the speeds, giving 50 s."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-004",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-circular",
+      "levelId": "time-speed-distance-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two runners take 40 seconds and 60 seconds to complete a lap of a circular track. If they start together from the starting point, after how many seconds are they next at the starting point together?",
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "seconds"
+      },
+      "explanation": "The first is at the start every 40 s and the second every 60 s. They coincide first at LCM(40, 60) = 120 s.",
+      "solutionSteps": [
+        "Start times: multiples of 40 and of 60.",
+        "LCM(40, 60) = 120."
+      ],
+      "formulaIds": [
+        "tsd-adv-circular-f"
+      ],
+      "method": "Both at the start together: LCM of the lap times.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "When is each runner back at the start?"
+        },
+        {
+          "level": 2,
+          "text": "Find the first time common to both lists."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the lap times (100 s)."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-005",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-meeting",
+      "levelId": "time-speed-distance-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Two trains start at the same time from P and Q, heading towards each other. After they meet, the train from P takes 4 hours to reach Q and the train from Q takes 9 hours to reach P. What is the ratio of the speed of the train from P to the speed of the train from Q?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 2"
+        },
+        {
+          "id": "b",
+          "text": "9 : 4"
+        },
+        {
+          "id": "c",
+          "text": "2 : 3"
+        },
+        {
+          "id": "d",
+          "text": "4 : 9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For two movers after meeting, (speed₁ ÷ speed₂)² = t₂ ÷ t₁ = 9 ÷ 4, so the ratio is √(9/4) = 3 : 2.",
+      "solutionSteps": [
+        "(a ÷ b)² = 9 ÷ 4.",
+        "a ÷ b = 3/2."
+      ],
+      "formulaIds": [
+        "tsd-adv-meeting-f"
+      ],
+      "method": "Use the square-root relation between speeds and post-meeting times.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The faster train takes less time after the meeting."
+        },
+        {
+          "level": 2,
+          "text": "The speed ratio is the square root of the time ratio, flipped."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 9 : 4 without the square root.",
+        "Giving 2 : 3, the wrong way round."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-006",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-meeting",
+      "levelId": "time-speed-distance-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A car covers the first 150 km of a journey at 50 km/h and the next 150 km at 75 km/h, with a 1-hour stop in between. What is its average speed for the whole journey, including the stop?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0,
+        "unit": "km/h"
+      },
+      "explanation": "Times: 150 ÷ 50 = 3 h and 150 ÷ 75 = 2 h, plus the 1 h stop: 6 h in all. Average = 300 ÷ 6 = 50 km/h.",
+      "solutionSteps": [
+        "Stage 1: 3 h; stage 2: 2 h; stop: 1 h.",
+        "Total: 300 km in 6 h.",
+        "300 ÷ 6 = 50."
+      ],
+      "formulaIds": [
+        "tsd-adv-meeting-f",
+        "tsd-average-speed"
+      ],
+      "method": "Average speed = total distance ÷ total time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the time for each stage."
+        },
+        {
+          "level": 2,
+          "text": "Do not forget the stop."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging 50 and 75 to get 62.5.",
+        "Leaving out the stop, giving 60 km/h."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "time-speed-distance-tsd-adv-q-007",
+      "topicId": "time-speed-distance",
+      "conceptId": "tsd-adv-circular",
+      "levelId": "time-speed-distance-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Three runners take 24 s, 36 s and 40 s to complete a lap of a circular track. They start together from the starting point. After how many seconds are all three at the starting point together again?",
+      "answer": {
+        "value": 360,
+        "tolerance": 0,
+        "unit": "seconds"
+      },
+      "explanation": "LCM(24, 36, 40): 24 = 2³ × 3, 36 = 2² × 3², 40 = 2³ × 5, so the LCM is 2³ × 3² × 5 = 360 s.",
+      "solutionSteps": [
+        "Factorise the lap times.",
+        "LCM = 2³ × 3² × 5 = 360."
+      ],
+      "formulaIds": [
+        "tsd-adv-circular-f"
+      ],
+      "method": "All at the start together: the LCM of every lap time.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write each lap time as a product of primes."
+        },
+        {
+          "level": 2,
+          "text": "Take the highest power of each prime."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying all three times together."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,2465 @@
+{
+  "topicId": "triangles",
+  "concepts": [
+    {
+      "id": "tri-anglesum",
+      "topicId": "triangles",
+      "name": "Angle sum of a triangle",
+      "description": "The three interior angles of any triangle always add up to 180°.",
+      "sortOrder": 1
+    },
+    {
+      "id": "tri-types",
+      "topicId": "triangles",
+      "name": "Classifying triangles",
+      "description": "Triangles are classified by their sides (scalene, isosceles, equilateral) and by their angles (acute, right, obtuse).",
+      "sortOrder": 2
+    },
+    {
+      "id": "tri-exterior",
+      "topicId": "triangles",
+      "name": "The exterior angle theorem",
+      "description": "An exterior angle of a triangle equals the sum of the two interior angles not next to it.",
+      "sortOrder": 3
+    },
+    {
+      "id": "tri-pythagoras",
+      "topicId": "triangles",
+      "name": "The Pythagorean relationship",
+      "description": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+      "sortOrder": 4
+    },
+    {
+      "id": "tri-similar",
+      "topicId": "triangles",
+      "name": "Similar triangles",
+      "description": "Similar triangles have equal corresponding angles and corresponding sides in the same fixed ratio.",
+      "sortOrder": 5
+    },
+    {
+      "id": "tri-adv-centres",
+      "topicId": "triangles",
+      "name": "Centres of a triangle",
+      "description": "Medians meet at the centroid, angle bisectors at the incentre, perpendicular bisectors at the circumcentre and altitudes at the orthocentre. Each centre comes with its own exam facts.",
+      "sortOrder": 6
+    },
+    {
+      "id": "tri-adv-congruence",
+      "topicId": "triangles",
+      "name": "Congruence tests",
+      "description": "Two triangles are congruent by SSS, SAS, ASA/AAS or RHS. SSA and AAA do not prove congruence.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "tri-anglesum-f",
+      "topicId": "triangles",
+      "conceptId": "tri-anglesum",
+      "title": "Angle sum of a triangle",
+      "prompt": "What do the three angles of a triangle add up to?",
+      "formula": "A + B + C = 180°",
+      "variables": [],
+      "explanation": "This is true for every triangle, no matter its shape or size.",
+      "example": "If two angles are 50° and 70°, the third is 180 − 50 − 70 = 60°",
+      "commonMistake": "Confusing the triangle angle sum (180°) with the quadrilateral angle sum (360°).",
+      "applicationPrompt": "Two angles of a triangle are 50° and 70°. Find the third.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tri-exterior-f",
+      "topicId": "triangles",
+      "conceptId": "tri-exterior",
+      "title": "Exterior angle theorem",
+      "prompt": "How does an exterior angle of a triangle relate to the triangle's interior angles?",
+      "formula": "Exterior angle = sum of the two remote (non-adjacent) interior angles",
+      "variables": [],
+      "explanation": "The exterior angle and its adjacent interior angle are supplementary, but the more useful shortcut is that it equals the sum of the other two angles directly.",
+      "example": "Remote interior angles 55° and 65°: exterior angle = 55 + 65 = 120°",
+      "commonMistake": "Adding the adjacent interior angle instead of the two remote ones.",
+      "applicationPrompt": "The two remote interior angles are 55° and 65°. Find the exterior angle.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tri-pythagoras-f",
+      "topicId": "triangles",
+      "conceptId": "tri-pythagoras",
+      "title": "The Pythagorean relationship",
+      "prompt": "How are the three sides of a right triangle related?",
+      "formula": "a² + b² = c²  (c is the hypotenuse, the side opposite the right angle)",
+      "variables": [],
+      "explanation": "This only applies to right triangles, and c must be the longest side, opposite the right angle.",
+      "example": "Legs 6 and 8: hypotenuse = √(6² + 8²) = √100 = 10",
+      "commonMistake": "Applying the formula with the hypotenuse on the wrong side of the equation.",
+      "applicationPrompt": "A right triangle has legs 6 and 8. Find the hypotenuse.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tri-similar-f",
+      "topicId": "triangles",
+      "conceptId": "tri-similar",
+      "title": "Similar triangles",
+      "prompt": "How do corresponding sides of similar triangles relate?",
+      "formula": "Corresponding sides are in the same ratio: side₁/side₂ = scale factor, applied to every side",
+      "variables": [],
+      "explanation": "Once you find the scale factor from one known pair of corresponding sides, apply it to find any other missing side.",
+      "example": "Triangle 1: sides 3, 4, 5. Triangle 2 (scale factor 2): sides 6, 8, 10",
+      "commonMistake": "Applying the scale factor to only some of the sides.",
+      "applicationPrompt": "A triangle with sides 3, 4, 5 is enlarged by a scale factor of 2. Find the new sides.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tri-adv-centres-f",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "title": "Centroid, inradius and circumradius",
+      "prompt": "Where does the centroid cut a median, and how do you find the inradius, and the circumradius of a right triangle?",
+      "formula": "AG : GD = 2 : 1 (G on median AD)\nr = Area ÷ s, where s = (a + b + c) ÷ 2\nRight triangle: R = hypotenuse ÷ 2",
+      "variables": [],
+      "explanation": "The centroid sits two-thirds of the way along each median from the vertex. The incircle touches all three sides, so Area = r × s. In a right triangle the hypotenuse is a diameter of the circumcircle.",
+      "example": "Sides 13, 14, 15: s = 21, Area = 84, so r = 84 ÷ 21 = 4. Legs 6 and 8: hypotenuse 10, so R = 5.",
+      "commonMistake": "Dividing the area by the full perimeter instead of the semi-perimeter, which gives half the inradius.",
+      "applicationPrompt": "A median of a triangle is 15 cm long. How far is the centroid from the vertex?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tri-adv-centre-angles-f",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "title": "Angles at the centres",
+      "prompt": "What angle does side BC make at the incentre I, the circumcentre O and the orthocentre H?",
+      "formula": "∠BIC = 90° + A/2\n∠BOC = 2A (acute triangle)\n∠BHC = 180° − A",
+      "variables": [],
+      "explanation": "I is on the bisectors of ∠B and ∠C, so ∠BIC = 180° − (B + C)/2 = 90° + A/2. Arc BC subtends twice as much at the centre O as at A. The altitudes from B and C make a quadrilateral with A that has two right angles, leaving 180° − A at H.",
+      "example": "∠A = 70°: ∠BIC = 125°, ∠BOC = 140°, ∠BHC = 110°.",
+      "commonMistake": "Mixing up the three: 2A belongs to the circumcentre, 90° + A/2 to the incentre, 180° − A to the orthocentre.",
+      "applicationPrompt": "In triangle ABC, ∠A = 80° and I is the incentre. Find ∠BIC.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tri-adv-congruence-f",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-congruence",
+      "title": "Congruence tests",
+      "prompt": "Which sets of three equal parts prove two triangles congruent?",
+      "formula": "SSS, SAS (the angle between the two sides), ASA or AAS (corresponding sides), RHS (right angle, hypotenuse, side)\nSSA and AAA do not prove congruence",
+      "variables": [],
+      "explanation": "Each valid test fixes the triangle completely, so two triangles sharing those parts are exact copies. AAA fixes only the shape (the triangles are similar), and SSA can fit two different triangles.",
+      "example": "AB = PQ, ∠B = ∠Q and BC = QR: ∠B lies between the two sides, so ΔABC ≅ ΔPQR by SAS.",
+      "commonMistake": "Calling it SAS when the equal angle is not between the two equal sides. That is SSA, which proves nothing.",
+      "applicationPrompt": "AB = PQ, AC = PR and ∠B = ∠Q. Are the triangles necessarily congruent?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "tri-sc-triplets",
+      "topicId": "triangles",
+      "conceptId": "tri-pythagoras",
+      "kind": "shortcut",
+      "title": "Pythagorean triplets",
+      "prompt": "Which right-triangle sides should you know by heart?",
+      "formula": "3-4-5   5-12-13   8-15-17   7-24-25\n9-40-41   20-21-29\nand their multiples (6-8-10, 9-12-15, …)",
+      "variables": [],
+      "explanation": "Most exam right triangles are one of these, scaled up.",
+      "example": "Legs 15 and 36 are 3 × (5, 12), so the hypotenuse is 3 × 13 = 39.",
+      "commonMistake": "Adding the sides instead of the squares.",
+      "applicationPrompt": "A ladder reaches 24 m up a wall from 7 m away. How long is it?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "tri-sc-type-from-sides",
+      "topicId": "triangles",
+      "conceptId": "tri-types",
+      "kind": "shortcut",
+      "title": "Acute, right or obtuse from the sides",
+      "prompt": "Given three sides, how do you tell the type of triangle?",
+      "formula": "c = longest side\nc² < a² + b²: acute\nc² = a² + b²: right\nc² > a² + b²: obtuse\n(and a + b > c, or it is no triangle)",
+      "variables": [],
+      "explanation": "Pythagoras is the boundary case: a longer c opens the angle beyond 90°.",
+      "example": "5, 6, 8: 64 > 25 + 36 = 61, so obtuse. 4, 7, 12: 4 + 7 < 12, so no triangle at all.",
+      "commonMistake": "Comparing a side that is not the longest.",
+      "applicationPrompt": "What kind of triangle has sides 7, 8 and 10?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tri-sc-equilateral",
+      "topicId": "triangles",
+      "conceptId": "tri-types",
+      "kind": "shortcut",
+      "title": "Equilateral triangle in one line",
+      "prompt": "What are the height and area of an equilateral triangle with side a?",
+      "formula": "Height = (√3/2)a\nArea = (√3/4)a²",
+      "variables": [],
+      "explanation": "The height splits it into two 30-60-90 triangles.",
+      "example": "Side 6: height 3√3 ≈ 5.2, area 9√3 ≈ 15.6.",
+      "commonMistake": "Using √3/2 for the area as well.",
+      "applicationPrompt": "An equilateral triangle has area 16√3. Find its side.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tri-sc-equilateral-centres",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "kind": "shortcut",
+      "title": "Equilateral triangle: the centres",
+      "prompt": "Where are the centres of an equilateral triangle with side a, and what are R and r?",
+      "formula": "All four centres coincide\nR = a/√3 = (2/3) × height\nr = a/(2√3) = (1/3) × height\nR = 2r",
+      "variables": [],
+      "explanation": "Each median is also an altitude, an angle bisector and a perpendicular bisector, so all four centres sit at the centroid, which splits the height 2 : 1.",
+      "example": "Side 6√3: height 9, R = 6, r = 3.",
+      "commonMistake": "Giving the full height (√3/2)a as the circumradius.",
+      "applicationPrompt": "The inradius of an equilateral triangle is 5 cm. Find its circumradius and its side.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "tri-sc-right-radii",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "kind": "shortcut",
+      "title": "Right triangle radii",
+      "prompt": "A right triangle has legs a and b and hypotenuse c. What are its circumradius R and inradius r?",
+      "formula": "R = c ÷ 2\nr = (a + b − c) ÷ 2",
+      "variables": [],
+      "explanation": "The hypotenuse is a diameter of the circumcircle. The two tangents from the right-angle vertex are both r long, and the tangents from the other two vertices add up to c, so a + b = c + 2r.",
+      "example": "Legs 5 and 12, hypotenuse 13: R = 6.5, r = (5 + 12 − 13) ÷ 2 = 2.",
+      "commonMistake": "Forgetting to halve: a + b − c is the diameter of the incircle, not its radius.",
+      "applicationPrompt": "A right triangle has legs 8 cm and 15 cm. Find R and r.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "triangles-level-0",
+      "topicId": "triangles",
+      "order": 0,
+      "title": "Every Triangle Sums to 180°",
+      "description": "The three interior angles of any triangle always add up to 180°.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "tri-anglesum",
+        "tri-types"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "A fact true for every triangle",
+            "body": "No matter how a triangle is stretched or shaped, its three interior angles always sum to exactly 180°. Knowing any two angles instantly gives you the third."
+          },
+          {
+            "type": "formula",
+            "title": "Angle sum",
+            "body": "A + B + C = 180°",
+            "caption": "This holds for every triangle: scalene, isosceles, equilateral, right, acute or obtuse."
+          },
+          {
+            "type": "check",
+            "questionId": "triangles-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Triangles are classified two ways at once: by their sides (scalene/isosceles/equilateral) and by their angles (acute/right/obtuse)."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "triangle-angles"
+          },
+          {
+            "type": "check",
+            "questionId": "triangles-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "triangles-level-1",
+      "topicId": "triangles",
+      "order": 1,
+      "title": "Triangles Formulas",
+      "description": "Angle sum, the exterior angle theorem, the Pythagorean relationship, and similar triangles.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "triangles-level-0"
+      ],
+      "conceptIds": [
+        "tri-anglesum",
+        "tri-exterior",
+        "tri-pythagoras",
+        "tri-similar"
+      ],
+      "formulaIds": [
+        "tri-anglesum-f",
+        "tri-exterior-f",
+        "tri-pythagoras-f",
+        "tri-similar-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "triangles-level-2",
+      "topicId": "triangles",
+      "order": 2,
+      "title": "Direct Triangle Facts",
+      "description": "Angle sum, classification, and the Pythagorean relationship.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "triangles-level-1"
+      ],
+      "conceptIds": [
+        "tri-anglesum",
+        "tri-types",
+        "tri-pythagoras"
+      ],
+      "questionIds": [
+        "triangles-q-001",
+        "triangles-q-002",
+        "triangles-q-003"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "triangles-level-3",
+      "topicId": "triangles",
+      "order": 3,
+      "title": "Exterior Angles and Similarity",
+      "description": "The exterior angle theorem, similar triangles, and classification.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "triangles-level-2"
+      ],
+      "conceptIds": [
+        "tri-exterior",
+        "tri-similar",
+        "tri-types",
+        "tri-pythagoras"
+      ],
+      "questionIds": [
+        "triangles-q-004",
+        "triangles-q-005",
+        "triangles-q-006",
+        "triangles-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "triangles-level-4",
+      "topicId": "triangles",
+      "order": 4,
+      "title": "Multi-Step Triangle Problems",
+      "description": "Solving for an unknown using the exterior angle theorem, and applying similarity.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "triangles-level-3"
+      ],
+      "conceptIds": [
+        "tri-exterior",
+        "tri-similar"
+      ],
+      "questionIds": [
+        "triangles-q-008",
+        "triangles-q-009"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "triangles-level-5",
+      "topicId": "triangles",
+      "order": 5,
+      "title": "Mixed Triangles Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "triangles-level-4"
+      ],
+      "conceptIds": [
+        "tri-exterior",
+        "tri-similar"
+      ],
+      "questionQuery": {
+        "topicId": "triangles",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "tri-anglesum",
+          "tri-types",
+          "tri-exterior",
+          "tri-pythagoras",
+          "tri-similar"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "triangles-level-6",
+      "topicId": "triangles",
+      "order": 6,
+      "title": "Advanced: Centres and Congruence",
+      "description": "The four centres of a triangle, and the tests that prove two triangles congruent.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "triangles-level-5"
+      ],
+      "conceptIds": [
+        "tri-adv-centres",
+        "tri-adv-congruence"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Four centres, four sets of lines",
+            "body": "Each centre is where three special lines meet. The medians (vertex to the midpoint of the opposite side) meet at the centroid G. The angle bisectors meet at the incentre I, the centre of the circle that touches all three sides. The perpendicular bisectors of the sides meet at the circumcentre O, the centre of the circle through all three vertices. The altitudes meet at the orthocentre H."
+          },
+          {
+            "type": "text",
+            "title": "Where each one lies",
+            "body": "The centroid and the incentre are always inside the triangle. The circumcentre and the orthocentre are inside an acute triangle. In a right triangle the circumcentre is the midpoint of the hypotenuse and the orthocentre is the right-angled vertex. In an obtuse triangle both lie outside."
+          },
+          {
+            "type": "formula",
+            "title": "Centroid, inradius and circumradius",
+            "body": "AG : GD = 2 : 1\nr = Area ÷ s\nRight triangle: R = hypotenuse ÷ 2",
+            "caption": "G is the centroid on median AD, and s is the semi-perimeter, (a + b + c) ÷ 2."
+          },
+          {
+            "type": "check",
+            "questionId": "triangles-tri-adv-q-001"
+          },
+          {
+            "type": "example",
+            "title": "Equilateral triangle",
+            "body": "All four centres coincide. For side a, R = a/√3 and r = a/(2√3), so R = 2r. With side 6√3: R = 6 and r = 3."
+          },
+          {
+            "type": "formula",
+            "title": "Angles at the centres",
+            "body": "∠BIC = 90° + A/2\n∠BOC = 2A (acute triangle)\n∠BHC = 180° − A",
+            "caption": "Each is the angle side BC makes at that centre. Only ∠A is needed."
+          },
+          {
+            "type": "text",
+            "title": "Congruence: the four tests",
+            "body": "Two triangles are congruent when one fits exactly on the other. Three matching parts are enough if they follow one of these patterns: SSS (three sides), SAS (two sides and the angle between them), ASA or AAS (two angles and a corresponding side), or RHS (a right angle, the hypotenuse and one other side)."
+          },
+          {
+            "type": "check",
+            "questionId": "triangles-tri-adv-q-002"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "SSA and AAA are traps. AAA fixes only the shape, so the triangles are similar but may differ in size. SSA, with the angle not between the two sides, can fit two different triangles. The one exception is a right angle, which is RHS."
+          }
+        ]
+      }
+    },
+    {
+      "id": "triangles-level-7",
+      "topicId": "triangles",
+      "order": 7,
+      "title": "Challenge: Centres and Congruence",
+      "description": "Radii, angles at the centres, and congruence traps.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "triangles-level-6"
+      ],
+      "conceptIds": [
+        "tri-adv-centres",
+        "tri-adv-congruence"
+      ],
+      "questionIds": [
+        "triangles-tri-adv-q-003",
+        "triangles-tri-adv-q-004",
+        "triangles-tri-adv-q-005",
+        "triangles-tri-adv-q-006",
+        "triangles-tri-adv-q-007",
+        "triangles-tri-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "triangles-q-001",
+      "topicId": "triangles",
+      "conceptId": "tri-anglesum",
+      "levelId": "triangles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In triangle ABC, angle A = 50° and angle B = 70°. What is angle C?",
+      "context": "Study the triangle and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -12,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 6,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "50°",
+            "radius": 20
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "70°",
+            "radius": 20
+          }
+        ],
+        "ariaSummary": "Triangle ABC with angle A marked 50° and angle B marked 70°."
+      },
+      "answer": {
+        "value": 60,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The three angles sum to 180°: angle C = 180 − 50 − 70 = 60°.",
+      "solutionSteps": [
+        "50 + 70 = 120.",
+        "180 − 120 = 60."
+      ],
+      "formulaIds": [
+        "tri-anglesum-f"
+      ],
+      "method": "Subtract the two known angles from 180°.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The three angles of any triangle always sum to 180°."
+        }
+      ],
+      "commonMistakes": [
+        "Using 360° instead of 180° as the total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-002",
+      "topicId": "triangles",
+      "conceptId": "tri-types",
+      "levelId": "triangles-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "A triangle with all three sides of different lengths is called",
+      "options": [
+        {
+          "id": "a",
+          "text": "equilateral"
+        },
+        {
+          "id": "b",
+          "text": "isosceles"
+        },
+        {
+          "id": "c",
+          "text": "scalene"
+        },
+        {
+          "id": "d",
+          "text": "obtuse"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "A scalene triangle has three sides of different lengths (and, as a result, three different angles too).",
+      "solutionSteps": [
+        "All sides different → scalene."
+      ],
+      "formulaIds": [],
+      "method": "Match the name to the side-length pattern.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Obtuse\" describes an angle, not a side pattern."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing scalene (a side classification) with obtuse (an angle classification)."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-003",
+      "topicId": "triangles",
+      "conceptId": "tri-pythagoras",
+      "levelId": "triangles-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A right triangle has legs 6 and 8. What is the hypotenuse?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Right triangle with legs 6 and 8",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": 8,
+            "labelOffset": [
+              -10,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Right triangle ABC, right-angled at A, with leg AB = 6, leg AC = 8."
+      },
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Hypotenuse = √(6² + 8²) = √(36 + 64) = √100 = 10.",
+      "solutionSteps": [
+        "6² + 8² = 36 + 64 = 100.",
+        "√100 = 10."
+      ],
+      "formulaIds": [
+        "tri-pythagoras-f"
+      ],
+      "method": "Square both legs, add them, then take the square root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "6, 8, 10 is a well-known Pythagorean triple."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the legs directly instead of their squares."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-004",
+      "topicId": "triangles",
+      "conceptId": "tri-exterior",
+      "levelId": "triangles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In the figure, the remote interior angles are 55° (at B) and 65° (at A). What is the exterior angle ACD?",
+      "context": "Study the triangle with one side extended and answer the question.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC with side BC extended to D",
+        "points": [
+          {
+            "id": "A",
+            "x": 3,
+            "y": 6,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 7,
+            "y": 0,
+            "labelOffset": [
+              -6,
+              12
+            ]
+          },
+          {
+            "id": "D",
+            "x": 11,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "55°",
+            "radius": 18
+          },
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "65°",
+            "radius": 18
+          },
+          {
+            "at": "C",
+            "from": "A",
+            "to": "D",
+            "label": "?",
+            "radius": 20
+          }
+        ],
+        "ariaSummary": "Triangle ABC with side BC extended to D. The remote interior angles are marked 55° at B and 65° at A; the exterior angle ACD is marked ?."
+      },
+      "answer": {
+        "value": 120,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "The exterior angle equals the sum of the two remote interior angles: 55 + 65 = 120°.",
+      "solutionSteps": [
+        "Remote interior angles: 55° and 65°.",
+        "55 + 65 = 120°."
+      ],
+      "formulaIds": [
+        "tri-exterior-f"
+      ],
+      "method": "Add the two interior angles that are not adjacent to the exterior angle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not use the interior angle at C — use the other two."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the adjacent interior angle at C instead of the two remote angles."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-005",
+      "topicId": "triangles",
+      "conceptId": "tri-similar",
+      "levelId": "triangles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Triangle ABC, with AB = 3, BC = 4 and CA = 5, is similar to triangle PQR, with PQ corresponding to AB. If PQ = 6, what is QR (corresponding to BC)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two similar triangles, ABC and PQR",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -12,
+              8
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "labelOffset": [
+              10,
+              -6
+            ]
+          },
+          {
+            "id": "P",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              12
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              10,
+              12
+            ]
+          },
+          {
+            "id": "R",
+            "x": 12,
+            "y": 8,
+            "labelOffset": [
+              10,
+              -6
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "P",
+              "Q",
+              "R"
+            ]
+          }
+        ],
+        "ariaSummary": "Two similar triangles: ABC with AB = 3, BC = 4, CA = 5, and the larger PQR, with corresponding vertices A-P, B-Q, C-R."
+      },
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Scale factor = PQ ÷ AB = 6 ÷ 3 = 2. QR = BC × 2 = 4 × 2 = 8.",
+      "solutionSteps": [
+        "Scale factor = 6 ÷ 3 = 2.",
+        "QR = 4 × 2 = 8."
+      ],
+      "formulaIds": [
+        "tri-similar-f"
+      ],
+      "method": "Find the scale factor from one pair of corresponding sides first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Match each side of ABC to its corresponding side in PQR."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong pair of sides to find the scale factor."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-006",
+      "topicId": "triangles",
+      "conceptId": "tri-types",
+      "levelId": "triangles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A triangle has angles 90°, 45° and 45°. How would you best classify it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Right isosceles"
+        },
+        {
+          "id": "b",
+          "text": "Right scalene"
+        },
+        {
+          "id": "c",
+          "text": "Obtuse isosceles"
+        },
+        {
+          "id": "d",
+          "text": "Equilateral"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "One 90° angle makes it a right triangle; two equal 45° angles make it isosceles too, so \"right isosceles\" describes it fully.",
+      "solutionSteps": [
+        "90° angle → right triangle.",
+        "Two equal angles (45°, 45°) → isosceles."
+      ],
+      "formulaIds": [
+        "tri-anglesum-f"
+      ],
+      "method": "Classify by both the angles and the resulting side lengths.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two equal angles mean two equal sides."
+        }
+      ],
+      "commonMistakes": [
+        "Calling it scalene despite the two equal angles."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-007",
+      "topicId": "triangles",
+      "conceptId": "tri-pythagoras",
+      "levelId": "triangles-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A right triangle has legs 9 and 12. What is the hypotenuse?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Right triangle with legs 9 and 12",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "labelOffset": [
+              10,
+              4
+            ]
+          },
+          {
+            "id": "C",
+            "x": 0,
+            "y": 5,
+            "labelOffset": [
+              -10,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Right triangle ABC, right-angled at A, with leg AB = 9, leg AC = 12."
+      },
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "Hypotenuse = √(9² + 12²) = √(81 + 144) = √225 = 15.",
+      "solutionSteps": [
+        "9² + 12² = 81 + 144 = 225.",
+        "√225 = 15."
+      ],
+      "formulaIds": [
+        "tri-pythagoras-f"
+      ],
+      "method": "This is a 3-4-5 triple scaled by 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "9 = 3×3 and 12 = 3×4, so think of the 3-4-5 triple."
+        }
+      ],
+      "commonMistakes": [
+        "Not recognising the scaled triple and making an arithmetic slip."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-008",
+      "topicId": "triangles",
+      "conceptId": "tri-exterior",
+      "levelId": "triangles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In the figure, the exterior angle ACD = (2x + 10)°, and the remote interior angles are (x + 20)° at B and 50° at A. Find the exterior angle ACD.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC with side BC extended to D",
+        "points": [
+          {
+            "id": "A",
+            "x": 3,
+            "y": 6,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 7,
+            "y": 0,
+            "labelOffset": [
+              -6,
+              12
+            ]
+          },
+          {
+            "id": "D",
+            "x": 11,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "label": "(x + 20)°",
+            "radius": 18
+          },
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "50°",
+            "radius": 18
+          },
+          {
+            "at": "C",
+            "from": "A",
+            "to": "D",
+            "label": "(2x + 10)°",
+            "radius": 20
+          }
+        ],
+        "ariaSummary": "Triangle ABC with side BC extended to D. The remote interior angles are marked (x + 20)° at B and 50° at A; the exterior angle ACD is marked (2x + 10)°."
+      },
+      "answer": {
+        "value": 130,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "By the exterior angle theorem: 2x + 10 = (x + 20) + 50, so 2x + 10 = x + 70, giving x = 60. The exterior angle = 2(60) + 10 = 130°.",
+      "solutionSteps": [
+        "2x + 10 = (x + 20) + 50.",
+        "2x + 10 = x + 70 → x = 60.",
+        "Exterior angle = 2(60) + 10 = 130°."
+      ],
+      "formulaIds": [
+        "tri-exterior-f"
+      ],
+      "method": "Set the exterior angle equal to the sum of the two remote interior angles, then solve.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set up the exterior-angle equation before solving for x."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to substitute x back in to find the actual exterior angle."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-q-009",
+      "topicId": "triangles",
+      "conceptId": "tri-similar",
+      "levelId": "triangles-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Triangle ABC is right-angled at B, with AB = 6 and BC = 8. It is similar to triangle PQR, with PQ corresponding to AB. If PQ = 18, what is QR (corresponding to BC)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Right triangle ABC, right-angled at B",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 6,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "6"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "8"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Right triangle ABC, right-angled at B, with AB = 6 and BC = 8."
+      },
+      "answer": {
+        "value": 24,
+        "tolerance": 0
+      },
+      "explanation": "Scale factor = PQ ÷ AB = 18 ÷ 6 = 3. QR = BC × 3 = 8 × 3 = 24.",
+      "solutionSteps": [
+        "Scale factor = 18 ÷ 6 = 3.",
+        "QR = 8 × 3 = 24."
+      ],
+      "formulaIds": [
+        "tri-similar-f",
+        "tri-pythagoras-f"
+      ],
+      "method": "Find the scale factor first, then apply it to the corresponding side.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The right angle and the Pythagorean sides are not needed here — just the ratio."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use the Pythagorean formula when only a ratio is needed."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-001",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "levelId": "triangles-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "In triangle ABC, AD is a median and G is the centroid. If AD = 18 cm, how long is AG?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC with median AD and centroid G",
+        "points": [
+          {
+            "id": "A",
+            "x": 3,
+            "y": 7,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 10,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "D",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              16
+            ]
+          },
+          {
+            "id": "G",
+            "x": 4.33,
+            "y": 2.33,
+            "labelOffset": [
+              8,
+              -4
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "D",
+            "label": "18 cm",
+            "labelOffset": [
+              -22,
+              -4
+            ]
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "B",
+              "D"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "D",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "ariaSummary": "Triangle ABC with the median AD drawn from A to D, the midpoint of BC (BD and DC are marked equal). AD = 18 cm, and the centroid G lies on AD."
+      },
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The centroid divides every median in the ratio 2 : 1 from the vertex, so AG = (2/3) × 18 = 12 cm (and GD = 6 cm).",
+      "solutionSteps": [
+        "AG : GD = 2 : 1, so AD is 3 equal parts.",
+        "18 ÷ 3 = 6 cm per part.",
+        "AG = 2 × 6 = 12 cm."
+      ],
+      "formulaIds": [
+        "tri-adv-centres-f"
+      ],
+      "method": "The centroid splits each median 2 : 1 from the vertex.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The centroid is nearer the side than the vertex."
+        },
+        {
+          "level": 2,
+          "text": "Split 18 in the ratio 2 : 1."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 9 cm, as if G were the midpoint of AD.",
+        "Giving 6 cm, which is GD, the shorter part."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-002",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-congruence",
+      "levelId": "triangles-level-6",
+      "difficulty": "easy",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "In triangles ABC and PQR, AB = PQ, AC = PR and ∠A = ∠P. By which rule are the triangles congruent?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangles ABC and PQR with AB = PQ, AC = PR and ∠A = ∠P",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -12,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 5,
+            "y": 0,
+            "labelOffset": [
+              8,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 1.5,
+            "y": 3.5,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          },
+          {
+            "id": "P",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              -12,
+              10
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 13,
+            "y": 0,
+            "labelOffset": [
+              8,
+              10
+            ]
+          },
+          {
+            "id": "R",
+            "x": 9.5,
+            "y": 3.5,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "polygon",
+            "points": [
+              "P",
+              "Q",
+              "R"
+            ]
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "P",
+              "Q"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "A",
+              "C"
+            ],
+            "count": 2
+          },
+          {
+            "on": [
+              "P",
+              "R"
+            ],
+            "count": 2
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "radius": 18
+          },
+          {
+            "at": "P",
+            "from": "Q",
+            "to": "R",
+            "radius": 18
+          }
+        ],
+        "ariaSummary": "Two triangles, ABC and PQR. AB and PQ carry one tick each, AC and PR carry two ticks each, and the angles at A and P are marked equal."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "SSA"
+        },
+        {
+          "id": "b",
+          "text": "SAS"
+        },
+        {
+          "id": "c",
+          "text": "ASA"
+        },
+        {
+          "id": "d",
+          "text": "RHS"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "∠A is formed by sides AB and AC, and ∠P by PQ and PR. So two sides and the angle between them are equal: SAS.",
+      "solutionSteps": [
+        "Equal parts: AB = PQ, AC = PR, ∠A = ∠P.",
+        "∠A lies between AB and AC, so it is the included angle.",
+        "Two sides and the included angle: SAS."
+      ],
+      "formulaIds": [
+        "tri-adv-congruence-f"
+      ],
+      "method": "Check whether the equal angle lies between the two equal sides.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which two sides form ∠A?"
+        },
+        {
+          "level": 2,
+          "text": "Two sides with the angle between them is one of the four tests."
+        }
+      ],
+      "commonMistakes": [
+        "Calling it SSA, which is when the angle is not between the sides.",
+        "Calling it RHS when no right angle is given."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-003",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "levelId": "triangles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In triangle ABC, ∠B = 90°, AB = 9 cm and BC = 12 cm. What is the radius of the circle that passes through A, B and C?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Right triangle ABC, right-angled at B",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 9,
+            "labelOffset": [
+              -14,
+              -4
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "C",
+            "x": 12,
+            "y": 0,
+            "labelOffset": [
+              10,
+              10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "9 cm"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "12 cm"
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "Right triangle ABC, right-angled at B, with AB = 9 cm and BC = 12 cm."
+      },
+      "answer": {
+        "value": 7.5,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "The hypotenuse AC = √(9² + 12²) = √225 = 15 cm. In a right triangle the hypotenuse is a diameter of the circumcircle, so R = 15 ÷ 2 = 7.5 cm.",
+      "solutionSteps": [
+        "AC² = 81 + 144 = 225, so AC = 15 cm.",
+        "The circumcentre is the midpoint of the hypotenuse.",
+        "R = 15 ÷ 2 = 7.5 cm."
+      ],
+      "formulaIds": [
+        "tri-adv-centres-f"
+      ],
+      "method": "Right triangle: circumradius = hypotenuse ÷ 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The circle through all three vertices is the circumcircle."
+        },
+        {
+          "level": 2,
+          "text": "In a right triangle the circumcentre is the midpoint of the hypotenuse."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 15 cm, the whole hypotenuse, which is the diameter.",
+        "Giving 3 cm, the inradius (a + b − c) ÷ 2."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-004",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "levelId": "triangles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A triangle has sides 13 cm, 14 cm and 15 cm. What is its inradius?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC with sides 13 cm, 14 cm and 15 cm",
+        "points": [
+          {
+            "id": "A",
+            "x": 5,
+            "y": 12,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 14,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "13 cm",
+            "labelOffset": [
+              -26,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "14 cm"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "A",
+            "label": "15 cm"
+          }
+        ],
+        "ariaSummary": "Triangle ABC with AB = 13 cm, BC = 14 cm and CA = 15 cm."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "2 cm"
+        },
+        {
+          "id": "b",
+          "text": "8 cm"
+        },
+        {
+          "id": "c",
+          "text": "8.125 cm"
+        },
+        {
+          "id": "d",
+          "text": "4 cm"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "s = (13 + 14 + 15) ÷ 2 = 21. By Heron's formula, Area = √(21 × 8 × 7 × 6) = √7056 = 84 cm². So r = Area ÷ s = 84 ÷ 21 = 4 cm.",
+      "solutionSteps": [
+        "s = 21.",
+        "Area = √(21 × 8 × 7 × 6) = 84.",
+        "r = 84 ÷ 21 = 4 cm."
+      ],
+      "formulaIds": [
+        "tri-adv-centres-f"
+      ],
+      "method": "Inradius r = Area ÷ s.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the semi-perimeter s first."
+        },
+        {
+          "level": 2,
+          "text": "Use Heron's formula for the area, then divide by s."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the perimeter (42) instead of s, giving 2 cm.",
+        "Using r = 2 × Area ÷ s (8 cm), or finding the circumradius abc ÷ (4 × Area) = 8.125 cm instead."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-005",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-congruence",
+      "levelId": "triangles-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Which of these does NOT guarantee that triangles ABC and PQR are congruent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "AB = PQ, BC = QR and CA = RP"
+        },
+        {
+          "id": "b",
+          "text": "AB = PQ, ∠B = ∠Q and BC = QR"
+        },
+        {
+          "id": "c",
+          "text": "∠A = ∠P, ∠B = ∠Q and AB = PQ"
+        },
+        {
+          "id": "d",
+          "text": "AB = PQ, BC = QR and ∠A = ∠P"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "(a) is SSS. (b) is SAS, because ∠B lies between AB and BC. (c) is ASA, because AB lies between ∠A and ∠B. In (d) the equal angle ∠A is not between AB and BC: that is SSA, which can fit two different triangles. For example, with AB = 10, BC = 6 and ∠A = 30°, AC can be about 12.0 or about 5.3.",
+      "solutionSteps": [
+        "(a) three sides: SSS.",
+        "(b) ∠B is between AB and BC: SAS.",
+        "(c) AB is between ∠A and ∠B: ASA.",
+        "(d) ∠A is not between AB and BC: SSA, not a test."
+      ],
+      "formulaIds": [
+        "tri-adv-congruence-f"
+      ],
+      "method": "Name the pattern of each option; SSA and AAA are not congruence tests.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Classify each option as SSS, SAS, ASA or something else."
+        },
+        {
+          "level": 2,
+          "text": "Look at where the equal angle sits relative to the two equal sides."
+        }
+      ],
+      "commonMistakes": [
+        "Picking (c) because the side is listed last. AB still lies between ∠A and ∠B, so it is ASA.",
+        "Treating any two sides and an angle as SAS."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-006",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "levelId": "triangles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "In triangle ABC, I is the incentre and ∠BIC = 125°. What is ∠BAC?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Triangle ABC with incentre I",
+        "points": [
+          {
+            "id": "A",
+            "x": 3.26,
+            "y": 5.65,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "I",
+            "x": 3.57,
+            "y": 2.06,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "I"
+          },
+          {
+            "type": "segment",
+            "from": "C",
+            "to": "I"
+          }
+        ],
+        "angles": [
+          {
+            "at": "I",
+            "from": "B",
+            "to": "C",
+            "label": "125°",
+            "radius": 14
+          },
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "?",
+            "radius": 18
+          }
+        ],
+        "ariaSummary": "Triangle ABC with its incentre I joined to B and C. ∠BIC is marked 125° and ∠BAC is marked with a question mark."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "35°"
+        },
+        {
+          "id": "b",
+          "text": "70°"
+        },
+        {
+          "id": "c",
+          "text": "55°"
+        },
+        {
+          "id": "d",
+          "text": "62.5°"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "∠BIC = 90° + A/2, so A/2 = 125 − 90 = 35° and ∠BAC = 70°. Another way: the base angles of triangle BIC add up to 180 − 125 = 55°, which is half of ∠B + ∠C. So ∠B + ∠C = 110° and ∠A = 180 − 110 = 70°.",
+      "solutionSteps": [
+        "90 + A/2 = 125.",
+        "A/2 = 35.",
+        "A = 70°."
+      ],
+      "formulaIds": [
+        "tri-adv-centre-angles-f"
+      ],
+      "method": "∠BIC = 90° + A/2, solved for A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which rule links ∠BIC to ∠A?"
+        },
+        {
+          "level": 2,
+          "text": "Subtract 90 from 125, then double."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 35°, which is A/2.",
+        "Using another centre's rule: 180° − A (orthocentre) gives 55°, and 2A (circumcentre) gives 62.5°."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-007",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-centres",
+      "levelId": "triangles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In acute triangle ABC, ∠BAC = 50° and O is the circumcentre. Find ∠OBC.",
+      "figure": {
+        "type": "diagram",
+        "caption": "Acute triangle ABC with circumcentre O",
+        "points": [
+          {
+            "id": "A",
+            "x": 3.09,
+            "y": 8.5,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "O",
+            "x": 4,
+            "y": 3.36,
+            "labelOffset": [
+              -4,
+              -10
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "B"
+          },
+          {
+            "type": "segment",
+            "from": "O",
+            "to": "C"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "O",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "O",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "50°",
+            "radius": 18
+          },
+          {
+            "at": "B",
+            "from": "O",
+            "to": "C",
+            "label": "?",
+            "radius": 22
+          }
+        ],
+        "ariaSummary": "Acute triangle ABC with circumcentre O joined to B and C; OB and OC are marked equal. ∠BAC is marked 50° and ∠OBC is marked with a question mark."
+      },
+      "answer": {
+        "value": 40,
+        "tolerance": 0,
+        "unit": "°"
+      },
+      "explanation": "An arc subtends twice the angle at the centre that it does at the circumference, so ∠BOC = 2 × 50 = 100°. OB = OC (both radii), so triangle OBC is isosceles and ∠OBC = (180 − 100) ÷ 2 = 40°.",
+      "solutionSteps": [
+        "∠BOC = 2 × 50 = 100°.",
+        "OB = OC, so ∠OBC = ∠OCB.",
+        "∠OBC = (180 − 100) ÷ 2 = 40°."
+      ],
+      "formulaIds": [
+        "tri-adv-centre-angles-f"
+      ],
+      "method": "∠BOC = 2A, then the base angle of isosceles triangle OBC (which comes to 90° − A).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What angle does BC make at the circumcentre?"
+        },
+        {
+          "level": 2,
+          "text": "OB and OC are both radii, so triangle OBC is isosceles."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at ∠BOC = 100°.",
+        "Using the incentre rule 90° + A/2 = 115° for ∠BOC."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "triangles-tri-adv-q-008",
+      "topicId": "triangles",
+      "conceptId": "tri-adv-congruence",
+      "levelId": "triangles-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "In triangle ABC, AB = AC = 10 cm and BC = 16 cm. The bisector of ∠A meets BC at D. How long is AD?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Isosceles triangle ABC with AB = AC and AD bisecting ∠A",
+        "points": [
+          {
+            "id": "A",
+            "x": 8,
+            "y": 6,
+            "labelOffset": [
+              -4,
+              -12
+            ]
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "C",
+            "x": 16,
+            "y": 0,
+            "labelOffset": [
+              10,
+              8
+            ]
+          },
+          {
+            "id": "D",
+            "x": 8,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              16
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "D"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "10 cm"
+          }
+        ],
+        "ticks": [
+          {
+            "on": [
+              "A",
+              "B"
+            ],
+            "count": 1
+          },
+          {
+            "on": [
+              "A",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "D",
+            "radius": 18
+          },
+          {
+            "at": "A",
+            "from": "D",
+            "to": "C",
+            "radius": 24
+          }
+        ],
+        "ariaSummary": "Isosceles triangle ABC with AB = AC = 10 cm (marked equal) and BC = 16 cm. AD meets BC at D, and the two angles BAD and DAC are marked equal."
+      },
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "unit": "cm"
+      },
+      "explanation": "Triangles ABD and ACD are congruent by SAS: AB = AC, ∠BAD = ∠CAD and AD is common. So BD = DC = 8 cm, and ∠ADB = ∠ADC; they add up to 180°, so each is 90°. By Pythagoras in triangle ABD, AD = √(10² − 8²) = √36 = 6 cm.",
+      "solutionSteps": [
+        "ΔABD ≅ ΔACD by SAS (AB = AC, ∠BAD = ∠CAD, AD common).",
+        "So BD = DC = 8 cm and ∠ADB = ∠ADC = 90°.",
+        "AD = √(100 − 64) = 6 cm."
+      ],
+      "formulaIds": [
+        "tri-adv-congruence-f"
+      ],
+      "method": "Prove the two halves congruent, then use the equal parts with Pythagoras.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "AD splits ABC into two triangles. Why are they congruent?"
+        },
+        {
+          "level": 2,
+          "text": "The congruence gives BD = DC and two equal angles at D that add up to 180°."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 8 cm, which is BD, not AD.",
+        "Using the whole of BC in Pythagoras: √(16² − 10²) is not a length in this figure."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

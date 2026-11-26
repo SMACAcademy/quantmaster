@@ -1,0 +1,1348 @@
+{
+  "topicId": "profit-loss-discount",
+  "concepts": [
+    {
+      "id": "pl-basics",
+      "topicId": "profit-loss-discount",
+      "name": "Cost price and selling price",
+      "description": "The two prices everything else is measured against.",
+      "sortOrder": 1
+    },
+    {
+      "id": "pl-profit-pct",
+      "topicId": "profit-loss-discount",
+      "name": "Profit and loss percentage",
+      "description": "Always measured on the cost price, never the selling price.",
+      "sortOrder": 2
+    },
+    {
+      "id": "pl-find-price",
+      "topicId": "profit-loss-discount",
+      "name": "Finding CP or SP",
+      "description": "Moving between the two prices using a multiplier.",
+      "sortOrder": 3
+    },
+    {
+      "id": "pl-discount",
+      "topicId": "profit-loss-discount",
+      "name": "Marked price and discount",
+      "description": "Discounts apply to the marked price, which is usually above cost.",
+      "sortOrder": 4
+    },
+    {
+      "id": "pl-successive-discount",
+      "topicId": "profit-loss-discount",
+      "name": "Successive discounts",
+      "description": "Chained discounts multiply — they never add.",
+      "sortOrder": 5
+    },
+    {
+      "id": "pl-applications",
+      "topicId": "profit-loss-discount",
+      "name": "Trade word problems",
+      "description": "Two-article deals, article-count comparisons and missed-profit questions.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "pl-profit-formula",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "title": "Profit percentage",
+      "prompt": "How do you calculate profit percentage?",
+      "formula": "Profit = SP − CP\nProfit % = (Profit ÷ CP) × 100",
+      "variables": [
+        {
+          "symbol": "CP",
+          "meaning": "cost price — what it cost you"
+        },
+        {
+          "symbol": "SP",
+          "meaning": "selling price — what you sold it for"
+        }
+      ],
+      "explanation": "Profit is measured against what you spent, so the cost price is always the denominator.",
+      "example": "CP ₹400, SP ₹500\nProfit = ₹100\nProfit % = (100 ÷ 400) × 100 = 25%",
+      "commonMistake": "Dividing by the selling price, which understates the profit.",
+      "applicationPrompt": "An item costing ₹400 sells for ₹500. Which formula gives the profit percentage?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl-loss-formula",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "title": "Loss percentage",
+      "prompt": "How do you calculate loss percentage?",
+      "formula": "Loss = CP − SP\nLoss % = (Loss ÷ CP) × 100",
+      "variables": [],
+      "explanation": "Identical structure to profit — the base is still the cost price.",
+      "example": "CP ₹500, SP ₹450\nLoss = ₹50\nLoss % = (50 ÷ 500) × 100 = 10%",
+      "commonMistake": "Using the selling price as the base.",
+      "applicationPrompt": "An article costing ₹500 sells for ₹450. Which formula gives the loss percentage?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl-sp-formula",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-find-price",
+      "title": "Selling price from cost",
+      "prompt": "You know the cost price and the profit percentage. How do you get the selling price?",
+      "formula": "SP = CP × (100 + Profit %) ÷ 100",
+      "variables": [],
+      "explanation": "A 15% profit means selling at 115% of cost — a single multiplication by 1.15. For a loss, the multiplier drops below 1.",
+      "example": "CP ₹1,200 at 15% profit\nSP = 1200 × 1.15 = ₹1,380",
+      "commonMistake": "Adding the percentage as an amount: ₹1,200 + 15 = ₹1,215.",
+      "applicationPrompt": "An item costing ₹1,200 is sold at 15% profit. Which expression gives the selling price?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl-cp-formula",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-find-price",
+      "title": "Cost price from selling price",
+      "prompt": "You know the selling price and the profit percentage. How do you recover the cost price?",
+      "formula": "CP = SP × 100 ÷ (100 + Profit %)",
+      "variables": [],
+      "explanation": "Reverse the multiplier by dividing. This is a reverse-percentage question wearing trade clothes.",
+      "example": "SP ₹690 at 15% profit\nCP = 690 ÷ 1.15 = ₹600",
+      "commonMistake": "Taking 15% off the selling price, which gives ₹586.50 rather than ₹600.",
+      "applicationPrompt": "An article sells for ₹690 at a 15% profit. Which expression gives the cost price?",
+      "tags": [
+        "reverse",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-discount-formula",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-discount",
+      "title": "Discount",
+      "prompt": "How does a discount relate the marked price to the selling price?",
+      "formula": "Discount = MP − SP\nSP = MP × (100 − d) ÷ 100",
+      "variables": [
+        {
+          "symbol": "MP",
+          "meaning": "marked price — the label price"
+        },
+        {
+          "symbol": "d",
+          "meaning": "discount percentage"
+        }
+      ],
+      "explanation": "Discount percentages are always taken on the marked price, not on the cost price and not on the final price.",
+      "example": "MP ₹800 with 25% off\nSP = 800 × 0.75 = ₹600",
+      "commonMistake": "Applying the discount to the cost price, which has nothing to do with the label price.",
+      "applicationPrompt": "An item marked ₹800 has 25% off. Which expression gives what the customer pays?",
+      "tags": [
+        "core",
+        "discount"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pl-markup-discount",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-successive-discount",
+      "title": "Markup then discount",
+      "prompt": "Goods are marked m% above cost and then sold at d% discount. What is the profit percentage?",
+      "formula": "Profit % = [(1 + m/100)(1 − d/100) − 1] × 100",
+      "variables": [
+        {
+          "symbol": "m",
+          "meaning": "markup above cost price"
+        },
+        {
+          "symbol": "d",
+          "meaning": "discount on the marked price"
+        }
+      ],
+      "explanation": "Set cost = 100 and chain the multipliers. The two percentages act on different bases, so they never simply cancel.",
+      "example": "40% markup, 25% discount\n100 → 140 → 140 × 0.75 = 105\nProfit = 5%",
+      "commonMistake": "Subtracting the discount from the markup (40 − 25 = 15%).",
+      "applicationPrompt": "Goods are marked 40% above cost and sold at 25% discount. Which method gives the profit?",
+      "tags": [
+        "successive",
+        "trap"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-two-articles",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-applications",
+      "kind": "shortcut",
+      "title": "Equal selling prices, opposite results",
+      "prompt": "Two items sell for the same price, one at x% profit and one at x% loss. What is the overall result?",
+      "formula": "Always a loss of x²/100 %",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "the common profit/loss percentage"
+        }
+      ],
+      "explanation": "The item sold at a loss had the higher cost price, so the loss outweighs the gain — regardless of the price involved.",
+      "example": "Two articles at ₹990 each, one at +10% and one at −10%\nCPs: ₹900 and ₹1,100 → total ₹2,000, SP ₹1,980\nLoss = 1% = 10²/100 ✓",
+      "commonMistake": "Concluding there is no net gain or loss.",
+      "applicationPrompt": "Two articles sell for ₹990 each, one at 10% profit and one at 10% loss. What is the net result?",
+      "tags": [
+        "applications",
+        "trap",
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "pl-sc-count-articles",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "kind": "shortcut",
+      "title": "Cost of x articles = selling price of y articles",
+      "prompt": "The cost price of x articles equals the selling price of y articles. What is the profit percentage?",
+      "formula": "Profit % = (x − y) ÷ y × 100",
+      "variables": [],
+      "explanation": "Selling y articles brings in the cost of x, so the gain is the cost of x − y articles on an outlay of y.",
+      "example": "CP of 20 pens = SP of 16 pens: profit = (20 − 16) ÷ 16 × 100 = 25%.",
+      "commonMistake": "Dividing by x instead of y. The base is the number actually sold.",
+      "applicationPrompt": "The cost of 25 chairs equals the selling price of 20 chairs.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-sc-single-discount",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-successive-discount",
+      "kind": "shortcut",
+      "title": "Two discounts as one",
+      "prompt": "What single discount equals successive discounts of a% and b%?",
+      "formula": "Single discount = a + b − ab/100 %",
+      "variables": [],
+      "explanation": "The second discount applies to the already reduced price, so the total is a little less than a + b.",
+      "example": "20% and then 10%: 20 + 10 − 2 = 28%.",
+      "commonMistake": "Adding the two discounts to get 30%.",
+      "applicationPrompt": "A shop offers 30% off, then a further 10% off at the till.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-sc-false-weight",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-applications",
+      "kind": "shortcut",
+      "title": "False weight",
+      "prompt": "A dealer sells at cost price but uses a weight lighter than the true one. What is the profit percentage?",
+      "formula": "Profit % = (True weight − False weight) ÷ False weight × 100",
+      "variables": [],
+      "explanation": "The dealer is paid for the true weight but hands over only the false weight, so the gain is measured on what was actually given.",
+      "example": "Uses 900 g in place of 1 kg: 100 ÷ 900 × 100 = 11 1/9 %.",
+      "commonMistake": "Dividing by the true weight (which would give 10%).",
+      "applicationPrompt": "A shopkeeper claims to sell at cost but gives 950 g for every kilogram.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-sc-on-sp",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "kind": "shortcut",
+      "title": "Profit on cost vs profit on selling price",
+      "prompt": "A profit of 1/n of the cost price is what fraction of the selling price?",
+      "formula": "Profit of 1/n on CP = 1/(n + 1) on SP\n25% on CP = 20% on SP\n33⅓% on CP = 25% on SP",
+      "variables": [],
+      "explanation": "If CP is n parts, the profit is 1 part and SP is n + 1 parts.",
+      "example": "Profit 25% of cost: CP 4 parts, profit 1, SP 5. Profit is 1/5 = 20% of the selling price.",
+      "commonMistake": "Assuming a margin quoted on the selling price is the same as the markup on cost.",
+      "applicationPrompt": "A trader says the profit is 20% of the selling price. What is it as a percentage of cost?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pl-sc-free-items",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-discount",
+      "kind": "shortcut",
+      "title": "Buy x, get y free",
+      "prompt": "What discount percentage does \"buy x, get y free\" amount to?",
+      "formula": "Discount % = y ÷ (x + y) × 100",
+      "variables": [],
+      "explanation": "The customer takes x + y items and pays for x, so y out of x + y are given away.",
+      "example": "Buy 4, get 1 free: 1 ÷ 5 × 100 = 20%.",
+      "commonMistake": "Dividing by x, which gives 25% here.",
+      "applicationPrompt": "An offer reads \"buy 3, get 2 free\".",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "profit-loss-discount-level-0",
+      "topicId": "profit-loss-discount",
+      "order": 0,
+      "title": "Three Prices, One Base",
+      "description": "Cost price, marked price and selling price — and which one every percentage is measured against.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "pl-basics",
+        "pl-profit-pct"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three prices to keep apart",
+            "body": "Cost price (CP) is what the seller paid. Marked price (MP) is the label price. Selling price (SP) is what the buyer actually pays after any discount.\n\nAlmost every mistake in this topic is a percentage applied to the wrong one of these three."
+          },
+          {
+            "type": "formula",
+            "title": "The rule that never changes",
+            "body": "Profit % and Loss %  →  measured on CP\nDiscount %             →  measured on MP",
+            "caption": "Write this at the top of your rough work and half the traps disappear."
+          },
+          {
+            "type": "example",
+            "title": "All three in one problem",
+            "body": "CP = ₹100, marked 40% above cost → MP = ₹140\n25% discount → SP = 140 × 0.75 = ₹105\nProfit = 105 − 100 = ₹5 → 5% profit (on CP)\n\nNote: 40 − 25 does NOT give 15% profit."
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Setting CP = 100 costs nothing and turns every percentage into a rupee amount. Unless a question gives real prices, start there."
+          },
+          {
+            "type": "check",
+            "questionId": "profit-loss-discount-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Percentages here are just percentage change",
+            "body": "Profit is percentage increase from CP to SP. Discount is percentage decrease from MP to SP. If you are comfortable with Percentages, this topic is that knowledge applied to money."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "markup-discount"
+          },
+          {
+            "type": "check",
+            "questionId": "profit-loss-discount-q-012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "profit-loss-discount-level-1",
+      "topicId": "profit-loss-discount",
+      "order": 1,
+      "title": "Trade Formulas",
+      "description": "Profit, loss, discount, and the reverse forms that recover a hidden cost price.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-0"
+      ],
+      "conceptIds": [
+        "pl-profit-pct",
+        "pl-find-price",
+        "pl-discount"
+      ],
+      "formulaIds": [
+        "pl-profit-formula",
+        "pl-loss-formula",
+        "pl-sp-formula",
+        "pl-cp-formula",
+        "pl-discount-formula",
+        "pl-markup-discount",
+        "pl-two-articles"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 5
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "profit-loss-discount-level-2",
+      "topicId": "profit-loss-discount",
+      "order": 2,
+      "title": "Which Base? Which Formula?",
+      "description": "Recognise what a trade question is measuring before you compute anything.",
+      "type": "formula_recognition",
+      "difficulty": "medium",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-1"
+      ],
+      "conceptIds": [
+        "pl-profit-pct",
+        "pl-discount"
+      ],
+      "questionIds": [
+        "profit-loss-discount-q-010",
+        "profit-loss-discount-q-011",
+        "profit-loss-discount-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 30
+    },
+    {
+      "id": "profit-loss-discount-level-3",
+      "topicId": "profit-loss-discount",
+      "order": 3,
+      "title": "Direct Trade Calculations",
+      "description": "One-step profit, loss and discount questions.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-2"
+      ],
+      "conceptIds": [
+        "pl-profit-pct",
+        "pl-find-price",
+        "pl-discount"
+      ],
+      "questionIds": [
+        "profit-loss-discount-q-001",
+        "profit-loss-discount-q-002",
+        "profit-loss-discount-q-003"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "profit-loss-discount-level-4",
+      "topicId": "profit-loss-discount",
+      "order": 4,
+      "title": "Markup, Discount and Reverse Prices",
+      "description": "Two-step questions where the cost price is hidden.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-3"
+      ],
+      "conceptIds": [
+        "pl-find-price",
+        "pl-successive-discount"
+      ],
+      "questionIds": [
+        "profit-loss-discount-q-020",
+        "profit-loss-discount-q-021",
+        "profit-loss-discount-q-022",
+        "profit-loss-discount-q-023",
+        "profit-loss-discount-q-004"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "profit-loss-discount-level-5",
+      "topicId": "profit-loss-discount",
+      "order": 5,
+      "title": "Complex Trade Problems",
+      "description": "Successive discounts, article-count comparisons and missed-profit questions.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-4"
+      ],
+      "conceptIds": [
+        "pl-applications",
+        "pl-successive-discount"
+      ],
+      "questionIds": [
+        "profit-loss-discount-q-030",
+        "profit-loss-discount-q-031",
+        "profit-loss-discount-q-032"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "profit-loss-discount-level-6",
+      "topicId": "profit-loss-discount",
+      "order": 6,
+      "title": "Mixed Trade Practice",
+      "description": "All of it, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "profit-loss-discount-level-5"
+      ],
+      "questionQuery": {
+        "topicId": "profit-loss-discount",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 6
+      },
+      "xpReward": 55
+    }
+  ],
+  "questions": [
+    {
+      "id": "profit-loss-discount-q-001",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "levelId": "profit-loss-discount-level-3",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "An article bought for ₹400 is sold for ₹500. What is the profit percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20%"
+        },
+        {
+          "id": "b",
+          "text": "25%"
+        },
+        {
+          "id": "c",
+          "text": "10%"
+        },
+        {
+          "id": "d",
+          "text": "125%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Profit = ₹100 on a cost of ₹400, so (100 ÷ 400) × 100 = 25%.",
+      "solutionSteps": [
+        "Profit = 500 − 400 = 100.",
+        "Divide by the COST price: 100 ÷ 400 = 0.25.",
+        "× 100 → 25%."
+      ],
+      "formulaIds": [
+        "pl-profit-formula"
+      ],
+      "method": "Profit ÷ CP × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Profit percentage is always measured on the cost price."
+        },
+        {
+          "level": 2,
+          "text": "100 ÷ 400 = 0.25."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 500 and answering 20%."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-002",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-find-price",
+      "levelId": "profit-loss-discount-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "An item costing ₹1,200 is sold at a 15% profit. What is the selling price?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹1,215"
+        },
+        {
+          "id": "b",
+          "text": "₹1,320"
+        },
+        {
+          "id": "c",
+          "text": "₹1,380"
+        },
+        {
+          "id": "d",
+          "text": "₹1,800"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "SP = 1,200 × 1.15 = ₹1,380.",
+      "solutionSteps": [
+        "A 15% profit means selling at 115% of cost.",
+        "1,200 × 1.15 = 1,380.",
+        "SP = ₹1,380."
+      ],
+      "formulaIds": [
+        "pl-sp-formula"
+      ],
+      "method": "Multiply the cost by (1 + profit rate).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "10% of 1,200 is 120 — build 15% from there."
+        },
+        {
+          "level": 2,
+          "text": "Profit = 120 + 60 = 180."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 15 rupees instead of 15 percent."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-003",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-discount",
+      "levelId": "profit-loss-discount-level-3",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "An article marked at ₹800 is sold at a 25% discount. What does the customer pay?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹200"
+        },
+        {
+          "id": "b",
+          "text": "₹575"
+        },
+        {
+          "id": "c",
+          "text": "₹600"
+        },
+        {
+          "id": "d",
+          "text": "₹775"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "25% off leaves 75%: 800 × 0.75 = ₹600.",
+      "solutionSteps": [
+        "Discount = 25% of 800 = 200.",
+        "SP = 800 − 200 = ₹600.",
+        "Or directly: 800 × 0.75 = 600."
+      ],
+      "formulaIds": [
+        "pl-discount-formula"
+      ],
+      "method": "Multiply the marked price by (1 − discount rate).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "25% is one quarter."
+        },
+        {
+          "level": 2,
+          "text": "Three quarters of 800."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting the discount amount (₹200) as the price paid."
+      ],
+      "tags": [
+        "discount"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-004",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-find-price",
+      "levelId": "profit-loss-discount-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "An article is sold for ₹690 at a profit of 15%. What was its cost price? (Answer in ₹)",
+      "answer": {
+        "value": 600,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "CP = 690 ÷ 1.15 = ₹600. Check: 15% of 600 = 90, and 600 + 90 = 690 ✓",
+      "solutionSteps": [
+        "SP is 115% of CP.",
+        "CP = 690 ÷ 1.15.",
+        "CP = ₹600."
+      ],
+      "formulaIds": [
+        "pl-cp-formula"
+      ],
+      "method": "Divide by the multiplier to reverse the profit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹690 represents 115%, not 100%."
+        },
+        {
+          "level": 2,
+          "text": "Find 1% first: 690 ÷ 115 = 6."
+        },
+        {
+          "level": 3,
+          "text": "100% = 6 × 100."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 15% off ₹690, which gives ₹586.50."
+      ],
+      "tags": [
+        "reverse",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-010",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "levelId": "profit-loss-discount-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "An article costing ₹500 sells for ₹450. Which formula gives the loss percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(CP − SP) ÷ CP × 100"
+        },
+        {
+          "id": "b",
+          "text": "(CP − SP) ÷ SP × 100"
+        },
+        {
+          "id": "c",
+          "text": "SP ÷ CP × 100"
+        },
+        {
+          "id": "d",
+          "text": "CP − SP"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Loss percentage is the loss measured against the cost price: (500 − 450) ÷ 500 × 100 = 10%.",
+      "solutionSteps": [
+        "Loss = CP − SP = 50.",
+        "Divide by CP: 50 ÷ 500 = 0.1.",
+        "× 100 → 10% loss."
+      ],
+      "formulaIds": [
+        "pl-loss-formula"
+      ],
+      "method": "Loss ÷ CP × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which price did the trader actually risk?"
+        },
+        {
+          "level": 2,
+          "text": "The base for profit and loss is always CP."
+        }
+      ],
+      "commonMistakes": [
+        "Using SP as the denominator."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-011",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-discount",
+      "levelId": "profit-loss-discount-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "match_following",
+      "question": "Match each percentage with its formula.",
+      "pairs": [
+        {
+          "left": "Profit %",
+          "right": "(SP − CP) ÷ CP × 100"
+        },
+        {
+          "left": "Loss %",
+          "right": "(CP − SP) ÷ CP × 100"
+        },
+        {
+          "left": "Discount %",
+          "right": "(MP − SP) ÷ MP × 100"
+        },
+        {
+          "left": "Markup %",
+          "right": "(MP − CP) ÷ CP × 100"
+        }
+      ],
+      "explanation": "Profit, loss and markup are all measured on cost. Only discount is measured on the marked price. Mixing these up is the most common error in the topic.",
+      "solutionSteps": [
+        "Profit and loss compare SP with CP.",
+        "Markup compares MP with CP.",
+        "Discount compares SP with MP."
+      ],
+      "formulaIds": [
+        "pl-profit-formula",
+        "pl-discount-formula"
+      ],
+      "method": "Ask which price the percentage is being taken of.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only one of these divides by the marked price."
+        },
+        {
+          "level": 2,
+          "text": "Discount is the odd one out: it is taken on MP."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming discount is calculated on the cost price."
+      ],
+      "tags": [
+        "matching",
+        "method"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-012",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-successive-discount",
+      "levelId": "profit-loss-discount-level-2",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "statement_evaluation",
+      "question": "Marking goods 20% above cost and then giving a 20% discount results in neither profit nor loss.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Cost 100 → marked 120 → sold at 120 × 0.8 = 96. That is a 4% loss, because the discount is taken on the larger marked price.",
+      "solutionSteps": [
+        "Let CP = 100, so MP = 120.",
+        "20% discount on 120 = 24, so SP = 96.",
+        "96 < 100, a 4% loss."
+      ],
+      "formulaIds": [
+        "pl-markup-discount"
+      ],
+      "method": "Chain the multipliers: 1.2 × 0.8 = 0.96.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The markup and the discount are percentages of different amounts."
+        },
+        {
+          "level": 2,
+          "text": "Try it with CP = 100."
+        }
+      ],
+      "commonMistakes": [
+        "Cancelling the two 20% figures."
+      ],
+      "tags": [
+        "true-false",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-020",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-successive-discount",
+      "levelId": "profit-loss-discount-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A shopkeeper marks his goods 30% above cost and then allows a 10% discount. What is his profit percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15%"
+        },
+        {
+          "id": "b",
+          "text": "17%"
+        },
+        {
+          "id": "c",
+          "text": "20%"
+        },
+        {
+          "id": "d",
+          "text": "23%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Take CP = 100: MP = 130, SP = 130 × 0.9 = 117, so the profit is 17%.",
+      "solutionSteps": [
+        "Let CP = 100 → MP = 130.",
+        "SP = 130 × 0.9 = 117.",
+        "Profit = 17 on a cost of 100 → 17%."
+      ],
+      "formulaIds": [
+        "pl-markup-discount"
+      ],
+      "method": "Set cost to 100 and chain the multipliers.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The discount applies to the marked price, not the cost."
+        },
+        {
+          "level": 2,
+          "text": "1.30 × 0.90 = 1.17."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 10 from 30 to get 20%."
+      ],
+      "tags": [
+        "successive"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-021",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-find-price",
+      "levelId": "profit-loss-discount-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "By selling an article for ₹720, a trader loses 10%. What should the selling price be to make a 10% profit?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹792"
+        },
+        {
+          "id": "b",
+          "text": "₹864"
+        },
+        {
+          "id": "c",
+          "text": "₹880"
+        },
+        {
+          "id": "d",
+          "text": "₹900"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "CP = 720 ÷ 0.9 = ₹800. For a 10% profit, SP = 800 × 1.1 = ₹880.",
+      "solutionSteps": [
+        "₹720 is 90% of the cost price.",
+        "CP = 720 ÷ 0.9 = ₹800.",
+        "10% profit → SP = 800 × 1.1 = ₹880."
+      ],
+      "formulaIds": [
+        "pl-cp-formula",
+        "pl-sp-formula"
+      ],
+      "method": "Recover the cost price first; never work between two selling prices directly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You cannot go from one SP to another without the cost price."
+        },
+        {
+          "level": 2,
+          "text": "720 represents 90% of CP."
+        },
+        {
+          "level": 3,
+          "text": "CP = 800, then add 10%."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 20% to ₹720 to get ₹864."
+      ],
+      "tags": [
+        "reverse",
+        "two-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-022",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-discount",
+      "levelId": "profit-loss-discount-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "After a 20% discount, an article sells for ₹1,200. What is its marked price? (Answer in ₹)",
+      "answer": {
+        "value": 1500,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "The sale price is 80% of the marked price, so MP = 1,200 ÷ 0.8 = ₹1,500.",
+      "solutionSteps": [
+        "SP = 80% of MP.",
+        "MP = 1200 ÷ 0.8.",
+        "MP = ₹1,500."
+      ],
+      "formulaIds": [
+        "pl-discount-formula"
+      ],
+      "method": "Divide by the remaining fraction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹1,200 is not the full marked price."
+        },
+        {
+          "level": 2,
+          "text": "It represents 80% of it."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 20% to ₹1,200, giving ₹1,440."
+      ],
+      "tags": [
+        "reverse",
+        "discount",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-023",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-profit-pct",
+      "levelId": "profit-loss-discount-level-4",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A trader buys 12 pens for ₹120 and sells them at ₹12 each. What is the profit percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10%"
+        },
+        {
+          "id": "b",
+          "text": "12%"
+        },
+        {
+          "id": "c",
+          "text": "20%"
+        },
+        {
+          "id": "d",
+          "text": "24%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "CP per pen = ₹10, SP per pen = ₹12, so profit is ₹2 on ₹10 — 20%.",
+      "solutionSteps": [
+        "Cost per pen = 120 ÷ 12 = ₹10.",
+        "Profit per pen = 12 − 10 = ₹2.",
+        "Profit % = (2 ÷ 10) × 100 = 20%."
+      ],
+      "formulaIds": [
+        "pl-profit-formula"
+      ],
+      "method": "Bring both prices to the same unit before comparing.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare like with like — find the cost of ONE pen."
+        },
+        {
+          "level": 2,
+          "text": "CP per pen is ₹10."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing a total cost with a per-unit selling price."
+      ],
+      "tags": [
+        "units"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-030",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-successive-discount",
+      "levelId": "profit-loss-discount-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Successive discounts of 25% and 20% are equivalent to what single discount?",
+      "options": [
+        {
+          "id": "a",
+          "text": "40%"
+        },
+        {
+          "id": "b",
+          "text": "45%"
+        },
+        {
+          "id": "c",
+          "text": "42.5%"
+        },
+        {
+          "id": "d",
+          "text": "35%"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "0.75 × 0.80 = 0.60, so 60% of the price remains and the equivalent single discount is 40%.",
+      "solutionSteps": [
+        "After 25% off, 75% remains; after a further 20% off, 80% of that remains.",
+        "0.75 × 0.80 = 0.60.",
+        "Single equivalent discount = 100% − 60% = 40%."
+      ],
+      "formulaIds": [
+        "pl-markup-discount"
+      ],
+      "method": "Multiply what remains after each discount.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Successive discounts never add to 45%."
+        },
+        {
+          "level": 2,
+          "text": "Work with what remains: 0.75 and 0.80."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the discounts."
+      ],
+      "tags": [
+        "successive",
+        "complex"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-031",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-applications",
+      "levelId": "profit-loss-discount-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "The selling price of 10 articles equals the cost price of 12 articles. What is the profit percentage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "16⅔%"
+        },
+        {
+          "id": "b",
+          "text": "20%"
+        },
+        {
+          "id": "c",
+          "text": "25%"
+        },
+        {
+          "id": "d",
+          "text": "12%"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Let each article cost ₹1. Selling 10 brings in ₹12, so the cost is ₹10 and the profit is ₹2 on ₹10 — 20%.",
+      "solutionSteps": [
+        "Let the cost of one article be ₹1.",
+        "SP of 10 articles = CP of 12 = ₹12, so SP per article = ₹1.20.",
+        "Profit per article = ₹0.20 on a cost of ₹1 → 20%."
+      ],
+      "formulaIds": [
+        "pl-profit-formula"
+      ],
+      "method": "Assume a unit cost price, then compare totals for the same number of articles.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Set the cost of one article to ₹1 — the answer does not depend on the actual price."
+        },
+        {
+          "level": 2,
+          "text": "Ten articles cost ₹10 and sell for ₹12."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the difference by 12 instead of 10, giving 16⅔%."
+      ],
+      "tags": [
+        "applications",
+        "complex"
+      ],
+      "estimatedSeconds": 95,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "profit-loss-discount-q-032",
+      "topicId": "profit-loss-discount",
+      "conceptId": "pl-applications",
+      "levelId": "profit-loss-discount-level-5",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A man sells an article at a 10% loss. Had he sold it for ₹80 more, he would have made a 10% profit. What is the cost price? (Answer in ₹)",
+      "answer": {
+        "value": 400,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "The ₹80 covers the gap between 90% and 110% of cost, which is 20% of cost. So CP = 80 ÷ 0.2 = ₹400.",
+      "solutionSteps": [
+        "Selling at a 10% loss gives 0.9 × CP; at a 10% profit, 1.1 × CP.",
+        "The difference is 0.2 × CP = ₹80.",
+        "CP = 80 ÷ 0.2 = ₹400.",
+        "Check: ₹360 (10% loss) + ₹80 = ₹440 = 110% of 400 ✓"
+      ],
+      "formulaIds": [
+        "pl-sp-formula"
+      ],
+      "method": "Express both selling prices as multiples of CP and subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write both selling prices in terms of the cost price."
+        },
+        {
+          "level": 2,
+          "text": "1.1CP − 0.9CP = 0.2CP."
+        },
+        {
+          "level": 3,
+          "text": "0.2 × CP = 80."
+        }
+      ],
+      "commonMistakes": [
+        "Treating ₹80 as 10% of the cost price."
+      ],
+      "tags": [
+        "applications",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

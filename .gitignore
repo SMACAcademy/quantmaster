@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.vscode/
+
+# CI public key staged only for the one-time server bootstrap
+deploy/ci.pub
+
+# Playwright browser tests
+dist-e2e/
+test-results/
+playwright-report/
+
+# Spreadsheets exported for editing content (npm run content:export)
+content-sheets/

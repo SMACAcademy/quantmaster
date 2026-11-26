@@ -1,0 +1,960 @@
+{
+  "topicId": "direct-inverse-proportion",
+  "concepts": [
+    {
+      "id": "dp-identify",
+      "topicId": "direct-inverse-proportion",
+      "name": "Direct or inverse?",
+      "description": "Ask what happens to one quantity when the other increases: rises with it (direct) or falls (inverse).",
+      "sortOrder": 1
+    },
+    {
+      "id": "dp-direct",
+      "topicId": "direct-inverse-proportion",
+      "name": "Direct proportion",
+      "description": "The ratio of the two quantities stays constant.",
+      "sortOrder": 2
+    },
+    {
+      "id": "dp-inverse",
+      "topicId": "direct-inverse-proportion",
+      "name": "Inverse proportion",
+      "description": "The product of the two quantities stays constant.",
+      "sortOrder": 3
+    },
+    {
+      "id": "dp-compound",
+      "topicId": "direct-inverse-proportion",
+      "name": "Several quantities together",
+      "description": "Group every quantity that raises the output on one side and every quantity that lowers it on the other.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "dp-identify-f",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-identify",
+      "title": "The test",
+      "prompt": "How do you tell direct proportion from inverse proportion?",
+      "formula": "More → more (or less → less): direct\nMore → less (or less → more): inverse",
+      "variables": [],
+      "explanation": "Change one quantity in your head and see which way the other must move.",
+      "example": "More pens → more cost: direct\nMore workers → fewer days: inverse",
+      "commonMistake": "Treating every \"more\" problem as direct.",
+      "applicationPrompt": "Are speed and time (for a fixed distance) directly or inversely proportional?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dp-direct-f",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-direct",
+      "title": "Direct proportion",
+      "prompt": "y is directly proportional to x. How do you relate two situations?",
+      "formula": "y₁ ÷ x₁ = y₂ ÷ x₂\n(equivalently y = k·x)",
+      "variables": [],
+      "explanation": "Doubling x doubles y, so the ratio y ÷ x never changes.",
+      "example": "5 pens cost ₹60 → 12 per pen → 8 pens cost ₹96",
+      "commonMistake": "Adding the same amount instead of scaling.",
+      "applicationPrompt": "5 pens cost ₹60. What do 8 pens cost?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dp-inverse-f",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "title": "Inverse proportion",
+      "prompt": "y is inversely proportional to x. How do you relate two situations?",
+      "formula": "x₁ × y₁ = x₂ × y₂\n(equivalently y = k ÷ x)",
+      "variables": [],
+      "explanation": "Doubling x halves y, so the product x·y never changes.",
+      "example": "6 workers × 10 days = 60 worker-days\n12 workers → 60 ÷ 12 = 5 days",
+      "commonMistake": "Scaling both in the same direction.",
+      "applicationPrompt": "6 workers take 10 days. How long will 12 workers take?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dp-compound-f",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-compound",
+      "title": "Compound proportion",
+      "prompt": "A job depends on men, hours per day and days. How do you compare two cases?",
+      "formula": "M₁ × H₁ × D₁ ÷ W₁ = M₂ × H₂ × D₂ ÷ W₂",
+      "variables": [],
+      "explanation": "Quantities that raise the output multiply on top; quantities that lower it sit below. The whole expression stays constant.",
+      "example": "12 men, 8 h, 15 days = 1,440 man-hours\n10 men, 9 h → 1,440 ÷ 90 = 16 days",
+      "commonMistake": "Ignoring the hours per day.",
+      "applicationPrompt": "12 men working 8 hours a day finish a job in 15 days. How many days will 10 men working 9 hours a day take?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "dp-sc-one-line",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-compound",
+      "kind": "shortcut",
+      "title": "Chain rule in one line",
+      "prompt": "How do you solve a \"men, days, work\" question without setting up a proportion table?",
+      "formula": "Answer = old value × (one ratio per changed quantity)\nAsk \"more or less?\" to put each ratio the right way up",
+      "variables": [],
+      "explanation": "Each changed quantity scales the answer up or down independently.",
+      "example": "12 men build 60 m in 10 days. Days for 8 men to build 40 m: 10 × (12/8) × (40/60) = 10 days.",
+      "commonMistake": "Putting a ratio upside down: fewer men need more days.",
+      "applicationPrompt": "15 pumps empty a tank in 8 hours working 6 hours a day. How many days for 10 pumps working 4 hours a day?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "direct-inverse-proportion-level-0",
+      "topicId": "direct-inverse-proportion",
+      "order": 0,
+      "title": "Which Way Does It Move?",
+      "description": "One question decides the whole method: more of this means more or less of that?",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "dp-identify",
+        "dp-direct",
+        "dp-inverse"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "The one question",
+            "body": "Increase one quantity in your head. If the other must increase too, the two are directly proportional and their ratio is constant. If the other must decrease, they are inversely proportional and their product is constant."
+          },
+          {
+            "type": "formula",
+            "title": "The two forms",
+            "body": "Direct: y₁ ÷ x₁ = y₂ ÷ x₂\nInverse: x₁ × y₁ = x₂ × y₂",
+            "caption": "Direct → unit value, then scale. Inverse → total, then divide."
+          },
+          {
+            "type": "check",
+            "questionId": "direct-inverse-proportion-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Before you finish, check the direction: if more workers gave you more days, something went the wrong way round."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "proportion-curves"
+          },
+          {
+            "type": "check",
+            "questionId": "direct-inverse-proportion-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "direct-inverse-proportion-level-1",
+      "topicId": "direct-inverse-proportion",
+      "order": 1,
+      "title": "Proportion Formulas",
+      "description": "The test, direct and inverse forms, and compound proportion.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "direct-inverse-proportion-level-0"
+      ],
+      "conceptIds": [
+        "dp-identify",
+        "dp-direct",
+        "dp-inverse",
+        "dp-compound"
+      ],
+      "formulaIds": [
+        "dp-identify-f",
+        "dp-direct-f",
+        "dp-inverse-f",
+        "dp-compound-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "direct-inverse-proportion-level-2",
+      "topicId": "direct-inverse-proportion",
+      "order": 2,
+      "title": "Direct and Inverse Basics",
+      "description": "Decide the direction and apply it.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "direct-inverse-proportion-level-1"
+      ],
+      "conceptIds": [
+        "dp-direct",
+        "dp-inverse",
+        "dp-identify"
+      ],
+      "questionIds": [
+        "direct-inverse-proportion-q-001",
+        "direct-inverse-proportion-q-002",
+        "direct-inverse-proportion-q-003",
+        "direct-inverse-proportion-q-004",
+        "direct-inverse-proportion-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "direct-inverse-proportion-level-3",
+      "topicId": "direct-inverse-proportion",
+      "order": 3,
+      "title": "Speed, Scale and Supplies",
+      "description": "Fixed-distance, map scale and supplies.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "direct-inverse-proportion-level-2"
+      ],
+      "conceptIds": [
+        "dp-inverse",
+        "dp-direct"
+      ],
+      "questionIds": [
+        "direct-inverse-proportion-q-006",
+        "direct-inverse-proportion-q-007",
+        "direct-inverse-proportion-q-008",
+        "direct-inverse-proportion-q-009",
+        "direct-inverse-proportion-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "direct-inverse-proportion-level-4",
+      "topicId": "direct-inverse-proportion",
+      "order": 4,
+      "title": "Compound Proportion",
+      "description": "Men, hours, days and output together.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "direct-inverse-proportion-level-3"
+      ],
+      "conceptIds": [
+        "dp-compound"
+      ],
+      "questionIds": [
+        "direct-inverse-proportion-q-011",
+        "direct-inverse-proportion-q-012",
+        "direct-inverse-proportion-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "direct-inverse-proportion-level-5",
+      "topicId": "direct-inverse-proportion",
+      "order": 5,
+      "title": "Mixed Proportion Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "direct-inverse-proportion-level-4"
+      ],
+      "conceptIds": [
+        "dp-compound"
+      ],
+      "questionQuery": {
+        "topicId": "direct-inverse-proportion",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "direct-inverse-proportion-q-001",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-direct",
+      "levelId": "direct-inverse-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "5 pens cost ₹60. What is the cost of 8 pens at the same price?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹75"
+        },
+        {
+          "id": "b",
+          "text": "₹480"
+        },
+        {
+          "id": "c",
+          "text": "₹96"
+        },
+        {
+          "id": "d",
+          "text": "₹100"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "One pen costs 60 ÷ 5 = ₹12, so 8 pens cost 8 × 12 = ₹96.",
+      "solutionSteps": [
+        "Unit price = 60 ÷ 5 = 12.",
+        "8 × 12 = 96."
+      ],
+      "formulaIds": [
+        "dp-direct-f"
+      ],
+      "method": "Find the unit value, then scale.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What does one pen cost?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding 3 × 5 = 15 to ₹60."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-002",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-direct",
+      "levelId": "direct-inverse-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A car uses 12 litres of petrol to travel 150 km. How many litres does it need for 400 km at the same rate?",
+      "answer": {
+        "value": 32,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "12 ÷ 150 = 0.08 litres per km, so 400 km needs 400 × 0.08 = 32 litres. Or scale: 400 ÷ 150 × 12 = 32.",
+      "solutionSteps": [
+        "12 ÷ 150 = 0.08 litres per km.",
+        "400 × 0.08 = 32."
+      ],
+      "formulaIds": [
+        "dp-direct-f"
+      ],
+      "method": "Distance and fuel are directly proportional.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More distance needs more fuel."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the ratio (4.5 litres)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-003",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "6 workers can finish a job in 10 days. How many days will 12 workers take?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Total work = 6 × 10 = 60 worker-days. 12 workers need 60 ÷ 12 = 5 days: twice the workers, half the time.",
+      "solutionSteps": [
+        "6 × 10 = 60 worker-days.",
+        "60 ÷ 12 = 5."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Workers × days is constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More workers means the job takes less time."
+        }
+      ],
+      "commonMistakes": [
+        "Doubling the days to 20 because the workers doubled."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-004",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Two quantities are inversely proportional. Which of these stays constant?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Their sum"
+        },
+        {
+          "id": "b",
+          "text": "Their difference"
+        },
+        {
+          "id": "c",
+          "text": "Their product"
+        },
+        {
+          "id": "d",
+          "text": "Their ratio"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "If x doubles, y halves, so x × y stays the same. The ratio is what stays constant in direct proportion.",
+      "solutionSteps": [
+        "y = k ÷ x → x × y = k."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Inverse: product. Direct: ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "If one doubles and the other halves, what is unchanged?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing it with direct proportion (constant ratio)."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-005",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-identify",
+      "levelId": "direct-inverse-proportion-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which pair of quantities is inversely proportional?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cost of items and number of items at a fixed price"
+        },
+        {
+          "id": "b",
+          "text": "Speed and time taken for a fixed distance"
+        },
+        {
+          "id": "c",
+          "text": "Distance and time at a fixed speed"
+        },
+        {
+          "id": "d",
+          "text": "Simple interest and time at a fixed rate"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "For a fixed distance, a higher speed means a shorter time, so speed × time is constant. In the other three, both quantities rise together.",
+      "solutionSteps": [
+        "Test each: does one rise when the other falls?",
+        "Only speed and time (fixed distance) move in opposite directions."
+      ],
+      "formulaIds": [
+        "dp-identify-f"
+      ],
+      "method": "More → less means inverse.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Increase the first quantity in each pair. What must happen to the second?"
+        }
+      ],
+      "commonMistakes": [
+        "Treating every rate problem as direct."
+      ],
+      "tags": [
+        "recognition"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-006",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A car takes 5 hours at 60 km/hr to cover a certain distance. How many hours would it take at 75 km/hr?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0,
+        "unit": "hours"
+      },
+      "explanation": "Distance = 60 × 5 = 300 km. At 75 km/hr the time is 300 ÷ 75 = 4 hours.",
+      "solutionSteps": [
+        "Distance = 300 km.",
+        "300 ÷ 75 = 4."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Speed × time is constant for a fixed distance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Faster speed means less time."
+        }
+      ],
+      "commonMistakes": [
+        "Scaling the time up in proportion to the speed (6.25 hours)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-007",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-direct",
+      "levelId": "direct-inverse-proportion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "On a map, 3 cm represents 12 km. What distance is represented by 7.5 cm?",
+      "options": [
+        {
+          "id": "a",
+          "text": "28 km"
+        },
+        {
+          "id": "b",
+          "text": "30 km"
+        },
+        {
+          "id": "c",
+          "text": "90 km"
+        },
+        {
+          "id": "d",
+          "text": "18 km"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1 cm = 12 ÷ 3 = 4 km, so 7.5 cm = 7.5 × 4 = 30 km.",
+      "solutionSteps": [
+        "Scale: 1 cm = 4 km.",
+        "7.5 × 4 = 30."
+      ],
+      "formulaIds": [
+        "dp-direct-f"
+      ],
+      "method": "Find the value of one unit.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What does 1 cm stand for?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding the difference in cm to the km (16.5)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-008",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "15 men can build a wall in 24 days. How many days will 18 men take?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "Man-days = 15 × 24 = 360. 18 men need 360 ÷ 18 = 20 days.",
+      "solutionSteps": [
+        "15 × 24 = 360.",
+        "360 ÷ 18 = 20."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Men × days is constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More men, fewer days."
+        }
+      ],
+      "commonMistakes": [
+        "Direct scaling: 24 × 18 ÷ 15 = 28.8."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-009",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A camp has food for 300 soldiers for 60 days. After 20 days, 100 soldiers leave. For how many more days will the remaining food last the rest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "40"
+        },
+        {
+          "id": "b",
+          "text": "50"
+        },
+        {
+          "id": "c",
+          "text": "60"
+        },
+        {
+          "id": "d",
+          "text": "90"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "After 20 days the food left is 300 soldiers × 40 days = 12,000 soldier-days. With 200 soldiers it lasts 12,000 ÷ 200 = 60 more days.",
+      "solutionSteps": [
+        "Days already used: 20; food left = 300 × 40.",
+        "12,000 ÷ 200 = 60."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Convert what is left into soldier-days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many days of food remain for the original 300?"
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the departures and answering 40."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-010",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-inverse",
+      "levelId": "direct-inverse-proportion-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "4 identical taps fill a tank in 9 hours. How many hours will 6 such taps take?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0,
+        "unit": "hours"
+      },
+      "explanation": "Tap-hours = 4 × 9 = 36. 6 taps need 36 ÷ 6 = 6 hours.",
+      "solutionSteps": [
+        "4 × 9 = 36.",
+        "36 ÷ 6 = 6."
+      ],
+      "formulaIds": [
+        "dp-inverse-f"
+      ],
+      "method": "Taps × hours is constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "More taps, less time."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying: 9 × 6 ÷ 4 = 13.5."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-011",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-compound",
+      "levelId": "direct-inverse-proportion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "12 men working 8 hours a day can finish a job in 15 days. In how many days can 10 men working 9 hours a day finish it?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0,
+        "unit": "days"
+      },
+      "explanation": "Total work = 12 × 8 × 15 = 1,440 man-hours. The second crew works 10 × 9 = 90 man-hours a day, so 1,440 ÷ 90 = 16 days.",
+      "solutionSteps": [
+        "12 × 8 × 15 = 1,440 man-hours.",
+        "10 × 9 = 90 per day.",
+        "1,440 ÷ 90 = 16."
+      ],
+      "formulaIds": [
+        "dp-compound-f"
+      ],
+      "method": "Total man-hours stays constant.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert everything into man-hours."
+        },
+        {
+          "level": 2,
+          "text": "Do not forget the hours per day."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the hours per day: 12 × 15 ÷ 10 = 18."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-012",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-compound",
+      "levelId": "direct-inverse-proportion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "6 machines produce 1,800 items in 5 days. How many items will 8 machines produce in 6 days?",
+      "answer": {
+        "value": 2880,
+        "tolerance": 0,
+        "unit": "items"
+      },
+      "explanation": "Output per machine per day = 1,800 ÷ (6 × 5) = 60. So 8 machines in 6 days produce 8 × 6 × 60 = 2,880 items.",
+      "solutionSteps": [
+        "1,800 ÷ 30 machine-days = 60.",
+        "8 × 6 = 48 machine-days.",
+        "48 × 60 = 2,880."
+      ],
+      "formulaIds": [
+        "dp-compound-f",
+        "dp-direct-f"
+      ],
+      "method": "Output is directly proportional to machines and to days.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the output of one machine in one day."
+        }
+      ],
+      "commonMistakes": [
+        "Treating machines and days as inverse."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "direct-inverse-proportion-q-013",
+      "topicId": "direct-inverse-proportion",
+      "conceptId": "dp-compound",
+      "levelId": "direct-inverse-proportion-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "15 workers build 180 m of road in 12 days. How many workers are needed to build 300 m in 10 days?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "36"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "One worker builds 180 ÷ (15 × 12) = 1 m per day. 300 m in 10 days needs 30 m per day, so 30 workers.",
+      "solutionSteps": [
+        "Rate per worker = 1 m/day.",
+        "Needed per day = 300 ÷ 10 = 30 m.",
+        "Workers = 30."
+      ],
+      "formulaIds": [
+        "dp-compound-f"
+      ],
+      "method": "Find the unit rate, then the crew size.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How much does one worker build in a day?"
+        }
+      ],
+      "commonMistakes": [
+        "Scaling the workers only by the length (25)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

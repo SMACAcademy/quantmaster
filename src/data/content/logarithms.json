@@ -1,0 +1,931 @@
+{
+  "topicId": "logarithms",
+  "concepts": [
+    {
+      "id": "lg-definition",
+      "topicId": "logarithms",
+      "name": "What a logarithm means",
+      "description": "log_b(x) = y is just another way of writing b^y = x — a logarithm asks \"what power?\"",
+      "sortOrder": 1
+    },
+    {
+      "id": "lg-laws",
+      "topicId": "logarithms",
+      "name": "Laws of logarithms",
+      "description": "Logarithms turn multiplication into addition, division into subtraction, and powers into multiplication.",
+      "sortOrder": 2
+    },
+    {
+      "id": "lg-changebase",
+      "topicId": "logarithms",
+      "name": "Change of base",
+      "description": "Any logarithm can be rewritten using a different base by dividing two logarithms in that new base.",
+      "sortOrder": 3
+    },
+    {
+      "id": "lg-special",
+      "topicId": "logarithms",
+      "name": "Special values",
+      "description": "log_b(1) is always 0 and log_b(b) is always 1, whatever the base b is.",
+      "sortOrder": 4
+    },
+    {
+      "id": "lg-solve",
+      "topicId": "logarithms",
+      "name": "Solving equations with logarithms",
+      "description": "Logarithms undo exponents, so they let you solve for an unknown that sits in an exponent.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "lg-def-f",
+      "topicId": "logarithms",
+      "conceptId": "lg-definition",
+      "title": "The meaning of a logarithm",
+      "prompt": "What does log_b(x) = y mean?",
+      "formula": "log_b(x) = y  ⟺  b^y = x",
+      "variables": [],
+      "explanation": "A logarithm answers the question \"to what power must b be raised to get x?\"",
+      "example": "log_2(8) = 3, because 2³ = 8",
+      "commonMistake": "Mixing up the base and the argument.",
+      "applicationPrompt": "Evaluate log_2(8).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lg-laws-f",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "title": "Product, quotient and power laws",
+      "prompt": "How do logarithms handle multiplication, division and powers?",
+      "formula": "log(mn) = log m + log n\nlog(m/n) = log m − log n\nlog(mᵏ) = k · log m",
+      "variables": [],
+      "explanation": "These laws let you break a complicated logarithm into simpler pieces, or combine several logarithms into one.",
+      "example": "log 8 + log 5 = log 40",
+      "commonMistake": "Turning log(m + n) into log m + log n — the product law only applies to multiplication, not addition.",
+      "applicationPrompt": "Combine log 8 + log 5 into a single logarithm.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lg-changebase-f",
+      "topicId": "logarithms",
+      "conceptId": "lg-changebase",
+      "title": "Change of base formula",
+      "prompt": "How do you rewrite a logarithm in a different base?",
+      "formula": "log_b(a) = log_c(a) / log_c(b),  for any valid base c",
+      "variables": [],
+      "explanation": "This is useful when your calculator or given data only has logarithms in one particular base.",
+      "example": "log_4(64) = log_2(64) / log_2(4) = 6 / 2 = 3",
+      "commonMistake": "Placing the original base in the numerator instead of the denominator.",
+      "applicationPrompt": "Find log_4(64) using base 2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lg-special-f",
+      "topicId": "logarithms",
+      "conceptId": "lg-special",
+      "title": "Special logarithm values",
+      "prompt": "What are log_b(1) and log_b(b) always equal to?",
+      "formula": "log_b(1) = 0\nlog_b(b) = 1",
+      "variables": [],
+      "explanation": "These follow directly from the definition: b⁰ = 1 and b¹ = b, for any base b.",
+      "example": "log_5(1) = 0 and log_5(5) = 1",
+      "commonMistake": "Assuming log_b(1) equals b or 1 instead of 0.",
+      "applicationPrompt": "Evaluate log_5(1).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "lg-solve-f",
+      "topicId": "logarithms",
+      "conceptId": "lg-solve",
+      "title": "Solving for an exponent",
+      "prompt": "How do logarithms help solve an equation like bˣ = k?",
+      "formula": "If b^x = k, then x = log_b(k)",
+      "variables": [],
+      "explanation": "Taking the logarithm (in any consistent base) of both sides brings the unknown exponent down where it can be isolated.",
+      "example": "2ˣ = 32  →  x = log_2(32) = 5",
+      "commonMistake": "Trying to isolate x without taking a logarithm of both sides first.",
+      "applicationPrompt": "Solve 2ˣ = 32 for x.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "lg-sc-digits",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "kind": "shortcut",
+      "title": "How many digits?",
+      "prompt": "How many digits does a huge power have?",
+      "formula": "Digits in N = ⌊log₁₀ N⌋ + 1",
+      "variables": [],
+      "explanation": "A number with d digits lies from 10^(d − 1) up to 10^d, so its log lies from d − 1 up to d.",
+      "example": "2¹⁰⁰: log = 100 × 0.30103 = 30.1, so 31 digits.",
+      "commonMistake": "Forgetting to add 1.",
+      "applicationPrompt": "How many digits are there in 3⁵⁰? (log 3 ≈ 0.4771)",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "lg-sc-power-base",
+      "topicId": "logarithms",
+      "conceptId": "lg-changebase",
+      "kind": "shortcut",
+      "title": "Powers in the base and the number",
+      "prompt": "How do you simplify log of a power to a base that is also a power?",
+      "formula": "log_(bᵐ) (aⁿ) = (n ÷ m) × log_b a",
+      "variables": [],
+      "explanation": "Bring the power of the number down as a multiplier, and the power of the base down as a divisor.",
+      "example": "log₈ 32 = log_(2³) 2⁵ = 5/3.",
+      "commonMistake": "Multiplying by m instead of dividing.",
+      "applicationPrompt": "Find log₂₇ 81.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "lg-sc-values",
+      "topicId": "logarithms",
+      "conceptId": "lg-special",
+      "kind": "shortcut",
+      "title": "Logs worth knowing",
+      "prompt": "Which common logarithms let you build most others?",
+      "formula": "log 2 ≈ 0.3010   log 3 ≈ 0.4771\nlog 5 = 1 − log 2 ≈ 0.6990   log 7 ≈ 0.8451",
+      "variables": [],
+      "explanation": "Every whole number up to 10 is a product of 2, 3, 5 and 7, so its log is a sum of these.",
+      "example": "log 6 = log 2 + log 3 ≈ 0.7781. log 0.125 = −3 log 2 ≈ −0.9031.",
+      "commonMistake": "Writing log 5 = log 10 ÷ log 2 instead of log 10 − log 2.",
+      "applicationPrompt": "Find log 72 using log 2 and log 3.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "logarithms-level-0",
+      "topicId": "logarithms",
+      "order": 0,
+      "title": "A Logarithm Just Asks \"What Power?\"",
+      "description": "log_b(x) = y is another way of writing b^y = x.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "lg-definition",
+        "lg-special"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Two ways to write the same fact",
+            "body": "2³ = 8 and log_2(8) = 3 say exactly the same thing. The logarithm form just puts the exponent by itself on one side, which is useful when the exponent is what you are trying to find."
+          },
+          {
+            "type": "formula",
+            "title": "The definition",
+            "body": "log_b(x) = y  ⟺  b^y = x",
+            "caption": "A logarithm always answers \"to what power?\""
+          },
+          {
+            "type": "check",
+            "questionId": "logarithms-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "log_b(1) = 0 and log_b(b) = 1 for every base b — these are worth memorising."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "log-curves"
+          },
+          {
+            "type": "check",
+            "questionId": "logarithms-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "logarithms-level-1",
+      "topicId": "logarithms",
+      "order": 1,
+      "title": "Logarithms Formulas",
+      "description": "The definition, the three laws, change of base, special values, solving for an exponent.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "logarithms-level-0"
+      ],
+      "conceptIds": [
+        "lg-definition",
+        "lg-laws",
+        "lg-changebase",
+        "lg-special"
+      ],
+      "formulaIds": [
+        "lg-def-f",
+        "lg-laws-f",
+        "lg-changebase-f",
+        "lg-special-f",
+        "lg-solve-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "logarithms-level-2",
+      "topicId": "logarithms",
+      "order": 2,
+      "title": "Direct Evaluation",
+      "description": "Evaluating logarithms directly from the definition.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "logarithms-level-1"
+      ],
+      "conceptIds": [
+        "lg-definition",
+        "lg-special",
+        "lg-laws"
+      ],
+      "questionIds": [
+        "logarithms-q-001",
+        "logarithms-q-002",
+        "logarithms-q-003",
+        "logarithms-q-004",
+        "logarithms-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "logarithms-level-3",
+      "topicId": "logarithms",
+      "order": 3,
+      "title": "Laws and Simple Equations",
+      "description": "Combining logarithms with the laws, and solving for an exponent.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "logarithms-level-2"
+      ],
+      "conceptIds": [
+        "lg-laws",
+        "lg-definition",
+        "lg-solve"
+      ],
+      "questionIds": [
+        "logarithms-q-006",
+        "logarithms-q-007",
+        "logarithms-q-008",
+        "logarithms-q-009",
+        "logarithms-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "logarithms-level-4",
+      "topicId": "logarithms",
+      "order": 4,
+      "title": "Change of Base and Harder Equations",
+      "description": "Switching bases, and solving for an unknown base.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "logarithms-level-3"
+      ],
+      "conceptIds": [
+        "lg-changebase",
+        "lg-solve",
+        "lg-laws"
+      ],
+      "questionIds": [
+        "logarithms-q-011",
+        "logarithms-q-012",
+        "logarithms-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "logarithms-level-5",
+      "topicId": "logarithms",
+      "order": 5,
+      "title": "Mixed Logarithms Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "logarithms-level-4"
+      ],
+      "conceptIds": [
+        "lg-changebase",
+        "lg-solve",
+        "lg-laws"
+      ],
+      "questionQuery": {
+        "topicId": "logarithms",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "logarithms-q-001",
+      "topicId": "logarithms",
+      "conceptId": "lg-definition",
+      "levelId": "logarithms-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is log_2(8)?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "log_2(8) asks \"2 to what power gives 8?\" Since 2³ = 8, log_2(8) = 3.",
+      "solutionSteps": [
+        "2³ = 8.",
+        "So log_2(8) = 3."
+      ],
+      "formulaIds": [
+        "lg-def-f"
+      ],
+      "method": "Rewrite as an exponent equation: 2^y = 8.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which power of 2 gives 8?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing log_2(8) with 8 ÷ 2."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-002",
+      "topicId": "logarithms",
+      "conceptId": "lg-special",
+      "levelId": "logarithms-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is log_5(1)?",
+      "answer": {
+        "value": 0,
+        "tolerance": 0
+      },
+      "explanation": "Any base raised to the power 0 gives 1, so log_5(1) = 0.",
+      "solutionSteps": [
+        "5⁰ = 1.",
+        "So log_5(1) = 0."
+      ],
+      "formulaIds": [
+        "lg-special-f"
+      ],
+      "method": "log_b(1) is always 0, for any base b.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What power of 5 gives 1?"
+        }
+      ],
+      "commonMistakes": [
+        "Assuming log_5(1) equals 1 or 5."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 20,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-003",
+      "topicId": "logarithms",
+      "conceptId": "lg-definition",
+      "levelId": "logarithms-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Written as a logarithm, 2⁵ = 32 becomes",
+      "options": [
+        {
+          "id": "a",
+          "text": "log_2(32) = 5"
+        },
+        {
+          "id": "b",
+          "text": "log_32(2) = 5"
+        },
+        {
+          "id": "c",
+          "text": "log_5(32) = 2"
+        },
+        {
+          "id": "d",
+          "text": "log_2(5) = 32"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "2⁵ = 32 means \"2 raised to the power 5 gives 32,\" which in log form is log_2(32) = 5.",
+      "solutionSteps": [
+        "Base = 2, exponent = 5, result = 32.",
+        "log_2(32) = 5."
+      ],
+      "formulaIds": [
+        "lg-def-f"
+      ],
+      "method": "The base of the power becomes the base of the logarithm.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The base stays the same when converting between the two forms."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping the base and the answer."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-004",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "levelId": "logarithms-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "log(mn) is equal to",
+      "options": [
+        {
+          "id": "a",
+          "text": "log m + log n"
+        },
+        {
+          "id": "b",
+          "text": "log m × log n"
+        },
+        {
+          "id": "c",
+          "text": "log m − log n"
+        },
+        {
+          "id": "d",
+          "text": "log(m) · n"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The product law of logarithms turns multiplication inside the log into addition of two logs.",
+      "solutionSteps": [
+        "log(mn) = log m + log n."
+      ],
+      "formulaIds": [
+        "lg-laws-f"
+      ],
+      "method": "Multiplication inside a log becomes addition outside it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is the product law."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming logs of a product multiply like the numbers do."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-005",
+      "topicId": "logarithms",
+      "conceptId": "lg-special",
+      "levelId": "logarithms-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is log_10(100)?",
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "10² = 100, so log_10(100) = 2.",
+      "solutionSteps": [
+        "10² = 100.",
+        "So log_10(100) = 2."
+      ],
+      "formulaIds": [
+        "lg-def-f"
+      ],
+      "method": "Ask \"10 to what power gives 100?\"",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many times do you multiply 10 by itself to reach 100?"
+        }
+      ],
+      "commonMistakes": [
+        "Confusing log_10(100) with 100 ÷ 10."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-006",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "levelId": "logarithms-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Given log 2 ≈ 0.301 and log 3 ≈ 0.477, what is log 6?",
+      "answer": {
+        "value": 0.778,
+        "tolerance": 0
+      },
+      "explanation": "6 = 2 × 3, so log 6 = log 2 + log 3 = 0.301 + 0.477 = 0.778.",
+      "solutionSteps": [
+        "log 6 = log(2×3).",
+        "= log 2 + log 3.",
+        "= 0.301 + 0.477 = 0.778."
+      ],
+      "formulaIds": [
+        "lg-laws-f"
+      ],
+      "method": "Break 6 into factors you already know the logs of.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "6 = 2 × 3."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the two given logs instead of adding them."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-007",
+      "topicId": "logarithms",
+      "conceptId": "lg-definition",
+      "levelId": "logarithms-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is log_3(81)?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "3⁴ = 81, so log_3(81) = 4.",
+      "solutionSteps": [
+        "3¹=3, 3²=9, 3³=27, 3⁴=81.",
+        "So log_3(81) = 4."
+      ],
+      "formulaIds": [
+        "lg-def-f"
+      ],
+      "method": "Find the power of 3 that gives 81.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try successive powers of 3."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 3³ = 27 and guessing the wrong exponent."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-008",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "levelId": "logarithms-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Given log 2 ≈ 0.301, what is log 5? (Hint: 5 = 10/2)",
+      "answer": {
+        "value": 0.699,
+        "tolerance": 0
+      },
+      "explanation": "log 5 = log(10/2) = log 10 − log 2 = 1 − 0.301 = 0.699.",
+      "solutionSteps": [
+        "log 10 = 1.",
+        "log 5 = log 10 − log 2 = 1 − 0.301.",
+        "= 0.699."
+      ],
+      "formulaIds": [
+        "lg-laws-f"
+      ],
+      "method": "Write 5 as 10 ÷ 2 and use the quotient law.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "log 10 (base 10) is exactly 1."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to compute log 5 directly without the hint."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-009",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "levelId": "logarithms-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If log x = 3 log 2, what is x?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "3 log 2 = log(2³) = log 8, so x = 8.",
+      "solutionSteps": [
+        "3 log 2 = log 2³.",
+        "2³ = 8.",
+        "x = 8."
+      ],
+      "formulaIds": [
+        "lg-laws-f"
+      ],
+      "method": "Use the power law in reverse: k·log m = log(mᵏ).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "3 log 2 is the same as log of 2 cubed."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 3 × 2 = 6 instead of 2³."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-010",
+      "topicId": "logarithms",
+      "conceptId": "lg-solve",
+      "levelId": "logarithms-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Solve for x: 2ˣ = 128.",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "2⁷ = 128, so x = 7.",
+      "solutionSteps": [
+        "2⁵=32, 2⁶=64, 2⁷=128.",
+        "x = 7."
+      ],
+      "formulaIds": [
+        "lg-solve-f"
+      ],
+      "method": "Express 128 as a power of 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Keep doubling from a known power of 2."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping one power too early or late."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-011",
+      "topicId": "logarithms",
+      "conceptId": "lg-changebase",
+      "levelId": "logarithms-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Using base 2, what is log_4(64)?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "log_4(64) = log_2(64) / log_2(4) = 6 / 2 = 3.",
+      "solutionSteps": [
+        "log_2(64) = 6.",
+        "log_2(4) = 2.",
+        "6 ÷ 2 = 3."
+      ],
+      "formulaIds": [
+        "lg-changebase-f"
+      ],
+      "method": "Convert both the argument and the base into logs of the new base, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both the numerator and denominator use base 2."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to divide by log_2(4), stopping at log_2(64) = 6."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-012",
+      "topicId": "logarithms",
+      "conceptId": "lg-solve",
+      "levelId": "logarithms-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Solve for x: log_x(81) = 4.",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "log_x(81) = 4 means x⁴ = 81. Since 3⁴ = 81, x = 3.",
+      "solutionSteps": [
+        "x⁴ = 81.",
+        "3⁴ = 81.",
+        "x = 3."
+      ],
+      "formulaIds": [
+        "lg-def-f",
+        "lg-solve-f"
+      ],
+      "method": "Rewrite the log equation as an exponent equation, then solve for the base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Here the unknown is the base, not the exponent."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to solve for the exponent instead of the base."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "logarithms-q-013",
+      "topicId": "logarithms",
+      "conceptId": "lg-laws",
+      "levelId": "logarithms-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Given log 2 ≈ 0.301 and log 3 ≈ 0.477, what is log 12?",
+      "answer": {
+        "value": 1.079,
+        "tolerance": 0
+      },
+      "explanation": "12 = 4 × 3 = 2² × 3, so log 12 = 2 log 2 + log 3 = 2(0.301) + 0.477 = 0.602 + 0.477 = 1.079.",
+      "solutionSteps": [
+        "12 = 2² × 3.",
+        "log 12 = 2 log 2 + log 3.",
+        "= 0.602 + 0.477 = 1.079."
+      ],
+      "formulaIds": [
+        "lg-laws-f"
+      ],
+      "method": "Break the number into prime powers before applying the laws.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "12 = 4 × 3, and 4 = 2²."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to double log 2 for the factor of 4."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

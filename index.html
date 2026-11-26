@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>QuantMaster — learn quantitative aptitude properly</title>
+    <meta name="description" content="Free quantitative aptitude practice that sticks: concept lessons, formula recall, progressive hints, spaced repetition and a daily challenge. Works offline." />
+
+    <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0e1a" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="dark light" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="QuantMaster" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="QuantMaster" />
+    <meta property="og:title" content="QuantMaster — can you beat today's challenge?" />
+    <meta property="og:description" content="Free daily quantitative aptitude challenge. Same questions for everyone today. Learn the method, not just the answer." />
+    <meta property="og:url" content="__SITE_URL__" />
+    <meta property="og:image" content="__SITE_URL__icons/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="QuantMaster — can you beat today's challenge?" />
+    <meta name="twitter:description" content="Free daily quantitative aptitude challenge. Learn the method, not just the answer." />
+    <meta name="twitter:image" content="__SITE_URL__icons/og-image.png" />
+
+    <script>
+      // Applied before first paint so the app never flashes the wrong theme.
+      try {
+        const saved = JSON.parse(localStorage.getItem('quantmaster:v1:settings') || '{}');
+        const pref = saved.theme || 'system';
+        const dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (_) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#" data-skip-to="main-content">Skip to main content</a>
+    <div id="app" aria-busy="true">
+      <div class="boot-screen">
+        <div class="boot-mark">Q</div>
+        <p>Loading QuantMaster…</p>
+      </div>
+    </div>
+    <div id="toast-root" class="toast-root" role="status" aria-live="polite"></div>
+    <div id="modal-root" class="modal-root"></div>
+    <noscript>QuantMaster needs JavaScript to run.</noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

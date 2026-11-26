@@ -1,0 +1,1690 @@
+{
+  "topicId": "inequalities",
+  "concepts": [
+    {
+      "id": "in-basic",
+      "topicId": "inequalities",
+      "name": "Solving linear inequalities",
+      "description": "Solve like an equation, but flip the inequality sign whenever you multiply or divide by a negative number.",
+      "sortOrder": 1
+    },
+    {
+      "id": "in-compound",
+      "topicId": "inequalities",
+      "name": "Compound inequalities",
+      "description": "An inequality like a < x + k < b is solved by applying the same operation to all three parts at once.",
+      "sortOrder": 2
+    },
+    {
+      "id": "in-word",
+      "topicId": "inequalities",
+      "name": "Inequality word problems",
+      "description": "Phrases like \"at least\", \"at most\" and \"more than\" translate directly into ≥, ≤ and >.",
+      "sortOrder": 3
+    },
+    {
+      "id": "in-quadratic",
+      "topicId": "inequalities",
+      "name": "Quadratic inequalities",
+      "description": "Find the roots of the related equation, then use them to split the number line into regions to test.",
+      "sortOrder": 4
+    },
+    {
+      "id": "in-check",
+      "topicId": "inequalities",
+      "name": "Interpreting a solution set",
+      "description": "A solution like x > 4 or 2 < x < 6 describes a whole range of values, not a single number.",
+      "sortOrder": 5
+    },
+    {
+      "id": "in-adv-amgm",
+      "topicId": "inequalities",
+      "name": "AM ≥ GM",
+      "description": "For positive numbers, the arithmetic mean is never less than the geometric mean. So a fixed sum gives the largest product when the parts are equal, and a fixed product gives the smallest sum when the parts are equal.",
+      "sortOrder": 6
+    },
+    {
+      "id": "in-adv-quad-extreme",
+      "topicId": "inequalities",
+      "name": "Maximum or minimum of a quadratic",
+      "description": "ax² + bx + c turns at x = −b/2a, where it takes its least value (a > 0) or greatest value (a < 0), c − b²/4a. Area problems with a fixed length of fencing are quadratics in disguise.",
+      "sortOrder": 7
+    }
+  ],
+  "formulas": [
+    {
+      "id": "in-flip-f",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "title": "The flip rule",
+      "prompt": "When solving an inequality, when do you flip the inequality sign?",
+      "formula": "Multiplying or dividing both sides by a negative number flips the inequality sign",
+      "variables": [],
+      "explanation": "Adding or subtracting never flips the sign; only multiplying or dividing by a negative number does.",
+      "example": "−3x > 12  →  x < −4 (divided by −3, so > became <)",
+      "commonMistake": "Forgetting to flip the sign when dividing by a negative number.",
+      "applicationPrompt": "Solve −3x > 12 for x.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "in-compound-f",
+      "topicId": "inequalities",
+      "conceptId": "in-compound",
+      "title": "Solving compound inequalities",
+      "prompt": "How do you solve a < x + k < b?",
+      "formula": "Apply the same operation to all three parts of the inequality at once",
+      "variables": [],
+      "explanation": "Treat the compound inequality as two inequalities that share the middle expression, and solve them together.",
+      "example": "−1 ≤ 2x + 1 ≤ 9  →  −2 ≤ 2x ≤ 8  →  −1 ≤ x ≤ 4",
+      "commonMistake": "Applying an operation to only one part of the inequality.",
+      "applicationPrompt": "Solve −1 ≤ 2x + 1 ≤ 9 for x.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "in-word-f",
+      "topicId": "inequalities",
+      "conceptId": "in-word",
+      "title": "Translating inequality phrases",
+      "prompt": "How do \"at least\", \"at most\", \"more than\" and \"less than\" translate?",
+      "formula": "\"at least\" → ≥,  \"at most\" → ≤,  \"more than\" → >,  \"less than\" → <",
+      "variables": [],
+      "explanation": "\"At least\" and \"at most\" include the boundary value; \"more than\" and \"less than\" do not.",
+      "example": "\"A number decreased by 5 is at least 13\" → x − 5 ≥ 13",
+      "commonMistake": "Using strict inequalities for \"at least\" or \"at most\".",
+      "applicationPrompt": "Translate \"twice a number decreased by 5 is at least 13\".",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "in-quadratic-f",
+      "topicId": "inequalities",
+      "conceptId": "in-quadratic",
+      "title": "Solving quadratic inequalities",
+      "prompt": "How do you solve (x − p)(x − q) > 0 or < 0?",
+      "formula": "Roots at x = p and x = q split the line into three regions; test one point in each to see where the product is positive or negative",
+      "variables": [],
+      "explanation": "Between the roots, the two factors have opposite signs, so the product is negative; outside the roots, both factors share a sign, so the product is positive.",
+      "example": "(x − 2)(x − 5) < 0 for 2 < x < 5; (x − 2)(x − 5) > 0 for x < 2 or x > 5",
+      "commonMistake": "Assuming the product is positive everywhere except exactly at the roots.",
+      "applicationPrompt": "Solve (x − 2)(x − 5) < 0.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "in-check-f",
+      "topicId": "inequalities",
+      "conceptId": "in-check",
+      "title": "What a solution set means",
+      "prompt": "What does a solution like x > 4 represent?",
+      "formula": "An inequality solution is a range of values, not one number; every value in the range satisfies the original inequality",
+      "variables": [],
+      "explanation": "Checking one value in the claimed range, and one value outside it, is a quick way to confirm a solution.",
+      "example": "For x > 4: x = 5 should satisfy the original inequality, and x = 3 should not",
+      "commonMistake": "Treating the boundary value as the only solution.",
+      "applicationPrompt": "How would you check that x > 4 is the correct solution set?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "in-sc-between-outside",
+      "topicId": "inequalities",
+      "conceptId": "in-quadratic",
+      "kind": "shortcut",
+      "title": "Between or outside the roots",
+      "prompt": "With a positive x² coefficient, where is a quadratic negative and where is it positive?",
+      "formula": "a > 0: below zero between the roots,\nabove zero outside them",
+      "variables": [],
+      "explanation": "An upward parabola dips below the x-axis only between its two roots.",
+      "example": "x² − 5x + 6 < 0 means 2 < x < 3; x² − 5x + 6 > 0 means x < 2 or x > 3.",
+      "commonMistake": "Writing x < 2 and x < 3 by treating each factor separately.",
+      "applicationPrompt": "Solve x² − x − 12 ≥ 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "in-sc-am-gm",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "kind": "shortcut",
+      "title": "Minimum of x + k/x",
+      "prompt": "For positive x, what is the smallest value of x + k/x?",
+      "formula": "AM ≥ GM: (a + b) ÷ 2 ≥ √(ab)\nso x + k/x ≥ 2√k, reached at x = √k",
+      "variables": [],
+      "explanation": "The average of two positive numbers is never less than their geometric mean, and they are equal only when the numbers are equal.",
+      "example": "x + 9/x for x > 0 is at least 2√9 = 6, reached at x = 3 (at x = 2 it is 6.5).",
+      "commonMistake": "Using it when x can be negative.",
+      "applicationPrompt": "Find the least value of 4x + 25/x for x > 0.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "in-adv-amgm-f",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "title": "AM ≥ GM for positive numbers",
+      "prompt": "For positive numbers a and b, how do the arithmetic mean and the geometric mean compare?",
+      "formula": "(a + b) ÷ 2 ≥ √(ab), for positive a and b\nThey are equal only when a = b",
+      "variables": [],
+      "explanation": "So with a + b fixed, ab is largest when a = b; with ab fixed, a + b is smallest when a = b. The same holds for any number of positive terms: their average is at least the nth root of their product.",
+      "example": "Two positive numbers add up to 20: the product is at most 10 × 10 = 100 (9 × 11 = 99, 8 × 12 = 96).",
+      "commonMistake": "Using it when the numbers can be negative: for x < 0, x + 1/x is negative, not at least 2.",
+      "applicationPrompt": "Three positive numbers add up to 12. What is the largest possible product?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "in-adv-vertex-f",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "title": "Extreme value of a quadratic",
+      "prompt": "Where does ax² + bx + c reach its maximum or minimum, and what is that value?",
+      "formula": "Turning point at x = −b ÷ 2a\nExtreme value = c − b² ÷ 4a\na > 0 gives a minimum, a < 0 a maximum",
+      "variables": [],
+      "explanation": "Completing the square gives a(x + b/2a)² + c − b²/4a. The squared term is zero only at x = −b/2a, so that is where the value is least (a > 0) or greatest (a < 0).",
+      "example": "7 + 6x − x²: a = −1, b = 6, c = 7, so x = 3 and the maximum is 7 − 36 ÷ (−4) = 16.",
+      "commonMistake": "Losing the sign of a: with a = −1, c − b²/4a becomes c + b²/4, not c − b²/4.",
+      "applicationPrompt": "Find the least value of 2x² − 12x + 23.",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "in-sc-adv-weighted-split",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "kind": "shortcut",
+      "title": "Fixed sum, unequal powers",
+      "prompt": "x + y = S with x and y positive. When is xᵐyⁿ largest?",
+      "formula": "Split S in the ratio of the powers, m : n\nx = mS ÷ (m + n), y = nS ÷ (m + n)",
+      "variables": [],
+      "explanation": "Write x as m equal parts x/m and y as n equal parts y/n. These m + n positive parts have the fixed sum S, so by AM ≥ GM their product is largest when they are all equal.",
+      "example": "x + y = 10, maximise x²y³: x = 4, y = 6, giving 16 × 216 = 3,456.",
+      "commonMistake": "Splitting equally as if the powers were the same: 5² × 5³ = 3,125, which is smaller.",
+      "applicationPrompt": "a + b = 12 with a and b positive. What is the largest value of ab²?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "in-sc-adv-fencing",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "kind": "shortcut",
+      "title": "Fencing: square, or half along the wall",
+      "prompt": "With L metres of fencing, what is the largest rectangle you can enclose, with and without a wall on one side?",
+      "formula": "No wall: a square of side L/4, area L² ÷ 16\nWall on one side: L/2 along the wall, L/4 for each other side, area L² ÷ 8",
+      "variables": [],
+      "explanation": "Without a wall, length + breadth = L/2 is fixed, so equal sides win. With a wall, the area x(L − 2x) is a quadratic that peaks at x = L/4.",
+      "example": "40 m of fencing: 10 × 10 = 100 m² on its own; against a wall, sides 10, 20 and 10 enclose 200 m².",
+      "commonMistake": "Making all three fenced sides equal (L/3 each) when there is a wall: that gives L² ÷ 9, less than L² ÷ 8.",
+      "applicationPrompt": "A field beside a river is fenced on the other three sides with 200 m of fencing. What is the largest area?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "inequalities-level-0",
+      "topicId": "inequalities",
+      "order": 0,
+      "title": "Solving Like an Equation, With One Extra Rule",
+      "description": "Isolating x in an inequality, and knowing exactly when to flip the sign.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "in-basic",
+        "in-check"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Almost like an equation",
+            "body": "Solving 2x + 3 > 11 works just like solving an equation: subtract 3, then divide by 2, giving x > 4. Addition and subtraction never change the direction of an inequality."
+          },
+          {
+            "type": "formula",
+            "title": "The one exception",
+            "body": "Multiplying or dividing by a negative number flips the inequality sign.",
+            "caption": "−3x > 12 becomes x < −4, not x > −4."
+          },
+          {
+            "type": "figure",
+            "title": "Reading a solution on a number line",
+            "body": "The set −2 < x ≤ 3: a hollow dot at −2 because −2 itself is not allowed (<), a filled dot at 3 because 3 is allowed (≤), and the band covers every number in between, not just the whole numbers.",
+            "figure": {
+              "type": "numberline",
+              "caption": "The set −2 < x ≤ 3",
+              "min": -5,
+              "max": 5,
+              "ranges": [
+                {
+                  "from": -2,
+                  "to": 3,
+                  "fromOpen": true,
+                  "toOpen": false
+                }
+              ],
+              "ariaSummary": "A number line from −5 to 5 with a band from −2 to 3: a hollow dot at −2 and a filled dot at 3."
+            }
+          },
+          {
+            "type": "check",
+            "questionId": "inequalities-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Always check whether you are multiplying or dividing by a negative number — that is the only time the sign flips."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "inequality-line"
+          },
+          {
+            "type": "check",
+            "questionId": "inequalities-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "inequalities-level-1",
+      "topicId": "inequalities",
+      "order": 1,
+      "title": "Inequalities Formulas",
+      "description": "The flip rule, compound inequalities, word-problem phrases, quadratic inequalities, interpreting solution sets.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "inequalities-level-0"
+      ],
+      "conceptIds": [
+        "in-basic",
+        "in-compound",
+        "in-word",
+        "in-quadratic"
+      ],
+      "formulaIds": [
+        "in-flip-f",
+        "in-compound-f",
+        "in-word-f",
+        "in-quadratic-f",
+        "in-check-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "inequalities-level-2",
+      "topicId": "inequalities",
+      "order": 2,
+      "title": "Direct Inequalities",
+      "description": "Solving one-step and compound inequalities.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "inequalities-level-1"
+      ],
+      "conceptIds": [
+        "in-basic",
+        "in-compound"
+      ],
+      "questionIds": [
+        "inequalities-q-001",
+        "inequalities-q-002",
+        "inequalities-q-003",
+        "inequalities-q-004",
+        "inequalities-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "inequalities-level-3",
+      "topicId": "inequalities",
+      "order": 3,
+      "title": "Word Problems and Quadratic Inequalities",
+      "description": "Translating phrases, and a first look at quadratic inequalities.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "inequalities-level-2"
+      ],
+      "conceptIds": [
+        "in-basic",
+        "in-word",
+        "in-quadratic",
+        "in-compound"
+      ],
+      "questionIds": [
+        "inequalities-q-006",
+        "inequalities-q-007",
+        "inequalities-q-008",
+        "inequalities-q-009",
+        "inequalities-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "inequalities-level-4",
+      "topicId": "inequalities",
+      "order": 4,
+      "title": "Combined Inequalities",
+      "description": "Quadratic inequalities and systems of two inequalities together.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "inequalities-level-3"
+      ],
+      "conceptIds": [
+        "in-quadratic",
+        "in-compound",
+        "in-word"
+      ],
+      "questionIds": [
+        "inequalities-q-011",
+        "inequalities-q-012",
+        "inequalities-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "inequalities-level-5",
+      "topicId": "inequalities",
+      "order": 5,
+      "title": "Mixed Inequalities Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "inequalities-level-4"
+      ],
+      "conceptIds": [
+        "in-quadratic",
+        "in-compound",
+        "in-word"
+      ],
+      "questionQuery": {
+        "topicId": "inequalities",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true,
+        "conceptIds": [
+          "in-basic",
+          "in-compound",
+          "in-word",
+          "in-quadratic",
+          "in-check"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "inequalities-level-6",
+      "topicId": "inequalities",
+      "order": 6,
+      "title": "Advanced: AM ≥ GM and Maximum Values",
+      "description": "Equal parts give the biggest product, and a parabola turns at x = −b/2a.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "inequalities-level-5"
+      ],
+      "conceptIds": [
+        "in-adv-amgm",
+        "in-adv-quad-extreme"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Equal parts win",
+            "body": "For positive numbers, the arithmetic mean is never less than the geometric mean: (a + b) ÷ 2 ≥ √(ab), with equality only when a = b. Read it two ways. If the sum is fixed, the product is largest when the parts are equal. If the product is fixed, the sum is smallest when the parts are equal."
+          },
+          {
+            "type": "formula",
+            "title": "AM ≥ GM",
+            "body": "(a + b) ÷ 2 ≥ √(ab), for positive a and b",
+            "caption": "Equal only when a = b. The same holds for any number of positive terms."
+          },
+          {
+            "type": "example",
+            "title": "A fixed sum of 20",
+            "body": "10 × 10 = 100\n9 × 11 = 99\n8 × 12 = 96\n5 × 15 = 75\n\nThe further apart the two parts, the smaller the product."
+          },
+          {
+            "type": "check",
+            "questionId": "inequalities-in-adv-q-001"
+          },
+          {
+            "type": "text",
+            "title": "The classic: x + k/x",
+            "body": "For x > 0, the terms x and k/x have the fixed product k, so their sum is smallest when they are equal: x = √k, giving x + k/x ≥ 2√k. With coefficients, ax + b/x ≥ 2√(ab) for x > 0, reached when ax = b/x."
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "AM ≥ GM needs positive numbers. For x < 0, x + 1/x is negative, so it is certainly not at least 2. Check that the question says x > 0."
+          },
+          {
+            "type": "check",
+            "questionId": "inequalities-in-adv-q-002"
+          },
+          {
+            "type": "text",
+            "title": "The top or bottom of a parabola",
+            "body": "y = ax² + bx + c turns once, at x = −b ÷ 2a, halfway between its roots. If a > 0 the parabola opens upwards and this is its minimum; if a < 0 it opens downwards and this is its maximum."
+          },
+          {
+            "type": "formula",
+            "title": "Extreme value of ax² + bx + c",
+            "body": "At x = −b ÷ 2a, the value is c − b² ÷ 4a",
+            "caption": "A minimum when a > 0, a maximum when a < 0."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "quadratic-roots"
+          },
+          {
+            "type": "check",
+            "questionId": "inequalities-in-adv-q-003"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Fencing problems are quadratics in disguise. With a fixed perimeter, a square encloses the most area. With a wall on one side, the side along the wall should be twice each of the other two: L² ÷ 8 instead of L² ÷ 16."
+          }
+        ]
+      }
+    },
+    {
+      "id": "inequalities-level-7",
+      "topicId": "inequalities",
+      "order": 7,
+      "title": "Challenge: AM ≥ GM and Maximum Values",
+      "description": "Fixed sums and products, fencing against a wall, and the best price to charge.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "inequalities-level-6"
+      ],
+      "conceptIds": [
+        "in-adv-amgm",
+        "in-adv-quad-extreme"
+      ],
+      "questionIds": [
+        "inequalities-in-adv-q-004",
+        "inequalities-in-adv-q-005",
+        "inequalities-in-adv-q-006",
+        "inequalities-in-adv-q-007",
+        "inequalities-in-adv-q-008"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "inequalities-q-001",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "levelId": "inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve for x: 2x + 3 > 11.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x > 4"
+        },
+        {
+          "id": "b",
+          "text": "x < 4"
+        },
+        {
+          "id": "c",
+          "text": "x > 7"
+        },
+        {
+          "id": "d",
+          "text": "x < 7"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Subtract 3: 2x > 8. Divide by 2 (positive, no flip): x > 4.",
+      "solutionSteps": [
+        "2x > 8.",
+        "x > 4."
+      ],
+      "formulaIds": [
+        "in-flip-f"
+      ],
+      "method": "Dividing by a positive number keeps the direction.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "No sign flip is needed here since you divide by a positive number."
+        }
+      ],
+      "commonMistakes": [
+        "Flipping the sign unnecessarily."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-002",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "levelId": "inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve for x: −3x > 12.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x < −4"
+        },
+        {
+          "id": "b",
+          "text": "x > −4"
+        },
+        {
+          "id": "c",
+          "text": "x < 4"
+        },
+        {
+          "id": "d",
+          "text": "x > 4"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Divide both sides by −3, which flips the inequality: x < −4.",
+      "solutionSteps": [
+        "Divide by −3.",
+        "Flip the sign: x < −4."
+      ],
+      "formulaIds": [
+        "in-flip-f"
+      ],
+      "method": "Dividing by a negative number flips the inequality.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You are dividing by a negative number."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to flip the sign, giving x > −4."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-003",
+      "topicId": "inequalities",
+      "conceptId": "in-compound",
+      "levelId": "inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve for x: −1 ≤ 2x + 1 ≤ 9.",
+      "options": [
+        {
+          "id": "a",
+          "text": "−1 ≤ x ≤ 4"
+        },
+        {
+          "id": "b",
+          "text": "−2 ≤ x ≤ 8"
+        },
+        {
+          "id": "c",
+          "text": "0 ≤ x ≤ 5"
+        },
+        {
+          "id": "d",
+          "text": "−1 ≤ x ≤ 9"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Subtract 1 from all parts: −2 ≤ 2x ≤ 8. Divide by 2: −1 ≤ x ≤ 4.",
+      "solutionSteps": [
+        "Subtract 1: −2 ≤ 2x ≤ 8.",
+        "Divide by 2: −1 ≤ x ≤ 4."
+      ],
+      "formulaIds": [
+        "in-compound-f"
+      ],
+      "method": "Apply each operation to all three parts.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Treat the compound inequality as two inequalities solved together."
+        }
+      ],
+      "commonMistakes": [
+        "Applying the operation to only one side."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-004",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "levelId": "inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which operation on an inequality requires flipping the inequality sign?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Adding a positive number to both sides"
+        },
+        {
+          "id": "b",
+          "text": "Subtracting a number from both sides"
+        },
+        {
+          "id": "c",
+          "text": "Dividing both sides by a negative number"
+        },
+        {
+          "id": "d",
+          "text": "Multiplying both sides by a positive number"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Only multiplying or dividing by a negative number flips the direction of the inequality.",
+      "solutionSteps": [
+        "Addition/subtraction never flips it.",
+        "Multiplication/division by a negative number does."
+      ],
+      "formulaIds": [
+        "in-flip-f"
+      ],
+      "method": "Only negative scaling flips an inequality.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Adding or subtracting never changes the direction."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming any division flips the sign."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-005",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "levelId": "inequalities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Solve for x: x/(−2) < 5.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x > −10"
+        },
+        {
+          "id": "b",
+          "text": "x < −10"
+        },
+        {
+          "id": "c",
+          "text": "x > 10"
+        },
+        {
+          "id": "d",
+          "text": "x < 10"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Multiply both sides by −2, flipping the sign: x > −10.",
+      "solutionSteps": [
+        "Multiply by −2 and flip: x > −10."
+      ],
+      "formulaIds": [
+        "in-flip-f"
+      ],
+      "method": "Multiplying by a negative number flips the inequality.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Dividing by a negative number is being undone here by multiplying by a negative."
+        }
+      ],
+      "commonMistakes": [
+        "Not flipping the sign, giving x < −10."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-006",
+      "topicId": "inequalities",
+      "conceptId": "in-basic",
+      "levelId": "inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Solve for x: 5x − 3 < 2x + 9.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x < 4"
+        },
+        {
+          "id": "b",
+          "text": "x > 4"
+        },
+        {
+          "id": "c",
+          "text": "x < 2"
+        },
+        {
+          "id": "d",
+          "text": "x > 2"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Subtract 2x: 3x − 3 < 9. Add 3: 3x < 12. Divide by 3: x < 4.",
+      "solutionSteps": [
+        "3x − 3 < 9.",
+        "3x < 12.",
+        "x < 4."
+      ],
+      "formulaIds": [
+        "in-flip-f"
+      ],
+      "method": "Collect x terms on one side first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This only involves dividing by a positive number."
+        }
+      ],
+      "commonMistakes": [
+        "Flipping the sign unnecessarily since 3 is positive."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-007",
+      "topicId": "inequalities",
+      "conceptId": "in-word",
+      "levelId": "inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The sum of a number and thrice itself is at most 40. What is the largest integer value the number can take?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "The equation is x + 3x ≤ 40, so 4x ≤ 40, giving x ≤ 10. The largest integer is 10.",
+      "solutionSteps": [
+        "x + 3x = 4x.",
+        "4x ≤ 40.",
+        "x ≤ 10."
+      ],
+      "formulaIds": [
+        "in-word-f"
+      ],
+      "method": "Translate \"at most\" as ≤.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"At most\" means the boundary value is included."
+        }
+      ],
+      "commonMistakes": [
+        "Using < instead of ≤, and excluding 10."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-008",
+      "topicId": "inequalities",
+      "conceptId": "in-quadratic",
+      "levelId": "inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Solve: (x − 2)(x − 5) > 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "x < 2 or x > 5"
+        },
+        {
+          "id": "b",
+          "text": "2 < x < 5"
+        },
+        {
+          "id": "c",
+          "text": "x < 2 and x > 5"
+        },
+        {
+          "id": "d",
+          "text": "x = 2 or x = 5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The roots are 2 and 5. Testing a point outside, x = 0: (−2)(−5) = 10 > 0. So the product is positive outside the roots: x < 2 or x > 5.",
+      "solutionSteps": [
+        "Roots at x = 2 and x = 5.",
+        "Test x = 0: positive.",
+        "Solution: x < 2 or x > 5."
+      ],
+      "formulaIds": [
+        "in-quadratic-f"
+      ],
+      "method": "Test a point outside the roots to check the sign.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Between the roots the two factors have opposite signs."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the region between the roots instead of outside."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-009",
+      "topicId": "inequalities",
+      "conceptId": "in-compound",
+      "levelId": "inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Solve for x: 3 < 2x − 1 < 11.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 < x < 6"
+        },
+        {
+          "id": "b",
+          "text": "1 < x < 5"
+        },
+        {
+          "id": "c",
+          "text": "4 < x < 12"
+        },
+        {
+          "id": "d",
+          "text": "2 < x < 11"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Add 1 to all parts: 4 < 2x < 12. Divide by 2: 2 < x < 6.",
+      "solutionSteps": [
+        "Add 1: 4 < 2x < 12.",
+        "Divide by 2: 2 < x < 6."
+      ],
+      "formulaIds": [
+        "in-compound-f"
+      ],
+      "method": "Apply the same operation across all three parts.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Add before dividing."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing before adding, in the wrong order."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-010",
+      "topicId": "inequalities",
+      "conceptId": "in-word",
+      "levelId": "inequalities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Twice a number, decreased by 5, is at least 13. What is the smallest integer value the number can take?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "The inequality is 2x − 5 ≥ 13, so 2x ≥ 18, giving x ≥ 9. The smallest integer is 9.",
+      "solutionSteps": [
+        "2x − 5 ≥ 13.",
+        "2x ≥ 18.",
+        "x ≥ 9."
+      ],
+      "formulaIds": [
+        "in-word-f"
+      ],
+      "method": "Translate \"at least\" as ≥.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"At least\" includes the boundary value."
+        }
+      ],
+      "commonMistakes": [
+        "Excluding 9 by using > instead of ≥."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-011",
+      "topicId": "inequalities",
+      "conceptId": "in-quadratic",
+      "levelId": "inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Solve: x² − 5x + 6 < 0.",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 < x < 3"
+        },
+        {
+          "id": "b",
+          "text": "x < 2 or x > 3"
+        },
+        {
+          "id": "c",
+          "text": "x < 2 and x > 3"
+        },
+        {
+          "id": "d",
+          "text": "2 ≤ x ≤ 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Factorise: (x − 2)(x − 3) < 0. Testing x = 2.5 (between the roots): (0.5)(−0.5) = −0.25 < 0. So the solution is between the roots: 2 < x < 3.",
+      "solutionSteps": [
+        "Factorise: (x−2)(x−3) < 0.",
+        "Test a point between the roots: negative.",
+        "Solution: 2 < x < 3."
+      ],
+      "formulaIds": [
+        "in-quadratic-f"
+      ],
+      "method": "Factorise first, then test a point between the roots.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Between the roots, the two factors have opposite signs."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the region outside the roots instead of between them."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-012",
+      "topicId": "inequalities",
+      "conceptId": "in-compound",
+      "levelId": "inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "x satisfies both 2x − 3 ≤ 7 and x + 4 > 1. What is the smallest integer value of x?",
+      "answer": {
+        "value": -2,
+        "tolerance": 0
+      },
+      "explanation": "From 2x − 3 ≤ 7: x ≤ 5. From x + 4 > 1: x > −3. Combined: −3 < x ≤ 5. The smallest integer greater than −3 is −2.",
+      "solutionSteps": [
+        "2x − 3 ≤ 7 → x ≤ 5.",
+        "x + 4 > 1 → x > −3.",
+        "Combined: −3 < x ≤ 5 → smallest integer −2."
+      ],
+      "formulaIds": [
+        "in-flip-f",
+        "in-compound-f"
+      ],
+      "method": "Solve each inequality separately, then combine the ranges.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The smallest integer strictly greater than −3 is not −3 itself."
+        }
+      ],
+      "commonMistakes": [
+        "Including −3 as a valid solution."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-q-013",
+      "topicId": "inequalities",
+      "conceptId": "in-word",
+      "levelId": "inequalities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A number's triple, plus 5, is less than twice the number plus 20. What is the largest integer value the number can take?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0
+      },
+      "explanation": "The inequality is 3x + 5 < 2x + 20, so x < 15. The largest integer less than 15 is 14.",
+      "solutionSteps": [
+        "3x + 5 < 2x + 20.",
+        "x < 15.",
+        "Largest integer: 14."
+      ],
+      "formulaIds": [
+        "in-word-f",
+        "in-flip-f"
+      ],
+      "method": "Set up the inequality, then solve for x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "x < 15 does not include 15 itself."
+        }
+      ],
+      "commonMistakes": [
+        "Including 15 as a valid answer."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-001",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "levelId": "inequalities-level-6",
+      "difficulty": "easy",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Two positive numbers add up to 24. What is the largest possible value of their product?",
+      "answer": {
+        "value": 144,
+        "tolerance": 0
+      },
+      "explanation": "With the sum fixed, AM ≥ GM says the product is largest when the two numbers are equal: 12 and 12, giving 12 × 12 = 144. Any unequal split, such as 11 × 13 = 143, gives less.",
+      "solutionSteps": [
+        "Fixed sum → equal parts give the largest product.",
+        "24 ÷ 2 = 12 each.",
+        "12 × 12 = 144."
+      ],
+      "formulaIds": [
+        "in-adv-amgm-f"
+      ],
+      "method": "Fixed sum: make the parts equal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Try 10 × 14, 11 × 13 and 12 × 12. Which is biggest?"
+        },
+        {
+          "level": 2,
+          "text": "The product is largest when the two numbers are equal."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 12, the value of each number, instead of the product.",
+        "Pushing the numbers far apart, such as 23 × 1 = 23, which makes the product smaller, not larger."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-002",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "levelId": "inequalities-level-6",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "For x > 0, what is the minimum value of 4x + 9/x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "For x > 0 both terms are positive, and their product 4x × 9/x = 36 is fixed. By AM ≥ GM, 4x + 9/x ≥ 2√36 = 12, with equality when 4x = 9/x, that is x = 1.5. Check: 6 + 6 = 12.",
+      "solutionSteps": [
+        "Product of the terms: 4x × 9/x = 36, a constant.",
+        "AM ≥ GM: sum ≥ 2√36 = 12.",
+        "Equality at 4x = 9/x, x = 1.5: 6 + 6 = 12."
+      ],
+      "formulaIds": [
+        "in-adv-amgm-f",
+        "in-sc-am-gm"
+      ],
+      "method": "ax + b/x ≥ 2√(ab) for x > 0.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply the two terms together. What happens to x?"
+        },
+        {
+          "level": 2,
+          "text": "A fixed product gives the smallest sum when the two terms are equal: 4x = 9/x."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 6 = √36, forgetting the factor 2 in 2√(ab).",
+        "Guessing x instead: x = 1 gives 13, and x = √9 = 3 (the x + k/x rule, ignoring the 4) gives 15."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-003",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "levelId": "inequalities-level-6",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is the maximum value of 7 + 6x − x²?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "Here a = −1, b = 6 and c = 7. Since a < 0 the parabola opens downwards, so it has a maximum at x = −b ÷ 2a = −6 ÷ (−2) = 3. The value there is 7 + 18 − 9 = 16.",
+      "solutionSteps": [
+        "a = −1, b = 6, c = 7; a < 0, so a maximum.",
+        "x = −6 ÷ (−2) = 3.",
+        "7 + 6(3) − 3² = 16."
+      ],
+      "formulaIds": [
+        "in-adv-vertex-f"
+      ],
+      "method": "Turning point at x = −b/2a, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write it as −x² + 6x + 7, so a = −1 and b = 6."
+        },
+        {
+          "level": 2,
+          "text": "The maximum is at x = −b ÷ 2a = 3. Substitute x = 3."
+        }
+      ],
+      "commonMistakes": [
+        "Giving 3, the value of x where the maximum occurs, instead of the maximum itself.",
+        "Computing c − b²/4 = −2 by dropping the minus sign of a."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-004",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "levelId": "inequalities-level-7",
+      "difficulty": "medium",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A farmer has 120 m of fencing to enclose a rectangular plot. What is the largest area he can enclose?",
+      "options": [
+        {
+          "id": "a",
+          "text": "900 m²"
+        },
+        {
+          "id": "b",
+          "text": "3,600 m²"
+        },
+        {
+          "id": "c",
+          "text": "1,800 m²"
+        },
+        {
+          "id": "d",
+          "text": "800 m²"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The perimeter is 2(l + b) = 120, so l + b = 60 is fixed. The area l × b is largest when l = b = 30, a square: 30 × 30 = 900 m².",
+      "solutionSteps": [
+        "2(l + b) = 120, so l + b = 60.",
+        "Fixed sum → equal sides: l = b = 30.",
+        "Area = 30 × 30 = 900 m²."
+      ],
+      "formulaIds": [
+        "in-sc-adv-fencing",
+        "in-adv-amgm-f"
+      ],
+      "method": "A fixed perimeter encloses the most area as a square.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Half the perimeter gives l + b = 60."
+        },
+        {
+          "level": 2,
+          "text": "With l + b fixed, l × b is largest when l = b."
+        }
+      ],
+      "commonMistakes": [
+        "Taking 120 as l + b, giving a 60 × 60 square of 3,600 m².",
+        "Using the wall formula L² ÷ 8 = 1,800 m² when there is no wall, or settling for a long plot such as 20 × 40 = 800 m²."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-005",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "levelId": "inequalities-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A rectangular garden is fenced on three sides with 80 m of fencing; a long wall forms the fourth side. What is the largest area, in m², the garden can have?",
+      "answer": {
+        "value": 800,
+        "tolerance": 0,
+        "unit": "m²"
+      },
+      "explanation": "Let each side at right angles to the wall be x m. The side along the wall is then 80 − 2x, so the area is x(80 − 2x) = 80x − 2x². This peaks at x = −80 ÷ (2 × −2) = 20, giving 20 × 40 = 800 m².",
+      "solutionSteps": [
+        "Sides x, x and 80 − 2x.",
+        "Area = 80x − 2x², a = −2, b = 80.",
+        "x = 80 ÷ 4 = 20; area = 20 × 40 = 800 m²."
+      ],
+      "formulaIds": [
+        "in-adv-vertex-f",
+        "in-sc-adv-fencing"
+      ],
+      "method": "Write the area as a quadratic in one side, then use x = −b/2a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only three sides need fencing. If two of them are x each, how long is the third?"
+        },
+        {
+          "level": 2,
+          "text": "Maximise x(80 − 2x): the side along the wall should be twice each of the others."
+        }
+      ],
+      "commonMistakes": [
+        "Ignoring the wall and making a square of side 20, which gives only 400 m².",
+        "Making the three fenced sides equal (80/3 m each), which gives about 711 m²."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-006",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "levelId": "inequalities-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "For x > 0, what is the least value of (x² + 3x + 9) ÷ x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "13"
+        },
+        {
+          "id": "d",
+          "text": "6.75"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Divide each term by x: x + 3 + 9/x. For x > 0, x and 9/x are positive with a fixed product 9, so x + 9/x ≥ 2√9 = 6, with equality at x = 3. The least value is 6 + 3 = 9.",
+      "solutionSteps": [
+        "(x² + 3x + 9) ÷ x = x + 9/x + 3.",
+        "x + 9/x ≥ 2√9 = 6 for x > 0, equal at x = 3.",
+        "Least value = 6 + 3 = 9."
+      ],
+      "formulaIds": [
+        "in-adv-amgm-f",
+        "in-sc-am-gm"
+      ],
+      "method": "Split the fraction, then apply AM ≥ GM to x + k/x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide every term of the numerator by x."
+        },
+        {
+          "level": 2,
+          "text": "You get x + 9/x + 3. What is the least value of x + 9/x for x > 0?"
+        }
+      ],
+      "commonMistakes": [
+        "Giving 6, the minimum of x + 9/x, and forgetting the + 3.",
+        "Substituting x = 1 (giving 13), or minimising only the top, x² + 3x + 9, which gives 6.75 at x = −1.5, not a positive x."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-007",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-amgm",
+      "levelId": "inequalities-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "x and y are positive numbers with x + y = 10. What is the largest possible value of x²y³?",
+      "answer": {
+        "value": 3456,
+        "tolerance": 0
+      },
+      "explanation": "Split x into two equal parts x/2 and y into three equal parts y/3. These five positive parts add up to 10, so by AM ≥ GM their product (x/2)²(y/3)³ is largest when all five are equal: x/2 = y/3 = 2. So x = 4, y = 6 and x²y³ = 16 × 216 = 3,456.",
+      "solutionSteps": [
+        "Use parts x/2, x/2, y/3, y/3, y/3, which add up to 10.",
+        "All equal: each = 10 ÷ 5 = 2, so x = 4 and y = 6.",
+        "x²y³ = 4² × 6³ = 16 × 216 = 3,456."
+      ],
+      "formulaIds": [
+        "in-sc-adv-weighted-split",
+        "in-adv-amgm-f"
+      ],
+      "method": "Split the fixed sum in the ratio of the powers, 2 : 3.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "An equal split (5 and 5) is not best here, because y carries the bigger power."
+        },
+        {
+          "level": 2,
+          "text": "Divide 10 in the ratio 2 : 3."
+        }
+      ],
+      "commonMistakes": [
+        "Splitting equally: 5² × 5³ = 3,125.",
+        "Splitting in the ratio 3 : 2 the wrong way round: 6² × 4³ = 2,304."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "inequalities-in-adv-q-008",
+      "topicId": "inequalities",
+      "conceptId": "in-adv-quad-extreme",
+      "levelId": "inequalities-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A shop sells 200 pens a day at ₹50 each. For every ₹1 rise in price, it sells 2 fewer pens a day. At what price is its daily revenue the largest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "₹75"
+        },
+        {
+          "id": "b",
+          "text": "₹25"
+        },
+        {
+          "id": "c",
+          "text": "₹50"
+        },
+        {
+          "id": "d",
+          "text": "₹150"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Raise the price by ₹p. Revenue = (50 + p)(200 − 2p) = 10,000 + 100p − 2p². This quadratic has a = −2 and b = 100, so it peaks at p = −100 ÷ (2 × −2) = 25. The best price is ₹50 + ₹25 = ₹75, when it sells 150 pens for ₹11,250.",
+      "solutionSteps": [
+        "Revenue = (50 + p)(200 − 2p) = 10,000 + 100p − 2p².",
+        "p = −100 ÷ (−4) = 25.",
+        "Price = 50 + 25 = ₹75 (revenue ₹11,250)."
+      ],
+      "formulaIds": [
+        "in-adv-vertex-f"
+      ],
+      "method": "Write revenue as a quadratic in the price rise, then use p = −b/2a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Let the rise be ₹p. Write the price and the number sold in terms of p."
+        },
+        {
+          "level": 2,
+          "text": "Expand (50 + p)(200 − 2p) and find the turning point."
+        }
+      ],
+      "commonMistakes": [
+        "Giving ₹25, the rise in price, instead of the new price.",
+        "Giving ₹150, the price at which sales drop to zero: that is a root, not the turning point."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

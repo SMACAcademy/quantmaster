@@ -1,0 +1,896 @@
+{
+  "topicId": "geometric-progression",
+  "concepts": [
+    {
+      "id": "gp-nth",
+      "topicId": "geometric-progression",
+      "name": "nth term of a GP",
+      "description": "The nth term is the first term multiplied by the common ratio, (n − 1) times.",
+      "sortOrder": 1
+    },
+    {
+      "id": "gp-sum",
+      "topicId": "geometric-progression",
+      "name": "Sum of a finite GP",
+      "description": "The sum of the first n terms has a direct formula in terms of the first term, ratio and n.",
+      "sortOrder": 2
+    },
+    {
+      "id": "gp-suminf",
+      "topicId": "geometric-progression",
+      "name": "Sum to infinity",
+      "description": "When the common ratio is a proper fraction, the sum of infinitely many terms converges to a finite value.",
+      "sortOrder": 3
+    },
+    {
+      "id": "gp-ratio",
+      "topicId": "geometric-progression",
+      "name": "Finding the common ratio",
+      "description": "Divide any term by the one before it, or use two known terms to solve for the ratio.",
+      "sortOrder": 4
+    },
+    {
+      "id": "gp-mean",
+      "topicId": "geometric-progression",
+      "name": "Geometric mean",
+      "description": "The geometric mean of two numbers is the middle term that keeps them in a three-term GP.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "gp-nth-f",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-nth",
+      "title": "nth term of a GP",
+      "prompt": "What is the formula for the nth term of a GP?",
+      "formula": "Tn = a · r^(n − 1)",
+      "variables": [],
+      "explanation": "a is the first term and r is the common ratio; the exponent is (n − 1), not n.",
+      "example": "a = 3, r = 2: the 5th term is 3 × 2⁴ = 48",
+      "commonMistake": "Using r^n instead of r^(n − 1).",
+      "applicationPrompt": "Find the 5th term of a GP with a = 3 and r = 2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gp-sum-f",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-sum",
+      "title": "Sum of the first n terms",
+      "prompt": "What is the formula for the sum of the first n terms of a GP?",
+      "formula": "Sn = a(rⁿ − 1) / (r − 1),  for r ≠ 1",
+      "variables": [],
+      "explanation": "This adds up n terms directly without listing and adding each one.",
+      "example": "a = 2, r = 3, n = 5: S = 2(3⁵ − 1)/(3 − 1) = 2(242)/2 = 242",
+      "commonMistake": "Using rⁿ instead of r^(n−1) inside the formula, or forgetting to subtract 1.",
+      "applicationPrompt": "Find the sum of the first 5 terms of a GP with a = 2 and r = 3.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gp-suminf-f",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "title": "Sum to infinity",
+      "prompt": "When does a GP have a finite sum to infinity, and what is it?",
+      "formula": "S∞ = a / (1 − r),  valid only when |r| < 1",
+      "variables": [],
+      "explanation": "If |r| ≥ 1, the terms do not shrink to zero, so the sum grows without bound and has no finite value.",
+      "example": "a = 8, r = 1/2: S∞ = 8 / (1 − 1/2) = 16",
+      "commonMistake": "Applying the formula when |r| ≥ 1, where it does not apply.",
+      "applicationPrompt": "Find the sum to infinity of a GP with a = 8 and r = 1/2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gp-ratio-f",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-ratio",
+      "title": "Finding the common ratio",
+      "prompt": "How do you find r from two known terms of a GP?",
+      "formula": "If Tm and Tk are known terms with m > k, then r^(m − k) = Tm / Tk",
+      "variables": [],
+      "explanation": "Take the ratio of the two terms, then undo the exponent to isolate r.",
+      "example": "T4 = 135, T1 = 5: r³ = 27, so r = 3",
+      "commonMistake": "Dividing the terms without accounting for how many steps apart they are.",
+      "applicationPrompt": "Find r given T1 = 5 and T4 = 135.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "gp-mean-f",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-mean",
+      "title": "Geometric mean",
+      "prompt": "What is the geometric mean of two numbers a and b, and how does it relate to a GP?",
+      "formula": "Geometric mean G = √(ab); for three terms a, G, b in GP, G² = ab",
+      "variables": [],
+      "explanation": "The geometric mean is the number that keeps the three terms in a constant ratio.",
+      "example": "Geometric mean of 4 and 16 is √64 = 8",
+      "commonMistake": "Computing the arithmetic mean (a + b)/2 instead of the geometric mean.",
+      "applicationPrompt": "Find the geometric mean of 4 and 16.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gp-sc-three-terms",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-mean",
+      "kind": "shortcut",
+      "title": "Three unknown terms in a GP",
+      "prompt": "How do you pick three unknown terms of a GP to make the algebra easy?",
+      "formula": "Write them a/r, a, ar\nTheir product is a³, and b² = ac for terms a, b, c",
+      "variables": [],
+      "explanation": "With the middle term as a, the product loses r completely.",
+      "example": "Three GP terms with product 216 and sum 19: middle = ∛216 = 6, then 6/r + 6 + 6r = 19 gives r = 3/2: 4, 6, 9.",
+      "commonMistake": "Writing a, ar, ar², which keeps r in the product.",
+      "applicationPrompt": "Three numbers in GP multiply to 64 and add to 14.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "gp-sc-recurring",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "kind": "shortcut",
+      "title": "Recurring decimals are GP sums",
+      "prompt": "Why is 0.333… exactly 1/3?",
+      "formula": "0.aaa… = a/9\n0.abab… = ab/99\n(a GP: first term a/10, ratio 1/10)",
+      "variables": [],
+      "explanation": "Each repeat adds a tenth (or hundredth) of the previous one, and a/(1 − r) gives the exact sum.",
+      "example": "0.4545… = 45/99 = 5/11.",
+      "commonMistake": "Using 100 instead of 99 in the denominator.",
+      "applicationPrompt": "Write 0.272727… as a fraction in lowest terms.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "geometric-progression-level-0",
+      "topicId": "geometric-progression",
+      "order": 0,
+      "title": "Multiplying by the Same Ratio",
+      "description": "A sequence where each term is the last one multiplied by a constant ratio.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "gp-nth",
+        "gp-ratio"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "What makes a GP",
+            "body": "In 2, 6, 18, 54, each term is 3 times the one before it. That constant multiplier, 3, is the common ratio r, and it defines the whole sequence together with the first term."
+          },
+          {
+            "type": "formula",
+            "title": "nth term",
+            "body": "Tn = a · r^(n − 1)",
+            "caption": "The exponent is one less than the term number."
+          },
+          {
+            "type": "check",
+            "questionId": "geometric-progression-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Find r by dividing any term by the one right before it."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "ap-vs-gp"
+          },
+          {
+            "type": "check",
+            "questionId": "geometric-progression-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "geometric-progression-level-1",
+      "topicId": "geometric-progression",
+      "order": 1,
+      "title": "Geometric Progression Formulas",
+      "description": "nth term, sum of n terms, sum to infinity, finding the ratio, geometric mean.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "geometric-progression-level-0"
+      ],
+      "conceptIds": [
+        "gp-nth",
+        "gp-sum",
+        "gp-suminf",
+        "gp-ratio"
+      ],
+      "formulaIds": [
+        "gp-nth-f",
+        "gp-sum-f",
+        "gp-suminf-f",
+        "gp-ratio-f",
+        "gp-mean-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "geometric-progression-level-2",
+      "topicId": "geometric-progression",
+      "order": 2,
+      "title": "Direct Terms and Ratios",
+      "description": "Finding terms, ratios and the geometric mean directly.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "geometric-progression-level-1"
+      ],
+      "conceptIds": [
+        "gp-nth",
+        "gp-ratio",
+        "gp-mean",
+        "gp-suminf"
+      ],
+      "questionIds": [
+        "geometric-progression-q-001",
+        "geometric-progression-q-002",
+        "geometric-progression-q-003",
+        "geometric-progression-q-004",
+        "geometric-progression-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "geometric-progression-level-3",
+      "topicId": "geometric-progression",
+      "order": 3,
+      "title": "Sums and Reverse Problems",
+      "description": "Summing a GP, and working backwards from a term to find a or r.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "geometric-progression-level-2"
+      ],
+      "conceptIds": [
+        "gp-sum",
+        "gp-suminf",
+        "gp-ratio",
+        "gp-nth"
+      ],
+      "questionIds": [
+        "geometric-progression-q-006",
+        "geometric-progression-q-007",
+        "geometric-progression-q-008",
+        "geometric-progression-q-009",
+        "geometric-progression-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "geometric-progression-level-4",
+      "topicId": "geometric-progression",
+      "order": 4,
+      "title": "Applied Geometric Progression",
+      "description": "Multi-step problems combining several GP ideas.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "geometric-progression-level-3"
+      ],
+      "conceptIds": [
+        "gp-nth",
+        "gp-mean",
+        "gp-suminf"
+      ],
+      "questionIds": [
+        "geometric-progression-q-011",
+        "geometric-progression-q-012",
+        "geometric-progression-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "geometric-progression-level-5",
+      "topicId": "geometric-progression",
+      "order": 5,
+      "title": "Mixed Geometric Progression Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "geometric-progression-level-4"
+      ],
+      "conceptIds": [
+        "gp-nth",
+        "gp-mean",
+        "gp-suminf"
+      ],
+      "questionQuery": {
+        "topicId": "geometric-progression",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "geometric-progression-q-001",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-nth",
+      "levelId": "geometric-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A GP has first term 3 and common ratio 2. What is the 5th term?",
+      "answer": {
+        "value": 48,
+        "tolerance": 0
+      },
+      "explanation": "T5 = 3 × 2⁴ = 3 × 16 = 48.",
+      "solutionSteps": [
+        "2⁴ = 16.",
+        "3 × 16 = 48."
+      ],
+      "formulaIds": [
+        "gp-nth-f"
+      ],
+      "method": "Use Tn = a · r^(n−1).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exponent for the 5th term is 4, not 5."
+        }
+      ],
+      "commonMistakes": [
+        "Using r⁵ instead of r⁴."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-002",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-ratio",
+      "levelId": "geometric-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "The first two terms of a GP are 4 and 12. What is the common ratio?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "r = second term ÷ first term = 12 ÷ 4 = 3.",
+      "solutionSteps": [
+        "r = 12 ÷ 4 = 3."
+      ],
+      "formulaIds": [
+        "gp-ratio-f"
+      ],
+      "method": "Divide a term by the one before it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The ratio is found by dividing consecutive terms."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting instead of dividing."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-003",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "levelId": "geometric-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The sum-to-infinity formula S∞ = a/(1 − r) only gives a finite value when",
+      "options": [
+        {
+          "id": "a",
+          "text": "r is a whole number"
+        },
+        {
+          "id": "b",
+          "text": "|r| < 1"
+        },
+        {
+          "id": "c",
+          "text": "r is negative"
+        },
+        {
+          "id": "d",
+          "text": "a is greater than 1"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "If |r| ≥ 1, the terms do not shrink towards zero, so the sum never settles to a finite value.",
+      "solutionSteps": [
+        "|r| < 1 is required for convergence."
+      ],
+      "formulaIds": [
+        "gp-suminf-f"
+      ],
+      "method": "The condition is on the size of r, not its sign or a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think about what happens to the terms if r = 2."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the formula always works."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-004",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-mean",
+      "levelId": "geometric-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the geometric mean of 4 and 16?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "Geometric mean = √(4 × 16) = √64 = 8.",
+      "solutionSteps": [
+        "4 × 16 = 64.",
+        "√64 = 8."
+      ],
+      "formulaIds": [
+        "gp-mean-f"
+      ],
+      "method": "Take the square root of the product.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is not the same as the average (arithmetic mean)."
+        }
+      ],
+      "commonMistakes": [
+        "Computing (4+16)/2 = 10 instead."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-005",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-nth",
+      "levelId": "geometric-progression-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What comes next: 2, 6, 18, 54, ?",
+      "answer": {
+        "value": 162,
+        "tolerance": 0
+      },
+      "explanation": "The common ratio is 3, so the next term is 54 × 3 = 162.",
+      "solutionSteps": [
+        "r = 3.",
+        "54 × 3 = 162."
+      ],
+      "formulaIds": [
+        "gp-nth-f"
+      ],
+      "method": "Multiply the last term by the common ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check the ratio between consecutive terms first."
+        }
+      ],
+      "commonMistakes": [
+        "Adding a fixed amount instead of multiplying."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-006",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-sum",
+      "levelId": "geometric-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the sum of the first 5 terms of a GP with first term 2 and common ratio 3?",
+      "answer": {
+        "value": 242,
+        "tolerance": 0
+      },
+      "explanation": "S = 2(3⁵ − 1)/(3 − 1) = 2(243 − 1)/2 = 2 × 242/2 = 242.",
+      "solutionSteps": [
+        "3⁵ = 243.",
+        "2(243−1)/(3−1) = 2×242/2.",
+        "= 242."
+      ],
+      "formulaIds": [
+        "gp-sum-f"
+      ],
+      "method": "Apply the sum formula directly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "3⁵ = 243, not 3 × 5."
+        }
+      ],
+      "commonMistakes": [
+        "Computing 3 × 5 instead of 3⁵."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-007",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "levelId": "geometric-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the sum to infinity of a GP with first term 8 and common ratio 1/2?",
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "S∞ = 8 / (1 − 1/2) = 8 / (1/2) = 16.",
+      "solutionSteps": [
+        "1 − 1/2 = 1/2.",
+        "8 ÷ (1/2) = 16."
+      ],
+      "formulaIds": [
+        "gp-suminf-f"
+      ],
+      "method": "Divide the first term by (1 − r).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Dividing by 1/2 is the same as multiplying by 2."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by (1 − r) instead of dividing."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-008",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-ratio",
+      "levelId": "geometric-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A GP has first term 5 and 4th term 135. What is the common ratio?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "T4 = a·r³, so 135 = 5r³, giving r³ = 27, so r = 3.",
+      "solutionSteps": [
+        "5r³ = 135.",
+        "r³ = 27.",
+        "r = 3."
+      ],
+      "formulaIds": [
+        "gp-ratio-f"
+      ],
+      "method": "Set up Tn = a·r^(n−1) and solve for r.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exponent for the 4th term is 3."
+        }
+      ],
+      "commonMistakes": [
+        "Using r⁴ instead of r³."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-009",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-nth",
+      "levelId": "geometric-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A GP has common ratio 2 and 6th term 192. What is the first term?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "T6 = a·2⁵ = 32a, so 32a = 192, giving a = 6.",
+      "solutionSteps": [
+        "2⁵ = 32.",
+        "32a = 192.",
+        "a = 6."
+      ],
+      "formulaIds": [
+        "gp-nth-f"
+      ],
+      "method": "Substitute into Tn = a·r^(n−1) and solve for a.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The exponent for the 6th term is 5."
+        }
+      ],
+      "commonMistakes": [
+        "Using 2⁶ instead of 2⁵."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-010",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "levelId": "geometric-progression-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A ball is dropped and each bounce reaches 60% of the height of the previous bounce. If the first bounce reaches 60 m, what is the total height of all the bounces added together (to infinity)?",
+      "answer": {
+        "value": 150,
+        "tolerance": 0
+      },
+      "explanation": "This is a GP with a = 60 and r = 0.6. S∞ = 60 / (1 − 0.6) = 60 / 0.4 = 150.",
+      "solutionSteps": [
+        "a = 60, r = 0.6.",
+        "1 − 0.6 = 0.4.",
+        "60 ÷ 0.4 = 150."
+      ],
+      "formulaIds": [
+        "gp-suminf-f"
+      ],
+      "method": "Model the bounce heights as a GP and apply the sum-to-infinity formula.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "|r| = 0.6 < 1, so the sum converges."
+        }
+      ],
+      "commonMistakes": [
+        "Using the initial drop height as the first term instead of the first bounce."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-011",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-nth",
+      "levelId": "geometric-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A GP has first term 3 and common ratio 2. Which term of the sequence equals 384?",
+      "answer": {
+        "value": 8,
+        "tolerance": 0
+      },
+      "explanation": "3 × 2^(n−1) = 384, so 2^(n−1) = 128 = 2⁷, giving n − 1 = 7, so n = 8.",
+      "solutionSteps": [
+        "2^(n−1) = 384/3 = 128.",
+        "128 = 2⁷.",
+        "n − 1 = 7 → n = 8."
+      ],
+      "formulaIds": [
+        "gp-nth-f"
+      ],
+      "method": "Express both sides as powers of the same base.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Divide 384 by the first term before comparing powers of 2."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add 1 back after finding the exponent."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-012",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-mean",
+      "levelId": "geometric-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Three numbers in GP have a sum of 26 and a product of 216. What is the middle term?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "For three terms in GP, the product equals the cube of the middle term: middle³ = 216, so middle = 6. (This is consistent with a sum of 26: the other two terms are 6/3 = 2 and 6×3 = 18, summing to 26 with ratio 3.)",
+      "solutionSteps": [
+        "For a, G, b in GP: a×G×b = G³.",
+        "G³ = 216 → G = 6."
+      ],
+      "formulaIds": [
+        "gp-mean-f"
+      ],
+      "method": "The product of three GP terms is the cube of the middle term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You do not need the sum to find the middle term from the product."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use the sum before realising the product alone determines the middle term."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "geometric-progression-q-013",
+      "topicId": "geometric-progression",
+      "conceptId": "gp-suminf",
+      "levelId": "geometric-progression-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A ball is dropped from 100 m. Each time it bounces, it rises to 1/5 of the height it fell from, and this continues forever. What is the total distance travelled by the ball (counting every fall and every rise)?",
+      "answer": {
+        "value": 150,
+        "tolerance": 0
+      },
+      "explanation": "The bounce heights form a GP with a = 100/5 = 20 and r = 1/5, so their sum is 20/(1 − 1/5) = 25. Each bounce height is travelled twice (up and down), so the total distance is the initial 100 m drop plus 2 × 25 = 150 m.",
+      "solutionSteps": [
+        "Bounce heights: a = 20, r = 1/5 → sum = 25.",
+        "Each bounce is travelled up and down: 2 × 25 = 50.",
+        "Total distance = 100 + 50 = 150."
+      ],
+      "formulaIds": [
+        "gp-suminf-f"
+      ],
+      "method": "Sum the bounce heights first, then double them for up-and-down travel, and add the initial drop.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Every bounce height is travelled twice: once up, once down."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to double the bounce heights, or forgetting to add the initial drop."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

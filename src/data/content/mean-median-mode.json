@@ -1,0 +1,897 @@
+{
+  "topicId": "mean-median-mode",
+  "concepts": [
+    {
+      "id": "mmm-mean",
+      "topicId": "mean-median-mode",
+      "name": "The mean",
+      "description": "The arithmetic mean is the sum of all values divided by how many values there are.",
+      "sortOrder": 1
+    },
+    {
+      "id": "mmm-median",
+      "topicId": "mean-median-mode",
+      "name": "The median",
+      "description": "Sort the data first: the median is the middle value, or the average of the two middle values if there is an even count.",
+      "sortOrder": 2
+    },
+    {
+      "id": "mmm-mode",
+      "topicId": "mean-median-mode",
+      "name": "The mode",
+      "description": "The mode is the value (or values) that appears most often in the data.",
+      "sortOrder": 3
+    },
+    {
+      "id": "mmm-combined",
+      "topicId": "mean-median-mode",
+      "name": "Combining means from two groups",
+      "description": "The combined mean weights each group's mean by how many values it contributes.",
+      "sortOrder": 4
+    },
+    {
+      "id": "mmm-missing",
+      "topicId": "mean-median-mode",
+      "name": "Finding a missing value",
+      "description": "If you know the mean and all but one value, the missing value is whatever makes the sum match the mean.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "mmm-mean-f",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "title": "The arithmetic mean",
+      "prompt": "How do you calculate the mean of a data set?",
+      "formula": "Mean = (sum of all values) / (number of values)",
+      "variables": [],
+      "explanation": "The mean spreads the total evenly across every value in the set.",
+      "example": "4, 8, 6, 10, 7: sum = 35, count = 5, mean = 7",
+      "commonMistake": "Dividing by the wrong count, especially after adding or removing a value.",
+      "applicationPrompt": "Find the mean of 4, 8, 6, 10, 7.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mmm-median-f",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-median",
+      "title": "The median",
+      "prompt": "How do you find the median of a data set?",
+      "formula": "Sort the data.\nOdd count: the middle value.\nEven count: the average of the two middle values.",
+      "variables": [],
+      "explanation": "The median is not affected by how extreme the highest or lowest values are, unlike the mean.",
+      "example": "2, 3, 5, 7, 9 (already sorted, odd count): median = 5",
+      "commonMistake": "Finding the middle of the unsorted list instead of sorting first.",
+      "applicationPrompt": "Find the median of 3, 7, 9, 2, 5.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mmm-mode-f",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mode",
+      "title": "The mode",
+      "prompt": "What is the mode of a data set?",
+      "formula": "Mode = the value that appears most frequently",
+      "variables": [],
+      "explanation": "A data set can have no mode (all values distinct), one mode, or several modes (a tie for most frequent).",
+      "example": "2, 3, 3, 5, 3, 7: mode = 3 (appears three times)",
+      "commonMistake": "Confusing the mode with the mean or median.",
+      "applicationPrompt": "Find the mode of 2, 3, 3, 5, 3, 7.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mmm-combined-f",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-combined",
+      "title": "Combining the means of two groups",
+      "prompt": "How do you find the overall mean when you know the mean of each of two groups?",
+      "formula": "Combined mean = (n₁ × mean₁ + n₂ × mean₂) / (n₁ + n₂)",
+      "variables": [],
+      "explanation": "Each group's mean is weighted by how many values it contributes — a bigger group pulls the combined mean more towards its own mean.",
+      "example": "Group 1: 5 students, mean 60. Group 2: 3 students, mean 80. Combined mean = (5×60 + 3×80)/8 = 67.5",
+      "commonMistake": "Simply averaging the two means (60 and 80) without weighting by group size.",
+      "applicationPrompt": "Find the combined mean of a group of 5 with mean 60 and a group of 3 with mean 80.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mmm-missing-f",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-missing",
+      "title": "Finding a missing value from the mean",
+      "prompt": "How do you find a value that is missing if you know the mean of the full data set?",
+      "formula": "Missing value = (mean × count) − (sum of known values)",
+      "variables": [],
+      "explanation": "The mean times the count gives the total sum required; subtracting what you already have leaves the missing piece.",
+      "example": "Mean of 10 numbers is 15 (sum 150). If 9 of them sum to 139.5, the missing one is 150 − 139.5 = 10.5",
+      "commonMistake": "Using the mean and count of the known values only, instead of the full data set.",
+      "applicationPrompt": "The mean of 10 numbers is 15. Nine of them sum to 139.5. Find the missing number.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mmm-sc-empirical",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mode",
+      "kind": "shortcut",
+      "title": "Mode from mean and median",
+      "prompt": "How do you estimate the mode from the mean and median?",
+      "formula": "Mode ≈ 3 × Median − 2 × Mean\n(for moderately skewed data)",
+      "variables": [],
+      "explanation": "An empirical rule that exam questions often use directly.",
+      "example": "Mean 40, median 38: mode ≈ 114 − 80 = 34.",
+      "commonMistake": "Swapping the 3 and the 2.",
+      "applicationPrompt": "Mode 24 and mean 30: estimate the median.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mmm-sc-transform",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "kind": "shortcut",
+      "title": "Changing every value",
+      "prompt": "Every value is increased by k, or multiplied by k. What happens to the mean, median and mode?",
+      "formula": "Add k to every value: each average + k\nMultiply every value by k: each average × k",
+      "variables": [],
+      "explanation": "Every average moves along with the data.",
+      "example": "Marks with mean 60 are scaled by 1.5: the new mean is 90. Add 5 to each: mean 65.",
+      "commonMistake": "Recalculating from scratch.",
+      "applicationPrompt": "The median weight is 50 kg. Each person gains 2 kg. What is the new median?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mean-median-mode-level-0",
+      "topicId": "mean-median-mode",
+      "order": 0,
+      "title": "Three Ways to Describe \"Typical\"",
+      "description": "The mean, median and mode each summarise a data set differently.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "mmm-mean",
+        "mmm-median"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Three different averages",
+            "body": "The mean (35÷5=7 for 4,8,6,10,7) spreads the total evenly. The median (the middle value once sorted) ignores how far away extreme values are. The mode is simply whichever value appears most often."
+          },
+          {
+            "type": "formula",
+            "title": "The mean",
+            "body": "Mean = sum of values ÷ number of values",
+            "caption": "Every value contributes; a single very large or small value can shift it a lot."
+          },
+          {
+            "type": "check",
+            "questionId": "mean-median-mode-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Always sort the data before finding the median — the \"middle\" of an unsorted list means nothing."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "mean-median-mode"
+          },
+          {
+            "type": "check",
+            "questionId": "mean-median-mode-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "mean-median-mode-level-1",
+      "topicId": "mean-median-mode",
+      "order": 1,
+      "title": "Mean, Median and Mode Formulas",
+      "description": "The mean, the median, the mode, combining group means, and finding a missing value.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mean-median-mode-level-0"
+      ],
+      "conceptIds": [
+        "mmm-mean",
+        "mmm-median",
+        "mmm-mode",
+        "mmm-combined"
+      ],
+      "formulaIds": [
+        "mmm-mean-f",
+        "mmm-median-f",
+        "mmm-mode-f",
+        "mmm-combined-f",
+        "mmm-missing-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mean-median-mode-level-2",
+      "topicId": "mean-median-mode",
+      "order": 2,
+      "title": "Direct Calculations",
+      "description": "Finding the mean, median and mode of a given data set.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "mean-median-mode-level-1"
+      ],
+      "conceptIds": [
+        "mmm-mean",
+        "mmm-median",
+        "mmm-mode"
+      ],
+      "questionIds": [
+        "mean-median-mode-q-001",
+        "mean-median-mode-q-002",
+        "mean-median-mode-q-003",
+        "mean-median-mode-q-004",
+        "mean-median-mode-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mean-median-mode-level-3",
+      "topicId": "mean-median-mode",
+      "order": 3,
+      "title": "Missing Values and Combined Groups",
+      "description": "Working backwards from the mean, and combining two groups.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mean-median-mode-level-2"
+      ],
+      "conceptIds": [
+        "mmm-missing",
+        "mmm-combined",
+        "mmm-mode",
+        "mmm-mean"
+      ],
+      "questionIds": [
+        "mean-median-mode-q-006",
+        "mean-median-mode-q-007",
+        "mean-median-mode-q-008",
+        "mean-median-mode-q-009",
+        "mean-median-mode-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mean-median-mode-level-4",
+      "topicId": "mean-median-mode",
+      "order": 4,
+      "title": "Multi-Step Problems",
+      "description": "Removing or correcting values, and linking the mean to the median.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "mean-median-mode-level-3"
+      ],
+      "conceptIds": [
+        "mmm-mean",
+        "mmm-median"
+      ],
+      "questionIds": [
+        "mean-median-mode-q-011",
+        "mean-median-mode-q-012",
+        "mean-median-mode-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "mean-median-mode-level-5",
+      "topicId": "mean-median-mode",
+      "order": 5,
+      "title": "Mixed Mean, Median and Mode Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "mean-median-mode-level-4"
+      ],
+      "conceptIds": [
+        "mmm-mean",
+        "mmm-median"
+      ],
+      "questionQuery": {
+        "topicId": "mean-median-mode",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "mean-median-mode-q-001",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "levelId": "mean-median-mode-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the mean of 4, 8, 6, 10, 7?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Sum = 4+8+6+10+7 = 35. Mean = 35 ÷ 5 = 7.",
+      "solutionSteps": [
+        "Sum = 35.",
+        "35 ÷ 5 = 7."
+      ],
+      "formulaIds": [
+        "mmm-mean-f"
+      ],
+      "method": "Add all the values, then divide by how many there are.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the values carefully before dividing."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by the wrong count."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-002",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-median",
+      "levelId": "mean-median-mode-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the median of 3, 7, 9, 2, 5?",
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Sorted: 2, 3, 5, 7, 9. With 5 values (odd), the median is the middle one: 5.",
+      "solutionSteps": [
+        "Sort: 2, 3, 5, 7, 9.",
+        "Middle value: 5."
+      ],
+      "formulaIds": [
+        "mmm-median-f"
+      ],
+      "method": "Sort first, then find the middle value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not find the median of the unsorted list."
+        }
+      ],
+      "commonMistakes": [
+        "Taking the middle of the list before sorting it."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-003",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mode",
+      "levelId": "mean-median-mode-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the mode of 2, 3, 3, 5, 3, 7?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "3 appears three times, more than any other value, so the mode is 3.",
+      "solutionSteps": [
+        "Count each value: 3 appears 3 times.",
+        "Mode = 3."
+      ],
+      "formulaIds": [
+        "mmm-mode-f"
+      ],
+      "method": "Find the value that appears most often.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count how many times each distinct value appears."
+        }
+      ],
+      "commonMistakes": [
+        "Confusing the mode with the median."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-004",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-median",
+      "levelId": "mean-median-mode-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "When a data set has an even number of values, the median is",
+      "options": [
+        {
+          "id": "a",
+          "text": "the higher of the two middle values"
+        },
+        {
+          "id": "b",
+          "text": "the lower of the two middle values"
+        },
+        {
+          "id": "c",
+          "text": "the average of the two middle values"
+        },
+        {
+          "id": "d",
+          "text": "always equal to the mean"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "With an even count, there is no single middle value, so the median is the average of the two middle values.",
+      "solutionSteps": [
+        "Even count → average the two middle values."
+      ],
+      "formulaIds": [
+        "mmm-median-f"
+      ],
+      "method": "An even count has two middle values, not one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Think of a 4-value data set: which two values are \"in the middle\"?"
+        }
+      ],
+      "commonMistakes": [
+        "Picking just one of the two middle values."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-005",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-median",
+      "levelId": "mean-median-mode-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the median of 4, 8, 6, 10?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Sorted: 4, 6, 8, 10. With 4 values (even), the median is the average of 6 and 8: (6+8)/2 = 7.",
+      "solutionSteps": [
+        "Sort: 4, 6, 8, 10.",
+        "Average the middle two: (6+8)/2 = 7."
+      ],
+      "formulaIds": [
+        "mmm-median-f"
+      ],
+      "method": "Average the two middle values for an even count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "There are two middle values here, not one."
+        }
+      ],
+      "commonMistakes": [
+        "Picking only one of the two middle values."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-006",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-missing",
+      "levelId": "mean-median-mode-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The mean of 10 numbers is 15. One number is removed, and the mean of the remaining 9 is 15.5. What was the removed number?",
+      "answer": {
+        "value": 10.5,
+        "tolerance": 0
+      },
+      "explanation": "Sum of 10 numbers = 150. Sum of remaining 9 = 15.5 × 9 = 139.5. Removed number = 150 − 139.5 = 10.5.",
+      "solutionSteps": [
+        "Sum of 10 = 150.",
+        "Sum of 9 = 139.5.",
+        "150 − 139.5 = 10.5."
+      ],
+      "formulaIds": [
+        "mmm-missing-f"
+      ],
+      "method": "Compare the total sums before and after removal.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find both sums first, then subtract."
+        }
+      ],
+      "commonMistakes": [
+        "Using the two means directly without converting to sums first."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-007",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-combined",
+      "levelId": "mean-median-mode-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "One group of 5 students has a mean score of 60. Another group of 3 students has a mean score of 80. What is the combined mean of all 8 students?",
+      "answer": {
+        "value": 67.5,
+        "tolerance": 0
+      },
+      "explanation": "Combined mean = (5×60 + 3×80) / 8 = (300 + 240) / 8 = 540 / 8 = 67.5.",
+      "solutionSteps": [
+        "5×60 = 300; 3×80 = 240.",
+        "300 + 240 = 540.",
+        "540 ÷ 8 = 67.5."
+      ],
+      "formulaIds": [
+        "mmm-combined-f"
+      ],
+      "method": "Weight each group's mean by its size before combining.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not simply average 60 and 80."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging the two means directly, ignoring the different group sizes."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-008",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-missing",
+      "levelId": "mean-median-mode-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The mean of 6 numbers is 12. A 7th number is added, and the new mean becomes 13. What is the 7th number?",
+      "answer": {
+        "value": 19,
+        "tolerance": 0
+      },
+      "explanation": "Sum of 6 numbers = 72. Sum of 7 numbers = 13 × 7 = 91. The 7th number = 91 − 72 = 19.",
+      "solutionSteps": [
+        "Sum of 6 = 72.",
+        "Sum of 7 = 91.",
+        "91 − 72 = 19."
+      ],
+      "formulaIds": [
+        "mmm-missing-f"
+      ],
+      "method": "Compare the total sums before and after adding the new value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert both means to sums before subtracting."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the means (13 − 12) instead of the sums."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-009",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mode",
+      "levelId": "mean-median-mode-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the mode of 5, 7, 7, 8, 9, 9, 9, 10?",
+      "answer": {
+        "value": 9,
+        "tolerance": 0
+      },
+      "explanation": "9 appears three times, more than any other value (7 appears twice), so the mode is 9.",
+      "solutionSteps": [
+        "7 appears 2 times; 9 appears 3 times.",
+        "Mode = 9."
+      ],
+      "formulaIds": [
+        "mmm-mode-f"
+      ],
+      "method": "Compare the frequency of every distinct value.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not stop checking after finding the first repeated value."
+        }
+      ],
+      "commonMistakes": [
+        "Reporting 7 as the mode without checking 9's frequency."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-010",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "levelId": "mean-median-mode-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A data set has a mean of 20 and a sum of 140. How many values are in the data set?",
+      "answer": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "Count = sum ÷ mean = 140 ÷ 20 = 7.",
+      "solutionSteps": [
+        "140 ÷ 20 = 7."
+      ],
+      "formulaIds": [
+        "mmm-mean-f"
+      ],
+      "method": "Rearrange the mean formula to solve for the count.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Mean = sum ÷ count, so count = sum ÷ mean."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying instead of dividing."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-011",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "levelId": "mean-median-mode-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The mean of 5 numbers is 18. If two of the numbers, 10 and 20, are removed, what is the mean of the remaining 3?",
+      "answer": {
+        "value": 20,
+        "tolerance": 0
+      },
+      "explanation": "Sum of 5 numbers = 90. Removing 10 and 20 leaves a sum of 90 − 10 − 20 = 60. Mean of remaining 3 = 60 ÷ 3 = 20.",
+      "solutionSteps": [
+        "Sum of 5 = 90.",
+        "90 − 10 − 20 = 60.",
+        "60 ÷ 3 = 20."
+      ],
+      "formulaIds": [
+        "mmm-mean-f",
+        "mmm-missing-f"
+      ],
+      "method": "Work with the total sum, removing exactly what was taken out.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Subtract both removed values from the original sum."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract both removed values."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-012",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-mean",
+      "levelId": "mean-median-mode-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The mean marks of 30 students was recorded as 68. Later it was found that one student's score was wrongly recorded as 46 instead of the correct 64. What is the corrected mean?",
+      "answer": {
+        "value": 68.6,
+        "tolerance": 0
+      },
+      "explanation": "Recorded sum = 68 × 30 = 2,040. Corrected sum = 2,040 − 46 + 64 = 2,058. Corrected mean = 2,058 ÷ 30 = 68.6.",
+      "solutionSteps": [
+        "Recorded sum = 2,040.",
+        "Corrected sum = 2,040 − 46 + 64 = 2,058.",
+        "2,058 ÷ 30 = 68.6."
+      ],
+      "formulaIds": [
+        "mmm-mean-f",
+        "mmm-missing-f"
+      ],
+      "method": "Adjust the total sum by removing the wrong value and adding the correct one.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need to both subtract the wrong value and add the correct one."
+        }
+      ],
+      "commonMistakes": [
+        "Only subtracting the wrong value without adding back the correct one."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mean-median-mode-q-013",
+      "topicId": "mean-median-mode",
+      "conceptId": "mmm-median",
+      "levelId": "mean-median-mode-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "Five numbers, listed from smallest to largest, are 4, 7, x, 12, 15, and their mean is 10. What is the median of the data set?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0
+      },
+      "explanation": "The sum must be 10 × 5 = 50, so 4+7+x+12+15 = 38+x = 50, giving x = 12. The sorted data is 4, 7, 12, 12, 15, so the median (the middle value) is 12.",
+      "solutionSteps": [
+        "38 + x = 50 → x = 12.",
+        "Sorted data: 4, 7, 12, 12, 15.",
+        "Median = 12."
+      ],
+      "formulaIds": [
+        "mmm-mean-f",
+        "mmm-median-f"
+      ],
+      "method": "Find the missing value from the mean first, then find the median of the completed set.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Solve for x using the mean before finding the median."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the median equals the mean, or skipping the step of finding x."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

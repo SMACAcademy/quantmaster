@@ -1,0 +1,1335 @@
+{
+  "topicId": "coordinate-geometry",
+  "concepts": [
+    {
+      "id": "cg-distance",
+      "topicId": "coordinate-geometry",
+      "name": "Distance between two points",
+      "description": "The straight-line distance between two points, found using the Pythagorean relationship.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cg-midpoint",
+      "topicId": "coordinate-geometry",
+      "name": "Midpoint of a segment",
+      "description": "The point exactly halfway between two given points.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cg-slope",
+      "topicId": "coordinate-geometry",
+      "name": "Slope of a line",
+      "description": "How steep a line is: the rise divided by the run between any two points on it.",
+      "sortOrder": 3
+    },
+    {
+      "id": "cg-lineeq",
+      "topicId": "coordinate-geometry",
+      "name": "Equation of a line",
+      "description": "Writing a line's equation from its slope and a point, then using it to find other points on the line.",
+      "sortOrder": 4
+    },
+    {
+      "id": "cg-parallelperp",
+      "topicId": "coordinate-geometry",
+      "name": "Parallel and perpendicular lines",
+      "description": "Parallel lines share the same slope; perpendicular lines have slopes that multiply to −1.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "cg-distance-f",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-distance",
+      "title": "Distance formula",
+      "prompt": "How do you find the distance between two points?",
+      "formula": "Distance = √[(x₂ − x₁)² + (y₂ − y₁)²]",
+      "variables": [],
+      "explanation": "This is just the Pythagorean theorem applied to the horizontal and vertical gaps between the two points.",
+      "example": "(1,2) to (4,6): √[(4−1)² + (6−2)²] = √(9+16) = √25 = 5",
+      "commonMistake": "Forgetting to square the differences before adding them.",
+      "applicationPrompt": "Find the distance between (1,2) and (4,6).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cg-midpoint-f",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-midpoint",
+      "title": "Midpoint formula",
+      "prompt": "How do you find the midpoint of two points?",
+      "formula": "Midpoint = ((x₁ + x₂)/2, (y₁ + y₂)/2)",
+      "variables": [],
+      "explanation": "Average the x-coordinates and average the y-coordinates separately.",
+      "example": "(2,3) and (8,7): midpoint = ((2+8)/2, (3+7)/2) = (5, 5)",
+      "commonMistake": "Averaging x with y instead of x with x and y with y.",
+      "applicationPrompt": "Find the midpoint of (2,3) and (8,7).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cg-slope-f",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-slope",
+      "title": "Slope formula",
+      "prompt": "How do you find the slope of a line through two points?",
+      "formula": "Slope m = (y₂ − y₁) / (x₂ − x₁)",
+      "variables": [],
+      "explanation": "Keep the order of the two points consistent in both the numerator and denominator.",
+      "example": "(1,1) to (5,9): m = (9−1)/(5−1) = 8/4 = 2",
+      "commonMistake": "Subtracting the coordinates in a mismatched order between numerator and denominator.",
+      "applicationPrompt": "Find the slope of the line through (1,1) and (5,9).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cg-lineeq-f",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-lineeq",
+      "title": "Equation of a line",
+      "prompt": "How do you write the equation of a line from a slope and a point?",
+      "formula": "y − y₁ = m(x − x₁),  which rearranges to y = mx + c",
+      "variables": [],
+      "explanation": "Once you know m and one point, you can find c and then evaluate y for any x on the line.",
+      "example": "Slope 2, through (0,3): y = 2x + 3",
+      "commonMistake": "Substituting the point incorrectly into the point-slope formula.",
+      "applicationPrompt": "A line has slope 2 and passes through (0,3). What is its equation?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "cg-parallelperp-f",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-parallelperp",
+      "title": "Parallel and perpendicular slopes",
+      "prompt": "How do the slopes of parallel and perpendicular lines relate?",
+      "formula": "Parallel: m₁ = m₂\nPerpendicular: m₁ × m₂ = −1",
+      "variables": [],
+      "explanation": "A perpendicular slope is the \"negative reciprocal\" of the original: flip the fraction and change its sign.",
+      "example": "A line with slope 3 is perpendicular to a line with slope −1/3, since 3 × (−1/3) = −1",
+      "commonMistake": "Using the reciprocal without flipping the sign, or vice versa.",
+      "applicationPrompt": "What slope is perpendicular to a line with slope 3?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cg-sc-area",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-distance",
+      "kind": "shortcut",
+      "title": "Area of a triangle from its corners",
+      "prompt": "How do you find the area of a triangle from three points without any lengths?",
+      "formula": "Area = ½ |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|\nArea 0 means the points are in a line",
+      "variables": [],
+      "explanation": "This is the shoelace formula; it needs only subtraction and multiplication.",
+      "example": "(0, 0), (4, 0), (0, 3): ½ × |0 + 4 × 3 + 0| = 6.",
+      "commonMistake": "Dropping the ½ or the absolute value.",
+      "applicationPrompt": "Are (1, 2), (3, 6) and (5, 10) in a straight line?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cg-sc-section",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-midpoint",
+      "kind": "shortcut",
+      "title": "Point dividing a segment in m : n",
+      "prompt": "Where is the point dividing the line from P₁ to P₂ in the ratio m : n?",
+      "formula": "((m x₂ + n x₁) ÷ (m + n), (m y₂ + n y₁) ÷ (m + n))",
+      "variables": [],
+      "explanation": "Each coordinate is a weighted average, weighted towards the end it is closer to.",
+      "example": "(1, 2) to (7, 8) in 1 : 2 gives (3, 4).",
+      "commonMistake": "Pairing m with the first point instead of the second.",
+      "applicationPrompt": "Find the point dividing (−2, 4) to (8, −1) in the ratio 3 : 2.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "cg-sc-intercepts",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-lineeq",
+      "kind": "shortcut",
+      "title": "Intercept form",
+      "prompt": "Where does ax + by = c cross the axes, and what triangle does it cut off?",
+      "formula": "x/p + y/q = 1 crosses at (p, 0) and (0, q)\nTriangle with the axes: area ½|pq|",
+      "variables": [],
+      "explanation": "Divide the equation by c to read the intercepts straight off.",
+      "example": "3x + 4y = 12 is x/4 + y/3 = 1: intercepts 4 and 3, triangle area 6.",
+      "commonMistake": "Reading the coefficients 3 and 4 as the intercepts.",
+      "applicationPrompt": "Find the area cut off by 5x − 2y = 20 and the axes.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "coordinate-geometry-level-0",
+      "topicId": "coordinate-geometry",
+      "order": 0,
+      "title": "Points, Distance and Midpoint",
+      "description": "The distance and midpoint formulas both come from the Pythagorean theorem and simple averaging.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "cg-distance",
+        "cg-midpoint"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Distance is just Pythagoras",
+            "body": "The distance between two points is the hypotenuse of a right triangle formed by their horizontal and vertical gap. (1,2) to (4,6) has gaps of 3 and 4 — a 3-4-5 triangle, so the distance is 5."
+          },
+          {
+            "type": "formula",
+            "title": "Distance formula",
+            "body": "Distance = √[(x₂ − x₁)² + (y₂ − y₁)²]",
+            "caption": "Square the gaps, add them, then take the square root."
+          },
+          {
+            "type": "check",
+            "questionId": "coordinate-geometry-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "The midpoint is just the average of the two x-coordinates and the average of the two y-coordinates."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "line-explorer"
+          },
+          {
+            "type": "check",
+            "questionId": "coordinate-geometry-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "coordinate-geometry-level-1",
+      "topicId": "coordinate-geometry",
+      "order": 1,
+      "title": "Coordinate Geometry Formulas",
+      "description": "Distance, midpoint, slope, the equation of a line, and parallel/perpendicular slopes.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "coordinate-geometry-level-0"
+      ],
+      "conceptIds": [
+        "cg-distance",
+        "cg-midpoint",
+        "cg-slope",
+        "cg-lineeq"
+      ],
+      "formulaIds": [
+        "cg-distance-f",
+        "cg-midpoint-f",
+        "cg-slope-f",
+        "cg-lineeq-f",
+        "cg-parallelperp-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "coordinate-geometry-level-2",
+      "topicId": "coordinate-geometry",
+      "order": 2,
+      "title": "Direct Calculations",
+      "description": "Distance, midpoint, and reading the slope formula.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "coordinate-geometry-level-1"
+      ],
+      "conceptIds": [
+        "cg-distance",
+        "cg-midpoint",
+        "cg-slope",
+        "cg-parallelperp"
+      ],
+      "questionIds": [
+        "coordinate-geometry-q-001",
+        "coordinate-geometry-q-002",
+        "coordinate-geometry-q-003",
+        "coordinate-geometry-q-010",
+        "coordinate-geometry-q-011"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "coordinate-geometry-level-3",
+      "topicId": "coordinate-geometry",
+      "order": 3,
+      "title": "Slope, Equations and Relationships",
+      "description": "Computing slope, building line equations, and parallel/perpendicular slopes.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "coordinate-geometry-level-2"
+      ],
+      "conceptIds": [
+        "cg-slope",
+        "cg-lineeq",
+        "cg-distance",
+        "cg-parallelperp",
+        "cg-midpoint"
+      ],
+      "questionIds": [
+        "coordinate-geometry-q-004",
+        "coordinate-geometry-q-005",
+        "coordinate-geometry-q-006",
+        "coordinate-geometry-q-007",
+        "coordinate-geometry-q-012"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "coordinate-geometry-level-4",
+      "topicId": "coordinate-geometry",
+      "order": 4,
+      "title": "Multi-Step Coordinate Problems",
+      "description": "Building a full line equation, and combining distances for a triangle's perimeter.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "coordinate-geometry-level-3"
+      ],
+      "conceptIds": [
+        "cg-lineeq",
+        "cg-distance",
+        "cg-parallelperp"
+      ],
+      "questionIds": [
+        "coordinate-geometry-q-008",
+        "coordinate-geometry-q-009",
+        "coordinate-geometry-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "coordinate-geometry-level-5",
+      "topicId": "coordinate-geometry",
+      "order": 5,
+      "title": "Mixed Coordinate Geometry Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "coordinate-geometry-level-4"
+      ],
+      "conceptIds": [
+        "cg-lineeq",
+        "cg-distance"
+      ],
+      "questionQuery": {
+        "topicId": "coordinate-geometry",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "coordinate-geometry-q-001",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-distance",
+      "levelId": "coordinate-geometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is the distance between A(1, 2) and B(4, 6)?",
+      "context": "Study the points plotted on the coordinate plane and answer the question.",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          6
+        ],
+        "yRange": [
+          -1,
+          8
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 1,
+            "y": 2,
+            "label": "A(1, 2)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 4,
+            "y": 6,
+            "label": "B(4, 6)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "caption": "Points A(1, 2) and B(4, 6)",
+        "ariaSummary": "Two points, A at (1, 2) and B at (4, 6), plotted on a coordinate grid."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Distance = √[(4−1)² + (6−2)²] = √(9 + 16) = √25 = 5.",
+      "solutionSteps": [
+        "(4−1)² = 9; (6−2)² = 16.",
+        "9 + 16 = 25.",
+        "√25 = 5."
+      ],
+      "formulaIds": [
+        "cg-distance-f"
+      ],
+      "method": "Square the coordinate differences, add, then take the square root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "This is a 3-4-5 right triangle in disguise."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to take the square root at the end."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-002",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-midpoint",
+      "levelId": "coordinate-geometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is the midpoint of A(2, 3) and B(8, 7)?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          9
+        ],
+        "yRange": [
+          -1,
+          9
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 2,
+            "y": 3,
+            "label": "A(2, 3)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 8,
+            "y": 7,
+            "label": "B(8, 7)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "caption": "Points A(2, 3) and B(8, 7)",
+        "ariaSummary": "Two points, A at (2, 3) and B at (8, 7), plotted on a coordinate grid."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "(5, 5)"
+        },
+        {
+          "id": "b",
+          "text": "(4, 5)"
+        },
+        {
+          "id": "c",
+          "text": "(5, 4)"
+        },
+        {
+          "id": "d",
+          "text": "(6, 4)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Midpoint = ((2+8)/2, (3+7)/2) = (10/2, 10/2) = (5, 5).",
+      "solutionSteps": [
+        "(2+8)/2 = 5.",
+        "(3+7)/2 = 5."
+      ],
+      "formulaIds": [
+        "cg-midpoint-f"
+      ],
+      "method": "Average the x-coordinates and the y-coordinates separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Average x with x, and y with y."
+        }
+      ],
+      "commonMistakes": [
+        "Mixing up which coordinates to average together."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-003",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-slope",
+      "levelId": "coordinate-geometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The slope of a line through (x₁, y₁) and (x₂, y₂) is",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x₂ − x₁) / (y₂ − y₁)"
+        },
+        {
+          "id": "b",
+          "text": "(y₂ − y₁) / (x₂ − x₁)"
+        },
+        {
+          "id": "c",
+          "text": "(y₂ + y₁) / (x₂ + x₁)"
+        },
+        {
+          "id": "d",
+          "text": "(x₂ − x₁) × (y₂ − y₁)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Slope is \"rise over run\": the change in y divided by the change in x.",
+      "solutionSteps": [
+        "Slope = change in y ÷ change in x."
+      ],
+      "formulaIds": [
+        "cg-slope-f"
+      ],
+      "method": "Rise (y) goes on top, run (x) goes on the bottom.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "\"Rise over run\" — y differences over x differences."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the fraction, putting x differences on top."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-004",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-slope",
+      "levelId": "coordinate-geometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the slope of the line through A(1, 1) and B(5, 9)?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          6
+        ],
+        "yRange": [
+          -1,
+          10
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 1,
+            "y": 1,
+            "label": "A(1, 1)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 5,
+            "y": 9,
+            "label": "B(5, 9)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "caption": "Line through A(1, 1) and B(5, 9)",
+        "ariaSummary": "A straight line through points A at (1, 1) and B at (5, 9).",
+        "lines": [
+          {
+            "through": [
+              "A",
+              "B"
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "Slope = (9 − 1) / (5 − 1) = 8 / 4 = 2.",
+      "solutionSteps": [
+        "9 − 1 = 8.",
+        "5 − 1 = 4.",
+        "8 ÷ 4 = 2."
+      ],
+      "formulaIds": [
+        "cg-slope-f"
+      ],
+      "method": "Divide the change in y by the change in x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Keep the point order consistent in both differences."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting the coordinates in a different order for x and y."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-005",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-lineeq",
+      "levelId": "coordinate-geometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A line has slope 2 and passes through (0, 3). What is y when x = 4?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "The equation is y = 2x + 3. When x = 4: y = 2(4) + 3 = 11.",
+      "solutionSteps": [
+        "y = 2x + 3.",
+        "2(4) + 3 = 11."
+      ],
+      "formulaIds": [
+        "cg-lineeq-f"
+      ],
+      "method": "Write the equation first, then substitute the given x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(0, 3) tells you the y-intercept directly."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add the y-intercept after multiplying by the slope."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-006",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-distance",
+      "levelId": "coordinate-geometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is the distance between A(-2, 1) and B(3, 13)?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -4,
+          5
+        ],
+        "yRange": [
+          -1,
+          15
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": -2,
+            "y": 1,
+            "label": "A(-2, 1)",
+            "labelOffset": [
+              -14,
+              10
+            ]
+          },
+          {
+            "id": "B",
+            "x": 3,
+            "y": 13,
+            "label": "B(3, 13)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "caption": "Points A(-2, 1) and B(3, 13)",
+        "ariaSummary": "Two points, A at (-2, 1) and B at (3, 13), plotted on a coordinate grid."
+      },
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "Distance = √[(3−(−2))² + (13−1)²] = √(25 + 144) = √169 = 13.",
+      "solutionSteps": [
+        "(3−(−2))² = 25; (13−1)² = 144.",
+        "25 + 144 = 169.",
+        "√169 = 13."
+      ],
+      "formulaIds": [
+        "cg-distance-f"
+      ],
+      "method": "Be careful subtracting a negative x-coordinate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "3 − (−2) = 5, not 3 − 2."
+        }
+      ],
+      "commonMistakes": [
+        "Mishandling the negative coordinate, using 3 − 2 = 1 instead of 5."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-007",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-parallelperp",
+      "levelId": "coordinate-geometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A line has slope 3. Another line has slope −1/3. Are the two lines parallel, perpendicular, or neither?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Perpendicular"
+        },
+        {
+          "id": "b",
+          "text": "Parallel"
+        },
+        {
+          "id": "c",
+          "text": "Neither"
+        },
+        {
+          "id": "d",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Multiplying the slopes: 3 × (−1/3) = −1, which means the lines are perpendicular.",
+      "solutionSteps": [
+        "3 × (−1/3) = −1.",
+        "Product = −1 → perpendicular."
+      ],
+      "formulaIds": [
+        "cg-parallelperp-f"
+      ],
+      "method": "Multiply the two slopes and check if the product is −1.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Perpendicular slopes multiply to exactly −1."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the lines are parallel just because the numbers look related."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-008",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-lineeq",
+      "levelId": "coordinate-geometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A line passes through A(2, 3) and B(6, 11). What is y when x = 10?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          12
+        ],
+        "yRange": [
+          -2,
+          20
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 2,
+            "y": 3,
+            "label": "A(2, 3)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 11,
+            "label": "B(6, 11)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "caption": "Line through A(2, 3) and B(6, 11)",
+        "ariaSummary": "A straight line through points A at (2, 3) and B at (6, 11).",
+        "lines": [
+          {
+            "through": [
+              "A",
+              "B"
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "value": 19,
+        "tolerance": 0
+      },
+      "explanation": "Slope = (11−3)/(6−2) = 8/4 = 2. Equation: y − 3 = 2(x − 2), so y = 2x − 1. When x = 10: y = 2(10) − 1 = 19.",
+      "solutionSteps": [
+        "Slope = 8/4 = 2.",
+        "y − 3 = 2(x − 2) → y = 2x − 1.",
+        "2(10) − 1 = 19."
+      ],
+      "formulaIds": [
+        "cg-slope-f",
+        "cg-lineeq-f"
+      ],
+      "method": "Find the slope first, then build the equation, then substitute.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the slope before writing the equation."
+        }
+      ],
+      "commonMistakes": [
+        "Using the wrong point when applying the point-slope formula."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-009",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-distance",
+      "levelId": "coordinate-geometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A triangle has vertices A(0, 0), B(6, 0) and C(3, 4). What is its perimeter?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          8
+        ],
+        "yRange": [
+          -1,
+          6
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "label": "A(0, 0)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 6,
+            "y": 0,
+            "label": "B(6, 0)",
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "C",
+            "x": 3,
+            "y": 4,
+            "label": "C(3, 4)",
+            "labelOffset": [
+              4,
+              -10
+            ]
+          }
+        ],
+        "caption": "Triangle with vertices A(0, 0), B(6, 0) and C(3, 4)",
+        "ariaSummary": "A triangle plotted on a coordinate grid with vertices A at (0, 0), B at (6, 0) and C at (3, 4).",
+        "segments": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "A"
+          }
+        ]
+      },
+      "answer": {
+        "value": 16,
+        "tolerance": 0
+      },
+      "explanation": "AB = 6. AC = √(9+16) = 5. BC = √((6−3)² + (0−4)²) = √(9+16) = 5. Perimeter = 6 + 5 + 5 = 16.",
+      "solutionSteps": [
+        "AB = 6.",
+        "AC = √(3² + 4²) = 5.",
+        "BC = √(3² + 4²) = 5.",
+        "Perimeter = 6 + 5 + 5 = 16."
+      ],
+      "formulaIds": [
+        "cg-distance-f"
+      ],
+      "method": "Find all three side lengths using the distance formula, then add them.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each slanted side hides a 3-4-5 right triangle."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to compute all three sides before adding."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-010",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-midpoint",
+      "levelId": "coordinate-geometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "M(4, 1) is the midpoint of segment AB, and A = (1, -3). What are the coordinates of B?",
+      "context": "Study the points plotted on the coordinate plane and answer the question.",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          8
+        ],
+        "yRange": [
+          -4,
+          6
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 1,
+            "y": -3,
+            "label": "A(1, -3)",
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "M",
+            "x": 4,
+            "y": 1,
+            "label": "M(4, 1)",
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "segments": [
+          {
+            "from": "A",
+            "to": "M"
+          }
+        ],
+        "caption": "Endpoint A(1, -3) and midpoint M(4, 1)",
+        "ariaSummary": "Point A at (1, -3) joined to M at (4, 1), the midpoint of AB. B is not shown."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "(2.5, -1)"
+        },
+        {
+          "id": "b",
+          "text": "(7, 5)"
+        },
+        {
+          "id": "c",
+          "text": "(3, 4)"
+        },
+        {
+          "id": "d",
+          "text": "(5, -2)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The midpoint is the average of the endpoints, so each coordinate of B = 2 × M − A: x = 2 × 4 − 1 = 7 and y = 2 × 1 − (-3) = 5. B = (7, 5).",
+      "solutionSteps": [
+        "x: (1 + x) ÷ 2 = 4, so x = 8 − 1 = 7.",
+        "y: (-3 + y) ÷ 2 = 1, so y = 2 + 3 = 5.",
+        "B = (7, 5)."
+      ],
+      "formulaIds": [
+        "cg-midpoint-f"
+      ],
+      "method": "Run the midpoint formula backwards: each coordinate of B = 2 × M − A.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write (1 + x) ÷ 2 = 4 and solve for x."
+        }
+      ],
+      "commonMistakes": [
+        "Averaging A and M, which gives (2.5, -1), the midpoint of AM instead of the point B."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-011",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-parallelperp",
+      "levelId": "coordinate-geometry-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these lines is parallel to y = 3x − 5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "y = −3x − 5"
+        },
+        {
+          "id": "b",
+          "text": "y = (1/3)x − 5"
+        },
+        {
+          "id": "c",
+          "text": "y = 3x + 2"
+        },
+        {
+          "id": "d",
+          "text": "y = −(1/3)x + 2"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Parallel lines have equal slopes. In y = mx + c the slope is m, so the line must have m = 3; only y = 3x + 2 does. A different c just shifts the line up or down.",
+      "solutionSteps": [
+        "The slope of y = 3x − 5 is 3.",
+        "Parallel lines have the same slope, 3.",
+        "Only y = 3x + 2 has slope 3."
+      ],
+      "formulaIds": [
+        "cg-parallelperp-f"
+      ],
+      "method": "Compare the coefficients of x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "In y = mx + c, the number multiplying x is the slope."
+        }
+      ],
+      "commonMistakes": [
+        "Picking a line with the same intercept, −5, instead of the same slope."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-012",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-midpoint",
+      "levelId": "coordinate-geometry-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Point P lies on the segment from A(2, 1) to B(11, 7) and divides it internally so that AP : PB = 1 : 2. What is the x-coordinate of P?",
+      "figure": {
+        "type": "coordinate-plane",
+        "xRange": [
+          -1,
+          12
+        ],
+        "yRange": [
+          -1,
+          8
+        ],
+        "points": [
+          {
+            "id": "A",
+            "x": 2,
+            "y": 1,
+            "label": "A(2, 1)",
+            "labelOffset": [
+              -10,
+              14
+            ]
+          },
+          {
+            "id": "B",
+            "x": 11,
+            "y": 7,
+            "label": "B(11, 7)",
+            "labelOffset": [
+              -40,
+              -10
+            ]
+          }
+        ],
+        "segments": [
+          {
+            "from": "A",
+            "to": "B"
+          }
+        ],
+        "caption": "Segment AB from A(2, 1) to B(11, 7)",
+        "ariaSummary": "A segment from A at (2, 1) to B at (11, 7). The point P that divides it is not drawn."
+      },
+      "answer": {
+        "value": 5,
+        "tolerance": 0
+      },
+      "explanation": "Section formula with m : n = 1 : 2: x = (m x₂ + n x₁) ÷ (m + n) = (1 × 11 + 2 × 2) ÷ 3 = 15 ÷ 3 = 5. (P = (5, 3), one-third of the way from A to B.)",
+      "solutionSteps": [
+        "m = 1, n = 2; x₁ = 2, x₂ = 11.",
+        "x = (1 × 11 + 2 × 2) ÷ (1 + 2).",
+        "x = 15 ÷ 3 = 5."
+      ],
+      "formulaIds": [
+        "cg-sc-section"
+      ],
+      "method": "Apply the section formula, weighting each endpoint by the opposite part of the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "AP : PB = 1 : 2 puts P one-third of the way from A to B."
+        },
+        {
+          "level": 2,
+          "text": "From x = 2 to x = 11 is 9 units; take one-third of that."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping the weights, which gives (2 × 11 + 1 × 2) ÷ 3 = 8, the point two-thirds of the way."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "coordinate-geometry-q-013",
+      "topicId": "coordinate-geometry",
+      "conceptId": "cg-parallelperp",
+      "levelId": "coordinate-geometry-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The line through A(2, k) and B(5, 9) is perpendicular to the line 2x + 3y = 6. Find k.",
+      "answer": {
+        "value": 4.5,
+        "tolerance": 0
+      },
+      "explanation": "Rewrite 2x + 3y = 6 as y = −(2/3)x + 2, so its slope is −2/3. A perpendicular line has slope 3/2, because the product of the slopes is −1. Then (9 − k) ÷ (5 − 2) = 3/2, so 9 − k = 4.5 and k = 4.5.",
+      "solutionSteps": [
+        "3y = −2x + 6, so y = −(2/3)x + 2: slope −2/3.",
+        "Perpendicular slope = 3/2 (since −2/3 × 3/2 = −1).",
+        "(9 − k) ÷ (5 − 2) = 3/2, so 9 − k = 3/2 × 3 = 4.5.",
+        "k = 9 − 4.5 = 4.5."
+      ],
+      "formulaIds": [
+        "cg-parallelperp-f",
+        "cg-slope-f"
+      ],
+      "method": "Find the given slope, take its negative reciprocal, then solve the slope equation for k.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Make y the subject: 3y = −2x + 6."
+        },
+        {
+          "level": 2,
+          "text": "Perpendicular slopes multiply to −1."
+        }
+      ],
+      "commonMistakes": [
+        "Reading the slope of 2x + 3y = 6 as 2 or 2/3, forgetting the minus sign.",
+        "Using the same slope (parallel lines) instead of the negative reciprocal."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,935 @@
+{
+  "topicId": "decimals",
+  "concepts": [
+    {
+      "id": "dc-compare",
+      "topicId": "decimals",
+      "name": "Comparing decimals",
+      "description": "Line up the decimal points and compare digit by digit from the left.",
+      "sortOrder": 1
+    },
+    {
+      "id": "dc-ops",
+      "topicId": "decimals",
+      "name": "Adding, multiplying and dividing decimals",
+      "description": "Align for addition; multiply as whole numbers then place the point; shift both numbers to divide.",
+      "sortOrder": 2
+    },
+    {
+      "id": "dc-convert",
+      "topicId": "decimals",
+      "name": "Fractions and decimals",
+      "description": "Divide the numerator by the denominator; know the common ones by heart.",
+      "sortOrder": 3
+    },
+    {
+      "id": "dc-recurring",
+      "topicId": "decimals",
+      "name": "Recurring decimals",
+      "description": "A repeating block over as many 9s as the block has digits gives the fraction.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "dc-compare-f",
+      "topicId": "decimals",
+      "conceptId": "dc-compare",
+      "title": "Comparing",
+      "prompt": "How do you compare 0.5, 0.45 and 0.405?",
+      "formula": "Pad with zeros to equal length, then compare as whole numbers\n0.500, 0.450, 0.405",
+      "variables": [],
+      "explanation": "The number of digits after the point does not make a decimal larger; the first differing digit does.",
+      "example": "0.5 = 0.500 > 0.450 > 0.405",
+      "commonMistake": "Thinking the number with more digits is larger.",
+      "applicationPrompt": "Which is greater: 0.5 or 0.45?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dc-mult-f",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "title": "Multiplication",
+      "prompt": "How do you multiply decimals?",
+      "formula": "Ignore the points and multiply as whole numbers.\nDecimal places in the answer = places in the first + places in the second",
+      "variables": [],
+      "explanation": "Each decimal place is a division by 10, so the places add.",
+      "example": "2.5 × 0.04 → 25 × 4 = 100 → 3 places → 0.100 = 0.1",
+      "commonMistake": "Counting decimal places in only one of the numbers.",
+      "applicationPrompt": "Find 0.3 × 0.4.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dc-div-f",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "title": "Division",
+      "prompt": "How do you divide by a decimal?",
+      "formula": "Multiply the dividend and divisor by the same power of 10 until the divisor is whole",
+      "variables": [],
+      "explanation": "Scaling both numbers by the same factor leaves the quotient unchanged.",
+      "example": "6.3 ÷ 0.09 = 630 ÷ 9 = 70",
+      "commonMistake": "Shifting only the divisor.",
+      "applicationPrompt": "Find 6.3 ÷ 0.09.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dc-conv-f",
+      "topicId": "decimals",
+      "conceptId": "dc-convert",
+      "kind": "shortcut",
+      "title": "Common conversions",
+      "prompt": "Which fraction–decimal pairs are worth knowing?",
+      "formula": "1/2 = 0.5, 1/4 = 0.25, 3/4 = 0.75, 1/5 = 0.2\n1/8 = 0.125, 3/8 = 0.375, 5/8 = 0.625, 1/16 = 0.0625",
+      "variables": [],
+      "explanation": "Knowing these saves long division and makes percentages instant.",
+      "example": "3/8 = 0.375",
+      "commonMistake": "Rounding 0.375 to 0.38 when an exact value is needed.",
+      "applicationPrompt": "Write 3/8 as a decimal.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "dc-recurring-f",
+      "topicId": "decimals",
+      "conceptId": "dc-recurring",
+      "kind": "shortcut",
+      "title": "Recurring decimals",
+      "prompt": "How do you turn a pure recurring decimal into a fraction?",
+      "formula": "0.aaa… = a/9\n0.ababab… = ab/99\n0.abcabc… = abc/999",
+      "variables": [],
+      "explanation": "A block of n repeating digits equals that block over n nines, then simplify.",
+      "example": "0.3636… = 36/99 = 4/11",
+      "commonMistake": "Dividing by 100 instead of 99.",
+      "applicationPrompt": "Write 0.3636… as a fraction in lowest terms.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "decimals-level-0",
+      "topicId": "decimals",
+      "order": 0,
+      "title": "Place Value Is Everything",
+      "description": "Where the point goes decides everything: line it up, count it, or shift it.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "dc-compare",
+        "dc-ops"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Length is not size",
+            "body": "0.45 is smaller than 0.5 even though it has more digits. Pad with zeros so every number has the same number of places: 0.50 against 0.45. Now it is obvious."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "decimal-zoom"
+          },
+          {
+            "type": "formula",
+            "title": "Multiplying and dividing",
+            "body": "Multiply: places add.\nDivide: shift both numbers until the divisor is whole.",
+            "caption": "Work with whole numbers and fix the decimal point at the end."
+          },
+          {
+            "type": "check",
+            "questionId": "decimals-q-001"
+          },
+          {
+            "type": "text",
+            "title": "Recurring decimals",
+            "body": "A block of repeating digits over as many 9s as the block has digits gives the fraction: 0.666… = 6/9 = 2/3 and 0.3636… = 36/99 = 4/11."
+          },
+          {
+            "type": "check",
+            "questionId": "decimals-q-005"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "decimals-level-1",
+      "topicId": "decimals",
+      "order": 1,
+      "title": "Decimals Formulas",
+      "description": "Comparing, operations, conversions and recurring decimals.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "decimals-level-0"
+      ],
+      "conceptIds": [
+        "dc-compare",
+        "dc-ops",
+        "dc-convert",
+        "dc-recurring"
+      ],
+      "formulaIds": [
+        "dc-compare-f",
+        "dc-mult-f",
+        "dc-div-f",
+        "dc-conv-f",
+        "dc-recurring-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "decimals-level-2",
+      "topicId": "decimals",
+      "order": 2,
+      "title": "Direct Decimal Questions",
+      "description": "Compare, add, multiply and convert.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "decimals-level-1"
+      ],
+      "conceptIds": [
+        "dc-compare",
+        "dc-ops",
+        "dc-convert"
+      ],
+      "questionIds": [
+        "decimals-q-001",
+        "decimals-q-002",
+        "decimals-q-003",
+        "decimals-q-004",
+        "decimals-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "decimals-level-3",
+      "topicId": "decimals",
+      "order": 3,
+      "title": "Division, Conversions and Recurrence",
+      "description": "Divide by decimals and convert recurring decimals.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "decimals-level-2"
+      ],
+      "conceptIds": [
+        "dc-ops",
+        "dc-convert",
+        "dc-recurring"
+      ],
+      "questionIds": [
+        "decimals-q-006",
+        "decimals-q-007",
+        "decimals-q-008",
+        "decimals-q-009",
+        "decimals-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "decimals-level-4",
+      "topicId": "decimals",
+      "order": 4,
+      "title": "Multi-Step Decimal Problems",
+      "description": "Sums of recurring decimals and money problems.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "decimals-level-3"
+      ],
+      "conceptIds": [
+        "dc-recurring",
+        "dc-ops"
+      ],
+      "questionIds": [
+        "decimals-q-011",
+        "decimals-q-012",
+        "decimals-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "decimals-level-5",
+      "topicId": "decimals",
+      "order": 5,
+      "title": "Mixed Decimals Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "decimals-level-4"
+      ],
+      "conceptIds": [
+        "dc-recurring",
+        "dc-ops"
+      ],
+      "questionQuery": {
+        "topicId": "decimals",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "decimals-q-001",
+      "topicId": "decimals",
+      "conceptId": "dc-compare",
+      "levelId": "decimals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these is the greatest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.45"
+        },
+        {
+          "id": "b",
+          "text": "0.405"
+        },
+        {
+          "id": "c",
+          "text": "0.5"
+        },
+        {
+          "id": "d",
+          "text": "0.096"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Pad to three places: 0.450, 0.405, 0.500, 0.096. The largest is 0.500 = 0.5.",
+      "solutionSteps": [
+        "Pad with zeros.",
+        "Compare as whole numbers: 500 is largest."
+      ],
+      "formulaIds": [
+        "dc-compare-f"
+      ],
+      "method": "Align the decimal places.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare the tenths digit first."
+        }
+      ],
+      "commonMistakes": [
+        "Choosing the number with the most digits."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-002",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is 0.3 × 0.4?",
+      "answer": {
+        "value": 0.12,
+        "tolerance": 0
+      },
+      "explanation": "3 × 4 = 12, and the factors have 1 + 1 = 2 decimal places, so the answer is 0.12.",
+      "solutionSteps": [
+        "3 × 4 = 12.",
+        "Two decimal places in total → 0.12."
+      ],
+      "formulaIds": [
+        "dc-mult-f"
+      ],
+      "method": "Multiply as whole numbers; add the decimal places.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many decimal places do the two factors have together?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 1.2 or 0.012."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-003",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "What is 4.5 + 3.75 − 2.3?",
+      "answer": {
+        "value": 5.95,
+        "tolerance": 0
+      },
+      "explanation": "4.50 + 3.75 = 8.25, and 8.25 − 2.30 = 5.95.",
+      "solutionSteps": [
+        "Align the points: 4.50 + 3.75 = 8.25.",
+        "8.25 − 2.30 = 5.95."
+      ],
+      "formulaIds": [
+        "dc-compare-f"
+      ],
+      "method": "Line up the decimal points.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Write every number to two decimal places."
+        }
+      ],
+      "commonMistakes": [
+        "Misaligning 2.3 as 0.23."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-004",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "When you compute 2.5 × 0.04 as 25 × 4 = 100, how many decimal places must the product have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "2.5 has 1 decimal place and 0.04 has 2, so the product has 1 + 2 = 3 decimal places: 100 becomes 0.100 = 0.1.",
+      "solutionSteps": [
+        "1 + 2 = 3 places.",
+        "100 → 0.100 = 0.1."
+      ],
+      "formulaIds": [
+        "dc-mult-f"
+      ],
+      "method": "Add the numbers of decimal places.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Count the decimal places in each factor."
+        }
+      ],
+      "commonMistakes": [
+        "Counting only the larger number of places."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-005",
+      "topicId": "decimals",
+      "conceptId": "dc-convert",
+      "levelId": "decimals-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 0.75 as a fraction in its simplest form?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7/5"
+        },
+        {
+          "id": "b",
+          "text": "3/4"
+        },
+        {
+          "id": "c",
+          "text": "3/5"
+        },
+        {
+          "id": "d",
+          "text": "75/10"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "0.75 = 75/100 = 3/4 after dividing by 25.",
+      "solutionSteps": [
+        "0.75 = 75/100.",
+        "Divide by 25: 3/4."
+      ],
+      "formulaIds": [
+        "dc-conv-f"
+      ],
+      "method": "Write over a power of 10, then simplify.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two decimal places means hundredths."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 7/5."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-006",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is 6.3 ÷ 0.09?",
+      "answer": {
+        "value": 70,
+        "tolerance": 0
+      },
+      "explanation": "Multiply both by 100: 630 ÷ 9 = 70.",
+      "solutionSteps": [
+        "6.3 ÷ 0.09 = 630 ÷ 9.",
+        "= 70."
+      ],
+      "formulaIds": [
+        "dc-div-f"
+      ],
+      "method": "Make the divisor whole.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Shift both numbers two places to the right."
+        }
+      ],
+      "commonMistakes": [
+        "Shifting the divisor only (giving 0.7)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-007",
+      "topicId": "decimals",
+      "conceptId": "dc-convert",
+      "levelId": "decimals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is 3/8 as a decimal?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.38"
+        },
+        {
+          "id": "b",
+          "text": "0.375"
+        },
+        {
+          "id": "c",
+          "text": "0.35"
+        },
+        {
+          "id": "d",
+          "text": "0.83"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "1/8 = 0.125, so 3/8 = 3 × 0.125 = 0.375. Rounding to 0.38 loses accuracy.",
+      "solutionSteps": [
+        "1 ÷ 8 = 0.125.",
+        "3 × 0.125 = 0.375."
+      ],
+      "formulaIds": [
+        "dc-conv-f"
+      ],
+      "method": "Know 1/8 = 0.125.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Start from 1/8."
+        }
+      ],
+      "commonMistakes": [
+        "Writing 3.8 or 0.38."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-008",
+      "topicId": "decimals",
+      "conceptId": "dc-recurring",
+      "levelId": "decimals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What fraction is equal to the recurring decimal 0.6666…?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3/5"
+        },
+        {
+          "id": "b",
+          "text": "2/3"
+        },
+        {
+          "id": "c",
+          "text": "1/6"
+        },
+        {
+          "id": "d",
+          "text": "6/100"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "0.666… = 6/9 = 2/3.",
+      "solutionSteps": [
+        "One repeating digit → over 9.",
+        "6/9 = 2/3."
+      ],
+      "formulaIds": [
+        "dc-recurring-f"
+      ],
+      "method": "A single repeating digit a gives a/9.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "0.111… is 1/9. How many of those make 0.666…?"
+        }
+      ],
+      "commonMistakes": [
+        "Writing 0.6 = 3/5, ignoring the recurrence."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-009",
+      "topicId": "decimals",
+      "conceptId": "dc-recurring",
+      "levelId": "decimals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "The recurring decimal 0.363636… equals a fraction a/b in lowest terms. What is a + b?",
+      "answer": {
+        "value": 15,
+        "tolerance": 0
+      },
+      "explanation": "0.3636… = 36/99 = 4/11. So a + b = 4 + 11 = 15.",
+      "solutionSteps": [
+        "Two repeating digits → over 99.",
+        "36/99 = 4/11.",
+        "4 + 11 = 15."
+      ],
+      "formulaIds": [
+        "dc-recurring-f"
+      ],
+      "method": "Block over as many nines as it has digits, then simplify.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Two digits repeat, so use 99."
+        },
+        {
+          "level": 2,
+          "text": "Simplify by 9."
+        }
+      ],
+      "commonMistakes": [
+        "Leaving the fraction unsimplified (36 + 99 = 135)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-010",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How many pieces of length 0.25 m can be cut from a ribbon 12.5 m long?",
+      "answer": {
+        "value": 50,
+        "tolerance": 0
+      },
+      "explanation": "12.5 ÷ 0.25 = 1,250 ÷ 25 = 50 pieces. (Or: a quarter metre goes 4 times into each metre, so 12.5 × 4 = 50.)",
+      "solutionSteps": [
+        "12.5 ÷ 0.25 = 1,250 ÷ 25.",
+        "= 50."
+      ],
+      "formulaIds": [
+        "dc-div-f"
+      ],
+      "method": "Dividing by 0.25 is multiplying by 4.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many quarters are in one metre?"
+        }
+      ],
+      "commonMistakes": [
+        "Dividing by 4 instead of multiplying (3.125)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-011",
+      "topicId": "decimals",
+      "conceptId": "dc-recurring",
+      "levelId": "decimals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "The sum 0.4545… + 0.2222… equals 0.ababab… What is a + b?",
+      "answer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "explanation": "0.4545… = 45/99 = 5/11 and 0.2222… = 2/9. Over 99: 45/99 + 22/99 = 67/99 = 0.6767…, so a = 6, b = 7 and a + b = 13.",
+      "solutionSteps": [
+        "0.4545… = 45/99.",
+        "0.2222… = 22/99.",
+        "Sum = 67/99 = 0.6767….",
+        "6 + 7 = 13."
+      ],
+      "formulaIds": [
+        "dc-recurring-f"
+      ],
+      "method": "Convert each to a fraction over 99 and add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "0.2222… = 2/9 = 22/99."
+        },
+        {
+          "level": 2,
+          "text": "Add over the common denominator 99."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the digit blocks as 45 + 22 = 67 and writing 0.6767 without noticing the pattern."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-012",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is (0.5 × 0.4 × 0.03) ÷ (0.02 × 0.05)?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "Numerator: 0.5 × 0.4 = 0.2, and 0.2 × 0.03 = 0.006. Denominator: 0.02 × 0.05 = 0.001. So 0.006 ÷ 0.001 = 6.",
+      "solutionSteps": [
+        "0.5 × 0.4 × 0.03 = 0.006.",
+        "0.02 × 0.05 = 0.001.",
+        "0.006 ÷ 0.001 = 6."
+      ],
+      "formulaIds": [
+        "dc-mult-f",
+        "dc-div-f"
+      ],
+      "method": "Count decimal places, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply numerator and denominator separately."
+        },
+        {
+          "level": 2,
+          "text": "Both are powers of ten times a whole number."
+        }
+      ],
+      "commonMistakes": [
+        "Misplacing the decimal point in a product."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "decimals-q-013",
+      "topicId": "decimals",
+      "conceptId": "dc-ops",
+      "levelId": "decimals-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A shopkeeper buys 12.5 kg of an item at ₹18.40 per kg. After 0.5 kg is wasted, he sells the rest at ₹23.60 per kg. What is his profit, in rupees?",
+      "answer": {
+        "value": 53.2,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "Cost = 12.5 × 18.40 = ₹230. He sells 12 kg: 12 × 23.60 = ₹283.20. Profit = 283.20 − 230 = ₹53.20.",
+      "solutionSteps": [
+        "Cost: 12.5 × 18.40 = 230.",
+        "Sold: 12 kg × 23.60 = 283.20.",
+        "Profit = 53.20."
+      ],
+      "formulaIds": [
+        "dc-mult-f"
+      ],
+      "method": "Cost on all the kg bought, revenue on the kg sold.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Wasted stock earns no money, but you still paid for it."
+        }
+      ],
+      "commonMistakes": [
+        "Selling all 12.5 kg (profit ₹65)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

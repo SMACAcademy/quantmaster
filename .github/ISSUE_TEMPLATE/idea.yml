@@ -1,0 +1,16 @@
+name: Idea or request
+description: A topic, question type, simulation or feature that would help learners.
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What would help, and which exam or learner it is for.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it helps
+      description: Optional. An example question or a situation where you missed it.

@@ -1,0 +1,1056 @@
+{
+  "topicId": "algebraic-expressions",
+  "concepts": [
+    {
+      "id": "ae-terms",
+      "topicId": "algebraic-expressions",
+      "name": "Terms and like terms",
+      "description": "A term is a number, a variable, or a product/quotient of them; like terms have the same variables raised to the same powers.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ae-simplify",
+      "topicId": "algebraic-expressions",
+      "name": "Combining like terms",
+      "description": "Add or subtract the coefficients of like terms; unlike terms cannot be combined.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ae-expand",
+      "topicId": "algebraic-expressions",
+      "name": "Expanding brackets",
+      "description": "Multiply every term inside a bracket by whatever sits outside it, keeping signs.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ae-factorise",
+      "topicId": "algebraic-expressions",
+      "name": "Factorising",
+      "description": "Pull out the highest common factor from every term, or split a sum to match a known identity.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ae-substitute",
+      "topicId": "algebraic-expressions",
+      "name": "Substitution",
+      "description": "Replace each variable by its given value, then evaluate using the normal order of operations.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ae-liketerms-f",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-simplify",
+      "title": "Combining like terms",
+      "prompt": "How do you simplify an expression with several like terms?",
+      "formula": "ax + bx = (a + b)x\nax² + bx² = (a + b)x²",
+      "variables": [],
+      "explanation": "Only the coefficients of matching variable parts add; the variable part itself never changes.",
+      "example": "3x + 5x − 2x = 6x",
+      "commonMistake": "Combining terms with different variable parts, such as 3x and 5x².",
+      "applicationPrompt": "Simplify 3x + 5x − 2x.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ae-distribute-f",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-expand",
+      "title": "Distributive law",
+      "prompt": "How do you expand a(b + c)?",
+      "formula": "a(b + c) = ab + ac\n−a(b − c) = −ab + ac",
+      "variables": [],
+      "explanation": "Every term inside the bracket is multiplied by the term outside, and the sign outside flips the sign of each term when it is negative.",
+      "example": "3(2x − 5) = 6x − 15",
+      "commonMistake": "Multiplying only the first term inside the bracket.",
+      "applicationPrompt": "Expand 3(2x − 5).",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ae-hcf-f",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "title": "Factorising by HCF",
+      "prompt": "How do you factorise an expression like 6x² + 9x?",
+      "formula": "Take out the HCF of the coefficients and the lowest power of each variable common to every term",
+      "variables": [],
+      "explanation": "Every term must be divisible by whatever is factored out; check by expanding back.",
+      "example": "6x² + 9x = 3x(2x + 3)",
+      "commonMistake": "Taking out a factor that does not divide every term.",
+      "applicationPrompt": "Factorise 6x² + 9x.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ae-identity-f",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "title": "Standard identities",
+      "prompt": "Which identities help factorise or expand quickly?",
+      "formula": "(a + b)² = a² + 2ab + b²\n(a − b)² = a² − 2ab + b²\na² − b² = (a + b)(a − b)",
+      "variables": [],
+      "explanation": "Recognising these patterns turns a multi-step expansion or factorisation into one step.",
+      "example": "x² − 49 = (x + 7)(x − 7)",
+      "commonMistake": "Forgetting the middle term 2ab, or treating a² − b² as (a − b)².",
+      "applicationPrompt": "Factorise x² − 49.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ae-substitute-f",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-substitute",
+      "title": "Substitution",
+      "prompt": "How do you evaluate an expression for given variable values?",
+      "formula": "Replace each variable with its value, then apply BODMAS",
+      "variables": [],
+      "explanation": "Substitute first, keeping negative values in brackets, then simplify using the normal order of operations.",
+      "example": "For x = −2: 3x² + 4x = 3(−2)² + 4(−2) = 12 − 8 = 4",
+      "commonMistake": "Forgetting to square the whole negative value, computing −2² as −4.",
+      "applicationPrompt": "Evaluate 3x² + 4x for x = −2.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ae-sc-check-value",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-expand",
+      "kind": "shortcut",
+      "title": "Check an expansion with a number",
+      "prompt": "How can you check an expansion or simplification in a few seconds?",
+      "formula": "Put x = 1 (or 2) into both sides.\nDifferent values mean the algebra is wrong.",
+      "variables": [],
+      "explanation": "Two expressions that are equal must give the same value for every x, so one quick substitution catches most slips.",
+      "example": "Is (x + 3)² = x² + 9? At x = 1: 16 against 10, so no. The correct x² + 6x + 9 also gives 16.",
+      "commonMistake": "Testing with x = 0, which hides any mistake in the x terms.",
+      "applicationPrompt": "Check whether (2x − 1)(x + 4) = 2x² + 7x − 4.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ae-sc-coefficient-sum",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-substitute",
+      "kind": "shortcut",
+      "title": "Sum of the coefficients",
+      "prompt": "How do you find the sum of all the coefficients of a long expansion without expanding it?",
+      "formula": "Sum of coefficients = value at x = 1",
+      "variables": [],
+      "explanation": "At x = 1 every power of x is 1, so only the coefficients are left to add.",
+      "example": "(2x − 1)⁵: sum of coefficients = (2 − 1)⁵ = 1 (the expansion is 32, −80, 80, −40, 10, −1).",
+      "commonMistake": "Forgetting the constant term, which is also a coefficient.",
+      "applicationPrompt": "Find the sum of the coefficients of (3x − 2)⁴.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "algebraic-expressions-level-0",
+      "topicId": "algebraic-expressions",
+      "order": 0,
+      "title": "Terms, Like and Unlike",
+      "description": "Building expressions from terms, and combining the ones that match.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ae-terms",
+        "ae-simplify"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "What is a term?",
+            "body": "An expression like 3x² − 5x + 7 is built from terms: 3x², −5x and 7. Like terms share the same variable parts, such as 3x and 5x; unlike terms, such as 3x and 3x², can never be combined."
+          },
+          {
+            "type": "formula",
+            "title": "Combining like terms",
+            "body": "ax + bx = (a + b)x",
+            "caption": "The coefficients add; the variable part is untouched."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "algebra-tiles"
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-expressions-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "x and x² are different terms — 3x + 5x² cannot be simplified any further."
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-expressions-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "algebraic-expressions-level-1",
+      "topicId": "algebraic-expressions",
+      "order": 1,
+      "title": "Algebraic Expressions Formulas",
+      "description": "Combining terms, expanding brackets, factorising by HCF, standard identities, substitution.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "algebraic-expressions-level-0"
+      ],
+      "conceptIds": [
+        "ae-simplify",
+        "ae-expand",
+        "ae-factorise",
+        "ae-substitute"
+      ],
+      "formulaIds": [
+        "ae-liketerms-f",
+        "ae-distribute-f",
+        "ae-hcf-f",
+        "ae-identity-f",
+        "ae-substitute-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "algebraic-expressions-level-2",
+      "topicId": "algebraic-expressions",
+      "order": 2,
+      "title": "Simplifying and Expanding",
+      "description": "Combine like terms and distribute brackets.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "algebraic-expressions-level-1"
+      ],
+      "conceptIds": [
+        "ae-simplify",
+        "ae-expand",
+        "ae-terms",
+        "ae-factorise",
+        "ae-substitute"
+      ],
+      "questionIds": [
+        "algebraic-expressions-q-001",
+        "algebraic-expressions-q-002",
+        "algebraic-expressions-q-003",
+        "algebraic-expressions-q-004",
+        "algebraic-expressions-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "algebraic-expressions-level-3",
+      "topicId": "algebraic-expressions",
+      "order": 3,
+      "title": "Factorising and Substitution",
+      "description": "HCF factorisation, identities and evaluating expressions.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "algebraic-expressions-level-2"
+      ],
+      "conceptIds": [
+        "ae-factorise",
+        "ae-substitute",
+        "ae-simplify",
+        "ae-expand"
+      ],
+      "questionIds": [
+        "algebraic-expressions-q-006",
+        "algebraic-expressions-q-007",
+        "algebraic-expressions-q-008",
+        "algebraic-expressions-q-009",
+        "algebraic-expressions-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "algebraic-expressions-level-4",
+      "topicId": "algebraic-expressions",
+      "order": 4,
+      "title": "Multi-Step Expressions",
+      "description": "Combining expansion and factorisation in one problem.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "algebraic-expressions-level-3"
+      ],
+      "conceptIds": [
+        "ae-expand",
+        "ae-factorise",
+        "ae-substitute"
+      ],
+      "questionIds": [
+        "algebraic-expressions-q-011",
+        "algebraic-expressions-q-012",
+        "algebraic-expressions-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "algebraic-expressions-level-5",
+      "topicId": "algebraic-expressions",
+      "order": 5,
+      "title": "Mixed Algebraic Expressions Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "algebraic-expressions-level-4"
+      ],
+      "conceptIds": [
+        "ae-expand",
+        "ae-factorise",
+        "ae-substitute"
+      ],
+      "questionQuery": {
+        "topicId": "algebraic-expressions",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "algebraic-expressions-q-001",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-simplify",
+      "levelId": "algebraic-expressions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 3x + 5x − 2x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6x"
+        },
+        {
+          "id": "b",
+          "text": "10x"
+        },
+        {
+          "id": "c",
+          "text": "6x²"
+        },
+        {
+          "id": "d",
+          "text": "0x"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Add the coefficients of the like terms: 3 + 5 − 2 = 6, so the answer is 6x.",
+      "solutionSteps": [
+        "3 + 5 − 2 = 6.",
+        "Answer: 6x."
+      ],
+      "formulaIds": [
+        "ae-liketerms-f"
+      ],
+      "method": "Add the coefficients, keep the variable.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only the numbers in front of x combine."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the coefficients instead of adding."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-002",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-expand",
+      "levelId": "algebraic-expressions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 3(2x − 5) equal to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6x − 5"
+        },
+        {
+          "id": "b",
+          "text": "6x − 15"
+        },
+        {
+          "id": "c",
+          "text": "2x − 15"
+        },
+        {
+          "id": "d",
+          "text": "5x − 15"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Multiply both terms inside the bracket by 3: 3 × 2x = 6x and 3 × (−5) = −15.",
+      "solutionSteps": [
+        "3 × 2x = 6x.",
+        "3 × (−5) = −15.",
+        "Result: 6x − 15."
+      ],
+      "formulaIds": [
+        "ae-distribute-f"
+      ],
+      "method": "Multiply every term inside the bracket.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not multiply only the first term."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying only 2x by 3, giving 6x − 5."
+      ],
+      "tags": [
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-003",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-terms",
+      "levelId": "algebraic-expressions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these is a like term to 4x²y?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4xy²"
+        },
+        {
+          "id": "b",
+          "text": "7x²y"
+        },
+        {
+          "id": "c",
+          "text": "4x²"
+        },
+        {
+          "id": "d",
+          "text": "4xy"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Like terms must have exactly the same variables raised to the same powers. 7x²y has x² and y, matching 4x²y.",
+      "solutionSteps": [
+        "4x²y needs x² and y¹.",
+        "7x²y matches."
+      ],
+      "formulaIds": [
+        "ae-liketerms-f"
+      ],
+      "method": "Compare the variable parts exactly.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Check both the variables and their powers."
+        }
+      ],
+      "commonMistakes": [
+        "Picking 4xy², which swaps the powers."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-004",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "levelId": "algebraic-expressions-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "To factorise 6x² + 9x, the first step is to",
+      "options": [
+        {
+          "id": "a",
+          "text": "expand the expression"
+        },
+        {
+          "id": "b",
+          "text": "take out the HCF of all terms"
+        },
+        {
+          "id": "c",
+          "text": "substitute a value for x"
+        },
+        {
+          "id": "d",
+          "text": "square both terms"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Factorising starts by finding the highest common factor of every term and pulling it out.",
+      "solutionSteps": [
+        "HCF of 6x² and 9x is 3x."
+      ],
+      "formulaIds": [
+        "ae-hcf-f"
+      ],
+      "method": "Find the HCF first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What divides both 6x² and 9x?"
+        }
+      ],
+      "commonMistakes": [
+        "Trying to expand instead of factorise."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-005",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-substitute",
+      "levelId": "algebraic-expressions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "If x = 3, what is the value of 2x + 5?",
+      "answer": {
+        "value": 11,
+        "tolerance": 0
+      },
+      "explanation": "Substitute x = 3: 2(3) + 5 = 6 + 5 = 11.",
+      "solutionSteps": [
+        "2 × 3 = 6.",
+        "6 + 5 = 11."
+      ],
+      "formulaIds": [
+        "ae-substitute-f"
+      ],
+      "method": "Replace x with its value, then evaluate.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Multiply before adding."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 2 + 3 + 5 instead of multiplying first."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-006",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "levelId": "algebraic-expressions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is the factorised form of 6x² + 9x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3(2x² + 3x)"
+        },
+        {
+          "id": "b",
+          "text": "3x(2x + 3)"
+        },
+        {
+          "id": "c",
+          "text": "x(6x + 9)"
+        },
+        {
+          "id": "d",
+          "text": "3x(2x + 9)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "The HCF of 6x² and 9x is 3x. Dividing each term by 3x gives 2x and 3, so the factorised form is 3x(2x + 3).",
+      "solutionSteps": [
+        "HCF = 3x.",
+        "6x² ÷ 3x = 2x; 9x ÷ 3x = 3.",
+        "Result: 3x(2x + 3)."
+      ],
+      "formulaIds": [
+        "ae-hcf-f"
+      ],
+      "method": "Divide each term by the HCF.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Find the HCF of the coefficients and the variable parts."
+        }
+      ],
+      "commonMistakes": [
+        "Taking out only 3, or only x."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-007",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "levelId": "algebraic-expressions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is x² − 49 factorised?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x − 7)²"
+        },
+        {
+          "id": "b",
+          "text": "(x + 7)(x − 7)"
+        },
+        {
+          "id": "c",
+          "text": "(x + 49)(x − 1)"
+        },
+        {
+          "id": "d",
+          "text": "(x − 7)(x − 7)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "This is a difference of squares: x² − 49 = x² − 7² = (x + 7)(x − 7).",
+      "solutionSteps": [
+        "49 = 7².",
+        "a² − b² = (a + b)(a − b).",
+        "Result: (x + 7)(x − 7)."
+      ],
+      "formulaIds": [
+        "ae-identity-f"
+      ],
+      "method": "Recognise the difference-of-squares pattern.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "49 is a perfect square."
+        }
+      ],
+      "commonMistakes": [
+        "Writing (x − 7)², which loses the cross term."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-008",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-substitute",
+      "levelId": "algebraic-expressions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If x = −2, what is the value of 3x² + 4x?",
+      "answer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Substitute x = −2: 3(−2)² + 4(−2) = 3(4) − 8 = 12 − 8 = 4.",
+      "solutionSteps": [
+        "(−2)² = 4.",
+        "3 × 4 = 12.",
+        "4 × (−2) = −8.",
+        "12 − 8 = 4."
+      ],
+      "formulaIds": [
+        "ae-substitute-f"
+      ],
+      "method": "Square the whole negative value first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(−2)² is positive."
+        }
+      ],
+      "commonMistakes": [
+        "Computing (−2)² as −4."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-009",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-expand",
+      "levelId": "algebraic-expressions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is 2x(x − 3) − 3(x − 3) equal to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x − 3)(2x − 3)"
+        },
+        {
+          "id": "b",
+          "text": "(x − 3)(2x + 3)"
+        },
+        {
+          "id": "c",
+          "text": "2x² − 9"
+        },
+        {
+          "id": "d",
+          "text": "2x² − 6x − 3x − 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Both terms share the factor (x − 3): 2x(x − 3) − 3(x − 3) = (2x − 3)(x − 3).",
+      "solutionSteps": [
+        "Common factor: (x − 3).",
+        "2x(x − 3) − 3(x − 3) = (2x − 3)(x − 3)."
+      ],
+      "formulaIds": [
+        "ae-hcf-f"
+      ],
+      "method": "Factor out the common bracket.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both terms contain (x − 3)."
+        }
+      ],
+      "commonMistakes": [
+        "Expanding fully instead of spotting the common bracket."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-010",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-simplify",
+      "levelId": "algebraic-expressions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Simplify: 5x²y − 3xy² + 2x²y + xy².",
+      "options": [
+        {
+          "id": "a",
+          "text": "7x²y − 2xy²"
+        },
+        {
+          "id": "b",
+          "text": "7x²y − 4xy²"
+        },
+        {
+          "id": "c",
+          "text": "4x²y − 2xy²"
+        },
+        {
+          "id": "d",
+          "text": "7x²y + xy²"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Combine x²y terms: 5x²y + 2x²y = 7x²y. Combine xy² terms: −3xy² + xy² = −2xy². Result: 7x²y − 2xy².",
+      "solutionSteps": [
+        "5x²y + 2x²y = 7x²y.",
+        "−3xy² + xy² = −2xy²."
+      ],
+      "formulaIds": [
+        "ae-liketerms-f"
+      ],
+      "method": "Group like terms separately.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "x²y and xy² are different terms."
+        }
+      ],
+      "commonMistakes": [
+        "Combining x²y and xy² as if they were like terms."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-011",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-expand",
+      "levelId": "algebraic-expressions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is (x + 3)(x − 5) + (x − 2)² equal to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2x² − 6x − 11"
+        },
+        {
+          "id": "b",
+          "text": "2x² − 2x − 11"
+        },
+        {
+          "id": "c",
+          "text": "2x² − 4x − 11"
+        },
+        {
+          "id": "d",
+          "text": "2x² − 6x + 19"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "(x + 3)(x − 5) = x² − 2x − 15. (x − 2)² = x² − 4x + 4. Adding: (x² − 2x − 15) + (x² − 4x + 4) = 2x² − 6x − 11.",
+      "solutionSteps": [
+        "(x + 3)(x − 5) = x² − 2x − 15.",
+        "(x − 2)² = x² − 4x + 4.",
+        "Sum: 2x² − 6x − 11."
+      ],
+      "formulaIds": [
+        "ae-distribute-f",
+        "ae-identity-f"
+      ],
+      "method": "Expand each part fully, then combine like terms.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Expand both brackets before adding."
+        }
+      ],
+      "commonMistakes": [
+        "Missing the cross term in (x − 2)², giving 2x² − 2x − 11."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-012",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-factorise",
+      "levelId": "algebraic-expressions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is the fully factorised form of 2x³ − 8x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2x(x − 2)(x + 2)"
+        },
+        {
+          "id": "b",
+          "text": "2x(x² − 8)"
+        },
+        {
+          "id": "c",
+          "text": "x(2x − 4)(x + 2)"
+        },
+        {
+          "id": "d",
+          "text": "2x(x − 4)(x + 2)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Take out 2x first: 2x(x² − 4). Then x² − 4 = (x − 2)(x + 2), a difference of squares. Result: 2x(x − 2)(x + 2).",
+      "solutionSteps": [
+        "HCF = 2x: 2x(x² − 4).",
+        "x² − 4 = (x − 2)(x + 2).",
+        "Result: 2x(x − 2)(x + 2)."
+      ],
+      "formulaIds": [
+        "ae-hcf-f",
+        "ae-identity-f"
+      ],
+      "method": "Factor out the HCF, then apply a² − b².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After removing 2x, look for a difference of squares."
+        }
+      ],
+      "commonMistakes": [
+        "Stopping at 2x(x² − 4) without factorising further."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-expressions-q-013",
+      "topicId": "algebraic-expressions",
+      "conceptId": "ae-substitute",
+      "levelId": "algebraic-expressions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If x = 2 and y = −1, what is the value of x²y − 3xy² + 2?",
+      "answer": {
+        "value": -8,
+        "tolerance": 0
+      },
+      "explanation": "x²y = 4 × (−1) = −4. xy² = 2 × 1 = 2, so 3xy² = 6. Expression: −4 − 6 + 2 = −8.",
+      "solutionSteps": [
+        "x²y = (2)²(−1) = −4.",
+        "xy² = (2)(−1)² = 2, so 3xy² = 6.",
+        "−4 − 6 + 2 = −8."
+      ],
+      "formulaIds": [
+        "ae-substitute-f"
+      ],
+      "method": "Substitute carefully, tracking signs.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Square y before multiplying by x."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting that (−1)² is positive."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 65,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

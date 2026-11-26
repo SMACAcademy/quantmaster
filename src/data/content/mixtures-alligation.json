@@ -1,0 +1,1417 @@
+{
+  "topicId": "mixtures-alligation",
+  "concepts": [
+    {
+      "id": "mix-composition",
+      "topicId": "mixtures-alligation",
+      "name": "Reading a mixture",
+      "description": "Converting a ratio into actual quantities of each component.",
+      "sortOrder": 1
+    },
+    {
+      "id": "mix-alligation",
+      "topicId": "mixtures-alligation",
+      "name": "The alligation rule",
+      "description": "Finding the ratio in which two things must be mixed to reach a target value.",
+      "sortOrder": 2
+    },
+    {
+      "id": "mix-adding",
+      "topicId": "mixtures-alligation",
+      "name": "Adding to a mixture",
+      "description": "How the ratio shifts when one component is added.",
+      "sortOrder": 3
+    },
+    {
+      "id": "mix-replacement",
+      "topicId": "mixtures-alligation",
+      "name": "Repeated replacement",
+      "description": "Removing part of a mixture and topping it up, over and over.",
+      "sortOrder": 4
+    },
+    {
+      "id": "mix-adv-combine",
+      "topicId": "mixtures-alligation",
+      "name": "Combining mixtures",
+      "description": "When two mixtures are mixed, add each component separately: the result comes from the component totals, not from adding the ratios.",
+      "sortOrder": 5
+    },
+    {
+      "id": "mix-adv-target",
+      "topicId": "mixtures-alligation",
+      "name": "Reaching a target strength",
+      "description": "Work backwards to find how much to add, remove or replace to reach a required strength, including after repeated replacement.",
+      "sortOrder": 6
+    }
+  ],
+  "formulas": [
+    {
+      "id": "mix-alligation-rule",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "title": "Alligation",
+      "prompt": "In what ratio must two ingredients be mixed to reach a given mean value?",
+      "formula": "Cheaper : Dearer = (Dearer − Mean) : (Mean − Cheaper)",
+      "variables": [
+        {
+          "symbol": "Mean",
+          "meaning": "the target value of the mixture"
+        },
+        {
+          "symbol": "Cheaper / Dearer",
+          "meaning": "the two values being mixed"
+        }
+      ],
+      "explanation": "The quantities are inversely proportional to their distances from the mean — the ingredient closer to the target is needed in greater quantity.",
+      "example": "Rice at ₹30 and ₹40 to make ₹36\nRatio = (40 − 36) : (36 − 30) = 4 : 6 = 2 : 3",
+      "commonMistake": "Writing the ratio the right way round but assigning it to the wrong ingredient — the distance from the DEARER price belongs to the cheaper quantity.",
+      "applicationPrompt": "Rice at ₹30/kg and ₹40/kg must average ₹36/kg. Which rule gives the mixing ratio?",
+      "tags": [
+        "core",
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mix-mean-price",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "title": "Mean price",
+      "prompt": "What is the mean price of a mixture?",
+      "formula": "Mean price = Total cost ÷ Total quantity",
+      "variables": [],
+      "explanation": "A weighted average. Alligation is just this formula rearranged to find the weights.",
+      "example": "2 kg at ₹30 + 3 kg at ₹40\n= (60 + 120) ÷ 5\n= ₹36 per kg",
+      "commonMistake": "Averaging the two prices without weighting by quantity.",
+      "applicationPrompt": "You mix 2 kg at ₹30 with 3 kg at ₹40. Which formula gives the price per kg?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mix-component",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-composition",
+      "title": "Quantity of a component",
+      "prompt": "A mixture of volume V has components in the ratio a : b. How much of each is there?",
+      "formula": "First component = V × a/(a + b)",
+      "variables": [],
+      "explanation": "Identical to dividing any total in a ratio — mixtures just name the parts milk and water.",
+      "example": "60 L with milk : water = 2 : 1\nMilk = 60 × 2/3 = 40 L",
+      "commonMistake": "Using a/b rather than a/(a + b).",
+      "applicationPrompt": "A 60 L mixture has milk and water in the ratio 2 : 1. How much milk is there?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mix-replacement-formula",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-replacement",
+      "title": "Repeated replacement",
+      "prompt": "x litres are removed from a V-litre vessel and replaced with water, n times. How much of the original liquid remains?",
+      "formula": "Remaining = V × (1 − x/V)^n",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "total volume of the vessel"
+        },
+        {
+          "symbol": "x",
+          "meaning": "volume removed each time"
+        },
+        {
+          "symbol": "n",
+          "meaning": "number of replacements"
+        }
+      ],
+      "explanation": "Each operation keeps the same FRACTION of whatever liquid remains, so the effect compounds — exactly like depreciation.",
+      "example": "40 L milk, 4 L replaced twice\n= 40 × (1 − 0.1)² = 40 × 0.81 = 32.4 L",
+      "commonMistake": "Subtracting 4 L twice and answering 32 L, which ignores that the second removal takes mostly-milk liquid.",
+      "applicationPrompt": "4 L is drawn from 40 L of milk and replaced by water, twice. How much milk is left?",
+      "tags": [
+        "replacement",
+        "complex"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "mix-adv-combine-f",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-combine",
+      "title": "Combining two mixtures",
+      "prompt": "How do you find the ratio after mixing two mixtures?",
+      "formula": "Milk = milk₁ + milk₂; Water = water₁ + water₂; then simplify",
+      "variables": [],
+      "explanation": "Turn each mixture into actual amounts first. Ratios of different quantities cannot be added directly.",
+      "example": "8 L of 3 : 1 (6 L milk, 2 L water) + 8 L of 5 : 3 (5 L milk, 3 L water) → 11 : 5",
+      "commonMistake": "Adding the ratios term by term (3 : 1 + 5 : 3 = 8 : 4), which ignores how much of each mixture was used.",
+      "applicationPrompt": "8 litres of 3 : 1 milk and water is mixed with 8 litres of 5 : 3. What is the new ratio?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "mix-adv-target-f",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-target",
+      "title": "Reaching a target strength",
+      "prompt": "How do you find how much pure component to add to reach a target percentage?",
+      "formula": "(component + added) ÷ (total + added) = target; for repeated replacement, (1 − x/V)ⁿ = final ÷ initial",
+      "variables": [],
+      "explanation": "Fix what you know, write the target as an equation, and solve. For replacement, the fraction kept each time multiplies.",
+      "example": "60 L of 40% acid: (24 + a) ÷ (60 + a) = 1/2, so a = 12 L",
+      "commonMistake": "Adding 10 percentage points of volume (6 L) instead of solving the equation.",
+      "applicationPrompt": "How much pure acid must be added to 60 L of 40% acid to make it 50%?",
+      "tags": [
+        "advanced"
+      ],
+      "difficulty": "complex"
+    },
+    {
+      "id": "mix-sc-dilute",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adding",
+      "kind": "shortcut",
+      "title": "Water to add for a weaker strength",
+      "prompt": "How much water brings a solution of strength c₁% down to c₂%?",
+      "formula": "Water to add = Quantity × (c₁ − c₂) ÷ c₂",
+      "variables": [],
+      "explanation": "The amount of the active part stays fixed; only the total grows.",
+      "example": "60 litres at 40% down to 30%: 60 × 10 ÷ 30 = 20 litres (24 litres in 80 is 30%).",
+      "commonMistake": "Dividing by c₁ instead of the target strength c₂.",
+      "applicationPrompt": "How much water must be added to 45 litres of 20% acid to make it 15%?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "mix-sc-water-profit",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-composition",
+      "kind": "shortcut",
+      "title": "Selling watered milk at cost price",
+      "prompt": "A milkman adds water and sells the mixture at the cost price of milk. What is the profit percentage?",
+      "formula": "Profit % = Water ÷ Milk × 100",
+      "variables": [],
+      "explanation": "The water costs nothing, so every litre of it sold is pure gain on the money spent on milk.",
+      "example": "1 litre of water added to 4 litres of milk: profit = 1 ÷ 4 × 100 = 25%.",
+      "commonMistake": "Dividing by the total mixture (5 litres) instead of the milk.",
+      "applicationPrompt": "A dairy mixes 2 litres of water with every 10 litres of milk and sells at cost.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "mix-sc-alligation-anything",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "kind": "shortcut",
+      "title": "Alligation works on any average",
+      "prompt": "Two parts of a stock are sold at different profit percentages and the overall percentage is known. In what ratio were they sold?",
+      "formula": "Ratio of quantities = (Higher − Overall) : (Overall − Lower)",
+      "variables": [],
+      "explanation": "The overall figure is a weighted average, so the cross-difference rule applies to profit, speed, strength or marks alike.",
+      "example": "Part at 10% profit, part at 25%, overall 15%: (25 − 15) : (15 − 10) = 2 : 1.",
+      "commonMistake": "Reading the ratio the wrong way round. The larger share belongs to the value nearer the overall figure.",
+      "applicationPrompt": "A trader makes 8% on some goods and 18% on the rest, 14% overall.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "mixtures-alligation-level-0",
+      "topicId": "mixtures-alligation",
+      "order": 0,
+      "title": "Mixtures Are Ratios With Names",
+      "description": "Reading a mixture, and the one shortcut that makes this topic fast.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "mix-composition",
+        "mix-alligation"
+      ],
+      "xpReward": 20,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Start by converting to quantities",
+            "body": "'A 60 litre mixture with milk and water in the ratio 2 : 1' means 40 litres of milk and 20 litres of water. Convert to actual amounts immediately — ratios are hard to manipulate, quantities are not."
+          },
+          {
+            "type": "formula",
+            "title": "Alligation",
+            "body": "Cheaper : Dearer = (Dearer − Mean) : (Mean − Cheaper)",
+            "caption": "The quantity of each ingredient is inversely proportional to its distance from the target."
+          },
+          {
+            "type": "example",
+            "title": "Why it works",
+            "body": "Mixing ₹30 rice and ₹40 rice to average ₹36:\nThe ₹40 rice pulls 4 above target, the ₹30 rice pulls 6 below.\nTo balance, you need more of the ₹40 rice — ratio 4 : 6 = 2 : 3 (cheaper : dearer).\n\nCheck: (2 × 30 + 3 × 40) ÷ 5 = 180 ÷ 5 = ₹36 ✓"
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "body": "Alligation works for anything that averages: prices, speeds, percentages, interest rates, even exam marks. Whenever two groups combine to a known average, this is the fastest route."
+          },
+          {
+            "type": "check",
+            "questionId": "mixtures-alligation-q-002"
+          },
+          {
+            "type": "text",
+            "title": "Water is free",
+            "body": "In milk-and-water questions, water costs ₹0. That turns 'mix milk with water to sell at a target price' into an ordinary alligation with one value set to zero."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "alligation-seesaw"
+          },
+          {
+            "type": "check",
+            "questionId": "mixtures-alligation-q-010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixtures-alligation-level-1",
+      "topicId": "mixtures-alligation",
+      "order": 1,
+      "title": "Mixture Formulas",
+      "description": "Composition, mean price, alligation and repeated replacement.",
+      "type": "formula_revision",
+      "difficulty": "medium",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-0"
+      ],
+      "conceptIds": [
+        "mix-composition",
+        "mix-alligation",
+        "mix-replacement"
+      ],
+      "formulaIds": [
+        "mix-component",
+        "mix-mean-price",
+        "mix-alligation-rule",
+        "mix-replacement-formula"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "mixtures-alligation-level-2",
+      "topicId": "mixtures-alligation",
+      "order": 2,
+      "title": "Reading Mixtures",
+      "description": "Converting ratios into quantities and back.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 7,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-1"
+      ],
+      "conceptIds": [
+        "mix-composition"
+      ],
+      "questionIds": [
+        "mixtures-alligation-q-001",
+        "mixtures-alligation-q-002",
+        "mixtures-alligation-q-003"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "mixtures-alligation-level-3",
+      "topicId": "mixtures-alligation",
+      "order": 3,
+      "title": "Alligation in Action",
+      "description": "Mixing to a target price, and adjusting an existing mixture.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-2"
+      ],
+      "conceptIds": [
+        "mix-alligation",
+        "mix-adding"
+      ],
+      "questionIds": [
+        "mixtures-alligation-q-020",
+        "mixtures-alligation-q-021",
+        "mixtures-alligation-q-022",
+        "mixtures-alligation-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "mixtures-alligation-level-4",
+      "topicId": "mixtures-alligation",
+      "order": 4,
+      "title": "Replacement Problems",
+      "description": "The compounding pattern that catches most students out.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-3"
+      ],
+      "conceptIds": [
+        "mix-replacement",
+        "mix-adding"
+      ],
+      "questionIds": [
+        "mixtures-alligation-q-030",
+        "mixtures-alligation-q-031"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "mixtures-alligation-level-5",
+      "topicId": "mixtures-alligation",
+      "order": 5,
+      "title": "Mixed Mixture Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 9,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-4"
+      ],
+      "questionQuery": {
+        "topicId": "mixtures-alligation",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 7,
+        "preferUnseen": true,
+        "conceptIds": [
+          "mix-composition",
+          "mix-alligation",
+          "mix-adding",
+          "mix-replacement"
+        ]
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    },
+    {
+      "id": "mixtures-alligation-level-6",
+      "topicId": "mixtures-alligation",
+      "order": 6,
+      "title": "Advanced: Multi-stage Mixtures",
+      "description": "Combining mixtures of different strengths, and working back to a target strength.",
+      "type": "concept",
+      "difficulty": "complex",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-5"
+      ],
+      "conceptIds": [
+        "mix-adv-combine",
+        "mix-adv-target"
+      ],
+      "xpReward": 40,
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Mixtures of mixtures",
+            "body": "When two mixtures are poured together, the ratios do not add. Turn each one into litres of each component, add those up, and only then write the new ratio."
+          },
+          {
+            "type": "check",
+            "questionId": "mixtures-alligation-mix-adv-q-001"
+          },
+          {
+            "type": "formula",
+            "title": "Working back to a target",
+            "body": "(component + added) ÷ (total + added) = target",
+            "caption": "For repeated replacement, the fraction kept multiplies: V × (1 − x/V)ⁿ."
+          },
+          {
+            "type": "check",
+            "questionId": "mixtures-alligation-mix-adv-q-004"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "In any \"add pure X\" problem, the other component does not change. It is often the easiest quantity to anchor on."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixtures-alligation-level-7",
+      "topicId": "mixtures-alligation",
+      "order": 7,
+      "title": "Challenge: Multi-stage Mixtures",
+      "description": "Mixing mixtures, three-vessel problems, repeated replacement and target strengths.",
+      "type": "challenge",
+      "difficulty": "complex",
+      "estimatedMinutes": 15,
+      "prerequisiteLevelIds": [
+        "mixtures-alligation-level-6"
+      ],
+      "conceptIds": [
+        "mix-adv-combine",
+        "mix-adv-target"
+      ],
+      "questionIds": [
+        "mixtures-alligation-mix-adv-q-002",
+        "mixtures-alligation-mix-adv-q-003",
+        "mixtures-alligation-mix-adv-q-005",
+        "mixtures-alligation-mix-adv-q-006",
+        "mixtures-alligation-mix-adv-q-007"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 4
+      },
+      "timerSecondsPerQuestion": 120,
+      "xpReward": 80
+    }
+  ],
+  "questions": [
+    {
+      "id": "mixtures-alligation-q-001",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-composition",
+      "levelId": "mixtures-alligation-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A mixture contains 4 litres of milk and 1 litre of water. What percentage of the mixture is milk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "40%"
+        },
+        {
+          "id": "b",
+          "text": "75%"
+        },
+        {
+          "id": "c",
+          "text": "80%"
+        },
+        {
+          "id": "d",
+          "text": "125%"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Total = 5 litres, milk = 4, so 4/5 = 80%.",
+      "solutionSteps": [
+        "Total mixture = 4 + 1 = 5 litres.",
+        "Milk fraction = 4/5.",
+        "= 80%."
+      ],
+      "formulaIds": [
+        "mix-component"
+      ],
+      "method": "Component ÷ total × 100.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The denominator is the whole mixture, not just the water."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing milk with water (4/1) instead of with the total."
+      ],
+      "tags": [
+        "basic",
+        "percentage-link"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-002",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-composition",
+      "levelId": "mixtures-alligation-level-2",
+      "difficulty": "easy",
+      "learningStage": "foundation",
+      "type": "single_choice",
+      "question": "A 60 litre mixture has milk and water in the ratio 2 : 1. How much milk does it contain?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20 litres"
+        },
+        {
+          "id": "b",
+          "text": "30 litres"
+        },
+        {
+          "id": "c",
+          "text": "40 litres"
+        },
+        {
+          "id": "d",
+          "text": "45 litres"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Three parts in total, so one part is 20 litres and milk (2 parts) is 40 litres.",
+      "solutionSteps": [
+        "Total parts = 2 + 1 = 3.",
+        "One part = 60 ÷ 3 = 20 L.",
+        "Milk = 2 × 20 = 40 L."
+      ],
+      "formulaIds": [
+        "mix-component"
+      ],
+      "method": "Divide the total in the given ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many equal parts is the 60 litres split into?"
+        },
+        {
+          "level": 2,
+          "text": "One part is 20 litres."
+        }
+      ],
+      "commonMistakes": [
+        "Taking two thirds of the water instead of the total."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-003",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-composition",
+      "levelId": "mixtures-alligation-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "In 40 litres of a mixture, milk and water are in the ratio 3 : 1. How many litres of water does it contain?",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Four parts in total, so one part is 10 litres — which is the water.",
+      "solutionSteps": [
+        "Total parts = 3 + 1 = 4.",
+        "One part = 40 ÷ 4 = 10 L.",
+        "Water = 1 part = 10 L."
+      ],
+      "formulaIds": [
+        "mix-component"
+      ],
+      "method": "One part first, then scale.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Water is one part out of four."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 30, which is the milk."
+      ],
+      "tags": [
+        "basic",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-010",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "levelId": "mixtures-alligation-level-3",
+      "difficulty": "medium",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Two varieties of rice costing ₹30/kg and ₹40/kg are mixed to sell at ₹36/kg. Which rule gives the ratio (₹30 rice) : (₹40 rice)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(40 − 36) : (36 − 30)"
+        },
+        {
+          "id": "b",
+          "text": "(36 − 30) : (40 − 36)"
+        },
+        {
+          "id": "c",
+          "text": "30 : 40"
+        },
+        {
+          "id": "d",
+          "text": "36 : (40 + 30)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Alligation gives cheaper : dearer = (dearer − mean) : (mean − cheaper) = 4 : 6 = 2 : 3. Check: (2 × 30 + 3 × 40)/5 = ₹36 ✓",
+      "solutionSteps": [
+        "Distance of the dearer price from the mean: 40 − 36 = 4.",
+        "Distance of the cheaper price from the mean: 36 − 30 = 6.",
+        "Cheaper : dearer = 4 : 6 = 2 : 3."
+      ],
+      "formulaIds": [
+        "mix-alligation-rule"
+      ],
+      "method": "Cross the differences.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The mean ₹36 is closer to ₹40, so more of the dearer variety is needed."
+        },
+        {
+          "level": 2,
+          "text": "Each quantity pairs with the OTHER ingredient's distance."
+        }
+      ],
+      "commonMistakes": [
+        "Assigning each distance to its own ingredient."
+      ],
+      "tags": [
+        "formula-recognition",
+        "alligation"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-020",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "levelId": "mixtures-alligation-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In what ratio must rice costing ₹30/kg be mixed with rice costing ₹40/kg so that the mixture costs ₹36/kg?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 : 3"
+        },
+        {
+          "id": "b",
+          "text": "3 : 2"
+        },
+        {
+          "id": "c",
+          "text": "4 : 5"
+        },
+        {
+          "id": "d",
+          "text": "1 : 1"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Alligation gives (40 − 36) : (36 − 30) = 4 : 6 = 2 : 3 for cheaper : dearer.",
+      "solutionSteps": [
+        "Cheaper : dearer = (40 − 36) : (36 − 30).",
+        "= 4 : 6 = 2 : 3.",
+        "Check: (2 × 30 + 3 × 40) ÷ 5 = ₹36 ✓"
+      ],
+      "formulaIds": [
+        "mix-alligation-rule"
+      ],
+      "method": "Alligation, then verify with the mean price.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "₹36 is nearer ₹40, so more of the dearer rice is needed."
+        },
+        {
+          "level": 2,
+          "text": "Distances are 6 (below) and 4 (above)."
+        }
+      ],
+      "commonMistakes": [
+        "Reversing the ratio and answering 3 : 2."
+      ],
+      "tags": [
+        "alligation"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-021",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adding",
+      "levelId": "mixtures-alligation-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A 20 litre mixture contains milk and water in the ratio 3 : 1. If 4 litres of water is added, what is the new ratio?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 2"
+        },
+        {
+          "id": "b",
+          "text": "5 : 3"
+        },
+        {
+          "id": "c",
+          "text": "7 : 5"
+        },
+        {
+          "id": "d",
+          "text": "5 : 4"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Milk = 15 L, water = 5 L. After adding 4 L of water: 15 : 9 = 5 : 3.",
+      "solutionSteps": [
+        "Milk = 20 × 3/4 = 15 L; water = 5 L.",
+        "Adding 4 L of water: water becomes 9 L, milk stays 15 L.",
+        "Ratio = 15 : 9 = 5 : 3."
+      ],
+      "formulaIds": [
+        "mix-component"
+      ],
+      "method": "Convert to quantities, change only what is added, then re-form the ratio.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work out the litres of each component first."
+        },
+        {
+          "level": 2,
+          "text": "The milk quantity does not change."
+        },
+        {
+          "level": 3,
+          "text": "Simplify 15 : 9 by dividing by 3."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 4 to both parts of the ratio (7 : 5).",
+        "Forgetting the water already in the mixture."
+      ],
+      "tags": [
+        "adding"
+      ],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-022",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-alligation",
+      "levelId": "mixtures-alligation-level-3",
+      "difficulty": "medium",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "In what ratio must water be mixed with milk costing ₹20 per litre so that the mixture is worth ₹16 per litre?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 : 4"
+        },
+        {
+          "id": "b",
+          "text": "1 : 5"
+        },
+        {
+          "id": "c",
+          "text": "4 : 1"
+        },
+        {
+          "id": "d",
+          "text": "1 : 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Water costs ₹0, so alligation gives water : milk = (20 − 16) : (16 − 0) = 4 : 16 = 1 : 4.",
+      "solutionSteps": [
+        "Treat water as costing ₹0 per litre.",
+        "Water : milk = (20 − 16) : (16 − 0) = 4 : 16.",
+        "= 1 : 4. Check: 1 L water + 4 L milk costs ₹80 for 5 L = ₹16/L ✓"
+      ],
+      "formulaIds": [
+        "mix-alligation-rule"
+      ],
+      "method": "Set the free ingredient's value to zero and apply alligation.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is water worth per litre?"
+        },
+        {
+          "level": 2,
+          "text": "Use 0 as the cheaper value in the alligation."
+        }
+      ],
+      "commonMistakes": [
+        "Giving the ratio as milk : water and answering 4 : 1."
+      ],
+      "tags": [
+        "alligation",
+        "trap"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-030",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-replacement",
+      "levelId": "mixtures-alligation-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "From a vessel containing 40 litres of pure milk, 4 litres is removed and replaced with water. This is done a second time. How much milk remains?",
+      "options": [
+        {
+          "id": "a",
+          "text": "32 litres"
+        },
+        {
+          "id": "b",
+          "text": "32.4 litres"
+        },
+        {
+          "id": "c",
+          "text": "33.6 litres"
+        },
+        {
+          "id": "d",
+          "text": "36 litres"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Each operation leaves 90% of the milk: 40 × 0.9² = 40 × 0.81 = 32.4 litres.",
+      "solutionSteps": [
+        "First removal: 4 L of pure milk goes, leaving 36 L of milk.",
+        "Now the vessel is 36 L milk and 4 L water. The second 4 L removed is only 90% milk (3.6 L).",
+        "Milk left = 36 − 3.6 = 32.4 L, which matches 40 × (1 − 4/40)² = 32.4."
+      ],
+      "formulaIds": [
+        "mix-replacement-formula"
+      ],
+      "method": "Each replacement keeps the same fraction of the remaining milk.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second 4 litres removed is no longer pure milk."
+        },
+        {
+          "level": 2,
+          "text": "Each step keeps 36/40 = 90% of the milk present."
+        },
+        {
+          "level": 3,
+          "text": "40 × 0.9 × 0.9."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting 4 litres twice and answering 32 litres."
+      ],
+      "tags": [
+        "replacement",
+        "complex"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-q-031",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adding",
+      "levelId": "mixtures-alligation-level-4",
+      "difficulty": "complex",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A 60 litre mixture has milk and water in the ratio 5 : 1. How many litres of water must be added to make the ratio 5 : 2? (Answer in litres)",
+      "answer": {
+        "value": 10,
+        "tolerance": 0
+      },
+      "explanation": "Milk = 50 L and water = 10 L. For a 5 : 2 ratio with 50 L of milk, water must be 20 L, so 10 L needs to be added.",
+      "solutionSteps": [
+        "Milk = 60 × 5/6 = 50 L; water = 10 L.",
+        "Milk is unchanged, so 5 parts = 50 L and one part = 10 L.",
+        "For 5 : 2, water must be 2 × 10 = 20 L.",
+        "Water to add = 20 − 10 = 10 L."
+      ],
+      "formulaIds": [
+        "mix-component"
+      ],
+      "method": "Hold the unchanged component fixed and rescale the ratio around it.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Adding water does not change the amount of milk."
+        },
+        {
+          "level": 2,
+          "text": "With 50 L of milk as 5 parts, what is one part worth?"
+        },
+        {
+          "level": 3,
+          "text": "The new water quantity must be 2 parts."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 20, the final water quantity rather than the amount added."
+      ],
+      "tags": [
+        "adding",
+        "complex",
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-001",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-combine",
+      "levelId": "mixtures-alligation-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "8 litres of a mixture with milk and water in the ratio 3 : 1 is mixed with 8 litres of a mixture in the ratio 5 : 3. What is the ratio of milk to water in the result?",
+      "options": [
+        {
+          "id": "a",
+          "text": "11 : 5"
+        },
+        {
+          "id": "b",
+          "text": "2 : 1"
+        },
+        {
+          "id": "c",
+          "text": "4 : 1"
+        },
+        {
+          "id": "d",
+          "text": "13 : 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "First mixture: 8 × 3/4 = 6 L milk and 2 L water. Second: 8 × 5/8 = 5 L milk and 3 L water. Together: 11 L milk and 5 L water, so 11 : 5.",
+      "solutionSteps": [
+        "Mixture 1: 6 L milk, 2 L water.",
+        "Mixture 2: 5 L milk, 3 L water.",
+        "Total: 11 : 5."
+      ],
+      "formulaIds": [
+        "mix-adv-combine-f"
+      ],
+      "method": "Convert each mixture to litres, then add like with like.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many litres of milk are in each mixture?"
+        },
+        {
+          "level": 2,
+          "text": "Add milk to milk and water to water."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the ratios directly: 3 : 1 + 5 : 3 = 8 : 4 = 2 : 1."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-002",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-combine",
+      "levelId": "mixtures-alligation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Mixture A is 3/4 milk and mixture B is 5/8 milk. In what ratio must A and B be mixed to get a mixture that is 2/3 milk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 : 2"
+        },
+        {
+          "id": "b",
+          "text": "2 : 1"
+        },
+        {
+          "id": "c",
+          "text": "1 : 1"
+        },
+        {
+          "id": "d",
+          "text": "3 : 5"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "By alligation, A : B = (2/3 − 5/8) : (3/4 − 2/3) = 1/24 : 2/24 = 1 : 2.",
+      "solutionSteps": [
+        "2/3 − 5/8 = 16/24 − 15/24 = 1/24.",
+        "3/4 − 2/3 = 18/24 − 16/24 = 2/24.",
+        "A : B = 1/24 : 2/24 = 1 : 2."
+      ],
+      "formulaIds": [
+        "mix-adv-combine-f",
+        "mix-alligation-rule"
+      ],
+      "method": "Alligation on the milk fractions: each mixture's share is the other one's distance from the target.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Put all three fractions over 24."
+        },
+        {
+          "level": 2,
+          "text": "The amount of A is set by how far B is from the target, and vice versa."
+        }
+      ],
+      "commonMistakes": [
+        "Swapping the two distances, giving 2 : 1."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 110,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-003",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-combine",
+      "levelId": "mixtures-alligation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "Three vessels of equal size hold milk and water in the ratios 1 : 2, 2 : 3 and 3 : 4. All three are emptied into one large vessel. What is the ratio of milk to water now?",
+      "options": [
+        {
+          "id": "a",
+          "text": "122 : 193"
+        },
+        {
+          "id": "b",
+          "text": "2 : 3"
+        },
+        {
+          "id": "c",
+          "text": "1 : 1"
+        },
+        {
+          "id": "d",
+          "text": "193 : 122"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Take 105 L in each vessel (the LCM of 3, 5 and 7). Milk: 35 + 42 + 45 = 122 L out of 315 L, so water is 193 L. Ratio 122 : 193.",
+      "solutionSteps": [
+        "Size each vessel at 105 L.",
+        "Milk: 105 × 1/3 = 35, 105 × 2/5 = 42, 105 × 3/7 = 45 → 122 L.",
+        "Water: 315 − 122 = 193 L."
+      ],
+      "formulaIds": [
+        "mix-adv-combine-f"
+      ],
+      "method": "Pick a convenient equal volume, convert each vessel to litres, then add.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Choose a vessel size that 3, 5 and 7 all divide."
+        },
+        {
+          "level": 2,
+          "text": "Find the milk in each vessel, then the total."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the ratios: (1 + 2 + 3) : (2 + 3 + 4) = 6 : 9 = 2 : 3."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 150,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-004",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-target",
+      "levelId": "mixtures-alligation-level-6",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "How many litres of pure acid must be added to 60 litres of a 40% acid solution to make it 50% acid?",
+      "answer": {
+        "value": 12,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "Acid now = 40% of 60 = 24 L. After adding a litres: (24 + a) ÷ (60 + a) = 1/2, so 48 + 2a = 60 + a and a = 12.",
+      "solutionSteps": [
+        "Acid: 0.4 × 60 = 24 L.",
+        "(24 + a) ÷ (60 + a) = 1/2.",
+        "48 + 2a = 60 + a → a = 12."
+      ],
+      "formulaIds": [
+        "mix-adv-target-f"
+      ],
+      "method": "Write the new strength as a fraction and solve for the amount added.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Adding pure acid raises the acid and the total by the same amount."
+        },
+        {
+          "level": 2,
+          "text": "Set (24 + a) ÷ (60 + a) equal to 50%."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 10% of 60 = 6 L, which ignores that the total grows too."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-005",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-target",
+      "levelId": "mixtures-alligation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A vessel holds 80 litres of pure milk. x litres are drawn off and replaced with water, and this is done twice in all. The vessel then contains 45 litres of milk. Find x.",
+      "answer": {
+        "value": 20,
+        "tolerance": 0,
+        "unit": "litres"
+      },
+      "explanation": "(1 − x/80)² = 45/80 = 9/16, so 1 − x/80 = 3/4 and x = 20.",
+      "solutionSteps": [
+        "80 × (1 − x/80)² = 45.",
+        "(1 − x/80)² = 9/16.",
+        "1 − x/80 = 3/4 → x = 20."
+      ],
+      "formulaIds": [
+        "mix-adv-target-f",
+        "mix-replacement-formula"
+      ],
+      "method": "Set up the replacement formula and take the square root.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "After each replacement, the same fraction of milk remains."
+        },
+        {
+          "level": 2,
+          "text": "Divide 45 by 80 and take the square root."
+        }
+      ],
+      "commonMistakes": [
+        "Taking (80 − 45) ÷ 2 = 17.5, as if the same amount of milk left each time."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 120,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-006",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-target",
+      "levelId": "mixtures-alligation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A tank holds 100 litres of pure alcohol. Each time, 10 litres are taken out and replaced with water. After how many such operations does the alcohol first fall below 75 litres?",
+      "answer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "explanation": "Each operation keeps 9/10 of the alcohol: 90, then 81, then 72.9 litres. It first falls below 75 L after 3 operations.",
+      "solutionSteps": [
+        "After 1: 100 × 0.9 = 90.",
+        "After 2: 81.",
+        "After 3: 72.9 < 75."
+      ],
+      "formulaIds": [
+        "mix-adv-target-f"
+      ],
+      "method": "Multiply by the fraction kept, step by step, until you cross the target.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Each time you remove a tenth of what is in the tank."
+        },
+        {
+          "level": 2,
+          "text": "Keep multiplying by 0.9."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming 10 L of alcohol leave every time. Only the first draw is pure alcohol, so each later draw removes less."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 90,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "mixtures-alligation-mix-adv-q-007",
+      "topicId": "mixtures-alligation",
+      "conceptId": "mix-adv-target",
+      "levelId": "mixtures-alligation-level-7",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "40 litres of milk and water are in the ratio 3 : 1. 8 litres of the mixture are removed and replaced with water. What is the new ratio of milk to water?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 : 2"
+        },
+        {
+          "id": "b",
+          "text": "3 : 1"
+        },
+        {
+          "id": "c",
+          "text": "2 : 1"
+        },
+        {
+          "id": "d",
+          "text": "4 : 3"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Start with 30 L milk and 10 L water. The 8 L removed has the same 3 : 1 ratio: 6 L milk and 2 L water. That leaves 24 : 8; adding 8 L water makes 24 : 16 = 3 : 2.",
+      "solutionSteps": [
+        "Milk 30, water 10.",
+        "Remove 6 milk and 2 water → 24 : 8.",
+        "Add 8 water → 24 : 16 = 3 : 2."
+      ],
+      "formulaIds": [
+        "mix-adv-target-f"
+      ],
+      "method": "The removed mixture has the same ratio as the whole.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is in the 8 litres you take out?"
+        },
+        {
+          "level": 2,
+          "text": "Then add the water back."
+        }
+      ],
+      "commonMistakes": [
+        "Removing 8 L of milk only."
+      ],
+      "tags": [
+        "advanced"
+      ],
+      "estimatedSeconds": 100,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,1013 @@
+{
+  "topicId": "fractions",
+  "concepts": [
+    {
+      "id": "fr-compare",
+      "topicId": "fractions",
+      "name": "Comparing fractions",
+      "description": "Cross-multiply, or convert to a common denominator or decimal, to see which is larger.",
+      "sortOrder": 1
+    },
+    {
+      "id": "fr-operations",
+      "topicId": "fractions",
+      "name": "Adding, subtracting, multiplying and dividing",
+      "description": "Add over a common denominator; multiply across; divide by multiplying by the reciprocal.",
+      "sortOrder": 2
+    },
+    {
+      "id": "fr-mixed",
+      "topicId": "fractions",
+      "name": "Mixed numbers",
+      "description": "Convert to improper fractions before multiplying or dividing.",
+      "sortOrder": 3
+    },
+    {
+      "id": "fr-word",
+      "topicId": "fractions",
+      "name": "Fractions in word problems",
+      "description": "A fraction \"of the remainder\" refers to what is left, not to the original amount.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "fr-compare-f",
+      "topicId": "fractions",
+      "conceptId": "fr-compare",
+      "title": "Comparing",
+      "prompt": "How do you tell which of a/b and c/d is larger?",
+      "formula": "a/b > c/d  ⇔  a × d > c × b  (b, d > 0)",
+      "variables": [],
+      "explanation": "Cross-multiplying is the same as putting both over the common denominator b × d.",
+      "example": "3/4 vs 5/8: 3 × 8 = 24 and 5 × 4 = 20 → 3/4 is larger",
+      "commonMistake": "Comparing numerators and denominators separately.",
+      "applicationPrompt": "Which is larger, 3/4 or 5/8?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-add-f",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "title": "Adding and subtracting",
+      "prompt": "How do you add or subtract fractions?",
+      "formula": "a/b ± c/d = (a × d ± c × b) ÷ (b × d)\n(or use the LCM of b and d)",
+      "variables": [],
+      "explanation": "The denominators must match before the numerators can be combined.",
+      "example": "1/2 + 1/3 = 3/6 + 2/6 = 5/6",
+      "commonMistake": "Adding numerators and denominators separately: 1/2 + 1/3 = 2/5.",
+      "applicationPrompt": "Find 3/4 − 2/5.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-muldiv-f",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "title": "Multiplying and dividing",
+      "prompt": "How do you multiply and divide fractions?",
+      "formula": "a/b × c/d = ac / bd\na/b ÷ c/d = a/b × d/c = ad / bc",
+      "variables": [],
+      "explanation": "Multiplication goes straight across. Dividing by a fraction is multiplying by its reciprocal. Cancel common factors first to keep numbers small.",
+      "example": "2/3 × 9/10 = 18/30 = 3/5",
+      "commonMistake": "Flipping the first fraction instead of the divisor.",
+      "applicationPrompt": "Find 2/3 × 9/10.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-mixed-f",
+      "topicId": "fractions",
+      "conceptId": "fr-mixed",
+      "title": "Mixed numbers",
+      "prompt": "How do you turn a mixed number into an improper fraction?",
+      "formula": "a b/c = (a × c + b) ÷ c",
+      "variables": [],
+      "explanation": "Each whole is c parts, so a wholes make a × c parts; add the b extra parts.",
+      "example": "3 2/5 = (3 × 5 + 2)/5 = 17/5",
+      "commonMistake": "Multiplying whole parts and fractional parts separately.",
+      "applicationPrompt": "Write 3 2/5 as an improper fraction.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-remaining-f",
+      "topicId": "fractions",
+      "conceptId": "fr-word",
+      "title": "Fraction of the remainder",
+      "prompt": "A person spends 1/3 of a sum, then 1/4 of what is left. How much remains?",
+      "formula": "Remaining = Total × (1 − 1/3) × (1 − 1/4)",
+      "variables": [],
+      "explanation": "The second fraction applies to the balance after the first spend, so multiply the surviving fractions.",
+      "example": "1 × 2/3 × 3/4 = 1/2 remains",
+      "commonMistake": "Adding 1/3 + 1/4 as fractions of the original amount.",
+      "applicationPrompt": "A man spends 1/3 of his salary, then 1/4 of the rest. What fraction of his salary is left?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "fr-sc-same-gap",
+      "topicId": "fractions",
+      "conceptId": "fr-compare",
+      "kind": "shortcut",
+      "title": "Same gap between top and bottom",
+      "prompt": "Several proper fractions each have a numerator the same amount below the denominator. Which is largest?",
+      "formula": "Same gap: the fraction with the larger numbers is larger",
+      "variables": [],
+      "explanation": "Each fraction is 1 minus (gap ÷ denominator); a bigger denominator makes the missing piece smaller.",
+      "example": "7/9 and 11/13 both have a gap of 2: 11/13 is larger.",
+      "commonMistake": "Assuming the fraction with smaller numbers is larger.",
+      "applicationPrompt": "Arrange 5/8, 9/12 and 14/17 in ascending order.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "fr-sc-telescoping",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "kind": "shortcut",
+      "title": "Splitting 1/(n(n + 1))",
+      "prompt": "How do you add fractions such as 1/2 + 1/6 + 1/12 + 1/20 quickly?",
+      "formula": "1/(n(n + 1)) = 1/n − 1/(n + 1)\nSum from 1/(1 × 2) to 1/(n(n + 1)) = n/(n + 1)",
+      "variables": [],
+      "explanation": "Written as differences, every middle term cancels with its neighbour.",
+      "example": "1/2 + 1/6 + 1/12 + 1/20 = 1 − 1/5 = 4/5.",
+      "commonMistake": "Finding a common denominator for all the terms.",
+      "applicationPrompt": "Find 1/(1 × 2) + 1/(2 × 3) + … + 1/(9 × 10).",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "complex"
+    }
+  ],
+  "levels": [
+    {
+      "id": "fractions-level-0",
+      "topicId": "fractions",
+      "order": 0,
+      "title": "Parts of a Whole",
+      "description": "Compare fractions confidently and operate on them without fear.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "fr-compare",
+        "fr-operations"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Compare before you calculate",
+            "body": "To compare 3/4 and 5/8, cross-multiply: 3 × 8 = 24 and 5 × 4 = 20. The bigger product sits beside the bigger fraction, so 3/4 is larger. This avoids finding common denominators when you only need to know which is bigger."
+          },
+          {
+            "type": "formula",
+            "title": "The four operations",
+            "body": "a/b + c/d = (ad + cb)/bd\na/b × c/d = ac/bd\na/b ÷ c/d = ad/bc",
+            "caption": "Cancel common factors before multiplying to keep the numbers small."
+          },
+          {
+            "type": "check",
+            "questionId": "fractions-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "Never add numerators and denominators separately. 1/2 + 1/3 is 5/6, not 2/5."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "fraction-bars"
+          },
+          {
+            "type": "check",
+            "questionId": "fractions-q-002"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "fractions-level-1",
+      "topicId": "fractions",
+      "order": 1,
+      "title": "Fractions Formulas",
+      "description": "Comparing, operations, mixed numbers and remainders.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "fractions-level-0"
+      ],
+      "conceptIds": [
+        "fr-compare",
+        "fr-operations",
+        "fr-mixed",
+        "fr-word"
+      ],
+      "formulaIds": [
+        "fr-compare-f",
+        "fr-add-f",
+        "fr-muldiv-f",
+        "fr-mixed-f",
+        "fr-remaining-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "fractions-level-2",
+      "topicId": "fractions",
+      "order": 2,
+      "title": "Direct Fraction Questions",
+      "description": "Compare and operate on simple fractions.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "fractions-level-1"
+      ],
+      "conceptIds": [
+        "fr-compare",
+        "fr-operations",
+        "fr-mixed"
+      ],
+      "questionIds": [
+        "fractions-q-001",
+        "fractions-q-002",
+        "fractions-q-003",
+        "fractions-q-004",
+        "fractions-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "fractions-level-3",
+      "topicId": "fractions",
+      "order": 3,
+      "title": "Mixed Numbers and Remainders",
+      "description": "Subtracting, mixed numbers and \"of the rest\".",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "fractions-level-2"
+      ],
+      "conceptIds": [
+        "fr-operations",
+        "fr-word",
+        "fr-mixed",
+        "fr-compare"
+      ],
+      "questionIds": [
+        "fractions-q-006",
+        "fractions-q-007",
+        "fractions-q-008",
+        "fractions-q-009",
+        "fractions-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "fractions-level-4",
+      "topicId": "fractions",
+      "order": 4,
+      "title": "Layered Fraction Problems",
+      "description": "Multiple brackets, chained changes and difference reasoning.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "fractions-level-3"
+      ],
+      "conceptIds": [
+        "fr-operations",
+        "fr-word"
+      ],
+      "questionIds": [
+        "fractions-q-011",
+        "fractions-q-012",
+        "fractions-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "fractions-level-5",
+      "topicId": "fractions",
+      "order": 5,
+      "title": "Mixed Fractions Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "fractions-level-4"
+      ],
+      "conceptIds": [
+        "fr-operations",
+        "fr-word"
+      ],
+      "questionQuery": {
+        "topicId": "fractions",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "fractions-q-001",
+      "topicId": "fractions",
+      "conceptId": "fr-compare",
+      "levelId": "fractions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "Which of these fractions is the largest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/8"
+        },
+        {
+          "id": "b",
+          "text": "2/3"
+        },
+        {
+          "id": "c",
+          "text": "3/4"
+        },
+        {
+          "id": "d",
+          "text": "7/10"
+        }
+      ],
+      "correctAnswer": [
+        "c"
+      ],
+      "explanation": "Decimals: 5/8 = 0.625, 2/3 ≈ 0.667, 3/4 = 0.75, 7/10 = 0.7. The largest is 3/4.",
+      "solutionSteps": [
+        "Convert each to a decimal, or cross-multiply in pairs.",
+        "0.75 is the greatest."
+      ],
+      "formulaIds": [
+        "fr-compare-f"
+      ],
+      "method": "Cross-multiply or use decimals.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Compare pairs by cross-multiplying."
+        }
+      ],
+      "commonMistakes": [
+        "Picking the fraction with the biggest denominator."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-002",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "levelId": "fractions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 1/2 + 1/3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2/5"
+        },
+        {
+          "id": "b",
+          "text": "5/6"
+        },
+        {
+          "id": "c",
+          "text": "1/6"
+        },
+        {
+          "id": "d",
+          "text": "2/6"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Common denominator 6: 3/6 + 2/6 = 5/6. Adding tops and bottoms (2/5) is wrong.",
+      "solutionSteps": [
+        "1/2 = 3/6; 1/3 = 2/6.",
+        "3/6 + 2/6 = 5/6."
+      ],
+      "formulaIds": [
+        "fr-add-f"
+      ],
+      "method": "Common denominator first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is the LCM of 2 and 3?"
+        }
+      ],
+      "commonMistakes": [
+        "Adding numerators and denominators separately."
+      ],
+      "tags": [
+        "basic",
+        "trap"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-003",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "levelId": "fractions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is 2/3 × 9/10?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6/5"
+        },
+        {
+          "id": "b",
+          "text": "11/13"
+        },
+        {
+          "id": "c",
+          "text": "20/27"
+        },
+        {
+          "id": "d",
+          "text": "3/5"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "2/3 × 9/10 = 18/30 = 3/5. Cancelling first: the 3 and 9 reduce to 1 and 3, and the 2 and 10 reduce to 1 and 5, giving 3/5.",
+      "solutionSteps": [
+        "Cancel: 2/3 × 9/10 = 1/1 × 3/5.",
+        "= 3/5."
+      ],
+      "formulaIds": [
+        "fr-muldiv-f"
+      ],
+      "method": "Multiply across; cancel first.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Look for common factors between diagonal numbers."
+        }
+      ],
+      "commonMistakes": [
+        "Inverting the second fraction (20/27) or adding (11/13)."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-004",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "levelId": "fractions-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "Which expression equals a/b ÷ c/d?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(a × c) ÷ (b × d)"
+        },
+        {
+          "id": "b",
+          "text": "(a × d) ÷ (b × c)"
+        },
+        {
+          "id": "c",
+          "text": "(a × b) ÷ (c × d)"
+        },
+        {
+          "id": "d",
+          "text": "(a + c) ÷ (b + d)"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Dividing by c/d means multiplying by d/c, so a/b × d/c = ad/bc.",
+      "solutionSteps": [
+        "a/b ÷ c/d = a/b × d/c.",
+        "= ad/bc."
+      ],
+      "formulaIds": [
+        "fr-muldiv-f"
+      ],
+      "method": "Multiply by the reciprocal of the divisor.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Only the divisor is flipped."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying straight across."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-005",
+      "topicId": "fractions",
+      "conceptId": "fr-mixed",
+      "levelId": "fractions-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Express 3 2/5 as an improper fraction with denominator 5. What is the numerator?",
+      "answer": {
+        "value": 17,
+        "tolerance": 0
+      },
+      "explanation": "3 2/5 = (3 × 5 + 2)/5 = 17/5, so the numerator is 17.",
+      "solutionSteps": [
+        "3 × 5 = 15.",
+        "15 + 2 = 17."
+      ],
+      "formulaIds": [
+        "fr-mixed-f"
+      ],
+      "method": "(whole × denominator + numerator).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "How many fifths are there in 3 wholes?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 6 (3 × 2)."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-006",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "levelId": "fractions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is 3/4 − 2/5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/20"
+        },
+        {
+          "id": "b",
+          "text": "7/20"
+        },
+        {
+          "id": "c",
+          "text": "1/2"
+        },
+        {
+          "id": "d",
+          "text": "1/9"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Common denominator 20: 15/20 − 8/20 = 7/20.",
+      "solutionSteps": [
+        "3/4 = 15/20; 2/5 = 8/20.",
+        "15 − 8 = 7 → 7/20."
+      ],
+      "formulaIds": [
+        "fr-add-f"
+      ],
+      "method": "Common denominator, then subtract the numerators.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use 20 as the common denominator."
+        }
+      ],
+      "commonMistakes": [
+        "Subtracting across: (3 − 2)/(4 − 5)."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-007",
+      "topicId": "fractions",
+      "conceptId": "fr-word",
+      "levelId": "fractions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A man spends 1/3 of his salary on rent and 1/4 of the remainder on food. He has ₹3,000 left. What is his salary, in rupees?",
+      "answer": {
+        "value": 6000,
+        "tolerance": 0,
+        "unit": "₹"
+      },
+      "explanation": "After rent, 2/3 remains. Food takes 1/4 of that, leaving 3/4 × 2/3 = 1/2 of the salary. So ₹3,000 is half the salary, which is ₹6,000.",
+      "solutionSteps": [
+        "After rent: 2/3 of salary.",
+        "After food: 2/3 × 3/4 = 1/2 of salary.",
+        "1/2 of salary = 3,000 → salary = 6,000."
+      ],
+      "formulaIds": [
+        "fr-remaining-f"
+      ],
+      "method": "Multiply the surviving fractions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The second fraction applies to what is left, not to the salary."
+        }
+      ],
+      "commonMistakes": [
+        "Adding 1/3 + 1/4 (leaving 5/12)."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-008",
+      "topicId": "fractions",
+      "conceptId": "fr-mixed",
+      "levelId": "fractions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is 2 1/2 × 1 3/5?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 3/10"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "4 1/10"
+        },
+        {
+          "id": "d",
+          "text": "3 1/5"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Convert to improper fractions: 5/2 × 8/5 = 40/10 = 4. (Multiplying wholes and fractions separately, 2 × 1 + 1/2 × 3/5 = 2 3/10, is wrong.)",
+      "solutionSteps": [
+        "2 1/2 = 5/2; 1 3/5 = 8/5.",
+        "5/2 × 8/5 = 4."
+      ],
+      "formulaIds": [
+        "fr-mixed-f",
+        "fr-muldiv-f"
+      ],
+      "method": "Improper fractions before multiplying.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert both mixed numbers first."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying the whole parts and fractional parts separately."
+      ],
+      "tags": [
+        "two-step",
+        "trap"
+      ],
+      "estimatedSeconds": 55,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-009",
+      "topicId": "fractions",
+      "conceptId": "fr-word",
+      "levelId": "fractions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "What is 5/6 of 3/4 of 96?",
+      "answer": {
+        "value": 60,
+        "tolerance": 0
+      },
+      "explanation": "3/4 of 96 = 72. Then 5/6 of 72 = 60.",
+      "solutionSteps": [
+        "96 × 3/4 = 72.",
+        "72 × 5/6 = 60."
+      ],
+      "formulaIds": [
+        "fr-muldiv-f"
+      ],
+      "method": "Apply each \"of\" in turn.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Work from the right."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the fractions."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-010",
+      "topicId": "fractions",
+      "conceptId": "fr-compare",
+      "levelId": "fractions-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "Which lists 2/3, 3/5 and 5/8 in increasing order?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5/8, 3/5, 2/3"
+        },
+        {
+          "id": "b",
+          "text": "2/3, 5/8, 3/5"
+        },
+        {
+          "id": "c",
+          "text": "3/5, 2/3, 5/8"
+        },
+        {
+          "id": "d",
+          "text": "3/5, 5/8, 2/3"
+        }
+      ],
+      "correctAnswer": [
+        "d"
+      ],
+      "explanation": "Decimals: 3/5 = 0.6, 5/8 = 0.625, 2/3 ≈ 0.667. Increasing order is 3/5, 5/8, 2/3.",
+      "solutionSteps": [
+        "3/5 = 0.6; 5/8 = 0.625; 2/3 ≈ 0.667.",
+        "Order: 3/5 < 5/8 < 2/3."
+      ],
+      "formulaIds": [
+        "fr-compare-f"
+      ],
+      "method": "Convert to decimals or cross-multiply.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Convert each to a decimal."
+        }
+      ],
+      "commonMistakes": [
+        "Comparing denominators only."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-011",
+      "topicId": "fractions",
+      "conceptId": "fr-operations",
+      "levelId": "fractions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "What is (1/2 + 1/3 + 1/6) ÷ (1/2 − 1/3)?",
+      "answer": {
+        "value": 6,
+        "tolerance": 0
+      },
+      "explanation": "Numerator: 3/6 + 2/6 + 1/6 = 1. Denominator: 3/6 − 2/6 = 1/6. So 1 ÷ 1/6 = 6.",
+      "solutionSteps": [
+        "1/2 + 1/3 + 1/6 = 1.",
+        "1/2 − 1/3 = 1/6.",
+        "1 ÷ 1/6 = 6."
+      ],
+      "formulaIds": [
+        "fr-add-f",
+        "fr-muldiv-f"
+      ],
+      "method": "Simplify each bracket, then divide.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Use 6 as the common denominator throughout."
+        }
+      ],
+      "commonMistakes": [
+        "Getting the bracket subtraction wrong."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-012",
+      "topicId": "fractions",
+      "conceptId": "fr-word",
+      "levelId": "fractions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "A number is increased by 1/5 of itself, and the result is then decreased by 1/6 of the result. The final value is",
+      "options": [
+        {
+          "id": "a",
+          "text": "1/30 more than the original"
+        },
+        {
+          "id": "b",
+          "text": "the same as the original"
+        },
+        {
+          "id": "c",
+          "text": "1/30 less than the original"
+        },
+        {
+          "id": "d",
+          "text": "1/6 more than the original"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Increase: x × 6/5. Decrease by 1/6 of that: × 5/6. So 6/5 × 5/6 = 1: the final value equals the original.",
+      "solutionSteps": [
+        "After increase: 6x/5.",
+        "After decrease: 6x/5 × 5/6 = x."
+      ],
+      "formulaIds": [
+        "fr-remaining-f"
+      ],
+      "method": "Multiply the growth factors.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Turn each change into a multiplier."
+        }
+      ],
+      "commonMistakes": [
+        "Thinking +1/5 and −1/6 combine to +1/30."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "fractions-q-013",
+      "topicId": "fractions",
+      "conceptId": "fr-word",
+      "levelId": "fractions-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A bucket that is 2/3 full weighs 18 kg, and when it is 1/3 full it weighs 14 kg. What is the weight of the bucket when it is full, in kg?",
+      "answer": {
+        "value": 22,
+        "tolerance": 0,
+        "unit": "kg"
+      },
+      "explanation": "The extra 1/3 of water weighs 18 − 14 = 4 kg, so a full bucket of water is 12 kg. The empty bucket weighs 14 − 4 = 10 kg. Full = 10 + 12 = 22 kg.",
+      "solutionSteps": [
+        "1/3 of the water = 4 kg.",
+        "All the water = 12 kg.",
+        "Empty bucket = 14 − 4 = 10 kg.",
+        "Full = 22 kg."
+      ],
+      "formulaIds": [
+        "fr-remaining-f"
+      ],
+      "method": "The difference in weight is the difference in fractions.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What does the extra 1/3 of the water weigh?"
+        }
+      ],
+      "commonMistakes": [
+        "Taking 18 kg as 2/3 of the total weight (27 kg)."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 85,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

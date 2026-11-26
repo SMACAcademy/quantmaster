@@ -1,0 +1,985 @@
+{
+  "topicId": "algebraic-identities",
+  "concepts": [
+    {
+      "id": "ai-squares",
+      "topicId": "algebraic-identities",
+      "name": "Square identities",
+      "description": "(a + b)² and (a − b)² expand to a² ± 2ab + b², replacing a slow expansion with a direct formula.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ai-diffsquares",
+      "topicId": "algebraic-identities",
+      "name": "Difference of squares",
+      "description": "a² − b² factorises instantly as (a + b)(a − b), turning subtraction of two squares into one product.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ai-cubes",
+      "topicId": "algebraic-identities",
+      "name": "Cube identities",
+      "description": "(a + b)³ and (a − b)³ expand to four terms each, useful for cubes of sums and differences.",
+      "sortOrder": 3
+    },
+    {
+      "id": "ai-sumdiffcubes",
+      "topicId": "algebraic-identities",
+      "name": "Sum and difference of cubes",
+      "description": "a³ + b³ and a³ − b³ each factorise into a linear factor times a quadratic factor.",
+      "sortOrder": 4
+    },
+    {
+      "id": "ai-apply",
+      "topicId": "algebraic-identities",
+      "name": "Applying identities numerically",
+      "description": "Rewriting a number as a sum or difference near a round number lets an identity replace heavy arithmetic.",
+      "sortOrder": 5
+    }
+  ],
+  "formulas": [
+    {
+      "id": "ai-squares-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "title": "Square of a sum or difference",
+      "prompt": "What do (a + b)² and (a − b)² expand to?",
+      "formula": "(a + b)² = a² + 2ab + b²\n(a − b)² = a² − 2ab + b²",
+      "variables": [],
+      "explanation": "The middle term 2ab is easy to forget; only its sign changes between the two identities.",
+      "example": "(x + 5)² = x² + 10x + 25",
+      "commonMistake": "Forgetting the middle term 2ab entirely.",
+      "applicationPrompt": "Expand (x + 5)².",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ai-diffsquares-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-diffsquares",
+      "title": "Difference of squares",
+      "prompt": "How does a² − b² factorise?",
+      "formula": "a² − b² = (a + b)(a − b)",
+      "variables": [],
+      "explanation": "This turns a subtraction of two squares into a single product, which is often much easier to compute or factorise further.",
+      "example": "x² − 64 = (x + 8)(x − 8)",
+      "commonMistake": "Writing a² − b² as (a − b)², which loses the cross term.",
+      "applicationPrompt": "Factorise x² − 64.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ai-cubes-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-cubes",
+      "title": "Cube of a sum or difference",
+      "prompt": "What do (a + b)³ and (a − b)³ expand to?",
+      "formula": "(a + b)³ = a³ + 3a²b + 3ab² + b³\n(a − b)³ = a³ − 3a²b + 3ab² − b³",
+      "variables": [],
+      "explanation": "The signs alternate in the difference version; the coefficients 1, 3, 3, 1 stay the same in both.",
+      "example": "(x + 2)³ = x³ + 6x² + 12x + 8",
+      "commonMistake": "Using only two terms, as if cubing worked like squaring.",
+      "applicationPrompt": "Expand (x + 2)³.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ai-sumdiffcubes-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-sumdiffcubes",
+      "title": "Sum and difference of cubes",
+      "prompt": "How do a³ + b³ and a³ − b³ factorise?",
+      "formula": "a³ + b³ = (a + b)(a² − ab + b²)\na³ − b³ = (a − b)(a² + ab + b²)",
+      "variables": [],
+      "explanation": "The linear factor matches the sign of the original expression; the quadratic factor always has the opposite sign in its middle term.",
+      "example": "x³ − 27 = (x − 3)(x² + 3x + 9)",
+      "commonMistake": "Getting the sign of the middle term ab wrong in the quadratic factor.",
+      "applicationPrompt": "Factorise x³ − 27.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ai-apply-f",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-apply",
+      "kind": "shortcut",
+      "title": "Using identities on numbers",
+      "prompt": "How do identities speed up arithmetic like 105² or 97 × 103?",
+      "formula": "Write the number as (round number ± small amount), then apply the matching identity",
+      "variables": [],
+      "explanation": "Once the number is split this way, the identity replaces long multiplication with a couple of small computations.",
+      "example": "105² = (100 + 5)² = 10,000 + 1,000 + 25 = 11,025\n97 × 103 = (100 − 3)(100 + 3) = 10,000 − 9 = 9,991",
+      "commonMistake": "Splitting the number incorrectly, or forgetting the middle term.",
+      "applicationPrompt": "Compute 105² using an identity.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ai-sc-zero-sum-cubes",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-cubes",
+      "kind": "shortcut",
+      "title": "When a + b + c = 0",
+      "prompt": "a + b + c = 0. What is a³ + b³ + c³?",
+      "formula": "If a + b + c = 0, then a³ + b³ + c³ = 3abc",
+      "variables": [],
+      "explanation": "It comes from a³ + b³ + c³ − 3abc = (a + b + c)(a² + b² + c² − ab − bc − ca), whose first factor is zero.",
+      "example": "5³ + (−2)³ + (−3)³ = 125 − 8 − 27 = 90 = 3 × 5 × (−2) × (−3).",
+      "commonMistake": "Using it when the sum is not zero.",
+      "applicationPrompt": "Find (x − y)³ + (y − z)³ + (z − x)³ in factored form.",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ai-sc-x-plus-reciprocal",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "kind": "shortcut",
+      "title": "x + 1/x given",
+      "prompt": "You know x + 1/x = k. What are x² + 1/x² and x³ + 1/x³?",
+      "formula": "x² + 1/x² = k² − 2\nx³ + 1/x³ = k³ − 3k",
+      "variables": [],
+      "explanation": "Square or cube x + 1/x; the cross terms are constants because x × 1/x = 1.",
+      "example": "x + 1/x = 3: x² + 1/x² = 9 − 2 = 7 and x³ + 1/x³ = 27 − 9 = 18.",
+      "commonMistake": "Writing x² + 1/x² = k², forgetting the 2 from the middle term.",
+      "applicationPrompt": "If x − 1/x = 4, find x² + 1/x² (hint: the sign of the middle term changes).",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    }
+  ],
+  "levels": [
+    {
+      "id": "algebraic-identities-level-0",
+      "topicId": "algebraic-identities",
+      "order": 0,
+      "title": "Shortcuts for Squares",
+      "description": "Formulas that replace slow expansion or factorisation with one direct step.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 5,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "ai-squares",
+        "ai-diffsquares"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Why identities save time",
+            "body": "Expanding (x + 5)² term by term takes a few steps. The identity (a + b)² = a² + 2ab + b² gives the same answer, x² + 10x + 25, in one line once you know it."
+          },
+          {
+            "type": "formula",
+            "title": "Square identities",
+            "body": "(a + b)² = a² + 2ab + b²\n(a − b)² = a² − 2ab + b²",
+            "caption": "Only the sign of the middle term changes between the two."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "identity-area"
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-identities-q-001"
+          },
+          {
+            "type": "callout",
+            "tone": "warn",
+            "body": "a² − b² is never (a − b)². The correct factorisation is (a + b)(a − b)."
+          },
+          {
+            "type": "check",
+            "questionId": "algebraic-identities-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "algebraic-identities-level-1",
+      "topicId": "algebraic-identities",
+      "order": 1,
+      "title": "Algebraic Identities Formulas",
+      "description": "Square identities, difference of squares, cube identities, sum/difference of cubes, numeric applications.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-0"
+      ],
+      "conceptIds": [
+        "ai-squares",
+        "ai-diffsquares",
+        "ai-cubes",
+        "ai-sumdiffcubes"
+      ],
+      "formulaIds": [
+        "ai-squares-f",
+        "ai-diffsquares-f",
+        "ai-cubes-f",
+        "ai-sumdiffcubes-f",
+        "ai-apply-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "algebraic-identities-level-2",
+      "topicId": "algebraic-identities",
+      "order": 2,
+      "title": "Direct Expansion and Factorisation",
+      "description": "Applying the square and difference-of-squares identities directly.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-1"
+      ],
+      "conceptIds": [
+        "ai-squares",
+        "ai-diffsquares",
+        "ai-apply"
+      ],
+      "questionIds": [
+        "algebraic-identities-q-001",
+        "algebraic-identities-q-002",
+        "algebraic-identities-q-003",
+        "algebraic-identities-q-004",
+        "algebraic-identities-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "algebraic-identities-level-3",
+      "topicId": "algebraic-identities",
+      "order": 3,
+      "title": "Numeric Shortcuts and Rearranging",
+      "description": "Using identities on numbers, and rearranging them to find hidden quantities.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-2"
+      ],
+      "conceptIds": [
+        "ai-apply",
+        "ai-squares"
+      ],
+      "questionIds": [
+        "algebraic-identities-q-006",
+        "algebraic-identities-q-007",
+        "algebraic-identities-q-008",
+        "algebraic-identities-q-009",
+        "algebraic-identities-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "algebraic-identities-level-4",
+      "topicId": "algebraic-identities",
+      "order": 4,
+      "title": "Cubes and Combined Identities",
+      "description": "Sum and difference of cubes, and identities chained together.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-3"
+      ],
+      "conceptIds": [
+        "ai-sumdiffcubes",
+        "ai-squares"
+      ],
+      "questionIds": [
+        "algebraic-identities-q-011",
+        "algebraic-identities-q-012",
+        "algebraic-identities-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "algebraic-identities-level-5",
+      "topicId": "algebraic-identities",
+      "order": 5,
+      "title": "Mixed Algebraic Identities Practice",
+      "description": "All patterns, shuffled.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "algebraic-identities-level-4"
+      ],
+      "conceptIds": [
+        "ai-sumdiffcubes",
+        "ai-squares"
+      ],
+      "questionQuery": {
+        "topicId": "algebraic-identities",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "algebraic-identities-q-001",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is (x + 5)² expanded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x² + 10x + 25"
+        },
+        {
+          "id": "b",
+          "text": "x² + 25"
+        },
+        {
+          "id": "c",
+          "text": "x² + 5x + 25"
+        },
+        {
+          "id": "d",
+          "text": "x² + 10x + 10"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Using (a + b)² = a² + 2ab + b² with a = x, b = 5: x² + 10x + 25.",
+      "solutionSteps": [
+        "a² = x².",
+        "2ab = 2(x)(5) = 10x.",
+        "b² = 25."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Apply the identity term by term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Do not forget the middle term 2ab."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the middle term, giving x² + 25."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-002",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is (x − 7)² expanded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "x² − 14x + 49"
+        },
+        {
+          "id": "b",
+          "text": "x² − 49"
+        },
+        {
+          "id": "c",
+          "text": "x² − 7x + 49"
+        },
+        {
+          "id": "d",
+          "text": "x² + 14x + 49"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Using (a − b)² = a² − 2ab + b² with a = x, b = 7: x² − 14x + 49.",
+      "solutionSteps": [
+        "a² = x².",
+        "2ab = 14x.",
+        "b² = 49."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "The middle term is negative here.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The sign of the middle term matches the sign inside the bracket."
+        }
+      ],
+      "commonMistakes": [
+        "Using a plus sign for the middle term."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-003",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-diffsquares",
+      "levelId": "algebraic-identities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "What is x² − 64 factorised?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x + 8)(x − 8)"
+        },
+        {
+          "id": "b",
+          "text": "(x − 8)²"
+        },
+        {
+          "id": "c",
+          "text": "(x + 8)²"
+        },
+        {
+          "id": "d",
+          "text": "(x + 64)(x − 1)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "64 = 8², so x² − 64 = x² − 8² = (x + 8)(x − 8).",
+      "solutionSteps": [
+        "64 = 8².",
+        "a² − b² = (a + b)(a − b)."
+      ],
+      "formulaIds": [
+        "ai-diffsquares-f"
+      ],
+      "method": "Recognise the perfect square.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "64 is a perfect square."
+        }
+      ],
+      "commonMistakes": [
+        "Writing (x − 8)², which is wrong."
+      ],
+      "tags": [
+        "basic"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-004",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-2",
+      "difficulty": "easy",
+      "learningStage": "recognition",
+      "type": "formula_recognition",
+      "question": "The expansion of (a − b)² differs from (a + b)² only in the sign of",
+      "options": [
+        {
+          "id": "a",
+          "text": "a²"
+        },
+        {
+          "id": "b",
+          "text": "the middle term 2ab"
+        },
+        {
+          "id": "c",
+          "text": "b²"
+        },
+        {
+          "id": "d",
+          "text": "nothing; they are identical"
+        }
+      ],
+      "correctAnswer": [
+        "b"
+      ],
+      "explanation": "Both expansions have the same a² and b² terms; only the middle term 2ab changes sign.",
+      "solutionSteps": [
+        "(a+b)² = a² + 2ab + b².",
+        "(a−b)² = a² − 2ab + b²."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Compare the two identities term by term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "a² and b² are always positive."
+        }
+      ],
+      "commonMistakes": [
+        "Assuming the whole expansion flips sign."
+      ],
+      "tags": [
+        "formula-recognition"
+      ],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-005",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-apply",
+      "levelId": "algebraic-identities-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "Using an identity, what is 105²?",
+      "answer": {
+        "value": 11025,
+        "tolerance": 0
+      },
+      "explanation": "105² = (100 + 5)² = 10,000 + 2(100)(5) + 25 = 10,000 + 1,000 + 25 = 11,025.",
+      "solutionSteps": [
+        "(100 + 5)² = 100² + 2(100)(5) + 5².",
+        "= 10,000 + 1,000 + 25.",
+        "= 11,025."
+      ],
+      "formulaIds": [
+        "ai-apply-f",
+        "ai-squares-f"
+      ],
+      "method": "Split 105 as 100 + 5, then apply (a+b)².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Split the number into a round part and a small part."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the middle term 1,000."
+      ],
+      "tags": [
+        "numeric-entry"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-006",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-apply",
+      "levelId": "algebraic-identities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If a + b = 12 and ab = 27, what is a² + b²?",
+      "answer": {
+        "value": 90,
+        "tolerance": 0
+      },
+      "explanation": "(a + b)² = a² + 2ab + b², so a² + b² = (a+b)² − 2ab = 144 − 54 = 90.",
+      "solutionSteps": [
+        "(a+b)² = 144.",
+        "2ab = 54.",
+        "144 − 54 = 90."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Rearrange the square identity to isolate a² + b².",
+      "hints": [
+        {
+          "level": 1,
+          "text": "(a+b)² already contains a² + b² and 2ab together."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to subtract 2ab, not just ab."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-007",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-apply",
+      "levelId": "algebraic-identities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If a − b = 5 and a² + b² = 53, what is ab?",
+      "answer": {
+        "value": 14,
+        "tolerance": 0
+      },
+      "explanation": "(a − b)² = a² − 2ab + b², so 25 = 53 − 2ab, giving 2ab = 28 and ab = 14.",
+      "solutionSteps": [
+        "(a−b)² = 25.",
+        "25 = 53 − 2ab.",
+        "2ab = 28 → ab = 14."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Use the difference-square identity to isolate ab.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Substitute the known values into (a−b)² = a² − 2ab + b²."
+        }
+      ],
+      "commonMistakes": [
+        "Sign error when isolating 2ab."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-008",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "If a = 7 and b = 3, what is (a + b)² − (a − b)²?",
+      "answer": {
+        "value": 84,
+        "tolerance": 0
+      },
+      "explanation": "(a+b)² − (a−b)² = 4ab (the a² and b² terms cancel). So 4 × 7 × 3 = 84.",
+      "solutionSteps": [
+        "(a+b)² − (a−b)² = 4ab.",
+        "4 × 7 × 3 = 84."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "The two square identities differ only in the sign of 2ab.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Subtracting the two expansions cancels a² and b²."
+        }
+      ],
+      "commonMistakes": [
+        "Expanding both squares fully instead of using the shortcut."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-009",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-apply",
+      "levelId": "algebraic-identities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "Using the difference of squares, what is 97 × 103?",
+      "answer": {
+        "value": 9991,
+        "tolerance": 0
+      },
+      "explanation": "97 × 103 = (100 − 3)(100 + 3) = 100² − 3² = 10,000 − 9 = 9,991.",
+      "solutionSteps": [
+        "(100−3)(100+3) = 100² − 3².",
+        "= 10,000 − 9.",
+        "= 9,991."
+      ],
+      "formulaIds": [
+        "ai-diffsquares-f"
+      ],
+      "method": "Rewrite as (round − small)(round + small).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both numbers are 3 away from 100."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 97 × 103 directly instead of using the shortcut."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-010",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "What is (2x + 3y)² expanded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4x² + 12xy + 9y²"
+        },
+        {
+          "id": "b",
+          "text": "4x² + 6xy + 9y²"
+        },
+        {
+          "id": "c",
+          "text": "2x² + 12xy + 3y²"
+        },
+        {
+          "id": "d",
+          "text": "4x² + 9y²"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Using (a+b)² with a = 2x, b = 3y: (2x)² + 2(2x)(3y) + (3y)² = 4x² + 12xy + 9y².",
+      "solutionSteps": [
+        "(2x)² = 4x².",
+        "2(2x)(3y) = 12xy.",
+        "(3y)² = 9y²."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Square each term, then double the product for the middle term.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Square the coefficients too, not just the variables."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to square the coefficients 2 and 3."
+      ],
+      "tags": [
+        "two-step"
+      ],
+      "estimatedSeconds": 45,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-011",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-sumdiffcubes",
+      "levelId": "algebraic-identities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If a + b = 8 and a² + b² = 34, what is a³ + b³?",
+      "answer": {
+        "value": 152,
+        "tolerance": 0
+      },
+      "explanation": "First find ab: (a+b)² = a²+2ab+b², so 64 = 34 + 2ab, giving ab = 15. Then a³+b³ = (a+b)(a²−ab+b²) = 8(34 − 15) = 8 × 19 = 152.",
+      "solutionSteps": [
+        "ab = ((a+b)² − (a²+b²)) / 2 = (64−34)/2 = 15.",
+        "a³+b³ = (a+b)(a²−ab+b²) = 8 × 19 = 152."
+      ],
+      "formulaIds": [
+        "ai-squares-f",
+        "ai-sumdiffcubes-f"
+      ],
+      "method": "Find ab first, then use the sum-of-cubes identity.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "You need ab before you can use the cube identity."
+        }
+      ],
+      "commonMistakes": [
+        "Trying to use the cube identity without first finding ab."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 75,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-012",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-sumdiffcubes",
+      "levelId": "algebraic-identities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "What is x³ − 27 factorised?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(x − 3)(x² + 3x + 9)"
+        },
+        {
+          "id": "b",
+          "text": "(x − 3)(x² − 3x + 9)"
+        },
+        {
+          "id": "c",
+          "text": "(x − 3)³"
+        },
+        {
+          "id": "d",
+          "text": "(x + 3)(x² − 3x + 9)"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "27 = 3³, so x³ − 27 = x³ − 3³ = (x − 3)(x² + 3x + 9), using a³ − b³ = (a − b)(a² + ab + b²).",
+      "solutionSteps": [
+        "27 = 3³.",
+        "a³ − b³ = (a − b)(a² + ab + b²).",
+        "x³ − 27 = (x − 3)(x² + 3x + 9)."
+      ],
+      "formulaIds": [
+        "ai-sumdiffcubes-f"
+      ],
+      "method": "Identify the cube root, then apply the identity.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The middle term of the quadratic factor is +ab, not −ab."
+        }
+      ],
+      "commonMistakes": [
+        "Using −3x instead of +3x in the quadratic factor."
+      ],
+      "tags": [
+        "multi-step",
+        "trap"
+      ],
+      "estimatedSeconds": 60,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "algebraic-identities-q-013",
+      "topicId": "algebraic-identities",
+      "conceptId": "ai-squares",
+      "levelId": "algebraic-identities-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "If x + 1/x = 5, what is x² + 1/x²?",
+      "answer": {
+        "value": 23,
+        "tolerance": 0
+      },
+      "explanation": "Square both sides: (x + 1/x)² = x² + 2 + 1/x². So 25 = x² + 1/x² + 2, giving x² + 1/x² = 23.",
+      "solutionSteps": [
+        "(x + 1/x)² = x² + 2 + 1/x².",
+        "25 = x² + 1/x² + 2.",
+        "x² + 1/x² = 23."
+      ],
+      "formulaIds": [
+        "ai-squares-f"
+      ],
+      "method": "Square the given expression, then subtract the constant 2.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Squaring (x + 1/x) produces a constant term of 2, not 0."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting the +2 that appears when the middle term simplifies."
+      ],
+      "tags": [
+        "multi-step"
+      ],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}

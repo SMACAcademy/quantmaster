@@ -1,0 +1,1332 @@
+{
+  "topicId": "heights-distances",
+  "concepts": [
+    {
+      "id": "hd-elevation",
+      "topicId": "heights-distances",
+      "name": "Angles of elevation and depression",
+      "description": "Looking up from the ground, or down from a height, measured from the horizontal.",
+      "sortOrder": 1
+    },
+    {
+      "id": "hd-one-triangle",
+      "topicId": "heights-distances",
+      "name": "One right triangle",
+      "description": "A height, a distance and one angle: the tangent links them.",
+      "sortOrder": 2
+    },
+    {
+      "id": "hd-two-angles",
+      "topicId": "heights-distances",
+      "name": "Two sightings",
+      "description": "Two angles from two points: write both distances in terms of the height.",
+      "sortOrder": 3
+    },
+    {
+      "id": "hd-shadow",
+      "topicId": "heights-distances",
+      "name": "Shadows and ladders",
+      "description": "The sun's altitude from a shadow, and how far a ladder reaches.",
+      "sortOrder": 4
+    }
+  ],
+  "formulas": [
+    {
+      "id": "hd-tan-f",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "title": "Height from a distance",
+      "prompt": "You know the ground distance to a tower and the angle of elevation. How do you get its height?",
+      "formula": "Height = Distance × tan θ\nDistance = Height ÷ tan θ",
+      "variables": [],
+      "explanation": "The height is opposite the angle and the ground distance is next to it, so the tangent links them.",
+      "example": "30 m away at 60°: height = 30 × √3 ≈ 51.96 m.",
+      "commonMistake": "Using sin θ with the ground distance; sine needs the line of sight.",
+      "applicationPrompt": "From 50 m away the top of a mast is at 30°. How tall is it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hd-depression-f",
+      "topicId": "heights-distances",
+      "conceptId": "hd-elevation",
+      "title": "Depression equals elevation",
+      "prompt": "How is the angle of depression from a height related to the angle of elevation from the ground?",
+      "formula": "Angle of depression (from the top) = angle of elevation (from the object)",
+      "variables": [],
+      "explanation": "The horizontal at the top is parallel to the ground, so the two angles are alternate angles.",
+      "example": "From a 40 m cliff a boat is at a depression of 45°: the boat sees the top at 45°, so it is 40 m away.",
+      "commonMistake": "Measuring the depression from the vertical instead of the horizontal.",
+      "applicationPrompt": "From a 60 m tower a car is at a depression of 30°. How far away is it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hd-values-f",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "title": "Tangents you will use",
+      "prompt": "Which tangent values come up again and again?",
+      "formula": "tan 30° = 1/√3 ≈ 0.577\ntan 45° = 1\ntan 60° = √3 ≈ 1.732",
+      "variables": [],
+      "explanation": "Almost every height-and-distance question uses 30°, 45° or 60°.",
+      "example": "At 45° the height equals the distance; at 60° it is √3 times the distance.",
+      "commonMistake": "Swapping tan 30° and tan 60°.",
+      "applicationPrompt": "At which angle is a tower exactly as tall as you are far from it?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hd-two-angles-f",
+      "topicId": "heights-distances",
+      "conceptId": "hd-two-angles",
+      "title": "Two angles, one walk",
+      "prompt": "Walking d metres towards a tower, the elevation rises from α to β. How tall is the tower?",
+      "formula": "h = d ÷ (cot α − cot β)",
+      "variables": [],
+      "explanation": "From each point the distance to the foot is h × cot(angle); the difference of the two distances is the walk.",
+      "example": "30° to 60° over 40 m: h = 40 ÷ (√3 − 1/√3) = 20√3 ≈ 34.64 m.",
+      "commonMistake": "Using the full distance from the first point with the second angle.",
+      "applicationPrompt": "The elevation goes from 45° to 60° over 20 m. Find the height.",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "hd-ladder-f",
+      "topicId": "heights-distances",
+      "conceptId": "hd-shadow",
+      "title": "Ladders and shadows",
+      "prompt": "A ladder of length L makes angle θ with the ground. How high does it reach?",
+      "formula": "Height reached = L × sin θ\nFoot from the wall = L × cos θ\nShadow: tan(sun's altitude) = height ÷ shadow",
+      "variables": [],
+      "explanation": "The ladder is the hypotenuse; a shadow is the ground side of the triangle the sun's ray makes.",
+      "example": "A 10 m ladder at 60° reaches 10 × √3/2 ≈ 8.66 m up the wall.",
+      "commonMistake": "Using cos for the height on the wall.",
+      "applicationPrompt": "A pole 6 m tall casts a 6√3 m shadow. What is the sun's altitude?",
+      "tags": [
+        "core"
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "hd-sc-30-60",
+      "topicId": "heights-distances",
+      "conceptId": "hd-two-angles",
+      "kind": "shortcut",
+      "title": "30° then 60°",
+      "prompt": "The elevation rises from 30° to 60° as you walk d towards a tower. What is the height?",
+      "formula": "Height = (√3/2) × d\nDistance still to go = d/2",
+      "variables": [],
+      "explanation": "With these two angles the walk is exactly twice the remaining distance.",
+      "example": "d = 40 m: height 20√3 ≈ 34.64 m, and you are 20 m from the foot.",
+      "commonMistake": "Using this for other pairs of angles.",
+      "applicationPrompt": "Over a 60 m walk the elevation goes from 30° to 60°. How far is the tower now?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "hd-sc-45",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "kind": "shortcut",
+      "title": "At 45°, height = distance",
+      "prompt": "What is special about an angle of elevation of 45°?",
+      "formula": "At 45°: height = ground distance",
+      "variables": [],
+      "explanation": "tan 45° = 1, so the two legs are equal.",
+      "example": "A kite string at 45° to the ground, 50 m from the point below the kite: the kite is 50 m up.",
+      "commonMistake": "Applying it to the line of sight, which is √2 times longer.",
+      "applicationPrompt": "From 75 m away the top of a building is at 45°. How tall is it?",
+      "tags": [
+        "shortcut"
+      ],
+      "difficulty": "easy"
+    }
+  ],
+  "levels": [
+    {
+      "id": "heights-distances-level-0",
+      "topicId": "heights-distances",
+      "order": 0,
+      "title": "Looking Up and Looking Down",
+      "description": "Angles of elevation and depression, and the one triangle behind every question.",
+      "type": "concept",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [],
+      "conceptIds": [
+        "hd-elevation",
+        "hd-one-triangle"
+      ],
+      "lesson": {
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Every question is a right triangle",
+            "body": "A tower, a pole or a cliff stands straight up from level ground. The height, the ground distance and your line of sight form a right triangle, with the right angle at the foot."
+          },
+          {
+            "type": "text",
+            "title": "Elevation and depression",
+            "body": "The angle of elevation is how far you look up from the horizontal to see the top. The angle of depression is how far you look down from the horizontal at the top to see something below. Because the horizontal at the top is parallel to the ground, the two angles are equal."
+          },
+          {
+            "type": "formula",
+            "title": "The one formula",
+            "body": "tan θ = Height ÷ Ground distance",
+            "caption": "Height = distance × tan θ; distance = height ÷ tan θ."
+          },
+          {
+            "type": "example",
+            "title": "45° is the easy case",
+            "body": "tan 45° = 1, so at 45° the height equals the distance: 30 m away at 45° means a 30 m tower."
+          },
+          {
+            "type": "check",
+            "questionId": "heights-distances-q-001"
+          },
+          {
+            "type": "simulation",
+            "simulationId": "heights-observer"
+          },
+          {
+            "type": "callout",
+            "tone": "tip",
+            "body": "Remember three tangents: tan 30° ≈ 0.577, tan 45° = 1, tan 60° ≈ 1.732. Almost every question uses one of them."
+          },
+          {
+            "type": "check",
+            "questionId": "heights-distances-q-003"
+          }
+        ]
+      },
+      "xpReward": 20
+    },
+    {
+      "id": "heights-distances-level-1",
+      "topicId": "heights-distances",
+      "order": 1,
+      "title": "Heights and Distances Formulas",
+      "description": "Elevation, depression, two sightings, ladders and shadows.",
+      "type": "formula_revision",
+      "difficulty": "easy",
+      "estimatedMinutes": 6,
+      "prerequisiteLevelIds": [
+        "heights-distances-level-0"
+      ],
+      "conceptIds": [
+        "hd-elevation",
+        "hd-one-triangle",
+        "hd-two-angles",
+        "hd-shadow"
+      ],
+      "formulaIds": [
+        "hd-tan-f",
+        "hd-depression-f",
+        "hd-values-f",
+        "hd-two-angles-f",
+        "hd-ladder-f"
+      ],
+      "passCriteria": {
+        "minimumRecalled": 3
+      },
+      "xpReward": 25
+    },
+    {
+      "id": "heights-distances-level-2",
+      "topicId": "heights-distances",
+      "order": 2,
+      "title": "One Triangle",
+      "description": "Towers, ladders and shadows with one angle.",
+      "type": "easy_practice",
+      "difficulty": "easy",
+      "estimatedMinutes": 8,
+      "prerequisiteLevelIds": [
+        "heights-distances-level-1"
+      ],
+      "conceptIds": [
+        "hd-one-triangle",
+        "hd-elevation",
+        "hd-shadow"
+      ],
+      "questionIds": [
+        "heights-distances-q-001",
+        "heights-distances-q-002",
+        "heights-distances-q-003",
+        "heights-distances-q-004",
+        "heights-distances-q-005"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 35
+    },
+    {
+      "id": "heights-distances-level-3",
+      "topicId": "heights-distances",
+      "order": 3,
+      "title": "Depression and Two Sightings",
+      "description": "Looking down from a height, and two angles from two places.",
+      "type": "medium_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 12,
+      "prerequisiteLevelIds": [
+        "heights-distances-level-2"
+      ],
+      "conceptIds": [
+        "hd-elevation",
+        "hd-two-angles",
+        "hd-shadow"
+      ],
+      "questionIds": [
+        "heights-distances-q-006",
+        "heights-distances-q-007",
+        "heights-distances-q-008",
+        "heights-distances-q-009",
+        "heights-distances-q-010"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 65,
+        "minimumQuestionsAttempted": 3
+      },
+      "xpReward": 45
+    },
+    {
+      "id": "heights-distances-level-4",
+      "topicId": "heights-distances",
+      "order": 4,
+      "title": "Two Towers, Two Ships",
+      "description": "Problems where the triangle is not standing on the ground.",
+      "type": "complex_practice",
+      "difficulty": "complex",
+      "estimatedMinutes": 14,
+      "prerequisiteLevelIds": [
+        "heights-distances-level-3"
+      ],
+      "conceptIds": [
+        "hd-elevation",
+        "hd-one-triangle"
+      ],
+      "questionIds": [
+        "heights-distances-q-011",
+        "heights-distances-q-012",
+        "heights-distances-q-013"
+      ],
+      "passCriteria": {
+        "minimumAccuracy": 60,
+        "minimumQuestionsAttempted": 2
+      },
+      "xpReward": 55
+    },
+    {
+      "id": "heights-distances-level-5",
+      "topicId": "heights-distances",
+      "order": 5,
+      "title": "Mixed Heights and Distances Practice",
+      "description": "A mix from the whole topic, including fresh generated questions.",
+      "type": "mixed_practice",
+      "difficulty": "medium",
+      "estimatedMinutes": 10,
+      "prerequisiteLevelIds": [
+        "heights-distances-level-4"
+      ],
+      "conceptIds": [
+        "hd-elevation",
+        "hd-one-triangle",
+        "hd-two-angles",
+        "hd-shadow"
+      ],
+      "questionQuery": {
+        "topicId": "heights-distances",
+        "difficulties": [
+          "easy",
+          "medium",
+          "complex"
+        ],
+        "count": 8,
+        "preferUnseen": true
+      },
+      "passCriteria": {
+        "minimumAccuracy": 70,
+        "minimumQuestionsAttempted": 5
+      },
+      "xpReward": 50
+    }
+  ],
+  "questions": [
+    {
+      "id": "heights-distances-q-001",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "levelId": "heights-distances-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "From a point 30 m from the foot of a tower, the angle of elevation of the top is 45°. How tall is the tower?",
+      "figure": {
+        "type": "diagram",
+        "caption": "A tower BC seen from A",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 30,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "C",
+            "x": 30,
+            "y": 30,
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "30 m",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "?",
+            "labelOffset": [
+              26,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "45°",
+            "radius": 26
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A tower BC seen from A. The angle of elevation at A is 45°, the ground distance AB is 30 m and the height BC is ?."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "30 m"
+        },
+        {
+          "id": "b",
+          "text": "15 m"
+        },
+        {
+          "id": "c",
+          "text": "30√3 m"
+        },
+        {
+          "id": "d",
+          "text": "10√3 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "tan 45° = 1, so the height equals the distance: 30 m.",
+      "solutionSteps": [
+        "tan 45° = height ÷ 30.",
+        "tan 45° = 1, so height = 30 m."
+      ],
+      "formulaIds": [
+        "hd-tan-f",
+        "hd-sc-45"
+      ],
+      "method": "At 45° the height equals the ground distance.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "What is tan 45°?"
+        }
+      ],
+      "commonMistakes": [
+        "Using sin 45° and getting about 21 m."
+      ],
+      "tags": [],
+      "estimatedSeconds": 30,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-002",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "levelId": "heights-distances-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "From a point 20 m from the foot of a pole, the angle of elevation of its top is 60°. How tall is the pole, in metres (to 2 decimal places)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "A pole BC seen from A",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 20,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "C",
+            "x": 20,
+            "y": 34.64101615137754,
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "20 m",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "C",
+            "label": "?",
+            "labelOffset": [
+              26,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "label": "60°",
+            "radius": 26
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C"
+          }
+        ],
+        "ariaSummary": "A pole BC seen from A. The angle of elevation at A is 60°, the ground distance AB is 20 m and the height BC is ?."
+      },
+      "answer": {
+        "value": 34.64,
+        "tolerance": 0.01,
+        "unit": "m"
+      },
+      "explanation": "Height = 20 × tan 60° = 20√3 ≈ 34.64 m.",
+      "solutionSteps": [
+        "tan 60° = height ÷ 20.",
+        "Height = 20 × √3 ≈ 34.64 m."
+      ],
+      "formulaIds": [
+        "hd-tan-f",
+        "hd-values-f"
+      ],
+      "method": "Height = distance × tan(angle of elevation).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "tan 60° = √3 ≈ 1.732."
+        }
+      ],
+      "commonMistakes": [
+        "Using tan 30° by mistake, which gives 11.55 m."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-003",
+      "topicId": "heights-distances",
+      "conceptId": "hd-elevation",
+      "levelId": "heights-distances-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "From the top of a cliff, the angle of depression of a boat is 30°. What is the angle of elevation of the cliff top from the boat?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30°"
+        },
+        {
+          "id": "b",
+          "text": "60°"
+        },
+        {
+          "id": "c",
+          "text": "90°"
+        },
+        {
+          "id": "d",
+          "text": "120°"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The horizontal through the cliff top is parallel to the sea, so the angle of depression and the angle of elevation are alternate angles: both 30°.",
+      "solutionSteps": [
+        "Horizontal at the top ∥ sea level.",
+        "Alternate angles are equal: 30°."
+      ],
+      "formulaIds": [
+        "hd-depression-f"
+      ],
+      "method": "Angle of depression from the top = angle of elevation from below.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Both angles are measured from a horizontal line."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 60°, the angle from the vertical."
+      ],
+      "tags": [],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-004",
+      "topicId": "heights-distances",
+      "conceptId": "hd-shadow",
+      "levelId": "heights-distances-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "single_choice",
+      "question": "A 10 m ladder leans against a wall, making 60° with the ground. How high up the wall does it reach?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5√3 m"
+        },
+        {
+          "id": "b",
+          "text": "5 m"
+        },
+        {
+          "id": "c",
+          "text": "10√3 m"
+        },
+        {
+          "id": "d",
+          "text": "10/√3 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The ladder is the hypotenuse, so height = 10 × sin 60° = 10 × √3/2 = 5√3 m.",
+      "solutionSteps": [
+        "Height = 10 × sin 60°.",
+        "= 10 × √3/2 = 5√3 m."
+      ],
+      "formulaIds": [
+        "hd-ladder-f"
+      ],
+      "method": "Height up the wall = ladder × sin(angle with the ground).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The ladder is the longest side."
+        },
+        {
+          "level": 2,
+          "text": "sin 60° = √3/2."
+        }
+      ],
+      "commonMistakes": [
+        "Using cos 60°, which gives the distance of the foot from the wall (5 m)."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-005",
+      "topicId": "heights-distances",
+      "conceptId": "hd-shadow",
+      "levelId": "heights-distances-level-2",
+      "difficulty": "easy",
+      "learningStage": "independent",
+      "type": "numerical_input",
+      "question": "A 12 m pole casts a 12 m shadow. What is the angle of elevation of the sun, in degrees?",
+      "answer": {
+        "value": 45,
+        "tolerance": 0
+      },
+      "explanation": "tan θ = 12 ÷ 12 = 1, so θ = 45°.",
+      "solutionSteps": [
+        "tan θ = height ÷ shadow = 1.",
+        "θ = 45°."
+      ],
+      "formulaIds": [
+        "hd-ladder-f",
+        "hd-values-f"
+      ],
+      "method": "tan(sun's altitude) = height ÷ shadow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Which angle has a tangent of 1?"
+        }
+      ],
+      "commonMistakes": [
+        "Answering 90° because the two lengths are equal."
+      ],
+      "tags": [],
+      "estimatedSeconds": 25,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-006",
+      "topicId": "heights-distances",
+      "conceptId": "hd-elevation",
+      "levelId": "heights-distances-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "From the top of a 60 m building, the angle of depression of a car on the road is 30°. How far is the car from the foot of the building, in metres (to 2 decimal places)?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Looking down from the top of the building",
+        "points": [
+          {
+            "id": "P",
+            "x": 0,
+            "y": 60,
+            "labelOffset": [
+              -14,
+              -6
+            ]
+          },
+          {
+            "id": "Q",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              8
+            ]
+          },
+          {
+            "id": "R",
+            "x": 103.92304845413263,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "H",
+            "x": 103.92304845413263,
+            "y": 60,
+            "hidden": true
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "Q",
+            "label": "60 m",
+            "labelOffset": [
+              -28,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "Q",
+            "to": "R",
+            "label": "?",
+            "labelOffset": [
+              0,
+              16
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "R",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "P",
+            "to": "H",
+            "style": "dashed"
+          }
+        ],
+        "angles": [
+          {
+            "at": "P",
+            "from": "H",
+            "to": "R",
+            "label": "30°",
+            "radius": 30
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "Q",
+            "from": "P",
+            "to": "R"
+          }
+        ],
+        "ariaSummary": "Looking down from the top of the building. The angle of depression at P, below the horizontal, is 30°. The height PQ is 60 m and the distance QR is ?."
+      },
+      "answer": {
+        "value": 103.92,
+        "tolerance": 0.01,
+        "unit": "m"
+      },
+      "explanation": "The car sees the top at 30°, so tan 30° = 60 ÷ distance and distance = 60√3 ≈ 103.92 m.",
+      "solutionSteps": [
+        "Angle of elevation from the car = 30°.",
+        "Distance = 60 ÷ tan 30° = 60√3.",
+        "≈ 103.92 m."
+      ],
+      "formulaIds": [
+        "hd-depression-f",
+        "hd-tan-f"
+      ],
+      "method": "Use the angle of depression as the angle of elevation at the car.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "1 ÷ tan 30° = √3."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying 60 by tan 30° and getting 34.64 m."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-007",
+      "topicId": "heights-distances",
+      "conceptId": "hd-two-angles",
+      "levelId": "heights-distances-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "The angle of elevation of the top of a tower changes from 30° to 60° as you walk 40 m towards it. How tall is the tower?",
+      "figure": {
+        "type": "diagram",
+        "caption": "Two sightings of the tower FT",
+        "points": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 0,
+            "labelOffset": [
+              -14,
+              6
+            ]
+          },
+          {
+            "id": "B",
+            "x": 40,
+            "y": 0,
+            "labelOffset": [
+              -4,
+              16
+            ]
+          },
+          {
+            "id": "F",
+            "x": 60,
+            "y": 0,
+            "labelOffset": [
+              8,
+              14
+            ]
+          },
+          {
+            "id": "T",
+            "x": 60,
+            "y": 34.64101615137754,
+            "labelOffset": [
+              8,
+              -8
+            ]
+          }
+        ],
+        "shapes": [
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "F"
+          },
+          {
+            "type": "segment",
+            "from": "F",
+            "to": "T",
+            "label": "?",
+            "labelOffset": [
+              16,
+              0
+            ]
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "T",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "B",
+            "to": "T",
+            "style": "dashed"
+          },
+          {
+            "type": "segment",
+            "from": "A",
+            "to": "B",
+            "label": "40 m",
+            "labelOffset": [
+              0,
+              30
+            ]
+          }
+        ],
+        "angles": [
+          {
+            "at": "A",
+            "from": "F",
+            "to": "T",
+            "label": "30°",
+            "radius": 30
+          },
+          {
+            "at": "B",
+            "from": "F",
+            "to": "T",
+            "label": "60°",
+            "radius": 24
+          }
+        ],
+        "rightAngles": [
+          {
+            "at": "F",
+            "from": "A",
+            "to": "T"
+          }
+        ],
+        "ariaSummary": "Two sightings of the tower FT. From A the angle of elevation of T is 30°; after walking 40 m to B it is 60°. The height FT is unknown."
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "20√3 m"
+        },
+        {
+          "id": "b",
+          "text": "40√3 m"
+        },
+        {
+          "id": "c",
+          "text": "20 m"
+        },
+        {
+          "id": "d",
+          "text": "40 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "h cot 30° − h cot 60° = 40, so h(√3 − 1/√3) = 40, h × 2/√3 = 40 and h = 20√3 m. The 30°-then-60° shortcut gives the same: (√3/2) × 40.",
+      "solutionSteps": [
+        "h√3 − h/√3 = 40.",
+        "h × 2/√3 = 40.",
+        "h = 20√3 m."
+      ],
+      "formulaIds": [
+        "hd-two-angles-f",
+        "hd-sc-30-60"
+      ],
+      "method": "Both ground distances in terms of h; their difference is the walk.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "From B the tower is h/√3 away; from A it is h√3 away."
+        }
+      ],
+      "commonMistakes": [
+        "Answering 40√3 m by using the whole 40 m with the 60° angle."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-008",
+      "topicId": "heights-distances",
+      "conceptId": "hd-shadow",
+      "levelId": "heights-distances-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "A tree 15 m tall casts a shadow 15√3 m long. What is the angle of elevation of the sun, in degrees?",
+      "answer": {
+        "value": 30,
+        "tolerance": 0
+      },
+      "explanation": "tan θ = 15 ÷ 15√3 = 1/√3, so θ = 30°.",
+      "solutionSteps": [
+        "tan θ = 15 ÷ 15√3 = 1/√3.",
+        "θ = 30°."
+      ],
+      "formulaIds": [
+        "hd-ladder-f",
+        "hd-values-f"
+      ],
+      "method": "tan(sun's altitude) = height ÷ shadow.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "Simplify 15 ÷ 15√3 first."
+        }
+      ],
+      "commonMistakes": [
+        "Dividing the shadow by the height, which gives 60°."
+      ],
+      "tags": [],
+      "estimatedSeconds": 35,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-009",
+      "topicId": "heights-distances",
+      "conceptId": "hd-two-angles",
+      "levelId": "heights-distances-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "single_choice",
+      "question": "A 10 m flagpole stands on top of a building. From a point on the ground, the angles of elevation of the bottom and top of the flagpole are 45° and 60°. How tall is the building?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5(√3 + 1) m"
+        },
+        {
+          "id": "b",
+          "text": "10√3 m"
+        },
+        {
+          "id": "c",
+          "text": "5(√3 − 1) m"
+        },
+        {
+          "id": "d",
+          "text": "10 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "Let the building be h and the distance x. From 45°: h = x. From 60°: h + 10 = x√3. So x√3 − x = 10, x = 10 ÷ (√3 − 1) = 5(√3 + 1) ≈ 13.66 m, and h = x.",
+      "solutionSteps": [
+        "h = x (45°).",
+        "h + 10 = x√3 (60°).",
+        "x(√3 − 1) = 10, so h = x = 5(√3 + 1) m."
+      ],
+      "formulaIds": [
+        "hd-tan-f",
+        "hd-sc-45"
+      ],
+      "method": "Write one equation for each angle with the same distance x.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "At 45° the building's height equals the distance."
+        },
+        {
+          "level": 2,
+          "text": "Rationalise 10 ÷ (√3 − 1)."
+        }
+      ],
+      "commonMistakes": [
+        "Treating 10 m as the height of the whole thing."
+      ],
+      "tags": [],
+      "estimatedSeconds": 80,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-010",
+      "topicId": "heights-distances",
+      "conceptId": "hd-shadow",
+      "levelId": "heights-distances-level-3",
+      "difficulty": "medium",
+      "learningStage": "guided",
+      "type": "numerical_input",
+      "question": "How long is the shadow of a 9 m pole when the sun's altitude is 60°, in metres (to 2 decimal places)?",
+      "answer": {
+        "value": 5.2,
+        "tolerance": 0.01,
+        "unit": "m"
+      },
+      "explanation": "Shadow = 9 ÷ tan 60° = 9/√3 = 3√3 ≈ 5.20 m.",
+      "solutionSteps": [
+        "tan 60° = 9 ÷ shadow.",
+        "Shadow = 9 ÷ √3 = 3√3 ≈ 5.20 m."
+      ],
+      "formulaIds": [
+        "hd-ladder-f",
+        "hd-tan-f"
+      ],
+      "method": "Shadow = height ÷ tan(sun's altitude).",
+      "hints": [
+        {
+          "level": 1,
+          "text": "A high sun casts a short shadow."
+        }
+      ],
+      "commonMistakes": [
+        "Multiplying by tan 60° and getting 15.59 m."
+      ],
+      "tags": [],
+      "estimatedSeconds": 40,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-011",
+      "topicId": "heights-distances",
+      "conceptId": "hd-elevation",
+      "levelId": "heights-distances-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "From the top of a 50 m tower, the angle of depression of the top of a 30 m tower is 30°. How far apart are the towers, in metres (to 2 decimal places)?",
+      "answer": {
+        "value": 34.64,
+        "tolerance": 0.01,
+        "unit": "m"
+      },
+      "explanation": "The difference in height, 20 m, is what the 30° looks down across. Distance = 20 ÷ tan 30° = 20√3 ≈ 34.64 m.",
+      "solutionSteps": [
+        "Height difference = 50 − 30 = 20 m.",
+        "tan 30° = 20 ÷ distance.",
+        "Distance = 20√3 ≈ 34.64 m."
+      ],
+      "formulaIds": [
+        "hd-depression-f",
+        "hd-tan-f"
+      ],
+      "method": "Draw the horizontal at the top of the shorter tower; only the difference in heights forms the triangle.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The triangle sits above the top of the shorter tower."
+        }
+      ],
+      "commonMistakes": [
+        "Using 50 m or 30 m as the height of the triangle."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-012",
+      "topicId": "heights-distances",
+      "conceptId": "hd-elevation",
+      "levelId": "heights-distances-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "single_choice",
+      "question": "From the top of a 75 m lighthouse, two ships on the same side are seen at angles of depression of 30° and 45°. How far apart are the ships?",
+      "options": [
+        {
+          "id": "a",
+          "text": "75(√3 − 1) m"
+        },
+        {
+          "id": "b",
+          "text": "75(√3 + 1) m"
+        },
+        {
+          "id": "c",
+          "text": "75√3 m"
+        },
+        {
+          "id": "d",
+          "text": "75 m"
+        }
+      ],
+      "correctAnswer": [
+        "a"
+      ],
+      "explanation": "The nearer ship (45°) is 75 m away; the farther (30°) is 75√3 m away. The gap is 75√3 − 75 = 75(√3 − 1) ≈ 54.9 m.",
+      "solutionSteps": [
+        "Nearer ship: 75 ÷ tan 45° = 75 m.",
+        "Farther ship: 75 ÷ tan 30° = 75√3 m.",
+        "Gap = 75(√3 − 1) m."
+      ],
+      "formulaIds": [
+        "hd-depression-f",
+        "hd-tan-f"
+      ],
+      "method": "Find each ship's distance from the foot, then subtract.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The smaller angle of depression belongs to the farther ship."
+        }
+      ],
+      "commonMistakes": [
+        "Adding the distances, which is right only if the ships are on opposite sides."
+      ],
+      "tags": [],
+      "estimatedSeconds": 70,
+      "source": "original",
+      "version": 1,
+      "active": true
+    },
+    {
+      "id": "heights-distances-q-013",
+      "topicId": "heights-distances",
+      "conceptId": "hd-one-triangle",
+      "levelId": "heights-distances-level-4",
+      "difficulty": "complex",
+      "learningStage": "challenge",
+      "type": "numerical_input",
+      "question": "A man whose eyes are 1.5 m above the ground stands 28.5 m from a tower. The angle of elevation of the top from his eyes is 45°. How tall is the tower, in metres?",
+      "answer": {
+        "value": 30,
+        "tolerance": 0,
+        "unit": "m"
+      },
+      "explanation": "Above eye level the tower rises 28.5 × tan 45° = 28.5 m. Adding the 1.5 m to eye level: 30 m.",
+      "solutionSteps": [
+        "Above eye level: 28.5 × tan 45° = 28.5 m.",
+        "Total: 28.5 + 1.5 = 30 m."
+      ],
+      "formulaIds": [
+        "hd-tan-f",
+        "hd-sc-45"
+      ],
+      "method": "Work from eye level, then add the observer's height.",
+      "hints": [
+        {
+          "level": 1,
+          "text": "The angle is measured from his eyes, not from the ground."
+        }
+      ],
+      "commonMistakes": [
+        "Forgetting to add the 1.5 m."
+      ],
+      "tags": [],
+      "estimatedSeconds": 50,
+      "source": "original",
+      "version": 1,
+      "active": true
+    }
+  ]
+}
