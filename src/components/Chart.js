@@ -4,6 +4,17 @@
  * (one spoke per category). No chart library —
  * colors come from the app's existing `--cat-*` category tokens, so charts
  * are theme-aware for free. See `src/utils/chartScale.js` for the pure math.
+ *
+ * Optional extras, used by the data-interpretation simulations (question
+ * charts leave them out and draw exactly as before):
+ *   chart.max                   the value axis reaches at least this far
+ *   chart.window: { from, to }  shade the categories from..to (indexes)
+ *   chart.guides: [{ value, colorToken? }]            dashed level lines
+ *   chart.legend: [{ label, colorToken?, dashed? }]   the legend, given outright
+ *   series.colorTokens[i]       one bar's own colour; series.dim[i] fades a bar
+ *   series.highlights: [{ from, colorToken, label? }] a wide band under the
+ *                               line from point `from` to the next
+ *   pie: chart.selected (an index, pulled out), chart.sectorLabels, chart.legendLabels
  */
 
 import { el, svgEl } from '../utils/dom.js';
@@ -30,19 +41,25 @@ function renderLegend(items) {
     {},
     items.map((item) =>
       el('li.chart-legend__item', {}, [
-        el('span.chart-legend__swatch', { style: { background: item.color } }),
+        item.dashed
+          ? el('span.chart-legend__swatch.chart-legend__swatch--dashed', { style: { borderColor: item.color } })
+          : el('span.chart-legend__swatch', { style: { background: item.color } }),
         el('span', { text: item.label })
       ])
     )
   );
 }
 
+/** A legend given outright (`chart.legend`), each item coloured by its token. */
+const givenLegend = (items) =>
+  renderLegend(items.map((item) => ({ ...item, color: item.colorToken ? `var(--cat-${item.colorToken})` : 'var(--fg-subtle)' })));
+
 function renderAxisChart(chart, kind) {
   const categories = chart.categories || [];
   const series = chart.series || [];
   const dataMax = Math.max(0, ...series.flatMap((s) => s.data));
   // A combo chart prints the line's values above its points: leave room above the tallest one.
-  const scale = niceScale(kind === 'combo' ? dataMax * 1.12 : dataMax);
+  const scale = niceScale(Math.max(chart.max || 0, kind === 'combo' ? dataMax * 1.12 : dataMax));
   const valueToY = (value) => PLOT_BOTTOM - (value / scale.max) * PLOT_HEIGHT;
   const categoryWidth = PLOT_WIDTH / categories.length;
 
@@ -93,8 +110,8 @@ function renderAxisChart(chart, kind) {
             width: Math.max(barWidth, 0),
             height: Math.max(PLOT_BOTTOM - y, 0),
             rx: 2,
-            class: 'chart-bar',
-            style: { fill: seriesColor(si, s.colorToken) }
+            class: s.dim?.[ci] ? 'chart-bar chart-bar--dim' : 'chart-bar',
+            style: { fill: seriesColor(si, s.colorTokens?.[ci] || s.colorToken) }
           }),
           // Exact values: questions ask for arithmetic the gridlines alone can't support.
           svgEl('text', {
@@ -120,7 +137,26 @@ function renderAxisChart(chart, kind) {
       // Value labels sit above each point, except the lowest series at that category goes
       // below, so two lines running close together don't print on top of each other.
       const isLowest = (ci) => lineSeries.length > 1 && lineSeries.every(({ s: other, si: oi }) => oi === si || other.data[ci] > s.data[ci]);
+      // A highlighted step lies under the line as a wide band, its label above the middle.
+      const highlights = (s.highlights || [])
+        .filter((h) => points[h.from] && points[h.from + 1])
+        .map((h) => {
+          const [a, b] = [points[h.from], points[h.from + 1]];
+          return svgEl('g', {}, [
+            svgEl('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'chart-highlight', style: { stroke: `var(--cat-${h.colorToken})` } }),
+            h.label
+              ? svgEl('text', {
+                  x: (a.x + b.x) / 2,
+                  y: Math.min(a.y, b.y) - 14,
+                  class: 'chart-value-label chart-value-label--halo chart-highlight-label',
+                  'text-anchor': 'middle',
+                  text: h.label
+                })
+              : null
+          ]);
+        });
       return svgEl('g', {}, [
+        ...highlights,
         svgEl('path', { d, class: 'chart-line', style: { stroke: color } }),
         ...points.map((p) => svgEl('circle', { cx: p.x, cy: p.y, r: 4, class: 'chart-point', style: { fill: color } })),
         ...points.map((p, ci) =>
@@ -137,20 +173,47 @@ function renderAxisChart(chart, kind) {
     plotContent = [...plotContent, ...lines];
   }
 
+  const band = chart.window
+    ? svgEl('rect', {
+        x: MARGIN.left + categoryWidth * chart.window.from,
+        y: MARGIN.top,
+        width: categoryWidth * (chart.window.to - chart.window.from + 1),
+        height: PLOT_HEIGHT,
+        rx: 6,
+        class: 'chart-window'
+      })
+    : null;
+  const guides = (chart.guides || [])
+    .filter((guide) => guide.value >= 0 && guide.value <= scale.max)
+    .map((guide) =>
+      svgEl('line', {
+        x1: MARGIN.left,
+        x2: MARGIN.left + PLOT_WIDTH,
+        y1: valueToY(guide.value),
+        y2: valueToY(guide.value),
+        class: 'chart-guide',
+        style: guide.colorToken ? { stroke: `var(--cat-${guide.colorToken})` } : {}
+      })
+    );
+
   const svg = svgEl('svg', { viewBox: `0 0 ${WIDTH} ${HEIGHT}`, class: 'chart-svg', 'aria-hidden': 'true' }, [
+    band,
     ...gridlines,
     ...categoryLabels,
-    ...plotContent
+    ...plotContent,
+    ...guides
   ]);
 
-  const legend = series.length > 1
-    ? renderLegend(
-        series.map((s, i) => ({
-          label: kind === 'combo' ? `${s.label} (${kindOf(s) === 'line' ? 'line' : 'bars'})` : s.label,
-          color: seriesColor(i, s.colorToken)
-        }))
-      )
-    : null;
+  const legend = chart.legend
+    ? givenLegend(chart.legend)
+    : series.length > 1
+      ? renderLegend(
+          series.map((s, i) => ({
+            label: kind === 'combo' ? `${s.label} (${kindOf(s) === 'line' ? 'line' : 'bars'})` : s.label,
+            color: seriesColor(i, s.colorToken)
+          }))
+        )
+      : null;
 
   return el('div.chart-body', {}, [svg, legend]);
 }
@@ -213,19 +276,30 @@ function renderPie(chart) {
   const cy = 160;
   const radius = 130;
 
-  const paths = sectors.map((sector, i) =>
-    svgEl('path', {
-      d: pieSectorPath(cx, cy, radius, sector.startAngle, sector.endAngle),
-      class: 'chart-pie-sector',
+  // The selected sector (if any) is pulled out along its middle, so it stands apart.
+  const shift = (sector, i) => (i === chart.selected ? pointOnCircle(0, 0, 10, (sector.startAngle + sector.endAngle) / 2) : { x: 0, y: 0 });
+  const paths = sectors.map((sector, i) => {
+    const { x, y } = shift(sector, i);
+    return svgEl('path', {
+      d: pieSectorPath(cx + x, cy + y, radius, sector.startAngle, sector.endAngle),
+      class: i === chart.selected ? 'chart-pie-sector chart-pie-sector--selected' : 'chart-pie-sector',
       style: { fill: `var(--cat-${CAT_TOKENS[i % CAT_TOKENS.length]})` }
-    })
-  );
+    });
+  });
+  const labels = (chart.sectorLabels || []).map((text, i) => {
+    const sector = sectors[i];
+    // A label only where the sector is wide enough to hold it.
+    if (!text || !sector || sector.endAngle - sector.startAngle < 14) return null;
+    const { x, y } = shift(sector, i);
+    const at = pointOnCircle(cx + x, cy + y, radius * 0.66, (sector.startAngle + sector.endAngle) / 2);
+    return svgEl('text', { x: at.x, y: at.y, class: 'chart-pie-label', 'text-anchor': 'middle', 'dominant-baseline': 'middle', text });
+  });
 
-  const svg = svgEl('svg', { viewBox: '0 0 320 320', class: 'chart-svg chart-svg--pie', 'aria-hidden': 'true' }, paths);
+  const svg = svgEl('svg', { viewBox: '0 0 320 320', class: 'chart-svg chart-svg--pie', 'aria-hidden': 'true' }, [...paths, ...labels]);
 
   const legend = renderLegend(
     categories.map((label, i) => ({
-      label: `${label} — ${formatNumber(Math.round(sectors[i]?.percent || 0))}%`,
+      label: chart.legendLabels?.[i] ?? `${label} — ${formatNumber(Math.round(sectors[i]?.percent || 0))}%`,
       color: `var(--cat-${CAT_TOKENS[i % CAT_TOKENS.length]})`
     }))
   );

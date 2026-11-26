@@ -146,6 +146,10 @@
             "body": "When comparing totals across categories, add up every bar for that series before comparing — do not judge by eye from a single bar."
           },
           {
+            "type": "simulation",
+            "simulationId": "di-bar-graphs"
+          },
+          {
             "type": "check",
             "questionId": "di-bar-graphs-q-002"
           }

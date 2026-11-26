@@ -61,6 +61,10 @@
             "type": "text",
             "title": "Where this shows up",
             "body": "Profit and loss, discounts, simple and compound interest, data interpretation, population growth and exam marks are all percentage questions wearing different clothes. Getting fluent here is the cheapest way to get better at half the syllabus."
+          },
+          {
+            "type": "simulation",
+            "simulationId": "successive-change"
           }
         ]
       }

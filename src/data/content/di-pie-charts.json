@@ -155,6 +155,10 @@
             "caption": "Because 360° ÷ 100% = 3.6° per percentage point."
           },
           {
+            "type": "simulation",
+            "simulationId": "di-pie-charts"
+          },
+          {
             "type": "check",
             "questionId": "di-pie-charts-q-002"
           },

@@ -5,7 +5,7 @@
  *
  *   id, topicId, title, summary      what it is, and which topic it belongs to
  *   controls                         sliders and choices the learner changes:
- *     { id, label, type: 'range', min, max, step, default, unit? }
+ *     { id, label, type: 'range', min, max, step, default, unit?, plain? }   plain: shown as is (a year: 2023, not 2,023)
  *     { id, label, type: 'choice', options: [{ id, label }], default }
  *     { id, label, type: 'reroll', default }   a button that draws a fresh random run
  *   compute(values)                  -> { numbers, readouts, plot, insight }
