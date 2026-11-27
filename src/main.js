@@ -14,7 +14,7 @@ import { initModals, showAchievementModal } from './components/Modal.js';
 import { celebrate, floatXp, milestoneActive, showStreakMilestone } from './components/Celebration.js';
 import { BIG_STREAK_MILESTONES, STREAK_RULES } from './app/config.js';
 import { emptyState, linkButton } from './components/ui.js';
-import { storageIsPersistent } from './repositories/progressRepository.js';
+import { getUserProgress, storageIsPersistent } from './repositories/progressRepository.js';
 import { initPwa } from './pwa/pwa.js';
 import { ensureMistakeContent, prefetchAllContent } from './services/contentGate.js';
 import { initReminders } from './services/reminders.js';
@@ -39,6 +39,8 @@ import { ProgressView } from './views/ProgressView.js';
 import { SettingsView } from './views/SettingsView.js';
 import { PrivacyView } from './views/PrivacyView.js';
 import { AboutView } from './views/AboutView.js';
+import { LandingView } from './views/LandingView.js';
+import { shouldShowLanding } from './landing/journey.js';
 
 async function boot() {
   const settings = getSettings();
@@ -92,7 +94,9 @@ async function boot() {
 }
 
 function registerRoutes() {
-  route('/', DashboardView);
+  // A first visit to the home address gets the 3D landing page; after that, the dashboard.
+  route('/', (ctx) => (shouldShowLanding(getUserProgress()) ? LandingView(ctx) : DashboardView(ctx)));
+  route('/welcome', LandingView);
   route('/topics', TopicsView);
   route('/topics/:topicId', TopicDetailView);
   route('/topics/:topicId/levels/:levelId', LevelView);
