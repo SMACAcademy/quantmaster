@@ -408,7 +408,7 @@ export async function FormulaRevisionView(ctx) {
           onClick: () =>
             navigate(topicId ? `/practice?mode=smart&topic=${topicId}` : '/practice?mode=smart')
         }),
-        linkButton('Back to dashboard', '/', { variant: 'ghost' })
+        linkButton('Back to dashboard', '/dashboard', { variant: 'ghost' })
       ])
     ]);
   }

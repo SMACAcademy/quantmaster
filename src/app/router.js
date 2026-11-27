@@ -81,7 +81,7 @@ export function navigate(path, { replace = false } = {}) {
   }
 }
 
-export function back(fallback = '/') {
+export function back(fallback = '/dashboard') {
   if (window.history.length > 1) window.history.back();
   else navigate(fallback, { replace: true });
 }
@@ -174,7 +174,7 @@ function renderRouteError(error) {
   const btn = document.createElement('button');
   btn.className = 'btn btn--primary';
   btn.textContent = 'Back to dashboard';
-  btn.addEventListener('click', () => navigate('/'));
+  btn.addEventListener('click', () => navigate('/dashboard'));
   wrap.append(h, p, btn);
   return wrap;
 }

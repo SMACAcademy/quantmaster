@@ -17,7 +17,7 @@ import { PWA_EVENTS } from '../pwa/pwa.js';
 import { COMMUNITY, CREATOR, REPO_URL, hasCreator } from '../app/community.js';
 
 const NAV_ITEMS = [
-  { id: 'dashboard', label: 'Dashboard', icon: 'home', href: '/', match: (p) => p === '/' },
+  { id: 'dashboard', label: 'Dashboard', icon: 'home', href: '/dashboard', match: (p) => p === '/dashboard' },
   {
     id: 'topics',
     label: 'Topics',
@@ -99,7 +99,7 @@ function siteFooter() {
     dot(),
     el('a', { href: REPO_URL, ...external, text: 'Star on GitHub' }),
     dot(),
-    el('a', { href: '#/welcome', text: '3D tour' }),
+    el('a', { href: '#/', text: '3D tour' }),
     dot(),
     el('a', { href: '#/about', text: 'About' })
   ]);
@@ -174,7 +174,7 @@ export function createAppShell() {
 
   const shell = el('div.shell', {}, [
     el('aside.sidebar', {}, [
-      el('a.sidebar__brand', { href: '#/', style: { color: 'inherit', textDecoration: 'none' } }, [
+      el('a.sidebar__brand', { href: '#/dashboard', style: { color: 'inherit', textDecoration: 'none' } }, [
         brandMark(),
         el('div', {}, [
           el('div.brand-name', { text: 'QuantMaster' }),
@@ -186,7 +186,7 @@ export function createAppShell() {
     ]),
     el('div.shell__main', {}, [
       el('header.topbar', {}, [
-        el('a.topbar__mobile-brand', { href: '#/', style: { color: 'inherit' } }, [brandMark()]),
+        el('a.topbar__mobile-brand', { href: '#/dashboard', style: { color: 'inherit' } }, [brandMark()]),
         topbarTitle,
         el('div.topbar__spacer'),
         topbarStats

@@ -151,7 +151,7 @@ export function ResultsView() {
       result.wrong
         ? linkButton('Review my mistakes', '/mistakes', { variant: 'soft', iconName: 'refresh' })
         : null,
-      linkButton(level ? 'Back to topic' : 'Back to dashboard', result.returnTo || '/', {
+      linkButton(level ? 'Back to topic' : 'Back to dashboard', result.returnTo || '/dashboard', {
         variant: 'ghost'
       })
     ])
