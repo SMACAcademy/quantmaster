@@ -83,7 +83,11 @@ export function MockTestsView() {
         el('h1', { text: 'Mock tests' }),
         el('p', {
           text: 'Exam-pattern papers with the real clock and marking. Move freely between questions, mark some for review, and change answers until you submit. The analysis shows your score, time per question and what to skip next time.'
-        })
+        }),
+        el('p.text-xs.text-subtle', {}, [
+          'Patterns follow the published exams as closely as we can, but they change: check your exam’s official notification. QuantMaster is not affiliated with any exam body. ',
+          el('a', { href: '#/disclaimer', text: 'Disclaimer' })
+        ])
       ])
     ]),
     ...[

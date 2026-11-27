@@ -128,6 +128,10 @@ More: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · [docs/DATA_MODEL.md](docs/
 - The share button relies on the Web Share API or clipboard access, which some embedded browsers block.
 - Mastery and review scheduling are transparent rule-based models, not calibrated psychometrics. The app says so.
 
+## Disclaimer
+
+QuantMaster is a free study aid, provided **as is**. Content is checked with care (every generated answer a second, independent way), but mistakes can still slip through, and exam patterns change. It is not affiliated with or endorsed by IBPS, SBI, SSC, the IIMs, the Railway Recruitment Boards or any other exam body; always check your exam's official notification. Interest, GST and tax questions are simplified for practice and are not financial or tax advice. To the fullest extent the law allows, the creator and contributors accept no liability for any loss arising from its use. Found a mistake? Report it with the evidence, or fix it in a pull request: see [DISCLAIMER.md](DISCLAIMER.md) and [CONTRIBUTING.md](CONTRIBUTING.md#report-a-mistake).
+
 ## Contributing and licences
 
 Corrections, new questions, translations and code are all welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Ideas for missing topics or simulations go in [Discussions → Ideas](https://github.com/SMACAcademy/quantmaster/discussions/categories/ideas); every solution in the app also has an "Ask or share a quicker way" link and a "Report a problem" link that open GitHub with the question already filled in. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md); report security issues as described in [SECURITY.md](SECURITY.md).

@@ -93,3 +93,17 @@ test('a worked solution links to GitHub to ask about the question or report a pr
   await expect(report).toHaveAttribute('href', /&topic=Trains/);
   await expect(page.getByRole('link', { name: 'Ask or share a quicker way' })).toHaveAttribute('href', /discussions\/new\?category=q-a/);
 });
+
+test('the disclaimer is a click away and explains how to correct a mistake', async ({ page }) => {
+  const errors = watchForErrors(page);
+  await page.goto('/#/topics');
+  await page.locator('.site-footer').getByRole('link', { name: 'Disclaimer' }).click();
+  await expect(page.getByRole('heading', { name: 'Disclaimer', level: 1 })).toBeVisible();
+  for (const name of ['Mistakes can happen', 'Not official exam material', 'Not financial, tax or professional advice', 'No warranty, no liability', 'Found a mistake? Help fix it']) {
+    await expect(page.getByRole('heading', { name })).toBeVisible();
+  }
+  await expect(page.getByRole('link', { name: 'open a content-error report' })).toHaveAttribute('href', /issues\/new\?template=content-error\.yml/);
+  await page.goto('/#/mock');
+  await expect(page.locator('main')).toContainText('not affiliated with any exam body');
+  expect(errors).toEqual([]);
+});

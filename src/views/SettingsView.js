@@ -276,6 +276,7 @@ export async function SettingsView() {
         ),
         aboutRow('Learning since', new Date(progress.createdAt).toLocaleDateString()),
         el('a.text-sm', { href: '#/privacy', text: 'Privacy: what is stored and how to delete it' }),
+        el('a.text-sm', { href: '#/disclaimer', style: { display: 'block', marginTop: '4px' }, text: 'Disclaimer: content is provided as is, and how to report a mistake' }),
         el('p.text-xs.text-subtle', {
           style: { marginTop: '8px' },
           text: 'Mastery percentages are learning indicators derived from your own answers. They are useful for choosing what to practise next, not a formal assessment.'

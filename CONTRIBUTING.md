@@ -15,6 +15,13 @@ Found a wrong answer, a confusing question or a figure that does not match its
 text? Use **Report a problem with this question** under any solution in the app (it fills in the topic and question for you), or open an issue with the **Content error** template. Include the topic, the
 question (or a screenshot) and what you think is wrong. That alone is a big help.
 
+To get a correction merged quickly, include the **evidence**: your full working, a
+textbook reference, or the official notification for an exam detail (pattern,
+marking, syllabus). You can also fix it yourself: edit the content (see below) and
+open a pull request that says what was wrong, what it should be, and why. Automated
+checks run on it, a maintainer reviews it, and once merged it is live within
+minutes, credited to you. See also the [disclaimer](DISCLAIMER.md).
+
 ## Change or add content
 
 Content lives in `src/data/content/<topicId>.json` (Percentages uses the split

@@ -23,3 +23,10 @@ body:
       description: What you think the right answer or wording is, and your working.
     validations:
       required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Anything that shows the correction is right, for example your full working, a textbook reference, or the official notification for an exam detail. Screenshots are welcome.
+    validations:
+      required: false
