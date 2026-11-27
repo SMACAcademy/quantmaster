@@ -33,14 +33,6 @@ export async function seedProgress(context, progress) {
   }, progress);
 }
 
-/**
- * Skip the landing page, as a visitor who has already been past it would. Tests
- * that start at the home address and are about the dashboard use this.
- */
-export async function skipLanding(context) {
-  await context.addInitScript(() => window.localStorage.setItem('quantmaster:v1:welcomed', 'true'));
-}
-
 export const completedLevels = (...ids) =>
   Object.fromEntries(ids.map((id) => [id, { levelId: id, topicId: id.replace(/-level-\d+$/, ''), status: 'completed', attempts: 1, bestAccuracy: 100 }]));
 

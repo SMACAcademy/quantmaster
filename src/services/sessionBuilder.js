@@ -319,7 +319,7 @@ export function buildDailyChallenge({ count = 8 } = {}) {
     // `day` marks the shared challenge (the same questions for everyone today),
     // so friends can compare; the personal daily mission has no `day`.
     source: { type: 'daily', day: dayKey() },
-    returnTo: '/'
+    returnTo: '/dashboard'
   });
 }
 
@@ -401,7 +401,7 @@ export function buildPresetSession(presetId = 'daily-mission', { topicId = null 
     subtitle: `${preset.minutes}-minute session`,
     source: { type: presetId === 'daily-mission' ? 'daily' : 'session', topicId, presetId },
     formulaCards,
-    returnTo: '/'
+    returnTo: '/dashboard'
   });
 }
 

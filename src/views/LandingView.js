@@ -1,8 +1,8 @@
 /**
  * Landing page: a scroll-driven flight through 3D models of quant and reasoning
  * ideas (trains, a filling tank, a round table, rising charts, a clock, coins,
- * a Venn diagram), with a card beside each one. First visits to the home
- * address land here; the 3D scene loads only on this page.
+ * a Venn diagram), with a card beside each one. This is the home address for
+ * everyone; the dashboard is at #/dashboard. The 3D scene loads only on this page.
  *
  * With reduced motion, or without WebGL, the same content shows as a still page.
  */
@@ -19,12 +19,11 @@ import { SIMULATION_META } from '../simulations/meta.js';
 import { MOCK_PATTERNS } from '../mock/patterns.js';
 import { COMMUNITY, CREATOR, REPO_URL, hasCreator } from '../app/community.js';
 import { puzzleCard } from '../components/PuzzleCard.js';
-import { FINAL_STATION, STATIONS, markWelcomed, progressFromScroll } from '../landing/journey.js';
+import { FINAL_STATION, STATIONS, progressFromScroll } from '../landing/journey.js';
 
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 
-function enterApp(path = '/') {
-  markWelcomed();
+function enterApp(path = '/dashboard') {
   navigate(path);
 }
 
@@ -37,7 +36,7 @@ function scrollToStation(root, index) {
 }
 
 function brand() {
-  return el('a.landing-brand', { href: '#/welcome', 'aria-label': 'QuantMaster home' }, [
+  return el('a.landing-brand', { href: '#/', 'aria-label': 'QuantMaster home' }, [
     el('span.landing-brand__mark', { 'aria-hidden': 'true', text: 'Q' }),
     el('span', { text: 'QuantMaster' })
   ]);
@@ -51,7 +50,7 @@ function topBar(root) {
       { 'aria-label': 'Jump to a stop' },
       STATIONS.map((s, i) => (s.nav ? el('button.landing-bar__link', { type: 'button', text: s.nav, on: { click: () => scrollToStation(root, i) } }) : null))
     ),
-    el('button.btn.btn--primary.btn--sm', { type: 'button', on: { click: () => enterApp('/') } }, [el('span', { text: 'Open QuantMaster' })])
+    el('button.btn.btn--primary.btn--sm', { type: 'button', on: { click: () => enterApp() } }, [el('span', { text: 'Open QuantMaster' })])
   ]);
 }
 
@@ -87,7 +86,7 @@ function hero(root) {
         text: 'Trains that meet, tanks that fill, people who take their seats. QuantMaster turns every aptitude and reasoning topic into a picture you can play with, then teaches the method with hints that come one at a time. Built for CAT, bank, SSC, railway and campus placement exams.'
       }),
       el('div.landing-actions', {}, [
-        el('button.btn.btn--primary.landing-cta', { type: 'button', on: { click: () => enterApp('/') } }, [el('span', { text: 'Start practising' }), icon('play', { size: 17 })]),
+        el('button.btn.btn--primary.landing-cta', { type: 'button', on: { click: () => enterApp() } }, [el('span', { text: 'Start practising' }), icon('play', { size: 17 })]),
         el('button.btn.btn--soft', { type: 'button', on: { click: () => scrollToStation(root, 1) } }, [el('span', { text: 'Fly through it' }), el('span', { 'aria-hidden': 'true', text: '↓' })])
       ]),
       el('ul.landing-stats', {}, [
@@ -180,7 +179,7 @@ function finalCall() {
         text: 'No sign-up, no ads, no tracking. Your progress stays in your own browser and the app keeps working offline.'
       }),
       el('div.landing-actions.landing-actions--center', {}, [
-        el('button.btn.btn--primary.landing-cta', { type: 'button', on: { click: () => enterApp('/') } }, [el('span', { text: 'Start practising' }), icon('play', { size: 17 })]),
+        el('button.btn.btn--primary.landing-cta', { type: 'button', on: { click: () => enterApp() } }, [el('span', { text: 'Start practising' }), icon('play', { size: 17 })]),
         el('a.btn.btn--soft', { href: REPO_URL, ...external }, [icon('award', { size: 17 }), el('span', { text: 'Star on GitHub' })]),
         el('a.btn.btn--ghost', { href: COMMUNITY.discussions, ...external }, [el('span', { text: 'Join the discussions' })])
       ]),
@@ -242,12 +241,6 @@ export function LandingView() {
       ])
     ].filter(Boolean)
   );
-
-  // Any link into the app counts as having seen the welcome.
-  root.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href^="#/"]');
-    if (link && link.getAttribute('href') !== '#/welcome') markWelcomed();
-  });
 
   let scene = null;
   let disposed = false;

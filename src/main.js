@@ -14,7 +14,7 @@ import { initModals, showAchievementModal } from './components/Modal.js';
 import { celebrate, floatXp, milestoneActive, showStreakMilestone } from './components/Celebration.js';
 import { BIG_STREAK_MILESTONES, STREAK_RULES } from './app/config.js';
 import { emptyState, linkButton } from './components/ui.js';
-import { getUserProgress, storageIsPersistent } from './repositories/progressRepository.js';
+import { storageIsPersistent } from './repositories/progressRepository.js';
 import { initPwa } from './pwa/pwa.js';
 import { ensureMistakeContent, prefetchAllContent } from './services/contentGate.js';
 import { initReminders } from './services/reminders.js';
@@ -40,7 +40,6 @@ import { SettingsView } from './views/SettingsView.js';
 import { PrivacyView } from './views/PrivacyView.js';
 import { AboutView } from './views/AboutView.js';
 import { LandingView } from './views/LandingView.js';
-import { shouldShowLanding } from './landing/journey.js';
 
 async function boot() {
   const settings = getSettings();
@@ -94,9 +93,10 @@ async function boot() {
 }
 
 function registerRoutes() {
-  // A first visit to the home address gets the 3D landing page; after that, the dashboard.
-  route('/', (ctx) => (shouldShowLanding(getUserProgress()) ? LandingView(ctx) : DashboardView(ctx)));
-  route('/welcome', LandingView);
+  // The home address is the 3D landing tour, for everyone; the dashboard has its own address.
+  route('/', LandingView);
+  route('/welcome', LandingView); // kept so earlier links still work
+  route('/dashboard', DashboardView);
   route('/topics', TopicsView);
   route('/topics/:topicId', TopicDetailView);
   route('/topics/:topicId/levels/:levelId', LevelView);
@@ -126,7 +126,7 @@ function registerRoutes() {
       title: 'That page does not exist',
       body: 'The link may be out of date.',
       iconName: 'compass',
-      action: linkButton('Back to dashboard', '/', { variant: 'primary' })
+      action: linkButton('Back to dashboard', '/dashboard', { variant: 'primary' })
     })
   }));
 }

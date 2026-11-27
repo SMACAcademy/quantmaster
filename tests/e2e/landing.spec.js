@@ -4,7 +4,7 @@ import { expect, seedProgress, test, watchForErrors } from './helpers.js';
 
 const TITLE = { name: 'See the maths move' };
 
-test('a first visit lands on the tour, and Start practising opens the dashboard', async ({ page }) => {
+test('the home address is the tour, and Start practising opens the dashboard', async ({ page }) => {
   const errors = watchForErrors(page);
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1, ...TITLE })).toBeVisible();
@@ -26,9 +26,10 @@ test('a first visit lands on the tour, and Start practising opens the dashboard'
   await page.getByRole('button', { name: 'Start practising' }).first().click();
   await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
 
-  // Once past it, the home address is the dashboard; the tour stays a link away.
+  // The home address is always the tour; the footer links back to it.
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, ...TITLE })).toBeVisible();
+  await page.goto('/#/dashboard');
   await page.locator('.site-footer').getByRole('link', { name: '3D tour' }).click();
   await expect(page.getByRole('heading', { level: 1, ...TITLE })).toBeVisible();
   expect(errors).toEqual([]);
@@ -63,11 +64,10 @@ test('with reduced motion the tour is a still page', async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
-test('a returning learner goes straight to the dashboard', async ({ page, context }) => {
+test('a returning learner also lands on the tour', async ({ page, context }) => {
   await seedProgress(context, { stats: { questionsAnswered: 12, correctAnswers: 9 }, xp: { total: 90 } });
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1, ...TITLE })).toHaveCount(0);
-  await expect(page.locator('.landing')).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 1, ...TITLE })).toBeVisible();
 });
 
 test('the tour fits a phone screen @phone', async ({ page }) => {

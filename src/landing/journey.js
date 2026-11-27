@@ -4,10 +4,6 @@
  * on the journey. Kept free of DOM and WebGL so it can be unit tested.
  */
 
-import { readJSON, writeJSON } from '../utils/storage.js';
-
-export const WELCOMED_KEY = 'quantmaster:v1:welcomed';
-
 /**
  * Stations in flight order. `side` is where the 3D scene sits on wide screens;
  * the card goes on the other side. `topics` and `simulation` must exist in the
@@ -154,20 +150,3 @@ export const ease = (t) => {
   const x = clamp(t, 0, 1);
   return x * x * (3 - 2 * x);
 };
-
-/* ---------------- first visit ---------------- */
-
-export const isWelcomed = () => readJSON(WELCOMED_KEY, false) === true;
-export const markWelcomed = () => writeJSON(WELCOMED_KEY, true);
-
-/**
- * The landing page greets a first visit to the home address. Anyone who has
- * gone past it, or who already has progress saved, goes straight to the dashboard.
- */
-export function shouldShowLanding(progress) {
-  if (isWelcomed()) return false;
-  const answered = progress?.stats?.questionsAnswered || 0;
-  const xp = progress?.xp?.total || 0;
-  const levels = Object.keys(progress?.levels || {}).length;
-  return answered === 0 && xp === 0 && levels === 0;
-}

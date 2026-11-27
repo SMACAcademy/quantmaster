@@ -155,7 +155,7 @@ export function createSession({
   source = {},
   formulaCards = [],
   timerSecondsPerQuestion = null,
-  returnTo = '/'
+  returnTo = '/dashboard'
 }) {
   const modeConfig = PRACTICE_MODES[mode] || PRACTICE_MODES.practice;
   sessionCounter += 1;

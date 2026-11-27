@@ -72,9 +72,9 @@ export function AboutView() {
       ])
     ]),
     el('div.row.row--wrap', { style: { gap: '8px', marginBottom: '24px' } }, [
-      linkButton('Start practising', '/', { variant: 'primary', iconAfter: 'play' }),
+      linkButton('Start practising', '/dashboard', { variant: 'primary', iconAfter: 'play' }),
       linkButton('Play with a simulation', '/explore', { variant: 'soft', iconName: 'compass' }),
-      linkButton('Take the 3D tour', '/welcome', { variant: 'ghost', iconName: 'sparkles' })
+      linkButton('Take the 3D tour', '/', { variant: 'ghost', iconName: 'sparkles' })
     ]),
 
     el('ul.about-stats', {}, [

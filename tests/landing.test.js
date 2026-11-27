@@ -1,10 +1,9 @@
 /** The landing page's journey (landing/journey.js): stations, scroll maths, first-visit rule. */
 
-import { beforeEach, describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
-import { STATIONS, WELCOMED_KEY, ease, focusOf, isWelcomed, markWelcomed, progressFromScroll, shouldShowLanding } from '../src/landing/journey.js';
+import { STATIONS, ease, focusOf, progressFromScroll } from '../src/landing/journey.js';
 import { SIMULATION_META } from '../src/simulations/meta.js';
-import { writeJSON } from '../src/utils/storage.js';
 import topicsFile from '../src/data/topics.json';
 
 const topicIds = new Set((topicsFile.topics || topicsFile).map((t) => t.id));
@@ -77,25 +76,5 @@ describe('easing and focus', () => {
     expect(focusOf(3.5, 3)).toBe(0.5);
     expect(focusOf(4, 3)).toBe(0);
     expect(focusOf(1, 3)).toBe(0);
-  });
-});
-
-describe('who sees the landing page', () => {
-  beforeEach(() => writeJSON(WELCOMED_KEY, false));
-
-  it('greets a brand-new visitor', () => {
-    expect(shouldShowLanding({ stats: { questionsAnswered: 0 }, xp: { total: 0 } })).toBe(true);
-    expect(shouldShowLanding(null)).toBe(true);
-  });
-  it('skips it for anyone with progress', () => {
-    expect(shouldShowLanding({ stats: { questionsAnswered: 3 }, xp: { total: 0 } })).toBe(false);
-    expect(shouldShowLanding({ stats: { questionsAnswered: 0 }, xp: { total: 5 } })).toBe(false);
-    expect(shouldShowLanding({ levels: { 'trains-level-0': { status: 'completed' } } })).toBe(false);
-  });
-  it('skips it once the visitor has gone past it', () => {
-    expect(isWelcomed()).toBe(false);
-    markWelcomed();
-    expect(isWelcomed()).toBe(true);
-    expect(shouldShowLanding({ stats: { questionsAnswered: 0 }, xp: { total: 0 } })).toBe(false);
   });
 });

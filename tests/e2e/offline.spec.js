@@ -1,12 +1,11 @@
 /** Installable-app behaviour: after one visit, everything works with no network. */
 
-import { expect, skipLanding, test } from './helpers.js';
+import { expect, test } from './helpers.js';
 
 test.use({ serviceWorkers: 'allow' });
 
 test('after one visit the app, a lesson and practice all work offline', async ({ page, context }) => {
-  await skipLanding(context);
-  await page.goto('/');
+  await page.goto('/#/dashboard');
   await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
 
   // Wait for the service worker to take control and finish precaching every file.

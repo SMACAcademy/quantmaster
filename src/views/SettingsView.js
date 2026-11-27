@@ -348,7 +348,7 @@ function doImport() {
         body: `This device now has ${progressSummary(merged)}.`,
         variant: 'success'
       });
-      navigate('/');
+      navigate('/dashboard');
     };
 
     const exported = payload.exportedAt ? new Date(payload.exportedAt).toLocaleDateString() : 'an unknown date';
@@ -413,7 +413,7 @@ function doReset() {
           if (typed.trim().toUpperCase() !== 'RESET') return false;
           resetProgress();
           emit(EVENTS.toast, { title: 'Progress reset', variant: 'warning' });
-          navigate('/');
+          navigate('/dashboard');
           return true;
         }
       }
