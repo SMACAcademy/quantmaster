@@ -56,7 +56,7 @@ npm run check:full     # validation, unit tests, build and browser tests
   hold the learning logic (no DOM, no storage), repositories are the only code
   that touches storage.
 - Keep the app server-free: no accounts, no tracking, no calls to outside services.
-- Plain JavaScript and no runtime dependencies, so anyone can read it.
+- Plain JavaScript, so anyone can read it. The app itself has no runtime dependencies; the one exception is three.js, which only the 3D landing tour loads.
 - Add or update tests with the change. Pure logic is unit-tested
   (`tests/*.test.js`); flows through real screens are browser-tested
   (`tests/e2e/`).

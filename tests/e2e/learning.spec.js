@@ -1,12 +1,14 @@
 /** The core learning loop, with no account: browse, learn a lesson, practise a level. */
 
-import { answerCorrectly, completeSession, completedLevels, expect, seedProgress, test, watchForErrors } from './helpers.js';
+import { answerCorrectly, completeSession, completedLevels, expect, seedProgress, skipLanding, test, watchForErrors } from './helpers.js';
 
 const savedProgress = (page) => page.evaluate(() => JSON.parse(window.localStorage.getItem('quantmaster:v1:progress')));
 
 test('a new learner gets the welcome screen and every topic', async ({ page }) => {
   const errors = watchForErrors(page);
+  // A first visit lands on the tour; starting from it opens the dashboard.
   await page.goto('/');
+  await page.getByRole('button', { name: 'Start practising' }).first().click();
   await expect(page.getByRole('heading', { name: 'Welcome to QuantMaster' })).toBeVisible();
 
   await page.goto('/#/topics');
@@ -130,7 +132,8 @@ test('revision can be limited to shortcuts, and opens the matching sheet', async
   expect(errors).toEqual([]);
 });
 
-test('the bottom bar moves between screens on a phone @phone', async ({ page }) => {
+test('the bottom bar moves between screens on a phone @phone', async ({ page, context }) => {
+  await skipLanding(context);
   await page.goto('/');
   const bar = page.getByRole('navigation', { name: 'Main' }).last();
   await bar.getByRole('link', { name: 'Topics' }).click();

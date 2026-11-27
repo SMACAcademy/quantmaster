@@ -99,6 +99,8 @@ function siteFooter() {
     dot(),
     el('a', { href: REPO_URL, ...external, text: 'Star on GitHub' }),
     dot(),
+    el('a', { href: '#/welcome', text: '3D tour' }),
+    dot(),
     el('a', { href: '#/about', text: 'About' })
   ]);
 }

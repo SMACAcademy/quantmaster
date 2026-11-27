@@ -1,6 +1,6 @@
 /** The About page, the site footer and the puzzle of the week. */
 
-import { answerCorrectly, completedLevels, completeSession, expect, seedProgress, test, watchForErrors } from './helpers.js';
+import { answerCorrectly, completedLevels, completeSession, expect, seedProgress, skipLanding, test, watchForErrors } from './helpers.js';
 
 test('About introduces the app and its maker, with ways to join in', async ({ page }) => {
   const errors = watchForErrors(page);
@@ -30,7 +30,8 @@ test('About introduces the app and its maker, with ways to join in', async ({ pa
   expect(errors).toEqual([]);
 });
 
-test('the puzzle of the week checks an answer, gives a hint, and shows the method once solved', async ({ page }) => {
+test('the puzzle of the week checks an answer, gives a hint, and shows the method once solved', async ({ page, context }) => {
+  await skipLanding(context);
   // The first puzzle is the leaky tank: 4 hours.
   await page.clock.setFixedTime(new Date('2026-11-30T10:00:00Z'));
   const errors = watchForErrors(page);
