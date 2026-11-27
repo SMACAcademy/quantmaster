@@ -100,7 +100,7 @@ export function AboutView() {
           el('p.text-sm.text-muted', {
             text: 'QuantMaster is a static site. There is no sign-up and no database: your progress stays in your own browser, and the app keeps working offline once loaded.'
           }),
-          el('a.text-sm', { href: '#/privacy', text: 'Read the privacy page' })
+          el('p.text-sm', {}, [el('a', { href: '#/privacy', text: 'Read the privacy page' }), ' · ', el('a', { href: '#/disclaimer', text: 'Disclaimer' })])
         ])
       ])
     ]),
@@ -143,7 +143,8 @@ export function AboutView() {
 
     el('p.text-sm.text-muted.about-source', {}, [
       el('a', { href: REPO_URL, ...external, text: 'Source code on GitHub' }),
-      ' · MIT licence for the code, CC BY-SA 4.0 for the questions and lessons · Plain JavaScript, SVG and no framework'
+      ' · MIT licence for the code, CC BY-SA 4.0 for the questions and lessons · Plain JavaScript, SVG and no framework · Provided as is: see the ',
+      el('a', { href: '#/disclaimer', text: 'disclaimer' })
     ])
   ]);
 

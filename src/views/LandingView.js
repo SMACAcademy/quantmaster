@@ -200,6 +200,8 @@ function finalCall() {
       el('span', { 'aria-hidden': 'true', text: '·' }),
       el('a', { href: '#/privacy', text: 'Privacy' }),
       el('span', { 'aria-hidden': 'true', text: '·' }),
+      el('a', { href: '#/disclaimer', text: 'Disclaimer' }),
+      el('span', { 'aria-hidden': 'true', text: '·' }),
       el('a', { href: '#/about', text: 'About' })
     ])
   ]);

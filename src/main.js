@@ -39,6 +39,7 @@ import { ProgressView } from './views/ProgressView.js';
 import { SettingsView } from './views/SettingsView.js';
 import { PrivacyView } from './views/PrivacyView.js';
 import { AboutView } from './views/AboutView.js';
+import { DisclaimerView } from './views/DisclaimerView.js';
 import { LandingView } from './views/LandingView.js';
 
 async function boot() {
@@ -119,6 +120,7 @@ function registerRoutes() {
   route('/settings', SettingsView);
   route('/privacy', PrivacyView);
   route('/about', AboutView);
+  route('/disclaimer', DisclaimerView);
 
   setNotFound(() => ({
     title: 'Not found',

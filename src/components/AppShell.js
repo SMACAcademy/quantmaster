@@ -101,7 +101,9 @@ function siteFooter() {
     dot(),
     el('a', { href: '#/', text: '3D tour' }),
     dot(),
-    el('a', { href: '#/about', text: 'About' })
+    el('a', { href: '#/about', text: 'About' }),
+    dot(),
+    el('a', { href: '#/disclaimer', text: 'Disclaimer' })
   ]);
 }
 
